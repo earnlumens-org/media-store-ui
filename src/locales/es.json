@@ -1,0 +1,124 @@
+{
+    "Common": {
+        "videoId": "nG2I-MCfEms",
+        "wallet": "Billetera",
+        "signup": "Registrarse",
+        "login": "Iniciar sesión",
+        "loginErrorTitle": "Error al iniciar sesión",
+        "loginErrorDescription": "Hubo un problema al intentar iniciar sesión. Por favor, inténtelo de nuevo.",
+        "language": "Idioma",
+        "close": "Cerrar",
+        "pleaseWait": "Por favor espere",
+        "operationFailedPleaseTryAgain": "Operación fallida. Por favor, inténtelo de nuevo.",
+        "save": "Guardar",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "search": "Buscar",
+        "emailAddress": "Dirección de correo electrónico",
+        "enterYourPassword": "Ingrese su contraseña",
+        "signupNow": "Regístrate ahora",
+        "invalidLogin": "Nombre de usuario o contraseña no válidos",
+        "logout": "Cerrar sesión",
+        "welcome": "Bienvenido a",
+        "shortAbout": "Una plataforma educativa financiera colaborativa en la red Stellar",
+        "blockquote": "EARNLUMENS es una plataforma colaborativa donde la educación financiera se conecta con el uso en el mundo real. Aprendé a navegar la red Stellar, ampliá tu potencial financiero y compartí tu conocimiento para ayudar a otros a progresar.",
+        "messageToUsers": "EARNLUMENS está en Desarrollo! Sigue nuestra evolución y sé parte de los primeros en probar la plataforma uniéndote a nuestra waitlist. Como usuario fundador, tendrás la oportunidad única de probar tu billetera en el sitio adquiriendo un checkmark exclusivo. Mantente informado y recibe acceso anticipado siguiéndonos en redes sociales. ¡Tu viaje hacia el empoderamiento financiero comienza aquí! ",
+        "accept": "Aceptar",
+        "nonAccount": "Este cuenta no existe.",
+        "nonAccountTry": "Intenta buscar otro.",
+        "upload": "Subir",
+        "viewMore": "Ver más"
+    },
+    "CxDeposit": {
+        "snackbarSuccess": "Dirección copiada al portapapeles",
+        "snackbarError": "Error al copiar la dirección al portapapeles. Inténtelo de nuevo o copie manualmente.",
+        "snackbarErrorDetails": "Error al copiar la dirección al portapapeles. Detalles en la consola del navegador. Inténtelo de nuevo o copie manualmente.",
+        "snackbarNotSupported": "La copia al portapapeles no es compatible con este navegador. Copie la dirección manualmente.",
+        "memo": "No se requiere memo para recibir fondos",
+        "tap": "Toque para copiar",
+        "demo": "Esta es una wallet de demostración. Esta funcionando sobre la testnet. Deposite unos lumens para probar la responsividad."
+    },
+    "CxVideo": {
+        "bloqued": "Bloqueado"
+    },
+    "Wallet": {
+        "deposit": "Depositar",
+        "withdraw": "Retirar",
+        "history": "Historial"
+    },
+    "CxWithdraw": {
+        "send": "Enviar",
+        "amount": "Cantidad",
+        "memo": "Memo es opcional",
+        "address": "Dirección de destino",
+        "addressRequired": "Se requiere dirección",
+        "addressInvalid": "La dirección no es válida",
+        "maximum": "Máx.",
+        "amountRequired": "El monto es requerido",
+        "amountInvalid": "Debe introducir un número válido para el monto",
+        "amountResolution": "El monto no puede tener más de 7 decimales",
+        "amountInsufficient": "Fondos insuficientes",
+        "memoMaxSize": "La longitud del memo no puede superar los 28 bytes"
+    },
+    "AppBar": {
+        "home": "Inicio",
+        "wallet": "Billetera",
+        "firststeps": "Primeros pasos",
+        "purchased": "Comprados",
+        "favorites": "Favoritos",
+        "account": "Cuenta",
+        "ecosystem": "Ecosistema",
+        "community": "Comunidad",
+        "explore": "Explorar",
+        "featured": "Destacados"
+    },
+    "Language": {
+        "spanish": "Español",
+        "english": "Inglés",
+        "arabic": "Árabe",
+        "german": "Alemán",
+        "hindi": "Hindi",
+        "japanese": "Japonés",
+        "malay": "Malayo",
+        "russian": "Ruso",
+        "traditionalChinese": "Chino tradicional",
+        "simplifiedChinese": "Chino simplificado",
+        "portuguese": "Portugués",
+        "ukrainian": "Ucraniano",
+        "french": "Francés",
+        "korean": "Coreano",
+        "italian": "Italiano",
+        "vietnamese": "Vietnamita",
+        "turkish": "Turco"
+    },
+    "CxLoginDialog": {
+        "forgotPassword": "¿Olvidó su contraseña?",
+        "emailMostBeValid": "El correo electrónico debe ser válido",
+        "emailRequired": "El correo electrónico es requerido",
+        "passwordRequired": "La contraseña es requerida",
+        "passwordMinLength": "La contraseña debe tener al menos 8 caracteres"
+    },
+    "CxRegisterDialog": {
+        "createAnAccount": "Crear una cuenta",
+        "confirmPassword": "Confirmar contraseña",
+        "createAccount": "Crear cuenta",
+        "byCreatingAccount": "Al crear una cuenta, acepto los Términos de servicio y la Política de privacidad.",
+        "termsAndPrivacyPolicy": "Términos de servicio y Política de privacidad",
+        "errorPassword": "La contraseña debe tener al menos 8 caracteres, 1 letra mayúscula y 1 número.",
+        "errorConfirm": "Las contraseñas no coinciden"
+    },
+    "Home": {
+        "aboutXLM": "Acerca de XLM",
+        "community": "Comunidad",
+        "joinWaitlist": "Join Waitlist"
+    },
+    "WaitList": {
+        "joinOurWaitingList": "Únete a nuestra lista de espera",
+        "feedbackOptional": "Feedback (Opcional)",
+        "join": "Unirse",
+        "registeredEmailWeWillKeepYouInformed": "Correo electrónico registrado. Te mantendremos informado.",
+        "subscribedUsersLast15Days": "Usuarios suscritos en los últimos 15 días",
+        "totalUsersOnWaitlist": "Usuarios totales en la lista de espera",
+        "userAccumulation": "Acumulación de usuarios"
+    }
+}

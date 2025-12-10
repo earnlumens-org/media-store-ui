@@ -1,0 +1,125 @@
+{
+    "Common": {
+        "videoId": "ahTMb_44cTc",
+        "wallet": "Wallet",
+        "signup": "Sign Up",
+        "login": "Sign In",
+        "loginErrorTitle": "Error signing in",
+        "loginErrorDescription": "There was a problem trying to sign in. Please try again.",
+        "language": "Language",
+        "close": "Close",
+        "pleaseWait": "Please wait",
+        "operationFailedPleaseTryAgain": "Operation failed. Please try again",
+        "save": "Save",
+        "email": "Email",
+        "password": "Password",
+        "search": "Search",
+        "emailAddress": "Email Address",
+        "enterYourPassword": "Enter your password",
+        "signupNow": "Sign up now",
+        "invalidLogin": "Invalid username or password",
+        "logout": "Logout",
+        "welcome": "Welcome to",
+        "shortAbout": "A collaborative financial education platform on the Stellar network",
+        "blockquote": "EARNLUMENS is a collaborative platform where financial education meets real-world use. Learn to navigate the Stellar network, expand your financial potential, and share your knowledge to uplift others.",
+        "messageToUsers": "EARNLUMENS is under development. Follow our progress and be among the first to test the platform by joining our waitlist. As a founding user, you will have the unique chance to test your wallet on the site by acquiring an exclusive founder's checkmark. Stay informed and get early access by following us on social media. Your journey towards financial empowerment starts here.",
+        "accept": "Accept",
+        "nonAccount": "This account doesn't exist.",
+        "addWallet": "Add Wallet",
+        "nonAccountTry": "Try searching for another.",
+        "upload": "Upload",
+        "viewMore": "View More"
+    },
+    "CxDeposit": {
+        "snackbarSuccess": "Address copied to clipboard",
+        "snackbarError": "Error copying address to clipboard. Try again or copy manually.",
+        "snackbarErrorDetails": "Error copying address to clipboard. Details in browser console. Try again or copy manually.",
+        "snackbarNotSupported": "Copying to clipboard is not supported in this browser. Please copy the address manually.",
+        "memo": "No memo required to receive funds",
+        "tap": "Tap to copy",
+        "demo": "This is a demo wallet. It is running on the testnet. Deposit some lumens to test responsiveness."
+    },
+    "CxVideo": {
+        "bloqued": "Blocked"
+    },
+    "Wallet": {
+        "deposit": "Deposit",
+        "withdraw": "Withdraw",
+        "history": "History"
+    },
+    "CxWithdraw": {
+        "send": "Send",
+        "amount": "Amount",
+        "memo": "Memo is optional",
+        "address": "Destination Address",
+        "addressRequired": "Address is required",
+        "addressInvalid": "Address is invalid",
+        "maximum": "Max.",
+        "amountRequired": "Amount is required",
+        "amountInvalid": "You must enter a valid number for the amount",
+        "amountResolution": "The amount cannot have more than 7 decimal places",
+        "amountInsufficient": "Insufficient funds",
+        "memoMaxSize": "The length of the memo cannot exceed 28 bytes"
+    },
+    "AppBar": {
+        "home": "Home",
+        "wallet": "Wallet",
+        "firststeps": "First Steps",
+        "purchased": "Purchased",
+        "favorites": "Favorites",
+        "account": "Account",
+        "ecosystem": "Ecosystem",
+        "community": "Community",
+        "featured": "Featured",
+        "explore": "Explore"
+    },
+    "Language": {
+        "spanish": "Spanish",
+        "english": "English",
+        "arabic": "Arabic",
+        "german": "German",
+        "hindi": "Hindi",
+        "japanese": "Japanese",
+        "malay": "Malay",
+        "russian": "Russian",
+        "traditionalChinese": "Traditional Chinese",
+        "simplifiedChinese": "Simplified Chinese",
+        "portuguese": "Portuguese",
+        "ukrainian": "Ukrainian",
+        "french": "French",
+        "korean": "Korean",
+        "italian": "Italian",
+        "vietnamese": "Vietnamese",
+        "turkish": "Turkish"
+    },
+    "CxLoginDialog": {
+        "forgotPassword": "Forgot Password?",
+        "emailMostBeValid": "Email must be valid",
+        "emailRequired": "Email is required",
+        "passwordRequired": "Password is required",
+        "passwordMinLength": "Password must be at least 8 characters long"
+    },
+    "CxRegisterDialog": {
+        "createAnAccount": "Create an account",
+        "confirmPassword": "Confirm Password",
+        "createAccount": "Create Account",
+        "byCreatingAccount": "By creating an account, I agree to Terms of Service and Privacy Policy",
+        "termsAndPrivacyPolicy": "Terms of Service and Privacy Policy",
+        "errorPassword": "Password must be at least 8 characters with 1 upper case letter and 1 number.",
+        "errorConfirm": "Passwords do not match."
+    },
+    "Home": {
+        "aboutXLM": "About XLM",
+        "community": "Community",
+        "joinWaitlist": "Join Waitlist"
+    },
+    "WaitList": {
+        "joinOurWaitingList": "Join our waiting list",
+        "feedbackOptional": "Feedback (Optional)",
+        "join": "Join",
+        "registeredEmailWeWillKeepYouInformed": "Registered email. We will keep you informed.",
+        "subscribedUsersLast15Days": "Subscribed users in the last 15 days",
+        "totalUsersOnWaitlist": "Total users on waitlist",
+        "userAccumulation": "User Accumulation"
+    }
+}
