@@ -33,7 +33,7 @@
         </v-btn>
       </v-toolbar>
 
-      <v-list lines="two" bg-color="black">
+      <v-list lines="two">
         <!-- Aquí irían los resultados de búsqueda -->
       </v-list>
     </v-card>
