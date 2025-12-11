@@ -17,6 +17,9 @@
   <!-- Botón de login con X -->
   <CxXLoginButton class="mt-4" />
 
+  <!-- Diálogo de login -->
+  <CxLoginDialog />
+
   <!-- Menu de perfil -->
   <CxPopoverMenu />
 </template>
@@ -31,6 +34,7 @@ import CxDarkLightMode from '@/components/CxDarkLightMode.vue'
 import CxXLoginButton from '@/components/login/CxXButton.vue'
 import CxSearchDialog from '@/components/CxSearchDialog.vue'
 import CxPopoverMenu from '@/components/CxPopoverMenu.vue'
+import CxLoginDialog from '@/components/CxLoginDialog.vue'
 
 const appStore = useAppStore()
 const { windowWidth } = storeToRefs(appStore)
