@@ -59,5 +59,10 @@ To create a production-ready build:
 npm run build
 ```
 
+## Security Architecture
+See full frontend security specification here:
+[docs/frontend-security.md](./docs/frontend-security.md)
+[docs/security-architecture.md](./docs/security-architecture.md)
+
 ## 🔐 License
 MIT – use it freely and responsibly.
