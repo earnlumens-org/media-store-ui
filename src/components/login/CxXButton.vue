@@ -22,6 +22,7 @@
   import xBlackIcon from '@/assets/twitterx-black.svg'
 
   import xIcon from '@/assets/twitterx.svg'
+  import { apiUrl } from '@/config/env'
   import { useAppStore } from '@/stores/app'
 
   // Pinia store
@@ -32,9 +33,7 @@
 
   function redirectToXLogin (): void {
     localStorage.setItem('preLoginUrl', window.location.pathname)
-    const hostname = window.location.hostname
-
-    window.location.href = hostname === 'www.earnlumens.org' || hostname === 'earnlumens.org' ? 'https://api.earnlumens.org/oauth2/authorization/x' : 'http://localhost.dv:852/oauth2/authorization/x'
+    window.location.href = apiUrl('/oauth2/authorization/x')
   }
 </script>
 
