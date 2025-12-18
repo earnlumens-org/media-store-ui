@@ -1,24 +1,23 @@
 <template>
-  <v-dialog v-model="dialog" width="640" scrollable @click:outside="closeDialog">
-    <template v-slot:activator="{ props }">
+  <v-dialog v-model="dialog" scrollable width="640" @click:outside="closeDialog">
+    <template #activator="{ props }">
       <v-btn
         v-if="mobileView"
         v-bind="props"
         class="ma-2"
-        icon="mdi-login"
-        variant="outlined"
         color="primary"
+        icon="mdi-login"
         size="small"
-      >
-      </v-btn>
+        variant="outlined"
+      />
 
       <v-btn
         v-else
         v-bind="props"
         class="ma-2"
+        color="primary"
         prepend-icon="mdi-login"
         variant="outlined"
-        color="primary"
       >
         {{ $t("Common.login") }}
       </v-btn>
@@ -29,10 +28,10 @@
         <v-btn
           icon="mdi-close"
           size="small"
+          style="position: absolute; right: 8px; top: 8px;"
           variant="text"
           @click="closeDialog"
-          style="position: absolute; right: 8px; top: 8px;"
-        ></v-btn>
+        />
 
         <v-card-title class="text-h6 text-md-h5 text-lg-h4">
           {{ $t("Common.login") }}
@@ -43,7 +42,7 @@
         <v-card-text class="text-center">
           <p class="text-disabled text-caption">
             This site is under development. To be notified when it's ready, join the
-            <span class="text-primary text-decoration-none cursor-pointer" @click="goToWaitlist" style="cursor: pointer;">
+            <span class="text-primary text-decoration-none cursor-pointer" style="cursor: pointer;" @click="goToWaitlist">
               waitlist
             </span>
           </p>
@@ -54,32 +53,32 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { storeToRefs } from 'pinia'
-import { useAppStore } from '@/stores/app'
-import CxXButton from '@/components/login/CxXButton.vue'
+  import { storeToRefs } from 'pinia'
+  import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
+  import CxXButton from '@/components/login/CxXButton.vue'
+  import { useAppStore } from '@/stores/app'
 
-const router = useRouter()
-const appStore = useAppStore()
-const { mobileView } = storeToRefs(appStore)
+  const router = useRouter()
+  const appStore = useAppStore()
+  const { mobileView } = storeToRefs(appStore)
 
-const dialog = ref(false)
+  const dialog = ref(false)
 
-function closeDialog() {
-  dialog.value = false
-}
+  function closeDialog () {
+    dialog.value = false
+  }
 
-function goToWaitlist() {
-  dialog.value = false
-  router.push('/waitlist')
-}
+  function goToWaitlist () {
+    dialog.value = false
+    router.push('/waitlist')
+  }
 
-function showDialog() {
-  dialog.value = true
-}
+  function showDialog () {
+    dialog.value = true
+  }
 
-defineExpose({
-  showDialog
-})
+  defineExpose({
+    showDialog,
+  })
 </script>

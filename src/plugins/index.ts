@@ -4,15 +4,15 @@
  * Automatically included in `./src/main.ts`
  */
 
-// Plugins
-import vuetify from './vuetify'
-import pinia from '../stores'
-import router from '../router'
-
 // Types
 import type { App } from 'vue'
+import router from '../router'
+import pinia from '../stores'
 
-export function registerPlugins(app: App) {
+// Plugins
+import vuetify from './vuetify'
+
+export function registerPlugins (app: App) {
   app
     .use(vuetify)
     .use(pinia)

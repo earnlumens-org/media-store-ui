@@ -9,9 +9,9 @@
       <v-btn
         v-bind="props"
         class="my-1"
+        color="grey"
         icon="mdi-magnify"
         type="submit"
-        color="grey"
       />
     </template>
 
@@ -41,8 +41,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+  import { ref } from 'vue'
 
-const dialog = ref(false)
-const search = ref('')
+  const dialog = ref(false)
+  const search = ref('')
 </script>

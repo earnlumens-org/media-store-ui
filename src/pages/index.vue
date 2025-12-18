@@ -25,19 +25,19 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from '@/stores/app'
-import { storeToRefs } from 'pinia'
+  import { storeToRefs } from 'pinia'
+  import CxDarkLightMode from '@/components/CxDarkLightMode.vue'
 
-// COMPONENTES
-import CxLanguageDialog from '@/components/CxLanguageDialog.vue'
-import CxDarkLightMode from '@/components/CxDarkLightMode.vue'
-import CxXLoginButton from '@/components/login/CxXButton.vue'
-import CxSearchDialog from '@/components/CxSearchDialog.vue'
-import CxPopoverMenu from '@/components/CxPopoverMenu.vue'
-import CxLoginDialog from '@/components/CxLoginDialog.vue'
+  // COMPONENTES
+  import CxLanguageDialog from '@/components/CxLanguageDialog.vue'
+  import CxLoginDialog from '@/components/CxLoginDialog.vue'
+  import CxPopoverMenu from '@/components/CxPopoverMenu.vue'
+  import CxSearchDialog from '@/components/CxSearchDialog.vue'
+  import CxXLoginButton from '@/components/login/CxXButton.vue'
+  import { useAppStore } from '@/stores/app'
 
-const appStore = useAppStore()
-const { windowWidth } = storeToRefs(appStore)
+  const appStore = useAppStore()
+  const { windowWidth } = storeToRefs(appStore)
 </script>
 
 <route lang="yaml">
