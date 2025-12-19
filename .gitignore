@@ -5,6 +5,9 @@ node_modules
 /dist
 /dist-ssr
 
+# Local smoke/adhoc scripts (not committed)
+/scripts
+
 # local env files
 .env
 .env.*
