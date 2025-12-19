@@ -13,6 +13,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     CxDarkLightMode: typeof import('./components/CxDarkLightMode.vue')['default']
     CxLanguageDialog: typeof import('./components/CxLanguageDialog.vue')['default']
+    CxLineChartCard: typeof import('./components/CxLineChartCard.vue')['default']
     CxLoginDialog: typeof import('./components/CxLoginDialog.vue')['default']
     CxPopoverMenu: typeof import('./components/CxPopoverMenu.vue')['default']
     CxSearchDialog: typeof import('./components/CxSearchDialog.vue')['default']
