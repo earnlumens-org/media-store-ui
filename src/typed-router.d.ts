@@ -30,6 +30,7 @@ declare module 'vue-router/auto-routes' {
     '/Featured': RouteRecordInfo<'/Featured', '/featured', Record<never, never>, Record<never, never>>,
     '/feed/[...path]': RouteRecordInfo<'/feed/[...path]', '/feed/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
     '/FirstSteps': RouteRecordInfo<'/FirstSteps', '/firststeps', Record<never, never>, Record<never, never>>,
+    'AuthXCallback': RouteRecordInfo<'AuthXCallback', '/oauth2/callback', Record<never, never>, Record<never, never>>,
     '/Purchased': RouteRecordInfo<'/Purchased', '/purchased', Record<never, never>, Record<never, never>>,
     '/section/[...path]': RouteRecordInfo<'/section/[...path]', '/section/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
     '/VideoUpload': RouteRecordInfo<'/VideoUpload', '/upload', Record<never, never>, Record<never, never>>,
@@ -95,6 +96,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/FirstSteps.vue': {
       routes: '/FirstSteps'
+      views: never
+    }
+    'src/pages/oauth2/callback.vue': {
+      routes: 'AuthXCallback'
       views: never
     }
     'src/pages/Purchased.vue': {
