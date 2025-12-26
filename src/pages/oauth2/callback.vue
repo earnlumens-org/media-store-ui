@@ -11,28 +11,75 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, watch } from 'vue'
-  import { useRoute, useRouter } from 'vue-router'
+  import { useRouter } from 'vue-router'
 
-  const loading = ref(true)
+  import { useAppStore } from '@/stores/app'
 
-  const route = useRoute()
+  const loading = true
+
   const router = useRouter()
+
+  const appStore = useAppStore()
 
   const UUID_REGEX
     = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
 
-  watch(
-    () => route.query.UUID,
-    uuid => {
-      const uuidValue = typeof uuid === 'string' ? uuid : null
+  const queryParams = new URLSearchParams(window.location.search)
 
-      if (!uuidValue || !UUID_REGEX.test(uuidValue)) {
-        router.replace('/')
+  function getQueryParamFromSearch (name: string): string | null {
+    const value = queryParams.get(name)
+    return value && value.trim().length > 0 ? value : null
+  }
+
+  function getAndClearPreLoginUrl (): string | null {
+    const preLoginUrl = localStorage.getItem('preLoginUrl')
+    localStorage.removeItem('preLoginUrl')
+    if (!preLoginUrl) return null
+    return preLoginUrl.startsWith('/') ? preLoginUrl : null
+  }
+
+  function redirectToPreLoginUrl (): void {
+    const preLoginUrl = getAndClearPreLoginUrl()
+    router.replace(preLoginUrl ?? '/')
+  }
+
+  function isValidUuid (value: string): boolean {
+    return UUID_REGEX.test(value)
+  }
+
+  async function handleUuidCallback (_uuid: string): Promise<void> {
+    // agregar temporizador de 5 segundos para simular carga
+    await new Promise(resolve => setTimeout(resolve, 5000))
+    redirectToPreLoginUrl()
+  }
+
+  async function handleCallbackOnce (): Promise<void> {
+    const error = getQueryParamFromSearch('error')
+    if (error) {
+      console.log('Login fallido:', error)
+      appStore.setLoginError(error)
+      redirectToPreLoginUrl()
+      return
+    }
+
+    const uuid = getQueryParamFromSearch('UUID')
+    if (uuid) {
+      if (!isValidUuid(uuid)) {
+        console.log('UUID inválido recibido en el callback:', uuid)
+        redirectToPreLoginUrl()
+        return
       }
-    },
-    { immediate: true },
-  )
+
+      console.log('UUID recibido:', uuid)
+      await handleUuidCallback(uuid)
+      return
+    }
+
+    console.log('Callback recibido sin UUID ni error.')
+    redirectToPreLoginUrl()
+  }
+
+  void handleCallbackOnce()
 </script>
 
 <route lang="yaml">
