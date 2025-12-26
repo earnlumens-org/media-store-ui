@@ -38,9 +38,9 @@
     return preLoginUrl.startsWith('/') ? preLoginUrl : null
   }
 
-  function redirectToPreLoginUrl (): void {
+  async function redirectToPreLoginUrl (): Promise<void> {
     const preLoginUrl = getAndClearPreLoginUrl()
-    router.replace(preLoginUrl ?? '/')
+    await router.replace(preLoginUrl ?? '/')
   }
 
   function isValidUuid (value: string): boolean {
@@ -50,33 +50,44 @@
   async function handleUuidCallback (_uuid: string): Promise<void> {
     // agregar temporizador de 5 segundos para simular carga
     await new Promise(resolve => setTimeout(resolve, 5000))
-    redirectToPreLoginUrl()
+    await redirectToPreLoginUrl()
   }
 
   async function handleCallbackOnce (): Promise<void> {
-    const error = getQueryParamFromSearch('error')
-    if (error) {
-      console.log('Login fallido:', error)
-      appStore.setLoginError(error)
-      redirectToPreLoginUrl()
-      return
-    }
+    appStore.setIsAppLocked(true)
 
-    const uuid = getQueryParamFromSearch('UUID')
-    if (uuid) {
-      if (!isValidUuid(uuid)) {
-        console.log('UUID inválido recibido en el callback:', uuid)
-        redirectToPreLoginUrl()
+    const watchdog = window.setTimeout(() => {
+      appStore.setLoginError('timeout')
+      appStore.setIsAppLocked(false)
+
+      const preLoginUrl = getAndClearPreLoginUrl()
+      window.location.assign(preLoginUrl ?? '/')
+    }, 20_000)
+
+    try {
+      const error = getQueryParamFromSearch('error')
+      if (error) {
+        appStore.setLoginError(error)
+        await redirectToPreLoginUrl()
         return
       }
 
-      console.log('UUID recibido:', uuid)
-      await handleUuidCallback(uuid)
-      return
-    }
+      const uuid = getQueryParamFromSearch('UUID')
+      if (uuid) {
+        if (!isValidUuid(uuid)) {
+          await redirectToPreLoginUrl()
+          return
+        }
 
-    console.log('Callback recibido sin UUID ni error.')
-    redirectToPreLoginUrl()
+        await handleUuidCallback(uuid)
+        return
+      }
+
+      await redirectToPreLoginUrl()
+    } finally {
+      window.clearTimeout(watchdog)
+      appStore.setIsAppLocked(false)
+    }
   }
 
   void handleCallbackOnce()
