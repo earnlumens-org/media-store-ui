@@ -12,13 +12,23 @@
   const app = useAppStore()
   const theme = useTheme()
 
+  function setTheme (name: 'dark' | 'light') {
+    const maybeTheme = theme as unknown as { change?: (name: string) => void }
+    if (typeof maybeTheme.change === 'function') {
+      maybeTheme.change(name)
+      return
+    }
+
+    theme.global.name.value = name
+  }
+
   function updateWindowWidth () {
     app.updateWindowWidth(window.innerWidth)
   }
 
   function applyTheme () {
     const isDark = app.isDarkTheme
-    theme.global.name.value = isDark ? 'dark' : 'light'
+    setTheme(isDark ? 'dark' : 'light')
   }
 
   onMounted(() => {

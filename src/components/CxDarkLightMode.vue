@@ -27,10 +27,20 @@
 
   const { mobileView, isDarkTheme } = storeToRefs(app)
 
+  function setTheme (name: 'dark' | 'light') {
+    const maybeTheme = theme as unknown as { change?: (name: string) => void }
+    if (typeof maybeTheme.change === 'function') {
+      maybeTheme.change(name)
+      return
+    }
+
+    theme.global.name.value = name
+  }
+
   function toggleTheme () {
     const newDarkMode = !isDarkTheme.value
     app.setDarkTheme(newDarkMode)
     localStorage.setItem('isDarkTheme', String(newDarkMode))
-    theme.global.name.value = newDarkMode ? 'dark' : 'light'
+    setTheme(newDarkMode ? 'dark' : 'light')
   }
 </script>
