@@ -13,8 +13,10 @@
 </template>
 
 <script setup lang="ts">
-  import xIconSvg from '@/assets/twitterx.svg?raw'
+  import xIcon from '@/assets/twitterx.svg?raw'
   import { apiUrl } from '@/config/env'
+
+  const xIconSvg = xIcon
 
   function redirectToXLogin (): void {
     localStorage.setItem('preLoginUrl', window.location.pathname)

@@ -201,18 +201,15 @@
 <script setup lang="ts">
   import { storeToRefs } from 'pinia'
   import { onMounted, ref, watch } from 'vue'
-
-  // Assets
-  import logoSvg from '@/assets/logo.svg?raw'
-  // import CxDarkLightMode from "@/components/CxDarkLightMode.vue"; // Previously imported, let's keep it. Note: Check import path in OLD source.
+  import logo from '@/assets/logo.svg?raw'
   import CxDarkLightMode from '@/components/CxDarkLightMode.vue'
-  // Components
   import CxLanguageDialog from '@/components/CxLanguageDialog.vue'
   import CxLoginDialog from '@/components/CxLoginDialog.vue'
   import CxPopoverMenu from '@/components/CxPopoverMenu.vue'
-
   import CxSearchDialog from '@/components/CxSearchDialog.vue'
   import { useAppStore } from '@/stores/app'
+
+  const logoSvg = logo
 
   // Store
   const appStore = useAppStore()
