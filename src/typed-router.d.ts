@@ -33,6 +33,7 @@ declare module 'vue-router/auto-routes' {
     'AuthXCallback': RouteRecordInfo<'AuthXCallback', '/oauth2/callback', Record<never, never>, Record<never, never>>,
     '/Purchased': RouteRecordInfo<'/Purchased', '/purchased', Record<never, never>, Record<never, never>>,
     '/section/[...path]': RouteRecordInfo<'/section/[...path]', '/section/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
+    '/themes': RouteRecordInfo<'/themes', '/themes', Record<never, never>, Record<never, never>>,
     '/VideoUpload': RouteRecordInfo<'/VideoUpload', '/upload', Record<never, never>, Record<never, never>>,
     '/WaitList': RouteRecordInfo<'/WaitList', '/waitlist', Record<never, never>, Record<never, never>>,
     '/WaitListStats': RouteRecordInfo<'/WaitListStats', '/waitlist/stats', Record<never, never>, Record<never, never>>,
@@ -108,6 +109,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/section/[...path].vue': {
       routes: '/section/[...path]'
+      views: never
+    }
+    'src/pages/themes.vue': {
+      routes: '/themes'
       views: never
     }
     'src/pages/VideoUpload.vue': {

@@ -12,7 +12,7 @@
   const app = useAppStore()
   const theme = useTheme()
 
-  function setTheme (name: 'dark' | 'light') {
+  function setTheme (name: string) {
     const maybeTheme = theme as unknown as { change?: (name: string) => void }
     if (typeof maybeTheme.change === 'function') {
       maybeTheme.change(name)
@@ -27,8 +27,7 @@
   }
 
   function applyTheme () {
-    const isDark = app.isDarkTheme
-    setTheme(isDark ? 'dark' : 'light')
+    setTheme(app.themeName)
   }
 
   onMounted(() => {
@@ -37,10 +36,19 @@
     window.addEventListener('resize', updateWindowWidth)
 
     // Theme from localStorage
-    const storedTheme = localStorage.getItem('isDarkTheme')
-    if (storedTheme !== null) {
-      const isDark = storedTheme === 'true'
-      app.setDarkTheme(isDark)
+    const storedThemeName = localStorage.getItem('themeName')
+    if (storedThemeName) {
+      app.setThemeName(storedThemeName)
+    } else {
+      // Migration: legacy boolean key
+      const legacyIsDark = localStorage.getItem('isDarkTheme')
+      if (legacyIsDark !== null) {
+        const isDark = legacyIsDark === 'true'
+        const migratedThemeName = isDark ? 'dark' : 'light'
+        app.setThemeName(migratedThemeName)
+        localStorage.setItem('themeName', migratedThemeName)
+        localStorage.removeItem('isDarkTheme')
+      }
     }
 
     // Apply theme

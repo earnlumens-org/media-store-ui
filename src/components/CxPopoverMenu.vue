@@ -41,6 +41,16 @@
             />
           </v-list-item>
 
+          <v-list-item>
+            <v-btn
+              color="primary"
+              variant="text"
+              @click="goToThemes"
+            >
+              + Themes
+            </v-btn>
+          </v-list-item>
+
           <!-- Botón subir video (mock) -->
           <v-list-item>
             <v-btn
@@ -73,10 +83,18 @@
 
 <script setup lang="ts">
   import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
 
   // Mock data (solo visual)
   const menu = ref(false)
   const darkMode = ref(false)
+
+  const router = useRouter()
+
+  function goToThemes () {
+    menu.value = false
+    router.push('/themes')
+  }
 
   const profileImageUrl = 'https://fastly.picsum.photos/id/903/1200/1200.jpg?hmac=8fD_XguoHwGB2RsVu_aX2XwhvCVXRSsvzNAh53Sjobc'
   const username = '@usuario'

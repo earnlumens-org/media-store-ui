@@ -4,7 +4,7 @@ interface AppState {
   windowWidth: number
   mobileView: boolean
   loggedIn: boolean
-  isDarkTheme: boolean
+  themeName: string
   isAppLocked: boolean
   loginError: string | null
 }
@@ -14,7 +14,7 @@ export const useAppStore = defineStore('app', {
     windowWidth: window.innerWidth,
     mobileView: window.innerWidth < 960,
     loggedIn: false,
-    isDarkTheme: true,
+    themeName: 'system',
     isAppLocked: false,
     loginError: null,
   }),
@@ -27,8 +27,8 @@ export const useAppStore = defineStore('app', {
     setLoggedIn (value: boolean) {
       this.loggedIn = value
     },
-    setDarkTheme (value: boolean) {
-      this.isDarkTheme = value
+    setThemeName (value: string) {
+      this.themeName = value
     },
     setIsAppLocked (value: boolean) {
       this.isAppLocked = value

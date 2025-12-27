@@ -2,9 +2,7 @@
   <v-app-bar>
     <v-btn class="hidden-sm-and-down" icon="mdi-menu" @click="rail = !rail" />
     <div style="display: flex; flex: 1; align-items: center;">
-      <v-icon class="ml-3">
-        <img alt="Fire Icon" height="24" :src="iconPath" width="24">
-      </v-icon>
+      <span aria-label="EARNLUMENS" class="ml-3 app-logo" role="img" v-html="logoSvg" />
       <v-toolbar-title><b class="pl-1 font-weight-bold text-button">EARNLUMENS</b></v-toolbar-title>
     </div>
 
@@ -202,11 +200,10 @@
 
 <script setup lang="ts">
   import { storeToRefs } from 'pinia'
-  import { computed, onMounted, ref, watch } from 'vue'
-  import fireIconBlack from '@/assets/logo-dm.svg'
+  import { onMounted, ref, watch } from 'vue'
 
   // Assets
-  import fireIcon from '@/assets/logo.svg'
+  import logoSvg from '@/assets/logo.svg?raw'
   // import CxDarkLightMode from "@/components/CxDarkLightMode.vue"; // Previously imported, let's keep it. Note: Check import path in OLD source.
   import CxDarkLightMode from '@/components/CxDarkLightMode.vue'
   // Components
@@ -219,18 +216,13 @@
 
   // Store
   const appStore = useAppStore()
-  const { mobileView, loggedIn, isDarkTheme, windowWidth } = storeToRefs(appStore)
+  const { mobileView, loggedIn, windowWidth } = storeToRefs(appStore)
 
   // State
   const drawer = ref(false)
   const rail = ref(true)
   const drawerLocation = ref<'left' | 'right' | 'top' | 'bottom'>('right')
   const permanent = ref(false)
-
-  // Computed
-  const iconPath = computed(() => {
-    return isDarkTheme.value ? fireIcon : fireIconBlack
-  })
 
   // Methods
   function handleResize () {
@@ -268,3 +260,17 @@
   })
 
 </script>
+
+<style scoped>
+.app-logo {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+}
+
+.app-logo :deep(svg) {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+</style>

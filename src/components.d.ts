@@ -11,6 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    CategoryList: typeof import('./components/themes/CategoryList.vue')['default']
     CxDarkLightMode: typeof import('./components/CxDarkLightMode.vue')['default']
     CxLanguageDialog: typeof import('./components/CxLanguageDialog.vue')['default']
     CxLineChartCard: typeof import('./components/CxLineChartCard.vue')['default']
@@ -20,5 +21,7 @@ declare module 'vue' {
     CxXButton: typeof import('./components/login/CxXButton.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Theme: typeof import('./components/themes/Theme.vue')['default']
+    ThemeCard: typeof import('./components/themes/ThemeCard.vue')['default']
   }
 }

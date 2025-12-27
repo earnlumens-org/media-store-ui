@@ -7,29 +7,14 @@
     variant="outlined"
     @click="redirectToXLogin"
   >
-    <img
-      alt="Twitter / X"
-      :src="xIconPath"
-      style="height: 24px; width: 24px; margin-right: 8px;"
-    >
+    <span class="x-icon" aria-label="Twitter / X" role="img" v-html="xIconSvg" />
     {{ $t("Common.login") }}
   </v-btn>
 </template>
 
 <script setup lang="ts">
-  import { storeToRefs } from 'pinia'
-  import { computed } from 'vue'
-  import xBlackIcon from '@/assets/twitterx-black.svg'
-
-  import xIcon from '@/assets/twitterx.svg'
+  import xIconSvg from '@/assets/twitterx.svg?raw'
   import { apiUrl } from '@/config/env'
-  import { useAppStore } from '@/stores/app'
-
-  // Pinia store
-  const appStore = useAppStore()
-  const { isDarkTheme } = storeToRefs(appStore)
-
-  const xIconPath = computed(() => (isDarkTheme.value ? xIcon : xBlackIcon))
 
   function redirectToXLogin (): void {
     localStorage.setItem('preLoginUrl', window.location.pathname)
@@ -40,5 +25,19 @@
 <style scoped>
 .btn-shadow {
   box-shadow: 0px 0px 10px 0px #FFFFFF !important;
+}
+
+.x-icon {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  color: rgb(var(--v-theme-on-surface));
+}
+
+.x-icon :deep(svg) {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 </style>

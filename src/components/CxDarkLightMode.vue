@@ -25,9 +25,9 @@
   const app = useAppStore()
   const theme = useTheme()
 
-  const { mobileView, isDarkTheme } = storeToRefs(app)
+  const { mobileView } = storeToRefs(app)
 
-  function setTheme (name: 'dark' | 'light') {
+  function setTheme (name: string) {
     const maybeTheme = theme as unknown as { change?: (name: string) => void }
     if (typeof maybeTheme.change === 'function') {
       maybeTheme.change(name)
@@ -38,9 +38,10 @@
   }
 
   function toggleTheme () {
-    const newDarkMode = !isDarkTheme.value
-    app.setDarkTheme(newDarkMode)
-    localStorage.setItem('isDarkTheme', String(newDarkMode))
-    setTheme(newDarkMode ? 'dark' : 'light')
+    const isCurrentlyDark = theme.global.current.value.dark
+    const nextThemeName = isCurrentlyDark ? 'light' : 'dark'
+    app.setThemeName(nextThemeName)
+    localStorage.setItem('themeName', nextThemeName)
+    setTheme(nextThemeName)
   }
 </script>
