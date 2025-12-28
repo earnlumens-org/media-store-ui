@@ -22,7 +22,7 @@
     :rail="rail"
   >
     <v-list density="compact" nav>
-      <v-tooltip :text="$t('AppBar.home')">
+      <v-tooltip :disabled="mobileView" :text="$t('AppBar.home')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -36,7 +36,7 @@
         </template>
       </v-tooltip>
 
-      <v-tooltip :text="$t('AppBar.firststeps')">
+      <v-tooltip :disabled="mobileView" :text="$t('AppBar.firststeps')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -51,7 +51,7 @@
 
       <v-divider />
 
-      <v-tooltip :text="$t('AppBar.wallet')">
+      <v-tooltip :disabled="mobileView" :text="$t('AppBar.wallet')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -66,7 +66,7 @@
         </template>
       </v-tooltip>
 
-      <v-tooltip :text="$t('AppBar.favorites')">
+      <v-tooltip :disabled="mobileView" :text="$t('AppBar.favorites')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -80,7 +80,7 @@
         </template>
       </v-tooltip>
 
-      <v-tooltip :text="$t('AppBar.purchased')">
+      <v-tooltip :disabled="mobileView" :text="$t('AppBar.purchased')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -96,7 +96,7 @@
 
       <v-divider />
 
-      <v-tooltip :text="$t('AppBar.ecosystem')">
+      <v-tooltip :disabled="mobileView" :text="$t('AppBar.ecosystem')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -109,7 +109,7 @@
         </template>
       </v-tooltip>
 
-      <v-tooltip :text="$t('AppBar.community')">
+      <v-tooltip :disabled="mobileView" :text="$t('AppBar.community')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -122,7 +122,7 @@
         </template>
       </v-tooltip>
 
-      <v-tooltip :text="$t('AppBar.featured')">
+      <v-tooltip :disabled="mobileView" :text="$t('AppBar.featured')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -135,7 +135,7 @@
         </template>
       </v-tooltip>
 
-      <v-tooltip :text="$t('AppBar.explore')">
+      <v-tooltip :disabled="mobileView" :text="$t('AppBar.explore')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -150,7 +150,7 @@
 
       <v-divider />
 
-      <v-tooltip :text="$t('AppBar.account')">
+      <v-tooltip :disabled="mobileView" :text="$t('AppBar.account')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
