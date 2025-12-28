@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <div class="text-subtitle-2 mb-2">Categories</div>
+  <div class="py-3">
+    <div :class="isMobile ? 'text-subtitle-2 mb-2 px-5' : 'text-subtitle-2 mb-2'">Categories</div>
 
     <v-list
       v-if="!isMobile"
-      class="category-list"
       density="comfortable"
       nav
     >
@@ -56,10 +55,3 @@
   const display = useDisplay()
   const isMobile = computed(() => display.smAndDown.value)
 </script>
-
-<style scoped>
-.category-list {
-  position: sticky;
-  top: 12px;
-}
-</style>

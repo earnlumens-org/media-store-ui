@@ -1,61 +1,80 @@
 <template>
-  <v-container class="pa-0 themes-root" fluid>
-    <div class="header px-6 py-6">
-      <div class="d-flex align-center ga-3">
-        <v-icon color="primary">mdi-sparkles</v-icon>
-        <div>
-          <div class="text-h6 font-weight-semibold">EarnLumens Theme Selector</div>
-          <div class="text-body-2 text-medium-emphasis">Choose your visual identity</div>
-        </div>
-      </div>
-    </div>
+  <v-container class="pa-0" fluid>
+    <v-sheet class="px-6 py-6">
+      <v-container>
+        <v-row>
+          <v-col>
+            <v-card flat>
+              <v-card-text class="d-flex align-center ga-3 pa-0">
+                <v-icon color="primary" size="large">mdi-sparkles</v-icon>
+                <div>
+                  <div class="text-h6 font-weight-semibold">EarnLumens Theme Selector</div>
+                  <div class="text-body-2 text-medium-emphasis">Choose your visual identity</div>
+                </div>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-sheet>
 
     <v-divider />
 
-    <div
-      class="content"
-      :class="{ 'mobile-layout': mobileView }"
-    >
-      <div class="left px-4 py-4">
-        <CategoryList
-          v-model="selectedCategoryKey"
-          :categories="categories"
-        />
-      </div>
+    <v-container>
+      <v-row>
+        <v-col
+          cols="12"
+          :md="mobileView ? 12 : 3"
+          :sm="mobileView ? 12 : 3"
+        >
+          <v-sheet :class="mobileView ? 'pa-1' : 'pa-4'">
+            <CategoryList
+              v-model="selectedCategoryKey"
+              :categories="categories"
+            />
+          </v-sheet>
+        </v-col>
 
-      <v-divider
-        v-if="!mobileView"
-        vertical
-      />
+        <v-col
+          cols="12"
+          :md="mobileView ? 12 : 9"
+          :sm="mobileView ? 12 : 9"
+        >
+          <v-sheet class="pa-6">
+            <v-row class="mb-4">
+              <v-col>
+                <div class="text-subtitle-1 font-weight-semibold">
+                  {{ selectedCategoryLabel }} Themes
+                </div>
+                <div class="text-body-2 text-medium-emphasis">
+                  {{ filteredThemes.length }} themes available
+                </div>
+              </v-col>
+            </v-row>
 
-      <div class="right px-6 py-5">
-        <div class="d-flex align-start justify-space-between flex-wrap ga-3 mb-4">
-          <div>
-            <div class="text-subtitle-1 font-weight-semibold">
-              {{ selectedCategoryLabel }} Themes
-            </div>
-            <div class="text-body-2 text-medium-emphasis">
-              {{ filteredThemes.length }} themes available
-            </div>
-          </div>
-        </div>
-
-        <div class="grid">
-          <ThemeCard
-            v-for="t in filteredThemes"
-            :key="t.key"
-            :colors="t.colors"
-            :description="t.description"
-            :name="t.name"
-            :selected="t.key === appStore.themeName"
-            :theme-key="t.key"
-            @apply="applyTheme"
-            @preview="handlePreview"
-            @stop-preview="stopPreview"
-          />
-        </div>
-      </div>
-    </div>
+            <v-row>
+              <v-col
+                v-for="t in filteredThemes"
+                :key="t.key"
+                cols="12"
+                lg="3"
+                md="4"
+                sm="6"
+              >
+                <ThemeCard
+                  :colors="t.colors"
+                  :description="t.description"
+                  :name="t.name"
+                  :selected="t.key === appStore.themeName"
+                  :theme-key="t.key"
+                  @apply="applyTheme"
+                />
+              </v-col>
+            </v-row>
+          </v-sheet>
+        </v-col>
+      </v-row>
+    </v-container>
 
     <v-snackbar
       v-model="snackbar"
@@ -64,15 +83,39 @@
       Theme applied
     </v-snackbar>
 
+    <!-- Desktop: Fixed button -->
     <v-btn
-      v-if="canRevert"
-      class="revert-btn"
+      v-if="canRevert && !mobileView"
+      class="position-fixed"
       color="primary"
+      prepend-icon="mdi-restore"
+      size="large"
+      style="bottom: 24px; right: 24px; z-index: 1000;"
       variant="elevated"
       @click="revertTheme"
     >
       Revert theme
     </v-btn>
+
+    <!-- Mobile: Footer -->
+    <v-footer
+      v-if="canRevert && mobileView"
+      app
+      class="pa-4"
+      color="surface"
+      elevation="8"
+    >
+      <v-btn
+        block
+        color="primary"
+        prepend-icon="mdi-restore"
+        size="large"
+        variant="elevated"
+        @click="revertTheme"
+      >
+        Revert theme
+      </v-btn>
+    </v-footer>
   </v-container>
 </template>
 
@@ -112,10 +155,6 @@
 
   const snackbar = ref(false)
   const lastAppliedTheme = ref<ThemeKey | null>(null)
-
-  const canHoverPreview = typeof window !== 'undefined'
-    && window.matchMedia
-    && window.matchMedia('(hover: hover) and (pointer: fine)').matches
 
   function setTheme (name: string) {
     const maybeTheme = vuetifyTheme as unknown as { change?: (name: string) => void }
@@ -454,17 +493,6 @@
       .filter((v): v is ThemeItem => v !== undefined)
   })
 
-  function handlePreview (themeKey: ThemeKey) {
-    if (!canHoverPreview) return
-    if (themeKey === appStore.themeName) return
-    setTheme(themeKey)
-  }
-
-  function stopPreview () {
-    if (!canHoverPreview) return
-    setTheme(appStore.themeName)
-  }
-
   function applyTheme (themeKey: ThemeKey) {
     if (themeKey === appStore.themeName) return
 
@@ -493,54 +521,3 @@
     snackbar.value = true
   }
 </script>
-
-<style scoped>
-.themes-root {
-  min-height: 100vh;
-}
-
-.header {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.content {
-  display: flex;
-  flex-direction: row;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.content.mobile-layout {
-  flex-direction: column;
-}
-
-.left {
-  flex-shrink: 0;
-  width: 280px;
-  min-height: calc(100vh - 96px);
-}
-
-.content.mobile-layout .left {
-  width: 100%;
-  min-height: auto;
-}
-
-.right {
-  flex: 1;
-  min-height: calc(100vh - 96px);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-}
-
-.revert-btn {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 10;
-}
-</style>

@@ -24,13 +24,13 @@ export default createVuetify({
           'on-background': '#2E3440',
           'on-surface': '#2E3440',
 
-          'primary': '#88C0D0',
+          'primary': '#5E81AC',
           'secondary': '#81A1C1',
           'accent': '#8FBCBB',
 
           'error': '#BF616A',
           'warning': '#EBCB8B',
-          'info': '#5E81AC',
+          'info': '#88C0D0',
           'success': '#A3BE8C',
         },
       },
@@ -469,19 +469,25 @@ export default createVuetify({
       matrix: {
         dark: true,
         colors: {
-          'background': '#000000',
-          'surface': '#0B0F0B',
-          'on-background': '#00FF41',
-          'on-surface': '#00FF41',
+          'background': '#030603',
+          'surface': '#0A120A',
+          'surface-variant': '#0F1B0F',
+
+          'on-background': '#C9FFD8',
+          'on-surface': '#BFFFCF',
 
           'primary': '#00FF41',
           'secondary': '#00C853',
           'accent': '#76FF03',
 
           'error': '#FF1744',
-          'warning': '#FFEA00',
+          'warning': '#FFD600',
           'info': '#00E5FF',
           'success': '#00C853',
+
+          'on-primary': '#001A06',
+          'border': '#143214',
+          'divider': '#0F2A14',
         },
       },
       tokyoNight: {
