@@ -7,7 +7,7 @@
     variant="outlined"
     @click="redirectToXLogin"
   >
-    <span class="x-icon" aria-label="Twitter / X" role="img" v-html="xIconSvg" />
+    <span aria-label="Twitter / X" class="x-icon" role="img" v-html="xIconSvg" />
     {{ $t("Common.login") }}
   </v-btn>
 </template>

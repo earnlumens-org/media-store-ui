@@ -167,15 +167,7 @@
       <!-- Rail item is positioned at the bottom -->
       <v-list-item style="position: fixed; bottom: 0; width: 100%" @click="rail = !rail">
         <template #prepend>
-          <v-icon>{{
-            drawerLocation === "right"
-              ? rail
-                ? "mdi-chevron-left"
-                : "mdi-chevron-right"
-              : rail
-                ? "mdi-chevron-right"
-                : "mdi-chevron-left"
-          }}</v-icon>
+          <v-icon>{{ chevronIcon }}</v-icon>
         </template>
       </v-list-item>
     </v-list>
@@ -200,7 +192,7 @@
 
 <script setup lang="ts">
   import { storeToRefs } from 'pinia'
-  import { onMounted, ref, watch } from 'vue'
+  import { computed, onMounted, ref, watch } from 'vue'
   import logo from '@/assets/logo.svg?raw'
   import CxDarkLightMode from '@/components/CxDarkLightMode.vue'
   import CxLanguageDialog from '@/components/CxLanguageDialog.vue'
@@ -220,6 +212,14 @@
   const rail = ref(true)
   const drawerLocation = ref<'left' | 'right' | 'top' | 'bottom'>('right')
   const permanent = ref(false)
+
+  // Computed
+  const chevronIcon = computed(() => {
+    if (drawerLocation.value === 'right') {
+      return rail.value ? 'mdi-chevron-left' : 'mdi-chevron-right'
+    }
+    return rail.value ? 'mdi-chevron-right' : 'mdi-chevron-left'
+  })
 
   // Methods
   function handleResize () {
