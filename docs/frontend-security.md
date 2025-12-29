@@ -33,7 +33,7 @@ The frontend implements a **strict token isolation policy**.
 ### Refresh Token
 - **Never accessible to the frontend.**
 - Stored exclusively inside a **Secure, HTTP-only, SameSite cookie** created by the backend.
-- Automatically included when calling `/auth/refresh`.
+- Automatically included when calling `/api/auth/refresh`.
 - Cannot be read or modified by scripts.
 
 ---
@@ -66,7 +66,7 @@ The Web Worker acts as a **Token Manager**—isolating private auth logic from t
   - or if within the refresh threshold (e.g., <30 seconds).
 - Perform:
 
-POST /auth/refresh
+POST /api/auth/refresh
 
 using the HTTP-only refresh cookie.
 - Ensure refresh calls are serialized (`isRefreshing` lock).
@@ -81,7 +81,7 @@ using the HTTP-only refresh cookie.
 ### Forbidden (MUST NOT do)
 - Persist tokens in any storage.
 - Access the DOM or `window`.
-- Perform API calls other than `/auth/refresh`.
+- Perform API calls other than `/api/auth/refresh`.
 - Expose refresh token in any form.
 - Manage UI state.
 - Handle application routing.
@@ -164,8 +164,7 @@ The frontend uses a **lazy refresh mechanism**:
  - If expired → refresh.
  - If close to expiration (<30s) → early refresh.
 3. Worker makes:
-
-POST /auth/refresh
+POST /api/auth/refresh
 
 4. Backend issues new Access Token.
 5. Worker updates internal state.
