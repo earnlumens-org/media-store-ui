@@ -14,13 +14,21 @@
 
 <script setup lang="ts">
   import xIcon from '@/assets/twitterx.svg?raw'
-  import { apiUrl } from '@/config/env'
+  import { getApiBaseUrl } from '@/config/env'
 
   const xIconSvg = xIcon
 
+  function getOAuthBaseUrl (): string {
+    const hostname = window.location.hostname
+    if (hostname === 'localhost') {
+      return 'http://localhost.dv:8080'
+    }
+    return getApiBaseUrl()
+  }
+
   function redirectToXLogin (): void {
     localStorage.setItem('preLoginUrl', window.location.pathname)
-    window.location.href = apiUrl('/oauth2/authorization/x')
+    window.location.href = `${getOAuthBaseUrl()}/oauth2/authorization/x`
   }
 </script>
 

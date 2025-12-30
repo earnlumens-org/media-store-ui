@@ -7,6 +7,9 @@ import { createI18n } from 'vue-i18n'
 // Plugins
 import { registerPlugins } from '@/plugins'
 
+// Auth
+import { initTokenWorker, refreshToken, onSessionExpired } from '@/services/tokenWorkerClient'
+
 // Components
 import App from './App.vue'
 
@@ -64,4 +67,36 @@ async function initI18n () {
   app.mount('#app')
 }
 
-initI18n()
+/**
+ * Rehydrate session on page load
+ * Attempts to refresh access token using HttpOnly cookie
+ */
+async function rehydrateSession (): Promise<void> {
+  try {
+    await initTokenWorker()
+
+    const result = await refreshToken()
+    if (result.success) {
+      // Session restored - app store will be updated via pinia
+      console.log('[Auth] Session rehydrated successfully')
+    }
+  } catch (error) {
+    // No valid session - user will need to login
+    console.log('[Auth] No existing session to rehydrate')
+  }
+}
+
+// Register session expired handler
+onSessionExpired(() => {
+  console.log('[Auth] Session expired, redirecting to login')
+  // Will be handled by auth store in later phase
+})
+
+// Initialize app
+async function initApp () {
+  await initI18n()
+  // Rehydrate session after app is mounted (non-blocking)
+  void rehydrateSession()
+}
+
+initApp()

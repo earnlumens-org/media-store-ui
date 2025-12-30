@@ -13,6 +13,8 @@
 <script setup lang="ts">
   import { useRouter } from 'vue-router'
 
+  import { createSession } from '@/api/modules/auth.api'
+  import { initTokenWorker, setToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
 
   const loading = true
@@ -47,9 +49,24 @@
     return UUID_REGEX.test(value)
   }
 
-  async function handleUuidCallback (_uuid: string): Promise<void> {
-    // agregar temporizador de 5 segundos para simular carga
-    await new Promise(resolve => setTimeout(resolve, 5000))
+  async function handleUuidCallback (uuid: string): Promise<void> {
+    try {
+      // Initialize worker if not ready
+      await initTokenWorker()
+
+      // Exchange UUID for tokens
+      const { accessToken } = await createSession(uuid)
+
+      // Send token to worker (never stored in main thread)
+      await setToken(accessToken)
+
+      // Mark as logged in
+      appStore.setLoggedIn(true)
+    } catch (error) {
+      console.error('Session creation failed:', error)
+      appStore.setLoginError(error instanceof Error ? error.message : 'login_failed')
+    }
+
     await redirectToPreLoginUrl()
   }
 
