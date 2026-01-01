@@ -10,6 +10,10 @@ import { registerPlugins } from '@/plugins'
 // Auth
 import { initTokenWorker, refreshToken, onSessionExpired } from '@/services/tokenWorkerClient'
 
+// Stores
+import pinia from '@/stores'
+import { useAppStore } from '@/stores/app'
+
 // Components
 import App from './App.vue'
 
@@ -75,14 +79,21 @@ async function rehydrateSession (): Promise<void> {
   try {
     await initTokenWorker()
 
+    const appStore = useAppStore(pinia)
+
     const result = await refreshToken()
     if (result.success) {
       // Session restored - app store will be updated via pinia
       console.log('[Auth] Session rehydrated successfully')
+      appStore.setLoggedIn(true)
+    } else {
+      appStore.setLoggedIn(false)
     }
   } catch (error) {
     // No valid session - user will need to login
     console.log('[Auth] No existing session to rehydrate')
+    const appStore = useAppStore(pinia)
+    appStore.setLoggedIn(false)
   }
 }
 
@@ -90,6 +101,8 @@ async function rehydrateSession (): Promise<void> {
 onSessionExpired(() => {
   console.log('[Auth] Session expired, redirecting to login')
   // Will be handled by auth store in later phase
+  const appStore = useAppStore(pinia)
+  appStore.setLoggedIn(false)
 })
 
 // Initialize app

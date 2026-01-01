@@ -3,6 +3,8 @@
  * Never exposes token to main thread except via controlled messages
  */
 
+import { apiUrl } from '../config/env'
+
 interface WorkerState {
   accessToken: string | null
   expiresAt: number | null
@@ -67,16 +69,13 @@ async function handleRefresh (): Promise<void> {
   state.isRefreshing = true
 
   try {
-    const response = await fetch(
-      new URL('/api/auth/refresh', self.location.origin).toString(),
-      {
-        method: 'POST',
-        credentials: 'include',
-        headers: {
-          Accept: 'application/json',
-        },
+    const response = await fetch(apiUrl('/api/auth/refresh'), {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
       },
-    )
+    })
 
     if (!response.ok) {
       state.accessToken = null
