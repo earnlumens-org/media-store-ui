@@ -30,7 +30,8 @@ let workerReady = false
 let sessionExpiredCallbacks: SessionExpiredCallback[] = []
 
 // Pending promise resolvers
-let pendingGetToken: ((result: TokenResultPayload) => void) | null = null
+// Paso 4: Usar array para GET_TOKEN para soportar múltiples llamadas concurrentes
+let pendingGetTokenResolvers: Array<(result: TokenResultPayload) => void> = []
 let pendingSetToken: ((success: boolean) => void) | null = null
 let pendingRefresh: ((result: RefreshResultPayload) => void) | null = null
 let pendingClear: (() => void) | null = null
@@ -45,9 +46,11 @@ function handleWorkerMessage (event: MessageEvent<WorkerMessage>) {
     }
 
     case 'TOKEN_RESULT': {
-      if (pendingGetToken) {
-        pendingGetToken(event.data.payload)
-        pendingGetToken = null
+      // Paso 4: Resolver TODOS los getToken pendientes con el mismo resultado
+      const resolvers = pendingGetTokenResolvers
+      pendingGetTokenResolvers = []
+      for (const resolve of resolvers) {
+        resolve(event.data.payload)
       }
       break
     }
@@ -156,16 +159,30 @@ export function getToken (): Promise<TokenResultPayload> {
       return
     }
 
-    pendingGetToken = resolve
-    worker.postMessage({ type: 'GET_TOKEN' })
+    // Paso 4: Agregar resolver al array
+    // Solo enviar mensaje al worker si es la primera llamada pendiente
+    const isFirstPending = pendingGetTokenResolvers.length === 0
+    pendingGetTokenResolvers.push(resolve)
 
-    // Timeout
-    setTimeout(() => {
-      if (pendingGetToken) {
-        pendingGetToken = null
+    if (isFirstPending) {
+      worker.postMessage({ type: 'GET_TOKEN' })
+    }
+
+    // Timeout - remover este resolver específico si expira
+    const timeoutId = setTimeout(() => {
+      const idx = pendingGetTokenResolvers.indexOf(resolve)
+      if (idx !== -1) {
+        pendingGetTokenResolvers.splice(idx, 1)
         reject(new Error('Get token timeout'))
       }
     }, 10_000)
+
+    // Limpiar timeout cuando se resuelve (wrapping resolve)
+    const originalResolve = resolve
+    pendingGetTokenResolvers[pendingGetTokenResolvers.indexOf(originalResolve)] = (result) => {
+      clearTimeout(timeoutId)
+      originalResolve(result)
+    }
   })
 }
 

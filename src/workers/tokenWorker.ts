@@ -1,6 +1,9 @@
 /**
  * Token Worker - Manages access token lifecycle in isolated memory
  * Never exposes token to main thread except via controlled messages
+ *
+ * Paso 4: Cola de refresh - Todas las llamadas concurrentes comparten
+ * la misma Promise de refresh para evitar múltiples llamadas al backend
  */
 
 import { apiUrl } from '../config/env'
@@ -8,14 +11,19 @@ import { apiUrl } from '../config/env'
 interface WorkerState {
   accessToken: string | null
   expiresAt: number | null
-  isRefreshing: boolean
 }
 
 const state: WorkerState = {
   accessToken: null,
   expiresAt: null,
-  isRefreshing: false,
 }
+
+/**
+ * Paso 4: pendingRefreshPromise
+ * Cuando hay un refresh en curso, todas las llamadas GET_TOKEN
+ * esperan esta misma Promise en lugar de retornar inmediatamente
+ */
+let pendingRefreshPromise: Promise<boolean> | null = null
 
 // Message types
 interface SetTokenMessage { type: 'SET_TOKEN', payload: { accessToken: string } }
@@ -60,47 +68,59 @@ function sendMessage (msg: OutgoingMessage) {
   self.postMessage(msg)
 }
 
-async function handleRefresh (): Promise<void> {
-  if (state.isRefreshing) {
-    // Already refreshing, wait and return current state
-    return
+/**
+ * Paso 4: handleRefresh con cola de espera
+ * Si ya hay un refresh en curso, retorna la misma Promise
+ * Todas las llamadas concurrentes esperan el mismo resultado
+ */
+async function handleRefresh (): Promise<boolean> {
+  // Si ya hay un refresh en curso, esperar el mismo
+  if (pendingRefreshPromise) {
+    return pendingRefreshPromise
   }
 
-  state.isRefreshing = true
+  // Crear nueva Promise de refresh
+  pendingRefreshPromise = (async (): Promise<boolean> => {
+    try {
+      const response = await fetch(apiUrl('/api/auth/refresh'), {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          Accept: 'application/json',
+        },
+      })
 
-  try {
-    const response = await fetch(apiUrl('/api/auth/refresh'), {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        Accept: 'application/json',
-      },
-    })
+      if (!response.ok) {
+        state.accessToken = null
+        state.expiresAt = null
+        sendMessage({ type: 'SESSION_EXPIRED' })
+        sendMessage({ type: 'REFRESH_RESULT', payload: { success: false } })
+        return false
+      }
 
-    if (!response.ok) {
-      state.accessToken = null
-      state.expiresAt = null
-      sendMessage({ type: 'SESSION_EXPIRED' })
+      const data = await response.json()
+      const newToken = data.accessToken
+
+      if (newToken) {
+        state.accessToken = newToken
+        state.expiresAt = parseJwtExp(newToken)
+        sendMessage({ type: 'REFRESH_RESULT', payload: { success: true, accessToken: newToken } })
+        return true
+      } else {
+        sendMessage({ type: 'REFRESH_RESULT', payload: { success: false } })
+        return false
+      }
+    } catch {
+      sendMessage({ type: 'ERROR', payload: { message: 'Refresh failed' } })
       sendMessage({ type: 'REFRESH_RESULT', payload: { success: false } })
-      return
+      return false
+    } finally {
+      // Limpiar la Promise pendiente cuando termine
+      pendingRefreshPromise = null
     }
+  })()
 
-    const data = await response.json()
-    const newToken = data.accessToken
-
-    if (newToken) {
-      state.accessToken = newToken
-      state.expiresAt = parseJwtExp(newToken)
-      sendMessage({ type: 'REFRESH_RESULT', payload: { success: true, accessToken: newToken } })
-    } else {
-      sendMessage({ type: 'REFRESH_RESULT', payload: { success: false } })
-    }
-  } catch {
-    sendMessage({ type: 'ERROR', payload: { message: 'Refresh failed' } })
-    sendMessage({ type: 'REFRESH_RESULT', payload: { success: false } })
-  } finally {
-    state.isRefreshing = false
-  }
+  return pendingRefreshPromise
 }
 
 self.addEventListener('message', (event: MessageEvent<IncomingMessage>) => {
