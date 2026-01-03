@@ -93,6 +93,7 @@
   import { useTheme } from 'vuetify'
   import { logout } from '@/api/modules/auth.api'
   import { DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from '@/plugins/vuetify'
+  import { broadcastAuthEvent } from '@/services/authBroadcast'
   import { clearToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
@@ -137,6 +138,8 @@
     }
     await clearToken()
     authStore.clearAuth()
+    // Notify other tabs about logout
+    broadcastAuthEvent('LOGOUT')
     router.push('/')
   }
 

@@ -7,11 +7,15 @@ import { createI18n } from 'vue-i18n'
 // Plugins
 import { registerPlugins } from '@/plugins'
 
+// Router
+import router from '@/router'
 // Auth
-import { initTokenWorker, onSessionExpired, refreshToken } from '@/services/tokenWorkerClient'
+import { broadcastAuthEvent, initAuthBroadcast, onAuthBroadcast } from '@/services/authBroadcast'
 
+import { clearToken, initTokenWorker, onSessionExpired, refreshToken } from '@/services/tokenWorkerClient'
 // Stores
 import pinia from '@/stores'
+
 import { useAuthStore } from '@/stores/auth'
 
 // Components
@@ -100,14 +104,61 @@ async function rehydrateSession (): Promise<void> {
 }
 
 // Register session expired handler
+// Only broadcast if we HAD an active session (not during failed rehydrate)
 onSessionExpired(() => {
-  console.log('[Auth] Session expired, redirecting to login')
   const authStore = useAuthStore(pinia)
+  const wasAuthenticated = authStore.isAuthenticated
+
+  console.log('[Auth] Session expired, redirecting to login')
   authStore.clearAuth()
+
+  // Only broadcast if we were actually logged in (avoid loop on rehydrate failure)
+  if (wasAuthenticated) {
+    broadcastAuthEvent('SESSION_EXPIRED')
+  }
+})
+
+// Handle auth events from other tabs
+// Flag to prevent duplicate processing during rapid events
+let isProcessingBroadcast = false
+
+onAuthBroadcast(async event => {
+  // Prevent duplicate processing
+  if (isProcessingBroadcast) {
+    console.log(`[Auth] Already processing broadcast, ignoring duplicate ${event}`)
+    return
+  }
+
+  const authStore = useAuthStore(pinia)
+
+  // Only process if we have an active session (nothing to clear otherwise)
+  if (!authStore.isAuthenticated) {
+    console.log(`[Auth] 📡 Received ${event} but not authenticated, ignoring`)
+    return
+  }
+
+  isProcessingBroadcast = true
+  console.log(`[Auth] 📡 Received ${event} from another tab, clearing session`)
+
+  try {
+    // Clear local state (don't broadcast again to avoid loops)
+    await clearToken()
+    authStore.clearAuth()
+    // Navigate without reload to avoid triggering rehydrate again
+    router.push('/')
+  } finally {
+    // Reset flag after short delay
+    setTimeout(() => {
+      isProcessingBroadcast = false
+    }, 100)
+  }
 })
 
 // Initialize app
 async function initApp () {
+  // Initialize broadcast channel early
+  initAuthBroadcast()
+
   await initI18n()
   // Rehydrate session BEFORE app is fully ready (blocks router guards)
   await rehydrateSession()

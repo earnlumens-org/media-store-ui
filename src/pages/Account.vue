@@ -125,6 +125,7 @@
   import { useRouter } from 'vue-router'
   import { api, ApiError } from '@/api/api'
   import { logout } from '@/api/modules/auth.api'
+  import { broadcastAuthEvent } from '@/services/authBroadcast'
   import { clearToken } from '@/services/tokenWorkerClient'
   import { useAuthStore } from '@/stores/auth'
 
@@ -165,6 +166,8 @@
     }
     await clearToken()
     authStore.clearAuth()
+    // Notify other tabs about logout
+    broadcastAuthEvent('LOGOUT')
     router.push('/')
   }
 
