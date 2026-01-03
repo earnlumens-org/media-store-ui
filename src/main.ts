@@ -8,11 +8,11 @@ import { createI18n } from 'vue-i18n'
 import { registerPlugins } from '@/plugins'
 
 // Auth
-import { initTokenWorker, refreshToken, onSessionExpired } from '@/services/tokenWorkerClient'
+import { initTokenWorker, onSessionExpired, refreshToken } from '@/services/tokenWorkerClient'
 
 // Stores
 import pinia from '@/stores'
-import { useAppStore } from '@/stores/app'
+import { useAuthStore } from '@/stores/auth'
 
 // Components
 import App from './App.vue'
@@ -74,42 +74,43 @@ async function initI18n () {
 /**
  * Rehydrate session on page load
  * Attempts to refresh access token using HttpOnly cookie
+ * MUST complete before router navigation to protected routes
  */
 async function rehydrateSession (): Promise<void> {
+  const authStore = useAuthStore(pinia)
+
   try {
     await initTokenWorker()
 
-    const appStore = useAppStore(pinia)
-
     const result = await refreshToken()
     if (result.success) {
-      // Session restored - app store will be updated via pinia
       console.log('[Auth] Session rehydrated successfully')
-      appStore.setLoggedIn(true)
+      authStore.setAuthenticated(true)
     } else {
-      appStore.setLoggedIn(false)
+      authStore.setAuthenticated(false)
     }
-  } catch (error) {
+  } catch {
     // No valid session - user will need to login
     console.log('[Auth] No existing session to rehydrate')
-    const appStore = useAppStore(pinia)
-    appStore.setLoggedIn(false)
+    authStore.setAuthenticated(false)
+  } finally {
+    // Mark auth as ready so router guards can proceed
+    authStore.setAuthReady(true)
   }
 }
 
 // Register session expired handler
 onSessionExpired(() => {
   console.log('[Auth] Session expired, redirecting to login')
-  // Will be handled by auth store in later phase
-  const appStore = useAppStore(pinia)
-  appStore.setLoggedIn(false)
+  const authStore = useAuthStore(pinia)
+  authStore.clearAuth()
 })
 
 // Initialize app
 async function initApp () {
   await initI18n()
-  // Rehydrate session after app is mounted (non-blocking)
-  void rehydrateSession()
+  // Rehydrate session BEFORE app is fully ready (blocks router guards)
+  await rehydrateSession()
 }
 
 initApp()

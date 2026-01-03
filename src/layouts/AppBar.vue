@@ -200,12 +200,15 @@
   import CxPopoverMenu from '@/components/CxPopoverMenu.vue'
   import CxSearchDialog from '@/components/CxSearchDialog.vue'
   import { useAppStore } from '@/stores/app'
+  import { useAuthStore } from '@/stores/auth'
 
   const logoSvg = logo
 
   // Store
   const appStore = useAppStore()
-  const { mobileView, loggedIn, windowWidth } = storeToRefs(appStore)
+  const authStore = useAuthStore()
+  const { mobileView, windowWidth } = storeToRefs(appStore)
+  const { isAuthenticated: loggedIn } = storeToRefs(authStore)
 
   // State
   const drawer = ref(false)

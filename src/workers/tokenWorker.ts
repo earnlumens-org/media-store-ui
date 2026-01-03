@@ -61,7 +61,12 @@ function isTokenExpired (): boolean {
     return true
   }
   // Consider expired if less than 30 seconds remaining
-  return Date.now() >= state.expiresAt - 30_000
+  const remaining = state.expiresAt - Date.now()
+  const expired = remaining <= 30_000
+  if (expired) {
+    console.log(`[TokenWorker] ⏰ Access token expired or expiring soon (${Math.round(remaining / 1000)}s remaining)`)
+  }
+  return expired
 }
 
 function sendMessage (msg: OutgoingMessage) {
@@ -76,8 +81,11 @@ function sendMessage (msg: OutgoingMessage) {
 async function handleRefresh (): Promise<boolean> {
   // Si ya hay un refresh en curso, esperar el mismo
   if (pendingRefreshPromise) {
+    console.log('[TokenWorker] 🔄 Refresh already in progress, waiting...')
     return pendingRefreshPromise
   }
+
+  console.log('[TokenWorker] 🔄 Starting access token refresh via /api/auth/refresh...')
 
   // Crear nueva Promise de refresh
   pendingRefreshPromise = (async (): Promise<boolean> => {
@@ -91,6 +99,7 @@ async function handleRefresh (): Promise<boolean> {
       })
 
       if (!response.ok) {
+        console.log(`[TokenWorker] ❌ Refresh failed: HTTP ${response.status}`)
         state.accessToken = null
         state.expiresAt = null
         sendMessage({ type: 'SESSION_EXPIRED' })
@@ -104,13 +113,17 @@ async function handleRefresh (): Promise<boolean> {
       if (newToken) {
         state.accessToken = newToken
         state.expiresAt = parseJwtExp(newToken)
+        const expiresIn = state.expiresAt ? Math.round((state.expiresAt - Date.now()) / 1000) : 0
+        console.log(`[TokenWorker] ✅ Access token refreshed! Expires in ${expiresIn}s`)
         sendMessage({ type: 'REFRESH_RESULT', payload: { success: true, accessToken: newToken } })
         return true
       } else {
+        console.log('[TokenWorker] ❌ Refresh response missing accessToken')
         sendMessage({ type: 'REFRESH_RESULT', payload: { success: false } })
         return false
       }
-    } catch {
+    } catch (error) {
+      console.log('[TokenWorker] ❌ Refresh error:', error)
       sendMessage({ type: 'ERROR', payload: { message: 'Refresh failed' } })
       sendMessage({ type: 'REFRESH_RESULT', payload: { success: false } })
       return false

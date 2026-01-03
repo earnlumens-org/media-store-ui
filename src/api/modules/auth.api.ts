@@ -20,7 +20,7 @@ export interface AuthError {
  * Create a new session by exchanging the temp UUID for tokens
  * Refresh token is set as HttpOnly cookie by backend
  */
-export async function createSession(uuid: string): Promise<CreateSessionResponse> {
+export async function createSession (uuid: string): Promise<CreateSessionResponse> {
   const response = await fetch(apiUrl('/api/auth/session'), {
     method: 'POST',
     credentials: 'include',
@@ -41,7 +41,7 @@ export async function createSession(uuid: string): Promise<CreateSessionResponse
 /**
  * Refresh the access token using the HttpOnly refresh cookie
  */
-export async function refreshAccessToken(): Promise<RefreshResponse> {
+export async function refreshAccessToken (): Promise<RefreshResponse> {
   const response = await fetch(apiUrl('/api/auth/refresh'), {
     method: 'POST',
     credentials: 'include',
@@ -61,7 +61,7 @@ export async function refreshAccessToken(): Promise<RefreshResponse> {
 /**
  * Logout - clears the refresh cookie on the backend
  */
-export async function logout(): Promise<void> {
+export async function logout (): Promise<void> {
   const response = await fetch(apiUrl('/api/auth/logout'), {
     method: 'POST',
     credentials: 'include',

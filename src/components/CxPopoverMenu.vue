@@ -95,11 +95,13 @@
   import { DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from '@/plugins/vuetify'
   import { clearToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
+  import { useAuthStore } from '@/stores/auth'
 
   const menu = ref(false)
 
   const router = useRouter()
   const appStore = useAppStore()
+  const authStore = useAuthStore()
   const theme = useTheme()
 
   // Computed: true if current theme is dark
@@ -134,7 +136,7 @@
       // Backend call failed, but continue cleaning local state
     }
     await clearToken()
-    appStore.setLoggedIn(false)
+    authStore.clearAuth()
     router.push('/')
   }
 

@@ -14,14 +14,14 @@ interface TokenClearedMessage { type: 'TOKEN_CLEARED' }
 interface WorkerReadyMessage { type: 'WORKER_READY' }
 interface ErrorMessage { type: 'ERROR', payload: { message: string } }
 
-type WorkerMessage =
-  TokenResultMessage |
-  TokenSetMessage |
-  RefreshResultMessage |
-  SessionExpiredMessage |
-  TokenClearedMessage |
-  WorkerReadyMessage |
-  ErrorMessage
+type WorkerMessage
+  = TokenResultMessage
+    | TokenSetMessage
+    | RefreshResultMessage
+    | SessionExpiredMessage
+    | TokenClearedMessage
+    | WorkerReadyMessage
+    | ErrorMessage
 
 type SessionExpiredCallback = () => void
 
@@ -179,7 +179,7 @@ export function getToken (): Promise<TokenResultPayload> {
 
     // Limpiar timeout cuando se resuelve (wrapping resolve)
     const originalResolve = resolve
-    pendingGetTokenResolvers[pendingGetTokenResolvers.indexOf(originalResolve)] = (result) => {
+    pendingGetTokenResolvers[pendingGetTokenResolvers.indexOf(originalResolve)] = result => {
       clearTimeout(timeoutId)
       originalResolve(result)
     }

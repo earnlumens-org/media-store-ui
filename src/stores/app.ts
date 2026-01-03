@@ -1,22 +1,23 @@
 import { defineStore } from 'pinia'
 
+/**
+ * App Store - UI and layout state management
+ * For auth state, use stores/auth.ts
+ */
+
 interface AppState {
   windowWidth: number
   mobileView: boolean
-  loggedIn: boolean
   themeName: string
   isAppLocked: boolean
-  loginError: string | null
 }
 
 export const useAppStore = defineStore('app', {
   state: (): AppState => ({
     windowWidth: window.innerWidth,
     mobileView: window.innerWidth < 960,
-    loggedIn: false,
     themeName: 'amoledGray',
     isAppLocked: false,
-    loginError: null,
   }),
 
   actions: {
@@ -24,21 +25,11 @@ export const useAppStore = defineStore('app', {
       this.windowWidth = width
       this.mobileView = width < 960
     },
-    setLoggedIn (value: boolean) {
-      this.loggedIn = value
-    },
     setThemeName (value: string) {
       this.themeName = value
     },
     setIsAppLocked (value: boolean) {
       this.isAppLocked = value
-    },
-    setLoginError (error: string | null) {
-      this.loginError = error
-    },
-
-    clearLoginError () {
-      this.loginError = null
     },
   },
 })

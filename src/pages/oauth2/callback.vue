@@ -16,12 +16,14 @@
   import { createSession } from '@/api/modules/auth.api'
   import { initTokenWorker, setToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
+  import { useAuthStore } from '@/stores/auth'
 
   const loading = true
 
   const router = useRouter()
 
   const appStore = useAppStore()
+  const authStore = useAuthStore()
 
   const UUID_REGEX
     = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
@@ -61,10 +63,10 @@
       await setToken(accessToken)
 
       // Mark as logged in
-      appStore.setLoggedIn(true)
+      authStore.setAuthenticated(true)
     } catch (error) {
       console.error('Session creation failed:', error)
-      appStore.setLoginError(error instanceof Error ? error.message : 'login_failed')
+      authStore.setError(error instanceof Error ? error.message : 'login_failed')
     }
 
     await redirectToPreLoginUrl()
@@ -74,7 +76,7 @@
     appStore.setIsAppLocked(true)
 
     const watchdog = window.setTimeout(() => {
-      appStore.setLoginError('timeout')
+      authStore.setError('timeout')
       appStore.setIsAppLocked(false)
 
       const preLoginUrl = getAndClearPreLoginUrl()
@@ -84,7 +86,7 @@
     try {
       const error = getQueryParamFromSearch('error')
       if (error) {
-        appStore.setLoginError(error)
+        authStore.setError(error)
         await redirectToPreLoginUrl()
         return
       }

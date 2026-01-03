@@ -1,7 +1,7 @@
 import { setupLayouts } from 'virtual:generated-layouts'
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from 'vue-router/auto-routes'
-import { useAppStore } from '@/stores/app'
+import { useAuthStore } from '@/stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,8 +12,8 @@ const router = createRouter({
 })
 
 // Middleware de autenticación antes de cada ruta
-router.beforeEach((to, _from) => {
-  const appStore = useAppStore()
+router.beforeEach(async (to, _from) => {
+  const authStore = useAuthStore()
 
   const normalizedPath = to.path.toLowerCase()
   if (to.path !== normalizedPath) {
@@ -25,9 +25,48 @@ router.beforeEach((to, _from) => {
     }
   }
 
+  // Wait for auth to be ready before checking protected routes
   const requiresAuth = to.meta?.requiresAuth === true
-  if (requiresAuth && !appStore.loggedIn) {
-    return '/'
+  if (requiresAuth) {
+    // If auth not ready yet, wait for it (with timeout)
+    if (!authStore.isAuthReady) {
+      const AUTH_TIMEOUT = 10_000 // 10 seconds max wait
+      let timeoutId: ReturnType<typeof setTimeout> | null = null
+
+      await Promise.race([
+        new Promise<void>(resolve => {
+          const unwatch = authStore.$subscribe((_mutation, state) => {
+            if (state.isAuthReady) {
+              unwatch()
+              if (timeoutId) {
+                clearTimeout(timeoutId)
+              }
+              resolve()
+            }
+          })
+          // Safety check in case it became ready between our check and subscribe
+          if (authStore.isAuthReady) {
+            unwatch()
+            if (timeoutId) {
+              clearTimeout(timeoutId)
+            }
+            resolve()
+          }
+        }),
+        new Promise<void>(resolve => {
+          timeoutId = setTimeout(() => {
+            console.warn('[Router] Auth timeout - forcing isAuthReady')
+            authStore.setAuthReady(true)
+            resolve()
+          }, AUTH_TIMEOUT)
+        }),
+      ])
+    }
+
+    // Now check if logged in
+    if (!authStore.isAuthenticated) {
+      return '/'
+    }
   }
 })
 
