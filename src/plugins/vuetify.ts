@@ -11,10 +11,14 @@ import '@mdi/font/css/materialdesignicons.css'
 
 import 'vuetify/styles'
 
+// Default theme names for toggle
+export const DEFAULT_LIGHT_THEME = 'rosePineDawn'
+export const DEFAULT_DARK_THEME = 'amoledGray'
+
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   theme: {
-    defaultTheme: 'system',
+    defaultTheme: DEFAULT_DARK_THEME,
     themes: {
       nord: {
         dark: false,

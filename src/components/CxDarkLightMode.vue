@@ -20,6 +20,7 @@
 <script setup lang="ts">
   import { storeToRefs } from 'pinia'
   import { useTheme } from 'vuetify'
+  import { DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from '@/plugins/vuetify'
   import { useAppStore } from '@/stores/app'
 
   const app = useAppStore()
@@ -39,7 +40,7 @@
 
   function toggleTheme () {
     const isCurrentlyDark = theme.global.current.value.dark
-    const nextThemeName = isCurrentlyDark ? 'light' : 'dark'
+    const nextThemeName = isCurrentlyDark ? DEFAULT_LIGHT_THEME : DEFAULT_DARK_THEME
     app.setThemeName(nextThemeName)
     localStorage.setItem('themeName', nextThemeName)
     setTheme(nextThemeName)

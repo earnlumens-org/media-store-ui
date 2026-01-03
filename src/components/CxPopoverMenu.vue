@@ -92,6 +92,7 @@
   import { useRouter } from 'vue-router'
   import { useTheme } from 'vuetify'
   import { logout } from '@/api/modules/auth.api'
+  import { DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from '@/plugins/vuetify'
   import { clearToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
 
@@ -114,7 +115,7 @@
   }
 
   function toggleTheme () {
-    const nextThemeName = isDarkMode.value ? 'light' : 'dark'
+    const nextThemeName = isDarkMode.value ? DEFAULT_LIGHT_THEME : DEFAULT_DARK_THEME
     appStore.setThemeName(nextThemeName)
     localStorage.setItem('themeName', nextThemeName)
     setTheme(nextThemeName)

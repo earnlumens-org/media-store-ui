@@ -14,7 +14,7 @@ export const useAppStore = defineStore('app', {
     windowWidth: window.innerWidth,
     mobileView: window.innerWidth < 960,
     loggedIn: false,
-    themeName: 'system',
+    themeName: 'amoledGray',
     isAppLocked: false,
     loginError: null,
   }),

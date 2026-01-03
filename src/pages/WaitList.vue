@@ -32,9 +32,10 @@
             <v-btn
               v-if="!responseOk"
               block
-              color="orange-accent-2"
+              color="primary"
               :disabled="!formIsValid || isLoading"
               :loading="isLoading"
+              variant="tonal"
               @click="joinClicked"
             >
               {{ $t('WaitList.join') }}

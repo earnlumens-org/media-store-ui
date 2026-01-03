@@ -7,6 +7,7 @@
 <script setup lang="ts">
   import { onBeforeUnmount, onMounted } from 'vue'
   import { useTheme } from 'vuetify'
+  import { DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from '@/plugins/vuetify'
   import { useAppStore } from '@/stores/app'
 
   const app = useAppStore()
@@ -44,7 +45,7 @@
       const legacyIsDark = localStorage.getItem('isDarkTheme')
       if (legacyIsDark !== null) {
         const isDark = legacyIsDark === 'true'
-        const migratedThemeName = isDark ? 'dark' : 'light'
+        const migratedThemeName = isDark ? DEFAULT_DARK_THEME : DEFAULT_LIGHT_THEME
         app.setThemeName(migratedThemeName)
         localStorage.setItem('themeName', migratedThemeName)
         localStorage.removeItem('isDarkTheme')
