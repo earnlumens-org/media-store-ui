@@ -7,12 +7,16 @@
     >
       <!-- Activador: avatar -->
       <template #activator="{ props }">
-        <v-list-item
+        <v-btn
           v-bind="props"
           class="ma-1"
-          nav
-          :prepend-avatar="profileImageUrl"
-        />
+          icon
+          variant="text"
+        >
+          <v-avatar size="40">
+            <v-img :src="profileImageUrl" />
+          </v-avatar>
+        </v-btn>
       </template>
 
       <!-- Contenido del Popover -->
@@ -31,13 +35,14 @@
 
         <!-- Opciones -->
         <v-list>
-          <!-- Switch de tema (mock visual, sin lógica) -->
+          <!-- Switch de tema -->
           <v-list-item>
             <v-switch
-              v-model="darkMode"
               color="amber-lighten-1"
               hide-details
               label="Dark Mode"
+              :model-value="isDarkMode"
+              @update:model-value="toggleTheme"
             />
           </v-list-item>
 
@@ -65,12 +70,13 @@
 
         <v-divider />
 
-        <!-- Logout (mock) -->
+        <!-- Logout -->
         <v-card-actions>
           <v-spacer />
           <v-btn
             color="primary"
             variant="text"
+            @click="handleLogout"
           >
             {{ $t("Common.logout") }}
           </v-btn>
@@ -82,18 +88,53 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { computed, ref } from 'vue'
   import { useRouter } from 'vue-router'
+  import { useTheme } from 'vuetify'
+  import { logout } from '@/api/modules/auth.api'
+  import { clearToken } from '@/services/tokenWorkerClient'
+  import { useAppStore } from '@/stores/app'
 
-  // Mock data (solo visual)
   const menu = ref(false)
-  const darkMode = ref(false)
 
   const router = useRouter()
+  const appStore = useAppStore()
+  const theme = useTheme()
+
+  // Computed: true if current theme is dark
+  const isDarkMode = computed(() => theme.global.current.value.dark)
+
+  function setTheme (name: string) {
+    const maybeTheme = theme as unknown as { change?: (name: string) => void }
+    if (typeof maybeTheme.change === 'function') {
+      maybeTheme.change(name)
+      return
+    }
+    theme.global.name.value = name
+  }
+
+  function toggleTheme () {
+    const nextThemeName = isDarkMode.value ? 'light' : 'dark'
+    appStore.setThemeName(nextThemeName)
+    localStorage.setItem('themeName', nextThemeName)
+    setTheme(nextThemeName)
+  }
 
   function goToThemes () {
     menu.value = false
     router.push('/themes')
+  }
+
+  async function handleLogout () {
+    menu.value = false
+    try {
+      await logout()
+    } catch {
+      // Backend call failed, but continue cleaning local state
+    }
+    await clearToken()
+    appStore.setLoggedIn(false)
+    router.push('/')
   }
 
   const profileImageUrl = 'https://fastly.picsum.photos/id/903/1200/1200.jpg?hmac=8fD_XguoHwGB2RsVu_aX2XwhvCVXRSsvzNAh53Sjobc'
