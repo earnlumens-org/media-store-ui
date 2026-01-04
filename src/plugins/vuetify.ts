@@ -187,15 +187,15 @@ export default createVuetify({
         colors: {
           'background': '#000000',
           'surface': '#121212',
-          'on-background': '#FFFFFF',
-          'on-surface': '#FFFFFF',
+          'on-background': '#F7F2EA',
+          'on-surface': '#F7F2EA',
 
-          'primary': '#BB86FC',
-          'secondary': '#03DAC6',
-          'accent': '#8AB4F8',
+          'primary': '#f09c49',
+          'secondary': '#D45E67',
+          'accent': '#FFD08A',
 
-          'error': '#CF6679',
-          'warning': '#FFB74D',
+          'error': '#FF5E6A',
+          'warning': '#FFBE5C',
           'info': '#8AB4F8',
           'success': '#81C784',
         },

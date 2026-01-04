@@ -1,43 +1,16 @@
 <template>
-  <div>welcome to earnlumens</div>
+  <Hero />
 
-  <div>Window width: {{ windowWidth }}</div>
-
-  <div>{{ $t("Common.shortAbout") }}</div>
-
-  <!-- Selector de idioma -->
-  <CxLanguageDialog />
-
-  <!-- Buscador -->
-  <CxSearchDialog />
-
-  <!-- Botón claro/oscuro -->
-  <CxDarkLightMode class="mt-2" />
-
-  <!-- Botón de login con X -->
-  <CxXLoginButton class="mt-4" />
-
-  <!-- Diálogo de login -->
-  <CxLoginDialog />
-
-  <!-- Menu de perfil -->
-  <CxPopoverMenu />
+  <v-container class="mt-6">
+    <v-card class="pa-6" color="transparent" elevation="4">
+      <div class="text-h6 font-weight-bold mb-2">Debug Card</div>
+      <div>Revisando márgenes y separación debajo del Hero.</div>
+    </v-card>
+  </v-container>
 </template>
 
 <script setup lang="ts">
-  import { storeToRefs } from 'pinia'
-  import CxDarkLightMode from '@/components/CxDarkLightMode.vue'
-
-  // COMPONENTES
-  import CxLanguageDialog from '@/components/CxLanguageDialog.vue'
-  import CxLoginDialog from '@/components/CxLoginDialog.vue'
-  import CxPopoverMenu from '@/components/CxPopoverMenu.vue'
-  import CxSearchDialog from '@/components/CxSearchDialog.vue'
-  import CxXLoginButton from '@/components/login/CxXButton.vue'
-  import { useAppStore } from '@/stores/app'
-
-  const appStore = useAppStore()
-  const { windowWidth } = storeToRefs(appStore)
+  import Hero from '@/components/home/Hero.vue'
 </script>
 
 <route lang="yaml">

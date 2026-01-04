@@ -19,6 +19,7 @@ declare module 'vue' {
     CxPopoverMenu: typeof import('./components/CxPopoverMenu.vue')['default']
     CxSearchDialog: typeof import('./components/CxSearchDialog.vue')['default']
     CxXButton: typeof import('./components/login/CxXButton.vue')['default']
+    Hero: typeof import('./components/home/Hero.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Theme: typeof import('./components/themes/Theme.vue')['default']
