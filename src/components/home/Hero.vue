@@ -86,10 +86,12 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue'
+  import { computed, ref } from 'vue'
 
-  import fireLogo from '@/assets/fire.svg'
+  import fireLogoImg from '@/assets/fire.svg'
   import stellarSvg from '@/assets/stellar.svg?raw'
+
+  const fireLogo = ref(fireLogoImg)
 
   const stellarSvgIcon = computed(() => {
     return stellarSvg
