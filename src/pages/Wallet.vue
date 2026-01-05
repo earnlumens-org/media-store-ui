@@ -1,8 +1,8 @@
 <template>
-  <v-container class="fill-height" fluid>
+  <v-container :class="{ 'fill-height': !walletStore.isConnected }" fluid>
     <v-row
       :align="walletStore.isConnected ? 'start' : 'center'"
-      class="fill-height"
+      :class="{ 'fill-height': !walletStore.isConnected }"
       justify="center"
     >
       <v-col class="d-flex flex-column align-center" cols="12">
@@ -29,7 +29,7 @@
         </div>
 
         <!-- Saldo XLM -->
-        <v-row v-if="walletStore.isConnected" align="center" class="mt-4" justify="center">
+        <v-row v-if="walletStore.isConnected" align="center" class="mt-5 mb-1" justify="center">
           <v-col class="px-0" cols="auto">
             <span
               v-if="!isLoadingBalance"
@@ -71,6 +71,23 @@
       </v-col>
     </v-row>
   </v-container>
+
+  <!-- Tabs: Deposit / History (fuera del container para evitar márgenes) -->
+  <v-card v-if="walletStore.isConnected">
+    <v-tabs v-model="tab" align-tabs="center" color="primary">
+      <v-tab value="deposit">{{ $t('Wallet.deposit') }}</v-tab>
+      <v-tab :disabled="true" value="history">{{ $t('Wallet.history') }}</v-tab>
+    </v-tabs>
+    <v-window v-model="tab">
+      <v-window-item value="deposit">
+        <CxDeposit />
+      </v-window-item>
+
+      <v-window-item value="history">
+        <CxHistory />
+      </v-window-item>
+    </v-window>
+  </v-card>
 
   <!-- Bottom Sheet para gestionar wallets -->
   <v-bottom-sheet v-model="showBottomSheet">
@@ -144,6 +161,8 @@
   import NumberAnimation from 'vue-number-animation'
 
   import stellarSvg from '@/assets/stellar.svg?raw'
+  import CxDeposit from '@/components/wallet/CxDeposit.vue'
+  import CxHistory from '@/components/wallet/CxHistory.vue'
   import { getXLMBalance } from '@/services/stellar'
   import { useWalletStore } from '@/stores/wallet'
 
@@ -154,6 +173,7 @@
   const xlmBalance = ref(0)
   const isLoadingBalance = ref(false)
   const balanceTimedOut = ref(false)
+  const tab = ref('deposit')
 
   // Request ID para ignorar respuestas de requests obsoletas
   let currentRequestId = 0

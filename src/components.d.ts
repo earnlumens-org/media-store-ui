@@ -13,6 +13,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     CategoryList: typeof import('./components/themes/CategoryList.vue')['default']
     CxDarkLightMode: typeof import('./components/CxDarkLightMode.vue')['default']
+    CxDeposit: typeof import('./components/wallet/CxDeposit.vue')['default']
+    CxHistory: typeof import('./components/wallet/CxHistory.vue')['default']
     CxLanguageDialog: typeof import('./components/CxLanguageDialog.vue')['default']
     CxLineChartCard: typeof import('./components/CxLineChartCard.vue')['default']
     CxLoginDialog: typeof import('./components/CxLoginDialog.vue')['default']
@@ -24,5 +26,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     Theme: typeof import('./components/themes/Theme.vue')['default']
     ThemeCard: typeof import('./components/themes/ThemeCard.vue')['default']
+    WalletDeposit: typeof import('./components/wallet/WalletDeposit.vue')['default']
+    WalletHistory: typeof import('./components/wallet/WalletHistory.vue')['default']
   }
 }
