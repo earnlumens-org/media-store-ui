@@ -30,10 +30,20 @@ import type {
 
 import { defineStore } from 'pinia'
 
-import { defaultProvider, getProvider } from '@/services/wallet/providers'
+import { getAllProviders, getProvider } from '@/services/wallet/providers'
 
 const STORAGE_KEY = 'earnlumens_wallets'
 const ACTIVE_WALLET_KEY = 'earnlumens_active_wallet'
+
+/**
+ * Formatea una dirección de forma abreviada
+ */
+function formatAddress (address: string): string {
+  if (!address || address.length <= 14) {
+    return address
+  }
+  return `${address.slice(0, 7)}...${address.slice(-7)}`
+}
 
 interface WalletState {
   /** Lista de wallets conectadas */
@@ -76,14 +86,7 @@ export const useWalletStore = defineStore('wallet', {
      * Dirección activa formateada (abreviada)
      */
     shortActiveAddress: (state): string => {
-      const address = state.activeAddress
-      if (!address) {
-        return ''
-      }
-      if (address.length <= 14) {
-        return address
-      }
-      return `${address.slice(0, 7)}...${address.slice(-7)}`
+      return formatAddress(state.activeAddress)
     },
 
     /**
@@ -95,6 +98,13 @@ export const useWalletStore = defineStore('wallet', {
         return undefined
       }
       return getProvider(wallet.providerId)
+    },
+
+    /**
+     * Lista de proveedores disponibles para conectar
+     */
+    availableProviders (): WalletProvider[] {
+      return getAllProviders()
     },
   },
 
@@ -111,32 +121,55 @@ export const useWalletStore = defineStore('wallet', {
       // Cargar wallets del storage
       this.loadFromStorage()
 
-      // Inicializar proveedor por defecto
-      await defaultProvider.init()
+      // Inicializar TODOS los proveedores registrados
+      const providers = getAllProviders()
+      await Promise.all(providers.map(async provider => {
+        try {
+          await provider.init()
 
-      // Escuchar cambios de estado del proveedor
-      defaultProvider.onStateChange(address => {
-        if (address && address !== this.activeAddress) {
-          this.activeAddress = address
-          this.saveActiveToStorage()
+          // Escuchar cambios de estado de cada proveedor
+          provider.onStateChange(address => {
+            if (address && address !== this.activeAddress) {
+              // Verificar si esta wallet pertenece a este proveedor
+              const wallet = this.wallets.find(
+                w => w.address === address && w.providerId === provider.id,
+              )
+              if (wallet) {
+                this.activeAddress = address
+                this.saveActiveToStorage()
+              }
+            }
+          })
+
+          provider.onDisconnect(() => {
+            // El proveedor se desconectó, pero mantenemos las wallets en memoria
+            // Solo limpiamos si el usuario lo pide explícitamente
+          })
+        } catch (error) {
+          console.error(`[WalletStore] Error initializing provider ${provider.id}:`, error)
         }
-      })
-
-      defaultProvider.onDisconnect(() => {
-        // El proveedor se desconectó, pero mantenemos las wallets en memoria
-        // Solo limpiamos si el usuario lo pide explícitamente
-      })
+      }))
 
       this.isInitialized = true
     },
 
     /**
      * Conecta una nueva wallet usando el proveedor especificado
+     * @param providerId - ID del proveedor a usar (si no se especifica, usa el primero disponible)
      */
-    async connect (providerId = 'stellar-wallets-kit'): Promise<ConnectedWallet | null> {
-      const provider = getProvider(providerId)
+    async connect (providerId?: string): Promise<ConnectedWallet | null> {
+      // Si no se especifica, usar el primer proveedor disponible
+      const providers = getAllProviders()
+      const resolvedProviderId = providerId ?? providers[0]?.id
+
+      if (!resolvedProviderId) {
+        this.lastError = 'No hay proveedores de wallet disponibles'
+        return null
+      }
+
+      const provider = getProvider(resolvedProviderId)
       if (!provider) {
-        this.lastError = `Proveedor no encontrado: ${providerId}`
+        this.lastError = `Proveedor no encontrado: ${resolvedProviderId}`
         return null
       }
 
@@ -167,7 +200,7 @@ export const useWalletStore = defineStore('wallet', {
         // Crear nueva wallet
         const wallet: ConnectedWallet = {
           address,
-          providerId,
+          providerId: resolvedProviderId,
           providerName,
           connectedAt: Date.now(),
         }
@@ -291,17 +324,9 @@ export const useWalletStore = defineStore('wallet', {
     },
 
     /**
-     * Formatea una dirección de forma abreviada
+     * Formatea una dirección de forma abreviada (wrapper de la función auxiliar)
      */
-    formatAddress (address: string): string {
-      if (!address) {
-        return ''
-      }
-      if (address.length <= 14) {
-        return address
-      }
-      return `${address.slice(0, 7)}...${address.slice(-7)}`
-    },
+    formatAddress,
 
     // === Storage ===
 

@@ -109,17 +109,3 @@ export interface WalletProvider {
    */
   onDisconnect: (callback: () => void) => () => void
 }
-
-/**
- * Tipo de eventos del sistema de wallets
- */
-export type WalletEventType = 'connected' | 'disconnected' | 'changed' | 'error'
-
-/**
- * Evento del sistema de wallets
- */
-export interface WalletEvent {
-  type: WalletEventType
-  wallet?: ConnectedWallet
-  error?: Error
-}

@@ -36,8 +36,3 @@ export function getProvider (providerId: string): WalletProvider | undefined {
 export function getAllProviders (): WalletProvider[] {
   return Object.values(walletProviders)
 }
-
-/**
- * Proveedor por defecto
- */
-export { stellarWalletsKitProvider as defaultProvider } from './stellarWalletsKit'

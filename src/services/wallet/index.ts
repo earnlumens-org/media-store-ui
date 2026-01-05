@@ -8,7 +8,6 @@
 
 // Proveedores
 export {
-  defaultProvider,
   getAllProviders,
   getProvider,
   stellarWalletsKitProvider,
@@ -22,7 +21,5 @@ export type {
   SignMessageResult,
   SignTransactionOptions,
   SignTransactionResult,
-  WalletEvent,
-  WalletEventType,
   WalletProvider,
 } from './types'

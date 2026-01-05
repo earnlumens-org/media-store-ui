@@ -27,6 +27,47 @@
             <div class="text-body-2 font-weight-light mt-n1">{{ $t('Common.wallet') }}</div>
           </div>
         </div>
+
+        <!-- Saldo XLM -->
+        <v-row v-if="walletStore.isConnected" align="center" class="mt-4" justify="center">
+          <v-col class="px-0" cols="auto">
+            <span
+              v-if="!isLoadingBalance"
+              aria-hidden="true"
+              class="text-body-1 font-weight-bold text-primary mr-2"
+              style="visibility:hidden"
+            >XLM</span>
+          </v-col>
+
+          <v-col class="px-0" cols="auto">
+            <div v-if="isLoadingBalance" class="d-flex align-center justify-center">
+              <v-progress-circular color="primary" indeterminate size="24" />
+            </div>
+            <div v-else-if="balanceTimedOut" class="d-flex align-center justify-center">
+              <v-btn
+                color="primary"
+                icon="mdi-refresh"
+                size="large"
+                variant="text"
+                @click="fetchBalance"
+              />
+            </div>
+            <h2 v-else class="text-h3 font-weight-bold text-primary text-center">
+              <NumberAnimation
+                :delay="0"
+                :duration="1.5"
+                easing="easeOutQuad"
+                :format="formatBalance"
+                :from="0"
+                :to="xlmBalance"
+              />
+            </h2>
+          </v-col>
+
+          <v-col class="text-left px-0" cols="auto">
+            <span v-if="!isLoadingBalance" class="text-body-1 font-weight-bold text-primary ml-2">XLM</span>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
@@ -99,13 +140,23 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted, ref } from 'vue'
+  import { computed, onMounted, ref, watch } from 'vue'
+  import NumberAnimation from 'vue-number-animation'
 
   import stellarSvg from '@/assets/stellar.svg?raw'
+  import { getXLMBalance } from '@/services/stellar'
   import { useWalletStore } from '@/stores/wallet'
+
+  const BALANCE_TIMEOUT_MS = 10_000
 
   const walletStore = useWalletStore()
   const showBottomSheet = ref(false)
+  const xlmBalance = ref(0)
+  const isLoadingBalance = ref(false)
+  const balanceTimedOut = ref(false)
+
+  // Request ID para ignorar respuestas de requests obsoletas
+  let currentRequestId = 0
 
   const stellarLogoSized = computed(() => {
     return stellarSvg
@@ -113,8 +164,68 @@
       .replace(/\sheight="[^"]*"/, ' height="53"')
   })
 
+  function formatBalance (value: number): string {
+    return (Math.trunc(value * 100) / 100).toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })
+  }
+
+  async function fetchBalance () {
+    if (!walletStore.activeAddress) {
+      xlmBalance.value = 0
+      return
+    }
+
+    // Incrementar request ID para invalidar requests anteriores
+    const requestId = ++currentRequestId
+
+    isLoadingBalance.value = true
+    balanceTimedOut.value = false
+
+    try {
+      const timeoutPromise = new Promise<never>((_, reject) => {
+        setTimeout(() => reject(new Error('timeout')), BALANCE_TIMEOUT_MS)
+      })
+
+      const balance = await Promise.race([
+        getXLMBalance(walletStore.activeAddress),
+        timeoutPromise,
+      ])
+
+      // Solo actualizar si este request sigue siendo el actual
+      if (requestId !== currentRequestId) {
+        return
+      }
+
+      xlmBalance.value = balance
+    } catch (error) {
+      // Solo actualizar si este request sigue siendo el actual
+      if (requestId !== currentRequestId) {
+        return
+      }
+
+      // Ignorar errores de abort (request cancelada)
+      if (error instanceof Error && error.name === 'AbortError') {
+        return
+      }
+
+      console.error('Error fetching XLM balance:', error)
+      balanceTimedOut.value = true
+    } finally {
+      // Solo actualizar loading si este request sigue siendo el actual
+      if (requestId === currentRequestId) {
+        isLoadingBalance.value = false
+      }
+    }
+  }
+
+  watch(() => walletStore.activeAddress, () => {
+    fetchBalance()
+  })
+
   onMounted(async () => {
-    await walletStore.initialize()
+    await fetchBalance()
   })
 
   function handleMainButtonClick () {

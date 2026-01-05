@@ -17,6 +17,7 @@ import { clearToken, initTokenWorker, onSessionExpired, refreshToken } from '@/s
 import pinia from '@/stores'
 
 import { useAuthStore } from '@/stores/auth'
+import { useWalletStore } from '@/stores/wallet'
 
 // Components
 import App from './App.vue'
@@ -162,6 +163,10 @@ async function initApp () {
   await initI18n()
   // Rehydrate session BEFORE app is fully ready (blocks router guards)
   await rehydrateSession()
+
+  // Initialize wallet store globally (loads wallets from localStorage)
+  const walletStore = useWalletStore(pinia)
+  await walletStore.initialize()
 }
 
 initApp()
