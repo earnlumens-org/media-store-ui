@@ -29,17 +29,8 @@
         </div>
 
         <!-- Saldo XLM -->
-        <v-row v-if="walletStore.isConnected" align="center" class="mt-5 mb-1" justify="center">
-          <v-col class="px-0" cols="auto">
-            <span
-              v-if="!isLoadingBalance"
-              aria-hidden="true"
-              class="text-body-1 font-weight-bold text-primary mr-2"
-              style="visibility:hidden"
-            >XLM</span>
-          </v-col>
-
-          <v-col class="px-0" cols="auto">
+        <v-row v-if="walletStore.isConnected" align="center" class="mt-1 mb-4" justify="center">
+          <v-col class="px-0 mr-1" cols="auto">
             <div v-if="isLoadingBalance" class="d-flex align-center justify-center">
               <v-progress-circular color="primary" indeterminate size="24" />
             </div>
@@ -52,7 +43,7 @@
                 @click="fetchBalance"
               />
             </div>
-            <h2 v-else class="text-h3 font-weight-bold text-primary text-center">
+            <h2 v-else class="text-h3 font-weight-bold text-primary text-center mt-3">
               <NumberAnimation
                 :delay="0"
                 :duration="1.5"
@@ -64,8 +55,8 @@
             </h2>
           </v-col>
 
-          <v-col class="text-left px-0" cols="auto">
-            <span v-if="!isLoadingBalance" class="text-body-1 font-weight-bold text-primary ml-2">XLM</span>
+          <v-col class="text-left px-0 pt-0" cols="auto">
+            <h2 v-if="!isLoadingBalance" class="text-left text-body-1 font-weight-bold text-primary">XLM</h2>
           </v-col>
         </v-row>
       </v-col>
@@ -76,7 +67,7 @@
   <v-card v-if="walletStore.isConnected">
     <v-tabs v-model="tab" align-tabs="center" color="primary">
       <v-tab value="deposit">{{ $t('Wallet.deposit') }}</v-tab>
-      <v-tab :disabled="true" value="history">{{ $t('Wallet.history') }}</v-tab>
+      <v-tab value="history">{{ $t('Wallet.history') }}</v-tab>
     </v-tabs>
     <v-window v-model="tab">
       <v-window-item value="deposit">

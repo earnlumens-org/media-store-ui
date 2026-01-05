@@ -38,6 +38,12 @@
         "tap": "Toque para copiar",
         "demo": "Esta es una wallet de demostración. Esta funcionando sobre la testnet. Deposite unos lumens para probar la responsividad."
     },
+    "CxHistory": {
+        "errorLoading": "Error al cargar transacciones",
+        "noTransactions": "Sin transacciones aún",
+        "received": "Recibido",
+        "sent": "Enviado"
+    },
     "CxVideo": {
         "bloqued": "Bloqueado"
     },
