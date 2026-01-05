@@ -12,7 +12,7 @@ import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 
 // Default theme names for toggle
-export const DEFAULT_LIGHT_THEME = 'rosePineDawn'
+export const DEFAULT_LIGHT_THEME = 'neoBrutalArt'
 export const DEFAULT_DARK_THEME = 'amoledGray'
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
@@ -280,7 +280,7 @@ export default createVuetify({
           'on-background': '#000000',
           'on-surface': '#000000',
 
-          'primary': '#FF6B35',
+          'primary': '#e77d30',
           'secondary': '#004E89',
           'accent': '#F5E600',
 
