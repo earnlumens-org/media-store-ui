@@ -38,6 +38,12 @@
         "tap": "Kopyalamak için dokunun",
         "demo": "Bu bir demo cüzdandır. Testnet üzerinde çalışmaktadır. Tepkiyi test etmek için biraz lumen yatırın."
     },
+    "CxHistory": {
+        "errorLoading": "İşlemler yüklenirken hata oluştu",
+        "noTransactions": "Henüz işlem yok",
+        "received": "Alındı",
+        "sent": "Gönderildi"
+    },
     "CxVideo": {
         "bloqued": "Engellendi"
     },

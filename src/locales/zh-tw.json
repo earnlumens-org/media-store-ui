@@ -38,6 +38,12 @@
         "tap": "點擊複製",
         "demo": "這是一個演示錢包。它在測試網上運行。發送一些Lumens以測試響應性。"
     },
+    "CxHistory": {
+        "errorLoading": "載入交易記錄時發生錯誤",
+        "noTransactions": "尚無交易記錄",
+        "received": "收到",
+        "sent": "已送出"
+    },
     "CxVideo": {
         "bloqued": "已阻止"
     },

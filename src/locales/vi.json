@@ -38,6 +38,12 @@
         "tap": "Chạm để sao chép",
         "demo": "Đây là ví demo. Nó đang chạy trên testnet. Gửi một số lumens để kiểm tra độ phản hồi."
     },
+    "CxHistory": {
+        "errorLoading": "Lỗi khi tải giao dịch",
+        "noTransactions": "Chưa có giao dịch nào",
+        "received": "Đã nhận",
+        "sent": "Đã gửi"
+    },
     "CxVideo": {
         "bloqued": "Bị chặn"
     },

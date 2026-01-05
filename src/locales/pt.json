@@ -38,6 +38,12 @@
         "tap": "Toque para copiar",
         "demo": "Esta é uma carteira de demonstração. Está funcionando na testnet. Envie alguns lumens para testar a responsividade."
     },
+    "CxHistory": {
+        "errorLoading": "Erro ao carregar transações",
+        "noTransactions": "Sem transações ainda",
+        "received": "Recebido",
+        "sent": "Enviado"
+    },
     "CxVideo": {
         "bloqued": "Bloqueado"
     },

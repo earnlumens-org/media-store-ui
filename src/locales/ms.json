@@ -38,6 +38,12 @@
         "tap": "Klik untuk menyalin",
         "demo": "Ini adalah dompet demo. Ia berjalan di testnet. Hantar beberapa lumens untuk menguji responsif."
     },
+    "CxHistory": {
+        "errorLoading": "Ralat memuatkan transaksi",
+        "noTransactions": "Belum ada transaksi",
+        "received": "Diterima",
+        "sent": "Dihantar"
+    },
     "CxVideo": {
         "bloqued": "Diblokir"
     },

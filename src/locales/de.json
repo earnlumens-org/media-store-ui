@@ -38,6 +38,12 @@
         "tap": "Tippen, um zu kopieren",
         "demo": "Dies ist eine Demo-Wallet. Sie läuft im Testnetz. Lege einige Lumens ein, um die Reaktionsfähigkeit zu testen."
     },
+    "CxHistory": {
+        "errorLoading": "Fehler beim Laden der Transaktionen",
+        "noTransactions": "Noch keine Transaktionen",
+        "received": "Erhalten",
+        "sent": "Gesendet"
+    },
     "CxVideo": {
         "bloqued": "Blockiert"
     },

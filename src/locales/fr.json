@@ -38,6 +38,12 @@
         "tap": "Tapez pour copier",
         "demo": "Ceci est un portefeuille de démonstration. Il fonctionne sur le testnet. Déposez des lumens pour tester la réactivité."
     },
+    "CxHistory": {
+        "errorLoading": "Erreur lors du chargement des transactions",
+        "noTransactions": "Aucune transaction pour le moment",
+        "received": "Reçu",
+        "sent": "Envoyé"
+    },
     "CxVideo": {
         "bloqued": "Bloquée"
     },
