@@ -1,0 +1,45 @@
+<template>
+  <v-img
+    class="rounded-lg"
+    cover
+    height="210"
+    :src="entry.thumbnailUrl"
+  >
+    <!-- Duración del video -->
+    <v-chip
+      v-if="entry.durationSec"
+      class="position-absolute bottom-0 right-0 ma-2 text-white"
+      density="comfortable"
+      label
+      :style="{ backgroundColor: 'rgba(0, 0, 0, 0.65)' }"
+      variant="flat"
+    >
+      <span class="font-weight-bold">{{ formattedDuration }}</span>
+    </v-chip>
+  </v-img>
+</template>
+
+<script setup lang="ts">
+  import type { Entry } from '../EntryCard.vue'
+
+  import { computed } from 'vue'
+
+  const props = defineProps<{ entry: Entry }>()
+
+  const formattedDuration = computed(() => {
+    if (!props.entry.durationSec) {
+      return ''
+    }
+
+    const totalSeconds = props.entry.durationSec
+    const hours = Math.floor(totalSeconds / 3600)
+    const minutes = Math.floor((totalSeconds % 3600) / 60)
+    const seconds = totalSeconds % 60
+
+    if (hours > 0) {
+      return `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+    }
+
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`
+  })
+</script>
