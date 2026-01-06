@@ -144,8 +144,8 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(var(--v-theme-primary), 0.20) 0%,
-    rgba(var(--v-theme-primary), 0.09) 40%,
+    rgba(var(--v-theme-primary), 0.23) 0%,
+    rgba(var(--v-theme-primary), 0.10) 40%,
     transparent 70%
   );
   filter: blur(32px);
@@ -163,8 +163,8 @@
   background: conic-gradient(
     from -12deg,
     transparent 0deg,
-    rgba(var(--v-theme-primary), 0.44) 12deg,
-    rgba(var(--v-theme-primary), 0.31) 22deg,
+    rgba(var(--v-theme-primary), 0.50) 12deg,
+    rgba(var(--v-theme-primary), 0.35) 22deg,
     transparent 42deg
   );
   filter: blur(6px);
@@ -181,21 +181,21 @@
 
 @keyframes wave-cw {
   0% { transform: rotate(180deg); opacity: 0; }
-  6% { opacity: 0.72; }
-  94% { transform: rotate(360deg); opacity: 0.72; }
+  6% { opacity: 0.81; }
+  94% { transform: rotate(360deg); opacity: 0.81; }
   100% { transform: rotate(360deg); opacity: 0; }
 }
 
 @keyframes wave-ccw {
   0% { transform: rotate(180deg); opacity: 0; }
-  6% { opacity: 0.61; }
-  94% { transform: rotate(0deg); opacity: 0.61; }
+  6% { opacity: 0.69; }
+  94% { transform: rotate(0deg); opacity: 0.69; }
   100% { transform: rotate(0deg); opacity: 0; }
 }
 
 @keyframes pulse-aura {
-  0%, 100% { opacity: 0.44; }
-  50% { opacity: 0.72; }
+  0%, 100% { opacity: 0.50; }
+  50% { opacity: 0.81; }
 }
 
 @keyframes floaty {
@@ -210,6 +210,6 @@
   .gargantua-effect::after {
     animation: none;
   }
-  .gargantua-effect { opacity: 0.55; }
+  .gargantua-effect { opacity: 0.63; }
 }
 </style>
