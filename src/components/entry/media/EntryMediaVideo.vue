@@ -1,22 +1,42 @@
 <template>
-  <v-img
-    class="rounded-lg"
-    cover
-    height="210"
-    :src="entry.thumbnailUrl"
-  >
-    <!-- Duración del video -->
-    <v-chip
-      v-if="entry.durationSec"
-      class="position-absolute bottom-0 right-0 ma-2 text-white"
-      density="comfortable"
-      label
-      :style="{ backgroundColor: 'rgba(0, 0, 0, 0.65)' }"
-      variant="flat"
+  <div class="position-relative">
+    <v-img
+      :class="['rounded-lg', entry.locked ? 'grayscale opacity-60' : '']"
+      cover
+      height="210"
+      :src="entry.thumbnailUrl"
     >
-      <span class="font-weight-bold">{{ formattedDuration }}</span>
-    </v-chip>
-  </v-img>
+      <!-- Duración del video -->
+      <v-chip
+        v-if="entry.durationSec"
+        class="position-absolute bottom-0 right-0 ma-2 text-white"
+        density="comfortable"
+        label
+        :style="{ backgroundColor: 'rgba(0, 0, 0, 0.65)' }"
+        variant="flat"
+      >
+        <span class="font-weight-bold">{{ formattedDuration }}</span>
+      </v-chip>
+    </v-img>
+
+    <!-- Overlay Blocked -->
+    <v-overlay
+      class="d-flex align-center justify-center rounded-lg"
+      contained
+      :model-value="entry.locked"
+      persistent
+      scrim="rgba(0, 0, 0, 0.55)"
+    >
+      <v-btn
+        color="white"
+        prepend-icon="mdi-lock"
+        rounded="pill"
+        variant="elevated"
+      >
+        Blocked
+      </v-btn>
+    </v-overlay>
+  </div>
 </template>
 
 <script setup lang="ts">

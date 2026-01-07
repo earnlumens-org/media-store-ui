@@ -1,40 +1,19 @@
 <template>
   <v-card
-    class="mx-auto rounded-lg overflow-hidden pa-3 position-relative"
+    class="mx-auto rounded-lg overflow-hidden pa-2 w-100"
     color="surface"
     elevated
     max-width="375"
   >
-    <!-- Contenido que queda "deshabilitado" visualmente cuando está bloqueado -->
-    <div :class="entry.locked ? 'grayscale opacity-60' : ''">
-      <component
-        :is="mediaComponent"
-        :entry="entry"
-      />
+    <component
+      :is="mediaComponent"
+      :entry="entry"
+    />
 
-      <EntryFooter
-        :entry="entry"
-        :show-author="showAuthor"
-      />
-    </div>
-
-    <!-- Overlay persistente: NO se cierra con click/ESC -->
-    <v-overlay
-      class="d-flex align-center justify-center"
-      contained
-      :model-value="entry.locked"
-      persistent
-      scrim="rgba(0, 0, 0, 0.55)"
-    >
-      <v-btn
-        color="white"
-        prepend-icon="mdi-lock"
-        rounded="pill"
-        variant="elevated"
-      >
-        Blocked
-      </v-btn>
-    </v-overlay>
+    <EntryFooter
+      :entry="entry"
+      :show-author="showAuthor"
+    />
   </v-card>
 </template>
 
