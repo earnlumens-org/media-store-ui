@@ -1,5 +1,5 @@
 <template>
-  <v-container class="py-4" fluid>
+  <v-container class="py-4 px-1" fluid>
     <v-row dense>
       <v-col cols="12" sm="6">
         <EntryCard :entry="entryA" />
