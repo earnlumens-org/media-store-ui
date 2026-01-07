@@ -2,9 +2,9 @@
   <div class="position-relative">
     <v-img
       class="rounded-lg"
+      :class="entry.locked ? 'grayscale opacity-60' : ''"
       cover
       height="210"
-      :class="entry.locked ? 'grayscale opacity-60' : ''"
       :src="entry.thumbnailUrl"
     />
 

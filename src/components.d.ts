@@ -22,6 +22,7 @@ declare module 'vue' {
     CxSearchDialog: typeof import('./components/CxSearchDialog.vue')['default']
     CxXButton: typeof import('./components/login/CxXButton.vue')['default']
     EntryCard: typeof import('./components/entry/EntryCard.vue')['default']
+    EntryCardMockGrid: typeof import('./components/entry/EntryCardMockGrid.vue')['default']
     EntryFooter: typeof import('./components/entry/EntryFooter.vue')['default']
     EntryMediaAudio: typeof import('./components/entry/media/EntryMediaAudio.vue')['default']
     EntryMediaCourse: typeof import('./components/entry/media/EntryMediaCourse.vue')['default']

@@ -3,17 +3,17 @@
     <v-img
       v-if="entry.thumbnailUrl"
       class="rounded-lg"
+      :class="entry.locked ? 'grayscale opacity-60' : ''"
       cover
       height="210"
-      :class="entry.locked ? 'grayscale opacity-60' : ''"
       :src="entry.thumbnailUrl"
     />
     <v-sheet
       v-else
       class="rounded-lg d-flex align-center justify-center"
+      :class="entry.locked ? 'grayscale opacity-60' : ''"
       color="grey-lighten-3"
       height="210"
-      :class="entry.locked ? 'grayscale opacity-60' : ''"
     >
       <v-icon
         color="grey"
