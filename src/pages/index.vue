@@ -1,15 +1,17 @@
 <template>
   <Hero />
-
-  <v-container class="mt-6">
-    <v-card class="pa-6" color="transparent" elevation="4">
-      <div class="text-h6 font-weight-bold mb-2">Debug Card</div>
-      <div>Revisando márgenes y separación debajo del Hero.</div>
-    </v-card>
+  <v-container class="mt-6 mb-2 px-1 px-sm-4" fluid>
+    <div class="d-flex align-center">
+      <div class="text-h4 font-weight-bold">Explore</div>
+      <v-icon class="ml-2" size="32">mdi-chevron-right</v-icon>
+    </div>
   </v-container>
+
+  <EntryCardMockGrid class="pt-0" />
 </template>
 
 <script setup lang="ts">
+  import EntryCardMockGrid from '@/components/entry/EntryCardMockGrid.vue'
   import Hero from '@/components/home/Hero.vue'
 </script>
 
