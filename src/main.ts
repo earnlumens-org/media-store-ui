@@ -4,18 +4,21 @@ import { createApp } from 'vue'
 // i18n
 import { createI18n } from 'vue-i18n'
 
+// API
+import { parseUserFromToken } from '@/api/modules/user.api'
+
 // Plugins
 import { registerPlugins } from '@/plugins'
 
 // Router
 import router from '@/router'
+
 // Auth
 import { broadcastAuthEvent, initAuthBroadcast, onAuthBroadcast } from '@/services/authBroadcast'
-
 import { clearToken, initTokenWorker, onSessionExpired, refreshToken } from '@/services/tokenWorkerClient'
+
 // Stores
 import pinia from '@/stores'
-
 import { useAuthStore } from '@/stores/auth'
 import { useWalletStore } from '@/stores/wallet'
 
@@ -88,9 +91,16 @@ async function rehydrateSession (): Promise<void> {
     await initTokenWorker()
 
     const result = await refreshToken()
-    if (result.success) {
+    if (result.success && result.accessToken) {
       console.log('[Auth] Session rehydrated successfully')
-      authStore.setAuthenticated(true)
+
+      // Parse user profile from JWT claims
+      const userProfile = parseUserFromToken(result.accessToken)
+      if (userProfile) {
+        authStore.setUser(userProfile)
+      } else {
+        authStore.setAuthenticated(true)
+      }
     } else {
       authStore.setAuthenticated(false)
     }

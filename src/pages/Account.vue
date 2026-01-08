@@ -42,14 +42,6 @@
               <v-list density="compact">
                 <v-list-item>
                   <template #prepend>
-                    <v-icon>mdi-identifier</v-icon>
-                  </template>
-                  <v-list-item-title>User ID</v-list-item-title>
-                  <v-list-item-subtitle class="text-truncate">{{ user.id }}</v-list-item-subtitle>
-                </v-list-item>
-
-                <v-list-item>
-                  <template #prepend>
                     <v-icon>mdi-account-group</v-icon>
                   </template>
                   <v-list-item-title>Followers</v-list-item-title>

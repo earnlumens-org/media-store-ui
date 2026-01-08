@@ -21,7 +21,7 @@ export const api = {
 
 export { ApiError, apiRequest } from './apiRequest'
 export { createSession, logout, refreshAccessToken } from './modules/auth.api'
-export { checkUsernameExists, getCurrentUser, getUserByUsername } from './modules/user.api'
+export { checkUsernameExists, getCurrentUser, getUserByUsername, parseUserFromToken } from './modules/user.api'
 export { getWaitlistStats } from './modules/waitlist.api'
 
 export type {

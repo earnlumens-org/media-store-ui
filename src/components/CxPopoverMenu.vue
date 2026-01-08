@@ -27,7 +27,7 @@
           <v-list-item
             :prepend-avatar="profileImageUrl"
             :subtitle="username"
-            :title="email"
+            :title="displayName"
           />
         </v-list>
 
@@ -143,7 +143,8 @@
     router.push('/')
   }
 
-  const profileImageUrl = 'https://fastly.picsum.photos/id/903/1200/1200.jpg?hmac=8fD_XguoHwGB2RsVu_aX2XwhvCVXRSsvzNAh53Sjobc'
-  const username = '@usuario'
-  const email = 'user@example.com'
+  // User profile from auth store
+  const profileImageUrl = computed(() => authStore.user?.profileImageUrl ?? '')
+  const username = computed(() => authStore.user?.username ? `@${authStore.user.username}` : '')
+  const displayName = computed(() => authStore.user?.displayName ?? '')
 </script>

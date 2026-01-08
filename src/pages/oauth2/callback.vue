@@ -14,6 +14,7 @@
   import { useRouter } from 'vue-router'
 
   import { createSession } from '@/api/modules/auth.api'
+  import { parseUserFromToken } from '@/api/modules/user.api'
   import { initTokenWorker, setToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
@@ -62,8 +63,14 @@
       // Send token to worker (never stored in main thread)
       await setToken(accessToken)
 
-      // Mark as logged in
-      authStore.setAuthenticated(true)
+      // Parse user profile from JWT claims and set in store
+      const userProfile = parseUserFromToken(accessToken)
+      if (userProfile) {
+        authStore.setUser(userProfile)
+      } else {
+        // Fallback: just mark as authenticated without profile
+        authStore.setAuthenticated(true)
+      }
     } catch (error) {
       console.error('Session creation failed:', error)
       authStore.setError(error instanceof Error ? error.message : 'login_failed')
