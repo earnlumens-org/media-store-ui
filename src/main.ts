@@ -19,6 +19,7 @@ import { clearToken, initTokenWorker, onSessionExpired, refreshToken } from '@/s
 
 // Stores
 import pinia from '@/stores'
+import { useAppStore } from '@/stores/app'
 import { useAuthStore } from '@/stores/auth'
 import { useWalletStore } from '@/stores/wallet'
 
@@ -171,12 +172,30 @@ async function initApp () {
   initAuthBroadcast()
 
   await initI18n()
-  // Rehydrate session BEFORE app is fully ready (blocks router guards)
-  await rehydrateSession()
 
-  // Initialize wallet store globally (loads wallets from localStorage)
-  const walletStore = useWalletStore(pinia)
-  await walletStore.initialize()
+  // Lock app UI while we rehydrate session + initialize wallets
+  // (mirrors the logout locking pattern: guard + watchdog + try/finally)
+  const appStore = useAppStore(pinia)
+  if (appStore.isAppLocked) {
+    return
+  }
+  appStore.setIsAppLocked(true)
+
+  const watchdog = window.setTimeout(() => {
+    appStore.setIsAppLocked(false)
+  }, 20_000)
+
+  try {
+    // Rehydrate session BEFORE app is fully ready (blocks router guards)
+    await rehydrateSession()
+
+    // Initialize wallet store globally (loads wallets from localStorage)
+    const walletStore = useWalletStore(pinia)
+    await walletStore.initialize()
+  } finally {
+    window.clearTimeout(watchdog)
+    appStore.setIsAppLocked(false)
+  }
 }
 
 initApp()
