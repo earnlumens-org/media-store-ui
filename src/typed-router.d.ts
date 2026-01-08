@@ -25,7 +25,6 @@ declare module 'vue-router/auto-routes' {
     '/Community': RouteRecordInfo<'/Community', '/community', Record<never, never>, Record<never, never>>,
     '/Ecosystem': RouteRecordInfo<'/Ecosystem', '/ecosystem', Record<never, never>, Record<never, never>>,
     '/Explore': RouteRecordInfo<'/Explore', '/explore', Record<never, never>, Record<never, never>>,
-    '/Fan': RouteRecordInfo<'/Fan', '/fan', Record<never, never>, Record<never, never>>,
     '/Favorites': RouteRecordInfo<'/Favorites', '/favorites', Record<never, never>, Record<never, never>>,
     '/Featured': RouteRecordInfo<'/Featured', '/featured', Record<never, never>, Record<never, never>>,
     '/feed/[...path]': RouteRecordInfo<'/feed/[...path]', '/feed/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
@@ -77,10 +76,6 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/Explore.vue': {
       routes: '/Explore'
-      views: never
-    }
-    'src/pages/Fan.vue': {
-      routes: '/Fan'
       views: never
     }
     'src/pages/Favorites.vue': {
