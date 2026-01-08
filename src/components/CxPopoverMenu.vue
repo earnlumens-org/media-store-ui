@@ -130,17 +130,34 @@
   }
 
   async function handleLogout () {
+    // Prevent re-entrancy (double-click) and show global loading overlay
+    if (appStore.isAppLocked) return
+
     menu.value = false
+    appStore.setIsAppLocked(true)
+
+    const watchdog = window.setTimeout(() => {
+      appStore.setIsAppLocked(false)
+    }, 20_000)
+
     try {
-      await logout()
-    } catch {
-      // Backend call failed, but continue cleaning local state
+      try {
+        await logout()
+      } catch {
+        // Backend call failed, but continue cleaning local state
+      }
+
+      await clearToken()
+      authStore.clearAuth()
+
+      // Notify other tabs about logout
+      broadcastAuthEvent('LOGOUT')
+
+      await router.push('/')
+    } finally {
+      window.clearTimeout(watchdog)
+      appStore.setIsAppLocked(false)
     }
-    await clearToken()
-    authStore.clearAuth()
-    // Notify other tabs about logout
-    broadcastAuthEvent('LOGOUT')
-    router.push('/')
   }
 
   // User profile from auth store

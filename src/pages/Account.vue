@@ -92,9 +92,11 @@
   import { logout } from '@/api/modules/auth.api'
   import { broadcastAuthEvent } from '@/services/authBroadcast'
   import { clearToken } from '@/services/tokenWorkerClient'
+  import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
 
   const router = useRouter()
+  const appStore = useAppStore()
   const authStore = useAuthStore()
 
   const user = ref<UserProfile | null>(null)
@@ -124,16 +126,31 @@
   }
 
   async function handleLogout () {
+    // Prevent re-entrancy (double-click) and show global loading overlay
+    if (appStore.isAppLocked) return
+
+    appStore.setIsAppLocked(true)
+
+    const watchdog = window.setTimeout(() => {
+      appStore.setIsAppLocked(false)
+    }, 20_000)
+
     try {
-      await logout()
-    } catch {
-      // Ignore logout errors
+      try {
+        await logout()
+      } catch {
+        // Ignore logout errors
+      }
+
+      await clearToken()
+      authStore.clearAuth()
+      // Notify other tabs about logout
+      broadcastAuthEvent('LOGOUT')
+      await router.push('/')
+    } finally {
+      window.clearTimeout(watchdog)
+      appStore.setIsAppLocked(false)
     }
-    await clearToken()
-    authStore.clearAuth()
-    // Notify other tabs about logout
-    broadcastAuthEvent('LOGOUT')
-    router.push('/')
   }
 
   onMounted(() => {
