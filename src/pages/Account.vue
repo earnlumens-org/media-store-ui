@@ -47,36 +47,7 @@
                   <v-list-item-title>Followers</v-list-item-title>
                   <v-list-item-subtitle>{{ user.followersCount?.toLocaleString() ?? 'N/A' }}</v-list-item-subtitle>
                 </v-list-item>
-
-                <v-list-item v-if="user.friendsCount !== undefined">
-                  <template #prepend>
-                    <v-icon>mdi-account-multiple</v-icon>
-                  </template>
-                  <v-list-item-title>Following</v-list-item-title>
-                  <v-list-item-subtitle>{{ user.friendsCount.toLocaleString() }}</v-list-item-subtitle>
-                </v-list-item>
-
-                <v-list-item v-if="user.location">
-                  <template #prepend>
-                    <v-icon>mdi-map-marker</v-icon>
-                  </template>
-                  <v-list-item-title>Location</v-list-item-title>
-                  <v-list-item-subtitle>{{ user.location }}</v-list-item-subtitle>
-                </v-list-item>
-
-                <v-list-item v-if="user.description">
-                  <template #prepend>
-                    <v-icon>mdi-text</v-icon>
-                  </template>
-                  <v-list-item-title>Bio</v-list-item-title>
-                  <v-list-item-subtitle class="text-wrap">{{ user.description }}</v-list-item-subtitle>
-                </v-list-item>
               </v-list>
-
-              <v-chip v-if="user.verified" class="mt-4" color="info" size="small">
-                <v-icon size="small" start>mdi-check-decagram</v-icon>
-                Verified
-              </v-chip>
             </div>
 
             <!-- No user -->
