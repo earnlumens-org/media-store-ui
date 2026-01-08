@@ -73,7 +73,9 @@
         <v-expansion-panels class="mt-4">
           <v-expansion-panel title="Debug: Raw API Response">
             <v-expansion-panel-text>
-              <pre class="text-caption">{{ JSON.stringify(user, null, 2) }}</pre>
+              <div style="overflow-x: auto;">
+                <pre class="text-caption" style="white-space: pre;">{{ JSON.stringify(user, null, 2) }}</pre>
+              </div>
             </v-expansion-panel-text>
           </v-expansion-panel>
         </v-expansion-panels>
