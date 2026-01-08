@@ -1,8 +1,6 @@
 {
     "Common": {
-        "videoId": "IAyWdU7I-Vw",
         "wallet": "Cüzdan",
-        "signup": "Kaydol",
         "login": "Giriş Yap",
         "loginErrorTitle": "Giriş Hatası",
         "loginErrorDescription": "Giriş yaparken bir sorun oluştu. Lütfen tekrar deneyin.",
@@ -12,31 +10,20 @@
         "operationFailedPleaseTryAgain": "İşlem başarısız. Lütfen tekrar deneyin",
         "save": "Kaydet",
         "email": "E-posta",
-        "password": "Şifre",
         "search": "Ara",
-        "emailAddress": "E-posta Adresi",
-        "enterYourPassword": "Şifrenizi girin",
-        "signupNow": "Şimdi kaydolun",
-        "invalidLogin": "Geçersiz kullanıcı adı veya şifre",
         "logout": "Çıkış Yap",
         "welcome": "Hoş geldiniz",
         "shortAbout": "Stellar ağı üzerinde işbirlikçi bir finansal eğitim platformu",
         "blockquote": "EARNLUMENS, finansal eğitimin gerçek dünya uygulamalarıyla buluştuğu işbirlikçi bir platformdur. Stellar ağında gezinmeyi öğrenin, finansal potansiyelinizi geliştirin ve başkalarının ilerlemesine yardımcı olmak için bilginizi paylaşın.",
-        "messageToUsers": "EARNLUMENS geliştirme aşamasındadır. Platformu test etmek için ilkler arasında olmak üzere ilerlememizi takip edin ve bekleme listemize katılın. Kurucu bir kullanıcı olarak, sitede cüzdanınızı test etme ve özel bir kurucu işareti edinme fırsatına sahip olacaksınız. Erken erişim elde etmek ve bilgilendirilmek için bizi sosyal medyada takip edin. Finansal güçlenme yolculuğunuz burada başlıyor.",
         "accept": "Kabul et",
-        "nonAccount": "Bu hesap mevcut değildir.",
-        "nonAccountTry": "Başka bir hesap arayın.",
-        "upload": "Yükle",
-        "viewMore": "Daha fazla görüntüle"
+        "upload": "Yükle"
     },
     "CxDeposit": {
         "snackbarSuccess": "Adres panoya kopyalandı",
         "snackbarError": "Adres kopyalanırken hata oluştu. Tekrar deneyin veya manuel olarak kopyalayın.",
         "snackbarErrorDetails": "Adres kopyalanırken hata oluştu. Detaylar tarayıcı konsolunda. Tekrar deneyin veya manuel olarak kopyalayın.",
         "snackbarNotSupported": "Bu tarayıcıda panoya kopyalama desteklenmiyor. Lütfen adresi manuel olarak kopyalayın.",
-        "memo": "Fonları almak için not gerekmez",
-        "tap": "Kopyalamak için dokunun",
-        "demo": "Bu bir demo cüzdandır. Testnet üzerinde çalışmaktadır. Tepkiyi test etmek için biraz lumen yatırın."
+        "tap": "Kopyalamak için dokunun"
     },
     "CxHistory": {
         "errorLoading": "İşlemler yüklenirken hata oluştu",
@@ -44,27 +31,9 @@
         "received": "Alındı",
         "sent": "Gönderildi"
     },
-    "CxVideo": {
-        "bloqued": "Engellendi"
-    },
     "Wallet": {
         "deposit": "Yatır",
-        "withdraw": "Çek",
         "history": "Geçmiş"
-    },
-    "CxWithdraw": {
-        "send": "Gönder",
-        "amount": "Miktar",
-        "memo": "Not isteğe bağlıdır",
-        "address": "Hedef Adres",
-        "addressRequired": "Adres gereklidir",
-        "addressInvalid": "Adres geçersiz",
-        "maximum": "Maks.",
-        "amountRequired": "Miktar gereklidir",
-        "amountInvalid": "Miktar için geçerli bir sayı girmelisiniz",
-        "amountResolution": "Miktarın 7'den fazla ondalık basamağı olamaz",
-        "amountInsufficient": "Yetersiz bakiye",
-        "memoMaxSize": "Notun uzunluğu 28 bayttan fazla olamaz"
     },
     "AppBar": {
         "home": "Ana Sayfa",
@@ -98,33 +67,17 @@
         "turkish": "Türkçe"
     },
     "CxLoginDialog": {
-        "forgotPassword": "Şifremi Unuttum?",
         "emailMostBeValid": "E-posta geçerli olmalıdır",
-        "emailRequired": "E-posta gereklidir",
-        "passwordRequired": "Şifre gereklidir",
-        "passwordMinLength": "Şifre en az 8 karakter uzunluğunda olmalıdır"
-    },
-    "CxRegisterDialog": {
-        "createAnAccount": "Bir hesap oluşturun",
-        "confirmPassword": "Şifreyi Onayla",
-        "createAccount": "Hesap Oluştur",
-        "byCreatingAccount": "Bir hesap oluşturarak Hizmet Şartları ve Gizlilik Politikasını kabul etmiş olurum",
-        "termsAndPrivacyPolicy": "Hizmet Şartları ve Gizlilik Politikası",
-        "errorPassword": "Şifre en az 8 karakter uzunluğunda olmalı ve 1 büyük harf ile 1 rakam içermelidir.",
-        "errorConfirm": "Şifreler uyuşmuyor."
+        "emailRequired": "E-posta gereklidir"
     },
     "Home": {
         "aboutXLM": "XLM Hakkında",
-        "community": "Topluluk",
         "joinWaitlist": "bekleme listesi"
     },
     "WaitList": {
         "joinOurWaitingList": "Bekleme listemize katılın",
         "feedbackOptional": "Geri Bildirim (İsteğe Bağlı)",
         "join": "Katıl",
-        "registeredEmailWeWillKeepYouInformed": "Kayıtlı e-posta. Sizi bilgilendireceğiz.",
-        "subscribedUsersLast15Days": "Son 15 günde abone olan kullanıcılar",
-        "totalUsersOnWaitlist": "Bekleme listesindeki toplam kullanıcı",
-        "userAccumulation": "Kullanıcı Birikimi"
+        "registeredEmailWeWillKeepYouInformed": "Kayıtlı e-posta. Sizi bilgilendireceğiz."
     }
 }
