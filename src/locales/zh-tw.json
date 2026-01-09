@@ -5,6 +5,8 @@
         "loginErrorTitle": "登錄錯誤",
         "loginErrorDescription": "嘗試登錄時出現問題。請重試。",
         "language": "語言",
+        "darkMode": "深色模式",
+        "themes": "+ 主題",
         "close": "關閉",
         "pleaseWait": "請稍候",
         "operationFailedPleaseTryAgain": "操作失敗，請重試",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "存款",
-        "history": "歷史"
+        "history": "歷史",
+        "chooseWallet": "選擇錢包",
+        "active": "已啟用",
+        "addWallet": "新增錢包",
+        "disconnectAll": "全部中斷連線"
+    },
+    "Account": {
+        "account": "帳戶",
+        "followers": "追蹤者",
+        "refresh": "重新整理"
     },
     "AppBar": {
         "home": "主頁",

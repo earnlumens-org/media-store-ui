@@ -5,6 +5,8 @@
         "loginErrorTitle": "Ralat log masuk",
         "loginErrorDescription": "Masalah berlaku semasa cuba log masuk. Sila cuba lagi.",
         "language": "Bahasa",
+        "darkMode": "Mod Gelap",
+        "themes": "+ Tema",
         "close": "Tutup",
         "pleaseWait": "Sila tunggu",
         "operationFailedPleaseTryAgain": "Operasi gagal. Sila cuba lagi",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "Deposit",
-        "history": "Sejarah"
+        "history": "Sejarah",
+        "chooseWallet": "Pilih dompet",
+        "active": "Aktif",
+        "addWallet": "Tambah dompet",
+        "disconnectAll": "Putuskan semua"
+    },
+    "Account": {
+        "account": "Akaun",
+        "followers": "Pengikut",
+        "refresh": "Segarkan"
     },
     "AppBar": {
         "home": "Laman Utama",

@@ -5,6 +5,8 @@
         "loginErrorTitle": "ログインエラー",
         "loginErrorDescription": "ログインしようとしている際に問題が発生しました。もう一度お試しください。",
         "language": "言語",
+        "darkMode": "ダークモード",
+        "themes": "+ テーマ",
         "close": "閉じる",
         "pleaseWait": "お待ちください",
         "operationFailedPleaseTryAgain": "操作に失敗しました。もう一度お試しください",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "預金",
-        "history": "歴史"
+        "history": "歴史",
+        "chooseWallet": "ウォレットを選択",
+        "active": "アクティブ",
+        "addWallet": "ウォレットを追加",
+        "disconnectAll": "すべて切断"
+    },
+    "Account": {
+        "account": "アカウント",
+        "followers": "フォロワー",
+        "refresh": "更新"
     },
     "AppBar": {
         "home": "ホームページ",

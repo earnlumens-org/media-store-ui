@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
+    "i18n:check-locales": "node scripts/i18n-check-locales.mjs",
     "lint": "eslint . --fix"
   },
   "dependencies": {

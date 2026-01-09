@@ -5,6 +5,8 @@
         "loginErrorTitle": "ошибка входа",
         "loginErrorDescription": "произошла ошибка при попытке входа. Пожалуйста, попробуйте еще раз.",
         "language": "язык",
+        "darkMode": "Тёмный режим",
+        "themes": "+ Темы",
         "close": "закрыть",
         "pleaseWait": "пожалуйста, подождите",
         "operationFailedPleaseTryAgain": "операция не удалась. Пожалуйста, попробуйте еще раз",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "депозит",
-        "history": "история"
+        "history": "история",
+        "chooseWallet": "Выбрать кошелёк",
+        "active": "Активен",
+        "addWallet": "Добавить кошелёк",
+        "disconnectAll": "Отключить все"
+    },
+    "Account": {
+        "account": "Аккаунт",
+        "followers": "Подписчики",
+        "refresh": "Обновить"
     },
     "AppBar": {
         "home": "Главная",

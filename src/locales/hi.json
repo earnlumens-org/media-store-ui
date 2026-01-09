@@ -5,6 +5,8 @@
         "loginErrorTitle": "लॉग इन में त्रुटि",
         "loginErrorDescription": "लॉग इन करने में समस्या आई। कृपया पुनः प्रयास करें।",
         "language": "भाषा",
+        "darkMode": "डार्क मोड",
+        "themes": "+ थीम्स",
         "close": "बंद करे",
         "pleaseWait": "कृपया प्रतीक्षा करें",
         "operationFailedPleaseTryAgain": "ऑपरेशन विफल हुआ। कृपया पुनः प्रयास करें",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "जमा करें",
-        "history": "इतिहास"
+        "history": "इतिहास",
+        "chooseWallet": "वॉलेट चुनें",
+        "active": "सक्रिय",
+        "addWallet": "वॉलेट जोड़ें",
+        "disconnectAll": "सभी डिस्कनेक्ट करें"
+    },
+    "Account": {
+        "account": "खाता",
+        "followers": "फ़ॉलोअर्स",
+        "refresh": "रीफ्रेश"
     },
     "AppBar": {
         "home": "होम",

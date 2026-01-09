@@ -5,6 +5,8 @@
     "loginErrorTitle": "登录错误",
     "loginErrorDescription": "尝试登录时出现问题。请重试。",
     "language": "语言",
+    "darkMode": "深色模式",
+    "themes": "+ 主题",
     "close": "关闭",
     "pleaseWait": "请稍候",
     "operationFailedPleaseTryAgain": "操作失败，请重试",
@@ -33,7 +35,16 @@
   },
   "Wallet": {
     "deposit": "存款",
-    "history": "历史"
+    "history": "历史",
+    "chooseWallet": "选择钱包",
+    "active": "已激活",
+    "addWallet": "添加钱包",
+    "disconnectAll": "全部断开"
+  },
+  "Account": {
+    "account": "账户",
+    "followers": "关注者",
+    "refresh": "刷新"
   },
   "AppBar": {
     "home": "主页",

@@ -5,6 +5,8 @@
         "loginErrorTitle": "Erreur de connexion",
         "loginErrorDescription": "Un problème est survenu lors de la tentative de connexion. Veuillez réessayer.",
         "language": "Langue",
+        "darkMode": "Mode sombre",
+        "themes": "+ Thèmes",
         "close": "Fermer",
         "pleaseWait": "Veuillez patienter",
         "operationFailedPleaseTryAgain": "L’opération a échoué. Veuillez réessayer",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "Dépôt",
-        "history": "Historique"
+        "history": "Historique",
+        "chooseWallet": "Choisir un portefeuille",
+        "active": "Actif",
+        "addWallet": "Ajouter un portefeuille",
+        "disconnectAll": "Tout déconnecter"
+    },
+    "Account": {
+        "account": "Compte",
+        "followers": "Abonnés",
+        "refresh": "Actualiser"
     },
     "AppBar": {
         "home": "Accueil",

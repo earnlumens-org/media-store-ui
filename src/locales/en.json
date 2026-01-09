@@ -5,6 +5,8 @@
         "loginErrorTitle": "Error signing in",
         "loginErrorDescription": "There was a problem trying to sign in. Please try again.",
         "language": "Language",
+        "darkMode": "Dark Mode",
+        "themes": "+ Themes",
         "close": "Close",
         "pleaseWait": "Please wait",
         "operationFailedPleaseTryAgain": "Operation failed. Please try again",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "Deposit",
-        "history": "History"
+        "history": "History",
+        "chooseWallet": "Choose wallet",
+        "active": "Active",
+        "addWallet": "Add wallet",
+        "disconnectAll": "Disconnect all"
+    },
+    "Account": {
+        "account": "Account",
+        "followers": "Followers",
+        "refresh": "Refresh"
     },
     "AppBar": {
         "home": "Home",

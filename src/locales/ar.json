@@ -5,6 +5,8 @@
         "loginErrorTitle": "خطأ في تسجيل الدخول",
         "loginErrorDescription": "كان هناك مشكلة في محاولة تسجيل الدخول. يرجى المحاولة مرة أخرى.",
         "language": "لغة",
+        "darkMode": "الوضع الداكن",
+        "themes": "+ السمات",
         "close": "أغلق",
         "pleaseWait": "يرجى الانتظار",
         "operationFailedPleaseTryAgain": "فشلت العملية. يرجى المحاولة مرة أخرى",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "إيداع",
-        "history": "التاريخ"
+        "history": "التاريخ",
+        "chooseWallet": "اختر المحفظة",
+        "active": "نشطة",
+        "addWallet": "إضافة محفظة",
+        "disconnectAll": "قطع الاتصال بالكل"
+    },
+    "Account": {
+        "account": "الحساب",
+        "followers": "المتابعون",
+        "refresh": "تحديث"
     },
     "AppBar": {
         "home": "الصفحة الرئيسية",

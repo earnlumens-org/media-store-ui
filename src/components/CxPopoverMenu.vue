@@ -40,7 +40,7 @@
             <v-switch
               color="amber-lighten-1"
               hide-details
-              label="Dark Mode"
+              :label="$t('Common.darkMode')"
               :model-value="isDarkMode"
               @update:model-value="toggleTheme"
             />
@@ -48,11 +48,12 @@
 
           <v-list-item>
             <v-btn
+              class="text-uppercase"
               color="primary"
               variant="text"
               @click="goToThemes"
             >
-              + Themes
+              {{ $t('Common.themes') }}
             </v-btn>
           </v-list-item>
 

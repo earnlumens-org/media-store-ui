@@ -5,6 +5,8 @@
         "loginErrorTitle": "Errore di accesso",
         "loginErrorDescription": "Si è verificato un problema durante il tentativo di accesso. Riprova.",
         "language": "Lingua",
+        "darkMode": "Modalità scura",
+        "themes": "+ Temi",
         "close": "Chiudi",
         "pleaseWait": "Attendere prego",
         "operationFailedPleaseTryAgain": "Operazione fallita. Riprova",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "Deposita",
-        "history": "Storia"
+        "history": "Storia",
+        "chooseWallet": "Scegli portafoglio",
+        "active": "Attivo",
+        "addWallet": "Aggiungi portafoglio",
+        "disconnectAll": "Disconnetti tutto"
+    },
+    "Account": {
+        "account": "Account",
+        "followers": "Follower",
+        "refresh": "Aggiorna"
     },
     "AppBar": {
         "home": "Home",

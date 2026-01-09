@@ -84,13 +84,14 @@
   <v-bottom-sheet v-model="showBottomSheet">
     <v-card>
       <v-card-title class="d-flex align-center justify-space-between">
-        <span>Choose wallet</span>
+        <span>{{ $t('Wallet.chooseWallet') }}</span>
         <v-btn
+          class="text-uppercase"
           color="primary"
           variant="text"
           @click="handleAddWallet"
         >
-          Add Wallet
+          {{ $t('Wallet.addWallet') }}
         </v-btn>
       </v-card-title>
 
@@ -112,11 +113,11 @@
             {{ wallet.providerName }}
             <v-chip
               v-if="wallet.address === walletStore.activeAddress"
-              class="ml-2"
+              class="ml-2 text-uppercase"
               color="primary"
               size="x-small"
             >
-              ACTIVE
+              {{ $t('Wallet.active') }}
             </v-chip>
           </v-list-item-title>
 
@@ -136,11 +137,12 @@
 
       <v-card-actions class="justify-center">
         <v-btn
+          class="text-uppercase"
           color="error"
           variant="text"
           @click="handleDisconnectAll"
         >
-          Disconnect All
+          {{ $t('Wallet.disconnectAll') }}
         </v-btn>
       </v-card-actions>
     </v-card>

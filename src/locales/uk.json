@@ -5,6 +5,8 @@
         "loginErrorTitle": "Помилка входу",
         "loginErrorDescription": "Під час спроби входу виникла проблема. Будь ласка, спробуйте ще раз.",
         "language": "Мова",
+        "darkMode": "Темний режим",
+        "themes": "+ Теми",
         "close": "Закрити",
         "pleaseWait": "Будь ласка, зачекайте",
         "operationFailedPleaseTryAgain": "Операція не вдалася. Будь ласка, спробуйте ще раз",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "Депозит",
-        "history": "Історія"
+        "history": "Історія",
+        "chooseWallet": "Вибрати гаманець",
+        "active": "Активний",
+        "addWallet": "Додати гаманець",
+        "disconnectAll": "Від’єднати все"
+    },
+    "Account": {
+        "account": "Обліковий запис",
+        "followers": "Підписники",
+        "refresh": "Оновити"
     },
     "AppBar": {
         "home": "Домашня",

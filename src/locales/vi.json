@@ -5,6 +5,8 @@
         "loginErrorTitle": "Lỗi đăng nhập",
         "loginErrorDescription": "Có sự cố khi cố gắng đăng nhập. Vui lòng thử lại.",
         "language": "Ngôn ngữ",
+        "darkMode": "Chế độ tối",
+        "themes": "+ Chủ đề",
         "close": "Đóng",
         "pleaseWait": "Vui lòng đợi",
         "operationFailedPleaseTryAgain": "Thao tác thất bại. Vui lòng thử lại",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "Gửi tiền",
-        "history": "Lịch sử"
+        "history": "Lịch sử",
+        "chooseWallet": "Chọn ví",
+        "active": "Đang hoạt động",
+        "addWallet": "Thêm ví",
+        "disconnectAll": "Ngắt kết nối tất cả"
+    },
+    "Account": {
+        "account": "Tài khoản",
+        "followers": "Người theo dõi",
+        "refresh": "Làm mới"
     },
     "AppBar": {
         "home": "Trang chủ",

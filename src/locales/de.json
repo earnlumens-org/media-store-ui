@@ -5,6 +5,8 @@
         "loginErrorTitle": "Fehler beim Anmelden",
         "loginErrorDescription": "Beim Anmelden ist ein Problem aufgetreten. Bitte versuche es erneut.",
         "language": "Sprache",
+        "darkMode": "Dunkelmodus",
+        "themes": "+ Themen",
         "close": "Schließen",
         "pleaseWait": "Bitte warten",
         "operationFailedPleaseTryAgain": "Vorgang fehlgeschlagen. Bitte versuche es erneut",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "Einzahlen",
-        "history": "Verlauf"
+        "history": "Verlauf",
+        "chooseWallet": "Wallet auswählen",
+        "active": "Aktiv",
+        "addWallet": "Wallet hinzufügen",
+        "disconnectAll": "Alle trennen"
+    },
+    "Account": {
+        "account": "Konto",
+        "followers": "Follower",
+        "refresh": "Aktualisieren"
     },
     "AppBar": {
         "home": "Startseite",

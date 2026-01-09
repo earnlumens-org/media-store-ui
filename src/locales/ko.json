@@ -5,6 +5,8 @@
         "loginErrorTitle": "로그인 오류",
         "loginErrorDescription": "로그인하는 중 문제가 발생했습니다. 다시 시도하세요.",
         "language": "언어",
+        "darkMode": "다크 모드",
+        "themes": "+ 테마",
         "close": "닫기",
         "pleaseWait": "기다려 주세요",
         "operationFailedPleaseTryAgain": "작업 실패. 다시 시도해주세요",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "입금",
-        "history": "내역"
+        "history": "내역",
+        "chooseWallet": "지갑 선택",
+        "active": "활성",
+        "addWallet": "지갑 추가",
+        "disconnectAll": "모두 연결 해제"
+    },
+    "Account": {
+        "account": "계정",
+        "followers": "팔로워",
+        "refresh": "새로고침"
     },
     "AppBar": {
         "home": "홈",

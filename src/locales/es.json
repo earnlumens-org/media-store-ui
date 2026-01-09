@@ -5,6 +5,8 @@
         "loginErrorTitle": "Error al iniciar sesión",
         "loginErrorDescription": "Hubo un problema al intentar iniciar sesión. Por favor, inténtelo de nuevo.",
         "language": "Idioma",
+        "darkMode": "Modo oscuro",
+        "themes": "+ Temas",
         "close": "Cerrar",
         "pleaseWait": "Por favor espere",
         "operationFailedPleaseTryAgain": "Operación fallida. Por favor, inténtelo de nuevo.",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "Depositar",
-        "history": "Historial"
+        "history": "Historial",
+        "chooseWallet": "Elegir billetera",
+        "active": "Activa",
+        "addWallet": "Agregar billetera",
+        "disconnectAll": "Desconectar todo"
+    },
+    "Account": {
+        "account": "Cuenta",
+        "followers": "Seguidores",
+        "refresh": "Actualizar"
     },
     "AppBar": {
         "home": "Inicio",

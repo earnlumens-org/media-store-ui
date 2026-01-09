@@ -5,6 +5,8 @@
         "loginErrorTitle": "Giriş Hatası",
         "loginErrorDescription": "Giriş yaparken bir sorun oluştu. Lütfen tekrar deneyin.",
         "language": "Dil",
+        "darkMode": "Karanlık Mod",
+        "themes": "+ Temalar",
         "close": "Kapat",
         "pleaseWait": "Lütfen bekleyin",
         "operationFailedPleaseTryAgain": "İşlem başarısız. Lütfen tekrar deneyin",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "Yatır",
-        "history": "Geçmiş"
+        "history": "Geçmiş",
+        "chooseWallet": "Cüzdan seç",
+        "active": "Aktif",
+        "addWallet": "Cüzdan ekle",
+        "disconnectAll": "Tüm bağlantıları kes"
+    },
+    "Account": {
+        "account": "Hesap",
+        "followers": "Takipçiler",
+        "refresh": "Yenile"
     },
     "AppBar": {
         "home": "Ana Sayfa",

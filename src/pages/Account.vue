@@ -5,7 +5,7 @@
         <v-card>
           <v-card-title class="text-h5">
             <v-icon start>mdi-account</v-icon>
-            Account
+            {{ $t('Account.account') }}
           </v-card-title>
 
           <v-card-text>
@@ -44,7 +44,7 @@
                   <template #prepend>
                     <v-icon>mdi-account-group</v-icon>
                   </template>
-                  <v-list-item-title>Followers</v-list-item-title>
+                  <v-list-item-title>{{ $t('Account.followers') }}</v-list-item-title>
                   <v-list-item-subtitle>{{ user.followersCount?.toLocaleString() ?? 'N/A' }}</v-list-item-subtitle>
                 </v-list-item>
               </v-list>
@@ -57,14 +57,14 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn color="primary" :loading="loading" variant="tonal" @click="fetchUser">
+            <v-btn class="text-uppercase" color="primary" :loading="loading" variant="tonal" @click="fetchUser">
               <v-icon start>mdi-refresh</v-icon>
-              Refresh
+              {{ $t('Account.refresh') }}
             </v-btn>
             <v-spacer />
-            <v-btn color="error" variant="text" @click="handleLogout">
+            <v-btn class="text-uppercase" color="error" variant="text" @click="handleLogout">
               <v-icon start>mdi-logout</v-icon>
-              Logout
+              {{ $t('Common.logout') }}
             </v-btn>
           </v-card-actions>
         </v-card>

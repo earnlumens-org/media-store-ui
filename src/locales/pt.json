@@ -5,6 +5,8 @@
         "loginErrorTitle": "Erro de login",
         "loginErrorDescription": "Houve um problema ao tentar fazer login. Por favor, tente novamente.",
         "language": "Idioma",
+        "darkMode": "Modo escuro",
+        "themes": "+ Temas",
         "close": "Fechar",
         "pleaseWait": "Por favor espere",
         "operationFailedPleaseTryAgain": "Operação falhou. Por favor, tente novamente",
@@ -33,7 +35,16 @@
     },
     "Wallet": {
         "deposit": "Depósito",
-        "history": "Histórico"
+        "history": "Histórico",
+        "chooseWallet": "Escolher carteira",
+        "active": "Ativa",
+        "addWallet": "Adicionar carteira",
+        "disconnectAll": "Desconectar tudo"
+    },
+    "Account": {
+        "account": "Conta",
+        "followers": "Seguidores",
+        "refresh": "Atualizar"
     },
     "AppBar": {
         "home": "Início",
