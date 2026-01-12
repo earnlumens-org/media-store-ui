@@ -7,14 +7,38 @@
     </div>
 
     <div style="display: flex; flex: 1; justify-content: flex-end; align-items: center;">
-      <cx-search-dialog v-if="true" />
-      <cx-language-dialog />
       <template v-if="!isAuthReady">
+        <!-- Search skeleton -->
+        <v-btn class="my-1" disabled icon variant="text">
+          <v-skeleton-loader boilerplate height="24" type="avatar" width="24" />
+        </v-btn>
+        <!-- Language skeleton -->
+        <v-btn
+          v-if="mobileView"
+          class="my-2 mr-1"
+          disabled
+          icon
+          size="small"
+          variant="text"
+        >
+          <v-skeleton-loader boilerplate height="20" type="avatar" width="20" />
+        </v-btn>
+        <v-skeleton-loader
+          v-else
+          boilerplate
+          class="my-2"
+          height="36"
+          type="button"
+          width="130"
+        />
+        <!-- Auth skeleton -->
         <v-btn class="ma-1" disabled icon variant="text">
-          <v-skeleton-loader boilerplate type="avatar" />
+          <v-skeleton-loader boilerplate height="40" type="avatar" width="40" />
         </v-btn>
       </template>
       <template v-else>
+        <cx-search-dialog />
+        <cx-language-dialog />
         <cx-dark-light-mode v-if="!loggedIn" />
         <cx-login-dialog v-if="!loggedIn" />
         <cx-popover-menu v-else />
