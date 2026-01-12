@@ -6,12 +6,17 @@
       <v-toolbar-title><b class="pl-1 font-weight-bold text-button">EARNLUMENS</b></v-toolbar-title>
     </div>
 
-    <div style="display: flex; flex: 1; justify-content: flex-end;">
+    <div style="display: flex; flex: 1; justify-content: flex-end; align-items: center;">
       <cx-search-dialog v-if="true" />
       <cx-language-dialog />
-      <cx-dark-light-mode v-if="!loggedIn" />
-      <cx-login-dialog v-if="!loggedIn" />
-      <cx-popover-menu v-else />
+      <template v-if="!isAuthReady">
+        <v-skeleton-loader boilerplate type="avatar" width="40" />
+      </template>
+      <template v-else>
+        <cx-dark-light-mode v-if="!loggedIn" />
+        <cx-login-dialog v-if="!loggedIn" />
+        <cx-popover-menu v-else />
+      </template>
     </div>
   </v-app-bar>
 
@@ -208,7 +213,7 @@
   const appStore = useAppStore()
   const authStore = useAuthStore()
   const { mobileView, windowWidth } = storeToRefs(appStore)
-  const { isAuthenticated: loggedIn } = storeToRefs(authStore)
+  const { isAuthenticated: loggedIn, isAuthReady } = storeToRefs(authStore)
 
   // State
   const drawer = ref(false)
