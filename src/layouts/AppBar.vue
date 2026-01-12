@@ -27,7 +27,8 @@
     :rail="rail"
   >
     <v-list density="compact" nav>
-      <v-tooltip :disabled="mobileView" :text="$t('AppBar.home')">
+      <v-skeleton-loader v-if="!isAuthReady" class="hidden-sm-and-down" type="list-item" />
+      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.home')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -41,7 +42,8 @@
         </template>
       </v-tooltip>
 
-      <v-tooltip :disabled="mobileView" :text="$t('AppBar.firststeps')">
+      <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
+      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.firststeps')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -56,7 +58,8 @@
 
       <v-divider />
 
-      <v-tooltip :disabled="mobileView" :text="$t('AppBar.wallet')">
+      <v-skeleton-loader v-if="!isAuthReady" class="hidden-sm-and-down" type="list-item" />
+      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.wallet')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -71,7 +74,8 @@
         </template>
       </v-tooltip>
 
-      <v-tooltip :disabled="mobileView" :text="$t('AppBar.favorites')">
+      <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
+      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.favorites')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -85,7 +89,8 @@
         </template>
       </v-tooltip>
 
-      <v-tooltip :disabled="mobileView" :text="$t('AppBar.purchased')">
+      <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
+      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.purchased')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -101,7 +106,8 @@
 
       <v-divider />
 
-      <v-tooltip :disabled="mobileView" :text="$t('AppBar.ecosystem')">
+      <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
+      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.ecosystem')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -114,7 +120,8 @@
         </template>
       </v-tooltip>
 
-      <v-tooltip :disabled="mobileView" :text="$t('AppBar.community')">
+      <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
+      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.community')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -127,7 +134,8 @@
         </template>
       </v-tooltip>
 
-      <v-tooltip :disabled="mobileView" :text="$t('AppBar.featured')">
+      <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
+      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.featured')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -140,7 +148,8 @@
         </template>
       </v-tooltip>
 
-      <v-tooltip :disabled="mobileView" :text="$t('AppBar.explore')">
+      <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
+      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.explore')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -155,7 +164,8 @@
 
       <v-divider />
 
-      <v-tooltip :disabled="mobileView" :text="$t('AppBar.account')">
+      <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
+      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.account')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
