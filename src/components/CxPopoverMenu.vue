@@ -9,11 +9,11 @@
       <template #activator="{ props }">
         <v-btn
           v-bind="props"
-          class="ma-1"
+          class="mr-3"
           icon
           variant="text"
         >
-          <v-avatar size="40">
+          <v-avatar>
             <v-img :src="profileImageUrl" />
           </v-avatar>
         </v-btn>

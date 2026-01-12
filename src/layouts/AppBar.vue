@@ -10,9 +10,7 @@
       <cx-search-dialog v-if="isAuthReady" />
       <cx-language-dialog v-if="isAuthReady" />
       <template v-if="!isAuthReady">
-        <v-btn class="ma-1" disabled icon variant="text">
-          <v-skeleton-loader boilerplate height="40" type="avatar" width="40" />
-        </v-btn>
+        <v-skeleton-loader type="avatar" />
       </template>
       <template v-else>
         <cx-dark-light-mode v-if="!loggedIn" />
