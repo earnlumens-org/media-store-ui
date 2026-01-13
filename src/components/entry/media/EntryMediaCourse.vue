@@ -4,7 +4,6 @@
       class="rounded-lg"
       :class="entry.locked ? 'grayscale opacity-60' : ''"
       cover
-      height="210"
       :src="entry.thumbnailUrl"
     >
       <!-- Badge de curso -->

@@ -3,7 +3,6 @@
     class="mx-auto rounded-lg overflow-hidden pa-2 w-100"
     color="surface"
     elevated
-    max-width="375"
   >
     <component
       :is="mediaComponent"

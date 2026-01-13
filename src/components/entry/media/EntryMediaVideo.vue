@@ -3,7 +3,6 @@
     <v-img
       :class="['rounded-lg', entry.locked ? 'grayscale opacity-60' : '']"
       cover
-      height="210"
       :src="entry.thumbnailUrl"
     >
       <!-- Duración del video -->

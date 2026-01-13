@@ -4,7 +4,6 @@
       class="rounded-lg d-flex align-center justify-center"
       :class="entry.locked ? 'grayscale opacity-60' : ''"
       color="grey-darken-3"
-      height="210"
     >
       <v-icon
         color="white"
