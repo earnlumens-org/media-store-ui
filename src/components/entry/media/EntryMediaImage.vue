@@ -1,11 +1,22 @@
 <template>
   <div class="position-relative">
-    <v-img
-      class="rounded-lg"
-      :class="entry.locked ? 'grayscale opacity-60' : ''"
-      cover
+    <MediaFrame
+      fallback-color="brown-lighten-4"
+      fallback-icon="mdi-image-outline"
+      fallback-icon-color="grey-darken-4"
+      :grayscale="Boolean(entry.locked)"
       :src="entry.thumbnailUrl"
-    />
+    >
+      <template #overlay>
+        <v-avatar
+          class="position-absolute top-0 right-0 ma-2 text-white"
+          color="rgba(0, 0, 0, 0.65)"
+          size="28"
+        >
+          <v-icon size="16">mdi-image-outline</v-icon>
+        </v-avatar>
+      </template>
+    </MediaFrame>
 
     <!-- Overlay Blocked -->
     <v-overlay
@@ -29,6 +40,8 @@
 
 <script setup lang="ts">
   import type { Entry } from '../EntryCard.vue'
+
+  import MediaFrame from '@/components/media/MediaFrame.vue'
 
   defineProps<{ entry: Entry }>()
 </script>

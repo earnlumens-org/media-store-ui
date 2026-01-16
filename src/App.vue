@@ -49,7 +49,7 @@
   // Watch for auth errors from callback
   const authError = computed(() => authStore.error)
 
-  watch(authError, (error) => {
+  watch(authError, error => {
     if (error) {
       loginErrorMessage.value = decodeURIComponent(error)
       loginErrorDialog.value = true

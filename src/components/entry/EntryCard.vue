@@ -17,20 +17,22 @@
 </template>
 
 <script setup lang="ts">
+  import type { ProfileBadge } from '@/lib/profileBadge'
+
   import { computed } from 'vue'
 
   import EntryMediaAudio from './media/EntryMediaAudio.vue'
-  import EntryMediaCourse from './media/EntryMediaCourse.vue'
+  import EntryMediaEntry from './media/EntryMediaEntry.vue'
   import EntryMediaImage from './media/EntryMediaImage.vue'
-  import EntryMediaPost from './media/EntryMediaPost.vue'
   import EntryMediaVideo from './media/EntryMediaVideo.vue'
 
   export interface Entry {
     id: string
-    type: 'video' | 'audio' | 'post' | 'image' | 'course'
+    type: 'video' | 'audio' | 'entry' | 'image'
     title: string
     authorName: string
     authorAvatarUrl?: string
+    profileBadge?: ProfileBadge
     publishedAt: string | Date
     thumbnailUrl?: string
     durationSec?: number
@@ -54,17 +56,14 @@
       case 'audio': {
         return EntryMediaAudio
       }
-      case 'post': {
-        return EntryMediaPost
+      case 'entry': {
+        return EntryMediaEntry
       }
       case 'image': {
         return EntryMediaImage
       }
-      case 'course': {
-        return EntryMediaCourse
-      }
       default: {
-        return EntryMediaPost
+        return EntryMediaEntry
       }
     }
   })

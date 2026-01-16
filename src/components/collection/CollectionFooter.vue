@@ -5,11 +5,10 @@
         v-if="showAuthor"
         class="me-4 flex-shrink-0"
         :size="48"
-        :src="entry.authorAvatarUrl"
+        :src="collection.authorAvatarUrl"
       />
 
       <div class="flex-grow-1">
-        <!-- Título: máximo 2 líneas con ellipsis -->
         <div
           class="text-body-1 font-weight-medium text-medium-emphasis"
           :style="{
@@ -19,15 +18,14 @@
             overflow: 'hidden',
           }"
         >
-          {{ entry.title }}
+          {{ collection.title }}
         </div>
 
-        <!-- Nombre del autor -->
         <div
           v-if="showAuthor"
           class="text-body-1 font-weight-medium mt-1 d-flex align-center"
         >
-          <span>{{ entry.authorName }}</span>
+          <span>{{ collection.authorName }}</span>
           <v-avatar
             v-if="profileBadgeSrc"
             class="ms-2 flex-shrink-0"
@@ -39,7 +37,6 @@
         </div>
       </div>
 
-      <!-- Menú de tres puntos -->
       <v-menu>
         <template #activator="{ props: menuProps }">
           <v-btn
@@ -59,7 +56,14 @@
       </v-menu>
     </v-card-text>
 
-    <!-- Fecha anclada a la esquina inferior derecha -->
+    <div
+      v-if="!showAuthor"
+      class="position-absolute bottom-0 left-0 ml-2 mb-1 text-caption text-medium-emphasis"
+    >
+      <span v-if="collection.itemsCount">{{ collection.itemsCount }} items</span>
+      <span v-else>{{ collection.collectionType }}</span>
+    </div>
+
     <div class="position-absolute bottom-0 right-0 mr-2 mb-0 text-caption text-medium-emphasis">
       {{ formattedDate }}
     </div>
@@ -67,7 +71,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { Entry } from './EntryCard.vue'
+  import type { Collection } from './CollectionCard.vue'
 
   import { computed } from 'vue'
 
@@ -76,7 +80,7 @@
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
 
   interface Props {
-    entry: Entry
+    collection: Collection
     showAuthor?: boolean
   }
 
@@ -85,12 +89,12 @@
   })
 
   const formattedDate = computed(() => {
-    const date = props.entry.publishedAt instanceof Date
-      ? props.entry.publishedAt
-      : new Date(props.entry.publishedAt)
+    const date = props.collection.publishedAt instanceof Date
+      ? props.collection.publishedAt
+      : new Date(props.collection.publishedAt)
 
-    return date.toLocaleDateString('en-CA') // formato YYYY/MM/DD
+    return date.toLocaleDateString('en-CA')
   })
 
-  const profileBadgeSrc = computed(() => getProfileBadgeSrc(props.entry.profileBadge))
+  const profileBadgeSrc = computed(() => getProfileBadgeSrc(props.collection.profileBadge))
 </script>

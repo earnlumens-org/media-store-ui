@@ -11,7 +11,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AvatarFrame: typeof import('./components/media/AvatarFrame.vue')['default']
     CategoryList: typeof import('./components/themes/CategoryList.vue')['default']
+    CollectionCard: typeof import('./components/collection/CollectionCard.vue')['default']
+    CollectionFooter: typeof import('./components/collection/CollectionFooter.vue')['default']
+    CollectionMedia: typeof import('./components/collection/media/CollectionMedia.vue')['default']
     CxDarkLightMode: typeof import('./components/CxDarkLightMode.vue')['default']
     CxDeposit: typeof import('./components/wallet/CxDeposit.vue')['default']
     CxHistory: typeof import('./components/wallet/CxHistory.vue')['default']
@@ -25,11 +29,11 @@ declare module 'vue' {
     EntryCardMockGrid: typeof import('./components/entry/EntryCardMockGrid.vue')['default']
     EntryFooter: typeof import('./components/entry/EntryFooter.vue')['default']
     EntryMediaAudio: typeof import('./components/entry/media/EntryMediaAudio.vue')['default']
-    EntryMediaCourse: typeof import('./components/entry/media/EntryMediaCourse.vue')['default']
+    EntryMediaEntry: typeof import('./components/entry/media/EntryMediaEntry.vue')['default']
     EntryMediaImage: typeof import('./components/entry/media/EntryMediaImage.vue')['default']
-    EntryMediaPost: typeof import('./components/entry/media/EntryMediaPost.vue')['default']
     EntryMediaVideo: typeof import('./components/entry/media/EntryMediaVideo.vue')['default']
     Hero: typeof import('./components/home/Hero.vue')['default']
+    MediaFrame: typeof import('./components/media/MediaFrame.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Theme: typeof import('./components/themes/Theme.vue')['default']

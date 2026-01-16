@@ -57,7 +57,13 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn class="text-uppercase" color="primary" :loading="loading" variant="tonal" @click="fetchUser">
+            <v-btn
+              class="text-uppercase"
+              color="primary"
+              :loading="loading"
+              variant="tonal"
+              @click="fetchUser"
+            >
               <v-icon start>mdi-refresh</v-icon>
               {{ $t('Account.refresh') }}
             </v-btn>

@@ -1,22 +1,33 @@
 <template>
   <div class="position-relative">
-    <v-img
-      :class="['rounded-lg', entry.locked ? 'grayscale opacity-60' : '']"
-      cover
+    <MediaFrame
+      fallback-color="green-lighten-4"
+      fallback-icon="mdi-video-outline"
+      fallback-icon-color="grey-darken-4"
+      :grayscale="Boolean(entry.locked)"
       :src="entry.thumbnailUrl"
     >
-      <!-- Duración del video -->
-      <v-chip
-        v-if="entry.durationSec"
-        class="position-absolute bottom-0 right-0 ma-2 text-white"
-        density="comfortable"
-        label
-        :style="{ backgroundColor: 'rgba(0, 0, 0, 0.65)' }"
-        variant="flat"
-      >
-        <span class="font-weight-bold">{{ formattedDuration }}</span>
-      </v-chip>
-    </v-img>
+      <template #overlay>
+        <v-avatar
+          class="position-absolute top-0 right-0 ma-2 text-white"
+          color="rgba(0, 0, 0, 0.65)"
+          size="28"
+        >
+          <v-icon size="18">mdi-video-outline</v-icon>
+        </v-avatar>
+
+        <v-chip
+          v-if="entry.durationSec"
+          class="position-absolute bottom-0 right-0 ma-2 text-white"
+          color="rgba(0, 0, 0, 0.65)"
+          density="comfortable"
+          label
+          variant="flat"
+        >
+          <span class="font-weight-bold">{{ formattedDuration }}</span>
+        </v-chip>
+      </template>
+    </MediaFrame>
 
     <!-- Overlay Blocked -->
     <v-overlay
@@ -42,6 +53,8 @@
   import type { Entry } from '../EntryCard.vue'
 
   import { computed } from 'vue'
+
+  import MediaFrame from '@/components/media/MediaFrame.vue'
 
   const props = defineProps<{ entry: Entry }>()
 

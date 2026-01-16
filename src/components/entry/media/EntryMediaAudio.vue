@@ -1,29 +1,34 @@
 <template>
   <div class="position-relative">
-    <v-sheet
-      class="rounded-lg d-flex align-center justify-center"
-      :class="entry.locked ? 'grayscale opacity-60' : ''"
-      color="grey-darken-3"
+    <MediaFrame
+      fallback-color="red-lighten-4"
+      fallback-icon="mdi-music"
+      fallback-icon-color="grey-darken-4"
+      :grayscale="Boolean(entry.locked)"
+      :src="entry.thumbnailUrl"
     >
-      <v-icon
-        color="white"
-        size="64"
-      >
-        mdi-music
-      </v-icon>
+      <template #overlay>
+        <v-avatar
+          class="position-absolute top-0 right-0 ma-2 text-white"
+          color="rgba(0, 0, 0, 0.65)"
+          size="28"
+        >
+          <v-icon size="16">mdi-music</v-icon>
+        </v-avatar>
 
-      <!-- Duración del audio -->
-      <v-chip
-        v-if="entry.durationSec"
-        class="position-absolute bottom-0 right-0 ma-2 text-white"
-        density="comfortable"
-        label
-        :style="{ backgroundColor: 'rgba(0, 0, 0, 0.65)' }"
-        variant="flat"
-      >
-        <span class="font-weight-bold">{{ formattedDuration }}</span>
-      </v-chip>
-    </v-sheet>
+        <v-chip
+          v-if="entry.durationSec"
+          class="position-absolute top-0 left-0 ma-2 text-white"
+          color="rgba(0, 0, 0, 0.65)"
+          density="comfortable"
+          label
+          rounded="xl"
+          variant="flat"
+        >
+          <span class="font-weight-bold">{{ formattedDuration }}</span>
+        </v-chip>
+      </template>
+    </MediaFrame>
 
     <!-- Overlay Blocked -->
     <v-overlay
@@ -49,6 +54,8 @@
   import type { Entry } from '../EntryCard.vue'
 
   import { computed } from 'vue'
+
+  import MediaFrame from '@/components/media/MediaFrame.vue'
 
   const props = defineProps<{ entry: Entry }>()
 
