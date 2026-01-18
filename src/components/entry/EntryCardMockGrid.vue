@@ -60,13 +60,53 @@
     <template #loading>
       <v-container class="py-4 px-1 px-sm-4" fluid>
         <v-row dense>
+          <!-- Skeleton 1: always visible (xs+) -->
           <v-col
-            v-for="n in 6"
-            :key="`loading-${n}`"
             cols="12"
             lg="3"
             md="4"
             sm="6"
+            xxl="2"
+          >
+            <EntryCardSkeleton />
+          </v-col>
+          <!-- Skeleton 2: visible from sm+ -->
+          <v-col
+            class="d-none d-sm-flex"
+            lg="3"
+            md="4"
+            sm="6"
+            xxl="2"
+          >
+            <EntryCardSkeleton />
+          </v-col>
+          <!-- Skeleton 3: visible from md+ -->
+          <v-col
+            class="d-none d-md-flex"
+            lg="3"
+            md="4"
+            xxl="2"
+          >
+            <EntryCardSkeleton />
+          </v-col>
+          <!-- Skeleton 4: visible from lg+ -->
+          <v-col
+            class="d-none d-lg-flex"
+            lg="3"
+            xxl="2"
+          >
+            <EntryCardSkeleton />
+          </v-col>
+          <!-- Skeleton 5: visible from xxl+ -->
+          <v-col
+            class="d-none d-xxl-flex"
+            xxl="2"
+          >
+            <EntryCardSkeleton />
+          </v-col>
+          <!-- Skeleton 6: visible from xxl+ -->
+          <v-col
+            class="d-none d-xxl-flex"
             xxl="2"
           >
             <EntryCardSkeleton />
