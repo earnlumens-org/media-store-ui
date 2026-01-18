@@ -27,6 +27,7 @@ declare module 'vue' {
     CxXButton: typeof import('./components/login/CxXButton.vue')['default']
     EntryCard: typeof import('./components/entry/EntryCard.vue')['default']
     EntryCardMockGrid: typeof import('./components/entry/EntryCardMockGrid.vue')['default']
+    EntryCardSkeleton: typeof import('./components/entry/EntryCardSkeleton.vue')['default']
     EntryFooter: typeof import('./components/entry/EntryFooter.vue')['default']
     EntryMediaAudio: typeof import('./components/entry/media/EntryMediaAudio.vue')['default']
     EntryMediaEntry: typeof import('./components/entry/media/EntryMediaEntry.vue')['default']
