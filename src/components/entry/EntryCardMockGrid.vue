@@ -67,7 +67,7 @@
             lg="3"
             md="4"
             sm="6"
-            xl="2"
+            xxl="2"
           >
             <EntryCardSkeleton />
           </v-col>
