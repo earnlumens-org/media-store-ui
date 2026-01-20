@@ -33,6 +33,7 @@
     <!-- Overlay Blocked -->
     <v-overlay
       class="d-flex align-center justify-center rounded-lg"
+      :close-on-back="false"
       contained
       :model-value="entry.locked"
       persistent
