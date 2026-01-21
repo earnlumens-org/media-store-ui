@@ -30,6 +30,7 @@ declare module 'vue-router/auto-routes' {
     '/feed/[...path]': RouteRecordInfo<'/feed/[...path]', '/feed/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
     '/FirstSteps': RouteRecordInfo<'/FirstSteps', '/firststeps', Record<never, never>, Record<never, never>>,
     'AuthXCallback': RouteRecordInfo<'AuthXCallback', '/oauth2/callback', Record<never, never>, Record<never, never>>,
+    '/preview/[id]': RouteRecordInfo<'/preview/[id]', '/preview/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/Purchased': RouteRecordInfo<'/Purchased', '/purchased', Record<never, never>, Record<never, never>>,
     '/section/[...path]': RouteRecordInfo<'/section/[...path]', '/section/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
     '/themes': RouteRecordInfo<'/themes', '/themes', Record<never, never>, Record<never, never>>,
@@ -37,6 +38,8 @@ declare module 'vue-router/auto-routes' {
     '/WaitList': RouteRecordInfo<'/WaitList', '/waitlist', Record<never, never>, Record<never, never>>,
     '/WaitListStats': RouteRecordInfo<'/WaitListStats', '/waitlist/stats', Record<never, never>, Record<never, never>>,
     '/Wallet': RouteRecordInfo<'/Wallet', '/wallet', Record<never, never>, Record<never, never>>,
+    '/watch/[id]': RouteRecordInfo<'/watch/[id]', '/watch/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/watch/RecommendationsList': RouteRecordInfo<'/watch/RecommendationsList', '/watch/RecommendationsList', Record<never, never>, Record<never, never>>,
   }
 
   /**
@@ -98,6 +101,10 @@ declare module 'vue-router/auto-routes' {
       routes: 'AuthXCallback'
       views: never
     }
+    'src/pages/preview/[id].vue': {
+      routes: '/preview/[id]'
+      views: never
+    }
     'src/pages/Purchased.vue': {
       routes: '/Purchased'
       views: never
@@ -124,6 +131,14 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/Wallet.vue': {
       routes: '/Wallet'
+      views: never
+    }
+    'src/pages/watch/[id].vue': {
+      routes: '/watch/[id]'
+      views: never
+    }
+    'src/pages/watch/RecommendationsList.vue': {
+      routes: '/watch/RecommendationsList'
       views: never
     }
   }
