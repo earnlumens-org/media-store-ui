@@ -42,6 +42,7 @@
           <v-radio :label="`Français (${$t('Language.french')})`" value="fr" />
           <v-radio :label="`한국어 (${$t('Language.korean')})`" value="ko" />
           <v-radio :label="`Italiano (${$t('Language.italian')})`" value="it" />
+          <v-radio :label="`Polski (${$t('Language.polish')})`" value="pl" />
           <v-radio :label="`Tiếng Việt (${$t('Language.vietnamese')})`" value="vi" />
           <v-radio :label="`Türkçe (${$t('Language.turkish')})`" value="tr" />
         </v-radio-group>

@@ -1,0 +1,109 @@
+{
+    "Common": {
+        "wallet": "Portfel",
+        "login": "Zaloguj się",
+        "loginErrorTitle": "Błąd logowania",
+        "loginErrorDescription": "Wystąpił problem podczas logowania. Spróbuj ponownie.",
+        "language": "Język",
+        "darkMode": "Tryb ciemny",
+        "themes": "+ Motywy",
+        "close": "Zamknij",
+        "pleaseWait": "Proszę czekać",
+        "operationFailedPleaseTryAgain": "Operacja nie powiodła się. Spróbuj ponownie",
+        "save": "Zapisz",
+        "email": "E-mail",
+        "search": "Szukaj",
+        "logout": "Wyloguj się",
+        "welcome": "Witamy w",
+        "shortAbout": "Współtworzona platforma edukacji finansowej w sieci Stellar",
+        "blockquote": "EARNLUMENS to współtworzona platforma, na której edukacja finansowa spotyka się z praktycznym zastosowaniem. Naucz się poruszać w sieci Stellar, rozwijaj swój potencjał finansowy i dziel się wiedzą, aby wspierać innych.",
+        "accept": "Akceptuj",
+        "upload": "Prześlij"
+    },
+    "CxDeposit": {
+        "snackbarSuccess": "Adres skopiowany do schowka",
+        "snackbarError": "Błąd kopiowania adresu do schowka. Spróbuj ponownie lub skopiuj ręcznie.",
+        "snackbarErrorDetails": "Błąd kopiowania adresu do schowka. Szczegóły w konsoli przeglądarki. Spróbuj ponownie lub skopiuj ręcznie.",
+        "snackbarNotSupported": "Kopiowanie do schowka nie jest obsługiwane w tej przeglądarce. Skopiuj adres ręcznie.",
+        "tap": "Dotknij, aby skopiować"
+    },
+    "CxHistory": {
+        "errorLoading": "Błąd ładowania transakcji",
+        "noTransactions": "Brak transakcji",
+        "received": "Otrzymano",
+        "sent": "Wysłano"
+    },
+    "Wallet": {
+        "deposit": "Wpłać",
+        "history": "Historia",
+        "chooseWallet": "Wybierz portfel",
+        "active": "Aktywny",
+        "addWallet": "Dodaj portfel",
+        "disconnectAll": "Rozłącz wszystko"
+    },
+    "Account": {
+        "account": "Konto",
+        "followers": "Obserwujący",
+        "refresh": "Odśwież"
+    },
+    "AppBar": {
+        "home": "Strona główna",
+        "wallet": "Portfel",
+        "firststeps": "Pierwsze kroki",
+        "purchased": "Kupione",
+        "favorites": "Ulubione",
+        "account": "Konto",
+        "ecosystem": "Ekosystem",
+        "community": "Społeczność",
+        "featured": "Wyróżnione",
+        "explore": "Odkrywaj"
+    },
+    "Language": {
+        "spanish": "Hiszpański",
+        "english": "Angielski",
+        "arabic": "Arabski",
+        "german": "Niemiecki",
+        "hindi": "Hindi",
+        "japanese": "Japoński",
+        "malay": "Malajski",
+        "russian": "Rosyjski",
+        "traditionalChinese": "Chiński tradycyjny",
+        "simplifiedChinese": "Chiński uproszczony",
+        "portuguese": "Portugalski",
+        "ukrainian": "Ukraiński",
+        "french": "Francuski",
+        "korean": "Koreański",
+        "italian": "Włoski",
+        "polish": "Polski",
+        "vietnamese": "Wietnamski",
+        "turkish": "Turecki"
+    },
+    "CxLoginDialog": {
+        "emailMostBeValid": "E-mail musi być poprawny",
+        "emailRequired": "E-mail jest wymagany"
+    },
+    "Home": {
+        "aboutXLM": "O XLM",
+        "joinWaitlist": "Dołącz do listy oczekujących"
+    },
+    "WaitList": {
+        "joinOurWaitingList": "Dołącz do naszej listy oczekujących",
+        "feedbackOptional": "Opinia (opcjonalnie)",
+        "join": "Dołącz",
+        "registeredEmailWeWillKeepYouInformed": "Zarejestrowany adres e-mail. Będziemy informować Cię na bieżąco."
+    },
+    "Profile": {
+        "loading": "Ładowanie profilu...",
+        "notFound": "Nie znaleziono użytkownika",
+        "notFoundDescription": "Użytkownik {'@'}{username} nie istnieje lub mógł zostać usunięty.",
+        "goHome": "Przejdź na stronę główną",
+        "followers": "Obserwujący",
+        "likes": "Polubienia",
+        "follow": "Obserwuj",
+        "message": "Wiadomość",
+        "entries": "Wpisy",
+        "posts": "Posty",
+        "noEntries": "Brak wpisów",
+        "noPosts": "Brak postów"
+    }
+}
