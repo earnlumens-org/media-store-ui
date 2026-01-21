@@ -116,12 +116,16 @@ async function rehydrateSession (): Promise<void> {
 
 // Register session expired handler
 // Only broadcast if we HAD an active session (not during failed rehydrate)
-onSessionExpired(() => {
+onSessionExpired(async () => {
   const authStore = useAuthStore(pinia)
   const wasAuthenticated = authStore.isAuthenticated
 
   console.log('[Auth] Session expired, redirecting to login')
   authStore.clearAuth()
+
+  // Disconnect wallet on session expiration
+  const walletStore = useWalletStore(pinia)
+  await walletStore.disconnectAll()
 
   // Only broadcast if we were actually logged in (avoid loop on rehydrate failure)
   if (wasAuthenticated) {
@@ -155,6 +159,11 @@ onAuthBroadcast(async event => {
     // Clear local state (don't broadcast again to avoid loops)
     await clearToken()
     authStore.clearAuth()
+    
+    // Disconnect wallet on logout from other tab
+    const walletStore = useWalletStore(pinia)
+    await walletStore.disconnectAll()
+    
     // Navigate without reload to avoid triggering rehydrate again
     router.push('/')
   } finally {

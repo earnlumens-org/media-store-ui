@@ -98,12 +98,14 @@
   import { clearToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
+  import { useWalletStore } from '@/stores/wallet'
 
   const menu = ref(false)
 
   const router = useRouter()
   const appStore = useAppStore()
   const authStore = useAuthStore()
+  const walletStore = useWalletStore()
   const theme = useTheme()
 
   // Computed: true if current theme is dark
@@ -150,6 +152,7 @@
 
       await clearToken()
       authStore.clearAuth()
+      await walletStore.disconnectAll()
 
       // Notify other tabs about logout
       broadcastAuthEvent('LOGOUT')

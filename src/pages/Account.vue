@@ -100,10 +100,12 @@
   import { clearToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
+  import { useWalletStore } from '@/stores/wallet'
 
   const router = useRouter()
   const appStore = useAppStore()
   const authStore = useAuthStore()
+  const walletStore = useWalletStore()
 
   const user = ref<UserProfile | null>(null)
   const loading = ref(false)
@@ -150,6 +152,7 @@
 
       await clearToken()
       authStore.clearAuth()
+      await walletStore.disconnectAll()
       // Notify other tabs about logout
       broadcastAuthEvent('LOGOUT')
       await router.push('/')
