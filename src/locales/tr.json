@@ -90,5 +90,19 @@
         "feedbackOptional": "Geri Bildirim (İsteğe Bağlı)",
         "join": "Katıl",
         "registeredEmailWeWillKeepYouInformed": "Kayıtlı e-posta. Sizi bilgilendireceğiz."
+    },
+    "Profile": {
+        "loading": "Profil yükleniyor...",
+        "notFound": "Kullanıcı bulunamadı",
+        "notFoundDescription": "Kullanıcı {'@'}{username} yok veya kaldırılmış olabilir.",
+        "goHome": "Ana Sayfaya Git",
+        "followers": "Takipçiler",
+        "likes": "Beğeni",
+        "follow": "Takip et",
+        "message": "Mesaj",
+        "entries": "Girdiler",
+        "posts": "Gönderiler",
+        "noEntries": "Henüz girdi yok",
+        "noPosts": "Henüz gönderi yok"
     }
 }

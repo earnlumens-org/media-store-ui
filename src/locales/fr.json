@@ -90,5 +90,19 @@
         "feedbackOptional": "Commentaires (facultatif)",
         "join": "Rejoindre",
         "registeredEmailWeWillKeepYouInformed": "E-mail enregistré. Nous vous tiendrons informé."
+    },
+    "Profile": {
+        "loading": "Chargement du profil...",
+        "notFound": "Utilisateur introuvable",
+        "notFoundDescription": "L'utilisateur {'@'}{username} n'existe pas ou a peut-être été supprimé.",
+        "goHome": "Aller à l’accueil",
+        "followers": "Abonnés",
+        "likes": "J’aime",
+        "follow": "Suivre",
+        "message": "Message",
+        "entries": "Entrées",
+        "posts": "Publications",
+        "noEntries": "Aucune entrée pour le moment",
+        "noPosts": "Aucune publication pour le moment"
     }
 }

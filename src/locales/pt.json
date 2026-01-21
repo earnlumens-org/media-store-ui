@@ -90,5 +90,19 @@
         "feedbackOptional": "Feedback (Opcional)",
         "join": "Junte-se",
         "registeredEmailWeWillKeepYouInformed": "Seu e-mail foi registrado. Manteremos você informado."
+    },
+    "Profile": {
+        "loading": "A carregar perfil...",
+        "notFound": "Utilizador não encontrado",
+        "notFoundDescription": "O utilizador {'@'}{username} não existe ou pode ter sido removido.",
+        "goHome": "Ir para a Página Inicial",
+        "followers": "Seguidores",
+        "likes": "Gostos",
+        "follow": "Seguir",
+        "message": "Mensagem",
+        "entries": "Entradas",
+        "posts": "Publicações",
+        "noEntries": "Ainda não há entradas",
+        "noPosts": "Ainda não há publicações"
     }
 }

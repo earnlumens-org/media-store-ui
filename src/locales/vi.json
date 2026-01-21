@@ -90,5 +90,19 @@
         "feedbackOptional": "Phản hồi (Tùy chọn)",
         "join": "Tham gia",
         "registeredEmailWeWillKeepYouInformed": "Email đã đăng ký. Chúng tôi sẽ giữ bạn được thông báo."
+    },
+    "Profile": {
+        "loading": "Đang tải hồ sơ...",
+        "notFound": "Không tìm thấy người dùng",
+        "notFoundDescription": "Người dùng {'@'}{username} không tồn tại hoặc có thể đã bị xóa.",
+        "goHome": "Về Trang chủ",
+        "followers": "Người theo dõi",
+        "likes": "Lượt thích",
+        "follow": "Theo dõi",
+        "message": "Nhắn tin",
+        "entries": "Mục",
+        "posts": "Bài đăng",
+        "noEntries": "Chưa có mục nào",
+        "noPosts": "Chưa có bài đăng nào"
     }
 }

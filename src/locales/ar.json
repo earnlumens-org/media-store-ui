@@ -90,5 +90,19 @@
         "feedbackOptional": "ردود الفعل (اختياري)",
         "join": "انضم",
         "registeredEmailWeWillKeepYouInformed": "تم تسجيل البريد الإلكتروني الخاص بك. سنبقيك على علم بالتطورات."
+    },
+    "Profile": {
+        "loading": "جارٍ تحميل الملف الشخصي...",
+        "notFound": "المستخدم غير موجود",
+        "notFoundDescription": "المستخدم {'@'}{username} غير موجود أو ربما تمت إزالته.",
+        "goHome": "الذهاب إلى الصفحة الرئيسية",
+        "followers": "المتابعون",
+        "likes": "الإعجابات",
+        "follow": "متابعة",
+        "message": "رسالة",
+        "entries": "إدخالات",
+        "posts": "منشورات",
+        "noEntries": "لا توجد إدخالات بعد",
+        "noPosts": "لا توجد منشورات بعد"
     }
 }

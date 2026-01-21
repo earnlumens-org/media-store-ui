@@ -90,5 +90,19 @@
         "feedbackOptional": "反饋（可選）",
         "join": "加入",
         "registeredEmailWeWillKeepYouInformed": "您的電子郵件已註冊。我們將通知您有關發展的消息。"
+    },
+    "Profile": {
+        "loading": "正在載入個人資料...",
+        "notFound": "找不到使用者",
+        "notFoundDescription": "使用者 {'@'}{username} 不存在或可能已被移除。",
+        "goHome": "前往首頁",
+        "followers": "追蹤者",
+        "likes": "讚",
+        "follow": "追蹤",
+        "message": "訊息",
+        "entries": "條目",
+        "posts": "貼文",
+        "noEntries": "尚無條目",
+        "noPosts": "尚無貼文"
     }
 }

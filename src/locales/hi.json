@@ -90,5 +90,19 @@
         "feedbackOptional": "फीडबैक (वैकल्पिक)",
         "join": "शामिल हों",
         "registeredEmailWeWillKeepYouInformed": "आपका ईमेल पंजीकृत हो गया है। हम आपको विकासों के बारे में सूचित करेंगे।"
+    },
+    "Profile": {
+        "loading": "प्रोफ़ाइल लोड हो रही है...",
+        "notFound": "उपयोगकर्ता नहीं मिला",
+        "notFoundDescription": "उपयोगकर्ता {'@'}{username} मौजूद नहीं है या हटाया जा सकता है।",
+        "goHome": "होम पर जाएँ",
+        "followers": "फ़ॉलोअर्स",
+        "likes": "लाइक्स",
+        "follow": "फ़ॉलो करें",
+        "message": "संदेश",
+        "entries": "एंट्रीज़",
+        "posts": "पोस्ट्स",
+        "noEntries": "अभी कोई एंट्री नहीं",
+        "noPosts": "अभी कोई पोस्ट नहीं"
     }
 }

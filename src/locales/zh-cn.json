@@ -90,5 +90,19 @@
     "feedbackOptional": "反馈（可选）",
     "join": "加入",
     "registeredEmailWeWillKeepYouInformed": "您的电子邮件已注册。我们将通知您有关进展。"
+  },
+  "Profile": {
+    "loading": "正在加载个人资料...",
+    "notFound": "未找到用户",
+    "notFoundDescription": "用户 {'@'}{username} 不存在或可能已被移除。",
+    "goHome": "返回首页",
+    "followers": "关注者",
+    "likes": "点赞",
+    "follow": "关注",
+    "message": "消息",
+    "entries": "条目",
+    "posts": "帖子",
+    "noEntries": "暂无条目",
+    "noPosts": "暂无帖子"
   }
 }

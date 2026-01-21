@@ -90,5 +90,19 @@
         "feedbackOptional": "Maklum balas (pilihan)",
         "join": "Sertai",
         "registeredEmailWeWillKeepYouInformed": "E-mel anda telah didaftarkan. Kami akan memberitahu anda tentang perkembangan."
+    },
+    "Profile": {
+        "loading": "Memuatkan profil...",
+        "notFound": "Pengguna tidak ditemui",
+        "notFoundDescription": "Pengguna {'@'}{username} tidak wujud atau mungkin telah dipadam.",
+        "goHome": "Pergi ke Laman Utama",
+        "followers": "Pengikut",
+        "likes": "Suka",
+        "follow": "Ikut",
+        "message": "Mesej",
+        "entries": "Entri",
+        "posts": "Kiriman",
+        "noEntries": "Belum ada entri",
+        "noPosts": "Belum ada kiriman"
     }
 }

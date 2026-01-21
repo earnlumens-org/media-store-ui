@@ -90,5 +90,19 @@
         "feedbackOptional": "フィードバック（オプション）",
         "join": "参加する",
         "registeredEmailWeWillKeepYouInformed": "あなたのメールアドレスが登録されました。進捗状況をお知らせします。"
+    },
+    "Profile": {
+        "loading": "プロフィールを読み込み中...",
+        "notFound": "ユーザーが見つかりません",
+        "notFoundDescription": "ユーザー {'@'}{username} は存在しないか、削除された可能性があります。",
+        "goHome": "ホームへ",
+        "followers": "フォロワー",
+        "likes": "いいね",
+        "follow": "フォロー",
+        "message": "メッセージ",
+        "entries": "エントリー",
+        "posts": "投稿",
+        "noEntries": "まだエントリーがありません",
+        "noPosts": "まだ投稿がありません"
     }
 }
