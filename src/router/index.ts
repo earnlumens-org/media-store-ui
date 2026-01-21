@@ -6,7 +6,12 @@ import { useAuthStore } from '@/stores/auth'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: setupLayouts(routes),
-  scrollBehavior () {
+  scrollBehavior (to, from, savedPosition) {
+    // Restore scroll position on browser back/forward navigation
+    if (savedPosition) {
+      return savedPosition
+    }
+    // Scroll to top for new navigation
     return { top: 0 }
   },
 })
