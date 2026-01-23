@@ -48,9 +48,12 @@ export async function getMockCollections (params: CollectionsRequestParams = {})
 
 /**
  * Get a single entry by ID.
+ * @param id - Entry ID
+ * @param type - Optional: force a specific type (for testing)
  */
-export async function getMockEntryById (id: string): Promise<EntryModel> {
-  const response = await axiosClient.get<EntryModel>(`${BASE_PATH}/entry/${id}`)
+export async function getMockEntryById (id: string, type?: string): Promise<EntryModel> {
+  const params = type ? { type } : undefined
+  const response = await axiosClient.get<EntryModel>(`${BASE_PATH}/entry/${id}`, { params })
   return mapEntryDtoToModel(response.data as any)
 }
 

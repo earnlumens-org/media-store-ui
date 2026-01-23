@@ -485,7 +485,8 @@
     errorMessage.value = ''
 
     try {
-      const data = await api.mock.getEntryById(entryId.value)
+      // Force type 'video' for this page (mock API supports type override)
+      const data = await api.mock.getEntryById(entryId.value, 'video')
 
       // LOCKED CONTENT REDIRECT
       // If the entry is locked, redirect to preview page immediately

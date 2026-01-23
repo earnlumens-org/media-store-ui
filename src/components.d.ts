@@ -11,6 +11,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AudioPlayerContent: typeof import('./components/entry/AudioPlayerContent.vue')['default']
+    AudioPlayerDialog: typeof import('./components/entry/AudioPlayerDialog.vue')['default']
     AvatarFrame: typeof import('./components/media/AvatarFrame.vue')['default']
     CategoryList: typeof import('./components/themes/CategoryList.vue')['default']
     CollectionCard: typeof import('./components/collection/CollectionCard.vue')['default']
