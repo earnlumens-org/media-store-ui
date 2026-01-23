@@ -1,14 +1,14 @@
 <!--
   Audio Detail Page (Listen)
-  
+
   RESPONSIVE LAYOUT:
   - Mobile (< 960px): Single column with app bar, player, metadata stacked vertically
   - Desktop (>= 960px): Two-column layout with player+metadata on left, recommendations on right
-  
+
   LOCKED CONTENT HANDLING:
   - If entry.locked === true, immediately redirect to /preview/:id
   - This ensures paid content is never accidentally shown on the listen page
-  
+
   STATES:
   - Loading: Skeleton placeholders for all sections
   - Error: Alert with retry button

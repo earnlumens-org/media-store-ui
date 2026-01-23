@@ -37,6 +37,8 @@ declare module 'vue-router/auto-routes' {
     '/section/[...path]': RouteRecordInfo<'/section/[...path]', '/section/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
     '/themes': RouteRecordInfo<'/themes', '/themes', Record<never, never>, Record<never, never>>,
     '/VideoUpload': RouteRecordInfo<'/VideoUpload', '/upload', Record<never, never>, Record<never, never>>,
+    '/view/[id]': RouteRecordInfo<'/view/[id]', '/view/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/view/ImageRecommendationsList': RouteRecordInfo<'/view/ImageRecommendationsList', '/view/ImageRecommendationsList', Record<never, never>, Record<never, never>>,
     '/WaitList': RouteRecordInfo<'/WaitList', '/waitlist', Record<never, never>, Record<never, never>>,
     '/WaitListStats': RouteRecordInfo<'/WaitListStats', '/waitlist/stats', Record<never, never>, Record<never, never>>,
     '/Wallet': RouteRecordInfo<'/Wallet', '/wallet', Record<never, never>, Record<never, never>>,
@@ -129,6 +131,14 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/VideoUpload.vue': {
       routes: '/VideoUpload'
+      views: never
+    }
+    'src/pages/view/[id].vue': {
+      routes: '/view/[id]'
+      views: never
+    }
+    'src/pages/view/ImageRecommendationsList.vue': {
+      routes: '/view/ImageRecommendationsList'
       views: never
     }
     'src/pages/WaitList.vue': {

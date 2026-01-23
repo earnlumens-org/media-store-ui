@@ -37,6 +37,7 @@ declare module 'vue' {
     EntryMediaImage: typeof import('./components/entry/media/EntryMediaImage.vue')['default']
     EntryMediaVideo: typeof import('./components/entry/media/EntryMediaVideo.vue')['default']
     Hero: typeof import('./components/home/Hero.vue')['default']
+    ImageLightbox: typeof import('./components/entry/ImageLightbox.vue')['default']
     MediaFrame: typeof import('./components/media/MediaFrame.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
