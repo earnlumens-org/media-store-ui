@@ -15,6 +15,7 @@ declare module 'vue' {
     AudioPlayerDialog: typeof import('./components/entry/AudioPlayerDialog.vue')['default']
     AvatarFrame: typeof import('./components/media/AvatarFrame.vue')['default']
     CategoryList: typeof import('./components/themes/CategoryList.vue')['default']
+    CheckoutDialog: typeof import('./components/checkout/CheckoutDialog.vue')['default']
     CollectionCard: typeof import('./components/collection/CollectionCard.vue')['default']
     CollectionFooter: typeof import('./components/collection/CollectionFooter.vue')['default']
     CollectionMedia: typeof import('./components/collection/media/CollectionMedia.vue')['default']
