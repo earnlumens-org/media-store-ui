@@ -34,6 +34,8 @@ declare module 'vue-router/auto-routes' {
     'AuthXCallback': RouteRecordInfo<'AuthXCallback', '/oauth2/callback', Record<never, never>, Record<never, never>>,
     '/preview/[id]': RouteRecordInfo<'/preview/[id]', '/preview/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/Purchased': RouteRecordInfo<'/Purchased', '/purchased', Record<never, never>, Record<never, never>>,
+    '/read/[id]': RouteRecordInfo<'/read/[id]', '/read/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/read/ReadRecommendationsList': RouteRecordInfo<'/read/ReadRecommendationsList', '/read/ReadRecommendationsList', Record<never, never>, Record<never, never>>,
     '/section/[...path]': RouteRecordInfo<'/section/[...path]', '/section/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
     '/themes': RouteRecordInfo<'/themes', '/themes', Record<never, never>, Record<never, never>>,
     '/VideoUpload': RouteRecordInfo<'/VideoUpload', '/upload', Record<never, never>, Record<never, never>>,
@@ -119,6 +121,14 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/Purchased.vue': {
       routes: '/Purchased'
+      views: never
+    }
+    'src/pages/read/[id].vue': {
+      routes: '/read/[id]'
+      views: never
+    }
+    'src/pages/read/ReadRecommendationsList.vue': {
+      routes: '/read/ReadRecommendationsList'
       views: never
     }
     'src/pages/section/[...path].vue': {
