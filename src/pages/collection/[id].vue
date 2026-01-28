@@ -318,14 +318,13 @@
               <!-- Search -->
               <v-text-field
                 v-model="searchQuery"
-                class="flex-grow-0"
                 clearable
                 density="compact"
                 hide-details
-                :max-width="isMobile ? '100%' : 250"
                 placeholder="Search items..."
                 prepend-inner-icon="mdi-magnify"
                 variant="outlined"
+                width="200"
               />
 
               <!-- Sort Menu -->
