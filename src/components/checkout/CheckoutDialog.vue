@@ -22,9 +22,14 @@
 <script setup lang="ts">
   import { computed, ref, watch } from 'vue'
 
+  import xIcon from '@/assets/twitterx.svg?raw'
+
   import { useAppStore } from '@/stores/app'
   import { usePurchasesStore } from '@/stores/purchases'
   import { useWalletStore } from '@/stores/wallet'
+
+  // X icon SVG
+  const xIconSvg = xIcon
 
   interface CheckoutItem {
     id: string
@@ -343,10 +348,10 @@
             >
               <v-card-text class="d-flex align-center py-3">
                 <v-radio class="ma-0" hide-details value="card" />
-                <v-icon class="ml-2 mr-3" icon="mdi-credit-card" />
+                <span aria-label="X" class="x-icon ml-2 mr-3" role="img" v-html="xIconSvg" />
                 <div>
-                  <div class="text-body-1 font-weight-medium">Credit Card</div>
-                  <div class="text-body-2 text-medium-emphasis">Visa, Mastercard, Amex</div>
+                  <div class="text-body-1 font-weight-medium">X Payments</div>
+                  <div class="text-body-2 text-medium-emphasis">Pay with your X account balance</div>
                 </div>
               </v-card-text>
             </v-card>
@@ -544,10 +549,10 @@
             >
               <v-card-text class="d-flex align-center py-4">
                 <v-radio class="ma-0" hide-details value="card" />
-                <v-icon class="ml-3 mr-4" icon="mdi-credit-card" size="28" />
+                <span aria-label="X" class="x-icon x-icon--large ml-3 mr-4" role="img" v-html="xIconSvg" />
                 <div>
-                  <div class="text-body-1 font-weight-medium">Credit Card</div>
-                  <div class="text-body-2 text-medium-emphasis">Visa, Mastercard, Amex</div>
+                  <div class="text-body-1 font-weight-medium">X Payments</div>
+                  <div class="text-body-2 text-medium-emphasis">Pay with your X account balance</div>
                 </div>
               </v-card-text>
             </v-card>
@@ -590,3 +595,23 @@
     </v-card>
   </v-dialog>
 </template>
+
+<style scoped>
+.x-icon {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  color: rgb(var(--v-theme-on-surface));
+}
+
+.x-icon--large {
+  width: 28px;
+  height: 28px;
+}
+
+.x-icon :deep(svg) {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+</style>
