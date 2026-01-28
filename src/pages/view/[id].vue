@@ -16,9 +16,9 @@
   - Success: Full image detail view
 -->
 <template>
-  <div>
-    <!-- MOBILE: Top Toolbar (visible on xs/sm only) -->
-    <v-toolbar
+  <v-container class="pa-0" fluid>
+    <!-- MOBILE: Top App Bar (visible on xs/sm only) -->
+    <v-app-bar
       class="d-md-none"
       color="surface"
       density="compact"
@@ -31,12 +31,12 @@
         @click="goBack"
       />
 
-      <v-toolbar-title v-if="entry" class="text-body-1">
+      <v-app-bar-title v-if="entry" class="text-body-1">
         {{ entry.title }}
-      </v-toolbar-title>
-      <v-toolbar-title v-else>
+      </v-app-bar-title>
+      <v-app-bar-title v-else>
         <v-skeleton-loader type="text" width="200" />
-      </v-toolbar-title>
+      </v-app-bar-title>
 
       <template #append>
         <v-btn
@@ -60,7 +60,7 @@
           </v-list>
         </v-menu>
       </template>
-    </v-toolbar>
+    </v-app-bar>
 
     <!-- LOADING STATE -->
     <template v-if="loading">
@@ -299,7 +299,7 @@
               </div>
 
               <!-- Author Row -->
-              <v-sheet class="d-flex align-center mt-4 pa-3 rounded-lg" color="surface-variant">
+              <v-sheet class="d-flex align-center mt-4 pa-3 rounded-lg" color="surface">
                 <v-avatar
                   class="me-3"
                   color="grey-lighten-2"
@@ -367,7 +367,7 @@
               </div>
 
               <!-- Description -->
-              <v-card class="mt-4" color="surface-variant" variant="flat">
+              <v-card class="mt-4" color="surface" variant="flat">
                 <v-card-text>
                   <div :class="{ 'text-truncate-multiline': !descriptionExpanded }">
                     {{ description }}
@@ -426,7 +426,7 @@
         </v-col>
       </v-row>
     </template>
-  </div>
+  </v-container>
 </template>
 
 <script setup lang="ts">

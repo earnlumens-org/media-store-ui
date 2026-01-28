@@ -140,7 +140,7 @@
       <v-sheet
         class="position-relative"
         :color="collection.coverUrl ? undefined : 'primary-darken-1'"
-        :height="isMobile ? 240 : 300"
+        :min-height="isMobile ? 280 : 300"
       >
         <!-- Cover Image -->
         <v-img
@@ -161,7 +161,7 @@
         />
 
         <!-- Hero Content -->
-        <v-container class="position-relative h-100 d-flex flex-column pa-4 pa-md-6">
+        <v-container class="position-relative h-100 d-flex flex-column pa-4 pa-md-6 pb-6">
           <!-- Back Button (Mobile) -->
           <div class="d-md-none mb-auto">
             <v-btn

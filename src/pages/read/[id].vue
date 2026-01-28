@@ -247,7 +247,7 @@
             </p>
 
             <!-- Author Block -->
-            <v-sheet class="d-flex align-center pa-3 rounded-lg mb-6" color="surface-variant">
+            <v-sheet class="d-flex align-center pa-3 rounded-lg mb-6" color="surface">
               <v-avatar
                 class="me-3"
                 color="grey-lighten-2"
@@ -366,7 +366,7 @@
         >
           <v-container class="pa-4 position-sticky" style="top: 80px;">
             <!-- Author Card -->
-            <v-card class="mb-4" variant="tonal">
+            <v-card class="mb-4" color="surface" variant="flat">
               <v-card-text class="text-center">
                 <v-avatar
                   class="mb-3"

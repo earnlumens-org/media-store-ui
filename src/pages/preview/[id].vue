@@ -209,7 +209,7 @@
             <v-card
               v-else-if="contentType === 'audio'"
               class="rounded-0 rounded-md-lg"
-              color="surface-variant"
+              color="surface"
               variant="flat"
             >
               <v-card-text class="d-flex flex-column align-center justify-center py-12">

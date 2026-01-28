@@ -97,17 +97,15 @@
               </v-sheet>
             </template>
 
-            <!-- Locked indicator -->
-            <v-overlay
+            <!-- Locked indicator (using absolute positioning instead of v-overlay to avoid scroll blocking) -->
+            <v-sheet
               v-if="item.locked"
-              class="d-flex align-center justify-center"
-              contained
-              :model-value="true"
-              persistent
-              scrim="rgba(0, 0, 0, 0.5)"
+              class="position-absolute d-flex align-center justify-center"
+              color="rgba(0, 0, 0, 0.5)"
+              style="top: 0; left: 0; right: 0; bottom: 0;"
             >
               <v-icon color="white" size="24">mdi-lock</v-icon>
-            </v-overlay>
+            </v-sheet>
           </v-img>
           <v-sheet
             v-else

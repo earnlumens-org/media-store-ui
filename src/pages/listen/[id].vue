@@ -248,7 +248,7 @@
             </div>
 
             <!-- Inline Player -->
-            <v-card class="pa-6" color="surface-variant" variant="flat">
+            <v-card class="pa-6" color="surface" variant="flat">
               <!-- Artwork -->
               <v-sheet
                 class="mx-auto rounded-xl overflow-hidden"
@@ -379,7 +379,7 @@
             </v-card>
 
             <!-- Author Row -->
-            <v-sheet class="d-flex align-center mt-6 pa-3 rounded-lg" color="surface-variant">
+            <v-sheet class="d-flex align-center mt-6 pa-3 rounded-lg" color="surface">
               <v-avatar
                 class="me-3"
                 color="grey-lighten-2"
@@ -404,7 +404,7 @@
             </v-sheet>
 
             <!-- Description -->
-            <v-card class="mt-4" color="surface-variant" variant="flat">
+            <v-card class="mt-4" color="surface" variant="flat">
               <v-card-text>
                 <div class="text-body-2 text-medium-emphasis mb-2">
                   Published {{ formatDate(entry.publishedAt) }}

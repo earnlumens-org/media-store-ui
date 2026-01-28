@@ -295,7 +295,7 @@
               </div>
 
               <!-- Author Row -->
-              <v-sheet class="d-flex align-center mt-4 pa-3 rounded-lg" color="surface-variant">
+              <v-sheet class="d-flex align-center mt-4 pa-3 rounded-lg" color="surface">
                 <v-avatar
                   class="me-3"
                   color="grey-lighten-2"
@@ -371,7 +371,7 @@
               </div>
 
               <!-- Description -->
-              <v-card class="mt-4" color="surface-variant" variant="flat">
+              <v-card class="mt-4" color="surface" variant="flat">
                 <v-card-text>
                   <div
                     :class="{ 'text-truncate-multiline': !descriptionExpanded }"
