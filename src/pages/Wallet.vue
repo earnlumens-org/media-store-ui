@@ -16,7 +16,7 @@
           variant="outlined"
           @click="handleMainButtonClick"
         >
-          {{ walletStore.isConnected ? walletStore.shortActiveAddress : 'Connect Wallet' }}
+          {{ walletStore.isConnected ? walletStore.shortActiveAddress : $t('Common.connectWallet') }}
         </v-btn>
 
         <!-- Stellar Wallet branding cuando está conectado -->

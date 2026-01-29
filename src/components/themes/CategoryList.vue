@@ -1,6 +1,6 @@
 <template>
   <div class="py-3">
-    <div :class="isMobile ? 'text-subtitle-2 mb-2 px-5' : 'text-subtitle-2 mb-2'">Categories</div>
+    <div :class="isMobile ? 'text-subtitle-2 mb-2 px-5' : 'text-subtitle-2 mb-2'">{{ $t('Themes.categories') }}</div>
 
     <v-list
       v-if="!isMobile"

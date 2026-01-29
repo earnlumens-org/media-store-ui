@@ -8,8 +8,8 @@
               <v-card-text class="d-flex align-center ga-3 pa-0">
                 <v-icon color="primary" size="large">mdi-sparkles</v-icon>
                 <div>
-                  <div class="text-h6 font-weight-semibold">EarnLumens Theme Selector</div>
-                  <div class="text-body-2 text-medium-emphasis">Choose your visual identity</div>
+                  <div class="text-h6 font-weight-semibold">{{ $t('Themes.title') }}</div>
+                  <div class="text-body-2 text-medium-emphasis">{{ $t('Themes.subtitle') }}</div>
                 </div>
               </v-card-text>
             </v-card>
@@ -44,10 +44,10 @@
             <v-row class="mb-4">
               <v-col>
                 <div class="text-subtitle-1 font-weight-semibold">
-                  {{ selectedCategoryLabel }} Themes
+                  {{ $t('Themes.categoryThemes', { category: selectedCategoryLabel }) }}
                 </div>
                 <div class="text-body-2 text-medium-emphasis">
-                  {{ filteredThemes.length }} themes available
+                  {{ $t('Themes.themesAvailable', { count: filteredThemes.length }) }}
                 </div>
               </v-col>
             </v-row>
@@ -63,7 +63,7 @@
               >
                 <ThemeCard
                   :colors="t.colors"
-                  :description="t.description"
+                  :description="$t('Themes.themeDescription.' + t.key)"
                   :name="t.name"
                   :selected="t.key === appStore.themeName"
                   :theme-key="t.key"
@@ -80,7 +80,7 @@
       v-model="snackbar"
       timeout="1500"
     >
-      Theme applied
+      {{ $t('Themes.themeApplied') }}
     </v-snackbar>
 
     <!-- Desktop: Fixed button -->
@@ -94,7 +94,7 @@
       variant="elevated"
       @click="revertTheme"
     >
-      Revert theme
+      {{ $t('Themes.revertTheme') }}
     </v-btn>
 
     <!-- Mobile: Footer -->
@@ -113,7 +113,7 @@
         variant="elevated"
         @click="revertTheme"
       >
-        Revert theme
+        {{ $t('Themes.revertTheme') }}
       </v-btn>
     </v-footer>
   </v-container>
@@ -122,6 +122,7 @@
 <script setup lang="ts">
   import { storeToRefs } from 'pinia'
   import { computed, ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
   import { useTheme } from 'vuetify'
   import CategoryList from '@/components/themes/CategoryList.vue'
   import ThemeCard from '@/components/themes/ThemeCard.vue'
@@ -145,13 +146,13 @@
 
   type Category = {
     key: string
-    label: string
     themes: ThemeKey[]
   }
 
   const appStore = useAppStore()
   const { mobileView } = storeToRefs(appStore)
   const vuetifyTheme = useTheme()
+  const { t } = useI18n()
 
   const snackbar = ref(false)
   const lastAppliedTheme = ref<ThemeKey | null>(null)
@@ -451,31 +452,31 @@
   ]
 
   const CATEGORIES: Category[] = [
-    { key: 'education', label: 'Education', themes: ['academicClean', 'nord', 'rosePineDawn'] },
-    { key: 'finance-tech', label: 'Finance / Tech', themes: ['fintechPro', 'corporateClassic', 'dracula', 'gruvbox', 'solarizedDark', 'catppuccinMocha'] },
-    { key: 'gaming', label: 'Gaming', themes: ['gamerArena', 'tokyoNight', 'synthwave84'] },
-    { key: 'wellness', label: 'Wellness', themes: ['zen', 'earthGaia', 'mintFresh'] },
-    { key: 'crypto-future', label: 'Crypto / Future', themes: ['cyberpunk', 'cyberpunkNeon', 'matrix', 'nebula', 'constellations'] },
-    { key: 'art-creative', label: 'Art / Creative', themes: ['neoBrutalArt', 'creativeStudio', 'lavenderDreams'] },
-    { key: 'pop-culture-cute', label: 'Pop Culture / Cute', themes: ['anime', 'kawaiiPastel', 'softPastel', 'roseQuartz', 'skyBlush', 'peachCream'] },
-    { key: 'dark-alternative', label: 'Dark / Alternative', themes: ['darkVoid', 'melancholy', 'cozy', 'everforestDark'] },
-    { key: 'productivity', label: 'Productivity', themes: ['nordDark', 'amoledGray', 'amoledBlack'] },
-    { key: 'business', label: 'Business', themes: ['corporateClassic', 'institutional', 'fintechPro'] },
-    { key: 'emotional-lifestyle', label: 'Emotional / Lifestyle', themes: ['motivation', 'vanillaLatte', 'lilacMist', 'coralSunset', 'butterscotch'] },
-    { key: 'urban', label: 'Urban', themes: ['urbanStreet'] },
-    { key: 'creative-pro', label: 'Creative Pro', themes: ['creativeStudio', 'neoBrutalArt'] },
-    { key: 'legal-institutional', label: 'Legal / Institutional', themes: ['institutional'] },
+    { key: 'education', themes: ['academicClean', 'nord', 'rosePineDawn'] },
+    { key: 'finance-tech', themes: ['fintechPro', 'corporateClassic', 'dracula', 'gruvbox', 'solarizedDark', 'catppuccinMocha'] },
+    { key: 'gaming', themes: ['gamerArena', 'tokyoNight', 'synthwave84'] },
+    { key: 'wellness', themes: ['zen', 'earthGaia', 'mintFresh'] },
+    { key: 'crypto-future', themes: ['cyberpunk', 'cyberpunkNeon', 'matrix', 'nebula', 'constellations'] },
+    { key: 'art-creative', themes: ['neoBrutalArt', 'creativeStudio', 'lavenderDreams'] },
+    { key: 'pop-culture-cute', themes: ['anime', 'kawaiiPastel', 'softPastel', 'roseQuartz', 'skyBlush', 'peachCream'] },
+    { key: 'dark-alternative', themes: ['darkVoid', 'melancholy', 'cozy', 'everforestDark'] },
+    { key: 'productivity', themes: ['nordDark', 'amoledGray', 'amoledBlack'] },
+    { key: 'business', themes: ['corporateClassic', 'institutional', 'fintechPro'] },
+    { key: 'emotional-lifestyle', themes: ['motivation', 'vanillaLatte', 'lilacMist', 'coralSunset', 'butterscotch'] },
+    { key: 'urban', themes: ['urbanStreet'] },
+    { key: 'creative-pro', themes: ['creativeStudio', 'neoBrutalArt'] },
+    { key: 'legal-institutional', themes: ['institutional'] },
   ]
 
-  const DEFAULT_CATEGORY: Category = CATEGORIES[0] ?? { key: 'education', label: 'Education', themes: [] }
+  const DEFAULT_CATEGORY: Category = CATEGORIES[0] ?? { key: 'education', themes: [] }
 
   const selectedCategoryKey = ref(DEFAULT_CATEGORY.key)
 
-  const categories = computed(() => CATEGORIES.map(c => ({ key: c.key, label: c.label })))
+  const categories = computed(() => CATEGORIES.map(c => ({ key: c.key, label: t(`Themes.category.${c.key}`) })))
 
   const selectedCategory = computed(() => CATEGORIES.find(c => c.key === selectedCategoryKey.value) ?? DEFAULT_CATEGORY)
 
-  const selectedCategoryLabel = computed(() => selectedCategory.value.label)
+  const selectedCategoryLabel = computed(() => t(`Themes.category.${selectedCategory.value.key}`))
 
   const themeByKey = computed(() => {
     const map = new Map<ThemeKey, ThemeItem>()
