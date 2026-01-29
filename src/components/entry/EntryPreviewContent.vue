@@ -156,14 +156,14 @@
           <span class="text-body-1 font-weight-medium">{{ entry.authorName }}</span>
         </div>
         <v-btn
-          aria-label="Share"
+          :aria-label="$t('Common.share')"
           icon="mdi-share-variant"
           size="small"
           variant="text"
           @click="onShare"
         />
         <v-btn
-          :aria-label="isSaved ? 'Remove from saved' : 'Save'"
+          :aria-label="isSaved ? $t('Common.removeFromSaved') : $t('Common.save')"
           :color="isSaved ? 'primary' : undefined"
           :icon="isSaved ? 'mdi-bookmark' : 'mdi-bookmark-outline'"
           size="small"

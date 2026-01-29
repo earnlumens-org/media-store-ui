@@ -28,7 +28,7 @@
       flat
     >
       <v-btn
-        aria-label="Go back"
+        :aria-label="$t('Common.goBack')"
         icon="mdi-arrow-left"
         variant="text"
         @click="goBack"
@@ -149,7 +149,7 @@
             <!-- Desktop: Back button and title -->
             <div class="d-none d-md-flex align-center mb-4">
               <v-btn
-                aria-label="Go back"
+                :aria-label="$t('Common.goBack')"
                 class="me-2"
                 density="comfortable"
                 icon="mdi-arrow-left"

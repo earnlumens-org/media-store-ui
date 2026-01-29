@@ -25,7 +25,7 @@
       flat
     >
       <v-btn
-        aria-label="Go back"
+        :aria-label="$t('Common.goBack')"
         icon="mdi-arrow-left"
         variant="text"
         @click="goBack"
@@ -40,7 +40,7 @@
 
       <template #append>
         <v-btn
-          aria-label="Share"
+          :aria-label="$t('Common.share')"
           icon="mdi-share-variant"
           variant="text"
           @click="onShare"
@@ -49,14 +49,14 @@
           <template #activator="{ props: menuProps }">
             <v-btn
               v-bind="menuProps"
-              aria-label="More options"
+              :aria-label="$t('Common.moreOptions')"
               icon="mdi-dots-vertical"
               variant="text"
             />
           </template>
           <v-list density="compact">
-            <v-list-item prepend-icon="mdi-flag" title="Report" />
-            <v-list-item prepend-icon="mdi-playlist-plus" title="Add to playlist" />
+            <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
+            <v-list-item prepend-icon="mdi-playlist-plus" :title="$t('Common.addToPlaylist')" />
           </v-list>
         </v-menu>
       </template>
@@ -215,7 +215,7 @@
             <!-- Desktop: Back button row -->
             <div class="d-none d-md-flex align-center mb-4">
               <v-btn
-                aria-label="Go back"
+                :aria-label="$t('Common.goBack')"
                 class="me-2"
                 density="comfortable"
                 icon="mdi-arrow-left"
@@ -226,7 +226,7 @@
                 {{ entry.title }}
               </h1>
               <v-btn
-                aria-label="Share"
+                :aria-label="$t('Common.share')"
                 icon="mdi-share-variant"
                 variant="text"
                 @click="onShare"
@@ -235,14 +235,14 @@
                 <template #activator="{ props: menuProps }">
                   <v-btn
                     v-bind="menuProps"
-                    aria-label="More options"
+                    :aria-label="$t('Common.moreOptions')"
                     icon="mdi-dots-vertical"
                     variant="text"
                   />
                 </template>
                 <v-list density="compact">
-                  <v-list-item prepend-icon="mdi-flag" title="Report" />
-                  <v-list-item prepend-icon="mdi-playlist-plus" title="Add to playlist" />
+                  <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
+                  <v-list-item prepend-icon="mdi-playlist-plus" :title="$t('Common.addToPlaylist')" />
                 </v-list>
               </v-menu>
             </div>
@@ -358,7 +358,7 @@
 
                 <!-- Share (mobile) -->
                 <v-btn
-                  aria-label="Share"
+                  :aria-label="$t('Common.share')"
                   class="d-md-none"
                   icon="mdi-share-variant"
                   size="small"
@@ -368,7 +368,7 @@
 
                 <!-- Save/Bookmark -->
                 <v-btn
-                  :aria-label="isSaved ? 'Remove from saved' : 'Save'"
+                  :aria-label="isSaved ? $t('Common.removeFromSaved') : $t('Common.save')"
                   :color="isSaved ? 'primary' : undefined"
                   :icon="isSaved ? 'mdi-bookmark' : 'mdi-bookmark-outline'"
                   size="small"
@@ -392,14 +392,14 @@
                 <div class="d-flex align-center">
                   <span class="text-body-1 font-weight-medium">{{ entry.authorName }}</span>
                 </div>
-                <span class="text-body-2 text-medium-emphasis">Creator</span>
+                <span class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</span>
               </div>
               <v-btn
                 color="primary"
                 rounded="pill"
                 variant="flat"
               >
-                Follow
+                {{ $t('Common.follow') }}
               </v-btn>
             </v-sheet>
 
@@ -407,7 +407,7 @@
             <v-card class="mt-4" color="surface" variant="flat">
               <v-card-text>
                 <div class="text-body-2 text-medium-emphasis mb-2">
-                  Published {{ formatDate(entry.publishedAt) }}
+                  {{ $t('Common.published', { date: formatDate(entry.publishedAt) }) }}
                 </div>
                 <div :class="{ 'text-truncate-multiline': !descriptionExpanded }">
                   {{ description }}
@@ -419,7 +419,7 @@
                   variant="text"
                   @click="descriptionExpanded = !descriptionExpanded"
                 >
-                  {{ descriptionExpanded ? 'Show less' : 'Read more' }}
+                  {{ descriptionExpanded ? $t('Common.showLess') : $t('Common.readMore') }}
                 </v-btn>
               </v-card-text>
             </v-card>

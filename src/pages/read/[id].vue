@@ -29,7 +29,7 @@
       flat
     >
       <v-btn
-        aria-label="Go back"
+        :aria-label="$t('Common.goBack')"
         icon="mdi-arrow-left"
         variant="text"
         @click="goBack"
@@ -44,7 +44,7 @@
 
       <template #append>
         <v-btn
-          aria-label="Share"
+          :aria-label="$t('Common.share')"
           icon="mdi-share-variant"
           variant="text"
           @click="onShare"
@@ -53,14 +53,14 @@
           <template #activator="{ props: menuProps }">
             <v-btn
               v-bind="menuProps"
-              aria-label="More options"
+              :aria-label="$t('Common.moreOptions')"
               icon="mdi-dots-vertical"
               variant="text"
             />
           </template>
           <v-list density="compact">
-            <v-list-item prepend-icon="mdi-bookmark-outline" title="Save" />
-            <v-list-item prepend-icon="mdi-flag" title="Report" />
+            <v-list-item prepend-icon="mdi-bookmark-outline" :title="$t('Common.saveToCollection')" />
+            <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
           </v-list>
         </v-menu>
       </template>
@@ -206,7 +206,7 @@
             <!-- Desktop: Back button + Actions -->
             <div class="d-none d-md-flex align-center mb-4">
               <v-btn
-                aria-label="Go back"
+                :aria-label="$t('Common.goBack')"
                 class="me-2"
                 density="comfortable"
                 icon="mdi-arrow-left"
@@ -215,7 +215,7 @@
               />
               <v-spacer />
               <v-btn
-                aria-label="Share"
+                :aria-label="$t('Common.share')"
                 icon="mdi-share-variant"
                 variant="text"
                 @click="onShare"
@@ -224,14 +224,14 @@
                 <template #activator="{ props: menuProps }">
                   <v-btn
                     v-bind="menuProps"
-                    aria-label="More options"
+                    :aria-label="$t('Common.moreOptions')"
                     icon="mdi-dots-vertical"
                     variant="text"
                   />
                 </template>
                 <v-list density="compact">
-                  <v-list-item prepend-icon="mdi-bookmark-outline" title="Save" />
-                  <v-list-item prepend-icon="mdi-flag" title="Report" />
+                  <v-list-item prepend-icon="mdi-bookmark-outline" :title="$t('Common.saveToCollection')" />
+                  <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
                 </v-list>
               </v-menu>
             </div>
@@ -326,31 +326,31 @@
                 {{ formatCount(likes) }}
               </v-btn>
               <v-btn
-                :aria-label="isSaved ? 'Remove from saved' : 'Save'"
+                :aria-label="isSaved ? $t('Common.removeFromSaved') : $t('Common.save')"
                 :color="isSaved ? 'primary' : undefined"
                 :prepend-icon="isSaved ? 'mdi-bookmark' : 'mdi-bookmark-outline'"
                 rounded="pill"
                 variant="tonal"
                 @click="toggleSave"
               >
-                {{ isSaved ? 'Saved' : 'Save' }}
+                {{ isSaved ? $t('Common.saved') : $t('Common.save') }}
               </v-btn>
               <v-btn
-                aria-label="Share"
+                :aria-label="$t('Common.share')"
                 class="d-md-none"
                 prepend-icon="mdi-share-variant"
                 rounded="pill"
                 variant="tonal"
                 @click="onShare"
               >
-                Share
+                {{ $t('Common.share') }}
               </v-btn>
             </div>
 
             <!-- Mobile: Related Entries -->
             <div class="d-lg-none">
               <h2 class="text-subtitle-1 font-weight-bold mb-4">
-                More to read
+                {{ $t('Common.moreToRead') }}
               </h2>
               <ReadRecommendationsList :exclude-id="entryId" />
             </div>

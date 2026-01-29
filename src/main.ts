@@ -159,11 +159,11 @@ onAuthBroadcast(async event => {
     // Clear local state (don't broadcast again to avoid loops)
     await clearToken()
     authStore.clearAuth()
-    
+
     // Disconnect wallet on logout from other tab
     const walletStore = useWalletStore(pinia)
     await walletStore.disconnectAll()
-    
+
     // Navigate without reload to avoid triggering rehydrate again
     router.push('/')
   } finally {

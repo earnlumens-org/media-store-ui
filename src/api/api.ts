@@ -47,14 +47,6 @@ export { checkUsernameExists, getCurrentUser, getUserByUsername, parseUserFromTo
 export { getWaitlistStats } from './modules/waitlist.api'
 
 export type {
-  MessageResponseDto,
-  MessageResponseModel,
-  WaitlistStatsDto,
-  WaitlistStatsModel,
-  WaitlistSubscribeRequestDto,
-} from './types/waitlist.types'
-
-export type {
   CollectionModel,
   CollectionsRequestParams,
   EntriesRequestParams,
@@ -63,3 +55,11 @@ export type {
   FeedPageModel,
   FeedRequestParams,
 } from './types/entryMock.types'
+
+export type {
+  MessageResponseDto,
+  MessageResponseModel,
+  WaitlistStatsDto,
+  WaitlistStatsModel,
+  WaitlistSubscribeRequestDto,
+} from './types/waitlist.types'

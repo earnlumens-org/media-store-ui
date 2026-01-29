@@ -25,7 +25,7 @@
       flat
     >
       <v-btn
-        aria-label="Go back"
+        :aria-label="$t('Common.goBack')"
         icon="mdi-arrow-left"
         variant="text"
         @click="goBack"
@@ -40,7 +40,7 @@
 
       <template #append>
         <v-btn
-          aria-label="Share"
+          :aria-label="$t('Common.share')"
           icon="mdi-share-variant"
           variant="text"
           @click="onShare"
@@ -49,14 +49,14 @@
           <template #activator="{ props: menuProps }">
             <v-btn
               v-bind="menuProps"
-              aria-label="More options"
+              :aria-label="$t('Common.moreOptions')"
               icon="mdi-dots-vertical"
               variant="text"
             />
           </template>
           <v-list density="compact">
-            <v-list-item prepend-icon="mdi-download" title="Download" />
-            <v-list-item prepend-icon="mdi-flag" title="Report" />
+            <v-list-item prepend-icon="mdi-download" :title="$t('Common.download')" />
+            <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
           </v-list>
         </v-menu>
       </template>
@@ -256,7 +256,7 @@
               <!-- Title (Desktop: includes back button) -->
               <div class="d-none d-md-flex align-center mb-2">
                 <v-btn
-                  aria-label="Go back"
+                  :aria-label="$t('Common.goBack')"
                   class="me-2"
                   density="comfortable"
                   icon="mdi-arrow-left"
@@ -267,7 +267,7 @@
                   {{ entry.title }}
                 </h1>
                 <v-btn
-                  aria-label="Share"
+                  :aria-label="$t('Common.share')"
                   icon="mdi-share-variant"
                   variant="text"
                   @click="onShare"
@@ -276,14 +276,14 @@
                   <template #activator="{ props: menuProps }">
                     <v-btn
                       v-bind="menuProps"
-                      aria-label="More options"
+                      :aria-label="$t('Common.moreOptions')"
                       icon="mdi-dots-vertical"
                       variant="text"
                     />
                   </template>
                   <v-list density="compact">
-                    <v-list-item prepend-icon="mdi-download" title="Download" />
-                    <v-list-item prepend-icon="mdi-flag" title="Report" />
+                    <v-list-item prepend-icon="mdi-download" :title="$t('Common.download')" />
+                    <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
                   </v-list>
                 </v-menu>
               </div>
@@ -327,7 +327,7 @@
               <!-- Action Buttons -->
               <div class="d-flex flex-wrap ga-2 mt-4">
                 <v-btn
-                  :aria-label="isLiked ? 'Unlike' : 'Like'"
+                  :aria-label="isLiked ? $t('Common.unlike') : $t('Common.like')"
                   :color="isLiked ? 'primary' : undefined"
                   :prepend-icon="isLiked ? 'mdi-heart' : 'mdi-heart-outline'"
                   rounded="pill"
@@ -337,32 +337,32 @@
                   {{ formatCount(likes) }}
                 </v-btn>
                 <v-btn
-                  aria-label="Share"
+                  :aria-label="$t('Common.share')"
                   class="d-md-none"
                   prepend-icon="mdi-share-variant"
                   rounded="pill"
                   variant="tonal"
                   @click="onShare"
                 >
-                  Share
+                  {{ $t('Common.share') }}
                 </v-btn>
                 <v-btn
-                  :aria-label="isSaved ? 'Remove from collection' : 'Save to collection'"
+                  :aria-label="isSaved ? $t('Common.removeFromCollection') : $t('Common.saveToCollection')"
                   :color="isSaved ? 'primary' : undefined"
                   :prepend-icon="isSaved ? 'mdi-bookmark' : 'mdi-bookmark-outline'"
                   rounded="pill"
                   variant="tonal"
                   @click="toggleSave"
                 >
-                  {{ isSaved ? 'Saved' : 'Save' }}
+                  {{ isSaved ? $t('Common.saved') : $t('Common.save') }}
                 </v-btn>
                 <v-btn
-                  aria-label="Download"
+                  :aria-label="$t('Common.download')"
                   prepend-icon="mdi-download"
                   rounded="pill"
                   variant="tonal"
                 >
-                  Download
+                  {{ $t('Common.download') }}
                 </v-btn>
               </div>
 

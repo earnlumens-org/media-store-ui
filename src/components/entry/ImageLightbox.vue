@@ -55,7 +55,7 @@
 
             <!-- Share button -->
             <v-btn
-              aria-label="Share"
+              :aria-label="$t('Common.share')"
               color="white"
               icon="mdi-share-variant"
               variant="text"
@@ -67,7 +67,7 @@
               <template #activator="{ props: menuProps }">
                 <v-btn
                   v-bind="menuProps"
-                  aria-label="More options"
+                  :aria-label="$t('Common.moreOptions')"
                   color="white"
                   icon="mdi-dots-vertical"
                   variant="text"
@@ -76,11 +76,11 @@
               <v-list density="compact">
                 <v-list-item
                   prepend-icon="mdi-open-in-new"
-                  title="View details"
+                  :title="$t('Common.viewDetails')"
                   @click="openDetails"
                 />
-                <v-list-item prepend-icon="mdi-download" title="Download" />
-                <v-list-item prepend-icon="mdi-flag" title="Report" />
+                <v-list-item prepend-icon="mdi-download" :title="$t('Common.download')" />
+                <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
               </v-list>
             </v-menu>
           </template>

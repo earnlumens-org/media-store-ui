@@ -165,7 +165,7 @@
           <!-- Back Button (Mobile) -->
           <div class="d-md-none mb-auto">
             <v-btn
-              aria-label="Go back"
+              :aria-label="$t('Common.goBack')"
               color="white"
               icon="mdi-arrow-left"
               variant="text"
@@ -177,14 +177,14 @@
           <div class="mt-auto">
             <!-- Back Button (Desktop) -->
             <v-btn
-              aria-label="Go back"
+              :aria-label="$t('Common.goBack')"
               class="d-none d-md-inline-flex mb-2"
               color="white"
               prepend-icon="mdi-arrow-left"
               variant="text"
               @click="goBack"
             >
-              Back
+              {{ $t('Common.goBack') }}
             </v-btn>
 
             <!-- Type Badge -->
@@ -240,17 +240,17 @@
                 variant="flat"
                 @click="startCollection"
               >
-                {{ hasProgress ? 'Continue' : 'Start' }}
+                {{ hasProgress ? $t('Common.continue') : $t('Common.start') }}
               </v-btn>
               <v-btn
-                :aria-label="isSaved ? 'Remove from saved' : 'Save'"
+                :aria-label="isSaved ? $t('Common.removeFromSaved') : $t('Common.save')"
                 :color="isSaved ? 'primary' : 'white'"
                 :icon="isSaved ? 'mdi-bookmark' : 'mdi-bookmark-outline'"
                 variant="tonal"
                 @click="toggleSave"
               />
               <v-btn
-                aria-label="Share"
+                :aria-label="$t('Common.share')"
                 color="white"
                 icon="mdi-share-variant"
                 variant="tonal"
@@ -270,11 +270,11 @@
       >
         <v-tab value="items">
           <v-icon start>mdi-format-list-bulleted</v-icon>
-          Items
+          {{ $t('Common.items') }}
         </v-tab>
         <v-tab value="about">
           <v-icon start>mdi-information-outline</v-icon>
-          About
+          {{ $t('Common.about') }}
         </v-tab>
       </v-tabs>
 
