@@ -77,7 +77,7 @@
               type="error"
               variant="tonal"
             >
-              <v-alert-title>Failed to load content</v-alert-title>
+              <v-alert-title>{{ $t('Preview.failedToLoadContent') }}</v-alert-title>
               {{ errorMessage }}
             </v-alert>
             <div class="d-flex ga-2 justify-center">
@@ -87,14 +87,14 @@
                 variant="flat"
                 @click="fetchContent"
               >
-                Retry
+                {{ $t('Common.retry') }}
               </v-btn>
               <v-btn
                 prepend-icon="mdi-home"
                 variant="outlined"
                 @click="goHome"
               >
-                Go Home
+                {{ $t('Common.goHome') }}
               </v-btn>
             </div>
           </v-col>
@@ -114,9 +114,9 @@
             sm="8"
           >
             <v-icon color="grey" size="120">mdi-file-hidden</v-icon>
-            <h2 class="text-h5 mt-4 mb-2">Content not found</h2>
+            <h2 class="text-h5 mt-4 mb-2">{{ $t('Preview.contentNotFound') }}</h2>
             <p class="text-body-2 text-medium-emphasis mb-6">
-              The content you're looking for doesn't exist or has been removed.
+              {{ $t('Preview.contentNotFoundDescription') }}
             </p>
             <div class="d-flex ga-2 justify-center">
               <v-btn
@@ -125,14 +125,14 @@
                 variant="flat"
                 @click="goBack"
               >
-                Go Back
+                {{ $t('Common.goBack') }}
               </v-btn>
               <v-btn
                 prepend-icon="mdi-home"
                 variant="outlined"
                 @click="goHome"
               >
-                Go Home
+                {{ $t('Common.goHome') }}
               </v-btn>
             </div>
           </v-col>
@@ -189,8 +189,8 @@
               >
                 <div class="text-center">
                   <v-icon color="white" size="80">mdi-lock</v-icon>
-                  <div class="text-h6 text-white mt-2">Premium Video</div>
-                  <div class="text-body-2 text-white-secondary">Unlock to watch</div>
+                  <div class="text-h6 text-white mt-2">{{ $t('Preview.premiumVideo') }}</div>
+                  <div class="text-body-2 text-white-secondary">{{ $t('Preview.unlockToWatch') }}</div>
                 </div>
               </v-overlay>
               <!-- Duration badge -->
@@ -245,7 +245,7 @@
 
                 <div class="text-h6 mb-1">{{ content.title }}</div>
                 <div class="text-body-2 text-medium-emphasis mb-6">
-                  by {{ content.authorName }}
+                  {{ $t('Preview.by') }} {{ content.authorName }}
                 </div>
 
                 <!-- Disabled progress bar -->
@@ -279,7 +279,7 @@
                 </div>
 
                 <v-chip class="mt-6" color="warning" prepend-icon="mdi-lock">
-                  Unlock to listen
+                  {{ $t('Preview.unlockToListen') }}
                 </v-chip>
               </v-card-text>
             </v-card>
@@ -311,8 +311,8 @@
               >
                 <div class="text-center">
                   <v-icon color="white" size="80">mdi-lock</v-icon>
-                  <div class="text-h6 text-white mt-2">Premium Image</div>
-                  <div class="text-body-2 text-white-secondary">Unlock for full resolution</div>
+                  <div class="text-h6 text-white mt-2">{{ $t('Preview.premiumImage') }}</div>
+                  <div class="text-body-2 text-white-secondary">{{ $t('Preview.unlockForFullResolution') }}</div>
                 </div>
               </v-overlay>
             </v-sheet>
@@ -365,7 +365,7 @@
                 >
                   <div class="d-flex align-center">
                     <v-icon class="mr-2">mdi-lock</v-icon>
-                    <span>This article is locked. Unlock to continue reading.</span>
+                    <span>{{ $t('Preview.articleLocked') }}</span>
                   </div>
                 </v-alert>
               </v-card-text>
@@ -393,7 +393,7 @@
                 >
                   <div class="text-center">
                     <v-icon color="white" size="60">mdi-folder-lock</v-icon>
-                    <div class="text-h6 text-white mt-2">Premium Collection</div>
+                    <div class="text-h6 text-white mt-2">{{ $t('Preview.premiumCollection') }}</div>
                   </div>
                 </v-overlay>
               </v-img>
@@ -403,7 +403,7 @@
                 <div class="d-flex align-center text-body-2 text-medium-emphasis mb-4">
                   <span>{{ collectionData?.authorName || content.authorName }}</span>
                   <v-icon class="mx-2" size="4">mdi-circle</v-icon>
-                  <span>{{ collectionData?.itemsCount || 0 }} items</span>
+                  <span>{{ collectionData?.itemsCount || 0 }} {{ $t('Preview.items') }}</span>
                 </div>
 
                 <!-- Locked items list -->
@@ -419,10 +419,10 @@
                       </v-avatar>
                     </template>
                     <v-list-item-title class="text-medium-emphasis">
-                      Locked item {{ n }}
+                      {{ $t('Preview.lockedItem', { n }) }}
                     </v-list-item-title>
                     <v-list-item-subtitle class="text-disabled">
-                      Unlock collection to view
+                      {{ $t('Preview.unlockCollectionToView') }}
                     </v-list-item-subtitle>
                     <template #append>
                       <v-icon color="grey" size="small">mdi-lock</v-icon>
@@ -437,7 +437,7 @@
                   type="info"
                   variant="tonal"
                 >
-                  + {{ (collectionData?.itemsCount || 0) - 5 }} more items
+                  {{ $t('Preview.moreItems', { count: (collectionData?.itemsCount || 0) - 5 }) }}
                 </v-alert>
               </v-card-text>
             </v-card>
@@ -464,7 +464,7 @@
                         {{ content.authorName }}
                       </div>
                       <div class="text-body-2 text-medium-emphasis">
-                        Creator
+                        {{ $t('Common.creator') }}
                       </div>
                     </div>
                   </div>
@@ -472,13 +472,13 @@
                   <!-- Price -->
                   <v-card class="mb-4" color="primary" variant="tonal">
                     <v-card-text class="d-flex align-center justify-space-between py-3">
-                      <span class="text-body-2">Unlock price</span>
+                      <span class="text-body-2">{{ $t('Preview.unlockPrice') }}</span>
                       <span class="text-h5 font-weight-bold">{{ formatPrice(mockPrice) }}</span>
                     </v-card-text>
                   </v-card>
 
                   <!-- What's included -->
-                  <div class="text-subtitle-2 font-weight-medium mb-2">What you get</div>
+                  <div class="text-subtitle-2 font-weight-medium mb-2">{{ $t('Preview.whatYouGet') }}</div>
                   <v-list class="bg-transparent pa-0 mb-4" density="compact">
                     <v-list-item
                       v-for="(benefit, idx) in typeBenefits"
@@ -500,7 +500,7 @@
                     size="large"
                     @click="openCheckout"
                   >
-                    Unlock for {{ formatPrice(mockPrice) }}
+                    {{ $t('Preview.unlockFor', { price: formatPrice(mockPrice) }) }}
                   </v-btn>
                 </v-card-text>
               </v-card>
@@ -530,7 +530,7 @@
                       {{ content.authorName }}
                     </div>
                     <div class="text-body-2 text-medium-emphasis">
-                      Creator
+                      {{ $t('Common.creator') }}
                     </div>
                   </div>
                 </div>
@@ -538,13 +538,13 @@
                 <!-- Price card -->
                 <v-card class="mb-6" color="primary" variant="tonal">
                   <v-card-text class="d-flex align-center justify-space-between py-4">
-                    <span class="text-body-1">Unlock price</span>
+                    <span class="text-body-1">{{ $t('Preview.unlockPrice') }}</span>
                     <span class="text-h4 font-weight-bold">{{ formatPrice(mockPrice) }}</span>
                   </v-card-text>
                 </v-card>
 
                 <!-- What's included -->
-                <div class="text-subtitle-1 font-weight-medium mb-3">What you get</div>
+                <div class="text-subtitle-1 font-weight-medium mb-3">{{ $t('Preview.whatYouGet') }}</div>
                 <v-list class="bg-transparent pa-0 mb-6" density="compact">
                   <v-list-item
                     v-for="(benefit, idx) in typeBenefits"
@@ -566,13 +566,13 @@
                   size="x-large"
                   @click="openCheckout"
                 >
-                  Unlock for {{ formatPrice(mockPrice) }}
+                  {{ $t('Preview.unlockFor', { price: formatPrice(mockPrice) }) }}
                 </v-btn>
 
                 <!-- Security note -->
                 <div class="d-flex align-center justify-center mt-4 text-body-2 text-medium-emphasis">
                   <v-icon class="mr-1" size="small">mdi-shield-check</v-icon>
-                  Secure payment via Stellar
+                  {{ $t('Preview.securePaymentViaStellar') }}
                 </div>
               </v-card-text>
             </v-card>
@@ -594,12 +594,14 @@
   import type { CollectionModel, EntryModel } from '@/api/types/entryMock.types'
 
   import { computed, onMounted, ref, watch } from 'vue'
+  import { useI18n } from 'vue-i18n'
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
   import CheckoutDialog from '@/components/checkout/CheckoutDialog.vue'
   import { usePurchasesStore } from '@/stores/purchases'
 
+  const { t } = useI18n()
   const route = useRoute()
   const router = useRouter()
   const purchasesStore = usePurchasesStore()
@@ -650,11 +652,11 @@ Premium content helps creators continue producing quality work for their audienc
   // Benefits per type
   const typeBenefits = computed(() => {
     const benefits: Record<string, string[]> = {
-      video: ['Full HD streaming', 'Download in multiple formats', 'Lifetime access', 'Support the creator'],
-      audio: ['High-quality audio (FLAC/MP3)', 'Download for offline', 'Lifetime access', 'Support the creator'],
-      image: ['Full resolution download', 'Commercial use license', 'Lifetime access', 'Support the creator'],
-      entry: ['Full article access', 'Future updates', 'No ads experience', 'Support the creator'],
-      collection: ['Access to all items', 'Future additions included', 'Bulk discount applied', 'Lifetime access'],
+      video: [t('Preview.fullHDStreaming'), t('Preview.downloadMultipleFormats'), t('Preview.lifetimeAccess'), t('Preview.supportTheCreator')],
+      audio: [t('Preview.highQualityAudio'), t('Preview.downloadForOffline'), t('Preview.lifetimeAccess'), t('Preview.supportTheCreator')],
+      image: [t('Preview.fullResolutionDownload'), t('Preview.commercialUseLicense'), t('Preview.lifetimeAccess'), t('Preview.supportTheCreator')],
+      entry: [t('Preview.fullArticleAccess'), t('Preview.futureUpdates'), t('Preview.noAdsExperience'), t('Preview.supportTheCreator')],
+      collection: [t('Preview.accessToAllItems'), t('Preview.futureAdditionsIncluded'), t('Preview.bulkDiscountApplied'), t('Preview.lifetimeAccess')],
     }
     return benefits[contentType.value] || benefits.entry
   })

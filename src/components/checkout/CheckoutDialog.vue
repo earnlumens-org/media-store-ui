@@ -21,12 +21,15 @@
 
 <script setup lang="ts">
   import { computed, ref, watch } from 'vue'
+  import { useI18n } from 'vue-i18n'
 
   import xIcon from '@/assets/twitterx.svg?raw'
 
   import { useAppStore } from '@/stores/app'
   import { usePurchasesStore } from '@/stores/purchases'
   import { useWalletStore } from '@/stores/wallet'
+
+  const { t } = useI18n()
 
   // X icon SVG
   const xIconSvg = xIcon
@@ -101,13 +104,13 @@
   // Type label mapping
   const typeLabel = computed(() => {
     const labels: Record<string, string> = {
-      video: 'Video',
-      audio: 'Audio Track',
-      image: 'Image',
-      entry: 'Article',
-      collection: 'Collection',
+      video: t('Preview.videoType'),
+      audio: t('Preview.audioType'),
+      image: t('Preview.imageType'),
+      entry: t('Preview.entryType'),
+      collection: t('Preview.collectionType'),
     }
-    return labels[props.item?.type || 'entry'] || 'Content'
+    return labels[props.item?.type || 'entry'] || t('Preview.contentType')
   })
 
   // Default "includes" based on type
@@ -116,14 +119,14 @@
     if (!item) return []
 
     const includesMap: Record<string, string[]> = {
-      video: ['Full HD streaming', 'Download in multiple formats', 'Lifetime access'],
-      audio: ['High-quality audio (FLAC/MP3)', 'Download for offline', 'Lifetime access'],
-      image: ['Full resolution download', 'Commercial use license', 'Lifetime access'],
-      entry: ['Full article access', 'Future updates', 'Support the creator'],
-      collection: ['Access to all items', 'Future additions included', 'Lifetime access'],
+      video: [t('Preview.fullHDStreaming'), t('Preview.downloadMultipleFormats'), t('Preview.lifetimeAccess')],
+      audio: [t('Preview.highQualityAudio'), t('Preview.downloadForOffline'), t('Preview.lifetimeAccess')],
+      image: [t('Preview.fullResolutionDownload'), t('Preview.commercialUseLicense'), t('Preview.lifetimeAccess')],
+      entry: [t('Preview.fullArticleAccess'), t('Preview.futureUpdates'), t('Preview.supportTheCreator')],
+      collection: [t('Preview.accessToAllItems'), t('Preview.futureAdditionsIncluded'), t('Preview.lifetimeAccess')],
     }
 
-    return item.includes || includesMap[item.type] || ['Full access', 'Lifetime access']
+    return item.includes || includesMap[item.type] || [t('Preview.fullAccess'), t('Preview.lifetimeAccess')]
   })
 
   // Format price
@@ -243,7 +246,7 @@
             <v-col>
               <div class="text-subtitle-1 font-weight-medium">{{ item.title }}</div>
               <div v-if="item.creator" class="text-body-2 text-medium-emphasis">
-                by {{ item.creator.name }}
+                {{ $t('Preview.by') }} {{ item.creator.name }}
               </div>
               <v-chip
                 class="mt-1"
@@ -259,7 +262,7 @@
           <!-- Price -->
           <v-card class="mb-4" color="surface-variant" variant="flat">
             <v-card-text class="d-flex align-center justify-space-between py-3">
-              <span class="text-body-2 text-medium-emphasis">Price</span>
+              <span class="text-body-2 text-medium-emphasis">{{ $t('Preview.price') }}</span>
               <span class="text-h6 font-weight-bold text-primary">
                 {{ formatPrice(item.price) }}
               </span>
@@ -267,7 +270,7 @@
           </v-card>
 
           <!-- What's included -->
-          <div class="text-subtitle-2 font-weight-medium mb-2">What's included</div>
+          <div class="text-subtitle-2 font-weight-medium mb-2">{{ $t('Preview.whatsIncluded') }}</div>
           <v-list class="bg-transparent pa-0" density="compact">
             <v-list-item
               v-for="(include, idx) in defaultIncludes"
@@ -289,7 +292,7 @@
             size="large"
             @click="goToPayment"
           >
-            Continue to Payment
+            {{ $t('Preview.continueToPayment') }}
           </v-btn>
         </v-card-actions>
       </template>
@@ -311,7 +314,7 @@
           </v-alert>
 
           <!-- Payment methods -->
-          <div class="text-subtitle-2 font-weight-medium mb-3">Select payment method</div>
+          <div class="text-subtitle-2 font-weight-medium mb-3">{{ $t('Preview.selectPaymentMethod') }}</div>
 
           <v-radio-group v-model="selectedPayment" class="mb-4" hide-details>
             <v-card
@@ -324,9 +327,9 @@
                 <v-radio class="ma-0" hide-details value="wallet" />
                 <v-icon class="ml-2 mr-3" icon="mdi-wallet" />
                 <div>
-                  <div class="text-body-1 font-weight-medium">Stellar Wallet</div>
+                  <div class="text-body-1 font-weight-medium">{{ $t('Preview.stellarWallet') }}</div>
                   <div class="text-body-2 text-medium-emphasis">
-                    {{ walletStore.isConnected ? 'Connected' : 'Connect to pay' }}
+                    {{ walletStore.isConnected ? $t('Preview.connected') : $t('Preview.connectToPay') }}
                   </div>
                 </div>
                 <v-spacer />
@@ -336,7 +339,7 @@
                   size="x-small"
                   variant="tonal"
                 >
-                  Ready
+                  {{ $t('Preview.ready') }}
                 </v-chip>
               </v-card-text>
             </v-card>
@@ -350,8 +353,8 @@
                 <v-radio class="ma-0" hide-details value="card" />
                 <span aria-label="X" class="x-icon ml-2 mr-3" role="img" v-html="xIconSvg" />
                 <div>
-                  <div class="text-body-1 font-weight-medium">X Payments</div>
-                  <div class="text-body-2 text-medium-emphasis">Pay with your X account balance</div>
+                  <div class="text-body-1 font-weight-medium">{{ $t('Preview.xPayments') }}</div>
+                  <div class="text-body-2 text-medium-emphasis">{{ $t('Preview.payWithXAccountBalance') }}</div>
                 </div>
               </v-card-text>
             </v-card>
@@ -361,16 +364,16 @@
           <v-divider class="my-4" />
 
           <div class="d-flex justify-space-between align-center mb-2">
-            <span class="text-body-2 text-medium-emphasis">Subtotal</span>
+            <span class="text-body-2 text-medium-emphasis">{{ $t('Preview.subtotal') }}</span>
             <span class="text-body-2">{{ formatPrice(item.price) }}</span>
           </div>
           <div class="d-flex justify-space-between align-center mb-2">
-            <span class="text-body-2 text-medium-emphasis">Network fee</span>
+            <span class="text-body-2 text-medium-emphasis">{{ $t('Preview.networkFee') }}</span>
             <span class="text-body-2">0.00001 XLM</span>
           </div>
           <v-divider class="my-2" />
           <div class="d-flex justify-space-between align-center">
-            <span class="text-subtitle-1 font-weight-medium">Total</span>
+            <span class="text-subtitle-1 font-weight-medium">{{ $t('Preview.total') }}</span>
             <span class="text-subtitle-1 font-weight-bold text-primary">
               {{ formatPrice(item.price + 0.00001) }}
             </span>
@@ -387,7 +390,7 @@
             @click="handlePurchase"
           >
             <v-icon class="mr-2" icon="mdi-lock-open" />
-            Pay {{ formatPrice(item.price) }}
+            {{ $t('Preview.pay') }} {{ formatPrice(item.price) }}
           </v-btn>
         </v-card-actions>
       </template>
@@ -411,7 +414,7 @@
           @click="goBack"
         />
         <v-toolbar-title class="text-subtitle-1 font-weight-medium">
-          {{ step === 1 ? 'Unlock Content' : 'Payment' }}
+          {{ step === 1 ? $t('Preview.unlockContent') : $t('Preview.payment') }}
         </v-toolbar-title>
         <v-spacer />
         <v-btn icon="mdi-close" variant="text" @click="closeDialog" />
@@ -445,7 +448,7 @@
             <v-col>
               <div class="text-h6">{{ item.title }}</div>
               <div v-if="item.creator" class="text-body-1 text-medium-emphasis mb-1">
-                by {{ item.creator.name }}
+                {{ $t('Preview.by') }} {{ item.creator.name }}
               </div>
               <v-chip
                 color="primary"
@@ -460,7 +463,7 @@
           <!-- Price -->
           <v-card class="mb-6" color="surface-variant" variant="flat">
             <v-card-text class="d-flex align-center justify-space-between py-4">
-              <span class="text-body-1 text-medium-emphasis">Price</span>
+              <span class="text-body-1 text-medium-emphasis">{{ $t('Preview.price') }}</span>
               <span class="text-h5 font-weight-bold text-primary">
                 {{ formatPrice(item.price) }}
               </span>
@@ -468,7 +471,7 @@
           </v-card>
 
           <!-- What's included -->
-          <div class="text-subtitle-1 font-weight-medium mb-3">What's included</div>
+          <div class="text-subtitle-1 font-weight-medium mb-3">{{ $t('Preview.whatsIncluded') }}</div>
           <v-list class="bg-transparent pa-0" density="compact">
             <v-list-item
               v-for="(include, idx) in defaultIncludes"
@@ -490,7 +493,7 @@
             size="large"
             @click="goToPayment"
           >
-            Continue to Payment
+            {{ $t('Preview.continueToPayment') }}
           </v-btn>
         </v-card-actions>
       </template>
@@ -512,7 +515,7 @@
           </v-alert>
 
           <!-- Payment methods -->
-          <div class="text-subtitle-1 font-weight-medium mb-4">Select payment method</div>
+          <div class="text-subtitle-1 font-weight-medium mb-4">{{ $t('Preview.selectPaymentMethod') }}</div>
 
           <v-radio-group v-model="selectedPayment" class="mb-6" hide-details>
             <v-card
@@ -525,9 +528,9 @@
                 <v-radio class="ma-0" hide-details value="wallet" />
                 <v-icon class="ml-3 mr-4" icon="mdi-wallet" size="28" />
                 <div>
-                  <div class="text-body-1 font-weight-medium">Stellar Wallet</div>
+                  <div class="text-body-1 font-weight-medium">{{ $t('Preview.stellarWallet') }}</div>
                   <div class="text-body-2 text-medium-emphasis">
-                    {{ walletStore.isConnected ? 'Connected' : 'Connect to pay with XLM' }}
+                    {{ walletStore.isConnected ? $t('Preview.connected') : $t('Preview.connectToPayWithXLM') }}
                   </div>
                 </div>
                 <v-spacer />
@@ -537,7 +540,7 @@
                   size="small"
                   variant="tonal"
                 >
-                  Ready
+                  {{ $t('Preview.ready') }}
                 </v-chip>
               </v-card-text>
             </v-card>
@@ -551,8 +554,8 @@
                 <v-radio class="ma-0" hide-details value="card" />
                 <span aria-label="X" class="x-icon x-icon--large ml-3 mr-4" role="img" v-html="xIconSvg" />
                 <div>
-                  <div class="text-body-1 font-weight-medium">X Payments</div>
-                  <div class="text-body-2 text-medium-emphasis">Pay with your X account balance</div>
+                  <div class="text-body-1 font-weight-medium">{{ $t('Preview.xPayments') }}</div>
+                  <div class="text-body-2 text-medium-emphasis">{{ $t('Preview.payWithXAccountBalance') }}</div>
                 </div>
               </v-card-text>
             </v-card>
@@ -562,16 +565,16 @@
           <v-divider class="my-4" />
 
           <div class="d-flex justify-space-between align-center mb-3">
-            <span class="text-body-1 text-medium-emphasis">Subtotal</span>
+            <span class="text-body-1 text-medium-emphasis">{{ $t('Preview.subtotal') }}</span>
             <span class="text-body-1">{{ formatPrice(item.price) }}</span>
           </div>
           <div class="d-flex justify-space-between align-center mb-3">
-            <span class="text-body-1 text-medium-emphasis">Network fee</span>
+            <span class="text-body-1 text-medium-emphasis">{{ $t('Preview.networkFee') }}</span>
             <span class="text-body-1">0.00001 XLM</span>
           </div>
           <v-divider class="my-3" />
           <div class="d-flex justify-space-between align-center">
-            <span class="text-h6 font-weight-medium">Total</span>
+            <span class="text-h6 font-weight-medium">{{ $t('Preview.total') }}</span>
             <span class="text-h6 font-weight-bold text-primary">
               {{ formatPrice(item.price + 0.00001) }}
             </span>
@@ -588,7 +591,7 @@
             @click="handlePurchase"
           >
             <v-icon class="mr-2" icon="mdi-lock-open" />
-            Pay {{ formatPrice(item.price) }}
+            {{ $t('Preview.pay') }} {{ formatPrice(item.price) }}
           </v-btn>
         </v-card-actions>
       </template>
