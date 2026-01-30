@@ -71,7 +71,7 @@
               type="error"
               variant="tonal"
             >
-              <v-alert-title>Failed to load collection</v-alert-title>
+              <v-alert-title>{{ $t('Common.failedToLoadCollection') }}</v-alert-title>
               {{ errorMessage }}
             </v-alert>
             <div class="d-flex ga-2 justify-center">
@@ -81,14 +81,14 @@
                 variant="flat"
                 @click="fetchCollection"
               >
-                Retry
+                {{ $t('Common.retry') }}
               </v-btn>
               <v-btn
                 prepend-icon="mdi-home"
                 variant="outlined"
                 @click="goHome"
               >
-                Go Home
+                {{ $t('Common.goHome') }}
               </v-btn>
             </div>
           </v-col>
@@ -108,9 +108,9 @@
             sm="8"
           >
             <v-icon color="grey" size="120">mdi-folder-off-outline</v-icon>
-            <h2 class="text-h5 mt-4 mb-2">Collection not found</h2>
+            <h2 class="text-h5 mt-4 mb-2">{{ $t('Common.collectionNotFound') }}</h2>
             <p class="text-body-2 text-medium-emphasis mb-6">
-              The collection you're looking for doesn't exist or has been removed.
+              {{ $t('Common.collectionNotFoundDescription') }}
             </p>
             <div class="d-flex ga-2 justify-center">
               <v-btn
@@ -119,14 +119,14 @@
                 variant="flat"
                 @click="goBack"
               >
-                Go Back
+                {{ $t('Common.goBack') }}
               </v-btn>
               <v-btn
                 prepend-icon="mdi-home"
                 variant="outlined"
                 @click="goHome"
               >
-                Go Home
+                {{ $t('Common.goHome') }}
               </v-btn>
             </div>
           </v-col>
@@ -219,7 +219,7 @@
             <div class="d-flex flex-wrap align-center ga-3 text-body-2 text-white text-medium-emphasis mb-4">
               <span v-if="collection.itemsCount">
                 <v-icon class="me-1" size="16">mdi-format-list-bulleted</v-icon>
-                {{ collection.itemsCount }} items
+                {{ $t('Common.itemsCount', { count: collection.itemsCount }) }}
               </span>
               <span v-if="collection.totalDurationSec">
                 <v-icon class="me-1" size="16">mdi-clock-outline</v-icon>
@@ -300,7 +300,7 @@
                   value="all"
                   variant="tonal"
                 >
-                  All
+                  {{ $t('Common.all') }}
                 </v-chip>
                 <v-chip
                   v-for="type in uniqueTypes"
@@ -311,7 +311,7 @@
                   variant="tonal"
                 >
                   <v-icon size="14" start>{{ getTypeIcon(type) }}</v-icon>
-                  {{ capitalizeFirst(type) }}
+                  {{ translateType(type) }}
                 </v-chip>
               </v-chip-group>
 
@@ -321,7 +321,7 @@
                 clearable
                 density="compact"
                 hide-details
-                placeholder="Search items..."
+                :placeholder="$t('Common.searchItems')"
                 prepend-inner-icon="mdi-magnify"
                 variant="outlined"
                 width="200"
@@ -339,17 +339,17 @@
                 <v-list density="compact">
                   <v-list-item
                     :active="sortBy === 'default'"
-                    title="Default order"
+                    :title="$t('Common.defaultOrder')"
                     @click="sortBy = 'default'"
                   />
                   <v-list-item
                     :active="sortBy === 'recent'"
-                    title="Most recent"
+                    :title="$t('Common.mostRecent')"
                     @click="sortBy = 'recent'"
                   />
                   <v-list-item
                     :active="sortBy === 'title'"
-                    title="Title A-Z"
+                    :title="$t('Common.titleAZ')"
                     @click="sortBy = 'title'"
                   />
                 </v-list>
@@ -375,7 +375,7 @@
             >
               <v-icon color="grey" size="64">mdi-folder-open-outline</v-icon>
               <p class="text-body-1 mt-4">
-                {{ searchQuery || selectedType !== 'all' ? 'No items match your filters' : 'This collection is empty' }}
+                {{ searchQuery || selectedType !== 'all' ? $t('Common.noItemsMatchFilters') : $t('Common.collectionEmpty') }}
               </p>
               <v-btn
                 v-if="searchQuery || selectedType !== 'all'"
@@ -383,7 +383,7 @@
                 variant="text"
                 @click="clearFilters"
               >
-                Clear filters
+                {{ $t('Common.clearFilters') }}
               </v-btn>
             </v-sheet>
 
@@ -420,7 +420,7 @@
                 </v-list-item-title>
                 <v-list-item-subtitle class="text-caption">
                   <v-icon class="me-1" size="12">{{ getTypeIcon(item.type) }}</v-icon>
-                  {{ capitalizeFirst(item.type) }}
+                  {{ translateType(item.type) }}
                   <span v-if="item.durationSec" class="ms-2">
                     · {{ formatItemDuration(item.durationSec) }}
                   </span>
@@ -452,7 +452,7 @@
                 md="10"
               >
                 <!-- Description -->
-                <h2 class="text-h6 font-weight-bold mb-3">About this collection</h2>
+                <h2 class="text-h6 font-weight-bold mb-3">{{ $t('Common.aboutThisCollection') }}</h2>
                 <p class="text-body-1 mb-6">
                   {{ collectionDescription }}
                 </p>
@@ -469,14 +469,14 @@
                     </v-avatar>
                     <div class="flex-grow-1">
                       <h3 class="text-body-1 font-weight-medium">{{ collection.authorName }}</h3>
-                      <p class="text-body-2 text-medium-emphasis">Creator</p>
+                      <p class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</p>
                     </div>
                     <v-btn
                       color="primary"
                       rounded="pill"
                       variant="flat"
                     >
-                      Follow
+                      {{ $t('Common.follow') }}
                     </v-btn>
                   </v-card-text>
                 </v-card>
@@ -488,19 +488,19 @@
                       <template #prepend>
                         <v-icon>mdi-format-list-bulleted</v-icon>
                       </template>
-                      <v-list-item-title>{{ collection.itemsCount }} items</v-list-item-title>
+                      <v-list-item-title>{{ $t('Common.itemsCount', { count: collection.itemsCount }) }}</v-list-item-title>
                     </v-list-item>
                     <v-list-item v-if="collection.totalDurationSec">
                       <template #prepend>
                         <v-icon>mdi-clock-outline</v-icon>
                       </template>
-                      <v-list-item-title>{{ formatDuration(collection.totalDurationSec) }} total</v-list-item-title>
+                      <v-list-item-title>{{ formatDuration(collection.totalDurationSec) }} {{ $t('Common.total') }}</v-list-item-title>
                     </v-list-item>
                     <v-list-item>
                       <template #prepend>
                         <v-icon>mdi-calendar</v-icon>
                       </template>
-                      <v-list-item-title>Published {{ formatDate(collection.publishedAt) }}</v-list-item-title>
+                      <v-list-item-title>{{ $t('Common.published', { date: formatDate(collection.publishedAt) }) }}</v-list-item-title>
                     </v-list-item>
                   </v-list>
                 </v-card>
@@ -535,6 +535,7 @@
   import type { CollectionModel, EntryModel } from '@/api/api'
 
   import { computed, onMounted, ref, watch } from 'vue'
+  import { useI18n } from 'vue-i18n'
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
@@ -543,6 +544,7 @@
   import ImageLightbox from '@/components/entry/ImageLightbox.vue'
   import { useAppStore } from '@/stores/app'
 
+  const { t } = useI18n()
   const route = useRoute()
   const router = useRouter()
   const appStore = useAppStore()
@@ -661,8 +663,14 @@
     return 'mdi-book-open-variant'
   }
 
-  function capitalizeFirst (str: string): string {
-    return str.charAt(0).toUpperCase() + str.slice(1)
+  function translateType (type: string): string {
+    const typeKeys: Record<string, string> = {
+      video: 'Common.video',
+      audio: 'Common.audio',
+      image: 'Common.image',
+      entry: 'Common.entry',
+    }
+    return t(typeKeys[type] || 'Common.entry')
   }
 
   function formatDuration (seconds: number): string {

@@ -129,7 +129,7 @@
               type="error"
               variant="tonal"
             >
-              <v-alert-title>Failed to load entry</v-alert-title>
+              <v-alert-title>{{ $t('Common.failedToLoadEntry') }}</v-alert-title>
               {{ errorMessage }}
             </v-alert>
             <div class="d-flex ga-2 justify-center">
@@ -139,14 +139,14 @@
                 variant="flat"
                 @click="fetchEntry"
               >
-                Retry
+                {{ $t('Common.retry') }}
               </v-btn>
               <v-btn
                 prepend-icon="mdi-home"
                 variant="outlined"
                 @click="goHome"
               >
-                Go Home
+                {{ $t('Common.goHome') }}
               </v-btn>
             </div>
           </v-col>
@@ -166,9 +166,9 @@
             sm="8"
           >
             <v-icon color="grey" size="120">mdi-file-document-remove-outline</v-icon>
-            <h2 class="text-h5 mt-4 mb-2">Entry not found</h2>
+            <h2 class="text-h5 mt-4 mb-2">{{ $t('Common.entryNotFound') }}</h2>
             <p class="text-body-2 text-medium-emphasis mb-6">
-              The entry you're looking for doesn't exist or has been removed.
+              {{ $t('Common.entryNotFoundDescription') }}
             </p>
             <div class="d-flex ga-2 justify-center">
               <v-btn
@@ -177,14 +177,14 @@
                 variant="flat"
                 @click="goBack"
               >
-                Go Back
+                {{ $t('Common.goBack') }}
               </v-btn>
               <v-btn
                 prepend-icon="mdi-home"
                 variant="outlined"
                 @click="goHome"
               >
-                Go Home
+                {{ $t('Common.goHome') }}
               </v-btn>
             </div>
           </v-col>
@@ -261,14 +261,14 @@
                   <span class="text-body-1 font-weight-medium">{{ entry.authorName }}</span>
                   <v-icon class="ms-1" color="primary" size="18">mdi-check-decagram</v-icon>
                 </div>
-                <span class="text-body-2 text-medium-emphasis">Writer</span>
+                <span class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</span>
               </div>
               <v-btn
                 color="primary"
                 rounded="pill"
                 variant="flat"
               >
-                Follow
+                {{ $t('Common.follow') }}
               </v-btn>
             </v-sheet>
 
@@ -377,7 +377,7 @@
                   <v-icon v-if="!entry.authorAvatarUrl" size="32">mdi-account</v-icon>
                 </v-avatar>
                 <h3 class="text-body-1 font-weight-medium">{{ entry.authorName }}</h3>
-                <p class="text-body-2 text-medium-emphasis">Writer &amp; Creator</p>
+                <p class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</p>
                 <v-btn
                   block
                   class="mt-3"
@@ -385,14 +385,14 @@
                   rounded="pill"
                   variant="flat"
                 >
-                  Follow
+                  {{ $t('Common.follow') }}
                 </v-btn>
               </v-card-text>
             </v-card>
 
             <!-- Related Entries -->
             <h2 class="text-subtitle-1 font-weight-bold mb-4">
-              More to read
+              {{ $t('Common.moreToRead') }}
             </h2>
             <ReadRecommendationsList :exclude-id="entryId" />
           </v-container>

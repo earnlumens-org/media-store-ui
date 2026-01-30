@@ -138,7 +138,7 @@
               type="error"
               variant="tonal"
             >
-              <v-alert-title>Failed to load image</v-alert-title>
+              <v-alert-title>{{ $t('Common.failedToLoadImage') }}</v-alert-title>
               {{ errorMessage }}
             </v-alert>
             <div class="d-flex ga-2 justify-center">
@@ -148,14 +148,14 @@
                 variant="flat"
                 @click="fetchEntry"
               >
-                Retry
+                {{ $t('Common.retry') }}
               </v-btn>
               <v-btn
                 prepend-icon="mdi-home"
                 variant="outlined"
                 @click="goHome"
               >
-                Go Home
+                {{ $t('Common.goHome') }}
               </v-btn>
             </div>
           </v-col>
@@ -175,9 +175,9 @@
             sm="8"
           >
             <v-icon color="grey" size="120">mdi-image-off-outline</v-icon>
-            <h2 class="text-h5 mt-4 mb-2">Image not found</h2>
+            <h2 class="text-h5 mt-4 mb-2">{{ $t('Common.imageNotFound') }}</h2>
             <p class="text-body-2 text-medium-emphasis mb-6">
-              The image you're looking for doesn't exist or has been removed.
+              {{ $t('Common.imageNotFoundDescription') }}
             </p>
             <div class="d-flex ga-2 justify-center">
               <v-btn
@@ -186,14 +186,14 @@
                 variant="flat"
                 @click="goBack"
               >
-                Go Back
+                {{ $t('Common.goBack') }}
               </v-btn>
               <v-btn
                 prepend-icon="mdi-home"
                 variant="outlined"
                 @click="goHome"
               >
-                Go Home
+                {{ $t('Common.goHome') }}
               </v-btn>
             </div>
           </v-col>
@@ -237,7 +237,7 @@
                     color="grey-darken-4"
                   >
                     <v-icon color="grey" size="80">mdi-image-broken</v-icon>
-                    <span class="text-body-2 text-grey mt-2">Failed to load image</span>
+                    <span class="text-body-2 text-grey mt-2">{{ $t('Common.failedToLoadImage') }}</span>
                   </v-sheet>
                 </template>
               </v-img>
@@ -313,14 +313,14 @@
                     <span class="text-body-1 font-weight-medium">{{ entry.authorName }}</span>
                     <v-icon class="ms-1" color="primary" size="18">mdi-check-decagram</v-icon>
                   </div>
-                  <span class="text-body-2 text-medium-emphasis">Photographer</span>
+                  <span class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</span>
                 </div>
                 <v-btn
                   color="primary"
                   rounded="pill"
                   variant="flat"
                 >
-                  Follow
+                  {{ $t('Common.follow') }}
                 </v-btn>
               </v-sheet>
 
@@ -379,7 +379,7 @@
                     variant="text"
                     @click="descriptionExpanded = !descriptionExpanded"
                   >
-                    {{ descriptionExpanded ? 'Show less' : 'Read more' }}
+                    {{ descriptionExpanded ? $t('Common.showLess') : $t('Common.readMore') }}
                   </v-btn>
                 </v-card-text>
               </v-card>
@@ -401,7 +401,7 @@
               <!-- Mobile: Recommendations Section -->
               <div class="d-md-none mt-6">
                 <h2 class="text-subtitle-1 font-weight-bold mb-4">
-                  More from this creator
+                  {{ $t('Common.moreFromCreator') }}
                 </h2>
                 <ImageRecommendationsList :exclude-id="entryId" />
               </div>
@@ -419,7 +419,7 @@
         >
           <v-container class="pa-4" fluid>
             <h2 class="text-subtitle-1 font-weight-bold mb-4">
-              More from this creator
+              {{ $t('Common.moreFromCreator') }}
             </h2>
             <ImageRecommendationsList :exclude-id="entryId" />
           </v-container>
