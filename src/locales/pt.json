@@ -74,7 +74,8 @@
         "shortAbout": "Uma plataforma de educação financeira colaborativa na rede Stellar",
         "blockquote": "A EARNLUMENS é uma plataforma colaborativa onde a educação financeira se encontra com a aplicação no mundo real. Aprenda a navegar na rede Stellar, amplie seu potencial financeiro e compartilhe seu conhecimento para ajudar outras pessoas a avançarem.",
         "accept": "Aceitar",
-        "upload": "Carregar"
+        "upload": "Carregar",
+        "goHome": "Ir para o início"
     },
     "Themes": {
         "title": "Seletor de temas do EarnLumens",
@@ -210,7 +211,7 @@
     },
     "Home": {
         "aboutXLM": "Sobre XLM",
-        "joinWaitlist": "Join Waitlist"
+        "joinWaitlist": "Entrar na lista de espera"
     },
     "WaitList": {
         "joinOurWaitingList": "Junte-se à nossa lista de espera",

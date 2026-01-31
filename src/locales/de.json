@@ -74,7 +74,8 @@
         "shortAbout": "Eine kollaborative Finanzbildung-Plattform im Stellar-Netzwerk",
         "blockquote": "EARNLUMENS ist eine kollaborative Plattform, auf der Finanzbildung auf praktische Anwendung trifft. Lerne, dich im Stellar-Netzwerk zurechtzufinden, erweitere dein finanzielles Potenzial und teile dein Wissen, um anderen zu helfen, voranzukommen.",
         "accept": "Akzeptieren",
-        "upload": "Hochladen"
+        "upload": "Hochladen",
+        "goHome": "Zur Startseite"
     },
     "Themes": {
         "title": "EarnLumens Theme-Auswahl",

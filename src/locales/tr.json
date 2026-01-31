@@ -74,7 +74,8 @@
         "shortAbout": "Stellar ağı üzerinde işbirlikçi bir finansal eğitim platformu",
         "blockquote": "EARNLUMENS, finansal eğitimin gerçek dünya uygulamalarıyla buluştuğu işbirlikçi bir platformdur. Stellar ağında gezinmeyi öğrenin, finansal potansiyelinizi geliştirin ve başkalarının ilerlemesine yardımcı olmak için bilginizi paylaşın.",
         "accept": "Kabul et",
-        "upload": "Yükle"
+        "upload": "Yükle",
+        "goHome": "Ana Sayfaya Git"
     },
     "Themes": {
         "title": "EarnLumens Tema Seçici",

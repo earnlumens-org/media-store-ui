@@ -74,7 +74,8 @@
         "shortAbout": "在Stellar網絡上的協作金融教育平台。",
         "blockquote": "EARNLUMENS 是一個協作平台，在這裡金融教育與現實世界的應用相結合。學習如何使用 Stellar 網絡，提升你的財務潛力，並分享你的知識以幫助他人進步。",
         "accept": "接受",
-        "upload": "上傳"
+        "upload": "上傳",
+        "goHome": "返回首頁"
     },
     "Themes": {
         "title": "EarnLumens 主題選擇器",

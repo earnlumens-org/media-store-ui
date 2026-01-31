@@ -74,7 +74,8 @@
         "shortAbout": "Współtworzona platforma edukacji finansowej w sieci Stellar",
         "blockquote": "EARNLUMENS to współtworzona platforma, na której edukacja finansowa spotyka się z praktycznym zastosowaniem. Naucz się poruszać w sieci Stellar, rozwijaj swój potencjał finansowy i dziel się wiedzą, aby wspierać innych.",
         "accept": "Akceptuj",
-        "upload": "Prześlij"
+        "upload": "Prześlij",
+        "goHome": "Przejdź do strony głównej"
     },
     "Themes": {
         "title": "Wybór motywu EarnLumens",
