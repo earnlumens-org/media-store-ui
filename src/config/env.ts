@@ -16,6 +16,13 @@ const API_URLS = {
   production: 'https://api.earnlumens.org',
 } as const
 
+/** CDN base URLs per environment */
+const CDN_URLS = {
+  local: 'https://cdn-dev.earnlumens.org',
+  tunnelDev: 'https://cdn-dev.earnlumens.org',
+  production: 'https://cdn.earnlumens.org',
+} as const
+
 type Environment = 'local' | 'tunnelDev' | 'production'
 
 function normalizeBaseUrl (value: string): string {
@@ -102,6 +109,50 @@ export function apiUrl (path: string): string {
   const baseUrl = getApiBaseUrl()
   const normalizedPath = path.startsWith('/') ? path : `/${path}`
   return new URL(normalizedPath, baseUrl).toString()
+}
+
+// ==================== CDN URL helpers ====================
+
+// Cache the resolved CDN URL (evaluated once at module load)
+let cachedCdnBaseUrl: string | null = null
+
+/**
+ * Returns the CDN base URL for the current environment.
+ * Supports VITE_CDN_BASE_URL override.
+ */
+export function getCdnBaseUrl (): string {
+  if (cachedCdnBaseUrl === null) {
+    const envOverride = import.meta.env.VITE_CDN_BASE_URL
+    if (typeof envOverride === 'string' && envOverride.trim() !== '') {
+      cachedCdnBaseUrl = normalizeBaseUrl(envOverride)
+    } else {
+      cachedCdnBaseUrl = CDN_URLS[detectEnvironment()]
+    }
+  }
+  return cachedCdnBaseUrl
+}
+
+/**
+ * Builds a CDN URL for a PUBLIC asset (thumbnail, preview).
+ * The r2Key already includes the "public/" prefix as stored in R2.
+ *
+ * @example cdnPublicUrl('public/thumbs/abc.jpg')
+ *          // => 'https://cdn.earnlumens.org/public/thumbs/abc.jpg'
+ */
+export function cdnPublicUrl (r2Key: string): string {
+  const key = r2Key.startsWith('/') ? r2Key.slice(1) : r2Key
+  return `${getCdnBaseUrl()}/${key}`
+}
+
+/**
+ * Builds a CDN URL for a PRIVATE media entry.
+ * Auth is handled via refresh-cookie session by the CDN Worker.
+ *
+ * @example cdnMediaUrl('entry-uuid-123')
+ *          // => 'https://cdn.earnlumens.org/media/entry-uuid-123'
+ */
+export function cdnMediaUrl (entryId: string): string {
+  return `${getCdnBaseUrl()}/media/${entryId}`
 }
 
 /**
