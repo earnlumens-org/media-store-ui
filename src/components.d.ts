@@ -30,7 +30,6 @@ declare module 'vue' {
     CxXButton: typeof import('./components/login/CxXButton.vue')['default']
     EntryCard: typeof import('./components/entry/EntryCard.vue')['default']
     EntryCardMockGrid: typeof import('./components/entry/EntryCardMockGrid.vue')['default']
-    EntryCardMockGridDebug: typeof import('./components/entry/EntryCardMockGridDebug.vue')['default']
     EntryCardSkeleton: typeof import('./components/entry/EntryCardSkeleton.vue')['default']
     EntryFooter: typeof import('./components/entry/EntryFooter.vue')['default']
     EntryMediaAudio: typeof import('./components/entry/media/EntryMediaAudio.vue')['default']
@@ -46,5 +45,8 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     Theme: typeof import('./components/themes/Theme.vue')['default']
     ThemeCard: typeof import('./components/themes/ThemeCard.vue')['default']
+    UploadAssetPicker: typeof import('./components/upload/UploadAssetPicker.vue')['default']
+    UploadForm: typeof import('./components/upload/UploadForm.vue')['default']
+    UploadTypeDialog: typeof import('./components/upload/UploadTypeDialog.vue')['default']
   }
 }

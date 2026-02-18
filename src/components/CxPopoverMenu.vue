@@ -57,11 +57,12 @@
             </v-btn>
           </v-list-item>
 
-          <!-- Botón subir video (mock) -->
+          <!-- Botón subir → abre selector de tipo -->
           <v-list-item>
             <v-btn
               color="primary"
               variant="text"
+              @click="openUploadDialog"
             >
               <v-icon class="me-2">mdi-cloud-upload-outline</v-icon>
               {{ $t("Common.upload") }}
@@ -85,6 +86,9 @@
 
       </v-card>
     </v-menu>
+
+    <!-- Upload type selector dialog -->
+    <UploadTypeDialog v-model="showUploadDialog" />
   </div>
 </template>
 
@@ -93,6 +97,7 @@
   import { useRouter } from 'vue-router'
   import { useTheme } from 'vuetify'
   import { logout } from '@/api/modules/auth.api'
+  import UploadTypeDialog from '@/components/upload/UploadTypeDialog.vue'
   import { DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from '@/plugins/vuetify'
   import { broadcastAuthEvent } from '@/services/authBroadcast'
   import { clearToken } from '@/services/tokenWorkerClient'
@@ -101,6 +106,7 @@
   import { useWalletStore } from '@/stores/wallet'
 
   const menu = ref(false)
+  const showUploadDialog = ref(false)
 
   const router = useRouter()
   const appStore = useAppStore()
@@ -130,6 +136,11 @@
   function goToThemes () {
     menu.value = false
     router.push('/themes')
+  }
+
+  function openUploadDialog () {
+    menu.value = false
+    showUploadDialog.value = true
   }
 
   async function handleLogout () {

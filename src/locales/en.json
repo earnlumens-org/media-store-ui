@@ -233,6 +233,93 @@
         "noEntries": "No entries yet",
         "noPosts": "No posts yet"
     },
+    "Upload": {
+        "createNew": "Create New",
+        "selectContentType": "What would you like to create?",
+        "type": {
+            "video": "Video",
+            "audio": "Audio",
+            "image": "Image",
+            "post": "Post",
+            "file": "File"
+        },
+        "typeDescription": {
+            "video": "Upload a video for streaming",
+            "audio": "Share a music track or podcast",
+            "image": "Share a photo or illustration",
+            "post": "Write a text article or blog post",
+            "file": "Upload a PDF, ZIP, or other file"
+        },
+        "pageTitle": "Upload {type}",
+        "form": {
+            "title": "Title",
+            "titlePlaceholder": "Give your content a title",
+            "titleRequired": "Title is required",
+            "titleMaxLength": "Title must be 200 characters or less",
+            "description": "Description",
+            "descriptionPlaceholder": "Describe your content (optional)",
+            "descriptionMaxLength": "Description must be 2000 characters or less",
+            "isPaid": "Paid content",
+            "isPaidHint": "Enable to set a price in XLM",
+            "priceXlm": "Price (XLM)",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "Price is required for paid content",
+            "pricePositive": "Price must be greater than 0",
+            "postContent": "Content",
+            "postContentPlaceholder": "Write your post content here...",
+            "postContentRequired": "Post content is required"
+        },
+        "assets": {
+            "thumbnail": "Thumbnail",
+            "thumbnailHint": "Recommended: 16:9 aspect ratio, jpg/png/webp",
+            "preview": "Preview",
+            "previewHint": "Optional preview clip or image",
+            "fullContent": "Full Content",
+            "fullContentHint": "The main file your audience will access",
+            "fullContentRequired": "Full content file is required",
+            "selectFile": "Select file",
+            "changeFile": "Change file",
+            "dragOrClick": "Drag & drop or click to select",
+            "maxSize": "Max file size: {size}",
+            "invalidType": "Invalid file type. Allowed: {types}",
+            "fileTooLarge": "File is too large. Maximum size is {size}",
+            "fileSelected": "{name} ({size})"
+        },
+        "actions": {
+            "upload": "Upload",
+            "uploading": "Uploading...",
+            "submitForReview": "Submit for Review",
+            "submitting": "Submitting...",
+            "saveDraft": "Save Draft",
+            "cancel": "Cancel"
+        },
+        "status": {
+            "draft": "Draft",
+            "inReview": "In Review",
+            "approved": "Approved",
+            "published": "Published",
+            "rejected": "Rejected"
+        },
+        "progress": {
+            "initializingUpload": "Initializing upload...",
+            "uploadingFile": "Uploading {name}...",
+            "finalizingUpload": "Finalizing upload...",
+            "uploadComplete": "Upload complete!",
+            "creatingEntry": "Creating entry..."
+        },
+        "errors": {
+            "uploadFailed": "Upload failed. Please try again.",
+            "entryCreationFailed": "Failed to create entry. Please try again.",
+            "submitForReviewFailed": "Failed to submit for review. Please try again.",
+            "noFullAsset": "Please upload the full content file before submitting.",
+            "unexpectedError": "An unexpected error occurred. Please try again."
+        },
+        "success": {
+            "entryCreated": "Entry created as draft",
+            "uploadComplete": "File uploaded successfully",
+            "submittedForReview": "Submitted for review successfully"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "Failed to load content",
         "contentNotFound": "Content not found",

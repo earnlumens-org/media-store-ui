@@ -6,6 +6,7 @@ import {
   getMockEntryById,
   getMockFeed,
 } from './modules/entryMock.api'
+import { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
 import { checkUsernameExists, getCurrentUser, getUserByUsername } from './modules/user.api'
 import { getWaitlistStats, subscribeWaitlist } from './modules/waitlist.api'
 
@@ -23,6 +24,13 @@ export const api = {
   waitlist: {
     getStats: getWaitlistStats,
     subscribe: subscribeWaitlist,
+  },
+  upload: {
+    createEntry,
+    initUpload,
+    uploadToR2,
+    finalizeUpload,
+    updateEntryStatus,
   },
   /** Mock API - TODO: Remove when real endpoints are available */
   mock: {
@@ -43,6 +51,7 @@ export {
   getMockEntryById,
   getMockFeed,
 } from './modules/entryMock.api'
+export { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
 export { checkUsernameExists, getCurrentUser, getUserByUsername, parseUserFromToken } from './modules/user.api'
 export { getWaitlistStats } from './modules/waitlist.api'
 
@@ -63,3 +72,27 @@ export type {
   WaitlistStatsModel,
   WaitlistSubscribeRequestDto,
 } from './types/waitlist.types'
+
+export type {
+  AssetKind,
+  CreateEntryRequest,
+  CreateEntryResponse,
+  EntryStatus,
+  EntryType,
+  FinalizeUploadRequest,
+  FinalizeUploadResponse,
+  InitUploadRequest,
+  InitUploadResponse,
+  UpdateEntryStatusRequest,
+  UploadContentType,
+} from './types/upload.types'
+
+export {
+  ACCEPTED_MIMES,
+  formatFileSize,
+  MAX_FILE_SIZES,
+  MAX_THUMBNAIL_SIZE,
+  THUMBNAIL_MIMES,
+  toEntryType,
+  UPLOAD_CONTENT_TYPES,
+} from './types/upload.types'
