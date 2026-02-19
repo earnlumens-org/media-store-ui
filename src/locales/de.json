@@ -233,6 +233,93 @@
         "noEntries": "Noch keine Einträge",
         "noPosts": "Noch keine Beiträge"
     },
+    "Upload": {
+        "createNew": "Neu erstellen",
+        "selectContentType": "Was möchtest du erstellen?",
+        "type": {
+            "video": "Video",
+            "audio": "Audio",
+            "image": "Bild",
+            "post": "Beitrag",
+            "file": "Datei"
+        },
+        "typeDescription": {
+            "video": "Lade ein Video zum Streamen hoch",
+            "audio": "Teile einen Musiktitel oder Podcast",
+            "image": "Teile ein Foto oder eine Illustration",
+            "post": "Schreibe einen Textartikel oder Blogpost",
+            "file": "Lade eine PDF-, ZIP- oder andere Datei hoch"
+        },
+        "pageTitle": "{type} hochladen",
+        "form": {
+            "title": "Titel",
+            "titlePlaceholder": "Gib deinem Inhalt einen Titel",
+            "titleRequired": "Titel ist erforderlich",
+            "titleMaxLength": "Der Titel darf höchstens 200 Zeichen lang sein",
+            "description": "Beschreibung",
+            "descriptionPlaceholder": "Beschreibe deinen Inhalt (optional)",
+            "descriptionMaxLength": "Die Beschreibung darf höchstens 2000 Zeichen lang sein",
+            "isPaid": "Bezahlter Inhalt",
+            "isPaidHint": "Aktiviere dies, um einen Preis in XLM festzulegen",
+            "priceXlm": "Preis (XLM)",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "Für bezahlte Inhalte ist ein Preis erforderlich",
+            "pricePositive": "Der Preis muss größer als 0 sein",
+            "postContent": "Inhalt",
+            "postContentPlaceholder": "Schreibe hier den Inhalt deines Beitrags...",
+            "postContentRequired": "Beitragsinhalt ist erforderlich"
+        },
+        "assets": {
+            "thumbnail": "Vorschaubild",
+            "thumbnailHint": "Empfohlen: Seitenverhältnis 16:9, jpg/png/webp",
+            "preview": "Vorschau",
+            "previewHint": "Optionaler Vorschau-Clip oder -Bild",
+            "fullContent": "Vollständiger Inhalt",
+            "fullContentHint": "Die Hauptdatei, auf die dein Publikum zugreifen wird",
+            "fullContentRequired": "Datei mit vollständigem Inhalt ist erforderlich",
+            "selectFile": "Datei auswählen",
+            "changeFile": "Datei ändern",
+            "dragOrClick": "Drag & Drop oder klicken, um auszuwählen",
+            "maxSize": "Maximale Dateigröße: {size}",
+            "invalidType": "Ungültiger Dateityp. Erlaubt: {types}",
+            "fileTooLarge": "Die Datei ist zu groß. Die maximale Größe ist {size}",
+            "fileSelected": "{name} ({size})"
+        },
+        "actions": {
+            "upload": "Hochladen",
+            "uploading": "Wird hochgeladen...",
+            "submitForReview": "Zur Prüfung einreichen",
+            "submitting": "Wird eingereicht...",
+            "saveDraft": "Entwurf speichern",
+            "cancel": "Abbrechen"
+        },
+        "status": {
+            "draft": "Entwurf",
+            "inReview": "In Prüfung",
+            "approved": "Genehmigt",
+            "published": "Veröffentlicht",
+            "rejected": "Abgelehnt"
+        },
+        "progress": {
+            "initializingUpload": "Upload wird initialisiert...",
+            "uploadingFile": "{name} wird hochgeladen...",
+            "finalizingUpload": "Upload wird abgeschlossen...",
+            "uploadComplete": "Upload abgeschlossen!",
+            "creatingEntry": "Eintrag wird erstellt..."
+        },
+        "errors": {
+            "uploadFailed": "Upload fehlgeschlagen. Bitte versuche es erneut.",
+            "entryCreationFailed": "Eintrag konnte nicht erstellt werden. Bitte versuche es erneut.",
+            "submitForReviewFailed": "Einreichen zur Prüfung fehlgeschlagen. Bitte versuche es erneut.",
+            "noFullAsset": "Bitte lade die vollständige Inhaltsdatei hoch, bevor du einreichst.",
+            "unexpectedError": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut."
+        },
+        "success": {
+            "entryCreated": "Eintrag als Entwurf erstellt",
+            "uploadComplete": "Datei erfolgreich hochgeladen",
+            "submittedForReview": "Erfolgreich zur Prüfung eingereicht"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "Inhalt konnte nicht geladen werden",
         "contentNotFound": "Inhalt nicht gefunden",

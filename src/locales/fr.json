@@ -233,6 +233,93 @@
         "noEntries": "Aucune entrée pour le moment",
         "noPosts": "Aucune publication pour le moment"
     },
+    "Upload": {
+        "createNew": "Créer",
+        "selectContentType": "Que souhaitez-vous créer ?",
+        "type": {
+            "video": "Vidéo",
+            "audio": "Audio",
+            "image": "Image",
+            "post": "Publication",
+            "file": "Fichier"
+        },
+        "typeDescription": {
+            "video": "Téléversez une vidéo pour le streaming",
+            "audio": "Partagez un morceau de musique ou un podcast",
+            "image": "Partagez une photo ou une illustration",
+            "post": "Rédigez un article texte ou un billet de blog",
+            "file": "Téléversez un PDF, un ZIP ou un autre fichier"
+        },
+        "pageTitle": "Téléverser {type}",
+        "form": {
+            "title": "Titre",
+            "titlePlaceholder": "Donnez un titre à votre contenu",
+            "titleRequired": "Le titre est requis",
+            "titleMaxLength": "Le titre doit contenir 200 caractères ou moins",
+            "description": "Description",
+            "descriptionPlaceholder": "Décrivez votre contenu (facultatif)",
+            "descriptionMaxLength": "La description doit contenir 2000 caractères ou moins",
+            "isPaid": "Contenu payant",
+            "isPaidHint": "Activez pour définir un prix en XLM",
+            "priceXlm": "Prix (XLM)",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "Le prix est requis pour le contenu payant",
+            "pricePositive": "Le prix doit être supérieur à 0",
+            "postContent": "Contenu",
+            "postContentPlaceholder": "Écrivez le contenu de votre publication ici...",
+            "postContentRequired": "Le contenu de la publication est requis"
+        },
+        "assets": {
+            "thumbnail": "Miniature",
+            "thumbnailHint": "Recommandé : format 16:9, jpg/png/webp",
+            "preview": "Aperçu",
+            "previewHint": "Clip ou image d’aperçu (facultatif)",
+            "fullContent": "Contenu complet",
+            "fullContentHint": "Le fichier principal auquel votre audience accédera",
+            "fullContentRequired": "Le fichier du contenu complet est requis",
+            "selectFile": "Sélectionner un fichier",
+            "changeFile": "Changer le fichier",
+            "dragOrClick": "Glissez-déposez ou cliquez pour sélectionner",
+            "maxSize": "Taille maximale du fichier : {size}",
+            "invalidType": "Type de fichier invalide. Autorisés : {types}",
+            "fileTooLarge": "Le fichier est trop volumineux. La taille maximale est {size}",
+            "fileSelected": "{name} ({size})"
+        },
+        "actions": {
+            "upload": "Téléverser",
+            "uploading": "Téléversement...",
+            "submitForReview": "Soumettre pour examen",
+            "submitting": "Soumission...",
+            "saveDraft": "Enregistrer le brouillon",
+            "cancel": "Annuler"
+        },
+        "status": {
+            "draft": "Brouillon",
+            "inReview": "En examen",
+            "approved": "Approuvé",
+            "published": "Publié",
+            "rejected": "Rejeté"
+        },
+        "progress": {
+            "initializingUpload": "Initialisation du téléversement...",
+            "uploadingFile": "Téléversement de {name}...",
+            "finalizingUpload": "Finalisation du téléversement...",
+            "uploadComplete": "Téléversement terminé !",
+            "creatingEntry": "Création de l’entrée..."
+        },
+        "errors": {
+            "uploadFailed": "Le téléversement a échoué. Veuillez réessayer.",
+            "entryCreationFailed": "Impossible de créer l’entrée. Veuillez réessayer.",
+            "submitForReviewFailed": "Impossible de soumettre pour examen. Veuillez réessayer.",
+            "noFullAsset": "Veuillez téléverser le fichier de contenu complet avant de soumettre.",
+            "unexpectedError": "Une erreur inattendue s’est produite. Veuillez réessayer."
+        },
+        "success": {
+            "entryCreated": "Entrée créée en brouillon",
+            "uploadComplete": "Fichier téléversé avec succès",
+            "submittedForReview": "Soumis pour examen avec succès"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "Échec du chargement du contenu",
         "contentNotFound": "Contenu non trouvé",

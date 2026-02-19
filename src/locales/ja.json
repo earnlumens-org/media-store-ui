@@ -233,6 +233,93 @@
         "noEntries": "まだエントリーがありません",
         "noPosts": "まだ投稿がありません"
     },
+    "Upload": {
+        "createNew": "新規作成",
+        "selectContentType": "何を作成しますか？",
+        "type": {
+            "video": "動画",
+            "audio": "音声",
+            "image": "画像",
+            "post": "投稿",
+            "file": "ファイル"
+        },
+        "typeDescription": {
+            "video": "ストリーミング用の動画をアップロード",
+            "audio": "音楽トラックやポッドキャストを共有",
+            "image": "写真やイラストを共有",
+            "post": "テキスト記事やブログ投稿を書く",
+            "file": "PDF、ZIP、その他のファイルをアップロード"
+        },
+        "pageTitle": "{type} をアップロード",
+        "form": {
+            "title": "タイトル",
+            "titlePlaceholder": "コンテンツのタイトルを入力",
+            "titleRequired": "タイトルは必須です",
+            "titleMaxLength": "タイトルは200文字以内で入力してください",
+            "description": "説明",
+            "descriptionPlaceholder": "コンテンツを説明（任意）",
+            "descriptionMaxLength": "説明は2000文字以内で入力してください",
+            "isPaid": "有料コンテンツ",
+            "isPaidHint": "有効にするとXLMで価格を設定できます",
+            "priceXlm": "価格（XLM）",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "有料コンテンツには価格の設定が必要です",
+            "pricePositive": "価格は0より大きい値にしてください",
+            "postContent": "本文",
+            "postContentPlaceholder": "ここに投稿内容を入力...",
+            "postContentRequired": "本文は必須です"
+        },
+        "assets": {
+            "thumbnail": "サムネイル",
+            "thumbnailHint": "推奨：16:9、jpg/png/webp",
+            "preview": "プレビュー",
+            "previewHint": "プレビュー用クリップまたは画像（任意）",
+            "fullContent": "本編",
+            "fullContentHint": "視聴者がアクセスするメインファイル",
+            "fullContentRequired": "本編ファイルは必須です",
+            "selectFile": "ファイルを選択",
+            "changeFile": "ファイルを変更",
+            "dragOrClick": "ドラッグ＆ドロップ、またはクリックして選択",
+            "maxSize": "最大ファイルサイズ：{size}",
+            "invalidType": "無効なファイル形式です。許可：{types}",
+            "fileTooLarge": "ファイルが大きすぎます。最大サイズは {size} です",
+            "fileSelected": "{name}（{size}）"
+        },
+        "actions": {
+            "upload": "アップロード",
+            "uploading": "アップロード中...",
+            "submitForReview": "審査に提出",
+            "submitting": "提出中...",
+            "saveDraft": "下書きを保存",
+            "cancel": "キャンセル"
+        },
+        "status": {
+            "draft": "下書き",
+            "inReview": "審査中",
+            "approved": "承認済み",
+            "published": "公開済み",
+            "rejected": "却下"
+        },
+        "progress": {
+            "initializingUpload": "アップロードを初期化中...",
+            "uploadingFile": "{name} をアップロード中...",
+            "finalizingUpload": "アップロードを完了処理中...",
+            "uploadComplete": "アップロード完了！",
+            "creatingEntry": "エントリーを作成中..."
+        },
+        "errors": {
+            "uploadFailed": "アップロードに失敗しました。もう一度お試しください。",
+            "entryCreationFailed": "エントリーの作成に失敗しました。もう一度お試しください。",
+            "submitForReviewFailed": "審査への提出に失敗しました。もう一度お試しください。",
+            "noFullAsset": "提出する前に本編ファイルをアップロードしてください。",
+            "unexpectedError": "予期しないエラーが発生しました。もう一度お試しください。"
+        },
+        "success": {
+            "entryCreated": "エントリーを下書きとして作成しました",
+            "uploadComplete": "ファイルのアップロードに成功しました",
+            "submittedForReview": "審査に正常に提出しました"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "コンテンツの読み込みに失敗しました",
         "contentNotFound": "コンテンツが見つかりません",

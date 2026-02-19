@@ -233,6 +233,93 @@
         "noEntries": "Henüz girdi yok",
         "noPosts": "Henüz gönderi yok"
     },
+    "Upload": {
+        "createNew": "Yeni oluştur",
+        "selectContentType": "Ne oluşturmak istersiniz?",
+        "type": {
+            "video": "Video",
+            "audio": "Ses",
+            "image": "Görsel",
+            "post": "Gönderi",
+            "file": "Dosya"
+        },
+        "typeDescription": {
+            "video": "Yayın için bir video yükleyin",
+            "audio": "Bir müzik parçası veya podcast paylaşın",
+            "image": "Bir fotoğraf veya illüstrasyon paylaşın",
+            "post": "Bir metin makalesi veya blog yazısı yazın",
+            "file": "PDF, ZIP veya başka bir dosya yükleyin"
+        },
+        "pageTitle": "{type} Yükle",
+        "form": {
+            "title": "Başlık",
+            "titlePlaceholder": "İçeriğinize bir başlık verin",
+            "titleRequired": "Başlık gereklidir",
+            "titleMaxLength": "Başlık 200 karakter veya daha az olmalıdır",
+            "description": "Açıklama",
+            "descriptionPlaceholder": "İçeriğinizi açıklayın (isteğe bağlı)",
+            "descriptionMaxLength": "Açıklama 2000 karakter veya daha az olmalıdır",
+            "isPaid": "Ücretli içerik",
+            "isPaidHint": "XLM cinsinden fiyat belirlemek için etkinleştirin",
+            "priceXlm": "Fiyat (XLM)",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "Ücretli içerik için fiyat gereklidir",
+            "pricePositive": "Fiyat 0'dan büyük olmalıdır",
+            "postContent": "İçerik",
+            "postContentPlaceholder": "Gönderi içeriğinizi buraya yazın...",
+            "postContentRequired": "Gönderi içeriği gereklidir"
+        },
+        "assets": {
+            "thumbnail": "Küçük resim",
+            "thumbnailHint": "Önerilen: 16:9 en-boy oranı, jpg/png/webp",
+            "preview": "Önizleme",
+            "previewHint": "İsteğe bağlı önizleme klibi veya görseli",
+            "fullContent": "Tam içerik",
+            "fullContentHint": "Kitlenizin erişeceği ana dosya",
+            "fullContentRequired": "Tam içerik dosyası gereklidir",
+            "selectFile": "Dosya seç",
+            "changeFile": "Dosyayı değiştir",
+            "dragOrClick": "Sürükleyip bırakın veya seçmek için tıklayın",
+            "maxSize": "Maksimum dosya boyutu: {size}",
+            "invalidType": "Geçersiz dosya türü. İzin verilen: {types}",
+            "fileTooLarge": "Dosya çok büyük. Maksimum boyut {size}",
+            "fileSelected": "{name} ({size})"
+        },
+        "actions": {
+            "upload": "Yükle",
+            "uploading": "Yükleniyor...",
+            "submitForReview": "İncelemeye gönder",
+            "submitting": "Gönderiliyor...",
+            "saveDraft": "Taslağı kaydet",
+            "cancel": "İptal"
+        },
+        "status": {
+            "draft": "Taslak",
+            "inReview": "İncelemede",
+            "approved": "Onaylandı",
+            "published": "Yayınlandı",
+            "rejected": "Reddedildi"
+        },
+        "progress": {
+            "initializingUpload": "Yükleme başlatılıyor...",
+            "uploadingFile": "{name} yükleniyor...",
+            "finalizingUpload": "Yükleme tamamlanıyor...",
+            "uploadComplete": "Yükleme tamamlandı!",
+            "creatingEntry": "Girdi oluşturuluyor..."
+        },
+        "errors": {
+            "uploadFailed": "Yükleme başarısız oldu. Lütfen tekrar deneyin.",
+            "entryCreationFailed": "Girdi oluşturulamadı. Lütfen tekrar deneyin.",
+            "submitForReviewFailed": "İncelemeye gönderilemedi. Lütfen tekrar deneyin.",
+            "noFullAsset": "Göndermeden önce lütfen tam içerik dosyasını yükleyin.",
+            "unexpectedError": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin."
+        },
+        "success": {
+            "entryCreated": "Girdi taslak olarak oluşturuldu",
+            "uploadComplete": "Dosya başarıyla yüklendi",
+            "submittedForReview": "İncelemeye başarıyla gönderildi"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "İçerik yüklenemedi",
         "contentNotFound": "İçerik bulunamadı",

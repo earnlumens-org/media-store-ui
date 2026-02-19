@@ -233,6 +233,93 @@
         "noEntries": "Brak wpisów",
         "noPosts": "Brak postów"
     },
+    "Upload": {
+        "createNew": "Utwórz nowy",
+        "selectContentType": "Co chcesz utworzyć?",
+        "type": {
+            "video": "Wideo",
+            "audio": "Audio",
+            "image": "Obraz",
+            "post": "Post",
+            "file": "Plik"
+        },
+        "typeDescription": {
+            "video": "Prześlij wideo do streamingu",
+            "audio": "Udostępnij utwór muzyczny lub podcast",
+            "image": "Udostępnij zdjęcie lub ilustrację",
+            "post": "Napisz artykuł tekstowy lub wpis na blogu",
+            "file": "Prześlij PDF, ZIP lub inny plik"
+        },
+        "pageTitle": "Prześlij {type}",
+        "form": {
+            "title": "Tytuł",
+            "titlePlaceholder": "Nadaj tytuł swojej treści",
+            "titleRequired": "Tytuł jest wymagany",
+            "titleMaxLength": "Tytuł może mieć maksymalnie 200 znaków",
+            "description": "Opis",
+            "descriptionPlaceholder": "Opisz swoją treść (opcjonalnie)",
+            "descriptionMaxLength": "Opis może mieć maksymalnie 2000 znaków",
+            "isPaid": "Treść płatna",
+            "isPaidHint": "Włącz, aby ustawić cenę w XLM",
+            "priceXlm": "Cena (XLM)",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "Cena jest wymagana dla treści płatnych",
+            "pricePositive": "Cena musi być większa niż 0",
+            "postContent": "Treść",
+            "postContentPlaceholder": "Napisz tutaj treść posta...",
+            "postContentRequired": "Treść posta jest wymagana"
+        },
+        "assets": {
+            "thumbnail": "Miniatura",
+            "thumbnailHint": "Zalecane: proporcje 16:9, jpg/png/webp",
+            "preview": "Podgląd",
+            "previewHint": "Opcjonalny klip lub obraz podglądu",
+            "fullContent": "Pełna treść",
+            "fullContentHint": "Główny plik, do którego uzyska dostęp Twoja publiczność",
+            "fullContentRequired": "Plik pełnej treści jest wymagany",
+            "selectFile": "Wybierz plik",
+            "changeFile": "Zmień plik",
+            "dragOrClick": "Przeciągnij i upuść lub kliknij, aby wybrać",
+            "maxSize": "Maksymalny rozmiar pliku: {size}",
+            "invalidType": "Nieprawidłowy typ pliku. Dozwolone: {types}",
+            "fileTooLarge": "Plik jest za duży. Maksymalny rozmiar to {size}",
+            "fileSelected": "{name} ({size})"
+        },
+        "actions": {
+            "upload": "Prześlij",
+            "uploading": "Przesyłanie...",
+            "submitForReview": "Prześlij do weryfikacji",
+            "submitting": "Wysyłanie...",
+            "saveDraft": "Zapisz szkic",
+            "cancel": "Anuluj"
+        },
+        "status": {
+            "draft": "Szkic",
+            "inReview": "W weryfikacji",
+            "approved": "Zatwierdzone",
+            "published": "Opublikowane",
+            "rejected": "Odrzucone"
+        },
+        "progress": {
+            "initializingUpload": "Inicjowanie przesyłania...",
+            "uploadingFile": "Przesyłanie {name}...",
+            "finalizingUpload": "Kończenie przesyłania...",
+            "uploadComplete": "Przesyłanie zakończone!",
+            "creatingEntry": "Tworzenie wpisu..."
+        },
+        "errors": {
+            "uploadFailed": "Przesyłanie nie powiodło się. Spróbuj ponownie.",
+            "entryCreationFailed": "Nie udało się utworzyć wpisu. Spróbuj ponownie.",
+            "submitForReviewFailed": "Nie udało się przesłać do weryfikacji. Spróbuj ponownie.",
+            "noFullAsset": "Prześlij plik pełnej treści przed wysłaniem.",
+            "unexpectedError": "Wystąpił nieoczekiwany błąd. Spróbuj ponownie."
+        },
+        "success": {
+            "entryCreated": "Wpis utworzony jako szkic",
+            "uploadComplete": "Plik przesłano pomyślnie",
+            "submittedForReview": "Pomyślnie przesłano do weryfikacji"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "Nie udało się załadować treści",
         "contentNotFound": "Treść nie została znaleziona",

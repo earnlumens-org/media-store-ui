@@ -233,6 +233,93 @@
         "noEntries": "Aún no hay entries",
         "noPosts": "Aún no hay posts"
     },
+    "Upload": {
+        "createNew": "Crear nuevo",
+        "selectContentType": "¿Qué te gustaría crear?",
+        "type": {
+            "video": "Video",
+            "audio": "Audio",
+            "image": "Imagen",
+            "post": "Publicación",
+            "file": "Archivo"
+        },
+        "typeDescription": {
+            "video": "Sube un video para streaming",
+            "audio": "Comparte una pista de música o un podcast",
+            "image": "Comparte una foto o ilustración",
+            "post": "Escribe un artículo o una publicación en el blog",
+            "file": "Sube un PDF, ZIP u otro archivo"
+        },
+        "pageTitle": "Subir {type}",
+        "form": {
+            "title": "Título",
+            "titlePlaceholder": "Dale un título a tu contenido",
+            "titleRequired": "El título es obligatorio",
+            "titleMaxLength": "El título debe tener 200 caracteres o menos",
+            "description": "Descripción",
+            "descriptionPlaceholder": "Describe tu contenido (opcional)",
+            "descriptionMaxLength": "La descripción debe tener 2000 caracteres o menos",
+            "isPaid": "Contenido de pago",
+            "isPaidHint": "Activa esta opción para establecer un precio en XLM",
+            "priceXlm": "Precio (XLM)",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "El precio es obligatorio para el contenido de pago",
+            "pricePositive": "El precio debe ser mayor que 0",
+            "postContent": "Contenido",
+            "postContentPlaceholder": "Escribe el contenido de tu publicación aquí...",
+            "postContentRequired": "El contenido de la publicación es obligatorio"
+        },
+        "assets": {
+            "thumbnail": "Miniatura",
+            "thumbnailHint": "Recomendado: relación de aspecto 16:9, jpg/png/webp",
+            "preview": "Vista previa",
+            "previewHint": "Clip o imagen de vista previa (opcional)",
+            "fullContent": "Contenido completo",
+            "fullContentHint": "El archivo principal al que accederá tu audiencia",
+            "fullContentRequired": "El archivo de contenido completo es obligatorio",
+            "selectFile": "Seleccionar archivo",
+            "changeFile": "Cambiar archivo",
+            "dragOrClick": "Arrastra y suelta o haz clic para seleccionar",
+            "maxSize": "Tamaño máximo de archivo: {size}",
+            "invalidType": "Tipo de archivo inválido. Permitidos: {types}",
+            "fileTooLarge": "El archivo es demasiado grande. El tamaño máximo es {size}",
+            "fileSelected": "{name} ({size})"
+        },
+        "actions": {
+            "upload": "Subir",
+            "uploading": "Subiendo...",
+            "submitForReview": "Enviar para revisión",
+            "submitting": "Enviando...",
+            "saveDraft": "Guardar borrador",
+            "cancel": "Cancelar"
+        },
+        "status": {
+            "draft": "Borrador",
+            "inReview": "En revisión",
+            "approved": "Aprobado",
+            "published": "Publicado",
+            "rejected": "Rechazado"
+        },
+        "progress": {
+            "initializingUpload": "Inicializando subida...",
+            "uploadingFile": "Subiendo {name}...",
+            "finalizingUpload": "Finalizando subida...",
+            "uploadComplete": "¡Subida completa!",
+            "creatingEntry": "Creando entrada..."
+        },
+        "errors": {
+            "uploadFailed": "La subida falló. Por favor, inténtalo de nuevo.",
+            "entryCreationFailed": "No se pudo crear la entrada. Por favor, inténtalo de nuevo.",
+            "submitForReviewFailed": "No se pudo enviar para revisión. Por favor, inténtalo de nuevo.",
+            "noFullAsset": "Por favor, sube el archivo de contenido completo antes de enviar.",
+            "unexpectedError": "Ocurrió un error inesperado. Por favor, inténtalo de nuevo."
+        },
+        "success": {
+            "entryCreated": "Entrada creada como borrador",
+            "uploadComplete": "Archivo subido correctamente",
+            "submittedForReview": "Enviado para revisión correctamente"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "Error al cargar el contenido",
         "contentNotFound": "Contenido no encontrado",

@@ -83,6 +83,7 @@
                   :placeholder="t('Upload.form.pricePlaceholder')"
                   prefix="XLM"
                   :rules="priceRules"
+                  step="0.01"
                   type="number"
                   variant="outlined"
                 />

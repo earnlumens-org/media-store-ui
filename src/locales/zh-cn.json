@@ -233,6 +233,93 @@
         "noEntries": "暂无条目",
         "noPosts": "暂无帖子"
     },
+    "Upload": {
+        "createNew": "新建",
+        "selectContentType": "您想创建什么内容？",
+        "type": {
+            "video": "视频",
+            "audio": "音频",
+            "image": "图片",
+            "post": "文章",
+            "file": "文件"
+        },
+        "typeDescription": {
+            "video": "上传视频用于流媒体播放",
+            "audio": "分享音乐或播客",
+            "image": "分享照片或插画",
+            "post": "撰写文字文章或博客",
+            "file": "上传 PDF、ZIP 或其他文件"
+        },
+        "pageTitle": "上传 {type}",
+        "form": {
+            "title": "标题",
+            "titlePlaceholder": "为您的内容起一个标题",
+            "titleRequired": "标题为必填项",
+            "titleMaxLength": "标题长度不得超过 200 个字符",
+            "description": "描述",
+            "descriptionPlaceholder": "描述您的内容（可选）",
+            "descriptionMaxLength": "描述长度不得超过 2000 个字符",
+            "isPaid": "付费内容",
+            "isPaidHint": "开启后可设置 XLM 价格",
+            "priceXlm": "价格（XLM）",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "付费内容需要填写价格",
+            "pricePositive": "价格必须大于 0",
+            "postContent": "内容",
+            "postContentPlaceholder": "在此撰写文章内容...",
+            "postContentRequired": "文章内容为必填项"
+        },
+        "assets": {
+            "thumbnail": "缩略图",
+            "thumbnailHint": "建议：16:9 比例，jpg/png/webp",
+            "preview": "预览",
+            "previewHint": "可选的预览片段或图片",
+            "fullContent": "完整内容",
+            "fullContentHint": "观众将访问的主文件",
+            "fullContentRequired": "必须上传完整内容文件",
+            "selectFile": "选择文件",
+            "changeFile": "更换文件",
+            "dragOrClick": "拖拽或点击选择",
+            "maxSize": "最大文件大小：{size}",
+            "invalidType": "文件类型无效。允许：{types}",
+            "fileTooLarge": "文件过大。最大大小为 {size}",
+            "fileSelected": "{name}（{size}）"
+        },
+        "actions": {
+            "upload": "上传",
+            "uploading": "上传中...",
+            "submitForReview": "提交审核",
+            "submitting": "提交中...",
+            "saveDraft": "保存草稿",
+            "cancel": "取消"
+        },
+        "status": {
+            "draft": "草稿",
+            "inReview": "审核中",
+            "approved": "已通过",
+            "published": "已发布",
+            "rejected": "已拒绝"
+        },
+        "progress": {
+            "initializingUpload": "正在初始化上传...",
+            "uploadingFile": "正在上传 {name}...",
+            "finalizingUpload": "正在完成上传...",
+            "uploadComplete": "上传完成！",
+            "creatingEntry": "正在创建条目..."
+        },
+        "errors": {
+            "uploadFailed": "上传失败。请重试。",
+            "entryCreationFailed": "创建条目失败。请重试。",
+            "submitForReviewFailed": "提交审核失败。请重试。",
+            "noFullAsset": "提交前请先上传完整内容文件。",
+            "unexpectedError": "发生意外错误。请重试。"
+        },
+        "success": {
+            "entryCreated": "条目已创建为草稿",
+            "uploadComplete": "文件上传成功",
+            "submittedForReview": "已成功提交审核"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "加载内容失败",
         "contentNotFound": "未找到内容",

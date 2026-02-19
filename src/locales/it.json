@@ -233,6 +233,93 @@
         "noEntries": "Nessuna voce ancora",
         "noPosts": "Nessun post ancora"
     },
+    "Upload": {
+        "createNew": "Crea nuovo",
+        "selectContentType": "Cosa vorresti creare?",
+        "type": {
+            "video": "Video",
+            "audio": "Audio",
+            "image": "Immagine",
+            "post": "Post",
+            "file": "File"
+        },
+        "typeDescription": {
+            "video": "Carica un video per lo streaming",
+            "audio": "Condividi un brano musicale o un podcast",
+            "image": "Condividi una foto o un'illustrazione",
+            "post": "Scrivi un articolo di testo o un post del blog",
+            "file": "Carica un PDF, ZIP o un altro file"
+        },
+        "pageTitle": "Carica {type}",
+        "form": {
+            "title": "Titolo",
+            "titlePlaceholder": "Dai un titolo al tuo contenuto",
+            "titleRequired": "Il titolo è obbligatorio",
+            "titleMaxLength": "Il titolo deve essere lungo al massimo 200 caratteri",
+            "description": "Descrizione",
+            "descriptionPlaceholder": "Descrivi il tuo contenuto (opzionale)",
+            "descriptionMaxLength": "La descrizione deve essere lunga al massimo 2000 caratteri",
+            "isPaid": "Contenuto a pagamento",
+            "isPaidHint": "Abilita per impostare un prezzo in XLM",
+            "priceXlm": "Prezzo (XLM)",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "Il prezzo è obbligatorio per i contenuti a pagamento",
+            "pricePositive": "Il prezzo deve essere maggiore di 0",
+            "postContent": "Contenuto",
+            "postContentPlaceholder": "Scrivi qui il contenuto del tuo post...",
+            "postContentRequired": "Il contenuto del post è obbligatorio"
+        },
+        "assets": {
+            "thumbnail": "Miniatura",
+            "thumbnailHint": "Consigliato: rapporto 16:9, jpg/png/webp",
+            "preview": "Anteprima",
+            "previewHint": "Clip o immagine di anteprima (opzionale)",
+            "fullContent": "Contenuto completo",
+            "fullContentHint": "Il file principale a cui accederà il tuo pubblico",
+            "fullContentRequired": "Il file del contenuto completo è obbligatorio",
+            "selectFile": "Seleziona file",
+            "changeFile": "Cambia file",
+            "dragOrClick": "Trascina e rilascia o fai clic per selezionare",
+            "maxSize": "Dimensione massima del file: {size}",
+            "invalidType": "Tipo di file non valido. Consentiti: {types}",
+            "fileTooLarge": "Il file è troppo grande. La dimensione massima è {size}",
+            "fileSelected": "{name} ({size})"
+        },
+        "actions": {
+            "upload": "Carica",
+            "uploading": "Caricamento...",
+            "submitForReview": "Invia per revisione",
+            "submitting": "Invio in corso...",
+            "saveDraft": "Salva bozza",
+            "cancel": "Annulla"
+        },
+        "status": {
+            "draft": "Bozza",
+            "inReview": "In revisione",
+            "approved": "Approvato",
+            "published": "Pubblicato",
+            "rejected": "Rifiutato"
+        },
+        "progress": {
+            "initializingUpload": "Inizializzazione caricamento...",
+            "uploadingFile": "Caricamento di {name}...",
+            "finalizingUpload": "Finalizzazione caricamento...",
+            "uploadComplete": "Caricamento completato!",
+            "creatingEntry": "Creazione voce..."
+        },
+        "errors": {
+            "uploadFailed": "Caricamento non riuscito. Riprova.",
+            "entryCreationFailed": "Impossibile creare la voce. Riprova.",
+            "submitForReviewFailed": "Impossibile inviare per revisione. Riprova.",
+            "noFullAsset": "Carica il file del contenuto completo prima di inviare.",
+            "unexpectedError": "Si è verificato un errore imprevisto. Riprova."
+        },
+        "success": {
+            "entryCreated": "Voce creata come bozza",
+            "uploadComplete": "File caricato correttamente",
+            "submittedForReview": "Inviato per revisione correttamente"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "Impossibile caricare il contenuto",
         "contentNotFound": "Contenuto non trovato",

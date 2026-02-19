@@ -233,6 +233,93 @@
         "noEntries": "尚無條目",
         "noPosts": "尚無貼文"
     },
+    "Upload": {
+        "createNew": "建立新的",
+        "selectContentType": "您想建立什麼內容？",
+        "type": {
+            "video": "影片",
+            "audio": "音頻",
+            "image": "圖片",
+            "post": "貼文",
+            "file": "檔案"
+        },
+        "typeDescription": {
+            "video": "上傳影片以供串流播放",
+            "audio": "分享音樂或播客",
+            "image": "分享照片或插畫",
+            "post": "撰寫文字文章或部落格貼文",
+            "file": "上傳 PDF、ZIP 或其他檔案"
+        },
+        "pageTitle": "上傳 {type}",
+        "form": {
+            "title": "標題",
+            "titlePlaceholder": "為您的內容取一個標題",
+            "titleRequired": "標題為必填",
+            "titleMaxLength": "標題不得超過 200 個字元",
+            "description": "描述",
+            "descriptionPlaceholder": "描述您的內容（選填）",
+            "descriptionMaxLength": "描述不得超過 2000 個字元",
+            "isPaid": "付費內容",
+            "isPaidHint": "啟用以設定 XLM 價格",
+            "priceXlm": "價格（XLM）",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "付費內容需要填寫價格",
+            "pricePositive": "價格必須大於 0",
+            "postContent": "內容",
+            "postContentPlaceholder": "在此撰寫貼文內容...",
+            "postContentRequired": "貼文內容為必填"
+        },
+        "assets": {
+            "thumbnail": "縮圖",
+            "thumbnailHint": "建議：16:9 比例，jpg/png/webp",
+            "preview": "預覽",
+            "previewHint": "選填的預覽片段或圖片",
+            "fullContent": "完整內容",
+            "fullContentHint": "觀眾將存取的主要檔案",
+            "fullContentRequired": "必須上傳完整內容檔案",
+            "selectFile": "選擇檔案",
+            "changeFile": "更換檔案",
+            "dragOrClick": "拖放或點擊以選擇",
+            "maxSize": "最大檔案大小：{size}",
+            "invalidType": "檔案類型無效。允許：{types}",
+            "fileTooLarge": "檔案過大。最大大小為 {size}",
+            "fileSelected": "{name}（{size}）"
+        },
+        "actions": {
+            "upload": "上傳",
+            "uploading": "上傳中...",
+            "submitForReview": "提交審核",
+            "submitting": "提交中...",
+            "saveDraft": "儲存草稿",
+            "cancel": "取消"
+        },
+        "status": {
+            "draft": "草稿",
+            "inReview": "審核中",
+            "approved": "已通過",
+            "published": "已發布",
+            "rejected": "已拒絕"
+        },
+        "progress": {
+            "initializingUpload": "正在初始化上傳...",
+            "uploadingFile": "正在上傳 {name}...",
+            "finalizingUpload": "正在完成上傳...",
+            "uploadComplete": "上傳完成！",
+            "creatingEntry": "正在建立條目..."
+        },
+        "errors": {
+            "uploadFailed": "上傳失敗。請重試。",
+            "entryCreationFailed": "建立條目失敗。請重試。",
+            "submitForReviewFailed": "提交審核失敗。請重試。",
+            "noFullAsset": "提交前請先上傳完整內容檔案。",
+            "unexpectedError": "發生未預期的錯誤。請重試。"
+        },
+        "success": {
+            "entryCreated": "條目已建立為草稿",
+            "uploadComplete": "檔案上傳成功",
+            "submittedForReview": "已成功提交審核"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "載入內容失敗",
         "contentNotFound": "找不到內容",

@@ -233,6 +233,93 @@
         "noEntries": "अभी कोई एंट्री नहीं",
         "noPosts": "अभी कोई पोस्ट नहीं"
     },
+    "Upload": {
+        "createNew": "नया बनाएँ",
+        "selectContentType": "आप क्या बनाना चाहेंगे?",
+        "type": {
+            "video": "वीडियो",
+            "audio": "ऑडियो",
+            "image": "चित्र",
+            "post": "पोस्ट",
+            "file": "फ़ाइल"
+        },
+        "typeDescription": {
+            "video": "स्ट्रीमिंग के लिए वीडियो अपलोड करें",
+            "audio": "संगीत ट्रैक या पॉडकास्ट साझा करें",
+            "image": "एक फ़ोटो या चित्रण साझा करें",
+            "post": "टेक्स्ट लेख या ब्लॉग पोस्ट लिखें",
+            "file": "PDF, ZIP या अन्य फ़ाइल अपलोड करें"
+        },
+        "pageTitle": "{type} अपलोड करें",
+        "form": {
+            "title": "शीर्षक",
+            "titlePlaceholder": "अपनी सामग्री को एक शीर्षक दें",
+            "titleRequired": "शीर्षक आवश्यक है",
+            "titleMaxLength": "शीर्षक 200 अक्षरों या उससे कम का होना चाहिए",
+            "description": "विवरण",
+            "descriptionPlaceholder": "अपनी सामग्री का वर्णन करें (वैकल्पिक)",
+            "descriptionMaxLength": "विवरण 2000 अक्षरों या उससे कम का होना चाहिए",
+            "isPaid": "पेड सामग्री",
+            "isPaidHint": "XLM में कीमत सेट करने के लिए सक्षम करें",
+            "priceXlm": "कीमत (XLM)",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "पेड सामग्री के लिए कीमत आवश्यक है",
+            "pricePositive": "कीमत 0 से अधिक होनी चाहिए",
+            "postContent": "सामग्री",
+            "postContentPlaceholder": "अपनी पोस्ट की सामग्री यहाँ लिखें...",
+            "postContentRequired": "पोस्ट की सामग्री आवश्यक है"
+        },
+        "assets": {
+            "thumbnail": "थंबनेल",
+            "thumbnailHint": "सिफारिश: 16:9 आस्पेक्ट रेशियो, jpg/png/webp",
+            "preview": "प्रीव्यू",
+            "previewHint": "वैकल्पिक प्रीव्यू क्लिप या चित्र",
+            "fullContent": "पूर्ण सामग्री",
+            "fullContentHint": "मुख्य फ़ाइल जिसे आपका दर्शक एक्सेस करेगा",
+            "fullContentRequired": "पूर्ण सामग्री फ़ाइल आवश्यक है",
+            "selectFile": "फ़ाइल चुनें",
+            "changeFile": "फ़ाइल बदलें",
+            "dragOrClick": "खींचें और छोड़ें या चुनने के लिए क्लिक करें",
+            "maxSize": "अधिकतम फ़ाइल आकार: {size}",
+            "invalidType": "अमान्य फ़ाइल प्रकार। अनुमत: {types}",
+            "fileTooLarge": "फ़ाइल बहुत बड़ी है। अधिकतम आकार {size} है",
+            "fileSelected": "{name} ({size})"
+        },
+        "actions": {
+            "upload": "अपलोड करें",
+            "uploading": "अपलोड हो रहा है...",
+            "submitForReview": "समीक्षा के लिए भेजें",
+            "submitting": "भेजा जा रहा है...",
+            "saveDraft": "ड्राफ्ट सहेजें",
+            "cancel": "रद्द करें"
+        },
+        "status": {
+            "draft": "ड्राफ्ट",
+            "inReview": "समीक्षा में",
+            "approved": "स्वीकृत",
+            "published": "प्रकाशित",
+            "rejected": "अस्वीकृत"
+        },
+        "progress": {
+            "initializingUpload": "अपलोड प्रारंभ किया जा रहा है...",
+            "uploadingFile": "{name} अपलोड हो रहा है...",
+            "finalizingUpload": "अपलोड पूरा किया जा रहा है...",
+            "uploadComplete": "अपलोड पूरा हुआ!",
+            "creatingEntry": "एंट्री बनाई जा रही है..."
+        },
+        "errors": {
+            "uploadFailed": "अपलोड विफल हुआ। कृपया पुनः प्रयास करें।",
+            "entryCreationFailed": "एंट्री बनाना विफल हुआ। कृपया पुनः प्रयास करें।",
+            "submitForReviewFailed": "समीक्षा के लिए भेजना विफल हुआ। कृपया पुनः प्रयास करें।",
+            "noFullAsset": "भेजने से पहले कृपया पूर्ण सामग्री फ़ाइल अपलोड करें।",
+            "unexpectedError": "एक अप्रत्याशित त्रुटि हुई। कृपया पुनः प्रयास करें।"
+        },
+        "success": {
+            "entryCreated": "एंट्री ड्राफ्ट के रूप में बनाई गई",
+            "uploadComplete": "फ़ाइल सफलतापूर्वक अपलोड हुई",
+            "submittedForReview": "समीक्षा के लिए सफलतापूर्वक भेजा गया"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "सामग्री लोड करने में विफल",
         "contentNotFound": "सामग्री नहीं मिली",

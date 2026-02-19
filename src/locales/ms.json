@@ -233,6 +233,93 @@
         "noEntries": "Belum ada entri",
         "noPosts": "Belum ada kiriman"
     },
+    "Upload": {
+        "createNew": "Cipta baharu",
+        "selectContentType": "Apa yang anda ingin cipta?",
+        "type": {
+            "video": "Video",
+            "audio": "Audio",
+            "image": "Imej",
+            "post": "Kiriman",
+            "file": "Fail"
+        },
+        "typeDescription": {
+            "video": "Muat naik video untuk penstriman",
+            "audio": "Kongsi trek muzik atau podcast",
+            "image": "Kongsi foto atau ilustrasi",
+            "post": "Tulis artikel teks atau kiriman blog",
+            "file": "Muat naik PDF, ZIP, atau fail lain"
+        },
+        "pageTitle": "Muat naik {type}",
+        "form": {
+            "title": "Tajuk",
+            "titlePlaceholder": "Beri tajuk untuk kandungan anda",
+            "titleRequired": "Tajuk diperlukan",
+            "titleMaxLength": "Tajuk mesti 200 aksara atau kurang",
+            "description": "Penerangan",
+            "descriptionPlaceholder": "Terangkan kandungan anda (pilihan)",
+            "descriptionMaxLength": "Penerangan mesti 2000 aksara atau kurang",
+            "isPaid": "Kandungan berbayar",
+            "isPaidHint": "Aktifkan untuk menetapkan harga dalam XLM",
+            "priceXlm": "Harga (XLM)",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "Harga diperlukan untuk kandungan berbayar",
+            "pricePositive": "Harga mesti lebih besar daripada 0",
+            "postContent": "Kandungan",
+            "postContentPlaceholder": "Tulis kandungan kiriman anda di sini...",
+            "postContentRequired": "Kandungan kiriman diperlukan"
+        },
+        "assets": {
+            "thumbnail": "Gambar kecil",
+            "thumbnailHint": "Disyorkan: nisbah 16:9, jpg/png/webp",
+            "preview": "Pratonton",
+            "previewHint": "Klip atau imej pratonton (pilihan)",
+            "fullContent": "Kandungan penuh",
+            "fullContentHint": "Fail utama yang akan diakses oleh audiens anda",
+            "fullContentRequired": "Fail kandungan penuh diperlukan",
+            "selectFile": "Pilih fail",
+            "changeFile": "Tukar fail",
+            "dragOrClick": "Seret & lepas atau klik untuk memilih",
+            "maxSize": "Saiz maksimum fail: {size}",
+            "invalidType": "Jenis fail tidak sah. Dibenarkan: {types}",
+            "fileTooLarge": "Fail terlalu besar. Saiz maksimum ialah {size}",
+            "fileSelected": "{name} ({size})"
+        },
+        "actions": {
+            "upload": "Muat naik",
+            "uploading": "Sedang memuat naik...",
+            "submitForReview": "Hantar untuk semakan",
+            "submitting": "Sedang menghantar...",
+            "saveDraft": "Simpan draf",
+            "cancel": "Batal"
+        },
+        "status": {
+            "draft": "Draf",
+            "inReview": "Dalam semakan",
+            "approved": "Diluluskan",
+            "published": "Diterbitkan",
+            "rejected": "Ditolak"
+        },
+        "progress": {
+            "initializingUpload": "Memulakan muat naik...",
+            "uploadingFile": "Sedang memuat naik {name}...",
+            "finalizingUpload": "Menyelesaikan muat naik...",
+            "uploadComplete": "Muat naik selesai!",
+            "creatingEntry": "Mencipta entri..."
+        },
+        "errors": {
+            "uploadFailed": "Muat naik gagal. Sila cuba lagi.",
+            "entryCreationFailed": "Gagal mencipta entri. Sila cuba lagi.",
+            "submitForReviewFailed": "Gagal menghantar untuk semakan. Sila cuba lagi.",
+            "noFullAsset": "Sila muat naik fail kandungan penuh sebelum menghantar.",
+            "unexpectedError": "Ralat tidak dijangka berlaku. Sila cuba lagi."
+        },
+        "success": {
+            "entryCreated": "Entri dicipta sebagai draf",
+            "uploadComplete": "Fail berjaya dimuat naik",
+            "submittedForReview": "Berjaya dihantar untuk semakan"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "Gagal memuatkan kandungan",
         "contentNotFound": "Kandungan tidak dijumpai",

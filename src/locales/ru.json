@@ -233,6 +233,93 @@
         "noEntries": "Пока нет записей",
         "noPosts": "Пока нет постов"
     },
+    "Upload": {
+        "createNew": "Создать",
+        "selectContentType": "Что вы хотите создать?",
+        "type": {
+            "video": "Видео",
+            "audio": "Аудио",
+            "image": "Изображение",
+            "post": "Пост",
+            "file": "Файл"
+        },
+        "typeDescription": {
+            "video": "Загрузите видео для стриминга",
+            "audio": "Поделитесь музыкальным треком или подкастом",
+            "image": "Поделитесь фотографией или иллюстрацией",
+            "post": "Напишите текстовую статью или пост в блоге",
+            "file": "Загрузите PDF, ZIP или другой файл"
+        },
+        "pageTitle": "Загрузить {type}",
+        "form": {
+            "title": "Заголовок",
+            "titlePlaceholder": "Дайте вашему контенту заголовок",
+            "titleRequired": "Заголовок обязателен",
+            "titleMaxLength": "Заголовок должен быть не длиннее 200 символов",
+            "description": "Описание",
+            "descriptionPlaceholder": "Опишите ваш контент (необязательно)",
+            "descriptionMaxLength": "Описание должно быть не длиннее 2000 символов",
+            "isPaid": "Платный контент",
+            "isPaidHint": "Включите, чтобы установить цену в XLM",
+            "priceXlm": "Цена (XLM)",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "Для платного контента требуется цена",
+            "pricePositive": "Цена должна быть больше 0",
+            "postContent": "Содержимое",
+            "postContentPlaceholder": "Напишите содержимое поста здесь...",
+            "postContentRequired": "Содержимое поста обязательно"
+        },
+        "assets": {
+            "thumbnail": "Миниатюра",
+            "thumbnailHint": "Рекомендуется: соотношение 16:9, jpg/png/webp",
+            "preview": "Превью",
+            "previewHint": "Необязательный фрагмент или изображение для превью",
+            "fullContent": "Полный контент",
+            "fullContentHint": "Основной файл, к которому получит доступ ваша аудитория",
+            "fullContentRequired": "Файл полного контента обязателен",
+            "selectFile": "Выбрать файл",
+            "changeFile": "Сменить файл",
+            "dragOrClick": "Перетащите или нажмите, чтобы выбрать",
+            "maxSize": "Макс. размер файла: {size}",
+            "invalidType": "Недопустимый тип файла. Разрешено: {types}",
+            "fileTooLarge": "Файл слишком большой. Максимальный размер — {size}",
+            "fileSelected": "{name} ({size})"
+        },
+        "actions": {
+            "upload": "Загрузить",
+            "uploading": "Загрузка...",
+            "submitForReview": "Отправить на проверку",
+            "submitting": "Отправка...",
+            "saveDraft": "Сохранить черновик",
+            "cancel": "Отмена"
+        },
+        "status": {
+            "draft": "Черновик",
+            "inReview": "На проверке",
+            "approved": "Одобрено",
+            "published": "Опубликовано",
+            "rejected": "Отклонено"
+        },
+        "progress": {
+            "initializingUpload": "Инициализация загрузки...",
+            "uploadingFile": "Загрузка {name}...",
+            "finalizingUpload": "Завершение загрузки...",
+            "uploadComplete": "Загрузка завершена!",
+            "creatingEntry": "Создание записи..."
+        },
+        "errors": {
+            "uploadFailed": "Не удалось загрузить. Пожалуйста, попробуйте ещё раз.",
+            "entryCreationFailed": "Не удалось создать запись. Пожалуйста, попробуйте ещё раз.",
+            "submitForReviewFailed": "Не удалось отправить на проверку. Пожалуйста, попробуйте ещё раз.",
+            "noFullAsset": "Пожалуйста, загрузите файл полного контента перед отправкой.",
+            "unexpectedError": "Произошла непредвиденная ошибка. Пожалуйста, попробуйте ещё раз."
+        },
+        "success": {
+            "entryCreated": "Запись создана как черновик",
+            "uploadComplete": "Файл успешно загружен",
+            "submittedForReview": "Успешно отправлено на проверку"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "Не удалось загрузить контент",
         "contentNotFound": "Контент не найден",

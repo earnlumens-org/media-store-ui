@@ -233,6 +233,93 @@
         "noEntries": "아직 엔트리가 없습니다",
         "noPosts": "아직 게시물이 없습니다"
     },
+    "Upload": {
+        "createNew": "새로 만들기",
+        "selectContentType": "무엇을 만들고 싶으신가요?",
+        "type": {
+            "video": "비디오",
+            "audio": "오디오",
+            "image": "이미지",
+            "post": "게시물",
+            "file": "파일"
+        },
+        "typeDescription": {
+            "video": "스트리밍용 비디오를 업로드하세요",
+            "audio": "음악 트랙 또는 팟캐스트를 공유하세요",
+            "image": "사진 또는 일러스트를 공유하세요",
+            "post": "텍스트 글 또는 블로그 게시물을 작성하세요",
+            "file": "PDF, ZIP 또는 기타 파일을 업로드하세요"
+        },
+        "pageTitle": "{type} 업로드",
+        "form": {
+            "title": "제목",
+            "titlePlaceholder": "콘텐츠 제목을 입력하세요",
+            "titleRequired": "제목은 필수입니다",
+            "titleMaxLength": "제목은 200자 이하여야 합니다",
+            "description": "설명",
+            "descriptionPlaceholder": "콘텐츠를 설명하세요(선택)",
+            "descriptionMaxLength": "설명은 2000자 이하여야 합니다",
+            "isPaid": "유료 콘텐츠",
+            "isPaidHint": "XLM 가격을 설정하려면 활성화하세요",
+            "priceXlm": "가격 (XLM)",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "유료 콘텐츠에는 가격이 필요합니다",
+            "pricePositive": "가격은 0보다 커야 합니다",
+            "postContent": "내용",
+            "postContentPlaceholder": "여기에 게시물 내용을 작성하세요...",
+            "postContentRequired": "게시물 내용은 필수입니다"
+        },
+        "assets": {
+            "thumbnail": "썸네일",
+            "thumbnailHint": "권장: 16:9 비율, jpg/png/webp",
+            "preview": "미리보기",
+            "previewHint": "선택 사항: 미리보기 클립 또는 이미지",
+            "fullContent": "전체 콘텐츠",
+            "fullContentHint": "시청자가 접근할 기본 파일",
+            "fullContentRequired": "전체 콘텐츠 파일은 필수입니다",
+            "selectFile": "파일 선택",
+            "changeFile": "파일 변경",
+            "dragOrClick": "드래그 앤 드롭 또는 클릭하여 선택",
+            "maxSize": "최대 파일 크기: {size}",
+            "invalidType": "잘못된 파일 형식입니다. 허용: {types}",
+            "fileTooLarge": "파일이 너무 큽니다. 최대 크기는 {size}입니다",
+            "fileSelected": "{name} ({size})"
+        },
+        "actions": {
+            "upload": "업로드",
+            "uploading": "업로드 중...",
+            "submitForReview": "검토 요청",
+            "submitting": "제출 중...",
+            "saveDraft": "초안 저장",
+            "cancel": "취소"
+        },
+        "status": {
+            "draft": "초안",
+            "inReview": "검토 중",
+            "approved": "승인됨",
+            "published": "게시됨",
+            "rejected": "거절됨"
+        },
+        "progress": {
+            "initializingUpload": "업로드 초기화 중...",
+            "uploadingFile": "{name} 업로드 중...",
+            "finalizingUpload": "업로드 마무리 중...",
+            "uploadComplete": "업로드 완료!",
+            "creatingEntry": "엔트리 생성 중..."
+        },
+        "errors": {
+            "uploadFailed": "업로드에 실패했습니다. 다시 시도해주세요.",
+            "entryCreationFailed": "엔트리를 생성하지 못했습니다. 다시 시도해주세요.",
+            "submitForReviewFailed": "검토 요청을 제출하지 못했습니다. 다시 시도해주세요.",
+            "noFullAsset": "제출하기 전에 전체 콘텐츠 파일을 업로드해주세요.",
+            "unexpectedError": "예기치 않은 오류가 발생했습니다. 다시 시도해주세요."
+        },
+        "success": {
+            "entryCreated": "엔트리가 초안으로 생성되었습니다",
+            "uploadComplete": "파일이 성공적으로 업로드되었습니다",
+            "submittedForReview": "검토 요청이 성공적으로 제출되었습니다"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "콘텐츠를 불러오지 못했습니다",
         "contentNotFound": "콘텐츠를 찾을 수 없습니다",

@@ -233,6 +233,93 @@
         "noEntries": "لا توجد إدخالات بعد",
         "noPosts": "لا توجد منشورات بعد"
     },
+    "Upload": {
+        "createNew": "إنشاء جديد",
+        "selectContentType": "ماذا ترغب في إنشائه؟",
+        "type": {
+            "video": "فيديو",
+            "audio": "صوت",
+            "image": "صورة",
+            "post": "منشور",
+            "file": "ملف"
+        },
+        "typeDescription": {
+            "video": "حمّل فيديو للبث",
+            "audio": "شارك مقطعًا موسيقيًا أو بودكاست",
+            "image": "شارك صورة أو رسماً توضيحيًا",
+            "post": "اكتب مقالاً نصيًا أو منشورًا في المدونة",
+            "file": "حمّل ملف PDF أو ZIP أو أي ملف آخر"
+        },
+        "pageTitle": "تحميل {type}",
+        "form": {
+            "title": "العنوان",
+            "titlePlaceholder": "امنح محتواك عنوانًا",
+            "titleRequired": "العنوان مطلوب",
+            "titleMaxLength": "يجب ألا يتجاوز العنوان 200 حرف",
+            "description": "الوصف",
+            "descriptionPlaceholder": "صف محتواك (اختياري)",
+            "descriptionMaxLength": "يجب ألا يتجاوز الوصف 2000 حرف",
+            "isPaid": "محتوى مدفوع",
+            "isPaidHint": "فعّل لتحديد سعر بـ XLM",
+            "priceXlm": "السعر (XLM)",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "السعر مطلوب للمحتوى المدفوع",
+            "pricePositive": "يجب أن يكون السعر أكبر من 0",
+            "postContent": "المحتوى",
+            "postContentPlaceholder": "اكتب محتوى منشورك هنا...",
+            "postContentRequired": "محتوى المنشور مطلوب"
+        },
+        "assets": {
+            "thumbnail": "صورة مصغّرة",
+            "thumbnailHint": "مستحسن: نسبة 16:9، jpg/png/webp",
+            "preview": "معاينة",
+            "previewHint": "مقطع أو صورة للمعاينة (اختياري)",
+            "fullContent": "المحتوى الكامل",
+            "fullContentHint": "الملف الرئيسي الذي سيتمكن جمهورك من الوصول إليه",
+            "fullContentRequired": "ملف المحتوى الكامل مطلوب",
+            "selectFile": "اختيار ملف",
+            "changeFile": "تغيير الملف",
+            "dragOrClick": "اسحب وأفلت أو انقر للاختيار",
+            "maxSize": "الحد الأقصى لحجم الملف: {size}",
+            "invalidType": "نوع ملف غير صالح. المسموح: {types}",
+            "fileTooLarge": "الملف كبير جدًا. الحد الأقصى هو {size}",
+            "fileSelected": "{name} ({size})"
+        },
+        "actions": {
+            "upload": "تحميل",
+            "uploading": "جارٍ التحميل...",
+            "submitForReview": "إرسال للمراجعة",
+            "submitting": "جارٍ الإرسال...",
+            "saveDraft": "حفظ كمسودة",
+            "cancel": "إلغاء"
+        },
+        "status": {
+            "draft": "مسودة",
+            "inReview": "قيد المراجعة",
+            "approved": "موافق عليه",
+            "published": "منشور",
+            "rejected": "مرفوض"
+        },
+        "progress": {
+            "initializingUpload": "جارٍ تهيئة التحميل...",
+            "uploadingFile": "جارٍ تحميل {name}...",
+            "finalizingUpload": "جارٍ إنهاء التحميل...",
+            "uploadComplete": "اكتمل التحميل!",
+            "creatingEntry": "جارٍ إنشاء إدخال..."
+        },
+        "errors": {
+            "uploadFailed": "فشل التحميل. يرجى المحاولة مرة أخرى.",
+            "entryCreationFailed": "فشل إنشاء الإدخال. يرجى المحاولة مرة أخرى.",
+            "submitForReviewFailed": "فشل الإرسال للمراجعة. يرجى المحاولة مرة أخرى.",
+            "noFullAsset": "يرجى تحميل ملف المحتوى الكامل قبل الإرسال.",
+            "unexpectedError": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى."
+        },
+        "success": {
+            "entryCreated": "تم إنشاء الإدخال كمسودة",
+            "uploadComplete": "تم تحميل الملف بنجاح",
+            "submittedForReview": "تم الإرسال للمراجعة بنجاح"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "فشل تحميل المحتوى",
         "contentNotFound": "المحتوى غير موجود",

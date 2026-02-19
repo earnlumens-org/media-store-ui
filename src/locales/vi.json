@@ -233,6 +233,93 @@
         "noEntries": "Chưa có mục nào",
         "noPosts": "Chưa có bài đăng nào"
     },
+    "Upload": {
+        "createNew": "Tạo mới",
+        "selectContentType": "Bạn muốn tạo gì?",
+        "type": {
+            "video": "Video",
+            "audio": "Âm thanh",
+            "image": "Hình ảnh",
+            "post": "Bài viết",
+            "file": "Tệp"
+        },
+        "typeDescription": {
+            "video": "Tải lên video để phát trực tuyến",
+            "audio": "Chia sẻ bản nhạc hoặc podcast",
+            "image": "Chia sẻ ảnh hoặc minh hoạ",
+            "post": "Viết bài dạng văn bản hoặc bài blog",
+            "file": "Tải lên PDF, ZIP hoặc tệp khác"
+        },
+        "pageTitle": "Tải lên {type}",
+        "form": {
+            "title": "Tiêu đề",
+            "titlePlaceholder": "Đặt tiêu đề cho nội dung của bạn",
+            "titleRequired": "Tiêu đề là bắt buộc",
+            "titleMaxLength": "Tiêu đề phải dài tối đa 200 ký tự",
+            "description": "Mô tả",
+            "descriptionPlaceholder": "Mô tả nội dung của bạn (tùy chọn)",
+            "descriptionMaxLength": "Mô tả phải dài tối đa 2000 ký tự",
+            "isPaid": "Nội dung trả phí",
+            "isPaidHint": "Bật để đặt giá bằng XLM",
+            "priceXlm": "Giá (XLM)",
+            "pricePlaceholder": "0.00",
+            "priceRequired": "Giá là bắt buộc đối với nội dung trả phí",
+            "pricePositive": "Giá phải lớn hơn 0",
+            "postContent": "Nội dung",
+            "postContentPlaceholder": "Viết nội dung bài đăng của bạn tại đây...",
+            "postContentRequired": "Nội dung bài đăng là bắt buộc"
+        },
+        "assets": {
+            "thumbnail": "Hình thu nhỏ",
+            "thumbnailHint": "Khuyến nghị: tỷ lệ 16:9, jpg/png/webp",
+            "preview": "Bản xem trước",
+            "previewHint": "Đoạn clip hoặc hình ảnh xem trước (tùy chọn)",
+            "fullContent": "Nội dung đầy đủ",
+            "fullContentHint": "Tệp chính mà khán giả của bạn sẽ truy cập",
+            "fullContentRequired": "Tệp nội dung đầy đủ là bắt buộc",
+            "selectFile": "Chọn tệp",
+            "changeFile": "Đổi tệp",
+            "dragOrClick": "Kéo & thả hoặc nhấp để chọn",
+            "maxSize": "Kích thước tệp tối đa: {size}",
+            "invalidType": "Loại tệp không hợp lệ. Cho phép: {types}",
+            "fileTooLarge": "Tệp quá lớn. Kích thước tối đa là {size}",
+            "fileSelected": "{name} ({size})"
+        },
+        "actions": {
+            "upload": "Tải lên",
+            "uploading": "Đang tải lên...",
+            "submitForReview": "Gửi để xét duyệt",
+            "submitting": "Đang gửi...",
+            "saveDraft": "Lưu bản nháp",
+            "cancel": "Hủy"
+        },
+        "status": {
+            "draft": "Bản nháp",
+            "inReview": "Đang xét duyệt",
+            "approved": "Đã duyệt",
+            "published": "Đã xuất bản",
+            "rejected": "Bị từ chối"
+        },
+        "progress": {
+            "initializingUpload": "Đang khởi tạo tải lên...",
+            "uploadingFile": "Đang tải lên {name}...",
+            "finalizingUpload": "Đang hoàn tất tải lên...",
+            "uploadComplete": "Tải lên hoàn tất!",
+            "creatingEntry": "Đang tạo bài viết..."
+        },
+        "errors": {
+            "uploadFailed": "Tải lên thất bại. Vui lòng thử lại.",
+            "entryCreationFailed": "Không thể tạo bài viết. Vui lòng thử lại.",
+            "submitForReviewFailed": "Không thể gửi để xét duyệt. Vui lòng thử lại.",
+            "noFullAsset": "Vui lòng tải lên tệp nội dung đầy đủ trước khi gửi.",
+            "unexpectedError": "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại."
+        },
+        "success": {
+            "entryCreated": "Bài viết đã được tạo dưới dạng bản nháp",
+            "uploadComplete": "Tệp đã được tải lên thành công",
+            "submittedForReview": "Đã gửi để xét duyệt thành công"
+        }
+    },
     "Preview": {
         "failedToLoadContent": "Không thể tải nội dung",
         "contentNotFound": "Không tìm thấy nội dung",
