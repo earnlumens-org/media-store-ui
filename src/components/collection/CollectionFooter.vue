@@ -1,12 +1,16 @@
 <template>
   <v-sheet class="position-relative" height="84">
     <v-card-text class="px-1 pt-2 pb-0 d-flex align-start">
-      <AvatarFrame
+      <router-link
         v-if="showAuthor"
         class="me-4 flex-shrink-0"
-        :size="48"
-        :src="collection.authorAvatarUrl"
-      />
+        :to="`/${collection.authorName}`"
+      >
+        <AvatarFrame
+          :size="48"
+          :src="collection.authorAvatarUrl"
+        />
+      </router-link>
 
       <div class="flex-grow-1">
         <div
@@ -25,7 +29,13 @@
           v-if="showAuthor"
           class="text-body-1 font-weight-medium mt-1 d-flex align-center"
         >
-          <span>{{ collection.authorName }}</span>
+          <router-link
+            class="text-decoration-none"
+            style="color: inherit"
+            :to="`/${collection.authorName}`"
+          >
+            {{ collection.authorName }}
+          </router-link>
           <v-avatar
             v-if="profileBadgeSrc"
             class="ms-2 flex-shrink-0"
