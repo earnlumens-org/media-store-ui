@@ -33,7 +33,7 @@
         rounded="pill"
         variant="elevated"
       >
-        Blocked
+        {{ $t('Common.blocked') }}
       </v-btn>
     </v-overlay>
   </div>

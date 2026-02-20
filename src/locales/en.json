@@ -48,6 +48,7 @@
         "welcome": "Welcome to",
         "shortAbout": "A collaborative financial education platform on the Stellar network",
         "blockquote": "EARNLUMENS is a collaborative platform where financial education meets real-world use. Learn to navigate the Stellar network, expand your financial potential, and share your knowledge to uplift others.",
+        "blocked": "Blocked",
         "accept": "Accept",
         "upload": "Upload",
         "failedToLoadImage": "Failed to load image",
