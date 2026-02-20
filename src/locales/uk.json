@@ -58,6 +58,7 @@
         "tip": "Чайові",
         "tipCreator": "Дати чайові автору",
         "removeFromSaved": "Видалити із збережених",
+        "saveToFavorites": "Зберегти в обране",
         "saveToCollection": "Зберегти в колекцію",
         "removeFromCollection": "Видалити з колекції",
         "subscribe": "Підписатися",
@@ -228,9 +229,16 @@
         "likes": "Вподобання",
         "follow": "Підписатися",
         "message": "Повідомлення",
-        "entries": "Записи",
-        "posts": "Пости",
+        "tabs": {
+            "all": "Усі",
+            "video": "Відео",
+            "audio": "Аудіо",
+            "image": "Зображення",
+            "article": "Статті",
+            "file": "Файли"
+        },
         "noEntries": "Поки що немає записів",
+        "noEntriesFiltered": "Поки що немає записів типу {type}",
         "noPosts": "Поки що немає постів"
     },
     "Upload": {

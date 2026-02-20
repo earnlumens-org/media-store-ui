@@ -58,6 +58,7 @@
         "tip": "小费",
         "tipCreator": "给创作者打赏",
         "removeFromSaved": "从已保存移除",
+        "saveToFavorites": "保存到收藏夹",
         "saveToCollection": "保存到收藏",
         "removeFromCollection": "从收藏移除",
         "subscribe": "订阅",
@@ -228,9 +229,16 @@
         "likes": "点赞",
         "follow": "关注",
         "message": "消息",
-        "entries": "条目",
-        "posts": "帖子",
+        "tabs": {
+            "all": "全部",
+            "video": "视频",
+            "audio": "音频",
+            "image": "图片",
+            "article": "文章",
+            "file": "文件"
+        },
         "noEntries": "暂无条目",
+        "noEntriesFiltered": "暂无{type}条目",
         "noPosts": "暂无帖子"
     },
     "Upload": {

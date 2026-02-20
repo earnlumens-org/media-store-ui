@@ -58,6 +58,7 @@
         "tip": "Чаевые",
         "tipCreator": "Чаевые автору",
         "removeFromSaved": "Удалить из сохранённых",
+        "saveToFavorites": "Сохранить в избранное",
         "saveToCollection": "Сохранить в коллекцию",
         "removeFromCollection": "Удалить из коллекции",
         "subscribe": "Подписаться",
@@ -228,9 +229,16 @@
         "likes": "Лайки",
         "follow": "Подписаться",
         "message": "Сообщение",
-        "entries": "Записи",
-        "posts": "Посты",
+        "tabs": {
+            "all": "Все",
+            "video": "Видео",
+            "audio": "Аудио",
+            "image": "Изображения",
+            "article": "Статьи",
+            "file": "Файлы"
+        },
         "noEntries": "Пока нет записей",
+        "noEntriesFiltered": "Пока нет записей типа {type}",
         "noPosts": "Пока нет постов"
     },
     "Upload": {

@@ -58,6 +58,7 @@
         "tip": "إكرامية",
         "tipCreator": "إكرامية للمنشئ",
         "removeFromSaved": "إزالة من المحفوظات",
+        "saveToFavorites": "حفظ في المفضلة",
         "saveToCollection": "حفظ في المجموعة",
         "removeFromCollection": "إزالة من المجموعة",
         "subscribe": "اشتراك",
@@ -228,9 +229,16 @@
         "likes": "الإعجابات",
         "follow": "متابعة",
         "message": "رسالة",
-        "entries": "إدخالات",
-        "posts": "منشورات",
+        "tabs": {
+            "all": "الكل",
+            "video": "مقاطع الفيديو",
+            "audio": "الصوت",
+            "image": "الصور",
+            "article": "المقالات",
+            "file": "الملفات"
+        },
         "noEntries": "لا توجد إدخالات بعد",
+        "noEntriesFiltered": "لا توجد إدخالات {type} بعد",
         "noPosts": "لا توجد منشورات بعد"
     },
     "Upload": {

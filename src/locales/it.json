@@ -58,6 +58,7 @@
         "tip": "Mancia",
         "tipCreator": "Lascia una mancia al creatore",
         "removeFromSaved": "Rimuovi dai salvati",
+        "saveToFavorites": "Salva nei preferiti",
         "saveToCollection": "Salva nella raccolta",
         "removeFromCollection": "Rimuovi dalla raccolta",
         "subscribe": "Iscriviti",
@@ -228,9 +229,16 @@
         "likes": "Mi piace",
         "follow": "Segui",
         "message": "Messaggio",
-        "entries": "Voci",
-        "posts": "Post",
+        "tabs": {
+            "all": "Tutti",
+            "video": "Video",
+            "audio": "Audio",
+            "image": "Immagini",
+            "article": "Articoli",
+            "file": "File"
+        },
         "noEntries": "Nessuna voce ancora",
+        "noEntriesFiltered": "Nessuna voce {type} ancora",
         "noPosts": "Nessun post ancora"
     },
     "Upload": {

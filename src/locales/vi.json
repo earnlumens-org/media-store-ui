@@ -58,6 +58,7 @@
         "tip": "Tip",
         "tipCreator": "Tip cho người tạo",
         "removeFromSaved": "Xóa khỏi đã lưu",
+        "saveToFavorites": "Lưu vào mục yêu thích",
         "saveToCollection": "Lưu vào bộ sưu tập",
         "removeFromCollection": "Xóa khỏi bộ sưu tập",
         "subscribe": "Đăng ký",
@@ -228,9 +229,16 @@
         "likes": "Lượt thích",
         "follow": "Theo dõi",
         "message": "Nhắn tin",
-        "entries": "Mục",
-        "posts": "Bài đăng",
+        "tabs": {
+            "all": "Tất cả",
+            "video": "Video",
+            "audio": "Âm thanh",
+            "image": "Hình ảnh",
+            "article": "Bài viết",
+            "file": "Tệp"
+        },
         "noEntries": "Chưa có mục nào",
+        "noEntriesFiltered": "Chưa có mục {type} nào",
         "noPosts": "Chưa có bài đăng nào"
     },
     "Upload": {

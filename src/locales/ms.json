@@ -58,6 +58,7 @@
         "tip": "Tip",
         "tipCreator": "Beri tip kepada pencipta",
         "removeFromSaved": "Alih keluar daripada simpanan",
+        "saveToFavorites": "Simpan ke kegemaran",
         "saveToCollection": "Simpan ke koleksi",
         "removeFromCollection": "Alih keluar daripada koleksi",
         "subscribe": "Langgan",
@@ -228,9 +229,16 @@
         "likes": "Suka",
         "follow": "Ikut",
         "message": "Mesej",
-        "entries": "Entri",
-        "posts": "Kiriman",
+        "tabs": {
+            "all": "Semua",
+            "video": "Video",
+            "audio": "Audio",
+            "image": "Imej",
+            "article": "Artikel",
+            "file": "Fail"
+        },
         "noEntries": "Belum ada entri",
+        "noEntriesFiltered": "Belum ada entri {type}",
         "noPosts": "Belum ada kiriman"
     },
     "Upload": {

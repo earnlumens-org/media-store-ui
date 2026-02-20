@@ -49,9 +49,9 @@
         </template>
 
         <v-list density="compact">
-          <v-list-item>Compartir</v-list-item>
-          <v-list-item>Guardar</v-list-item>
-          <v-list-item>Denunciar</v-list-item>
+          <v-list-item>{{ $t('Common.share') }}</v-list-item>
+          <v-list-item>{{ $t('Common.saveToFavorites') }}</v-list-item>
+          <v-list-item>{{ $t('Common.report') }}</v-list-item>
         </v-list>
       </v-menu>
     </v-card-text>

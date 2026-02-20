@@ -58,6 +58,7 @@
         "tip": "Propina",
         "tipCreator": "Dar propina al creador",
         "removeFromSaved": "Quitar de guardados",
+        "saveToFavorites": "Guardar en favoritos",
         "saveToCollection": "Guardar en colección",
         "removeFromCollection": "Quitar de la colección",
         "subscribe": "Suscribirse",
@@ -228,9 +229,16 @@
         "likes": "Me gusta",
         "follow": "Seguir",
         "message": "Mensaje",
-        "entries": "Entries",
-        "posts": "Posts",
+        "tabs": {
+            "all": "Todos",
+            "video": "Videos",
+            "audio": "Audio",
+            "image": "Imágenes",
+            "article": "Artículos",
+            "file": "Archivos"
+        },
         "noEntries": "Aún no hay entries",
+        "noEntriesFiltered": "Aún no hay entries de {type}",
         "noPosts": "Aún no hay posts"
     },
     "Upload": {

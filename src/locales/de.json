@@ -58,6 +58,7 @@
         "tip": "Trinkgeld",
         "tipCreator": "Trinkgeld geben",
         "removeFromSaved": "Aus Gespeichertem entfernen",
+        "saveToFavorites": "Zu Favoriten speichern",
         "saveToCollection": "In Sammlung speichern",
         "removeFromCollection": "Aus Sammlung entfernen",
         "subscribe": "Abonnieren",
@@ -228,9 +229,16 @@
         "likes": "Likes",
         "follow": "Folgen",
         "message": "Nachricht",
-        "entries": "Einträge",
-        "posts": "Beiträge",
+        "tabs": {
+            "all": "Alle",
+            "video": "Videos",
+            "audio": "Audio",
+            "image": "Bilder",
+            "article": "Artikel",
+            "file": "Dateien"
+        },
         "noEntries": "Noch keine Einträge",
+        "noEntriesFiltered": "Noch keine {type}-Einträge",
         "noPosts": "Noch keine Beiträge"
     },
     "Upload": {

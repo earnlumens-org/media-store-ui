@@ -58,6 +58,7 @@
         "tip": "チップ",
         "tipCreator": "クリエイターにチップ",
         "removeFromSaved": "保存から削除",
+        "saveToFavorites": "お気に入りに保存",
         "saveToCollection": "コレクションに保存",
         "removeFromCollection": "コレクションから削除",
         "subscribe": "チャンネル登録",
@@ -228,9 +229,16 @@
         "likes": "いいね",
         "follow": "フォロー",
         "message": "メッセージ",
-        "entries": "エントリー",
-        "posts": "投稿",
+        "tabs": {
+            "all": "すべて",
+            "video": "動画",
+            "audio": "音声",
+            "image": "画像",
+            "article": "記事",
+            "file": "ファイル"
+        },
         "noEntries": "まだエントリーがありません",
+        "noEntriesFiltered": "まだ{type}のエントリーがありません",
         "noPosts": "まだ投稿がありません"
     },
     "Upload": {

@@ -58,6 +58,7 @@
         "tip": "टिप",
         "tipCreator": "क्रिएटर को टिप दें",
         "removeFromSaved": "सहेजे गए से हटाएँ",
+        "saveToFavorites": "पसंदीदा में सहेजें",
         "saveToCollection": "संग्रह में सहेजें",
         "removeFromCollection": "संग्रह से हटाएँ",
         "subscribe": "सब्सक्राइब करें",
@@ -228,9 +229,16 @@
         "likes": "लाइक्स",
         "follow": "फ़ॉलो करें",
         "message": "संदेश",
-        "entries": "एंट्रीज़",
-        "posts": "पोस्ट्स",
+        "tabs": {
+            "all": "सभी",
+            "video": "वीडियो",
+            "audio": "ऑडियो",
+            "image": "चित्र",
+            "article": "लेख",
+            "file": "फ़ाइलें"
+        },
         "noEntries": "अभी कोई एंट्री नहीं",
+        "noEntriesFiltered": "अभी कोई {type} एंट्री नहीं",
         "noPosts": "अभी कोई पोस्ट नहीं"
     },
     "Upload": {

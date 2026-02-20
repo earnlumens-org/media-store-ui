@@ -58,6 +58,7 @@
         "tip": "Bahşiş",
         "tipCreator": "İçerik üreticisine bahşiş ver",
         "removeFromSaved": "Kaydedilenlerden kaldır",
+        "saveToFavorites": "Favorilere kaydet",
         "saveToCollection": "Koleksiyona kaydet",
         "removeFromCollection": "Koleksiyondan kaldır",
         "subscribe": "Abone ol",
@@ -228,9 +229,16 @@
         "likes": "Beğeni",
         "follow": "Takip et",
         "message": "Mesaj",
-        "entries": "Girdiler",
-        "posts": "Gönderiler",
+        "tabs": {
+            "all": "Tümü",
+            "video": "Video",
+            "audio": "Ses",
+            "image": "Görseller",
+            "article": "Makaleler",
+            "file": "Dosyalar"
+        },
         "noEntries": "Henüz girdi yok",
+        "noEntriesFiltered": "Henüz {type} girdisi yok",
         "noPosts": "Henüz gönderi yok"
     },
     "Upload": {

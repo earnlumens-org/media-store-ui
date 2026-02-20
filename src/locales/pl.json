@@ -58,6 +58,7 @@
         "tip": "Napiwek",
         "tipCreator": "Daj napiwek twórcy",
         "removeFromSaved": "Usuń z zapisanych",
+        "saveToFavorites": "Zapisz do ulubionych",
         "saveToCollection": "Zapisz do kolekcji",
         "removeFromCollection": "Usuń z kolekcji",
         "subscribe": "Subskrybuj",
@@ -228,9 +229,16 @@
         "likes": "Polubienia",
         "follow": "Obserwuj",
         "message": "Wiadomość",
-        "entries": "Wpisy",
-        "posts": "Posty",
+        "tabs": {
+            "all": "Wszystkie",
+            "video": "Wideo",
+            "audio": "Audio",
+            "image": "Obrazy",
+            "article": "Artykuły",
+            "file": "Pliki"
+        },
         "noEntries": "Brak wpisów",
+        "noEntriesFiltered": "Brak wpisów typu {type}",
         "noPosts": "Brak postów"
     },
     "Upload": {

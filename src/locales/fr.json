@@ -58,6 +58,7 @@
         "tip": "Pourboire",
         "tipCreator": "Donner un pourboire au créateur",
         "removeFromSaved": "Retirer des enregistrements",
+        "saveToFavorites": "Enregistrer dans les favoris",
         "saveToCollection": "Enregistrer dans la collection",
         "removeFromCollection": "Retirer de la collection",
         "subscribe": "S’abonner",
@@ -228,9 +229,16 @@
         "likes": "J’aime",
         "follow": "Suivre",
         "message": "Message",
-        "entries": "Entrées",
-        "posts": "Publications",
+        "tabs": {
+            "all": "Tous",
+            "video": "Vidéos",
+            "audio": "Audio",
+            "image": "Images",
+            "article": "Articles",
+            "file": "Fichiers"
+        },
         "noEntries": "Aucune entrée pour le moment",
+        "noEntriesFiltered": "Aucune entrée {type} pour le moment",
         "noPosts": "Aucune publication pour le moment"
     },
     "Upload": {

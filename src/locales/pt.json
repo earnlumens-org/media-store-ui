@@ -58,6 +58,7 @@
         "tip": "Gorjeta",
         "tipCreator": "Dar gorjeta ao criador",
         "removeFromSaved": "Remover dos salvos",
+        "saveToFavorites": "Salvar nos favoritos",
         "saveToCollection": "Salvar na coleção",
         "removeFromCollection": "Remover da coleção",
         "subscribe": "Inscrever-se",
@@ -228,9 +229,16 @@
         "likes": "Gostos",
         "follow": "Seguir",
         "message": "Mensagem",
-        "entries": "Entradas",
-        "posts": "Publicações",
+        "tabs": {
+            "all": "Todos",
+            "video": "Vídeo",
+            "audio": "Áudio",
+            "image": "Imagens",
+            "article": "Artigos",
+            "file": "Arquivos"
+        },
         "noEntries": "Ainda não há entradas",
+        "noEntriesFiltered": "Ainda não há entradas de {type}",
         "noPosts": "Ainda não há publicações"
     },
     "Upload": {

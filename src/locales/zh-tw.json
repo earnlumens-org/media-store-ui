@@ -58,6 +58,7 @@
         "tip": "小費",
         "tipCreator": "給創作者打賞",
         "removeFromSaved": "從已儲存移除",
+        "saveToFavorites": "儲存到最愛",
         "saveToCollection": "儲存到收藏",
         "removeFromCollection": "從收藏移除",
         "subscribe": "訂閱",
@@ -228,9 +229,16 @@
         "likes": "讚",
         "follow": "追蹤",
         "message": "訊息",
-        "entries": "條目",
-        "posts": "貼文",
+        "tabs": {
+            "all": "全部",
+            "video": "影片",
+            "audio": "音頻",
+            "image": "圖片",
+            "article": "文章",
+            "file": "檔案"
+        },
         "noEntries": "尚無條目",
+        "noEntriesFiltered": "尚無{type}條目",
         "noPosts": "尚無貼文"
     },
     "Upload": {
