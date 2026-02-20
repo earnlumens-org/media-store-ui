@@ -1,9 +1,9 @@
 <template>
-  <EntryCardMockGrid />
+  <EntryCardGrid />
 </template>
 
 <script setup lang="ts">
-  import EntryCardMockGrid from '@/components/entry/EntryCardMockGrid.vue'
+  import EntryCardGrid from '@/components/entry/EntryCardGrid.vue'
 </script>
 
 <route lang="json">

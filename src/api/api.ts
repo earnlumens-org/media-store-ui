@@ -1,4 +1,5 @@
 import { createSession, logout, refreshAccessToken } from './modules/auth.api'
+import { getPublishedEntries } from './modules/entry.api'
 import {
   getMockCollectionById,
   getMockCollections,
@@ -25,6 +26,9 @@ export const api = {
     getStats: getWaitlistStats,
     subscribe: subscribeWaitlist,
   },
+  entries: {
+    getPublished: getPublishedEntries,
+  },
   upload: {
     createEntry,
     initUpload,
@@ -44,6 +48,7 @@ export const api = {
 
 export { ApiError, apiRequest } from './apiRequest'
 export { createSession, logout, refreshAccessToken } from './modules/auth.api'
+export { getPublishedEntries } from './modules/entry.api'
 export {
   getMockCollectionById,
   getMockCollections,
@@ -56,6 +61,12 @@ export { checkUsernameExists, getCurrentUser, getUserByUsername, parseUserFromTo
 export { getWaitlistStats } from './modules/waitlist.api'
 
 export type {
+  PublicEntryModel,
+  PublicEntryPageModel,
+  PublicEntryRequestParams,
+} from './types/entry.types'
+
+export type {
   CollectionModel,
   CollectionsRequestParams,
   EntriesRequestParams,
@@ -64,14 +75,6 @@ export type {
   FeedPageModel,
   FeedRequestParams,
 } from './types/entryMock.types'
-
-export type {
-  MessageResponseDto,
-  MessageResponseModel,
-  WaitlistStatsDto,
-  WaitlistStatsModel,
-  WaitlistSubscribeRequestDto,
-} from './types/waitlist.types'
 
 export type {
   AssetKind,
@@ -96,3 +99,11 @@ export {
   toEntryType,
   UPLOAD_CONTENT_TYPES,
 } from './types/upload.types'
+
+export type {
+  MessageResponseDto,
+  MessageResponseModel,
+  WaitlistStatsDto,
+  WaitlistStatsModel,
+  WaitlistSubscribeRequestDto,
+} from './types/waitlist.types'
