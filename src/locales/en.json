@@ -228,9 +228,16 @@
         "likes": "Likes",
         "follow": "Follow",
         "message": "Message",
-        "entries": "Entries",
-        "posts": "Posts",
+        "tabs": {
+            "all": "All",
+            "video": "Videos",
+            "audio": "Audio",
+            "image": "Images",
+            "article": "Articles",
+            "file": "Files"
+        },
         "noEntries": "No entries yet",
+        "noEntriesFiltered": "No {type} entries yet",
         "noPosts": "No posts yet"
     },
     "Upload": {

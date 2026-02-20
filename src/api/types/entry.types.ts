@@ -61,3 +61,9 @@ export interface PublicEntryRequestParams {
   page?: number
   size?: number
 }
+
+export interface UserEntryRequestParams {
+  type?: 'video' | 'audio' | 'image' | 'entry' | 'file'
+  page?: number
+  size?: number
+}
