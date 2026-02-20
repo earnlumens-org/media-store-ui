@@ -1,5 +1,5 @@
 <template>
-  <div class="position-relative">
+  <router-link class="position-relative d-block text-decoration-none" style="color: inherit" :to="entryRoute">
     <MediaFrame
       fallback-color="green-lighten-4"
       fallback-icon="mdi-video-outline"
@@ -42,12 +42,13 @@
         color="white"
         prepend-icon="mdi-lock"
         rounded="pill"
+        :to="entryRoute"
         variant="elevated"
       >
         {{ $t('Common.blocked') }}
       </v-btn>
     </v-overlay>
-  </div>
+  </router-link>
 </template>
 
 <script setup lang="ts">
@@ -57,7 +58,11 @@
 
   import MediaFrame from '@/components/media/MediaFrame.vue'
 
+  import { getEntryRoute } from '../entryRoute'
+
   const props = defineProps<{ entry: Entry }>()
+
+  const entryRoute = computed(() => getEntryRoute(props.entry))
 
   const formattedDuration = computed(() => {
     if (!props.entry.durationSec) {

@@ -13,17 +13,22 @@
       </router-link>
 
       <div class="flex-grow-1">
-        <div
-          class="text-body-1 font-weight-medium text-medium-emphasis"
-          :style="{
-            display: '-webkit-box',
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-          }"
+        <router-link
+          class="text-body-1 font-weight-medium text-medium-emphasis text-decoration-none d-block"
+          style="color: inherit"
+          :to="`/collection/${collection.id}`"
         >
-          {{ collection.title }}
-        </div>
+          <div
+            :style="{
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+            }"
+          >
+            {{ collection.title }}
+          </div>
+        </router-link>
 
         <div
           v-if="showAuthor"

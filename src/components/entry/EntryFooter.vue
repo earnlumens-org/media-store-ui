@@ -14,17 +14,22 @@
 
       <div class="flex-grow-1">
         <!-- Título: máximo 2 líneas con ellipsis -->
-        <div
-          class="text-body-1 font-weight-medium text-medium-emphasis"
-          :style="{
-            display: '-webkit-box',
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-          }"
+        <router-link
+          class="text-body-1 font-weight-medium text-medium-emphasis text-decoration-none d-block"
+          style="color: inherit"
+          :to="entryRoute"
         >
-          {{ entry.title }}
-        </div>
+          <div
+            :style="{
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+            }"
+          >
+            {{ entry.title }}
+          </div>
+        </router-link>
 
         <!-- Nombre del autor -->
         <div
@@ -85,6 +90,8 @@
 
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
 
+  import { getEntryRoute } from './entryRoute'
+
   interface Props {
     entry: Entry
     showAuthor?: boolean
@@ -93,6 +100,8 @@
   const props = withDefaults(defineProps<Props>(), {
     showAuthor: true,
   })
+
+  const entryRoute = computed(() => getEntryRoute(props.entry))
 
   const formattedDate = computed(() => {
     const date = props.entry.publishedAt instanceof Date

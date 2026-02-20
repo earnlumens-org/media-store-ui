@@ -1,5 +1,5 @@
 <template>
-  <div class="position-relative">
+  <router-link class="position-relative d-block text-decoration-none" style="color: inherit" :to="entryRoute">
     <MediaFrame
       fallback-color="deep-purple-lighten-4"
       fallback-icon="mdi-text-box-outline"
@@ -31,18 +31,25 @@
         color="white"
         prepend-icon="mdi-lock"
         rounded="pill"
+        :to="entryRoute"
         variant="elevated"
       >
         {{ $t('Common.blocked') }}
       </v-btn>
     </v-overlay>
-  </div>
+  </router-link>
 </template>
 
 <script setup lang="ts">
   import type { Entry } from '../EntryCard.vue'
 
+  import { computed } from 'vue'
+
   import MediaFrame from '@/components/media/MediaFrame.vue'
 
-  defineProps<{ entry: Entry }>()
+  import { getEntryRoute } from '../entryRoute'
+
+  const props = defineProps<{ entry: Entry }>()
+
+  const entryRoute = computed(() => getEntryRoute(props.entry))
 </script>

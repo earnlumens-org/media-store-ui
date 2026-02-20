@@ -21,6 +21,7 @@
 
   import { computed } from 'vue'
 
+  import EntryFooter from './EntryFooter.vue'
   import EntryMediaAudio from './media/EntryMediaAudio.vue'
   import EntryMediaEntry from './media/EntryMediaEntry.vue'
   import EntryMediaImage from './media/EntryMediaImage.vue'

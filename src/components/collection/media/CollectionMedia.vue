@@ -1,5 +1,5 @@
 <template>
-  <div class="position-relative">
+  <router-link class="position-relative d-block text-decoration-none" style="color: inherit" :to="`/collection/${collection.id}`">
     <MediaFrame
       fallback-color="amber-lighten-4"
       :fallback-icon="typeIcon"
@@ -44,12 +44,13 @@
         color="white"
         prepend-icon="mdi-lock"
         rounded="pill"
+        :to="`/collection/${collection.id}`"
         variant="elevated"
       >
         {{ $t('Common.blocked') }}
       </v-btn>
     </v-overlay>
-  </div>
+  </router-link>
 </template>
 
 <script setup lang="ts">
