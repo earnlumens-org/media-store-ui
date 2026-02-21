@@ -345,7 +345,6 @@
         "moreItems": "+ {count}개 더",
         "unlockPrice": "잠금 해제 가격",
         "whatYouGet": "포함 내용",
-        "unlockFor": "{price}에 잠금 해제",
         "securePaymentViaStellar": "Stellar를 통한 안전한 결제",
         "by": "제작자:",
         "unlockContent": "콘텐츠 잠금 해제",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "향후 추가 포함",
         "bulkDiscountApplied": "대량 할인 적용",
         "fullAccess": "전체 접근",
-        "items": "항목"
+        "items": "항목",
+        "unlock": "잠금 해제",
+        "comingSoon": "출시 예정"
     }
 }

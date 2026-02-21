@@ -345,7 +345,6 @@
         "moreItems": "+ {count} और आइटम",
         "unlockPrice": "अनलॉक मूल्य",
         "whatYouGet": "आपको क्या मिलेगा",
-        "unlockFor": "{price} में अनलॉक करें",
         "securePaymentViaStellar": "Stellar के माध्यम से सुरक्षित भुगतान",
         "by": "द्वारा",
         "unlockContent": "सामग्री अनलॉक करें",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "भविष्य के जोड़ शामिल",
         "bulkDiscountApplied": "थोक छूट लागू",
         "fullAccess": "पूर्ण पहुंच",
-        "items": "आइटम"
+        "items": "आइटम",
+        "unlock": "अनलॉक करें",
+        "comingSoon": "जल्द आ रहा है"
     }
 }

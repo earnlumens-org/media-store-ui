@@ -345,7 +345,6 @@
         "moreItems": "+ {count} elementos más",
         "unlockPrice": "Precio de desbloqueo",
         "whatYouGet": "Lo que obtienes",
-        "unlockFor": "Desbloquear por {price}",
         "securePaymentViaStellar": "Pago seguro vía Stellar",
         "by": "por",
         "unlockContent": "Desbloquear contenido",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "Adiciones futuras incluidas",
         "bulkDiscountApplied": "Descuento por volumen aplicado",
         "fullAccess": "Acceso completo",
-        "items": "elementos"
+        "items": "elementos",
+        "unlock": "Desbloquear",
+        "comingSoon": "Próximamente"
     }
 }

@@ -123,6 +123,7 @@
   import { computed, onMounted, ref } from 'vue'
 
   import { api } from '@/api/api'
+  import { useFeedCacheStore } from '@/stores/feedCache'
 
   interface Props {
     /** Whether to show author info on cards (UI design decision) */
@@ -135,6 +136,8 @@
     showAuthor: true,
     pageSize: 48,
   })
+
+  const feedCache = useFeedCacheStore()
 
   const feed = ref<FeedItemModel[]>([])
   const loading = ref(true)
@@ -160,6 +163,7 @@
         size: props.pageSize,
       })
       feed.value = response.items
+      cacheItems(response.items)
       currentPage.value = response.page
       totalPages.value = response.totalPages
     } catch (error_) {
@@ -182,6 +186,7 @@
         size: props.pageSize,
       })
       feed.value.push(...response.items)
+      cacheItems(response.items)
       currentPage.value = response.page
       totalPages.value = response.totalPages
 
@@ -189,6 +194,16 @@
     } catch (error_) {
       console.error('[EntryCardMockGrid] Failed to load more:', error_)
       done('error')
+    }
+  }
+
+  function cacheItems (items: FeedItemModel[]) {
+    for (const item of items) {
+      if (item.kind === 'entry') {
+        feedCache.cacheEntry(item.entry)
+      } else {
+        feedCache.cacheCollection(item.collection)
+      }
     }
   }
 

@@ -182,6 +182,7 @@
               <!-- Locked overlay -->
               <v-overlay
                 class="d-flex align-center justify-center"
+                :close-on-back="false"
                 contained
                 :model-value="true"
                 persistent
@@ -223,6 +224,7 @@
                   <v-img cover :src="content.thumbnailUrl">
                     <v-overlay
                       class="d-flex align-center justify-center"
+                      :close-on-back="false"
                       contained
                       :model-value="true"
                       persistent
@@ -304,6 +306,7 @@
               <!-- Locked overlay -->
               <v-overlay
                 class="d-flex align-center justify-center"
+                :close-on-back="false"
                 contained
                 :model-value="true"
                 persistent
@@ -332,6 +335,7 @@
                 :src="content.thumbnailUrl"
               >
                 <v-overlay
+                  :close-on-back="false"
                   contained
                   :model-value="true"
                   persistent
@@ -350,7 +354,7 @@
                 <!-- Excerpt with fade -->
                 <div class="entry-excerpt position-relative">
                   <p class="text-body-1" style="line-height: 1.8;">
-                    {{ mockExcerpt }}
+                    {{ entryExcerpt }}
                   </p>
                   <!-- Fade overlay -->
                   <div class="excerpt-fade" />
@@ -386,6 +390,7 @@
                 :src="collectionData.coverUrl"
               >
                 <v-overlay
+                  :close-on-back="false"
                   contained
                   :model-value="true"
                   persistent
@@ -449,19 +454,22 @@
                 <v-card-text class="pa-4">
                   <!-- Creator info -->
                   <div class="d-flex align-center mb-4">
-                    <v-avatar
+                    <AvatarFrame
                       class="mr-3"
-                      :color="content.authorAvatarUrl ? undefined : 'primary'"
-                      :image="content.authorAvatarUrl"
-                      size="48"
-                    >
-                      <span v-if="!content.authorAvatarUrl" class="text-h6">
-                        {{ content.authorName?.charAt(0).toUpperCase() }}
-                      </span>
-                    </v-avatar>
+                      :size="48"
+                      :src="content.authorAvatarUrl"
+                    />
                     <div>
-                      <div class="text-subtitle-1 font-weight-medium">
+                      <div class="d-flex align-center text-subtitle-1 font-weight-medium">
                         {{ content.authorName }}
+                        <v-avatar
+                          v-if="profileBadgeSrc"
+                          class="ms-2 flex-shrink-0"
+                          color="transparent"
+                          size="18"
+                        >
+                          <v-img :src="profileBadgeSrc" />
+                        </v-avatar>
                       </div>
                       <div class="text-body-2 text-medium-emphasis">
                         {{ $t('Common.creator') }}
@@ -473,7 +481,7 @@
                   <v-card class="mb-4" color="primary" variant="tonal">
                     <v-card-text class="d-flex align-center justify-space-between py-3">
                       <span class="text-body-2">{{ $t('Preview.unlockPrice') }}</span>
-                      <span class="text-h5 font-weight-bold">{{ formatPrice(mockPrice) }}</span>
+                      <span class="text-h5 font-weight-bold">{{ formatPrice(contentPrice) }}</span>
                     </v-card-text>
                   </v-card>
 
@@ -496,11 +504,12 @@
                   <v-btn
                     block
                     color="primary"
+                    :disabled="!isVerified"
                     prepend-icon="mdi-lock-open"
                     size="large"
                     @click="openCheckout"
                   >
-                    {{ $t('Preview.unlockFor', { price: formatPrice(mockPrice) }) }}
+                    {{ $t('Preview.unlock') }}
                   </v-btn>
                 </v-card-text>
               </v-card>
@@ -515,19 +524,22 @@
               <v-card-text class="pa-6">
                 <!-- Creator info -->
                 <div class="d-flex align-center mb-6">
-                  <v-avatar
+                  <AvatarFrame
                     class="mr-4"
-                    :color="content.authorAvatarUrl ? undefined : 'primary'"
-                    :image="content.authorAvatarUrl"
-                    size="56"
-                  >
-                    <span v-if="!content.authorAvatarUrl" class="text-h5">
-                      {{ content.authorName?.charAt(0).toUpperCase() }}
-                    </span>
-                  </v-avatar>
+                    :size="56"
+                    :src="content.authorAvatarUrl"
+                  />
                   <div>
-                    <div class="text-subtitle-1 font-weight-medium">
+                    <div class="d-flex align-center text-subtitle-1 font-weight-medium">
                       {{ content.authorName }}
+                      <v-avatar
+                        v-if="profileBadgeSrc"
+                        class="ms-2 flex-shrink-0"
+                        color="transparent"
+                        size="18"
+                      >
+                        <v-img :src="profileBadgeSrc" />
+                      </v-avatar>
                     </div>
                     <div class="text-body-2 text-medium-emphasis">
                       {{ $t('Common.creator') }}
@@ -539,7 +551,7 @@
                 <v-card class="mb-6" color="primary" variant="tonal">
                   <v-card-text class="d-flex align-center justify-space-between py-4">
                     <span class="text-body-1">{{ $t('Preview.unlockPrice') }}</span>
-                    <span class="text-h4 font-weight-bold">{{ formatPrice(mockPrice) }}</span>
+                    <span class="text-h4 font-weight-bold">{{ formatPrice(contentPrice) }}</span>
                   </v-card-text>
                 </v-card>
 
@@ -562,11 +574,12 @@
                 <v-btn
                   block
                   color="primary"
+                  :disabled="!isVerified"
                   prepend-icon="mdi-lock-open"
                   size="x-large"
                   @click="openCheckout"
                 >
-                  {{ $t('Preview.unlockFor', { price: formatPrice(mockPrice) }) }}
+                  {{ $t('Preview.unlock') }}
                 </v-btn>
 
                 <!-- Security note -->
@@ -591,6 +604,7 @@
 </template>
 
 <script setup lang="ts">
+  import type { PublicEntryModel } from '@/api/types/entry.types'
   import type { CollectionModel, EntryModel } from '@/api/types/entryMock.types'
 
   import { computed, onMounted, ref, watch } from 'vue'
@@ -599,21 +613,22 @@
 
   import { api } from '@/api/api'
   import CheckoutDialog from '@/components/checkout/CheckoutDialog.vue'
+  import AvatarFrame from '@/components/media/AvatarFrame.vue'
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { useFeedCacheStore } from '@/stores/feedCache'
   import { usePurchasesStore } from '@/stores/purchases'
 
   const { t } = useI18n()
   const route = useRoute()
   const router = useRouter()
   const purchasesStore = usePurchasesStore()
+  const feedCache = useFeedCacheStore()
 
   // Route param
   const contentId = computed(() => {
     const params = route.params as { id?: string }
     return params.id ?? ''
   })
-
-  // Content type can be passed via query param for testing
-  const forcedType = computed(() => route.query.type as string | undefined)
 
   // State
   const content = ref<EntryModel | null>(null)
@@ -626,28 +641,40 @@
   // Checkout state
   const checkoutOpen = ref(false)
 
+  // Whether the entry was confirmed by the real API (not just cached/mock)
+  const isVerified = ref(false)
+
+  // Cached metadata from the real API (when available)
+  const realPrice = ref<number | undefined>()
+  const realDescription = ref<string | undefined>()
+
+  // Profile badge
+  const profileBadgeSrc = computed(() => getProfileBadgeSrc(content.value?.profileBadge))
+
   // Computed content type
   const contentType = computed((): 'video' | 'audio' | 'image' | 'entry' | 'collection' => {
     if (collectionData.value) return 'collection'
     return content.value?.type || 'entry'
   })
 
-  // Mock data
-  const mockPrice = computed(() => {
-    const prices: Record<string, number> = {
+  // Price: use real price when available, fall back to type-based defaults
+  const contentPrice = computed(() => {
+    if (realPrice.value != null) return realPrice.value
+    const defaults: Record<string, number> = {
       video: 5,
       audio: 2.5,
       image: 1,
       entry: 3,
       collection: 10,
     }
-    return prices[contentType.value] || 3
+    return defaults[contentType.value] || 3
   })
 
-  const mockExcerpt = `This is a premium article that explores fascinating topics in depth.
-The author shares unique insights and perspectives that you won't find anywhere else.
-Unlock this content to discover the full story and support the creator's work.
-Premium content helps creators continue producing quality work for their audience...`
+  // Excerpt: use real description if available, otherwise a placeholder
+  const entryExcerpt = computed(() => {
+    if (realDescription.value) return realDescription.value
+    return t('Preview.articleLocked')
+  })
 
   // Benefits per type
   const typeBenefits = computed(() => {
@@ -675,7 +702,7 @@ Premium content helps creators continue producing quality work for their audienc
         name: data.authorName,
         avatar: data.authorAvatarUrl,
       },
-      price: mockPrice.value,
+      price: contentPrice.value,
       type: contentType.value,
       thumbnail: collectionData.value?.coverUrl || content.value?.thumbnailUrl,
     }
@@ -712,12 +739,13 @@ Premium content helps creators continue producing quality work for their audienc
 
   // Fetch content data
   async function fetchContent () {
-    loading.value = true
     error.value = false
     notFound.value = false
     errorMessage.value = ''
     collectionData.value = null
-    content.value = null
+    realPrice.value = undefined
+    realDescription.value = undefined
+    isVerified.value = false
 
     // Check if already purchased - redirect to destination
     if (purchasesStore.isUnlocked(contentId.value)) {
@@ -727,44 +755,61 @@ Premium content helps creators continue producing quality work for their audienc
       return
     }
 
+    // 1. Show cached data instantly (optimistic UI while real fetch runs)
+    const cached = feedCache.getEntry(contentId.value)
+    if (cached) {
+      content.value = cached.entry
+      realPrice.value = cached.priceXlm
+      realDescription.value = cached.description
+    } else {
+      content.value = null
+    }
+    loading.value = !cached // only show skeleton if no cache
+
+    // 2. Always fetch authoritative data from the real API
     try {
-      // Try to determine if this is a collection or entry
-      // In production, we'd have a unified endpoint or type hint
-      const isCollection = forcedType.value === 'collection' || contentId.value.startsWith('col-')
+      const data: PublicEntryModel = await api.entries.getById(contentId.value)
 
-      if (isCollection) {
-        const data = await api.mock.getCollectionById(contentId.value)
-        collectionData.value = data
-        // Create a pseudo-entry for common fields
-        content.value = {
-          id: data.id,
-          type: 'entry',
-          title: data.title,
-          authorName: data.authorName,
-          authorAvatarUrl: data.authorAvatarUrl,
-          publishedAt: data.publishedAt,
-          thumbnailUrl: data.coverUrl,
-          locked: data.locked,
-        }
-      } else {
-        const data = await api.mock.getEntryById(contentId.value, forcedType.value)
-        content.value = data
+      // Map PublicEntryModel → EntryModel for the view
+      content.value = {
+        id: data.id,
+        type: data.type === 'file' ? 'entry' : data.type,
+        title: data.title,
+        authorName: data.authorName,
+        authorAvatarUrl: data.authorAvatarUrl,
+        publishedAt: data.publishedAt,
+        thumbnailUrl: data.thumbnailUrl,
+        durationSec: data.durationSec,
+        locked: data.isPaid,
+      }
+      realPrice.value = data.priceXlm
+      realDescription.value = data.description
+      isVerified.value = true
 
-        // If content is NOT locked, redirect to proper view page
-        if (!data.locked) {
-          const targetRoute = destinationRoutes[data.type] || '/read'
-          router.replace(`${targetRoute}/${contentId.value}`)
-          return
-        }
+      // If content is NOT locked (not paid), redirect to the consumption page
+      if (!data.isPaid) {
+        const targetRoute = destinationRoutes[content.value.type] || '/read'
+        router.replace(`${targetRoute}/${contentId.value}`)
+        return
       }
     } catch (error_: unknown) {
-      console.error('[PreviewPage] Failed to fetch content:', error_)
-
-      if (error_ && typeof error_ === 'object' && 'status' in error_ && (error_ as { status: number }).status === 404) {
-        notFound.value = true
+      // If we had cached data and the real fetch fails, keep showing cached data
+      if (content.value) {
+        console.warn('[PreviewPage] Real API failed, showing cached data:', error_)
       } else {
-        error.value = true
-        errorMessage.value = error_ instanceof Error ? error_.message : 'An unexpected error occurred'
+        // No cache, no API → show error
+        console.error('[PreviewPage] Failed to fetch content:', error_)
+
+        const status = error_ && typeof error_ === 'object' && 'status' in error_
+          ? (error_ as { status: number }).status
+          : undefined
+
+        if (status === 404) {
+          notFound.value = true
+        } else {
+          error.value = true
+          errorMessage.value = error_ instanceof Error ? error_.message : 'An unexpected error occurred'
+        }
       }
     } finally {
       loading.value = false

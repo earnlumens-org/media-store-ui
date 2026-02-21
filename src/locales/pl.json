@@ -345,7 +345,6 @@
         "moreItems": "+ {count} więcej elementów",
         "unlockPrice": "Cena odblokowania",
         "whatYouGet": "Co otrzymujesz",
-        "unlockFor": "Odblokuj za {price}",
         "securePaymentViaStellar": "Bezpieczna płatność przez Stellar",
         "by": "autor:",
         "unlockContent": "Odblokuj treść",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "Przyszłe dodatki w cenie",
         "bulkDiscountApplied": "Zastosowano rabat hurtowy",
         "fullAccess": "Pełny dostęp",
-        "items": "elementy"
+        "items": "elementy",
+        "unlock": "Odblokuj",
+        "comingSoon": "Wkrótce"
     }
 }

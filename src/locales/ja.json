@@ -345,7 +345,6 @@
         "moreItems": "+ {count} 件以上",
         "unlockPrice": "ロック解除価格",
         "whatYouGet": "含まれるもの",
-        "unlockFor": "{price} でロック解除",
         "securePaymentViaStellar": "Stellarによる安全な支払い",
         "by": "作成者：",
         "unlockContent": "コンテンツをロック解除",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "今後の追加も含む",
         "bulkDiscountApplied": "まとめ割引適用",
         "fullAccess": "フルアクセス",
-        "items": "アイテム"
+        "items": "アイテム",
+        "unlock": "ロック解除",
+        "comingSoon": "近日公開"
     }
 }

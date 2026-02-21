@@ -1,5 +1,5 @@
 import { createSession, logout, refreshAccessToken } from './modules/auth.api'
-import { getPublishedEntries, getPublishedEntriesByUser } from './modules/entry.api'
+import { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
 import {
   getMockCollectionById,
   getMockCollections,
@@ -28,6 +28,7 @@ export const api = {
   },
   entries: {
     getPublished: getPublishedEntries,
+    getById: getPublishedEntryById,
     getByUser: getPublishedEntriesByUser,
   },
   upload: {
@@ -49,7 +50,7 @@ export const api = {
 
 export { ApiError, apiRequest } from './apiRequest'
 export { createSession, logout, refreshAccessToken } from './modules/auth.api'
-export { getPublishedEntries, getPublishedEntriesByUser } from './modules/entry.api'
+export { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
 export {
   getMockCollectionById,
   getMockCollections,

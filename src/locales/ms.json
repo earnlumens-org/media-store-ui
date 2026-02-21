@@ -345,7 +345,6 @@
         "moreItems": "+ {count} lagi item",
         "unlockPrice": "Harga buka kunci",
         "whatYouGet": "Apa yang anda dapat",
-        "unlockFor": "Buka kunci untuk {price}",
         "securePaymentViaStellar": "Pembayaran selamat melalui Stellar",
         "by": "oleh",
         "unlockContent": "Buka kunci kandungan",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "Penambahan akan datang termasuk",
         "bulkDiscountApplied": "Diskaun pukal digunakan",
         "fullAccess": "Akses penuh",
-        "items": "item"
+        "items": "item",
+        "unlock": "Buka kunci",
+        "comingSoon": "Akan datang"
     }
 }

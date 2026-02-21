@@ -78,6 +78,7 @@
         <!-- Lock overlay -->
         <v-overlay
           class="d-flex flex-column align-center justify-center rounded-lg"
+          :close-on-back="false"
           contained
           :model-value="true"
           persistent

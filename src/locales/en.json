@@ -345,7 +345,6 @@
         "moreItems": "+ {count} more items",
         "unlockPrice": "Unlock price",
         "whatYouGet": "What you get",
-        "unlockFor": "Unlock for {price}",
         "securePaymentViaStellar": "Secure payment via Stellar",
         "by": "by",
         "unlockContent": "Unlock Content",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "Future additions included",
         "bulkDiscountApplied": "Bulk discount applied",
         "fullAccess": "Full access",
-        "items": "items"
+        "items": "items",
+        "unlock": "Unlock",
+        "comingSoon": "Coming soon"
     }
 }

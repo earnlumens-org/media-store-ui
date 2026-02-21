@@ -345,7 +345,6 @@
         "moreItems": "+ {count} weitere Elemente",
         "unlockPrice": "Freischaltpreis",
         "whatYouGet": "Was du bekommst",
-        "unlockFor": "Freischalten für {price}",
         "securePaymentViaStellar": "Sichere Zahlung über Stellar",
         "by": "von",
         "unlockContent": "Inhalt freischalten",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "Zukünftige Ergänzungen inklusive",
         "bulkDiscountApplied": "Mengenrabatt angewendet",
         "fullAccess": "Vollzugang",
-        "items": "Elemente"
+        "items": "Elemente",
+        "unlock": "Freischalten",
+        "comingSoon": "Demnächst"
     }
 }

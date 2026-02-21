@@ -3,10 +3,10 @@
  * These are the REAL endpoints (not mock) for published entries.
  */
 
-import type { PublicEntryPageDto, PublicEntryPageModel, PublicEntryRequestParams, UserEntryRequestParams } from '../types/entry.types'
+import type { PublicEntryDto, PublicEntryModel, PublicEntryPageDto, PublicEntryPageModel, PublicEntryRequestParams, UserEntryRequestParams } from '../types/entry.types'
 
 import axiosClient from '../axios/axiosClient'
-import { mapPublicEntryPageDtoToModel } from '../mappers/entry.mapper'
+import { mapPublicEntryDtoToModel, mapPublicEntryPageDtoToModel } from '../mappers/entry.mapper'
 
 const BASE_PATH = '/public/entries'
 
@@ -28,4 +28,14 @@ export async function getPublishedEntries (params: PublicEntryRequestParams = {}
 export async function getPublishedEntriesByUser (username: string, params: UserEntryRequestParams = {}): Promise<PublicEntryPageModel> {
   const response = await axiosClient.get<PublicEntryPageDto>(`${BASE_PATH}/by-user/${username}`, { params })
   return mapPublicEntryPageDtoToModel(response.data)
+}
+
+/**
+ * Get a single published entry by ID.
+ * Returns the authoritative entry data from the database.
+ * No authentication required.
+ */
+export async function getPublishedEntryById (id: string): Promise<PublicEntryModel> {
+  const response = await axiosClient.get<PublicEntryDto>(`${BASE_PATH}/${id}`)
+  return mapPublicEntryDtoToModel(response.data)
 }

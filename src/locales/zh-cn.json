@@ -345,7 +345,6 @@
         "moreItems": "+ 还有 {count} 个项目",
         "unlockPrice": "解锁价格",
         "whatYouGet": "您将获得",
-        "unlockFor": "以 {price} 解锁",
         "securePaymentViaStellar": "通过 Stellar 安全支付",
         "by": "作者：",
         "unlockContent": "解锁内容",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "包含未来添加内容",
         "bulkDiscountApplied": "已应用批量折扣",
         "fullAccess": "完整访问",
-        "items": "个项目"
+        "items": "个项目",
+        "unlock": "解锁",
+        "comingSoon": "即将推出"
     }
 }

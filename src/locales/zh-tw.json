@@ -345,7 +345,6 @@
         "moreItems": "+ 還有 {count} 個項目",
         "unlockPrice": "解鎖價格",
         "whatYouGet": "您將獲得",
-        "unlockFor": "以 {price} 解鎖",
         "securePaymentViaStellar": "透過 Stellar 安全付款",
         "by": "作者：",
         "unlockContent": "解鎖內容",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "包含未來新增內容",
         "bulkDiscountApplied": "已套用批量折扣",
         "fullAccess": "完整存取",
-        "items": "個項目"
+        "items": "個項目",
+        "unlock": "解鎖",
+        "comingSoon": "即將推出"
     }
 }

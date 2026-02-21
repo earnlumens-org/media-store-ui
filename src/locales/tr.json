@@ -345,7 +345,6 @@
         "moreItems": "+ {count} daha fazla öğe",
         "unlockPrice": "Kilit açma fiyatı",
         "whatYouGet": "Ne alıyorsun",
-        "unlockFor": "{price} için kilidi aç",
         "securePaymentViaStellar": "Stellar ile güvenli ödeme",
         "by": "tarafından",
         "unlockContent": "İçeriğin kilidini aç",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "Gelecek eklemeler dahil",
         "bulkDiscountApplied": "Toplu indirim uygulandı",
         "fullAccess": "Tam erişim",
-        "items": "öğe"
+        "items": "öğe",
+        "unlock": "Kilidi aç",
+        "comingSoon": "Yakında"
     }
 }

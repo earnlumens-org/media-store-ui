@@ -345,7 +345,6 @@
         "moreItems": "+ ещё {count} элементов",
         "unlockPrice": "Цена разблокировки",
         "whatYouGet": "Что вы получите",
-        "unlockFor": "Разблокировать за {price}",
         "securePaymentViaStellar": "Безопасная оплата через Stellar",
         "by": "автор:",
         "unlockContent": "Разблокировать контент",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "Будущие дополнения включены",
         "bulkDiscountApplied": "Оптовая скидка применена",
         "fullAccess": "Полный доступ",
-        "items": "элементов"
+        "items": "элементов",
+        "unlock": "Разблокировать",
+        "comingSoon": "Скоро"
     }
 }

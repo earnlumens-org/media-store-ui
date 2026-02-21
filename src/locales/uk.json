@@ -345,7 +345,6 @@
         "moreItems": "+ ще {count} елементів",
         "unlockPrice": "Ціна розблокування",
         "whatYouGet": "Що ви отримаєте",
-        "unlockFor": "Розблокувати за {price}",
         "securePaymentViaStellar": "Безпечна оплата через Stellar",
         "by": "автор:",
         "unlockContent": "Розблокувати вміст",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "Майбутні доповнення включені",
         "bulkDiscountApplied": "Застосовано оптову знижку",
         "fullAccess": "Повний доступ",
-        "items": "елементів"
+        "items": "елементів",
+        "unlock": "Розблокувати",
+        "comingSoon": "Незабаром"
     }
 }

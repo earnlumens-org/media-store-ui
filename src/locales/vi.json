@@ -345,7 +345,6 @@
         "moreItems": "+ {count} mục nữa",
         "unlockPrice": "Giá mở khóa",
         "whatYouGet": "Bạn sẽ nhận được gì",
-        "unlockFor": "Mở khóa với {price}",
         "securePaymentViaStellar": "Thanh toán an toàn qua Stellar",
         "by": "bởi",
         "unlockContent": "Mở khóa nội dung",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "Bao gồm các bổ sung trong tương lai",
         "bulkDiscountApplied": "Đã áp dụng giảm giá số lượng lớn",
         "fullAccess": "Truy cập đầy đủ",
-        "items": "mục"
+        "items": "mục",
+        "unlock": "Mở khóa",
+        "comingSoon": "Sắp ra mắt"
     }
 }

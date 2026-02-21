@@ -260,10 +260,10 @@
           </v-row>
 
           <!-- Price -->
-          <v-card class="mb-4" color="surface-variant" variant="flat">
+          <v-card class="mb-4" color="primary" variant="tonal">
             <v-card-text class="d-flex align-center justify-space-between py-3">
-              <span class="text-body-2 text-medium-emphasis">{{ $t('Preview.price') }}</span>
-              <span class="text-h6 font-weight-bold text-primary">
+              <span class="text-body-2">{{ $t('Preview.unlockPrice') }}</span>
+              <span class="text-h6 font-weight-bold">
                 {{ formatPrice(item.price) }}
               </span>
             </v-card-text>
@@ -316,7 +316,7 @@
           <!-- Payment methods -->
           <div class="text-subtitle-2 font-weight-medium mb-3">{{ $t('Preview.selectPaymentMethod') }}</div>
 
-          <v-radio-group v-model="selectedPayment" class="mb-4" hide-details>
+          <v-radio-group v-model="selectedPayment" class="mb-4 payment-methods" hide-details>
             <v-card
               class="mb-2"
               :color="selectedPayment === 'wallet' ? 'primary' : undefined"
@@ -324,7 +324,7 @@
               @click="selectedPayment = 'wallet'"
             >
               <v-card-text class="d-flex align-center py-3">
-                <v-radio class="ma-0" hide-details value="wallet" />
+                <v-radio class="ma-0 flex-grow-0" hide-details value="wallet" />
                 <v-icon class="ml-2 mr-3" icon="mdi-wallet" />
                 <div>
                   <div class="text-body-1 font-weight-medium">{{ $t('Preview.stellarWallet') }}</div>
@@ -345,17 +345,24 @@
             </v-card>
 
             <v-card
-              :color="selectedPayment === 'card' ? 'primary' : undefined"
+              class="x-payments-disabled"
               variant="outlined"
-              @click="selectedPayment = 'card'"
             >
               <v-card-text class="d-flex align-center py-3">
-                <v-radio class="ma-0" hide-details value="card" />
+                <v-radio class="ma-0 flex-grow-0" disabled hide-details value="card" />
                 <span aria-label="X" class="x-icon ml-2 mr-3" role="img" v-html="xIconSvg" />
                 <div>
                   <div class="text-body-1 font-weight-medium">{{ $t('Preview.xPayments') }}</div>
                   <div class="text-body-2 text-medium-emphasis">{{ $t('Preview.payWithXAccountBalance') }}</div>
                 </div>
+                <v-spacer />
+                <v-chip
+                  color="warning"
+                  size="x-small"
+                  variant="tonal"
+                >
+                  {{ $t('Preview.comingSoon') }}
+                </v-chip>
               </v-card-text>
             </v-card>
           </v-radio-group>
@@ -386,10 +393,11 @@
             color="primary"
             :disabled="isProcessing"
             :loading="isProcessing"
+            prepend-icon="mdi-lock-open"
             size="large"
+            variant="flat"
             @click="handlePurchase"
           >
-            <v-icon class="mr-2" icon="mdi-lock-open" />
             {{ $t('Preview.pay') }} {{ formatPrice(item.price) }}
           </v-btn>
         </v-card-actions>
@@ -461,10 +469,10 @@
           </v-row>
 
           <!-- Price -->
-          <v-card class="mb-6" color="surface-variant" variant="flat">
+          <v-card class="mb-6" color="primary" variant="tonal">
             <v-card-text class="d-flex align-center justify-space-between py-4">
-              <span class="text-body-1 text-medium-emphasis">{{ $t('Preview.price') }}</span>
-              <span class="text-h5 font-weight-bold text-primary">
+              <span class="text-body-1">{{ $t('Preview.unlockPrice') }}</span>
+              <span class="text-h5 font-weight-bold">
                 {{ formatPrice(item.price) }}
               </span>
             </v-card-text>
@@ -517,7 +525,7 @@
           <!-- Payment methods -->
           <div class="text-subtitle-1 font-weight-medium mb-4">{{ $t('Preview.selectPaymentMethod') }}</div>
 
-          <v-radio-group v-model="selectedPayment" class="mb-6" hide-details>
+          <v-radio-group v-model="selectedPayment" class="mb-6 payment-methods" hide-details>
             <v-card
               class="mb-3"
               :color="selectedPayment === 'wallet' ? 'primary' : undefined"
@@ -525,7 +533,7 @@
               @click="selectedPayment = 'wallet'"
             >
               <v-card-text class="d-flex align-center py-4">
-                <v-radio class="ma-0" hide-details value="wallet" />
+                <v-radio class="ma-0 flex-grow-0" hide-details value="wallet" />
                 <v-icon class="ml-3 mr-4" icon="mdi-wallet" size="28" />
                 <div>
                   <div class="text-body-1 font-weight-medium">{{ $t('Preview.stellarWallet') }}</div>
@@ -546,17 +554,24 @@
             </v-card>
 
             <v-card
-              :color="selectedPayment === 'card' ? 'primary' : undefined"
+              class="x-payments-disabled"
               variant="outlined"
-              @click="selectedPayment = 'card'"
             >
               <v-card-text class="d-flex align-center py-4">
-                <v-radio class="ma-0" hide-details value="card" />
+                <v-radio class="ma-0 flex-grow-0" disabled hide-details value="card" />
                 <span aria-label="X" class="x-icon x-icon--large ml-3 mr-4" role="img" v-html="xIconSvg" />
                 <div>
                   <div class="text-body-1 font-weight-medium">{{ $t('Preview.xPayments') }}</div>
                   <div class="text-body-2 text-medium-emphasis">{{ $t('Preview.payWithXAccountBalance') }}</div>
                 </div>
+                <v-spacer />
+                <v-chip
+                  color="warning"
+                  size="small"
+                  variant="tonal"
+                >
+                  {{ $t('Preview.comingSoon') }}
+                </v-chip>
               </v-card-text>
             </v-card>
           </v-radio-group>
@@ -587,10 +602,11 @@
             color="primary"
             :disabled="isProcessing"
             :loading="isProcessing"
+            prepend-icon="mdi-lock-open"
             size="large"
+            variant="flat"
             @click="handlePurchase"
           >
-            <v-icon class="mr-2" icon="mdi-lock-open" />
             {{ $t('Preview.pay') }} {{ formatPrice(item.price) }}
           </v-btn>
         </v-card-actions>
@@ -616,5 +632,19 @@
   width: 100%;
   height: 100%;
   fill: currentColor;
+}
+
+/* Remove radio-group default indentation so cards align flush */
+.payment-methods :deep(.v-selection-control-group) {
+  gap: 0;
+}
+.payment-methods :deep(.v-input__control) {
+  padding: 0;
+}
+
+/* Disabled state for X Payments */
+.x-payments-disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 </style>

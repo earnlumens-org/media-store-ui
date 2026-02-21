@@ -345,7 +345,6 @@
         "moreItems": "+ {count} عناصر أخرى",
         "unlockPrice": "سعر الفتح",
         "whatYouGet": "ما ستحصل عليه",
-        "unlockFor": "افتح مقابل {price}",
         "securePaymentViaStellar": "دفع آمن عبر Stellar",
         "by": "بواسطة",
         "unlockContent": "فتح المحتوى",
@@ -386,6 +385,8 @@
         "futureAdditionsIncluded": "الإضافات المستقبلية مشمولة",
         "bulkDiscountApplied": "تم تطبيق خصم الكمية",
         "fullAccess": "وصول كامل",
-        "items": "عناصر"
+        "items": "عناصر",
+        "unlock": "فتح",
+        "comingSoon": "قريبًا"
     }
 }

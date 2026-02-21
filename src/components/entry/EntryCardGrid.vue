@@ -119,11 +119,13 @@
 
 <script setup lang="ts">
   import type { PublicEntryModel } from '@/api/api'
+  import type { EntryModel } from '@/api/types/entryMock.types'
   import type { Entry } from '@/components/entry/EntryCard.vue'
 
   import { computed, onMounted, ref } from 'vue'
 
   import { api } from '@/api/api'
+  import { useFeedCacheStore } from '@/stores/feedCache'
 
   interface Props {
     showAuthor?: boolean
@@ -134,6 +136,8 @@
     showAuthor: true,
     pageSize: 48,
   })
+
+  const feedCache = useFeedCacheStore()
 
   const entries = ref<PublicEntryModel[]>([])
   const loading = ref(true)
@@ -160,6 +164,29 @@
     }
   }
 
+  /**
+   * Caches real API entries so the preview page can display correct data.
+   */
+  function cacheRealEntries (items: PublicEntryModel[]) {
+    for (const item of items) {
+      const entry: EntryModel = {
+        id: item.id,
+        type: item.type === 'file' ? 'entry' : item.type,
+        title: item.title,
+        authorName: item.authorName,
+        authorAvatarUrl: item.authorAvatarUrl,
+        publishedAt: item.publishedAt,
+        thumbnailUrl: item.thumbnailUrl,
+        durationSec: item.durationSec,
+        locked: item.isPaid,
+      }
+      feedCache.cacheEntry(entry, {
+        priceXlm: item.priceXlm,
+        description: item.description,
+      })
+    }
+  }
+
   async function fetchEntries () {
     loading.value = true
     error.value = false
@@ -170,6 +197,7 @@
         size: props.pageSize,
       })
       entries.value = response.items
+      cacheRealEntries(response.items)
       currentPage.value = response.page
       totalPages.value = response.totalPages
     } catch (error_) {
@@ -192,6 +220,7 @@
         size: props.pageSize,
       })
       entries.value.push(...response.items)
+      cacheRealEntries(response.items)
       currentPage.value = response.page
       totalPages.value = response.totalPages
 
