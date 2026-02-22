@@ -4,8 +4,10 @@
 
 import { Horizon } from '@stellar/stellar-sdk'
 
-// Horizon server para mainnet
-const HORIZON_URL = 'https://horizon.stellar.org'
+import { getStellarHorizonUrl } from '@/config/env'
+
+// Horizon URL resolved from environment (testnet in dev, mainnet in prod)
+const HORIZON_URL = getStellarHorizonUrl()
 const server = new Horizon.Server(HORIZON_URL)
 
 export interface StellarBalance {

@@ -139,19 +139,25 @@
 </template>
 
 <script setup lang="ts">
-  import type { EntryModel, FeedItemModel } from '@/api/api'
+  import type { PublicEntryModel } from '@/api/types/entry.types'
 
   import { onMounted, ref, watch } from 'vue'
 
   import { api } from '@/api/api'
+  import { usePurchasesStore } from '@/stores/purchases'
 
   interface Props {
     currentId: string
+    authorName?: string
   }
 
-  const props = defineProps<Props>()
+  const props = withDefaults(defineProps<Props>(), {
+    authorName: '',
+  })
 
-  const recommendations = ref<EntryModel[]>([])
+  const purchasesStore = usePurchasesStore()
+
+  const recommendations = ref<(PublicEntryModel & { locked?: boolean })[]>([])
   const loading = ref(true)
   const error = ref(false)
 
@@ -160,18 +166,23 @@
     error.value = false
 
     try {
-      // Fetch video entries, excluding current
-      const response = await api.mock.getEntries({
-        page: 0,
-        size: 10,
+      if (!props.authorName) {
+        recommendations.value = []
+        return
+      }
+
+      const response = await api.entries.getByUser(props.authorName, {
         type: 'video',
+        size: 10,
       })
 
-      // Filter out current video and map to EntryModel
       recommendations.value = response.items
-        .filter((item: FeedItemModel) => item.kind === 'entry' && item.entry.id !== props.currentId)
-        .map((item: FeedItemModel) => (item as { kind: 'entry', entry: EntryModel }).entry)
+        .filter(item => item.id !== props.currentId)
         .slice(0, 8)
+        .map(item => ({
+          ...item,
+          locked: item.isPaid && !purchasesStore.isUnlocked(item.id),
+        }))
     } catch (error_) {
       console.error('[RecommendationsList] Failed to fetch:', error_)
       error.value = true
@@ -218,7 +229,7 @@
     return `${Math.floor(diffDays / 365)} years ago`
   }
 
-  watch(() => props.currentId, () => {
+  watch(() => [props.currentId, props.authorName], () => {
     fetchRecommendations()
   })
 

@@ -2,7 +2,10 @@
  * Servicio para consultar transacciones en la red Stellar
  */
 
-const HORIZON_URL = 'https://horizon.stellar.org'
+import { getStellarHorizonUrl } from '@/config/env'
+
+// Horizon URL resolved from environment (testnet in dev, mainnet in prod)
+const HORIZON_URL = getStellarHorizonUrl()
 
 export interface StellarTransaction {
   id: string

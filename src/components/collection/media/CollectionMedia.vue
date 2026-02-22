@@ -29,6 +29,14 @@
         >
           <span class="font-weight-bold">{{ collection.itemsCount }} items</span>
         </v-chip>
+        <v-avatar
+          v-if="collection.unlocked"
+          class="position-absolute bottom-0 left-0 ma-2 text-white"
+          color="rgba(0, 0, 0, 0.65)"
+          size="28"
+        >
+          <v-icon size="16">mdi-lock-open-variant</v-icon>
+        </v-avatar>
       </template>
     </MediaFrame>
 

@@ -126,19 +126,25 @@
 </template>
 
 <script setup lang="ts">
-  import type { EntryModel, FeedItemModel } from '@/api/api'
+  import type { PublicEntryModel } from '@/api/types/entry.types'
 
   import { onMounted, ref, watch } from 'vue'
 
   import { api } from '@/api/api'
+  import { usePurchasesStore } from '@/stores/purchases'
 
   interface Props {
     currentId: string
+    authorName?: string
   }
 
-  const props = defineProps<Props>()
+  const props = withDefaults(defineProps<Props>(), {
+    authorName: '',
+  })
 
-  const recommendations = ref<EntryModel[]>([])
+  const purchasesStore = usePurchasesStore()
+
+  const recommendations = ref<(PublicEntryModel & { locked?: boolean })[]>([])
   const loading = ref(true)
   const error = ref(false)
 
@@ -147,16 +153,23 @@
     error.value = false
 
     try {
-      const response = await api.mock.getEntries({
-        page: 0,
-        size: 10,
+      if (!props.authorName) {
+        recommendations.value = []
+        return
+      }
+
+      const response = await api.entries.getByUser(props.authorName, {
         type: 'audio',
+        size: 10,
       })
 
       recommendations.value = response.items
-        .filter((item: FeedItemModel) => item.kind === 'entry' && item.entry.id !== props.currentId)
-        .map((item: FeedItemModel) => (item as { kind: 'entry', entry: EntryModel }).entry)
+        .filter(item => item.id !== props.currentId)
         .slice(0, 8)
+        .map(item => ({
+          ...item,
+          locked: item.isPaid && !purchasesStore.isUnlocked(item.id),
+        }))
     } catch (error_) {
       console.error('[AudioRecommendationsList] Failed to fetch:', error_)
       error.value = true
@@ -176,7 +189,7 @@
     return `${minutes}:${secs.toString().padStart(2, '0')}`
   }
 
-  watch(() => props.currentId, () => {
+  watch(() => [props.currentId, props.authorName], () => {
     fetchRecommendations()
   })
 

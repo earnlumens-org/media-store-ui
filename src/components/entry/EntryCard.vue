@@ -38,6 +38,7 @@
     thumbnailUrl?: string
     durationSec?: number
     locked?: boolean
+    unlocked?: boolean
   }
 
   interface Props {

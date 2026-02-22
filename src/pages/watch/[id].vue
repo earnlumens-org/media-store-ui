@@ -299,10 +299,15 @@
                 <v-avatar
                   class="me-3"
                   color="grey-lighten-2"
-                  :image="entry.authorAvatarUrl"
                   size="48"
                 >
-                  <v-icon v-if="!entry.authorAvatarUrl">mdi-account</v-icon>
+                  <v-img
+                    v-if="avatarUrl"
+                    cover
+                    :src="avatarUrl"
+                    @error="avatarBroken = true"
+                  />
+                  <v-icon v-else>mdi-account</v-icon>
                 </v-avatar>
                 <div class="flex-grow-1">
                   <div class="d-flex align-center">
@@ -408,7 +413,7 @@
               <!-- Mobile: Recommendations Section -->
               <div class="d-md-none mt-6">
                 <h2 class="text-subtitle-1 font-weight-bold mb-3">{{ $t('Common.upNext') }}</h2>
-                <RecommendationsList :current-id="entryId" />
+                <RecommendationsList :author-name="entry.authorName" :current-id="entryId" />
               </div>
             </v-sheet>
           </v-container>
@@ -424,7 +429,7 @@
         >
           <v-container class="pa-4 pt-md-6" fluid>
             <h2 class="text-subtitle-1 font-weight-bold mb-3">Up next</h2>
-            <RecommendationsList :current-id="entryId" />
+            <RecommendationsList :author-name="entry.authorName" :current-id="entryId" />
           </v-container>
         </v-col>
       </v-row>
@@ -433,12 +438,14 @@
 </template>
 
 <script setup lang="ts">
-  import type { EntryModel } from '@/api/api'
+  import type { PublicEntryModel } from '@/api/types/entry.types'
 
   import { computed, defineAsyncComponent, onMounted, ref, watch } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import { cdnMediaUrl } from '@/config/env'
+  import { usePurchasesStore } from '@/stores/purchases'
 
   // Lazy-load recommendations component (internal to this page)
   const RecommendationsList = defineAsyncComponent(() =>
@@ -447,6 +454,7 @@
 
   const route = useRoute()
   const router = useRouter()
+  const purchasesStore = usePurchasesStore()
 
   // Route param - cast to handle typed router union
   const entryId = computed(() => {
@@ -455,7 +463,7 @@
   })
 
   // State
-  const entry = ref<EntryModel | null>(null)
+  const entry = ref<PublicEntryModel | null>(null)
   const loading = ref(true)
   const error = ref(false)
   const errorMessage = ref('')
@@ -464,18 +472,22 @@
   // UI State
   const isLiked = ref(false)
   const isSaved = ref(false)
-  const likes = ref(1234)
+  const likes = ref(0)
   const descriptionExpanded = ref(false)
+  const avatarBroken = ref(false)
 
-  // Mock data (will come from API later)
-  const description = computed(() =>
-    entry.value
-      ? `This is a sample description for "${entry.value.title}". Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.`
-      : '',
+  /** Avatar URL — cleared when the OAuth provider image fails to load */
+  const avatarUrl = computed(() =>
+    avatarBroken.value ? undefined : entry.value?.authorAvatarUrl,
   )
 
-  const tags = computed(() =>
-    entry.value ? ['tutorial', 'creative', 'earnlumens'] : [],
+  // Real data from entry
+  const description = computed(() => entry.value?.description ?? '')
+  const tags = computed(() => entry.value?.tags ?? [])
+
+  // CDN URL for actual media content
+  const mediaUrl = computed(() =>
+    entry.value ? cdnMediaUrl(entry.value.id) : undefined,
   )
 
   // Fetch entry data
@@ -486,12 +498,10 @@
     errorMessage.value = ''
 
     try {
-      // Force type 'video' for this page (mock API supports type override)
-      const data = await api.mock.getEntryById(entryId.value, 'video')
+      const data = await api.entries.getById(entryId.value)
 
       // LOCKED CONTENT REDIRECT
-      // If the entry is locked, redirect to preview page immediately
-      if (data.locked) {
+      if (data.isPaid && !purchasesStore.isUnlocked(entryId.value)) {
         router.replace(`/preview/${entryId.value}`)
         return
       }
@@ -510,6 +520,7 @@
       }
 
       entry.value = data
+      avatarBroken.value = false
     } catch (error_: unknown) {
       console.error('[WatchPage] Failed to fetch entry:', error_)
 

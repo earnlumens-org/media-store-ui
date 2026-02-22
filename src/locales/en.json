@@ -294,6 +294,16 @@
             "fileTooLarge": "File is too large. Maximum size is {size}",
             "fileSelected": "{name} ({size})"
         },
+        "wallet": {
+            "required": "A connected wallet is required for paid content",
+            "requiredHint": "Connect a Stellar wallet to receive payments for your content.",
+            "connect": "Connect Wallet",
+            "connected": "Wallet connected",
+            "sellerWallet": "Receiving wallet",
+            "sellerWalletHint": "Payments for this content will be sent to this wallet. It cannot be changed after publishing.",
+            "connectSuccess": "Wallet connected successfully",
+            "connectError": "Failed to connect wallet. Please try again."
+        },
         "actions": {
             "upload": "Upload",
             "uploading": "Uploading...",
@@ -387,6 +397,9 @@
         "fullAccess": "Full access",
         "items": "items",
         "unlock": "Unlock",
-        "comingSoon": "Coming soon"
+        "comingSoon": "Coming soon",
+        "connectWalletError": "Please connect your wallet to continue",
+        "noWalletAddress": "No wallet address found. Please reconnect your wallet.",
+        "paymentFailed": "Payment failed. Please try again."
     }
 }

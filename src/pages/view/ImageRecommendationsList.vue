@@ -121,41 +121,57 @@
 </template>
 
 <script setup lang="ts">
-  import type { EntryModel } from '@/api/api'
+  import type { PublicEntryModel } from '@/api/types/entry.types'
 
   import { onMounted, ref, watch } from 'vue'
 
   import { api } from '@/api/api'
+  import { usePurchasesStore } from '@/stores/purchases'
 
   interface Props {
     /** Entry ID to exclude from recommendations (current image) */
     excludeId?: string
+    /** Author username to fetch entries from */
+    authorName?: string
   }
 
   const props = withDefaults(defineProps<Props>(), {
     excludeId: '',
+    authorName: '',
   })
 
+  const purchasesStore = usePurchasesStore()
+
   // State
-  const recommendations = ref<EntryModel[]>([])
+  const recommendations = ref<(PublicEntryModel & { locked?: boolean })[]>([])
   const loading = ref(true)
   const error = ref(false)
 
-  // Fetch recommendations
+  // Fetch recommendations from the real API
   async function fetchRecommendations () {
     loading.value = true
     error.value = false
 
     try {
-      // Fetch images only
-      const response = await api.mock.getEntries({ type: 'image', size: 12 })
+      if (!props.authorName) {
+        recommendations.value = []
+        return
+      }
 
-      // Filter to images only and exclude current
+      // Fetch entries by the same author, filtered to images
+      const response = await api.entries.getByUser(props.authorName, {
+        type: 'image',
+        size: 12,
+      })
+
+      // Exclude the current entry and add locked status
       recommendations.value = response.items
-        .filter(item => item.kind === 'entry')
-        .map(item => (item as { kind: 'entry', entry: EntryModel }).entry)
-        .filter(entry => entry.type === 'image' && entry.id !== props.excludeId)
+        .filter(item => item.id !== props.excludeId)
         .slice(0, 9)
+        .map(item => ({
+          ...item,
+          locked: item.isPaid && !purchasesStore.isUnlocked(item.id),
+        }))
     } catch (error_: unknown) {
       console.error('[ImageRecommendationsList] Failed to fetch:', error_)
       error.value = true
@@ -164,8 +180,8 @@
     }
   }
 
-  // Watch for excludeId changes
-  watch(() => props.excludeId, () => {
+  // Watch for prop changes
+  watch(() => [props.excludeId, props.authorName], () => {
     fetchRecommendations()
   })
 

@@ -16,6 +16,8 @@ export interface CreateEntryRequest {
   type: EntryType
   isPaid: boolean
   priceXlm?: number | null
+  /** Stellar public key (G...) of the seller's connected wallet. Required when isPaid = true. */
+  sellerWallet?: string | null
 }
 
 export interface CreateEntryResponse {

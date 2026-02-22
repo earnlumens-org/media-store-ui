@@ -126,6 +126,7 @@
 
   import { api } from '@/api/api'
   import { useFeedCacheStore } from '@/stores/feedCache'
+  import { usePurchasesStore } from '@/stores/purchases'
 
   interface Props {
     showAuthor?: boolean
@@ -138,6 +139,7 @@
   })
 
   const feedCache = useFeedCacheStore()
+  const purchasesStore = usePurchasesStore()
 
   const entries = ref<PublicEntryModel[]>([])
   const loading = ref(true)
@@ -151,6 +153,7 @@
    * Maps a PublicEntryModel to the Entry interface expected by EntryCard.
    */
   function toEntryCardProps (item: PublicEntryModel): Entry {
+    const isUnlocked = item.isPaid && purchasesStore.isUnlocked(item.id)
     return {
       id: item.id,
       type: item.type === 'file' ? 'entry' : item.type,
@@ -160,7 +163,8 @@
       publishedAt: item.publishedAt,
       thumbnailUrl: item.thumbnailUrl,
       durationSec: item.durationSec,
-      locked: item.isPaid,
+      locked: item.isPaid && !isUnlocked,
+      unlocked: isUnlocked,
     }
   }
 

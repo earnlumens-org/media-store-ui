@@ -218,10 +218,10 @@
               min-height="300"
             >
               <v-img
-                v-if="entry.thumbnailUrl"
+                v-if="mediaUrl"
                 contain
                 :max-height="imageMaxHeight"
-                :src="entry.thumbnailUrl"
+                :src="mediaUrl"
               >
                 <template #placeholder>
                   <v-sheet
@@ -303,10 +303,15 @@
                 <v-avatar
                   class="me-3"
                   color="grey-lighten-2"
-                  :image="entry.authorAvatarUrl"
                   size="48"
                 >
-                  <v-icon v-if="!entry.authorAvatarUrl">mdi-account</v-icon>
+                  <v-img
+                    v-if="avatarUrl"
+                    cover
+                    :src="avatarUrl"
+                    @error="avatarBroken = true"
+                  />
+                  <v-icon v-else>mdi-account</v-icon>
                 </v-avatar>
                 <div class="flex-grow-1">
                   <div class="d-flex align-center">
@@ -403,7 +408,7 @@
                 <h2 class="text-subtitle-1 font-weight-bold mb-4">
                   {{ $t('Common.moreFromCreator') }}
                 </h2>
-                <ImageRecommendationsList :exclude-id="entryId" />
+                <ImageRecommendationsList :author-name="entry.authorName" :exclude-id="entryId" />
               </div>
             </v-sheet>
           </v-container>
@@ -421,7 +426,7 @@
             <h2 class="text-subtitle-1 font-weight-bold mb-4">
               {{ $t('Common.moreFromCreator') }}
             </h2>
-            <ImageRecommendationsList :exclude-id="entryId" />
+            <ImageRecommendationsList :author-name="entry.authorName" :exclude-id="entryId" />
           </v-container>
         </v-col>
       </v-row>
@@ -430,17 +435,20 @@
 </template>
 
 <script setup lang="ts">
-  import type { EntryModel } from '@/api/api'
+  import type { PublicEntryModel } from '@/api/types/entry.types'
 
-  import { computed, onMounted, ref, watch } from 'vue'
+  import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import { cdnMediaUrl } from '@/config/env'
+  import { usePurchasesStore } from '@/stores/purchases'
 
   import ImageRecommendationsList from './ImageRecommendationsList.vue'
 
   const route = useRoute()
   const router = useRouter()
+  const purchasesStore = usePurchasesStore()
 
   // Route param
   const entryId = computed(() => {
@@ -449,7 +457,7 @@
   })
 
   // State
-  const entry = ref<EntryModel | null>(null)
+  const entry = ref<PublicEntryModel | null>(null)
   const loading = ref(true)
   const error = ref(false)
   const notFound = ref(false)
@@ -459,14 +467,32 @@
   const descriptionExpanded = ref(false)
   const isLiked = ref(false)
   const isSaved = ref(false)
-  const likes = ref(342)
-
-  // Mock data (since Entry model may not have these)
-  const description = 'A stunning photograph capturing the essence of light and shadow. This image showcases the beauty of natural landscapes and the artistry of professional photography. The composition draws the viewer into the scene, creating an immersive visual experience that transcends the ordinary.'
-  const tags = ['photography', 'landscape', 'nature', 'art', 'digital']
+  const likes = ref(0)
+  const avatarBroken = ref(false)
 
   // Computed
   const imageMaxHeight = computed(() => '70vh')
+
+  /**
+   * Blob URL for the full-resolution image fetched with credentials.
+   * Falls back to thumbnailUrl if the authenticated CDN fetch fails.
+   */
+  const mediaBlobUrl = ref<string>()
+
+  const mediaUrl = computed(() =>
+    mediaBlobUrl.value ?? entry.value?.thumbnailUrl,
+  )
+
+  /** Avatar URL — cleared when the OAuth provider image fails to load */
+  const avatarUrl = computed(() =>
+    avatarBroken.value ? undefined : entry.value?.authorAvatarUrl,
+  )
+
+  /** Description from the real entry data */
+  const description = computed(() => entry.value?.description ?? '')
+
+  /** Tags from the real entry data */
+  const tags = computed(() => entry.value?.tags ?? [])
 
   // Format count with K suffix
   const ONE_THOUSAND = 1000
@@ -487,7 +513,7 @@
     })
   }
 
-  // Fetch entry data
+  // Fetch entry data from real API
   async function fetchEntry () {
     loading.value = true
     error.value = false
@@ -495,11 +521,10 @@
     errorMessage.value = ''
 
     try {
-      // Force type 'image' for this page
-      const data = await api.mock.getEntryById(entryId.value, 'image')
+      const data = await api.entries.getById(entryId.value)
 
-      // LOCKED CONTENT REDIRECT
-      if (data.locked) {
+      // LOCKED CONTENT REDIRECT — paid + not unlocked + not owner
+      if (data.isPaid && !purchasesStore.isUnlocked(entryId.value)) {
         router.replace(`/preview/${entryId.value}`)
         return
       }
@@ -517,6 +542,10 @@
       }
 
       entry.value = data
+      avatarBroken.value = false
+
+      // Fetch full-res image via authenticated CDN request
+      fetchMedia(data.id)
     } catch (error_: unknown) {
       console.error('[ViewPage] Failed to fetch entry:', error_)
 
@@ -528,6 +557,31 @@
       }
     } finally {
       loading.value = false
+    }
+  }
+
+  /**
+   * Fetch the full-resolution image from the CDN with credentials.
+   * The CDN worker authenticates via the refresh-token cookie (set on .earnlumens.org).
+   * Falls back silently to thumbnailUrl if the fetch fails.
+   */
+  async function fetchMedia (id: string) {
+    // Revoke previous blob to prevent memory leaks
+    if (mediaBlobUrl.value) {
+      URL.revokeObjectURL(mediaBlobUrl.value)
+      mediaBlobUrl.value = undefined
+    }
+
+    try {
+      const url = cdnMediaUrl(id)
+      const resp = await fetch(url, { credentials: 'include' })
+      if (resp.ok) {
+        const blob = await resp.blob()
+        mediaBlobUrl.value = URL.createObjectURL(blob)
+      }
+      // If not ok (401/403), fall back to thumbnailUrl via computed
+    } catch {
+      // Network error — fall back to thumbnailUrl
     }
   }
 
@@ -575,6 +629,13 @@
   // Initial load
   onMounted(() => {
     fetchEntry()
+  })
+
+  // Cleanup blob URL on unmount
+  onUnmounted(() => {
+    if (mediaBlobUrl.value) {
+      URL.revokeObjectURL(mediaBlobUrl.value)
+    }
   })
 </script>
 

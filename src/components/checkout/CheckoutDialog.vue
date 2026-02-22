@@ -23,6 +23,7 @@
   import { computed, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
 
+  import { api } from '@/api/api'
   import xIcon from '@/assets/twitterx.svg?raw'
 
   import { useAppStore } from '@/stores/app'
@@ -145,7 +146,7 @@
     error.value = null
   }
 
-  // Handle purchase
+  // Handle purchase — real two-phase Stellar payment flow
   async function handlePurchase () {
     if (!props.item) return
 
@@ -153,35 +154,43 @@
     error.value = null
 
     try {
-      // Simulate payment processing
-      // In production, this would call actual payment API
-      await new Promise(resolve => setTimeout(resolve, 1500))
-
-      // If using wallet, simulate signature
-      if (selectedPayment.value === 'wallet' && !walletStore.isConnected) {
-        // Try to connect wallet first
+      // 1. Ensure wallet is connected
+      if (!walletStore.isConnected) {
         const connected = await walletStore.connect()
         if (!connected) {
-          throw new Error('Please connect your wallet to continue')
+          throw new Error(t('Preview.connectWalletError'))
         }
       }
 
-      // Simulate signing (in production would sign actual transaction)
-      // await walletStore.sign('payment-transaction-xdr')
+      const buyerWallet = walletStore.activeAddress
+      if (!buyerWallet) {
+        throw new Error(t('Preview.noWalletAddress'))
+      }
 
-      // Mark as unlocked
+      // 2. Prepare — backend builds unsigned Stellar tx
+      const prepared = await api.payment.prepare(props.item.id, buyerWallet)
+
+      // 3. Sign — wallet extension signs the XDR
+      const signResult = await walletStore.signTransaction(prepared.unsignedXdr, {
+        networkPassphrase: prepared.networkPassphrase,
+      })
+
+      // 4. Submit — backend submits signed tx to Stellar network
+      const result = await api.payment.submit(prepared.orderId, signResult.signedTxXdr)
+
+      // 5. Mark unlocked locally
       purchasesStore.markUnlocked(props.item.id, {
         type: props.item.type,
         title: props.item.title,
       })
 
-      // Emit success
-      emit('purchased', props.item.id)
+      // 6. Emit success
+      emit('purchased', result.entryId)
 
-      // Close dialog
+      // 7. Close dialog
       dialogOpen.value = false
     } catch (error_) {
-      error.value = error_ instanceof Error ? error_.message : 'Payment failed. Please try again.'
+      error.value = error_ instanceof Error ? error_.message : t('Preview.paymentFailed')
     } finally {
       isProcessing.value = false
     }

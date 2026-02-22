@@ -87,6 +87,65 @@
                   type="number"
                   variant="outlined"
                 />
+
+                <!-- Wallet requirement for paid content -->
+                <template v-if="form.isPaid">
+                  <!-- No wallet connected: warning alert -->
+                  <v-alert
+                    v-if="!walletStore.isConnected"
+                    class="mt-3"
+                    closable
+                    color="warning"
+                    icon="mdi-wallet-outline"
+                    variant="tonal"
+                  >
+                    <div class="text-body-2 font-weight-medium">
+                      {{ t('Upload.wallet.required') }}
+                    </div>
+                    <div class="text-caption mt-1">
+                      {{ t('Upload.wallet.requiredHint') }}
+                    </div>
+                    <v-btn
+                      class="mt-2"
+                      color="warning"
+                      size="small"
+                      variant="elevated"
+                      @click="connectWallet"
+                    >
+                      <v-icon class="me-1" size="small">mdi-wallet-plus</v-icon>
+                      {{ t('Upload.wallet.connect') }}
+                    </v-btn>
+                  </v-alert>
+
+                  <!-- Wallet connected: show public key (read-only) -->
+                  <v-alert
+                    v-else
+                    class="mt-3"
+                    color="success"
+                    icon="mdi-wallet-outline"
+                    variant="tonal"
+                  >
+                    <div class="text-body-2 font-weight-medium">
+                      {{ t('Upload.wallet.connected') }}
+                    </div>
+                    <v-text-field
+                      class="mt-2"
+                      density="compact"
+                      hide-details
+                      :model-value="walletStore.activeAddress"
+                      :label="t('Upload.wallet.sellerWallet')"
+                      readonly
+                      variant="outlined"
+                    >
+                      <template #prepend-inner>
+                        <v-icon color="success" size="small">mdi-check-circle</v-icon>
+                      </template>
+                    </v-text-field>
+                    <div class="text-caption text-medium-emphasis mt-1">
+                      {{ t('Upload.wallet.sellerWalletHint') }}
+                    </div>
+                  </v-alert>
+                </template>
               </v-card>
             </v-col>
 
@@ -234,6 +293,7 @@
     toEntryType,
   } from '@/api/types/upload.types'
   import UploadAssetPicker from '@/components/upload/UploadAssetPicker.vue'
+  import { useWalletStore } from '@/stores/wallet'
 
   const props = defineProps<{
     contentType: UploadContentType
@@ -242,6 +302,7 @@
   const router = useRouter()
   const { t } = useI18n()
   const formRef = ref()
+  const walletStore = useWalletStore()
 
   // ── Form state ──────────────────────────────────────────────
 
@@ -272,6 +333,8 @@
 
   const canUpload = computed(() => {
     if (!form.title.trim()) return false
+    // Paid content requires a connected wallet
+    if (form.isPaid && !walletStore.isConnected) return false
     if (props.contentType === 'post') {
       return !!form.postContent.trim()
     }
@@ -328,11 +391,31 @@
     snackbar.show = true
   }
 
+  // ── Wallet ──────────────────────────────────────────────────
+
+  async function connectWallet () {
+    try {
+      const result = await walletStore.connect()
+      if (result) {
+        showSnackbar(t('Upload.wallet.connectSuccess'))
+      }
+    } catch (error) {
+      console.error('Wallet connection failed:', error)
+      showSnackbar(t('Upload.wallet.connectError'), 'error')
+    }
+  }
+
   // ── Upload flow ─────────────────────────────────────────────
 
   async function handleSubmit () {
     const { valid } = await formRef.value?.validate()
     if (!valid) return
+
+    // Double-check wallet for paid content (defensive)
+    if (form.isPaid && !walletStore.isConnected) {
+      showSnackbar(t('Upload.wallet.required'), 'error')
+      return
+    }
 
     if (props.contentType !== 'post' && !assets.full) {
       showSnackbar(t('Upload.errors.noFullAsset'), 'error')
@@ -351,6 +434,7 @@
         type: toEntryType(props.contentType),
         isPaid: form.isPaid,
         priceXlm: form.isPaid && form.priceXlm ? form.priceXlm : null,
+        sellerWallet: form.isPaid ? walletStore.activeAddress : null,
       })
 
       createdEntryId.value = entry.id

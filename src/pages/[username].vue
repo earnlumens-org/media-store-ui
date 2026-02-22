@@ -194,9 +194,11 @@
 
   import { api } from '@/api/api'
   import { useAuthStore } from '@/stores/auth'
+  import { usePurchasesStore } from '@/stores/purchases'
 
   const route = useRoute()
   const authStore = useAuthStore()
+  const purchasesStore = usePurchasesStore()
 
   const user = ref<UserProfile | null>(null)
   const loading = ref(true)
@@ -229,6 +231,7 @@
    * Maps a PublicEntryModel to the Entry interface expected by EntryCard.
    */
   function toEntryCardProps (item: PublicEntryModel): Entry {
+    const isUnlocked = item.isPaid && purchasesStore.isUnlocked(item.id)
     return {
       id: item.id,
       type: item.type === 'file' ? 'entry' : item.type,
@@ -238,7 +241,8 @@
       publishedAt: item.publishedAt,
       thumbnailUrl: item.thumbnailUrl,
       durationSec: item.durationSec,
-      locked: item.isPaid,
+      locked: item.isPaid && !isUnlocked,
+      unlocked: isUnlocked,
     }
   }
 

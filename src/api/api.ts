@@ -7,6 +7,7 @@ import {
   getMockEntryById,
   getMockFeed,
 } from './modules/entryMock.api'
+import { preparePayment, submitPayment } from './modules/payment.api'
 import { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
 import { checkUsernameExists, getCurrentUser, getUserByUsername } from './modules/user.api'
 import { getWaitlistStats, subscribeWaitlist } from './modules/waitlist.api'
@@ -38,6 +39,10 @@ export const api = {
     finalizeUpload,
     updateEntryStatus,
   },
+  payment: {
+    prepare: preparePayment,
+    submit: submitPayment,
+  },
   /** Mock API - TODO: Remove when real endpoints are available */
   mock: {
     getFeed: getMockFeed,
@@ -58,6 +63,7 @@ export {
   getMockEntryById,
   getMockFeed,
 } from './modules/entryMock.api'
+export { preparePayment, submitPayment } from './modules/payment.api'
 export { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
 export { checkUsernameExists, getCurrentUser, getUserByUsername, parseUserFromToken } from './modules/user.api'
 export { getWaitlistStats } from './modules/waitlist.api'
@@ -110,3 +116,10 @@ export type {
   WaitlistStatsModel,
   WaitlistSubscribeRequestDto,
 } from './types/waitlist.types'
+
+export type {
+  PreparePaymentModel,
+  PreparePaymentResponseDto,
+  SubmitPaymentModel,
+  SubmitPaymentResponseDto,
+} from './types/payment.types'

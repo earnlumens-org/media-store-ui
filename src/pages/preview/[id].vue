@@ -615,12 +615,14 @@
   import CheckoutDialog from '@/components/checkout/CheckoutDialog.vue'
   import AvatarFrame from '@/components/media/AvatarFrame.vue'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { useAuthStore } from '@/stores/auth'
   import { useFeedCacheStore } from '@/stores/feedCache'
   import { usePurchasesStore } from '@/stores/purchases'
 
   const { t } = useI18n()
   const route = useRoute()
   const router = useRouter()
+  const authStore = useAuthStore()
   const purchasesStore = usePurchasesStore()
   const feedCache = useFeedCacheStore()
 
@@ -788,6 +790,17 @@
 
       // If content is NOT locked (not paid), redirect to the consumption page
       if (!data.isPaid) {
+        const targetRoute = destinationRoutes[content.value.type] || '/read'
+        router.replace(`${targetRoute}/${contentId.value}`)
+        return
+      }
+
+      // Owner never pays for their own content — redirect straight to consumption
+      if (authStore.isAuthenticated && authStore.user?.username === data.authorName) {
+        purchasesStore.markUnlocked(contentId.value, {
+          type: content.value.type,
+          title: data.title,
+        })
         const targetRoute = destinationRoutes[content.value.type] || '/read'
         router.replace(`${targetRoute}/${contentId.value}`)
         return

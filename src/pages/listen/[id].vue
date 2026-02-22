@@ -383,10 +383,15 @@
               <v-avatar
                 class="me-3"
                 color="grey-lighten-2"
-                :image="entry.authorAvatarUrl"
                 size="48"
               >
-                <v-icon v-if="!entry.authorAvatarUrl">mdi-account</v-icon>
+                <v-img
+                  v-if="avatarUrl"
+                  cover
+                  :src="avatarUrl"
+                  @error="avatarBroken = true"
+                />
+                <v-icon v-else>mdi-account</v-icon>
               </v-avatar>
               <div class="flex-grow-1">
                 <div class="d-flex align-center">
@@ -441,7 +446,7 @@
             <!-- Mobile: Recommendations Section -->
             <div class="d-md-none mt-6">
               <h2 class="text-subtitle-1 font-weight-bold mb-3">More audio</h2>
-              <AudioRecommendationsList :current-id="entryId" />
+              <AudioRecommendationsList :author-name="entry.authorName" :current-id="entryId" />
             </div>
           </v-container>
         </v-col>
@@ -456,7 +461,7 @@
         >
           <v-container class="pa-4 pt-md-6" fluid>
             <h2 class="text-subtitle-1 font-weight-bold mb-3">More audio</h2>
-            <AudioRecommendationsList :current-id="entryId" />
+            <AudioRecommendationsList :author-name="entry.authorName" :current-id="entryId" />
           </v-container>
         </v-col>
       </v-row>
@@ -465,12 +470,14 @@
 </template>
 
 <script setup lang="ts">
-  import type { EntryModel } from '@/api/api'
+  import type { PublicEntryModel } from '@/api/types/entry.types'
 
   import { computed, defineAsyncComponent, onMounted, ref, watch } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import { cdnMediaUrl } from '@/config/env'
+  import { usePurchasesStore } from '@/stores/purchases'
 
   // Lazy-load recommendations component
   const AudioRecommendationsList = defineAsyncComponent(() =>
@@ -479,6 +486,7 @@
 
   const route = useRoute()
   const router = useRouter()
+  const purchasesStore = usePurchasesStore()
 
   // Route param
   const entryId = computed(() => {
@@ -487,7 +495,7 @@
   })
 
   // State
-  const entry = ref<EntryModel | null>(null)
+  const entry = ref<PublicEntryModel | null>(null)
   const loading = ref(true)
   const error = ref(false)
   const errorMessage = ref('')
@@ -499,6 +507,12 @@
   const playbackSpeed = ref(1)
   const isSaved = ref(false)
   const descriptionExpanded = ref(false)
+  const avatarBroken = ref(false)
+
+  /** Avatar URL — cleared when the OAuth provider image fails to load */
+  const avatarUrl = computed(() =>
+    avatarBroken.value ? undefined : entry.value?.authorAvatarUrl,
+  )
 
   // Playback speed options
   const playbackSpeeds = [0.5, 0.75, 1, 1.25, 1.5, 2]
@@ -506,15 +520,13 @@
   // Duration from entry
   const duration = computed(() => entry.value?.durationSec ?? 0)
 
-  // Mock data (will come from API later)
-  const description = computed(() =>
-    entry.value
-      ? `This is a sample description for "${entry.value.title}". Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.`
-      : '',
-  )
+  // Real data from entry
+  const description = computed(() => entry.value?.description ?? '')
+  const tags = computed(() => entry.value?.tags ?? [])
 
-  const tags = computed(() =>
-    entry.value ? ['podcast', 'audio', 'earnlumens'] : [],
+  // CDN URL for actual media content
+  const mediaUrl = computed(() =>
+    entry.value ? cdnMediaUrl(entry.value.id) : undefined,
   )
 
   // Fetch entry data
@@ -525,11 +537,10 @@
     errorMessage.value = ''
 
     try {
-      // Force type 'audio' for this page (mock API supports type override)
-      const data = await api.mock.getEntryById(entryId.value, 'audio')
+      const data = await api.entries.getById(entryId.value)
 
       // LOCKED CONTENT REDIRECT
-      if (data.locked) {
+      if (data.isPaid && !purchasesStore.isUnlocked(entryId.value)) {
         router.replace(`/preview/${entryId.value}`)
         return
       }
@@ -547,6 +558,7 @@
       }
 
       entry.value = data
+      avatarBroken.value = false
     } catch (error_: unknown) {
       console.error('[ListenPage] Failed to fetch entry:', error_)
 

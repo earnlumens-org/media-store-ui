@@ -23,6 +23,20 @@ const CDN_URLS = {
   production: 'https://cdn.earnlumens.org',
 } as const
 
+/** Stellar Horizon URLs per environment */
+const STELLAR_HORIZON_URLS = {
+  local: 'https://horizon-testnet.stellar.org',
+  tunnelDev: 'https://horizon-testnet.stellar.org',
+  production: 'https://horizon.stellar.org',
+} as const
+
+/** Stellar network passphrases per environment */
+const STELLAR_NETWORK_PASSPHRASES = {
+  local: 'Test SDF Network ; September 2015',
+  tunnelDev: 'Test SDF Network ; September 2015',
+  production: 'Public Global Stellar Network ; September 2015',
+} as const
+
 type Environment = 'local' | 'tunnelDev' | 'production'
 
 function normalizeBaseUrl (value: string): string {
@@ -42,8 +56,6 @@ function detectEnvironment (): Environment {
     hostname = (globalThis as { location: { hostname: string } }).location.hostname
   } else if (typeof self !== 'undefined' && 'location' in self) {
     hostname = self.location.hostname
-  } else if (typeof window !== 'undefined') {
-    hostname = window.location.hostname
   } else {
     // SSR or unknown environment - fallback to local
     return 'local'
@@ -123,11 +135,9 @@ let cachedCdnBaseUrl: string | null = null
 export function getCdnBaseUrl (): string {
   if (cachedCdnBaseUrl === null) {
     const envOverride = import.meta.env.VITE_CDN_BASE_URL
-    if (typeof envOverride === 'string' && envOverride.trim() !== '') {
-      cachedCdnBaseUrl = normalizeBaseUrl(envOverride)
-    } else {
-      cachedCdnBaseUrl = CDN_URLS[detectEnvironment()]
-    }
+    cachedCdnBaseUrl = typeof envOverride === 'string' && envOverride.trim() !== ''
+      ? normalizeBaseUrl(envOverride)
+      : CDN_URLS[detectEnvironment()]
   }
   return cachedCdnBaseUrl
 }
@@ -160,4 +170,44 @@ export function cdnMediaUrl (entryId: string): string {
  */
 export function getEnvironment (): Environment {
   return detectEnvironment()
+}
+
+// ==================== Stellar network helpers ====================
+
+let cachedHorizonUrl: string | null = null
+
+/**
+ * Returns the Stellar Horizon URL for the current environment.
+ * - local / tunnelDev → testnet (horizon-testnet.stellar.org)
+ * - production → mainnet (horizon.stellar.org)
+ *
+ * Supports VITE_STELLAR_HORIZON_URL override.
+ */
+export function getStellarHorizonUrl (): string {
+  if (cachedHorizonUrl === null) {
+    const envOverride = import.meta.env.VITE_STELLAR_HORIZON_URL
+    cachedHorizonUrl = typeof envOverride === 'string' && envOverride.trim() !== ''
+      ? normalizeBaseUrl(envOverride)
+      : STELLAR_HORIZON_URLS[detectEnvironment()]
+  }
+  return cachedHorizonUrl
+}
+
+let cachedNetworkPassphrase: string | null = null
+
+/**
+ * Returns the Stellar network passphrase for the current environment.
+ * - local / tunnelDev → Test SDF Network ; September 2015
+ * - production → Public Global Stellar Network ; September 2015
+ *
+ * Supports VITE_STELLAR_NETWORK_PASSPHRASE override.
+ */
+export function getStellarNetworkPassphrase (): string {
+  if (cachedNetworkPassphrase === null) {
+    const envOverride = import.meta.env.VITE_STELLAR_NETWORK_PASSPHRASE
+    cachedNetworkPassphrase = typeof envOverride === 'string' && envOverride.trim() !== ''
+      ? envOverride.trim()
+      : STELLAR_NETWORK_PASSPHRASES[detectEnvironment()]
+  }
+  return cachedNetworkPassphrase
 }

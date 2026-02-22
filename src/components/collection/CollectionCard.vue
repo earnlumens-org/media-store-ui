@@ -51,6 +51,7 @@
     itemsCount?: number
     totalDurationSec?: number
     locked?: boolean
+    unlocked?: boolean
   }
 
   interface Props {

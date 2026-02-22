@@ -251,10 +251,15 @@
               <v-avatar
                 class="me-3"
                 color="grey-lighten-2"
-                :image="entry.authorAvatarUrl"
                 size="48"
               >
-                <v-icon v-if="!entry.authorAvatarUrl">mdi-account</v-icon>
+                <v-img
+                  v-if="avatarUrl"
+                  cover
+                  :src="avatarUrl"
+                  @error="avatarBroken = true"
+                />
+                <v-icon v-else>mdi-account</v-icon>
               </v-avatar>
               <div class="flex-grow-1">
                 <div class="d-flex align-center">
@@ -352,7 +357,7 @@
               <h2 class="text-subtitle-1 font-weight-bold mb-4">
                 {{ $t('Common.moreToRead') }}
               </h2>
-              <ReadRecommendationsList :exclude-id="entryId" />
+              <ReadRecommendationsList :author-name="entry.authorName" :exclude-id="entryId" />
             </div>
           </v-container>
         </v-col>
@@ -371,10 +376,15 @@
                 <v-avatar
                   class="mb-3"
                   color="grey-lighten-2"
-                  :image="entry.authorAvatarUrl"
                   size="64"
                 >
-                  <v-icon v-if="!entry.authorAvatarUrl" size="32">mdi-account</v-icon>
+                  <v-img
+                    v-if="avatarUrl"
+                    cover
+                    :src="avatarUrl"
+                    @error="avatarBroken = true"
+                  />
+                  <v-icon v-else size="32">mdi-account</v-icon>
                 </v-avatar>
                 <h3 class="text-body-1 font-weight-medium">{{ entry.authorName }}</h3>
                 <p class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</p>
@@ -394,7 +404,7 @@
             <h2 class="text-subtitle-1 font-weight-bold mb-4">
               {{ $t('Common.moreToRead') }}
             </h2>
-            <ReadRecommendationsList :exclude-id="entryId" />
+            <ReadRecommendationsList :author-name="entry.authorName" :exclude-id="entryId" />
           </v-container>
         </v-col>
       </v-row>
@@ -403,18 +413,20 @@
 </template>
 
 <script setup lang="ts">
-  import type { EntryModel } from '@/api/api'
+  import type { PublicEntryModel } from '@/api/types/entry.types'
 
   import { computed, onMounted, ref, watch } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
   import { useAppStore } from '@/stores/app'
+  import { usePurchasesStore } from '@/stores/purchases'
 
   import ReadRecommendationsList from './ReadRecommendationsList.vue'
 
   const route = useRoute()
   const router = useRouter()
+  const purchasesStore = usePurchasesStore()
   const appStore = useAppStore()
 
   // Responsive check
@@ -427,7 +439,7 @@
   })
 
   // State
-  const entry = ref<EntryModel | null>(null)
+  const entry = ref<PublicEntryModel | null>(null)
   const loading = ref(true)
   const error = ref(false)
   const notFound = ref(false)
@@ -436,49 +448,21 @@
   // UI State
   const isLiked = ref(false)
   const isSaved = ref(false)
-  const likes = ref(127)
+  const likes = ref(0)
+  const avatarBroken = ref(false)
 
-  // Mock content (since Entry model doesn't have content field yet)
-  const mockContent = `This is a comprehensive guide to understanding modern web development practices and techniques. In this article, we'll explore the fundamental concepts that every developer should know.
+  /** Avatar URL — cleared when the OAuth provider image fails to load */
+  const avatarUrl = computed(() =>
+    avatarBroken.value ? undefined : entry.value?.authorAvatarUrl,
+  )
 
-<strong>Introduction</strong>
-
-Web development has evolved significantly over the past decade. What once required simple HTML and CSS now demands a deep understanding of JavaScript frameworks, build tools, and deployment strategies.
-
-<strong>The Foundation</strong>
-
-Before diving into frameworks and libraries, it's essential to have a solid grasp of the core technologies:
-
-• HTML5 for semantic structure
-• CSS3 for styling and animations
-• JavaScript ES6+ for interactivity
-
-<strong>Modern Frameworks</strong>
-
-Today's web applications are built using powerful frameworks that provide structure and efficiency. Vue.js, React, and Angular are among the most popular choices, each with its own strengths and use cases.
-
-<strong>Best Practices</strong>
-
-Following best practices ensures your code is maintainable, scalable, and performant:
-
-1. Write clean, readable code
-2. Use version control (Git)
-3. Test your applications
-4. Optimize for performance
-5. Consider accessibility
-
-<strong>Conclusion</strong>
-
-Web development is a constantly evolving field. Stay curious, keep learning, and don't be afraid to experiment with new technologies. The best developers are those who never stop growing.
-
-Thank you for reading! If you found this helpful, consider following for more content like this.`
-
-  // Tags
-  const tags = ['webdev', 'javascript', 'tutorial', 'programming']
+  // Real data from entry
+  const tags = computed(() => entry.value?.tags ?? [])
 
   // Format content with line breaks preserved
   const formattedContent = computed(() => {
-    return mockContent.replace(/\n\n/g, '</p><p class="mt-4">').replace(/\n/g, '<br>')
+    const raw = entry.value?.description ?? ''
+    return raw.replace(/\n\n/g, '</p><p class="mt-4">').replace(/\n/g, '<br>')
   })
 
   // Format count with K suffix
@@ -508,11 +492,10 @@ Thank you for reading! If you found this helpful, consider following for more co
     errorMessage.value = ''
 
     try {
-      // Force type 'entry' for this page
-      const data = await api.mock.getEntryById(entryId.value, 'entry')
+      const data = await api.entries.getById(entryId.value)
 
       // LOCKED CONTENT REDIRECT
-      if (data.locked) {
+      if (data.isPaid && !purchasesStore.isUnlocked(entryId.value)) {
         router.replace(`/preview/${entryId.value}`)
         return
       }
@@ -530,6 +513,7 @@ Thank you for reading! If you found this helpful, consider following for more co
       }
 
       entry.value = data
+      avatarBroken.value = false
     } catch (error_: unknown) {
       console.error('[ReadPage] Failed to fetch entry:', error_)
 
