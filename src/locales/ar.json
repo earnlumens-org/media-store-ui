@@ -77,7 +77,8 @@
         "blocked": "محظور",
         "accept": "قبول",
         "upload": "تحميل",
-        "goHome": "الذهاب إلى الصفحة الرئيسية"
+        "goHome": "الذهاب إلى الصفحة الرئيسية",
+        "loadMore": "تحميل المزيد"
     },
     "Themes": {
         "title": "محدد سمات EarnLumens",
@@ -401,5 +402,16 @@
         "connectWalletError": "يرجى توصيل محفظتك للمتابعة",
         "noWalletAddress": "لم يتم العثور على عنوان محفظة. يرجى إعادة توصيل محفظتك.",
         "paymentFailed": "فشلت عملية الدفع. يرجى المحاولة مرة أخرى."
+    },
+    "Purchased": {
+        "title": "مشترياتي",
+        "empty": "لا توجد مشتريات بعد",
+        "emptyDescription": "سيظهر هنا المحتوى الذي تفتحه.",
+        "errorTitle": "خطأ",
+        "errorDescription": "فشل تحميل مشترياتك. يرجى المحاولة مرة أخرى.",
+        "loginRequired": "سجل الدخول لرؤية مشترياتك",
+        "loginRequiredDescription": "يجب عليك تسجيل الدخول لعرض المحتوى المشترى.",
+        "loginButton": "تسجيل الدخول",
+        "purchasedOn": "تم الشراء في {date}"
     }
 }

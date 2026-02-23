@@ -77,7 +77,8 @@
         "blocked": "已封鎖",
         "accept": "接受",
         "upload": "上傳",
-        "goHome": "返回首頁"
+        "goHome": "返回首頁",
+        "loadMore": "載入更多"
     },
     "Themes": {
         "title": "EarnLumens 主題選擇器",
@@ -401,5 +402,16 @@
         "connectWalletError": "請連接您的錢包以完成付款。",
         "noWalletAddress": "找不到已連接的錢包位址。",
         "paymentFailed": "付款失敗。請再試一次。"
+    },
+    "Purchased": {
+        "title": "我的購買",
+        "empty": "尚無購買記錄",
+        "emptyDescription": "您解鎖的內容將顯示在這裡。",
+        "errorTitle": "錯誤",
+        "errorDescription": "無法載入您的購買記錄，請重試。",
+        "loginRequired": "登入以查看購買記錄",
+        "loginRequiredDescription": "您需要登入才能查看已購買的內容。",
+        "loginButton": "登入",
+        "purchasedOn": "購買於 {date}"
     }
 }

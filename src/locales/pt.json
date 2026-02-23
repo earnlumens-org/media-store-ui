@@ -77,7 +77,8 @@
         "blocked": "Bloqueado",
         "accept": "Aceitar",
         "upload": "Carregar",
-        "goHome": "Ir para o início"
+        "goHome": "Ir para o início",
+        "loadMore": "Carregar mais"
     },
     "Themes": {
         "title": "Seletor de temas do EarnLumens",
@@ -401,5 +402,16 @@
         "connectWalletError": "Conecte sua carteira para continuar",
         "noWalletAddress": "Nenhum endereço de carteira encontrado. Conecte sua carteira novamente.",
         "paymentFailed": "Falha no pagamento. Tente novamente."
+    },
+    "Purchased": {
+        "title": "Minhas compras",
+        "empty": "Nenhuma compra ainda",
+        "emptyDescription": "O conteúdo que você desbloquear aparecerá aqui.",
+        "errorTitle": "Erro",
+        "errorDescription": "Não foi possível carregar suas compras. Tente novamente.",
+        "loginRequired": "Faça login para ver suas compras",
+        "loginRequiredDescription": "Você precisa estar logado para ver seu conteúdo comprado.",
+        "loginButton": "Entrar",
+        "purchasedOn": "Comprado em {date}"
     }
 }

@@ -77,7 +77,8 @@
         "blocked": "Engellendi",
         "accept": "Kabul et",
         "upload": "Yükle",
-        "goHome": "Ana Sayfaya Git"
+        "goHome": "Ana Sayfaya Git",
+        "loadMore": "Daha fazla yükle"
     },
     "Themes": {
         "title": "EarnLumens Tema Seçici",
@@ -401,5 +402,16 @@
         "connectWalletError": "Ödeme yapmak için cüzdanınızı bağlayın.",
         "noWalletAddress": "Bağlı cüzdan adresi bulunamadı.",
         "paymentFailed": "Ödeme başarısız oldu. Lütfen tekrar deneyin."
+    },
+    "Purchased": {
+        "title": "Satın Alımlarım",
+        "empty": "Henüz satın alma yok",
+        "emptyDescription": "Kilidini açtığınız içerikler burada görünecek.",
+        "errorTitle": "Hata",
+        "errorDescription": "Satın alımlarınız yüklenemedi. Lütfen tekrar deneyin.",
+        "loginRequired": "Satın alımlarınızı görmek için giriş yapın",
+        "loginRequiredDescription": "Satın aldığınız içerikleri görmek için giriş yapmanız gerekiyor.",
+        "loginButton": "Giriş yap",
+        "purchasedOn": "{date} tarihinde satın alındı"
     }
 }

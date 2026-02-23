@@ -77,7 +77,8 @@
         "blocked": "Gesperrt",
         "accept": "Akzeptieren",
         "upload": "Hochladen",
-        "goHome": "Zur Startseite"
+        "goHome": "Zur Startseite",
+        "loadMore": "Mehr laden"
     },
     "Themes": {
         "title": "EarnLumens Theme-Auswahl",
@@ -401,5 +402,16 @@
         "connectWalletError": "Bitte verbinde deine Wallet, um fortzufahren",
         "noWalletAddress": "Keine Wallet-Adresse gefunden. Bitte verbinde deine Wallet erneut.",
         "paymentFailed": "Zahlung fehlgeschlagen. Bitte versuche es erneut."
+    },
+    "Purchased": {
+        "title": "Meine Käufe",
+        "empty": "Noch keine Käufe",
+        "emptyDescription": "Freigeschaltete Inhalte erscheinen hier.",
+        "errorTitle": "Fehler",
+        "errorDescription": "Käufe konnten nicht geladen werden. Bitte erneut versuchen.",
+        "loginRequired": "Anmelden, um Käufe zu sehen",
+        "loginRequiredDescription": "Du musst angemeldet sein, um deine gekauften Inhalte zu sehen.",
+        "loginButton": "Anmelden",
+        "purchasedOn": "Gekauft am {date}"
     }
 }

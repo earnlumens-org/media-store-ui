@@ -77,7 +77,8 @@
         "blocked": "Đã chặn",
         "accept": "Chấp nhận",
         "upload": "Tải lên",
-        "goHome": "Về trang chủ"
+        "goHome": "Về trang chủ",
+        "loadMore": "Tải thêm"
     },
     "Themes": {
         "title": "Bộ chọn chủ đề EarnLumens",
@@ -401,5 +402,16 @@
         "connectWalletError": "Vui lòng kết nối ví của bạn để thanh toán.",
         "noWalletAddress": "Không tìm thấy địa chỉ ví đã kết nối.",
         "paymentFailed": "Thanh toán thất bại. Vui lòng thử lại."
+    },
+    "Purchased": {
+        "title": "Mua hàng của tôi",
+        "empty": "Chưa có mua hàng nào",
+        "emptyDescription": "Nội dung bạn mở khóa sẽ xuất hiện ở đây.",
+        "errorTitle": "Lỗi",
+        "errorDescription": "Không thể tải danh sách mua hàng. Vui lòng thử lại.",
+        "loginRequired": "Đăng nhập để xem mua hàng",
+        "loginRequiredDescription": "Bạn cần đăng nhập để xem nội dung đã mua.",
+        "loginButton": "Đăng nhập",
+        "purchasedOn": "Đã mua vào {date}"
     }
 }

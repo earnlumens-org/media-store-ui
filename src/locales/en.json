@@ -77,7 +77,8 @@
         "audio": "Audio",
         "video": "Video",
         "image": "Image",
-        "entry": "Entry"
+        "entry": "Entry",
+        "loadMore": "Load more"
     },
     "Themes": {
         "title": "EarnLumens Theme Selector",
@@ -241,6 +242,17 @@
         "noEntries": "No entries yet",
         "noEntriesFiltered": "No {type} entries yet",
         "noPosts": "No posts yet"
+    },
+    "Purchased": {
+        "title": "My Purchases",
+        "empty": "No purchases yet",
+        "emptyDescription": "Content you unlock will appear here.",
+        "errorTitle": "Error",
+        "errorDescription": "Failed to load your purchases. Please try again.",
+        "loginRequired": "Log in to see your purchases",
+        "loginRequiredDescription": "You need to be logged in to view your purchased content.",
+        "loginButton": "Log in",
+        "purchasedOn": "Purchased on {date}"
     },
     "Upload": {
         "createNew": "Create New",

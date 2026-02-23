@@ -77,7 +77,8 @@
         "blocked": "Zablokowane",
         "accept": "Akceptuj",
         "upload": "Prześlij",
-        "goHome": "Przejdź do strony głównej"
+        "goHome": "Przejdź do strony głównej",
+        "loadMore": "Załaduj więcej"
     },
     "Themes": {
         "title": "Wybór motywu EarnLumens",
@@ -401,5 +402,16 @@
         "connectWalletError": "Podłącz swój portfel, aby kontynuować",
         "noWalletAddress": "Nie znaleziono adresu portfela. Podłącz portfel ponownie.",
         "paymentFailed": "Płatność nie powiodła się. Spróbuj ponownie."
+    },
+    "Purchased": {
+        "title": "Moje zakupy",
+        "empty": "Brak zakupów",
+        "emptyDescription": "Odblokowane treści pojawią się tutaj.",
+        "errorTitle": "Błąd",
+        "errorDescription": "Nie udało się załadować zakupów. Spróbuj ponownie.",
+        "loginRequired": "Zaloguj się, aby zobaczyć zakupy",
+        "loginRequiredDescription": "Musisz się zalogować, aby zobaczyć kupione treści.",
+        "loginButton": "Zaloguj się",
+        "purchasedOn": "Zakupiono {date}"
     }
 }

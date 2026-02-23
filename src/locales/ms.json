@@ -77,7 +77,8 @@
         "blocked": "Disekat",
         "accept": "Terima",
         "upload": "Muat naik",
-        "goHome": "Ke Halaman Utama"
+        "goHome": "Ke Halaman Utama",
+        "loadMore": "Muat lagi"
     },
     "Themes": {
         "title": "Pemilih Tema EarnLumens",
@@ -401,5 +402,16 @@
         "connectWalletError": "Sila sambungkan dompet anda untuk meneruskan",
         "noWalletAddress": "Tiada alamat dompet ditemui. Sila sambungkan semula dompet anda.",
         "paymentFailed": "Pembayaran gagal. Sila cuba lagi."
+    },
+    "Purchased": {
+        "title": "Pembelian Saya",
+        "empty": "Tiada pembelian lagi",
+        "emptyDescription": "Kandungan yang anda buka kunci akan muncul di sini.",
+        "errorTitle": "Ralat",
+        "errorDescription": "Gagal memuatkan pembelian anda. Sila cuba lagi.",
+        "loginRequired": "Log masuk untuk melihat pembelian anda",
+        "loginRequiredDescription": "Anda perlu log masuk untuk melihat kandungan yang dibeli.",
+        "loginButton": "Log masuk",
+        "purchasedOn": "Dibeli pada {date}"
     }
 }

@@ -77,7 +77,8 @@
         "blocked": "ブロック済み",
         "accept": "受け入れる",
         "upload": "アップロード",
-        "goHome": "ホームに戻る"
+        "goHome": "ホームに戻る",
+        "loadMore": "もっと読み込む"
     },
     "Themes": {
         "title": "EarnLumens テーマセレクター",
@@ -401,5 +402,16 @@
         "connectWalletError": "続行するにはウォレットを接続してください",
         "noWalletAddress": "ウォレットアドレスが見つかりません。ウォレットを再接続してください。",
         "paymentFailed": "支払いに失敗しました。もう一度お試しください。"
+    },
+    "Purchased": {
+        "title": "購入済み",
+        "empty": "まだ購入がありません",
+        "emptyDescription": "ロック解除したコンテンツがここに表示されます。",
+        "errorTitle": "エラー",
+        "errorDescription": "購入の読み込みに失敗しました。もう一度お試しください。",
+        "loginRequired": "購入を表示するにはログインしてください",
+        "loginRequiredDescription": "購入したコンテンツを表示するにはログインが必要です。",
+        "loginButton": "ログイン",
+        "purchasedOn": "{date}に購入"
     }
 }

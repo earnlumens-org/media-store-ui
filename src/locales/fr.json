@@ -77,7 +77,8 @@
         "blocked": "Bloqué",
         "accept": "Accepter",
         "upload": "Télécharger",
-        "goHome": "Aller à l'accueil"
+        "goHome": "Aller à l'accueil",
+        "loadMore": "Charger plus"
     },
     "Themes": {
         "title": "Sélecteur de thèmes EarnLumens",
@@ -401,5 +402,16 @@
         "connectWalletError": "Veuillez connecter votre portefeuille pour continuer",
         "noWalletAddress": "Aucune adresse de portefeuille trouvée. Veuillez reconnecter votre portefeuille.",
         "paymentFailed": "Échec du paiement. Veuillez réessayer."
+    },
+    "Purchased": {
+        "title": "Mes achats",
+        "empty": "Aucun achat pour le moment",
+        "emptyDescription": "Le contenu que vous débloquez apparaîtra ici.",
+        "errorTitle": "Erreur",
+        "errorDescription": "Impossible de charger vos achats. Veuillez réessayer.",
+        "loginRequired": "Connectez-vous pour voir vos achats",
+        "loginRequiredDescription": "Vous devez être connecté pour voir votre contenu acheté.",
+        "loginButton": "Se connecter",
+        "purchasedOn": "Acheté le {date}"
     }
 }

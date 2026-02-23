@@ -77,7 +77,8 @@
         "blocked": "已屏蔽",
         "accept": "接受",
         "upload": "上传",
-        "goHome": "返回首页"
+        "goHome": "返回首页",
+        "loadMore": "加载更多"
     },
     "Themes": {
         "title": "EarnLumens 主题选择器",
@@ -401,5 +402,16 @@
         "connectWalletError": "请连接您的钱包以完成支付。",
         "noWalletAddress": "未找到已连接的钱包地址。",
         "paymentFailed": "支付失败。请重试。"
+    },
+    "Purchased": {
+        "title": "我的购买",
+        "empty": "暂无购买记录",
+        "emptyDescription": "您解锁的内容将显示在这里。",
+        "errorTitle": "错误",
+        "errorDescription": "无法加载您的购买记录，请重试。",
+        "loginRequired": "登录以查看购买记录",
+        "loginRequiredDescription": "您需要登录才能查看已购买的内容。",
+        "loginButton": "登录",
+        "purchasedOn": "购买于 {date}"
     }
 }
