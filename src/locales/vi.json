@@ -294,6 +294,16 @@
             "fileTooLarge": "Tệp quá lớn. Kích thước tối đa là {size}",
             "fileSelected": "{name} ({size})"
         },
+        "wallet": {
+            "required": "Yêu cầu ví",
+            "requiredHint": "Kết nối ví Stellar để xuất bản nội dung trả phí",
+            "connect": "Kết nối ví",
+            "connected": "Đã kết nối ví",
+            "sellerWallet": "Ví người bán",
+            "sellerWalletHint": "Địa chỉ Stellar nơi thanh toán sẽ được gửi",
+            "connectSuccess": "Kết nối ví thành công",
+            "connectError": "Không thể kết nối ví. Vui lòng thử lại."
+        },
         "actions": {
             "upload": "Tải lên",
             "uploading": "Đang tải lên...",
@@ -387,6 +397,9 @@
         "fullAccess": "Truy cập đầy đủ",
         "items": "mục",
         "unlock": "Mở khóa",
-        "comingSoon": "Sắp ra mắt"
+        "comingSoon": "Sắp ra mắt",
+        "connectWalletError": "Vui lòng kết nối ví của bạn để thanh toán.",
+        "noWalletAddress": "Không tìm thấy địa chỉ ví đã kết nối.",
+        "paymentFailed": "Thanh toán thất bại. Vui lòng thử lại."
     }
 }

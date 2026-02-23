@@ -294,6 +294,16 @@
             "fileTooLarge": "ファイルが大きすぎます。最大サイズは {size} です",
             "fileSelected": "{name}（{size}）"
         },
+        "wallet": {
+            "required": "有料コンテンツには接続済みウォレットが必要です",
+            "requiredHint": "コンテンツの支払いを受け取るために Stellar ウォレットを接続してください。",
+            "connect": "ウォレットを接続",
+            "connected": "ウォレット接続済み",
+            "sellerWallet": "受取ウォレット",
+            "sellerWalletHint": "このコンテンツの支払いはこのウォレットに送金されます。公開後は変更できません。",
+            "connectSuccess": "ウォレットを接続しました",
+            "connectError": "ウォレットを接続できませんでした。もう一度お試しください。"
+        },
         "actions": {
             "upload": "アップロード",
             "uploading": "アップロード中...",
@@ -387,6 +397,9 @@
         "fullAccess": "フルアクセス",
         "items": "アイテム",
         "unlock": "ロック解除",
-        "comingSoon": "近日公開"
+        "comingSoon": "近日公開",
+        "connectWalletError": "続行するにはウォレットを接続してください",
+        "noWalletAddress": "ウォレットアドレスが見つかりません。ウォレットを再接続してください。",
+        "paymentFailed": "支払いに失敗しました。もう一度お試しください。"
     }
 }

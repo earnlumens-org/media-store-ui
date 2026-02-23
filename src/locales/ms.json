@@ -294,6 +294,16 @@
             "fileTooLarge": "Fail terlalu besar. Saiz maksimum ialah {size}",
             "fileSelected": "{name} ({size})"
         },
+        "wallet": {
+            "required": "Dompet yang disambungkan diperlukan untuk kandungan berbayar",
+            "requiredHint": "Sambungkan dompet Stellar untuk menerima pembayaran bagi kandungan anda.",
+            "connect": "Sambungkan dompet",
+            "connected": "Dompet disambungkan",
+            "sellerWallet": "Dompet penerima",
+            "sellerWalletHint": "Pembayaran untuk kandungan ini akan dihantar ke dompet ini. Ia tidak boleh diubah selepas diterbitkan.",
+            "connectSuccess": "Dompet berjaya disambungkan",
+            "connectError": "Tidak dapat menyambungkan dompet. Sila cuba lagi."
+        },
         "actions": {
             "upload": "Muat naik",
             "uploading": "Sedang memuat naik...",
@@ -387,6 +397,9 @@
         "fullAccess": "Akses penuh",
         "items": "item",
         "unlock": "Buka kunci",
-        "comingSoon": "Akan datang"
+        "comingSoon": "Akan datang",
+        "connectWalletError": "Sila sambungkan dompet anda untuk meneruskan",
+        "noWalletAddress": "Tiada alamat dompet ditemui. Sila sambungkan semula dompet anda.",
+        "paymentFailed": "Pembayaran gagal. Sila cuba lagi."
     }
 }

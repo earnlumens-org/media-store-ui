@@ -294,6 +294,16 @@
             "fileTooLarge": "Il file è troppo grande. La dimensione massima è {size}",
             "fileSelected": "{name} ({size})"
         },
+        "wallet": {
+            "required": "Per i contenuti a pagamento è necessario un wallet collegato",
+            "requiredHint": "Collega un wallet Stellar per ricevere i pagamenti per i tuoi contenuti.",
+            "connect": "Collega wallet",
+            "connected": "Wallet collegato",
+            "sellerWallet": "Wallet di ricezione",
+            "sellerWalletHint": "I pagamenti per questo contenuto verranno inviati a questo wallet. Non può essere modificato dopo la pubblicazione.",
+            "connectSuccess": "Wallet collegato con successo",
+            "connectError": "Impossibile collegare il wallet. Riprova."
+        },
         "actions": {
             "upload": "Carica",
             "uploading": "Caricamento...",
@@ -387,6 +397,9 @@
         "fullAccess": "Accesso completo",
         "items": "elementi",
         "unlock": "Sblocca",
-        "comingSoon": "In arrivo"
+        "comingSoon": "In arrivo",
+        "connectWalletError": "Collega il tuo wallet per continuare",
+        "noWalletAddress": "Nessun indirizzo wallet trovato. Collega di nuovo il tuo wallet.",
+        "paymentFailed": "Pagamento non riuscito. Riprova."
     }
 }

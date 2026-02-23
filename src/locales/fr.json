@@ -294,6 +294,16 @@
             "fileTooLarge": "Le fichier est trop volumineux. La taille maximale est {size}",
             "fileSelected": "{name} ({size})"
         },
+        "wallet": {
+            "required": "Un portefeuille connecté est requis pour le contenu payant",
+            "requiredHint": "Connectez un portefeuille Stellar pour recevoir les paiements pour votre contenu.",
+            "connect": "Connecter le portefeuille",
+            "connected": "Portefeuille connecté",
+            "sellerWallet": "Portefeuille de réception",
+            "sellerWalletHint": "Les paiements pour ce contenu seront envoyés à ce portefeuille. Il ne peut pas être modifié après publication.",
+            "connectSuccess": "Portefeuille connecté avec succès",
+            "connectError": "Impossible de connecter le portefeuille. Veuillez réessayer."
+        },
         "actions": {
             "upload": "Téléverser",
             "uploading": "Téléversement...",
@@ -387,6 +397,9 @@
         "fullAccess": "Accès complet",
         "items": "éléments",
         "unlock": "Débloquer",
-        "comingSoon": "Bientôt"
+        "comingSoon": "Bientôt",
+        "connectWalletError": "Veuillez connecter votre portefeuille pour continuer",
+        "noWalletAddress": "Aucune adresse de portefeuille trouvée. Veuillez reconnecter votre portefeuille.",
+        "paymentFailed": "Échec du paiement. Veuillez réessayer."
     }
 }

@@ -294,6 +294,16 @@
             "fileTooLarge": "Dosya çok büyük. Maksimum boyut {size}",
             "fileSelected": "{name} ({size})"
         },
+        "wallet": {
+            "required": "Cüzdan gereklidir",
+            "requiredHint": "Ücretli içerik yayınlamak için bir Stellar cüzdanı bağlayın",
+            "connect": "Cüzdanı bağla",
+            "connected": "Cüzdan bağlandı",
+            "sellerWallet": "Satıcı cüzdanı",
+            "sellerWalletHint": "Ödemelerin gönderileceği Stellar adresi",
+            "connectSuccess": "Cüzdan başarıyla bağlandı",
+            "connectError": "Cüzdan bağlanamadı. Lütfen tekrar deneyin."
+        },
         "actions": {
             "upload": "Yükle",
             "uploading": "Yükleniyor...",
@@ -387,6 +397,9 @@
         "fullAccess": "Tam erişim",
         "items": "öğe",
         "unlock": "Kilidi aç",
-        "comingSoon": "Yakında"
+        "comingSoon": "Yakında",
+        "connectWalletError": "Ödeme yapmak için cüzdanınızı bağlayın.",
+        "noWalletAddress": "Bağlı cüzdan adresi bulunamadı.",
+        "paymentFailed": "Ödeme başarısız oldu. Lütfen tekrar deneyin."
     }
 }

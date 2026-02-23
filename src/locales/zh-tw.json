@@ -294,6 +294,16 @@
             "fileTooLarge": "檔案過大。最大大小為 {size}",
             "fileSelected": "{name}（{size}）"
         },
+        "wallet": {
+            "required": "需要錢包",
+            "requiredHint": "連接 Stellar 錢包以發布付費內容",
+            "connect": "連接錢包",
+            "connected": "錢包已連接",
+            "sellerWallet": "賣家錢包",
+            "sellerWalletHint": "將接收付款的 Stellar 位址",
+            "connectSuccess": "錢包連接成功",
+            "connectError": "無法連接錢包。請再試一次。"
+        },
         "actions": {
             "upload": "上傳",
             "uploading": "上傳中...",
@@ -387,6 +397,9 @@
         "fullAccess": "完整存取",
         "items": "個項目",
         "unlock": "解鎖",
-        "comingSoon": "即將推出"
+        "comingSoon": "即將推出",
+        "connectWalletError": "請連接您的錢包以完成付款。",
+        "noWalletAddress": "找不到已連接的錢包位址。",
+        "paymentFailed": "付款失敗。請再試一次。"
     }
 }

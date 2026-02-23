@@ -294,6 +294,16 @@
             "fileTooLarge": "文件过大。最大大小为 {size}",
             "fileSelected": "{name}（{size}）"
         },
+        "wallet": {
+            "required": "需要连接钱包",
+            "requiredHint": "连接 Stellar 钱包以发布付费内容",
+            "connect": "连接钱包",
+            "connected": "钱包已连接",
+            "sellerWallet": "卖家钱包",
+            "sellerWalletHint": "接收付款的 Stellar 地址",
+            "connectSuccess": "钱包连接成功",
+            "connectError": "无法连接钱包。请重试。"
+        },
         "actions": {
             "upload": "上传",
             "uploading": "上传中...",
@@ -387,6 +397,9 @@
         "fullAccess": "完整访问",
         "items": "个项目",
         "unlock": "解锁",
-        "comingSoon": "即将推出"
+        "comingSoon": "即将推出",
+        "connectWalletError": "请连接您的钱包以完成支付。",
+        "noWalletAddress": "未找到已连接的钱包地址。",
+        "paymentFailed": "支付失败。请重试。"
     }
 }

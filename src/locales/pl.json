@@ -294,6 +294,16 @@
             "fileTooLarge": "Plik jest za duży. Maksymalny rozmiar to {size}",
             "fileSelected": "{name} ({size})"
         },
+        "wallet": {
+            "required": "Dla treści płatnych wymagany jest podłączony portfel",
+            "requiredHint": "Podłącz portfel Stellar, aby otrzymywać płatności za swoje treści.",
+            "connect": "Podłącz portfel",
+            "connected": "Portfel podłączony",
+            "sellerWallet": "Portfel odbiorczy",
+            "sellerWalletHint": "Płatności za tę treść będą wysyłane na ten portfel. Po publikacji nie można go zmienić.",
+            "connectSuccess": "Portfel został pomyślnie podłączony",
+            "connectError": "Nie udało się podłączyć portfela. Spróbuj ponownie."
+        },
         "actions": {
             "upload": "Prześlij",
             "uploading": "Przesyłanie...",
@@ -387,6 +397,9 @@
         "fullAccess": "Pełny dostęp",
         "items": "elementy",
         "unlock": "Odblokuj",
-        "comingSoon": "Wkrótce"
+        "comingSoon": "Wkrótce",
+        "connectWalletError": "Podłącz swój portfel, aby kontynuować",
+        "noWalletAddress": "Nie znaleziono adresu portfela. Podłącz portfel ponownie.",
+        "paymentFailed": "Płatność nie powiodła się. Spróbuj ponownie."
     }
 }
