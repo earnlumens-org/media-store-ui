@@ -70,6 +70,7 @@
   const step = ref<1 | 2>(1)
   const selectedPayment = ref<'wallet' | 'card'>('wallet')
   const isProcessing = ref(false)
+  const isConnecting = ref(false)
   const error = ref<string | null>(null)
 
   // Computed
@@ -80,13 +81,14 @@
 
   const isMobile = computed(() => appStore.mobileView)
 
-  // Reset state when dialog closes/opens
+  // Reset state when dialog opens
   watch(dialogOpen, open => {
     if (open) {
       step.value = 1
       selectedPayment.value = 'wallet'
       error.value = null
       isProcessing.value = false
+      isConnecting.value = false
     }
   })
 
@@ -135,8 +137,34 @@
     return `${price.toFixed(2)} XLM`
   }
 
-  // Go to payment step
-  function goToPayment () {
+  // Go to payment step — requires wallet connection
+  async function goToPayment () {
+    error.value = null
+
+    // If wallet not connected, open SWK modal (it renders above our dialog
+    // thanks to the z-index override in settings.scss)
+    if (!walletStore.isConnected) {
+      isConnecting.value = true
+      try {
+        const connected = await walletStore.connect()
+        if (!connected) {
+          error.value = t('Preview.connectWalletError')
+          return
+        }
+      } catch {
+        error.value = t('Preview.connectWalletError')
+        return
+      } finally {
+        isConnecting.value = false
+      }
+    }
+
+    // Double-check address exists
+    if (!walletStore.activeAddress) {
+      error.value = t('Preview.noWalletAddress')
+      return
+    }
+
     step.value = 2
   }
 
@@ -292,16 +320,32 @@
               <v-list-item-title class="text-body-2">{{ include }}</v-list-item-title>
             </v-list-item>
           </v-list>
+
+          <!-- Error alert (wallet connection failed) -->
+          <v-alert
+            v-if="error"
+            class="mt-4"
+            closable
+            density="compact"
+            type="error"
+            variant="tonal"
+            @click:close="error = null"
+          >
+            {{ error }}
+          </v-alert>
         </v-card-text>
 
         <v-card-actions class="pa-4 pt-0">
           <v-btn
             block
             color="primary"
+            :disabled="isConnecting"
+            :loading="isConnecting"
+            :prepend-icon="walletStore.isConnected ? undefined : 'mdi-wallet'"
             size="large"
             @click="goToPayment"
           >
-            {{ $t('Preview.continueToPayment') }}
+            {{ walletStore.isConnected ? $t('Preview.continueToPayment') : $t('Common.connectWallet') }}
           </v-btn>
         </v-card-actions>
       </template>
@@ -400,7 +444,7 @@
           <v-btn
             block
             color="primary"
-            :disabled="isProcessing"
+            :disabled="isProcessing || !walletStore.isConnected"
             :loading="isProcessing"
             prepend-icon="mdi-lock-open"
             size="large"
@@ -501,16 +545,32 @@
               <v-list-item-title class="text-body-1">{{ include }}</v-list-item-title>
             </v-list-item>
           </v-list>
+
+          <!-- Error alert (wallet connection failed) -->
+          <v-alert
+            v-if="error"
+            class="mt-4"
+            closable
+            density="compact"
+            type="error"
+            variant="tonal"
+            @click:close="error = null"
+          >
+            {{ error }}
+          </v-alert>
         </v-card-text>
 
         <v-card-actions class="pa-6 pt-0">
           <v-btn
             block
             color="primary"
+            :disabled="isConnecting"
+            :loading="isConnecting"
+            :prepend-icon="walletStore.isConnected ? undefined : 'mdi-wallet'"
             size="large"
             @click="goToPayment"
           >
-            {{ $t('Preview.continueToPayment') }}
+            {{ walletStore.isConnected ? $t('Preview.continueToPayment') : $t('Common.connectWallet') }}
           </v-btn>
         </v-card-actions>
       </template>
@@ -609,7 +669,7 @@
           <v-btn
             block
             color="primary"
-            :disabled="isProcessing"
+            :disabled="isProcessing || !walletStore.isConnected"
             :loading="isProcessing"
             prepend-icon="mdi-lock-open"
             size="large"

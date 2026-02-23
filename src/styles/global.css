@@ -1,0 +1,16 @@
+/**
+ * Global application styles.
+ *
+ * Imported in main.ts so they apply across the entire app.
+ */
+
+/**
+ * Stellar Wallets Kit modal z-index override.
+ *
+ * SWK defaults to z-index: 999 (Tailwind z-[999]) but Vuetify dialog
+ * overlays sit at ~2400+.  This pushes the SWK modal above everything,
+ * including Vuetify's v-overlay stack.
+ */
+.stellar-wallets-kit {
+  z-index: 100000 !important;
+}
