@@ -12,7 +12,7 @@
         />
       </router-link>
 
-      <div class="flex-grow-1">
+      <div class="flex-grow-1 overflow-hidden">
         <router-link
           class="text-body-1 font-weight-medium text-medium-emphasis text-decoration-none d-block"
           style="color: inherit"
@@ -32,10 +32,10 @@
 
         <div
           v-if="showAuthor"
-          class="text-body-1 font-weight-medium mt-1 d-flex align-center"
+          class="text-body-1 font-weight-medium mt-1 d-flex align-center overflow-hidden"
         >
           <router-link
-            class="text-decoration-none"
+            class="text-decoration-none text-truncate"
             style="color: inherit"
             :to="`/${collection.authorName}`"
           >
