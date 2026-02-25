@@ -6,8 +6,7 @@
         "loginErrorTitle": "Lỗi đăng nhập",
         "loginErrorDescription": "Có sự cố khi cố gắng đăng nhập. Vui lòng thử lại.",
         "language": "Ngôn ngữ",
-        "darkMode": "Chế độ tối",
-        "themes": "+ Chủ đề",
+        "themes": "Chủ đề",
         "close": "Đóng",
         "pleaseWait": "Vui lòng đợi",
         "operationFailedPleaseTryAgain": "Thao tác thất bại. Vui lòng thử lại",
@@ -77,6 +76,7 @@
         "blocked": "Đã chặn",
         "accept": "Chấp nhận",
         "upload": "Tải lên",
+        "helpCenter": "Trợ giúp",
         "goHome": "Về trang chủ",
         "loadMore": "Tải thêm"
     },
@@ -174,7 +174,7 @@
     "Account": {
         "account": "Tài khoản",
         "followers": "Người theo dõi",
-        "refresh": "Làm mới"
+        "syncHint": "Để cập nhật thông tin hồ sơ, hãy đăng xuất rồi đăng nhập lại."
     },
     "AppBar": {
         "home": "Trang chủ",

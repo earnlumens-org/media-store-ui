@@ -6,8 +6,7 @@
         "loginErrorTitle": "Fehler beim Anmelden",
         "loginErrorDescription": "Beim Anmelden ist ein Problem aufgetreten. Bitte versuche es erneut.",
         "language": "Sprache",
-        "darkMode": "Dunkelmodus",
-        "themes": "+ Themen",
+        "themes": "Themen",
         "close": "Schließen",
         "pleaseWait": "Bitte warten",
         "operationFailedPleaseTryAgain": "Vorgang fehlgeschlagen. Bitte versuche es erneut",
@@ -77,6 +76,7 @@
         "blocked": "Gesperrt",
         "accept": "Akzeptieren",
         "upload": "Hochladen",
+        "helpCenter": "Hilfe",
         "goHome": "Zur Startseite",
         "loadMore": "Mehr laden"
     },
@@ -174,7 +174,7 @@
     "Account": {
         "account": "Konto",
         "followers": "Follower",
-        "refresh": "Aktualisieren"
+        "syncHint": "Um deine Profildaten zu aktualisieren, melde dich ab und erneut an."
     },
     "AppBar": {
         "home": "Startseite",

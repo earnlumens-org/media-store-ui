@@ -6,8 +6,7 @@
         "loginErrorTitle": "Error signing in",
         "loginErrorDescription": "There was a problem trying to sign in. Please try again.",
         "language": "Language",
-        "darkMode": "Dark Mode",
-        "themes": "+ Themes",
+        "themes": "Themes",
         "close": "Close",
         "pleaseWait": "Please wait",
         "operationFailedPleaseTryAgain": "Operation failed. Please try again",
@@ -51,6 +50,7 @@
         "blocked": "Blocked",
         "accept": "Accept",
         "upload": "Upload",
+        "helpCenter": "Help",
         "failedToLoadImage": "Failed to load image",
         "imageNotFound": "Image not found",
         "imageNotFoundDescription": "The image you're looking for doesn't exist or has been removed.",
@@ -174,7 +174,7 @@
     "Account": {
         "account": "Account",
         "followers": "Followers",
-        "refresh": "Refresh"
+        "syncHint": "To update your profile info, log out and sign in again."
     },
     "AppBar": {
         "home": "Home",

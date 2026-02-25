@@ -6,8 +6,7 @@
         "loginErrorTitle": "ログインエラー",
         "loginErrorDescription": "ログインしようとしている際に問題が発生しました。もう一度お試しください。",
         "language": "言語",
-        "darkMode": "ダークモード",
-        "themes": "+ テーマ",
+        "themes": "テーマ",
         "close": "閉じる",
         "pleaseWait": "お待ちください",
         "operationFailedPleaseTryAgain": "操作に失敗しました。もう一度お試しください",
@@ -77,6 +76,7 @@
         "blocked": "ブロック済み",
         "accept": "受け入れる",
         "upload": "アップロード",
+        "helpCenter": "ヘルプ",
         "goHome": "ホームに戻る",
         "loadMore": "もっと読み込む"
     },
@@ -174,7 +174,7 @@
     "Account": {
         "account": "アカウント",
         "followers": "フォロワー",
-        "refresh": "更新"
+        "syncHint": "プロフィール情報を更新するには、ログアウトして再度サインインしてください。"
     },
     "AppBar": {
         "home": "ホームページ",

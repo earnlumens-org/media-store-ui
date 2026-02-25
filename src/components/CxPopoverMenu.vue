@@ -28,46 +28,73 @@
             :prepend-avatar="profileImageUrl"
             :subtitle="username"
             :title="displayName"
-          />
+            @click="goToProfile"
+          >
+            <template #append>
+              <v-icon>mdi-badge-account-outline</v-icon>
+            </template>
+          </v-list-item>
         </v-list>
 
         <v-divider />
 
         <!-- Opciones -->
-        <v-list>
-          <!-- Switch de tema -->
-          <v-list-item>
-            <v-switch
-              color="amber-lighten-1"
-              hide-details
-              :label="$t('Common.darkMode')"
-              :model-value="isDarkMode"
-              @update:model-value="toggleTheme"
-            />
-          </v-list-item>
-
-          <v-list-item>
+        <v-list class="popover-menu-list">
+          <!-- Temas + Dark mode toggle como dos botones independientes -->
+          <div class="d-flex align-center px-2">
             <v-btn
-              class="text-uppercase"
-              color="primary"
+              prepend-icon="mdi-palette-outline"
               variant="text"
+              class="text-none justify-start"
               @click="goToThemes"
             >
               {{ $t('Common.themes') }}
             </v-btn>
-          </v-list-item>
-
-          <!-- Botón subir → abre selector de tipo -->
-          <v-list-item>
+            <v-spacer />
             <v-btn
-              color="primary"
+              icon="mdi-circle-half-full"
+              size="small"
               variant="text"
+              @click="toggleTheme"
+            />
+          </div>
+
+          <!-- Botón subir (resaltado) -->
+          <div class="d-flex align-center px-2">
+            <v-btn
+              prepend-icon="mdi-cloud-upload-outline"
+              variant="text"
+              color="primary"
+              class="text-uppercase font-weight-medium text-none justify-start"
               @click="openUploadDialog"
             >
-              <v-icon class="me-2">mdi-cloud-upload-outline</v-icon>
-              {{ $t("Common.upload") }}
+              {{ $t('Common.upload') }}
             </v-btn>
-          </v-list-item>
+          </div>
+        </v-list>
+
+        <v-divider />
+
+        <v-list class="popover-menu-list">
+          <div class="d-flex align-center px-2">
+            <v-btn
+              prepend-icon="mdi-cog-outline"
+              variant="text"
+              class="text-none justify-start"
+              @click="goToAccount"
+            >
+              {{ $t('Account.account') }}
+            </v-btn>
+          </div>
+          <div class="d-flex align-center px-2">
+            <v-btn
+              prepend-icon="mdi-help-circle-outline"
+              variant="text"
+              class="text-none justify-start"
+            >
+              {{ $t('Common.helpCenter') }}
+            </v-btn>
+          </div>
         </v-list>
 
         <v-divider />
@@ -76,10 +103,12 @@
         <v-card-actions>
           <v-spacer />
           <v-btn
-            color="primary"
+            class="text-uppercase"
+            color="error"
             variant="text"
             @click="handleLogout"
           >
+            <v-icon start>mdi-logout</v-icon>
             {{ $t("Common.logout") }}
           </v-btn>
         </v-card-actions>
@@ -143,6 +172,19 @@
     showUploadDialog.value = true
   }
 
+  function goToAccount () {
+    menu.value = false
+    router.push('/account')
+  }
+
+  function goToProfile () {
+    menu.value = false
+    const name = authStore.user?.username
+    if (name) {
+      router.push(`/${name}`)
+    }
+  }
+
   async function handleLogout () {
     // Prevent re-entrancy (double-click) and show global loading overlay
     if (appStore.isAppLocked) return
@@ -180,3 +222,4 @@
   const username = computed(() => authStore.user?.username ? `@${authStore.user.username}` : '')
   const displayName = computed(() => authStore.user?.displayName ?? '')
 </script>
+

@@ -39,15 +39,25 @@
 
               <v-divider class="mb-4" />
 
-              <v-list density="compact">
-                <v-list-item>
-                  <template #prepend>
-                    <v-icon>mdi-account-group</v-icon>
-                  </template>
-                  <v-list-item-title>{{ $t('Account.followers') }}</v-list-item-title>
-                  <v-list-item-subtitle>{{ user.followersCount?.toLocaleString() ?? 'N/A' }}</v-list-item-subtitle>
-                </v-list-item>
-              </v-list>
+              <div class="d-flex align-center">
+                <v-list density="compact" class="flex-grow-1 pa-0">
+                  <v-list-item>
+                    <template #prepend>
+                      <v-icon>mdi-account-group</v-icon>
+                    </template>
+                    <v-list-item-title>{{ $t('Account.followers') }}</v-list-item-title>
+                    <v-list-item-subtitle>{{ user.followersCount?.toLocaleString() ?? 'N/A' }}</v-list-item-subtitle>
+                  </v-list-item>
+                </v-list>
+                <v-btn class="text-uppercase" color="error" variant="text" @click="handleLogout">
+                  <v-icon start>mdi-logout</v-icon>
+                  {{ $t('Common.logout') }}
+                </v-btn>
+              </div>
+
+              <p class="text-caption text-medium-emphasis mt-6">
+                {{ $t('Account.syncHint') }}
+              </p>
             </div>
 
             <!-- No user -->
@@ -55,36 +65,7 @@
               No user data loaded
             </div>
           </v-card-text>
-
-          <v-card-actions>
-            <v-btn
-              class="text-uppercase"
-              color="primary"
-              :loading="loading"
-              variant="tonal"
-              @click="fetchUser"
-            >
-              <v-icon start>mdi-refresh</v-icon>
-              {{ $t('Account.refresh') }}
-            </v-btn>
-            <v-spacer />
-            <v-btn class="text-uppercase" color="error" variant="text" @click="handleLogout">
-              <v-icon start>mdi-logout</v-icon>
-              {{ $t('Common.logout') }}
-            </v-btn>
-          </v-card-actions>
         </v-card>
-
-        <!-- Debug info -->
-        <v-expansion-panels class="mt-4">
-          <v-expansion-panel title="Debug: Raw API Response">
-            <v-expansion-panel-text>
-              <div style="overflow-x: auto;">
-                <pre class="text-caption" style="white-space: pre;">{{ JSON.stringify(user, null, 2) }}</pre>
-              </div>
-            </v-expansion-panel-text>
-          </v-expansion-panel>
-        </v-expansion-panels>
       </v-col>
     </v-row>
   </v-container>

@@ -6,8 +6,7 @@
         "loginErrorTitle": "Giriş Hatası",
         "loginErrorDescription": "Giriş yaparken bir sorun oluştu. Lütfen tekrar deneyin.",
         "language": "Dil",
-        "darkMode": "Karanlık Mod",
-        "themes": "+ Temalar",
+        "themes": "Temalar",
         "close": "Kapat",
         "pleaseWait": "Lütfen bekleyin",
         "operationFailedPleaseTryAgain": "İşlem başarısız. Lütfen tekrar deneyin",
@@ -77,6 +76,7 @@
         "blocked": "Engellendi",
         "accept": "Kabul et",
         "upload": "Yükle",
+        "helpCenter": "Yardım",
         "goHome": "Ana Sayfaya Git",
         "loadMore": "Daha fazla yükle"
     },
@@ -174,7 +174,7 @@
     "Account": {
         "account": "Hesap",
         "followers": "Takipçiler",
-        "refresh": "Yenile"
+        "syncHint": "Profil bilgilerinizi güncellemek için çıkış yapıp tekrar giriş yapın."
     },
     "AppBar": {
         "home": "Ana Sayfa",

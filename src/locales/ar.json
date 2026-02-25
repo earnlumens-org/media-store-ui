@@ -6,8 +6,7 @@
         "loginErrorTitle": "خطأ في تسجيل الدخول",
         "loginErrorDescription": "كان هناك مشكلة في محاولة تسجيل الدخول. يرجى المحاولة مرة أخرى.",
         "language": "لغة",
-        "darkMode": "الوضع الداكن",
-        "themes": "+ السمات",
+        "themes": "السمات",
         "close": "أغلق",
         "pleaseWait": "يرجى الانتظار",
         "operationFailedPleaseTryAgain": "فشلت العملية. يرجى المحاولة مرة أخرى",
@@ -77,6 +76,7 @@
         "blocked": "محظور",
         "accept": "قبول",
         "upload": "تحميل",
+        "helpCenter": "مساعدة",
         "goHome": "الذهاب إلى الصفحة الرئيسية",
         "loadMore": "تحميل المزيد"
     },
@@ -174,7 +174,7 @@
     "Account": {
         "account": "الحساب",
         "followers": "المتابعون",
-        "refresh": "تحديث"
+        "syncHint": "لتحديث بيانات ملفك الشخصي، سجّل الخروج ثم سجّل الدخول مرة أخرى."
     },
     "AppBar": {
         "home": "الصفحة الرئيسية",

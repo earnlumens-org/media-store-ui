@@ -6,8 +6,7 @@
         "loginErrorTitle": "Erro de login",
         "loginErrorDescription": "Houve um problema ao tentar fazer login. Por favor, tente novamente.",
         "language": "Idioma",
-        "darkMode": "Modo escuro",
-        "themes": "+ Temas",
+        "themes": "Temas",
         "close": "Fechar",
         "pleaseWait": "Por favor espere",
         "operationFailedPleaseTryAgain": "Operação falhou. Por favor, tente novamente",
@@ -77,6 +76,7 @@
         "blocked": "Bloqueado",
         "accept": "Aceitar",
         "upload": "Carregar",
+        "helpCenter": "Ajuda",
         "goHome": "Ir para o início",
         "loadMore": "Carregar mais"
     },
@@ -174,7 +174,7 @@
     "Account": {
         "account": "Conta",
         "followers": "Seguidores",
-        "refresh": "Atualizar"
+        "syncHint": "Para atualizar os dados do seu perfil, saia e entre novamente."
     },
     "AppBar": {
         "home": "Início",

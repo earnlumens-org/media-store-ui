@@ -6,8 +6,7 @@
         "loginErrorTitle": "Erreur de connexion",
         "loginErrorDescription": "Un problème est survenu lors de la tentative de connexion. Veuillez réessayer.",
         "language": "Langue",
-        "darkMode": "Mode sombre",
-        "themes": "+ Thèmes",
+        "themes": "Thèmes",
         "close": "Fermer",
         "pleaseWait": "Veuillez patienter",
         "operationFailedPleaseTryAgain": "L’opération a échoué. Veuillez réessayer",
@@ -77,6 +76,7 @@
         "blocked": "Bloqué",
         "accept": "Accepter",
         "upload": "Télécharger",
+        "helpCenter": "Aide",
         "goHome": "Aller à l'accueil",
         "loadMore": "Charger plus"
     },
@@ -174,7 +174,7 @@
     "Account": {
         "account": "Compte",
         "followers": "Abonnés",
-        "refresh": "Actualiser"
+        "syncHint": "Pour mettre à jour vos informations de profil, déconnectez-vous puis reconnectez-vous."
     },
     "AppBar": {
         "home": "Accueil",

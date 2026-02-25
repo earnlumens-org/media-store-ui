@@ -6,8 +6,7 @@
         "loginErrorTitle": "登錄錯誤",
         "loginErrorDescription": "嘗試登錄時出現問題。請重試。",
         "language": "語言",
-        "darkMode": "深色模式",
-        "themes": "+ 主題",
+        "themes": "主題",
         "close": "關閉",
         "pleaseWait": "請稍候",
         "operationFailedPleaseTryAgain": "操作失敗，請重試",
@@ -77,6 +76,7 @@
         "blocked": "已封鎖",
         "accept": "接受",
         "upload": "上傳",
+        "helpCenter": "幫助",
         "goHome": "返回首頁",
         "loadMore": "載入更多"
     },
@@ -174,7 +174,7 @@
     "Account": {
         "account": "帳戶",
         "followers": "追蹤者",
-        "refresh": "重新整理"
+        "syncHint": "如需更新個人資料，請登出後重新登入。"
     },
     "AppBar": {
         "home": "主頁",

@@ -6,8 +6,7 @@
         "loginErrorTitle": "Błąd logowania",
         "loginErrorDescription": "Wystąpił problem podczas logowania. Spróbuj ponownie.",
         "language": "Język",
-        "darkMode": "Tryb ciemny",
-        "themes": "+ Motywy",
+        "themes": "Motywy",
         "close": "Zamknij",
         "pleaseWait": "Proszę czekać",
         "operationFailedPleaseTryAgain": "Operacja nie powiodła się. Spróbuj ponownie",
@@ -77,6 +76,7 @@
         "blocked": "Zablokowane",
         "accept": "Akceptuj",
         "upload": "Prześlij",
+        "helpCenter": "Pomoc",
         "goHome": "Przejdź do strony głównej",
         "loadMore": "Załaduj więcej"
     },
@@ -174,7 +174,7 @@
     "Account": {
         "account": "Konto",
         "followers": "Obserwujący",
-        "refresh": "Odśwież"
+        "syncHint": "Aby zaktualizować dane profilu, wyloguj się i zaloguj ponownie."
     },
     "AppBar": {
         "home": "Strona główna",

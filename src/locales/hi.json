@@ -6,8 +6,7 @@
         "loginErrorTitle": "लॉग इन में त्रुटि",
         "loginErrorDescription": "लॉग इन करने में समस्या आई। कृपया पुनः प्रयास करें।",
         "language": "भाषा",
-        "darkMode": "डार्क मोड",
-        "themes": "+ थीम्स",
+        "themes": "थीम्स",
         "close": "बंद करे",
         "pleaseWait": "कृपया प्रतीक्षा करें",
         "operationFailedPleaseTryAgain": "ऑपरेशन विफल हुआ। कृपया पुनः प्रयास करें",
@@ -77,6 +76,7 @@
         "blocked": "अवरुद्ध",
         "accept": "स्वीकार करें",
         "upload": "अपलोड करें",
+        "helpCenter": "सहायता",
         "goHome": "घर जाएं",
         "loadMore": "और लोड करें"
     },
@@ -174,7 +174,7 @@
     "Account": {
         "account": "खाता",
         "followers": "फ़ॉलोअर्स",
-        "refresh": "रीफ्रेश"
+        "syncHint": "अपनी प्रोफ़ाइल जानकारी अपडेट करने के लिए, लॉग आउट करें और फिर से साइन इन करें।"
     },
     "AppBar": {
         "home": "होम",

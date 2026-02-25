@@ -6,8 +6,7 @@
         "loginErrorTitle": "Error al iniciar sesión",
         "loginErrorDescription": "Hubo un problema al intentar iniciar sesión. Por favor, inténtelo de nuevo.",
         "language": "Idioma",
-        "darkMode": "Modo oscuro",
-        "themes": "+ Temas",
+        "themes": "Temas",
         "close": "Cerrar",
         "pleaseWait": "Por favor espere",
         "operationFailedPleaseTryAgain": "Operación fallida. Por favor, inténtelo de nuevo.",
@@ -77,6 +76,7 @@
         "blocked": "Bloqueado",
         "accept": "Aceptar",
         "upload": "Subir",
+        "helpCenter": "Ayuda",
         "goHome": "Ir al inicio",
         "loadMore": "Cargar más"
     },
@@ -174,7 +174,7 @@
     "Account": {
         "account": "Cuenta",
         "followers": "Seguidores",
-        "refresh": "Actualizar"
+        "syncHint": "Para actualizar los datos de tu perfil, cierra sesión y vuelve a iniciar."
     },
     "AppBar": {
         "home": "Inicio",

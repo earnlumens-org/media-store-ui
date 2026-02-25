@@ -6,8 +6,7 @@
         "loginErrorTitle": "登录错误",
         "loginErrorDescription": "尝试登录时出现问题。请重试。",
         "language": "语言",
-        "darkMode": "深色模式",
-        "themes": "+ 主题",
+        "themes": "主题",
         "close": "关闭",
         "pleaseWait": "请稍候",
         "operationFailedPleaseTryAgain": "操作失败，请重试",
@@ -77,6 +76,7 @@
         "blocked": "已屏蔽",
         "accept": "接受",
         "upload": "上传",
+        "helpCenter": "帮助",
         "goHome": "返回首页",
         "loadMore": "加载更多"
     },
@@ -174,7 +174,7 @@
     "Account": {
         "account": "账户",
         "followers": "关注者",
-        "refresh": "刷新"
+        "syncHint": "如需更新个人资料，请退出登录后重新登录。"
     },
     "AppBar": {
         "home": "主页",

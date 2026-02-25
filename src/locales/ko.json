@@ -6,8 +6,7 @@
         "loginErrorTitle": "로그인 오류",
         "loginErrorDescription": "로그인하는 중 문제가 발생했습니다. 다시 시도하세요.",
         "language": "언어",
-        "darkMode": "다크 모드",
-        "themes": "+ 테마",
+        "themes": "테마",
         "close": "닫기",
         "pleaseWait": "기다려 주세요",
         "operationFailedPleaseTryAgain": "작업 실패. 다시 시도해주세요",
@@ -77,6 +76,7 @@
         "blocked": "차단됨",
         "accept": "수락",
         "upload": "업로드",
+        "helpCenter": "도움말",
         "goHome": "홈으로 가기",
         "loadMore": "더 불러오기"
     },
@@ -174,7 +174,7 @@
     "Account": {
         "account": "계정",
         "followers": "팔로워",
-        "refresh": "새로고침"
+        "syncHint": "프로필 정보를 업데이트하려면 로그아웃 후 다시 로그인하세요."
     },
     "AppBar": {
         "home": "홈",
