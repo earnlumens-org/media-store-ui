@@ -31,26 +31,36 @@
           </div>
         </router-link>
 
-        <!-- Nombre del autor -->
+        <!-- Nombre del autor + fecha -->
         <div
           v-if="showAuthor"
-          class="text-body-1 font-weight-medium mt-1 d-flex align-center overflow-hidden"
+          class="mt-1 d-flex align-center justify-space-between"
         >
-          <router-link
-            class="text-decoration-none text-truncate"
-            style="color: inherit"
-            :to="`/${entry.authorName}`"
-          >
-            {{ entry.authorName }}
-          </router-link>
-          <v-avatar
-            v-if="profileBadgeSrc"
-            class="ms-2 flex-shrink-0"
-            color="transparent"
-            size="18"
-          >
-            <v-img :src="profileBadgeSrc" />
-          </v-avatar>
+          <div class="d-flex align-center overflow-hidden" style="min-width: 0">
+            <router-link
+              class="text-body-1 font-weight-medium text-decoration-none text-truncate"
+              style="color: inherit"
+              :to="`/${entry.authorName}`"
+            >
+              {{ entry.authorName }}
+            </router-link>
+            <v-avatar
+              v-if="profileBadgeSrc"
+              class="ms-2 flex-shrink-0"
+              color="transparent"
+              size="18"
+            >
+              <v-img :src="profileBadgeSrc" />
+            </v-avatar>
+          </div>
+          <span class="text-caption text-medium-emphasis flex-shrink-0 ms-3 text-no-wrap">{{ formattedDate }}</span>
+        </div>
+        <!-- Solo fecha (sin autor) -->
+        <div
+          v-else
+          class="mt-1 d-flex justify-end"
+        >
+          <span class="text-caption text-medium-emphasis">{{ formattedDate }}</span>
         </div>
       </div>
 
@@ -74,10 +84,6 @@
       </v-menu>
     </v-card-text>
 
-    <!-- Fecha anclada a la esquina inferior derecha -->
-    <div class="position-absolute bottom-0 right-0 mr-2 mb-0 text-caption text-medium-emphasis">
-      {{ formattedDate }}
-    </div>
   </v-sheet>
 </template>
 

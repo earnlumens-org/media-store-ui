@@ -118,6 +118,7 @@
 </template>
 
 <script setup lang="ts">
+  import type { FeedPageModel, FeedRequestParams } from '@/api/api'
   import type { FeedItemModel } from '@/api/api'
 
   import { computed, onMounted, ref } from 'vue'
@@ -130,11 +131,14 @@
     showAuthor?: boolean
     /** Number of items per page */
     pageSize?: number
+    /** Custom feed function (defaults to api.mock.getFeed) */
+    feedFn?: (params: FeedRequestParams) => Promise<FeedPageModel>
   }
 
   const props = withDefaults(defineProps<Props>(), {
     showAuthor: true,
     pageSize: 48,
+    feedFn: undefined,
   })
 
   const feedCache = useFeedCacheStore()
@@ -147,6 +151,8 @@
 
   const hasMorePages = computed(() => currentPage.value < totalPages.value - 1)
 
+  const fetchFeedFn = computed(() => props.feedFn ?? api.mock.getFeed)
+
   function itemKey (item: FeedItemModel) {
     return item.kind === 'entry'
       ? `entry-${item.entry.id}`
@@ -158,7 +164,7 @@
     error.value = false
 
     try {
-      const response = await api.mock.getFeed({
+      const response = await fetchFeedFn.value({
         page: 0,
         size: props.pageSize,
       })
@@ -181,7 +187,7 @@
     }
 
     try {
-      const response = await api.mock.getFeed({
+      const response = await fetchFeedFn.value({
         page: currentPage.value + 1,
         size: props.pageSize,
       })

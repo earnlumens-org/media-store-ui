@@ -31,6 +31,33 @@ export async function getMockFeed (params: FeedRequestParams = {}): Promise<Feed
 }
 
 /**
+ * Get a paginated ecosystem feed (Stellar ecosystem members publishing content).
+ * All authors carry the u2 (gold) verified badge.
+ */
+export async function getMockEcosystemFeed (params: FeedRequestParams = {}): Promise<FeedPageModel> {
+  const response = await axiosClient.get<FeedPageDto>(`${BASE_PATH}/ecosystem/feed`, { params })
+  return mapFeedPageDtoToModel(response.data)
+}
+
+/**
+ * Get a paginated community feed (regular end-users / creators).
+ * All authors carry the u1 (blue) verified badge.
+ */
+export async function getMockCommunityFeed (params: FeedRequestParams = {}): Promise<FeedPageModel> {
+  const response = await axiosClient.get<FeedPageDto>(`${BASE_PATH}/community/feed`, { params })
+  return mapFeedPageDtoToModel(response.data)
+}
+
+/**
+ * Get the First Steps feed — 8 tutorial videos by the official earnlumens account.
+ * Gold (u2) badge, all public.
+ */
+export async function getMockFirstStepsFeed (params: FeedRequestParams = {}): Promise<FeedPageModel> {
+  const response = await axiosClient.get<FeedPageDto>(`${BASE_PATH}/firststeps/feed`, { params })
+  return mapFeedPageDtoToModel(response.data)
+}
+
+/**
  * Get a paginated list of entries only.
  */
 export async function getMockEntries (params: EntriesRequestParams = {}): Promise<FeedPageModel> {

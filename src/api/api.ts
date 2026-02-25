@@ -3,9 +3,12 @@ import { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById }
 import {
   getMockCollectionById,
   getMockCollections,
+  getMockCommunityFeed,
+  getMockEcosystemFeed,
   getMockEntries,
   getMockEntryById,
   getMockFeed,
+  getMockFirstStepsFeed,
 } from './modules/entryMock.api'
 import { preparePayment, submitPayment } from './modules/payment.api'
 import { getPurchases } from './modules/purchase.api'
@@ -50,6 +53,9 @@ export const api = {
   /** Mock API - TODO: Remove when real endpoints are available */
   mock: {
     getFeed: getMockFeed,
+    getCommunityFeed: getMockCommunityFeed,
+    getEcosystemFeed: getMockEcosystemFeed,
+    getFirstStepsFeed: getMockFirstStepsFeed,
     getEntries: getMockEntries,
     getCollections: getMockCollections,
     getEntryById: getMockEntryById,
@@ -63,9 +69,12 @@ export { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById }
 export {
   getMockCollectionById,
   getMockCollections,
+  getMockCommunityFeed,
+  getMockEcosystemFeed,
   getMockEntries,
   getMockEntryById,
   getMockFeed,
+  getMockFirstStepsFeed,
 } from './modules/entryMock.api'
 export { preparePayment, submitPayment } from './modules/payment.api'
 export { getPurchases } from './modules/purchase.api'
