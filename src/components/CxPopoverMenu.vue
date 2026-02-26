@@ -43,9 +43,9 @@
           <!-- Temas + Dark mode toggle como dos botones independientes -->
           <div class="d-flex align-center px-2">
             <v-btn
+              class="text-none justify-start"
               prepend-icon="mdi-palette-outline"
               variant="text"
-              class="text-none justify-start"
               @click="goToThemes"
             >
               {{ $t('Common.themes') }}
@@ -62,10 +62,10 @@
           <!-- Botón subir (resaltado) -->
           <div class="d-flex align-center px-2">
             <v-btn
+              class="text-uppercase font-weight-medium text-none justify-start"
+              color="primary"
               prepend-icon="mdi-cloud-upload-outline"
               variant="text"
-              color="primary"
-              class="text-uppercase font-weight-medium text-none justify-start"
               @click="openUploadDialog"
             >
               {{ $t('Common.upload') }}
@@ -78,9 +78,9 @@
         <v-list class="popover-menu-list">
           <div class="d-flex align-center px-2">
             <v-btn
+              class="text-none justify-start"
               prepend-icon="mdi-cog-outline"
               variant="text"
-              class="text-none justify-start"
               @click="goToAccount"
             >
               {{ $t('Account.account') }}
@@ -88,9 +88,9 @@
           </div>
           <div class="d-flex align-center px-2">
             <v-btn
+              class="text-none justify-start"
               prepend-icon="mdi-help-circle-outline"
               variant="text"
-              class="text-none justify-start"
             >
               {{ $t('Common.helpCenter') }}
             </v-btn>
@@ -222,4 +222,3 @@
   const username = computed(() => authStore.user?.username ? `@${authStore.user.username}` : '')
   const displayName = computed(() => authStore.user?.displayName ?? '')
 </script>
-
