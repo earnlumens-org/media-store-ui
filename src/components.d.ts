@@ -44,6 +44,7 @@ declare module 'vue' {
     MediaFrame: typeof import('./components/media/MediaFrame.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ShakaVideoPlayer: typeof import('./components/media/ShakaVideoPlayer.vue')['default']
     Theme: typeof import('./components/themes/Theme.vue')['default']
     ThemeCard: typeof import('./components/themes/ThemeCard.vue')['default']
     UploadAssetPicker: typeof import('./components/upload/UploadAssetPicker.vue')['default']

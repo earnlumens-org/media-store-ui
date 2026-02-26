@@ -215,35 +215,12 @@
           xl="9"
         >
           <v-container class="pa-0 pa-md-4" fluid>
-            <!-- Video Player Area -->
-            <v-responsive :aspect-ratio="16 / 9" class="bg-black rounded-0 rounded-md-lg overflow-hidden">
-              <div class="d-flex align-center justify-center h-100 position-relative">
-                <!-- Thumbnail with play overlay (placeholder for actual player) -->
-                <v-img
-                  v-if="entry.thumbnailUrl"
-                  class="w-100 h-100 position-absolute"
-                  cover
-                  :src="entry.thumbnailUrl"
-                />
-                <v-sheet
-                  v-else
-                  class="w-100 h-100 position-absolute d-flex align-center justify-center"
-                  color="grey-darken-3"
-                >
-                  <v-icon color="grey" size="80">mdi-video-outline</v-icon>
-                </v-sheet>
-
-                <!-- Play button overlay -->
-                <v-btn
-                  aria-label="Play video"
-                  class="elevation-4"
-                  color="white"
-                  icon="mdi-play"
-                  size="x-large"
-                  variant="flat"
-                />
-              </div>
-            </v-responsive>
+            <!-- Video Player (Shaka Player) -->
+            <ShakaVideoPlayer
+              v-if="mediaUrl"
+              :poster="entry.thumbnailUrl"
+              :src="mediaUrl"
+            />
 
             <!-- Video Metadata -->
             <v-sheet class="pa-4" color="transparent">
@@ -444,6 +421,7 @@
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import ShakaVideoPlayer from '@/components/media/ShakaVideoPlayer.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { usePurchasesStore } from '@/stores/purchases'
 
