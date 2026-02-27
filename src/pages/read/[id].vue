@@ -574,7 +574,7 @@
     if (ct.startsWith('text/')) return ct.replace('text/', '').toUpperCase()
     // Extract subtype from MIME
     const parts = ct.split('/')
-    return parts.length > 1 ? parts[1].toUpperCase() : ct.toUpperCase()
+    return parts.length > 1 ? parts[1]!.toUpperCase() : ct.toUpperCase()
   }
 
   // Format count with K suffix
