@@ -218,7 +218,6 @@
             <!-- Video Player (Shaka Player) -->
             <ShakaVideoPlayer
               v-if="mediaUrl"
-              :poster="entry.thumbnailUrl"
               :src="mediaUrl"
             />
 

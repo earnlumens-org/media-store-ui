@@ -187,12 +187,12 @@
       // Load the media source
       await player.load(props.src)
 
-      // Auto-play if requested
-      if (props.autoplay && videoRef.value) {
+      // Auto-play immediately after load (YouTube behavior)
+      if (videoRef.value) {
         try {
           await videoRef.value.play()
         } catch {
-          // Autoplay blocked by browser policy — user must interact first
+          // Autoplay blocked by browser policy — user must click play manually
         }
       }
     } catch (error: unknown) {
