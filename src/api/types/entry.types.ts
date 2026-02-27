@@ -7,7 +7,7 @@
 
 export interface PublicEntryDto {
   id: string
-  type: 'video' | 'audio' | 'image' | 'entry' | 'file'
+  type: 'video' | 'audio' | 'image' | 'resource'
   title: string
   description?: string
   authorName: string
@@ -33,7 +33,7 @@ export interface PublicEntryPageDto {
 
 export interface PublicEntryModel {
   id: string
-  type: 'video' | 'audio' | 'image' | 'entry' | 'file'
+  type: 'video' | 'audio' | 'image' | 'resource'
   title: string
   description?: string
   authorName: string
@@ -63,7 +63,7 @@ export interface PublicEntryRequestParams {
 }
 
 export interface UserEntryRequestParams {
-  type?: 'video' | 'audio' | 'image' | 'entry' | 'file'
+  type?: 'video' | 'audio' | 'image' | 'resource'
   page?: number
   size?: number
 }

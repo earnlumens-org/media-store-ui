@@ -43,7 +43,7 @@
       avatar?: string
     }
     price: number
-    type: 'video' | 'audio' | 'image' | 'entry' | 'collection'
+    type: 'video' | 'audio' | 'image' | 'resource' | 'collection'
     thumbnail?: string
     /** What's included in the purchase */
     includes?: string[]
@@ -98,10 +98,10 @@
       video: 'mdi-play-circle',
       audio: 'mdi-music-circle',
       image: 'mdi-image',
-      entry: 'mdi-file-document',
+      resource: 'mdi-file-document',
       collection: 'mdi-folder-multiple-image',
     }
-    return icons[props.item?.type || 'entry'] || 'mdi-file'
+    return icons[props.item?.type || 'resource'] || 'mdi-file'
   })
 
   // Type label mapping
@@ -110,10 +110,10 @@
       video: t('Preview.videoType'),
       audio: t('Preview.audioType'),
       image: t('Preview.imageType'),
-      entry: t('Preview.entryType'),
+      resource: t('Preview.resourceType'),
       collection: t('Preview.collectionType'),
     }
-    return labels[props.item?.type || 'entry'] || t('Preview.contentType')
+    return labels[props.item?.type || 'resource'] || t('Preview.contentType')
   })
 
   // Default "includes" based on type
@@ -125,7 +125,7 @@
       video: [t('Preview.fullHDStreaming'), t('Preview.downloadMultipleFormats'), t('Preview.lifetimeAccess')],
       audio: [t('Preview.highQualityAudio'), t('Preview.downloadForOffline'), t('Preview.lifetimeAccess')],
       image: [t('Preview.fullResolutionDownload'), t('Preview.commercialUseLicense'), t('Preview.lifetimeAccess')],
-      entry: [t('Preview.fullArticleAccess'), t('Preview.futureUpdates'), t('Preview.supportTheCreator')],
+      resource: [t('Preview.fullResourceAccess'), t('Preview.futureUpdates'), t('Preview.supportTheCreator')],
       collection: [t('Preview.accessToAllItems'), t('Preview.futureAdditionsIncluded'), t('Preview.lifetimeAccess')],
     }
 

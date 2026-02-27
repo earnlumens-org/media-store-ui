@@ -236,12 +236,11 @@
             "video": "Video",
             "audio": "Ses",
             "image": "Görseller",
-            "article": "Makaleler",
-            "file": "Dosyalar"
+            "resource": "Kaynaklar"
         },
         "noEntries": "Henüz girdi yok",
         "noEntriesFiltered": "Henüz {type} girdisi yok",
-        "noPosts": "Henüz gönderi yok"
+        "noResources": "Henüz kaynak yok"
     },
     "Upload": {
         "createNew": "Yeni oluştur",
@@ -250,15 +249,13 @@
             "video": "Video",
             "audio": "Ses",
             "image": "Görsel",
-            "post": "Gönderi",
-            "file": "Dosya"
+            "resource": "Kaynak"
         },
         "typeDescription": {
             "video": "Yayın için bir video yükleyin",
             "audio": "Bir müzik parçası veya podcast paylaşın",
             "image": "Bir fotoğraf veya illüstrasyon paylaşın",
-            "post": "Bir metin makalesi veya blog yazısı yazın",
-            "file": "PDF, ZIP veya başka bir dosya yükleyin"
+            "resource": "Bir makale yazın ve/veya ek dosyalar yükleyin (PDF, ZIP, vb.)"
         },
         "pageTitle": "{type} Yükle",
         "form": {
@@ -275,9 +272,9 @@
             "pricePlaceholder": "0.00",
             "priceRequired": "Ücretli içerik için fiyat gereklidir",
             "pricePositive": "Fiyat 0'dan büyük olmalıdır",
-            "postContent": "İçerik",
-            "postContentPlaceholder": "Gönderi içeriğinizi buraya yazın...",
-            "postContentRequired": "Gönderi içeriği gereklidir"
+            "resourceContent": "İçerik",
+            "resourceContentPlaceholder": "İçeriğinizi buraya yazın (isteğe bağlı)...",
+            "resourceContentRequired": "İçerik gereklidir"
         },
         "assets": {
             "thumbnail": "Küçük resim",
@@ -378,7 +375,6 @@
         "videoType": "Video",
         "audioType": "Ses parçası",
         "imageType": "Görsel",
-        "entryType": "Makale",
         "collectionType": "Koleksiyon",
         "contentType": "İçerik",
         "fullHDStreaming": "Full HD yayın",
@@ -389,7 +385,6 @@
         "downloadForOffline": "Çevrimdışı için indir",
         "fullResolutionDownload": "Tam çözünürlükte indir",
         "commercialUseLicense": "Ticari kullanım lisansı",
-        "fullArticleAccess": "Tam makale erişimi",
         "futureUpdates": "Gelecek güncellemeler",
         "noAdsExperience": "Reklamsız deneyim",
         "accessToAllItems": "Tüm öğelere erişim",
@@ -401,7 +396,9 @@
         "comingSoon": "Yakında",
         "connectWalletError": "Ödeme yapmak için cüzdanınızı bağlayın.",
         "noWalletAddress": "Bağlı cüzdan adresi bulunamadı.",
-        "paymentFailed": "Ödeme başarısız oldu. Lütfen tekrar deneyin."
+        "paymentFailed": "Ödeme başarısız oldu. Lütfen tekrar deneyin.",
+        "resourceType": "Kaynak",
+        "fullResourceAccess": "Tam kaynak erişimi"
     },
     "Purchased": {
         "title": "Satın Alımlarım",

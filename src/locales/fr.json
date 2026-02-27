@@ -236,12 +236,11 @@
             "video": "Vidéos",
             "audio": "Audio",
             "image": "Images",
-            "article": "Articles",
-            "file": "Fichiers"
+            "resource": "Ressources"
         },
         "noEntries": "Aucune entrée pour le moment",
         "noEntriesFiltered": "Aucune entrée {type} pour le moment",
-        "noPosts": "Aucune publication pour le moment"
+        "noResources": "Aucune ressource pour le moment"
     },
     "Upload": {
         "createNew": "Créer",
@@ -250,15 +249,13 @@
             "video": "Vidéo",
             "audio": "Audio",
             "image": "Image",
-            "post": "Publication",
-            "file": "Fichier"
+            "resource": "Ressource"
         },
         "typeDescription": {
             "video": "Téléversez une vidéo pour le streaming",
             "audio": "Partagez un morceau de musique ou un podcast",
             "image": "Partagez une photo ou une illustration",
-            "post": "Rédigez un article texte ou un billet de blog",
-            "file": "Téléversez un PDF, un ZIP ou un autre fichier"
+            "resource": "Rédigez un article et/ou joignez des fichiers (PDF, ZIP, etc.)"
         },
         "pageTitle": "Téléverser {type}",
         "form": {
@@ -275,9 +272,9 @@
             "pricePlaceholder": "0.00",
             "priceRequired": "Le prix est requis pour le contenu payant",
             "pricePositive": "Le prix doit être supérieur à 0",
-            "postContent": "Contenu",
-            "postContentPlaceholder": "Écrivez le contenu de votre publication ici...",
-            "postContentRequired": "Le contenu de la publication est requis"
+            "resourceContent": "Contenu",
+            "resourceContentPlaceholder": "Rédigez votre contenu ici (optionnel)...",
+            "resourceContentRequired": "Le contenu est requis"
         },
         "assets": {
             "thumbnail": "Miniature",
@@ -378,7 +375,6 @@
         "videoType": "Vidéo",
         "audioType": "Piste audio",
         "imageType": "Image",
-        "entryType": "Article",
         "collectionType": "Collection",
         "contentType": "Contenu",
         "fullHDStreaming": "Streaming Full HD",
@@ -389,7 +385,6 @@
         "downloadForOffline": "Téléchargement hors ligne",
         "fullResolutionDownload": "Téléchargement en pleine résolution",
         "commercialUseLicense": "Licence d'utilisation commerciale",
-        "fullArticleAccess": "Accès complet à l'article",
         "futureUpdates": "Mises à jour futures",
         "noAdsExperience": "Expérience sans publicité",
         "accessToAllItems": "Accès à tous les éléments",
@@ -401,7 +396,9 @@
         "comingSoon": "Bientôt",
         "connectWalletError": "Veuillez connecter votre portefeuille pour continuer",
         "noWalletAddress": "Aucune adresse de portefeuille trouvée. Veuillez reconnecter votre portefeuille.",
-        "paymentFailed": "Échec du paiement. Veuillez réessayer."
+        "paymentFailed": "Échec du paiement. Veuillez réessayer.",
+        "resourceType": "Ressource",
+        "fullResourceAccess": "Accès complet à la ressource"
     },
     "Purchased": {
         "title": "Mes achats",

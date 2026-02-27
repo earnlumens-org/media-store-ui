@@ -236,12 +236,11 @@
             "video": "Videos",
             "audio": "Audio",
             "image": "Bilder",
-            "article": "Artikel",
-            "file": "Dateien"
+            "resource": "Ressourcen"
         },
         "noEntries": "Noch keine Einträge",
         "noEntriesFiltered": "Noch keine {type}-Einträge",
-        "noPosts": "Noch keine Beiträge"
+        "noResources": "Noch keine Ressourcen"
     },
     "Upload": {
         "createNew": "Neu erstellen",
@@ -250,15 +249,13 @@
             "video": "Video",
             "audio": "Audio",
             "image": "Bild",
-            "post": "Beitrag",
-            "file": "Datei"
+            "resource": "Ressource"
         },
         "typeDescription": {
             "video": "Lade ein Video zum Streamen hoch",
             "audio": "Teile einen Musiktitel oder Podcast",
             "image": "Teile ein Foto oder eine Illustration",
-            "post": "Schreibe einen Textartikel oder Blogpost",
-            "file": "Lade eine PDF-, ZIP- oder andere Datei hoch"
+            "resource": "Schreibe einen Artikel und/oder lade Anhänge hoch (PDF, ZIP, etc.)"
         },
         "pageTitle": "{type} hochladen",
         "form": {
@@ -275,9 +272,9 @@
             "pricePlaceholder": "0.00",
             "priceRequired": "Für bezahlte Inhalte ist ein Preis erforderlich",
             "pricePositive": "Der Preis muss größer als 0 sein",
-            "postContent": "Inhalt",
-            "postContentPlaceholder": "Schreibe hier den Inhalt deines Beitrags...",
-            "postContentRequired": "Beitragsinhalt ist erforderlich"
+            "resourceContent": "Inhalt",
+            "resourceContentPlaceholder": "Schreibe deinen Inhalt hier (optional)...",
+            "resourceContentRequired": "Inhalt ist erforderlich"
         },
         "assets": {
             "thumbnail": "Vorschaubild",
@@ -378,7 +375,6 @@
         "videoType": "Video",
         "audioType": "Audiospur",
         "imageType": "Bild",
-        "entryType": "Artikel",
         "collectionType": "Sammlung",
         "contentType": "Inhalt",
         "fullHDStreaming": "Full HD Streaming",
@@ -389,7 +385,6 @@
         "downloadForOffline": "Download für offline",
         "fullResolutionDownload": "Download in voller Auflösung",
         "commercialUseLicense": "Kommerzielle Nutzungslizenz",
-        "fullArticleAccess": "Vollständiger Artikelzugang",
         "futureUpdates": "Zukünftige Updates",
         "noAdsExperience": "Werbefreies Erlebnis",
         "accessToAllItems": "Zugang zu allen Elementen",
@@ -401,7 +396,9 @@
         "comingSoon": "Demnächst",
         "connectWalletError": "Bitte verbinde deine Wallet, um fortzufahren",
         "noWalletAddress": "Keine Wallet-Adresse gefunden. Bitte verbinde deine Wallet erneut.",
-        "paymentFailed": "Zahlung fehlgeschlagen. Bitte versuche es erneut."
+        "paymentFailed": "Zahlung fehlgeschlagen. Bitte versuche es erneut.",
+        "resourceType": "Ressource",
+        "fullResourceAccess": "Vollständiger Ressourcen-Zugang"
     },
     "Purchased": {
         "title": "Meine Käufe",

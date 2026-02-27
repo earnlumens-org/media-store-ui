@@ -6,7 +6,7 @@ import type { Entry } from './EntryCard.vue'
  * video  → /watch/:id
  * audio  → /listen/:id
  * image  → /view/:id
- * entry  → /read/:id
+ * resource  → /read/:id
  */
 export function getEntryRoute (entry: Entry): string {
   if (entry.locked) {
@@ -16,7 +16,7 @@ export function getEntryRoute (entry: Entry): string {
     case 'video': { return `/watch/${entry.id}` }
     case 'audio': { return `/listen/${entry.id}` }
     case 'image': { return `/view/${entry.id}` }
-    case 'entry': { return `/read/${entry.id}` }
+    case 'resource': { return `/read/${entry.id}` }
     default: { return `/preview/${entry.id}` }
   }
 }

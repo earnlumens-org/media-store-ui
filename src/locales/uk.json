@@ -236,12 +236,11 @@
             "video": "Відео",
             "audio": "Аудіо",
             "image": "Зображення",
-            "article": "Статті",
-            "file": "Файли"
+            "resource": "Ресурси"
         },
         "noEntries": "Поки що немає записів",
         "noEntriesFiltered": "Поки що немає записів типу {type}",
-        "noPosts": "Поки що немає постів"
+        "noResources": "Ресурсів ще немає"
     },
     "Upload": {
         "createNew": "Створити нове",
@@ -250,15 +249,13 @@
             "video": "Відео",
             "audio": "Аудіо",
             "image": "Зображення",
-            "post": "Пост",
-            "file": "Файл"
+            "resource": "Ресурс"
         },
         "typeDescription": {
             "video": "Завантажте відео для потокового відтворення",
             "audio": "Поділіться музичним треком або подкастом",
             "image": "Поділіться фото або ілюстрацією",
-            "post": "Напишіть текстову статтю або пост у блозі",
-            "file": "Завантажте PDF, ZIP або інший файл"
+            "resource": "Напишіть статтю та/або завантажте вкладення (PDF, ZIP тощо)"
         },
         "pageTitle": "Завантажити {type}",
         "form": {
@@ -275,9 +272,9 @@
             "pricePlaceholder": "0.00",
             "priceRequired": "Для платного контенту потрібна ціна",
             "pricePositive": "Ціна має бути більшою за 0",
-            "postContent": "Вміст",
-            "postContentPlaceholder": "Напишіть вміст вашого поста тут...",
-            "postContentRequired": "Вміст поста обов’язковий"
+            "resourceContent": "Вміст",
+            "resourceContentPlaceholder": "Напишіть вміст тут (необовʼязково)...",
+            "resourceContentRequired": "Вміст є обовʼязковим"
         },
         "assets": {
             "thumbnail": "Мініатюра",
@@ -378,7 +375,6 @@
         "videoType": "Відео",
         "audioType": "Аудіодоріжка",
         "imageType": "Зображення",
-        "entryType": "Стаття",
         "collectionType": "Колекція",
         "contentType": "Вміст",
         "fullHDStreaming": "Потокова передача Full HD",
@@ -389,7 +385,6 @@
         "downloadForOffline": "Завантаження для офлайн",
         "fullResolutionDownload": "Завантаження в повній роздільності",
         "commercialUseLicense": "Ліцензія на комерційне використання",
-        "fullArticleAccess": "Повний доступ до статті",
         "futureUpdates": "Майбутні оновлення",
         "noAdsExperience": "Без реклами",
         "accessToAllItems": "Доступ до всіх елементів",
@@ -401,7 +396,9 @@
         "comingSoon": "Незабаром",
         "connectWalletError": "Будь ласка, підключіть ваш гаманець, щоб здійснити оплату.",
         "noWalletAddress": "Не знайдено адреси підключеного гаманця.",
-        "paymentFailed": "Оплата не вдалася. Будь ласка, спробуйте ще раз."
+        "paymentFailed": "Оплата не вдалася. Будь ласка, спробуйте ще раз.",
+        "resourceType": "Ресурс",
+        "fullResourceAccess": "Повний доступ до ресурсу"
     },
     "Purchased": {
         "title": "Мої покупки",

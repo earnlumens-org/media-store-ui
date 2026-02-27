@@ -726,7 +726,7 @@
         imageLightboxOpen.value = true
         break
       }
-      case 'entry': {
+      case 'resource': {
         // Short/Long threshold: ≤600 chars = modal, >600 = page
         // Since we don't have content length, default to modal for quick preview
         // In production, check item.content?.length

@@ -236,12 +236,11 @@
             "video": "動画",
             "audio": "音声",
             "image": "画像",
-            "article": "記事",
-            "file": "ファイル"
+            "resource": "リソース"
         },
         "noEntries": "まだエントリーがありません",
         "noEntriesFiltered": "まだ{type}のエントリーがありません",
-        "noPosts": "まだ投稿がありません"
+        "noResources": "まだリソースがありません"
     },
     "Upload": {
         "createNew": "新規作成",
@@ -250,15 +249,13 @@
             "video": "動画",
             "audio": "音声",
             "image": "画像",
-            "post": "投稿",
-            "file": "ファイル"
+            "resource": "リソース"
         },
         "typeDescription": {
             "video": "ストリーミング用の動画をアップロード",
             "audio": "音楽トラックやポッドキャストを共有",
             "image": "写真やイラストを共有",
-            "post": "テキスト記事やブログ投稿を書く",
-            "file": "PDF、ZIP、その他のファイルをアップロード"
+            "resource": "記事を書く、またはファイルを添付（PDF、ZIPなど）"
         },
         "pageTitle": "{type} をアップロード",
         "form": {
@@ -275,9 +272,9 @@
             "pricePlaceholder": "0.00",
             "priceRequired": "有料コンテンツには価格の設定が必要です",
             "pricePositive": "価格は0より大きい値にしてください",
-            "postContent": "本文",
-            "postContentPlaceholder": "ここに投稿内容を入力...",
-            "postContentRequired": "本文は必須です"
+            "resourceContent": "本文",
+            "resourceContentPlaceholder": "コンテンツをここに入力（任意）...",
+            "resourceContentRequired": "コンテンツは必須です"
         },
         "assets": {
             "thumbnail": "サムネイル",
@@ -378,7 +375,6 @@
         "videoType": "動画",
         "audioType": "オーディオトラック",
         "imageType": "画像",
-        "entryType": "記事",
         "collectionType": "コレクション",
         "contentType": "コンテンツ",
         "fullHDStreaming": "Full HDストリーミング",
@@ -389,7 +385,6 @@
         "downloadForOffline": "オフライン用にダウンロード",
         "fullResolutionDownload": "フル解像度ダウンロード",
         "commercialUseLicense": "商用利用ライセンス",
-        "fullArticleAccess": "記事への完全アクセス",
         "futureUpdates": "今後のアップデート",
         "noAdsExperience": "広告なし体験",
         "accessToAllItems": "すべてのアイテムへのアクセス",
@@ -401,7 +396,9 @@
         "comingSoon": "近日公開",
         "connectWalletError": "続行するにはウォレットを接続してください",
         "noWalletAddress": "ウォレットアドレスが見つかりません。ウォレットを再接続してください。",
-        "paymentFailed": "支払いに失敗しました。もう一度お試しください。"
+        "paymentFailed": "支払いに失敗しました。もう一度お試しください。",
+        "resourceType": "リソース",
+        "fullResourceAccess": "リソースへの完全アクセス"
     },
     "Purchased": {
         "title": "購入済み",

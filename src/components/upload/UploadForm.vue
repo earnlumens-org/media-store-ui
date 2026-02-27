@@ -52,15 +52,14 @@
                   variant="outlined"
                 />
 
-                <!-- Post content (only for post type) -->
+                <!-- Resource content (optional text for resource type) -->
                 <v-textarea
-                  v-if="contentType === 'post'"
-                  v-model="form.postContent"
+                  v-if="contentType === 'resource'"
+                  v-model="form.resourceContent"
                   class="mt-2"
-                  :label="t('Upload.form.postContent')"
-                  :placeholder="t('Upload.form.postContentPlaceholder')"
+                  :label="t('Upload.form.resourceContent')"
+                  :placeholder="t('Upload.form.resourceContentPlaceholder')"
                   rows="8"
-                  :rules="postContentRules"
                   variant="outlined"
                 />
 
@@ -132,8 +131,8 @@
                       class="mt-2"
                       density="compact"
                       hide-details
-                      :model-value="walletStore.activeAddress"
                       :label="t('Upload.wallet.sellerWallet')"
+                      :model-value="walletStore.activeAddress"
                       readonly
                       variant="outlined"
                     >
@@ -151,8 +150,8 @@
 
             <!-- Right column: assets -->
             <v-col cols="12" md="5">
-              <!-- Full content (not for post) -->
-              <v-card v-if="contentType !== 'post'" class="pa-4 mb-4">
+              <!-- Full content (always shown, optional for resource) -->
+              <v-card class="pa-4 mb-4">
                 <div class="text-subtitle-2 mb-1">
                   {{ t('Upload.assets.fullContent') }}
                   <span class="text-error">*</span>
@@ -309,7 +308,7 @@
   const form = reactive({
     title: '',
     description: '',
-    postContent: '',
+    resourceContent: '',
     isPaid: false,
     priceXlm: null as number | null,
   })
@@ -335,8 +334,9 @@
     if (!form.title.trim()) return false
     // Paid content requires a connected wallet
     if (form.isPaid && !walletStore.isConnected) return false
-    if (props.contentType === 'post') {
-      return !!form.postContent.trim()
+    if (props.contentType === 'resource') {
+      // Resource requires text content OR a file (at least one)
+      return !!form.resourceContent.trim() || !!assets.full
     }
     return !!assets.full
   })
@@ -347,7 +347,7 @@
 
   const canSubmitForReview = computed(() => {
     if (!entryCreated.value) return false
-    if (props.contentType === 'post') return true
+    if (props.contentType === 'resource') return true
     return fullAssetUploaded.value
   })
 
@@ -360,10 +360,6 @@
 
   const descriptionRules = [
     (v: string) => !v || v.length <= 2000 || t('Upload.form.descriptionMaxLength'),
-  ]
-
-  const postContentRules = [
-    (v: string) => !!v.trim() || t('Upload.form.postContentRequired'),
   ]
 
   const priceRules = [
@@ -417,7 +413,12 @@
       return
     }
 
-    if (props.contentType !== 'post' && !assets.full) {
+    if (props.contentType === 'resource' && !assets.full && !form.resourceContent.trim()) {
+      showSnackbar(t('Upload.errors.noFullAsset'), 'error')
+      return
+    }
+
+    if (props.contentType !== 'resource' && !assets.full) {
       showSnackbar(t('Upload.errors.noFullAsset'), 'error')
       return
     }

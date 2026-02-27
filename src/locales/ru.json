@@ -236,12 +236,11 @@
             "video": "Видео",
             "audio": "Аудио",
             "image": "Изображения",
-            "article": "Статьи",
-            "file": "Файлы"
+            "resource": "Ресурсы"
         },
         "noEntries": "Пока нет записей",
         "noEntriesFiltered": "Пока нет записей типа {type}",
-        "noPosts": "Пока нет постов"
+        "noResources": "Пока нет ресурсов"
     },
     "Upload": {
         "createNew": "Создать",
@@ -250,15 +249,13 @@
             "video": "Видео",
             "audio": "Аудио",
             "image": "Изображение",
-            "post": "Пост",
-            "file": "Файл"
+            "resource": "Ресурс"
         },
         "typeDescription": {
             "video": "Загрузите видео для стриминга",
             "audio": "Поделитесь музыкальным треком или подкастом",
             "image": "Поделитесь фотографией или иллюстрацией",
-            "post": "Напишите текстовую статью или пост в блоге",
-            "file": "Загрузите PDF, ZIP или другой файл"
+            "resource": "Напишите статью и/или загрузите вложения (PDF, ZIP и т.д.)"
         },
         "pageTitle": "Загрузить {type}",
         "form": {
@@ -275,9 +272,9 @@
             "pricePlaceholder": "0.00",
             "priceRequired": "Для платного контента требуется цена",
             "pricePositive": "Цена должна быть больше 0",
-            "postContent": "Содержимое",
-            "postContentPlaceholder": "Напишите содержимое поста здесь...",
-            "postContentRequired": "Содержимое поста обязательно"
+            "resourceContent": "Содержимое",
+            "resourceContentPlaceholder": "Напишите содержимое здесь (необязательно)...",
+            "resourceContentRequired": "Содержимое обязательно"
         },
         "assets": {
             "thumbnail": "Миниатюра",
@@ -378,7 +375,6 @@
         "videoType": "Видео",
         "audioType": "Аудиодорожка",
         "imageType": "Изображение",
-        "entryType": "Статья",
         "collectionType": "Коллекция",
         "contentType": "Контент",
         "fullHDStreaming": "Потоковая передача Full HD",
@@ -389,7 +385,6 @@
         "downloadForOffline": "Загрузка для офлайн",
         "fullResolutionDownload": "Загрузка в полном разрешении",
         "commercialUseLicense": "Лицензия на коммерческое использование",
-        "fullArticleAccess": "Полный доступ к статье",
         "futureUpdates": "Будущие обновления",
         "noAdsExperience": "Без рекламы",
         "accessToAllItems": "Доступ ко всем элементам",
@@ -401,7 +396,9 @@
         "comingSoon": "Скоро",
         "connectWalletError": "Подключите кошелёк, чтобы продолжить",
         "noWalletAddress": "Адрес кошелька не найден. Пожалуйста, подключите кошелёк снова.",
-        "paymentFailed": "Платёж не прошёл. Пожалуйста, попробуйте ещё раз."
+        "paymentFailed": "Платёж не прошёл. Пожалуйста, попробуйте ещё раз.",
+        "resourceType": "Ресурс",
+        "fullResourceAccess": "Полный доступ к ресурсу"
     },
     "Purchased": {
         "title": "Мои покупки",

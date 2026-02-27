@@ -236,12 +236,11 @@
             "video": "مقاطع الفيديو",
             "audio": "الصوت",
             "image": "الصور",
-            "article": "المقالات",
-            "file": "الملفات"
+            "resource": "الموارد"
         },
         "noEntries": "لا توجد إدخالات بعد",
         "noEntriesFiltered": "لا توجد إدخالات {type} بعد",
-        "noPosts": "لا توجد منشورات بعد"
+        "noResources": "لا توجد موارد بعد"
     },
     "Upload": {
         "createNew": "إنشاء جديد",
@@ -250,15 +249,13 @@
             "video": "فيديو",
             "audio": "صوت",
             "image": "صورة",
-            "post": "منشور",
-            "file": "ملف"
+            "resource": "مورد"
         },
         "typeDescription": {
             "video": "حمّل فيديو للبث",
             "audio": "شارك مقطعًا موسيقيًا أو بودكاست",
             "image": "شارك صورة أو رسماً توضيحيًا",
-            "post": "اكتب مقالاً نصيًا أو منشورًا في المدونة",
-            "file": "حمّل ملف PDF أو ZIP أو أي ملف آخر"
+            "resource": "اكتب مقالاً و/أو أرفق ملفات (PDF, ZIP, إلخ)"
         },
         "pageTitle": "تحميل {type}",
         "form": {
@@ -275,9 +272,9 @@
             "pricePlaceholder": "0.00",
             "priceRequired": "السعر مطلوب للمحتوى المدفوع",
             "pricePositive": "يجب أن يكون السعر أكبر من 0",
-            "postContent": "المحتوى",
-            "postContentPlaceholder": "اكتب محتوى منشورك هنا...",
-            "postContentRequired": "محتوى المنشور مطلوب"
+            "resourceContent": "المحتوى",
+            "resourceContentPlaceholder": "اكتب المحتوى هنا (اختياري)...",
+            "resourceContentRequired": "المحتوى مطلوب"
         },
         "assets": {
             "thumbnail": "صورة مصغّرة",
@@ -378,7 +375,6 @@
         "videoType": "فيديو",
         "audioType": "مقطع صوتي",
         "imageType": "صورة",
-        "entryType": "مقال",
         "collectionType": "مجموعة",
         "contentType": "محتوى",
         "fullHDStreaming": "بث بدقة Full HD",
@@ -389,7 +385,6 @@
         "downloadForOffline": "تحميل للاستخدام بدون اتصال",
         "fullResolutionDownload": "تحميل بالدقة الكاملة",
         "commercialUseLicense": "ترخيص للاستخدام التجاري",
-        "fullArticleAccess": "الوصول الكامل للمقال",
         "futureUpdates": "التحديثات المستقبلية",
         "noAdsExperience": "تجربة بدون إعلانات",
         "accessToAllItems": "الوصول لجميع العناصر",
@@ -401,7 +396,9 @@
         "comingSoon": "قريبًا",
         "connectWalletError": "يرجى توصيل محفظتك للمتابعة",
         "noWalletAddress": "لم يتم العثور على عنوان محفظة. يرجى إعادة توصيل محفظتك.",
-        "paymentFailed": "فشلت عملية الدفع. يرجى المحاولة مرة أخرى."
+        "paymentFailed": "فشلت عملية الدفع. يرجى المحاولة مرة أخرى.",
+        "resourceType": "مورد",
+        "fullResourceAccess": "الوصول الكامل للمورد"
     },
     "Purchased": {
         "title": "مشترياتي",

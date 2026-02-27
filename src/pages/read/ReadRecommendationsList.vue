@@ -151,7 +151,7 @@
       }
 
       const response = await api.entries.getByUser(props.authorName, {
-        type: 'entry',
+        type: 'resource',
         size: 10,
       })
 

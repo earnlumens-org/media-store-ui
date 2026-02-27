@@ -29,7 +29,7 @@
 
   export interface Entry {
     id: string
-    type: 'video' | 'audio' | 'entry' | 'image'
+    type: 'video' | 'audio' | 'resource' | 'image'
     title: string
     authorName: string
     authorAvatarUrl?: string
@@ -58,7 +58,7 @@
       case 'audio': {
         return EntryMediaAudio
       }
-      case 'entry': {
+      case 'resource': {
         return EntryMediaEntry
       }
       case 'image': {

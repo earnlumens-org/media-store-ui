@@ -156,7 +156,7 @@
     const isUnlocked = item.isPaid && purchasesStore.isUnlocked(item.id)
     return {
       id: item.id,
-      type: item.type === 'file' ? 'entry' : item.type,
+      type: item.type,
       title: item.title,
       authorName: item.authorName,
       authorAvatarUrl: item.authorAvatarUrl,
@@ -175,7 +175,7 @@
     for (const item of items) {
       const entry: EntryModel = {
         id: item.id,
-        type: item.type === 'file' ? 'entry' : item.type,
+        type: item.type,
         title: item.title,
         authorName: item.authorName,
         authorAvatarUrl: item.authorAvatarUrl,

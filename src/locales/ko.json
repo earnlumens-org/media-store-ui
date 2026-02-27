@@ -236,12 +236,11 @@
             "video": "비디오",
             "audio": "오디오",
             "image": "이미지",
-            "article": "기사",
-            "file": "파일"
+            "resource": "리소스"
         },
         "noEntries": "아직 엔트리가 없습니다",
         "noEntriesFiltered": "아직 {type} 엔트리가 없습니다",
-        "noPosts": "아직 게시물이 없습니다"
+        "noResources": "아직 리소스가 없습니다"
     },
     "Upload": {
         "createNew": "새로 만들기",
@@ -250,15 +249,13 @@
             "video": "비디오",
             "audio": "오디오",
             "image": "이미지",
-            "post": "게시물",
-            "file": "파일"
+            "resource": "리소스"
         },
         "typeDescription": {
             "video": "스트리밍용 비디오를 업로드하세요",
             "audio": "음악 트랙 또는 팟캐스트를 공유하세요",
             "image": "사진 또는 일러스트를 공유하세요",
-            "post": "텍스트 글 또는 블로그 게시물을 작성하세요",
-            "file": "PDF, ZIP 또는 기타 파일을 업로드하세요"
+            "resource": "글을 작성하거나 첨부 파일을 업로드하세요 (PDF, ZIP 등)"
         },
         "pageTitle": "{type} 업로드",
         "form": {
@@ -275,9 +272,9 @@
             "pricePlaceholder": "0.00",
             "priceRequired": "유료 콘텐츠에는 가격이 필요합니다",
             "pricePositive": "가격은 0보다 커야 합니다",
-            "postContent": "내용",
-            "postContentPlaceholder": "여기에 게시물 내용을 작성하세요...",
-            "postContentRequired": "게시물 내용은 필수입니다"
+            "resourceContent": "내용",
+            "resourceContentPlaceholder": "내용을 입력하세요 (선택사항)...",
+            "resourceContentRequired": "내용이 필요합니다"
         },
         "assets": {
             "thumbnail": "썸네일",
@@ -378,7 +375,6 @@
         "videoType": "비디오",
         "audioType": "오디오 트랙",
         "imageType": "이미지",
-        "entryType": "글",
         "collectionType": "컬렉션",
         "contentType": "콘텐츠",
         "fullHDStreaming": "Full HD 스트리밍",
@@ -389,7 +385,6 @@
         "downloadForOffline": "오프라인용 다운로드",
         "fullResolutionDownload": "전체 해상도 다운로드",
         "commercialUseLicense": "상업적 사용 라이선스",
-        "fullArticleAccess": "전체 글 접근",
         "futureUpdates": "향후 업데이트",
         "noAdsExperience": "광고 없는 경험",
         "accessToAllItems": "모든 항목 접근",
@@ -401,7 +396,9 @@
         "comingSoon": "출시 예정",
         "connectWalletError": "계속하려면 지갑을 연결해주세요",
         "noWalletAddress": "지갑 주소를 찾을 수 없습니다. 지갑을 다시 연결해주세요.",
-        "paymentFailed": "결제에 실패했습니다. 다시 시도해주세요."
+        "paymentFailed": "결제에 실패했습니다. 다시 시도해주세요.",
+        "resourceType": "리소스",
+        "fullResourceAccess": "전체 리소스 접근"
     },
     "Purchased": {
         "title": "내 구매",

@@ -128,7 +128,7 @@
   function toEntryCardProps (item: PurchasedEntryModel): Entry {
     return {
       id: item.id,
-      type: item.type === 'file' ? 'entry' : item.type,
+      type: item.type,
       title: item.title,
       authorName: item.authorName,
       authorAvatarUrl: item.authorAvatarUrl,

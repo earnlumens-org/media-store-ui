@@ -4,7 +4,7 @@
 
 // ==================== Entry types ====================
 
-export type EntryType = 'VIDEO' | 'AUDIO' | 'IMAGE' | 'ARTICLE' | 'FILE'
+export type EntryType = 'VIDEO' | 'AUDIO' | 'IMAGE' | 'RESOURCE'
 
 export type EntryStatus = 'DRAFT' | 'IN_REVIEW' | 'APPROVED' | 'PUBLISHED' | 'REJECTED'
 
@@ -65,7 +65,7 @@ export interface FinalizeUploadResponse {
 // ==================== UI helper types ====================
 
 /** Lowercase content type used in query params and UI routing */
-export type UploadContentType = 'video' | 'audio' | 'image' | 'post' | 'file'
+export type UploadContentType = 'video' | 'audio' | 'image' | 'resource'
 
 /** Maps UI content type to backend EntryType */
 export function toEntryType (uiType: UploadContentType): EntryType {
@@ -73,22 +73,20 @@ export function toEntryType (uiType: UploadContentType): EntryType {
     video: 'VIDEO',
     audio: 'AUDIO',
     image: 'IMAGE',
-    post: 'ARTICLE',
-    file: 'FILE',
+    resource: 'RESOURCE',
   }
   return map[uiType] ?? 'VIDEO'
 }
 
 /** Valid UI content types */
-export const UPLOAD_CONTENT_TYPES: UploadContentType[] = ['video', 'audio', 'image', 'post', 'file']
+export const UPLOAD_CONTENT_TYPES: UploadContentType[] = ['video', 'audio', 'image', 'resource']
 
 /** Accepted MIME types per content type for the full asset */
 export const ACCEPTED_MIMES: Record<UploadContentType, string> = {
   video: 'video/mp4,video/webm,video/quicktime',
   audio: 'audio/mpeg,audio/wav,audio/ogg,audio/flac,audio/mp4',
   image: 'image/jpeg,image/png,image/webp,image/gif',
-  post: '',
-  file: '*/*',
+  resource: '*/*',
 }
 
 /** Accepted MIME types for thumbnails */
@@ -99,8 +97,7 @@ export const MAX_FILE_SIZES: Record<UploadContentType, number> = {
   video: 5 * 1024 * 1024 * 1024, // 5 GB
   audio: 500 * 1024 * 1024, // 500 MB
   image: 50 * 1024 * 1024, // 50 MB
-  post: 0, // no file upload
-  file: 2 * 1024 * 1024 * 1024, // 2 GB
+  resource: 2 * 1024 * 1024 * 1024, // 2 GB
 }
 
 export const MAX_THUMBNAIL_SIZE = 10 * 1024 * 1024 // 10 MB

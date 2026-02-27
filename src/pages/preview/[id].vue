@@ -320,9 +320,9 @@
               </v-overlay>
             </v-sheet>
 
-            <!-- ENTRY Preview: First 200 chars excerpt -->
+            <!-- RESOURCE Preview: First 200 chars excerpt -->
             <v-card
-              v-else-if="contentType === 'entry'"
+              v-else-if="contentType === 'resource'"
               class="rounded-0 rounded-md-lg"
               variant="flat"
             >
@@ -654,9 +654,9 @@
   const profileBadgeSrc = computed(() => getProfileBadgeSrc(content.value?.profileBadge))
 
   // Computed content type
-  const contentType = computed((): 'video' | 'audio' | 'image' | 'entry' | 'collection' => {
+  const contentType = computed((): 'video' | 'audio' | 'image' | 'resource' | 'collection' => {
     if (collectionData.value) return 'collection'
-    return content.value?.type || 'entry'
+    return content.value?.type || 'resource'
   })
 
   // Price: use real price when available, fall back to type-based defaults
@@ -666,7 +666,7 @@
       video: 5,
       audio: 2.5,
       image: 1,
-      entry: 3,
+      resource: 3,
       collection: 10,
     }
     return defaults[contentType.value] || 3
@@ -684,10 +684,10 @@
       video: [t('Preview.fullHDStreaming'), t('Preview.downloadMultipleFormats'), t('Preview.lifetimeAccess'), t('Preview.supportTheCreator')],
       audio: [t('Preview.highQualityAudio'), t('Preview.downloadForOffline'), t('Preview.lifetimeAccess'), t('Preview.supportTheCreator')],
       image: [t('Preview.fullResolutionDownload'), t('Preview.commercialUseLicense'), t('Preview.lifetimeAccess'), t('Preview.supportTheCreator')],
-      entry: [t('Preview.fullArticleAccess'), t('Preview.futureUpdates'), t('Preview.noAdsExperience'), t('Preview.supportTheCreator')],
+      resource: [t('Preview.fullResourceAccess'), t('Preview.futureUpdates'), t('Preview.noAdsExperience'), t('Preview.supportTheCreator')],
       collection: [t('Preview.accessToAllItems'), t('Preview.futureAdditionsIncluded'), t('Preview.bulkDiscountApplied'), t('Preview.lifetimeAccess')],
     }
-    return benefits[contentType.value] || benefits.entry
+    return benefits[contentType.value] || benefits.resource
   })
 
   // Checkout item for dialog
@@ -715,7 +715,7 @@
     video: '/watch',
     audio: '/listen',
     image: '/view',
-    entry: '/read',
+    resource: '/read',
     collection: '/collection',
   }
 
@@ -752,7 +752,7 @@
     // Check if already purchased - redirect to destination
     if (purchasesStore.isUnlocked(contentId.value)) {
       const purchase = purchasesStore.getPurchase(contentId.value)
-      const targetRoute = destinationRoutes[purchase?.type || 'entry'] || '/read'
+      const targetRoute = destinationRoutes[purchase?.type || 'resource'] || '/read'
       router.replace(`${targetRoute}/${contentId.value}`)
       return
     }
@@ -775,7 +775,7 @@
       // Map PublicEntryModel → EntryModel for the view
       content.value = {
         id: data.id,
-        type: data.type === 'file' ? 'entry' : data.type,
+        type: data.type,
         title: data.title,
         authorName: data.authorName,
         authorAvatarUrl: data.authorAvatarUrl,

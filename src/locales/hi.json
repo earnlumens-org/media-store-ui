@@ -236,12 +236,11 @@
             "video": "वीडियो",
             "audio": "ऑडियो",
             "image": "चित्र",
-            "article": "लेख",
-            "file": "फ़ाइलें"
+            "resource": "संसाधन"
         },
         "noEntries": "अभी कोई एंट्री नहीं",
         "noEntriesFiltered": "अभी कोई {type} एंट्री नहीं",
-        "noPosts": "अभी कोई पोस्ट नहीं"
+        "noResources": "अभी कोई संसाधन नहीं"
     },
     "Upload": {
         "createNew": "नया बनाएँ",
@@ -250,15 +249,13 @@
             "video": "वीडियो",
             "audio": "ऑडियो",
             "image": "चित्र",
-            "post": "पोस्ट",
-            "file": "फ़ाइल"
+            "resource": "संसाधन"
         },
         "typeDescription": {
             "video": "स्ट्रीमिंग के लिए वीडियो अपलोड करें",
             "audio": "संगीत ट्रैक या पॉडकास्ट साझा करें",
             "image": "एक फ़ोटो या चित्रण साझा करें",
-            "post": "टेक्स्ट लेख या ब्लॉग पोस्ट लिखें",
-            "file": "PDF, ZIP या अन्य फ़ाइल अपलोड करें"
+            "resource": "एक लेख लिखें और/या अनुलग्नक अपलोड करें (PDF, ZIP, आदि)"
         },
         "pageTitle": "{type} अपलोड करें",
         "form": {
@@ -275,9 +272,9 @@
             "pricePlaceholder": "0.00",
             "priceRequired": "पेड सामग्री के लिए कीमत आवश्यक है",
             "pricePositive": "कीमत 0 से अधिक होनी चाहिए",
-            "postContent": "सामग्री",
-            "postContentPlaceholder": "अपनी पोस्ट की सामग्री यहाँ लिखें...",
-            "postContentRequired": "पोस्ट की सामग्री आवश्यक है"
+            "resourceContent": "सामग्री",
+            "resourceContentPlaceholder": "अपनी सामग्री यहाँ लिखें (वैकल्पिक)...",
+            "resourceContentRequired": "सामग्री आवश्यक है"
         },
         "assets": {
             "thumbnail": "थंबनेल",
@@ -378,7 +375,6 @@
         "videoType": "वीडियो",
         "audioType": "ऑडियो ट्रैक",
         "imageType": "छवि",
-        "entryType": "लेख",
         "collectionType": "संग्रह",
         "contentType": "सामग्री",
         "fullHDStreaming": "Full HD स्ट्रीमिंग",
@@ -389,7 +385,6 @@
         "downloadForOffline": "ऑफलाइन के लिए डाउनलोड",
         "fullResolutionDownload": "पूर्ण रिज़ॉल्यूशन डाउनलोड",
         "commercialUseLicense": "व्यावसायिक उपयोग लाइसेंस",
-        "fullArticleAccess": "पूर्ण लेख पहुंच",
         "futureUpdates": "भविष्य के अपडेट",
         "noAdsExperience": "विज्ञापन-मुक्त अनुभव",
         "accessToAllItems": "सभी आइटम तक पहुंच",
@@ -401,7 +396,9 @@
         "comingSoon": "जल्द आ रहा है",
         "connectWalletError": "कृपया जारी रखने के लिए अपना वॉलेट कनेक्ट करें",
         "noWalletAddress": "कोई वॉलेट पता नहीं मिला। कृपया अपना वॉलेट फिर से कनेक्ट करें।",
-        "paymentFailed": "भुगतान विफल हुआ। कृपया पुनः प्रयास करें।"
+        "paymentFailed": "भुगतान विफल हुआ। कृपया पुनः प्रयास करें।",
+        "resourceType": "संसाधन",
+        "fullResourceAccess": "पूर्ण संसाधन पहुंच"
     },
     "Purchased": {
         "title": "मेरी खरीदारी",

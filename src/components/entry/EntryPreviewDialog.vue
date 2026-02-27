@@ -103,8 +103,8 @@
     errorMessage.value = ''
 
     try {
-      // Force type 'entry' for this component
-      const data = await api.mock.getEntryById(props.entryId, 'entry')
+      // Force type 'resource' for this component
+      const data = await api.mock.getEntryById(props.entryId, 'resource')
       entry.value = data
     } catch (error_: unknown) {
       console.error('[EntryPreviewDialog] Failed to fetch entry:', error_)

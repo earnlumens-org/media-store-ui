@@ -236,12 +236,11 @@
             "video": "Video",
             "audio": "Âm thanh",
             "image": "Hình ảnh",
-            "article": "Bài viết",
-            "file": "Tệp"
+            "resource": "Tài nguyên"
         },
         "noEntries": "Chưa có mục nào",
         "noEntriesFiltered": "Chưa có mục {type} nào",
-        "noPosts": "Chưa có bài đăng nào"
+        "noResources": "Chưa có tài nguyên nào"
     },
     "Upload": {
         "createNew": "Tạo mới",
@@ -250,15 +249,13 @@
             "video": "Video",
             "audio": "Âm thanh",
             "image": "Hình ảnh",
-            "post": "Bài viết",
-            "file": "Tệp"
+            "resource": "Tài nguyên"
         },
         "typeDescription": {
             "video": "Tải lên video để phát trực tuyến",
             "audio": "Chia sẻ bản nhạc hoặc podcast",
             "image": "Chia sẻ ảnh hoặc minh hoạ",
-            "post": "Viết bài dạng văn bản hoặc bài blog",
-            "file": "Tải lên PDF, ZIP hoặc tệp khác"
+            "resource": "Viết bài và/hoặc tải lên tệp đính kèm (PDF, ZIP, v.v.)"
         },
         "pageTitle": "Tải lên {type}",
         "form": {
@@ -275,9 +272,9 @@
             "pricePlaceholder": "0.00",
             "priceRequired": "Giá là bắt buộc đối với nội dung trả phí",
             "pricePositive": "Giá phải lớn hơn 0",
-            "postContent": "Nội dung",
-            "postContentPlaceholder": "Viết nội dung bài đăng của bạn tại đây...",
-            "postContentRequired": "Nội dung bài đăng là bắt buộc"
+            "resourceContent": "Nội dung",
+            "resourceContentPlaceholder": "Viết nội dung của bạn tại đây (tùy chọn)...",
+            "resourceContentRequired": "Nội dung là bắt buộc"
         },
         "assets": {
             "thumbnail": "Hình thu nhỏ",
@@ -378,7 +375,6 @@
         "videoType": "Video",
         "audioType": "Bản nhạc",
         "imageType": "Hình ảnh",
-        "entryType": "Bài viết",
         "collectionType": "Bộ sưu tập",
         "contentType": "Nội dung",
         "fullHDStreaming": "Phát trực tuyến Full HD",
@@ -389,7 +385,6 @@
         "downloadForOffline": "Tải xuống để dùng ngoại tuyến",
         "fullResolutionDownload": "Tải xuống độ phân giải đầy đủ",
         "commercialUseLicense": "Giấy phép sử dụng thương mại",
-        "fullArticleAccess": "Truy cập đầy đủ bài viết",
         "futureUpdates": "Cập nhật trong tương lai",
         "noAdsExperience": "Trải nghiệm không quảng cáo",
         "accessToAllItems": "Truy cập tất cả các mục",
@@ -401,7 +396,9 @@
         "comingSoon": "Sắp ra mắt",
         "connectWalletError": "Vui lòng kết nối ví của bạn để thanh toán.",
         "noWalletAddress": "Không tìm thấy địa chỉ ví đã kết nối.",
-        "paymentFailed": "Thanh toán thất bại. Vui lòng thử lại."
+        "paymentFailed": "Thanh toán thất bại. Vui lòng thử lại.",
+        "resourceType": "Tài nguyên",
+        "fullResourceAccess": "Truy cập đầy đủ tài nguyên"
     },
     "Purchased": {
         "title": "Mua hàng của tôi",

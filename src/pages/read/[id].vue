@@ -500,8 +500,8 @@
         return
       }
 
-      // Validate entry type is entry (text post)
-      if (data.type !== 'entry') {
+      // Validate entry type is resource (text/resource)
+      if (data.type !== 'resource') {
         const typeRoutes: Record<string, string> = {
           video: '/watch',
           audio: '/listen',

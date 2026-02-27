@@ -7,7 +7,7 @@
 
 export interface PurchasedEntryDto {
   id: string
-  type: 'video' | 'audio' | 'image' | 'entry' | 'file'
+  type: 'video' | 'audio' | 'image' | 'resource'
   title: string
   description?: string
   authorName: string
@@ -34,7 +34,7 @@ export interface PurchasedEntryPageDto {
 
 export interface PurchasedEntryModel {
   id: string
-  type: 'video' | 'audio' | 'image' | 'entry' | 'file'
+  type: 'video' | 'audio' | 'image' | 'resource'
   title: string
   description?: string
   authorName: string

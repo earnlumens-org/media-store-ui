@@ -236,12 +236,11 @@
             "video": "Videos",
             "audio": "Audio",
             "image": "Images",
-            "article": "Articles",
-            "file": "Files"
+            "resource": "Resources"
         },
         "noEntries": "No entries yet",
         "noEntriesFiltered": "No {type} entries yet",
-        "noPosts": "No posts yet"
+        "noResources": "No resources yet"
     },
     "Purchased": {
         "title": "My Purchases",
@@ -261,15 +260,13 @@
             "video": "Video",
             "audio": "Audio",
             "image": "Image",
-            "post": "Post",
-            "file": "File"
+            "resource": "Resource"
         },
         "typeDescription": {
             "video": "Upload a video for streaming",
             "audio": "Share a music track or podcast",
             "image": "Share a photo or illustration",
-            "post": "Write a text article or blog post",
-            "file": "Upload a PDF, ZIP, or other file"
+            "resource": "Write an article and/or upload attachments (PDF, ZIP, etc.)"
         },
         "pageTitle": "Upload {type}",
         "form": {
@@ -286,9 +283,9 @@
             "pricePlaceholder": "0.00",
             "priceRequired": "Price is required for paid content",
             "pricePositive": "Price must be greater than 0",
-            "postContent": "Content",
-            "postContentPlaceholder": "Write your post content here...",
-            "postContentRequired": "Post content is required"
+            "resourceContent": "Content",
+            "resourceContentPlaceholder": "Write your content here (optional)...",
+            "resourceContentRequired": "Content is required"
         },
         "assets": {
             "thumbnail": "Thumbnail",
@@ -389,7 +386,6 @@
         "videoType": "Video",
         "audioType": "Audio Track",
         "imageType": "Image",
-        "entryType": "Article",
         "collectionType": "Collection",
         "contentType": "Content",
         "fullHDStreaming": "Full HD streaming",
@@ -400,7 +396,6 @@
         "downloadForOffline": "Download for offline",
         "fullResolutionDownload": "Full resolution download",
         "commercialUseLicense": "Commercial use license",
-        "fullArticleAccess": "Full article access",
         "futureUpdates": "Future updates",
         "noAdsExperience": "No ads experience",
         "accessToAllItems": "Access to all items",
@@ -412,6 +407,8 @@
         "comingSoon": "Coming soon",
         "connectWalletError": "Please connect your wallet to continue",
         "noWalletAddress": "No wallet address found. Please reconnect your wallet.",
-        "paymentFailed": "Payment failed. Please try again."
+        "paymentFailed": "Payment failed. Please try again.",
+        "resourceType": "Resource",
+        "fullResourceAccess": "Full resource access"
     }
 }

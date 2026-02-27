@@ -105,13 +105,9 @@
             <v-icon start>mdi-image</v-icon>
             {{ $t('Profile.tabs.image') }}
           </v-tab>
-          <v-tab value="article">
+          <v-tab value="resource">
             <v-icon start>mdi-text-box</v-icon>
-            {{ $t('Profile.tabs.article') }}
-          </v-tab>
-          <v-tab value="file">
-            <v-icon start>mdi-file</v-icon>
-            {{ $t('Profile.tabs.file') }}
+            {{ $t('Profile.tabs.resource') }}
           </v-tab>
         </v-tabs>
 
@@ -234,7 +230,7 @@
     const isUnlocked = item.isPaid && purchasesStore.isUnlocked(item.id)
     return {
       id: item.id,
-      type: item.type === 'file' ? 'entry' : item.type,
+      type: item.type,
       title: item.title,
       authorName: item.authorName,
       authorAvatarUrl: item.authorAvatarUrl,
@@ -253,7 +249,7 @@
     entries.value = []
 
     try {
-      const typeFilter = activeTab.value === 'all' ? undefined : activeTab.value as 'video' | 'audio' | 'image' | 'entry' | 'file'
+      const typeFilter = activeTab.value === 'all' ? undefined : activeTab.value as 'video' | 'audio' | 'image' | 'resource'
       const response = await api.entries.getByUser(requestedUsername.value, {
         type: typeFilter,
         page: 0,
@@ -273,7 +269,7 @@
   async function loadMore () {
     loadingMore.value = true
     try {
-      const typeFilter = activeTab.value === 'all' ? undefined : activeTab.value as 'video' | 'audio' | 'image' | 'entry' | 'file'
+      const typeFilter = activeTab.value === 'all' ? undefined : activeTab.value as 'video' | 'audio' | 'image' | 'resource'
       const response = await api.entries.getByUser(requestedUsername.value, {
         type: typeFilter,
         page: currentPage.value + 1,

@@ -236,12 +236,11 @@
             "video": "Video",
             "audio": "Audio",
             "image": "Imej",
-            "article": "Artikel",
-            "file": "Fail"
+            "resource": "Sumber"
         },
         "noEntries": "Belum ada entri",
         "noEntriesFiltered": "Belum ada entri {type}",
-        "noPosts": "Belum ada kiriman"
+        "noResources": "Belum ada sumber"
     },
     "Upload": {
         "createNew": "Cipta baharu",
@@ -250,15 +249,13 @@
             "video": "Video",
             "audio": "Audio",
             "image": "Imej",
-            "post": "Kiriman",
-            "file": "Fail"
+            "resource": "Sumber"
         },
         "typeDescription": {
             "video": "Muat naik video untuk penstriman",
             "audio": "Kongsi trek muzik atau podcast",
             "image": "Kongsi foto atau ilustrasi",
-            "post": "Tulis artikel teks atau kiriman blog",
-            "file": "Muat naik PDF, ZIP, atau fail lain"
+            "resource": "Tulis artikel dan/atau muat naik lampiran (PDF, ZIP, dll.)"
         },
         "pageTitle": "Muat naik {type}",
         "form": {
@@ -275,9 +272,9 @@
             "pricePlaceholder": "0.00",
             "priceRequired": "Harga diperlukan untuk kandungan berbayar",
             "pricePositive": "Harga mesti lebih besar daripada 0",
-            "postContent": "Kandungan",
-            "postContentPlaceholder": "Tulis kandungan kiriman anda di sini...",
-            "postContentRequired": "Kandungan kiriman diperlukan"
+            "resourceContent": "Kandungan",
+            "resourceContentPlaceholder": "Tulis kandungan anda di sini (pilihan)...",
+            "resourceContentRequired": "Kandungan diperlukan"
         },
         "assets": {
             "thumbnail": "Gambar kecil",
@@ -378,7 +375,6 @@
         "videoType": "Video",
         "audioType": "Trek audio",
         "imageType": "Imej",
-        "entryType": "Artikel",
         "collectionType": "Koleksi",
         "contentType": "Kandungan",
         "fullHDStreaming": "Penstriman Full HD",
@@ -389,7 +385,6 @@
         "downloadForOffline": "Muat turun untuk luar talian",
         "fullResolutionDownload": "Muat turun resolusi penuh",
         "commercialUseLicense": "Lesen penggunaan komersial",
-        "fullArticleAccess": "Akses artikel penuh",
         "futureUpdates": "Kemas kini akan datang",
         "noAdsExperience": "Pengalaman tanpa iklan",
         "accessToAllItems": "Akses kepada semua item",
@@ -401,7 +396,9 @@
         "comingSoon": "Akan datang",
         "connectWalletError": "Sila sambungkan dompet anda untuk meneruskan",
         "noWalletAddress": "Tiada alamat dompet ditemui. Sila sambungkan semula dompet anda.",
-        "paymentFailed": "Pembayaran gagal. Sila cuba lagi."
+        "paymentFailed": "Pembayaran gagal. Sila cuba lagi.",
+        "resourceType": "Sumber",
+        "fullResourceAccess": "Akses sumber penuh"
     },
     "Purchased": {
         "title": "Pembelian Saya",

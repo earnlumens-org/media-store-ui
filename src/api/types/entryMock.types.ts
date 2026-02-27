@@ -5,7 +5,7 @@ import type { ProfileBadge } from '@/lib/profileBadge'
 export interface EntryDto {
   kind: 'entry'
   id: string
-  type: 'video' | 'audio' | 'entry' | 'image'
+  type: 'video' | 'audio' | 'resource' | 'image'
   title: string
   authorName: string
   authorAvatarUrl?: string
@@ -45,7 +45,7 @@ export interface FeedPageDto {
 
 export interface EntryModel {
   id: string
-  type: 'video' | 'audio' | 'entry' | 'image'
+  type: 'video' | 'audio' | 'resource' | 'image'
   title: string
   authorName: string
   authorAvatarUrl?: string
@@ -88,7 +88,7 @@ export interface FeedRequestParams {
 }
 
 export interface EntriesRequestParams extends FeedRequestParams {
-  type?: 'video' | 'audio' | 'entry' | 'image'
+  type?: 'video' | 'audio' | 'resource' | 'image'
 }
 
 export interface CollectionsRequestParams extends FeedRequestParams {

@@ -62,8 +62,7 @@
     { value: 'video', icon: 'mdi-video-outline' },
     { value: 'audio', icon: 'mdi-music-note' },
     { value: 'image', icon: 'mdi-image-outline' },
-    { value: 'post', icon: 'mdi-text-box-outline' },
-    { value: 'file', icon: 'mdi-file-outline' },
+    { value: 'resource', icon: 'mdi-text-box-outline' },
   ]
 
   const resolvedType = computed<UploadContentType | null>(() => {

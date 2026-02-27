@@ -236,12 +236,11 @@
             "video": "Wideo",
             "audio": "Audio",
             "image": "Obrazy",
-            "article": "Artykuły",
-            "file": "Pliki"
+            "resource": "Zasoby"
         },
         "noEntries": "Brak wpisów",
         "noEntriesFiltered": "Brak wpisów typu {type}",
-        "noPosts": "Brak postów"
+        "noResources": "Brak zasobów"
     },
     "Upload": {
         "createNew": "Utwórz nowy",
@@ -250,15 +249,13 @@
             "video": "Wideo",
             "audio": "Audio",
             "image": "Obraz",
-            "post": "Post",
-            "file": "Plik"
+            "resource": "Zasób"
         },
         "typeDescription": {
             "video": "Prześlij wideo do streamingu",
             "audio": "Udostępnij utwór muzyczny lub podcast",
             "image": "Udostępnij zdjęcie lub ilustrację",
-            "post": "Napisz artykuł tekstowy lub wpis na blogu",
-            "file": "Prześlij PDF, ZIP lub inny plik"
+            "resource": "Napisz artykuł i/lub prześlij załączniki (PDF, ZIP, itp.)"
         },
         "pageTitle": "Prześlij {type}",
         "form": {
@@ -275,9 +272,9 @@
             "pricePlaceholder": "0.00",
             "priceRequired": "Cena jest wymagana dla treści płatnych",
             "pricePositive": "Cena musi być większa niż 0",
-            "postContent": "Treść",
-            "postContentPlaceholder": "Napisz tutaj treść posta...",
-            "postContentRequired": "Treść posta jest wymagana"
+            "resourceContent": "Treść",
+            "resourceContentPlaceholder": "Wpisz swoją treść tutaj (opcjonalnie)...",
+            "resourceContentRequired": "Treść jest wymagana"
         },
         "assets": {
             "thumbnail": "Miniatura",
@@ -378,7 +375,6 @@
         "videoType": "Wideo",
         "audioType": "Ścieżka audio",
         "imageType": "Obraz",
-        "entryType": "Artykuł",
         "collectionType": "Kolekcja",
         "contentType": "Treść",
         "fullHDStreaming": "Streaming Full HD",
@@ -389,7 +385,6 @@
         "downloadForOffline": "Pobierz do użytku offline",
         "fullResolutionDownload": "Pobieranie w pełnej rozdzielczości",
         "commercialUseLicense": "Licencja do użytku komercyjnego",
-        "fullArticleAccess": "Pełny dostęp do artykułu",
         "futureUpdates": "Przyszłe aktualizacje",
         "noAdsExperience": "Doświadczenie bez reklam",
         "accessToAllItems": "Dostęp do wszystkich elementów",
@@ -401,7 +396,9 @@
         "comingSoon": "Wkrótce",
         "connectWalletError": "Podłącz swój portfel, aby kontynuować",
         "noWalletAddress": "Nie znaleziono adresu portfela. Podłącz portfel ponownie.",
-        "paymentFailed": "Płatność nie powiodła się. Spróbuj ponownie."
+        "paymentFailed": "Płatność nie powiodła się. Spróbuj ponownie.",
+        "resourceType": "Zasób",
+        "fullResourceAccess": "Pełny dostęp do zasobu"
     },
     "Purchased": {
         "title": "Moje zakupy",
