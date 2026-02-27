@@ -249,6 +249,20 @@
 
             <!-- Inline Player -->
             <v-card class="pa-6" color="surface" variant="flat">
+              <!-- Hidden native audio element -->
+              <audio
+                ref="audioRef"
+                crossorigin="use-credentials"
+                preload="metadata"
+                :src="mediaUrl"
+                @ended="onEnded"
+                @error="onAudioError"
+                @loadedmetadata="onLoadedMetadata"
+                @pause="onAudioPause"
+                @play="onAudioPlay"
+                @timeupdate="onTimeUpdate"
+              />
+
               <!-- Artwork -->
               <v-sheet
                 class="mx-auto rounded-xl overflow-hidden"
@@ -296,6 +310,8 @@
                   :min="0"
                   thumb-size="14"
                   track-size="6"
+                  @end="onSliderEnd"
+                  @start="onSliderStart"
                 />
                 <div class="d-flex justify-space-between text-caption text-medium-emphasis mt-1">
                   <span>{{ formatTime(currentTime) }}</span>
@@ -472,7 +488,7 @@
 <script setup lang="ts">
   import type { PublicEntryModel } from '@/api/types/entry.types'
 
-  import { computed, defineAsyncComponent, onMounted, ref, watch } from 'vue'
+  import { computed, defineAsyncComponent, onBeforeUnmount, onMounted, ref, watch } from 'vue'
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
@@ -502,10 +518,13 @@
   const notFound = ref(false)
 
   // Player state
+  const audioRef = ref<HTMLAudioElement | null>(null)
   const isPlaying = ref(false)
   const currentTime = ref(0)
   const playbackSpeed = ref(1)
   const isSaved = ref(false)
+  const isSeeking = ref(false)
+  const audioDuration = ref(0)
   const descriptionExpanded = ref(false)
   const avatarBroken = ref(false)
 
@@ -517,8 +536,8 @@
   // Playback speed options
   const playbackSpeeds = [0.5, 0.75, 1, 1.25, 1.5, 2]
 
-  // Duration from entry
-  const duration = computed(() => entry.value?.durationSec ?? 0)
+  // Duration: prefer audio element's actual duration when available
+  const duration = computed(() => audioDuration.value || entry.value?.durationSec || 0)
 
   // Real data from entry
   const description = computed(() => entry.value?.description ?? '')
@@ -609,15 +628,69 @@
 
   // Controls
   function togglePlay () {
-    isPlaying.value = !isPlaying.value
+    const audio = audioRef.value
+    if (!audio) return
+    if (isPlaying.value) {
+      audio.pause()
+    } else {
+      audio.play()
+    }
   }
 
   function skipBack () {
-    currentTime.value = Math.max(0, currentTime.value - 15)
+    const audio = audioRef.value
+    if (!audio) return
+    audio.currentTime = Math.max(0, audio.currentTime - 15)
+    currentTime.value = audio.currentTime
   }
 
   function skipForward () {
-    currentTime.value = Math.min(duration.value, currentTime.value + 15)
+    const audio = audioRef.value
+    if (!audio) return
+    audio.currentTime = Math.min(duration.value, audio.currentTime + 15)
+    currentTime.value = audio.currentTime
+  }
+
+  // Slider interaction handlers
+  function onSliderStart () {
+    isSeeking.value = true
+  }
+
+  function onSliderEnd () {
+    const audio = audioRef.value
+    if (audio) {
+      audio.currentTime = currentTime.value
+    }
+    isSeeking.value = false
+  }
+
+  // Audio element event handlers
+  function onTimeUpdate () {
+    if (!audioRef.value || isSeeking.value) return
+    currentTime.value = audioRef.value.currentTime
+  }
+
+  function onLoadedMetadata () {
+    if (!audioRef.value) return
+    audioDuration.value = audioRef.value.duration
+  }
+
+  function onEnded () {
+    isPlaying.value = false
+    currentTime.value = 0
+  }
+
+  function onAudioPlay () {
+    isPlaying.value = true
+  }
+
+  function onAudioPause () {
+    isPlaying.value = false
+  }
+
+  function onAudioError (e: Event) {
+    console.error('[ListenPage] Audio playback error:', e)
+    isPlaying.value = false
   }
 
   function onShare () {
@@ -631,9 +704,20 @@
     }
   }
 
+  // Sync playback speed to audio element
+  watch(playbackSpeed, speed => {
+    if (audioRef.value) {
+      audioRef.value.playbackRate = speed
+    }
+  })
+
   // Watch for route changes
   watch(entryId, () => {
     if (entryId.value) {
+      // Reset player state on track change
+      isPlaying.value = false
+      currentTime.value = 0
+      audioDuration.value = 0
       fetchEntry()
     }
   })
@@ -641,6 +725,15 @@
   // Initial load
   onMounted(() => {
     fetchEntry()
+  })
+
+  // Cleanup audio on unmount
+  onBeforeUnmount(() => {
+    const audio = audioRef.value
+    if (audio) {
+      audio.pause()
+      audio.src = ''
+    }
   })
 </script>
 

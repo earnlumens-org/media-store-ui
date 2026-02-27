@@ -111,6 +111,20 @@
   <!-- Success State - Player -->
   <template v-else-if="entry">
     <v-card-text class="pa-4">
+      <!-- Hidden native audio element -->
+      <audio
+        ref="audioRef"
+        crossorigin="use-credentials"
+        preload="metadata"
+        :src="mediaUrl"
+        @ended="onEnded"
+        @error="onAudioError"
+        @loadedmetadata="onLoadedMetadata"
+        @pause="onAudioPause"
+        @play="onAudioPlay"
+        @timeupdate="onTimeUpdate"
+      />
+
       <!-- Artwork -->
       <v-sheet
         class="mx-auto rounded-xl overflow-hidden"
@@ -158,6 +172,8 @@
           :min="0"
           thumb-size="12"
           track-size="4"
+          @end="onSliderEnd"
+          @start="onSliderStart"
         />
         <div class="d-flex justify-space-between text-caption text-medium-emphasis mt-1">
           <span>{{ formatTime(currentTime) }}</span>
@@ -269,7 +285,9 @@
 <script setup lang="ts">
   import type { EntryModel } from '@/api/api'
 
-  import { computed, ref } from 'vue'
+  import { computed, onBeforeUnmount, ref, watch } from 'vue'
+
+  import { cdnMediaUrl } from '@/config/env'
 
   interface Props {
     entry: EntryModel | null
@@ -294,16 +312,24 @@
   }>()
 
   // Player state
+  const audioRef = ref<HTMLAudioElement | null>(null)
   const isPlaying = ref(false)
   const currentTime = ref(0)
   const playbackSpeed = ref(1)
   const isSaved = ref(false)
+  const isSeeking = ref(false)
+  const audioDuration = ref(0)
+
+  // CDN URL for actual media content
+  const mediaUrl = computed(() =>
+    props.entry ? cdnMediaUrl(props.entry.id) : undefined,
+  )
 
   // Playback speed options
   const playbackSpeeds = [0.5, 0.75, 1, 1.25, 1.5, 2]
 
-  // Duration from entry
-  const duration = computed(() => props.entry?.durationSec ?? 0)
+  // Duration: prefer audio element's actual duration when available
+  const duration = computed(() => audioDuration.value || props.entry?.durationSec || 0)
 
   // Queue state
   const hasQueue = computed(() => props.queueIds.length > 1)
@@ -324,16 +350,69 @@
 
   // Controls
   function togglePlay () {
-    isPlaying.value = !isPlaying.value
-    // TODO: Connect to actual audio element
+    const audio = audioRef.value
+    if (!audio) return
+    if (isPlaying.value) {
+      audio.pause()
+    } else {
+      audio.play()
+    }
   }
 
   function skipBack () {
-    currentTime.value = Math.max(0, currentTime.value - 15)
+    const audio = audioRef.value
+    if (!audio) return
+    audio.currentTime = Math.max(0, audio.currentTime - 15)
+    currentTime.value = audio.currentTime
   }
 
   function skipForward () {
-    currentTime.value = Math.min(duration.value, currentTime.value + 15)
+    const audio = audioRef.value
+    if (!audio) return
+    audio.currentTime = Math.min(duration.value, audio.currentTime + 15)
+    currentTime.value = audio.currentTime
+  }
+
+  // Slider interaction handlers
+  function onSliderStart () {
+    isSeeking.value = true
+  }
+
+  function onSliderEnd () {
+    const audio = audioRef.value
+    if (audio) {
+      audio.currentTime = currentTime.value
+    }
+    isSeeking.value = false
+  }
+
+  // Audio element event handlers
+  function onTimeUpdate () {
+    if (!audioRef.value || isSeeking.value) return
+    currentTime.value = audioRef.value.currentTime
+  }
+
+  function onLoadedMetadata () {
+    if (!audioRef.value) return
+    audioDuration.value = audioRef.value.duration
+  }
+
+  function onEnded () {
+    isPlaying.value = false
+    currentTime.value = 0
+  }
+
+  function onAudioPlay () {
+    isPlaying.value = true
+  }
+
+  function onAudioPause () {
+    isPlaying.value = false
+  }
+
+  function onAudioError (e: Event) {
+    console.error('[AudioPlayer] Playback error:', e)
+    isPlaying.value = false
   }
 
   function onShare () {
@@ -346,4 +425,20 @@
       navigator.clipboard.writeText(`${window.location.origin}/listen/${props.entry.id}`)
     }
   }
+
+  // Sync playback speed to audio element
+  watch(playbackSpeed, speed => {
+    if (audioRef.value) {
+      audioRef.value.playbackRate = speed
+    }
+  })
+
+  // Cleanup audio on unmount
+  onBeforeUnmount(() => {
+    const audio = audioRef.value
+    if (audio) {
+      audio.pause()
+      audio.src = ''
+    }
+  })
 </script>
