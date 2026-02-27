@@ -78,7 +78,11 @@
         "upload": "अपलोड करें",
         "helpCenter": "सहायता",
         "goHome": "घर जाएं",
-        "loadMore": "और लोड करें"
+        "loadMore": "और लोड करें",
+        "downloadFile": "फ़ाइल डाउनलोड करें",
+        "attachment": "अनुलग्नक",
+        "loginToDownload": "डाउनलोड करने के लिए साइन इन करें",
+        "fileSize": "आकार: {size}"
     },
     "Themes": {
         "title": "EarnLumens थीम चयनकर्ता",

@@ -10,6 +10,7 @@ export interface PublicEntryDto {
   type: 'video' | 'audio' | 'image' | 'resource'
   title: string
   description?: string
+  resourceContent?: string
   authorName: string
   authorAvatarUrl?: string
   publishedAt?: string
@@ -19,6 +20,11 @@ export interface PublicEntryDto {
   isPaid: boolean
   priceXlm?: number
   tags?: string[]
+  asset?: {
+    fileName: string
+    fileSizeBytes: number
+    contentType: string
+  }
 }
 
 export interface PublicEntryPageDto {
@@ -36,6 +42,7 @@ export interface PublicEntryModel {
   type: 'video' | 'audio' | 'image' | 'resource'
   title: string
   description?: string
+  resourceContent?: string
   authorName: string
   authorAvatarUrl?: string
   publishedAt: string
@@ -45,6 +52,11 @@ export interface PublicEntryModel {
   isPaid: boolean
   priceXlm?: number
   tags: string[]
+  asset?: {
+    fileName: string
+    fileSizeBytes: number
+    contentType: string
+  }
 }
 
 export interface PublicEntryPageModel {

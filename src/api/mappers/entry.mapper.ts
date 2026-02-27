@@ -21,6 +21,7 @@ export function mapPublicEntryDtoToModel (dto: PublicEntryDto): PublicEntryModel
     type: dto.type,
     title: dto.title,
     description: dto.description,
+    resourceContent: dto.resourceContent,
     authorName: dto.authorName,
     authorAvatarUrl: dto.authorAvatarUrl,
     publishedAt: dto.publishedAt ?? '',
@@ -30,6 +31,7 @@ export function mapPublicEntryDtoToModel (dto: PublicEntryDto): PublicEntryModel
     isPaid: dto.isPaid,
     priceXlm: dto.priceXlm,
     tags: dto.tags ?? [],
+    asset: dto.asset,
   }
 }
 

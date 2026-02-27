@@ -78,7 +78,11 @@
         "upload": "Tải lên",
         "helpCenter": "Trợ giúp",
         "goHome": "Về trang chủ",
-        "loadMore": "Tải thêm"
+        "loadMore": "Tải thêm",
+        "downloadFile": "Tải tệp xuống",
+        "attachment": "Tệp đính kèm",
+        "loginToDownload": "Đăng nhập để tải xuống",
+        "fileSize": "Kích thước: {size}"
     },
     "Themes": {
         "title": "Bộ chọn chủ đề EarnLumens",

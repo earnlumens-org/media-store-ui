@@ -13,6 +13,7 @@ export type AssetKind = 'THUMBNAIL' | 'PREVIEW' | 'FULL'
 export interface CreateEntryRequest {
   title: string
   description?: string
+  resourceContent?: string
   type: EntryType
   isPaid: boolean
   priceXlm?: number | null

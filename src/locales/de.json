@@ -78,7 +78,11 @@
         "upload": "Hochladen",
         "helpCenter": "Hilfe",
         "goHome": "Zur Startseite",
-        "loadMore": "Mehr laden"
+        "loadMore": "Mehr laden",
+        "downloadFile": "Datei herunterladen",
+        "attachment": "Anhang",
+        "loginToDownload": "Anmelden zum Herunterladen",
+        "fileSize": "Größe: {size}"
     },
     "Themes": {
         "title": "EarnLumens Theme-Auswahl",

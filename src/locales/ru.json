@@ -78,7 +78,11 @@
         "upload": "загрузить",
         "helpCenter": "Помощь",
         "goHome": "На главную",
-        "loadMore": "Загрузить ещё"
+        "loadMore": "Загрузить ещё",
+        "downloadFile": "Скачать файл",
+        "attachment": "Вложение",
+        "loginToDownload": "Войдите, чтобы скачать",
+        "fileSize": "Размер: {size}"
     },
     "Themes": {
         "title": "Выбор темы EarnLumens",

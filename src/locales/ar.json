@@ -78,7 +78,11 @@
         "upload": "تحميل",
         "helpCenter": "مساعدة",
         "goHome": "الذهاب إلى الصفحة الرئيسية",
-        "loadMore": "تحميل المزيد"
+        "loadMore": "تحميل المزيد",
+        "downloadFile": "تحميل الملف",
+        "attachment": "مرفق",
+        "loginToDownload": "سجّل الدخول للتحميل",
+        "fileSize": "الحجم: {size}"
     },
     "Themes": {
         "title": "محدد سمات EarnLumens",

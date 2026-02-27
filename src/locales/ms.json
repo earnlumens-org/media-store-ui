@@ -78,7 +78,11 @@
         "upload": "Muat naik",
         "helpCenter": "Bantuan",
         "goHome": "Ke Halaman Utama",
-        "loadMore": "Muat lagi"
+        "loadMore": "Muat lagi",
+        "downloadFile": "Muat turun fail",
+        "attachment": "Lampiran",
+        "loginToDownload": "Log masuk untuk muat turun",
+        "fileSize": "Saiz: {size}"
     },
     "Themes": {
         "title": "Pemilih Tema EarnLumens",

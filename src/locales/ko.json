@@ -78,7 +78,11 @@
         "upload": "업로드",
         "helpCenter": "도움말",
         "goHome": "홈으로 가기",
-        "loadMore": "더 불러오기"
+        "loadMore": "더 불러오기",
+        "downloadFile": "파일 다운로드",
+        "attachment": "첨부파일",
+        "loginToDownload": "다운로드하려면 로그인",
+        "fileSize": "크기: {size}"
     },
     "Themes": {
         "title": "EarnLumens 테마 선택기",

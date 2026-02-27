@@ -78,7 +78,11 @@
         "upload": "アップロード",
         "helpCenter": "ヘルプ",
         "goHome": "ホームに戻る",
-        "loadMore": "もっと読み込む"
+        "loadMore": "もっと読み込む",
+        "downloadFile": "ファイルをダウンロード",
+        "attachment": "添付ファイル",
+        "loginToDownload": "ダウンロードするにはログイン",
+        "fileSize": "サイズ: {size}"
     },
     "Themes": {
         "title": "EarnLumens テーマセレクター",

@@ -78,7 +78,11 @@
         "upload": "Prześlij",
         "helpCenter": "Pomoc",
         "goHome": "Przejdź do strony głównej",
-        "loadMore": "Załaduj więcej"
+        "loadMore": "Załaduj więcej",
+        "downloadFile": "Pobierz plik",
+        "attachment": "Załącznik",
+        "loginToDownload": "Zaloguj się, aby pobrać",
+        "fileSize": "Rozmiar: {size}"
     },
     "Themes": {
         "title": "Wybór motywu EarnLumens",

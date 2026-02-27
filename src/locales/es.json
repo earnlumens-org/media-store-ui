@@ -78,7 +78,11 @@
         "upload": "Subir",
         "helpCenter": "Ayuda",
         "goHome": "Ir al inicio",
-        "loadMore": "Cargar más"
+        "loadMore": "Cargar más",
+        "downloadFile": "Descargar archivo",
+        "attachment": "Adjunto",
+        "loginToDownload": "Inicia sesión para descargar",
+        "fileSize": "Tamaño: {size}"
     },
     "Themes": {
         "title": "Selector de temas de EarnLumens",

@@ -78,7 +78,11 @@
         "upload": "Yükle",
         "helpCenter": "Yardım",
         "goHome": "Ana Sayfaya Git",
-        "loadMore": "Daha fazla yükle"
+        "loadMore": "Daha fazla yükle",
+        "downloadFile": "Dosyayı indir",
+        "attachment": "Ek",
+        "loginToDownload": "İndirmek için giriş yapın",
+        "fileSize": "Boyut: {size}"
     },
     "Themes": {
         "title": "EarnLumens Tema Seçici",

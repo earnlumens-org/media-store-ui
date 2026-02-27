@@ -1,5 +1,5 @@
 <!--
-  Read Detail Page (Entry/Post)
+  Read Detail Page (Resource)
 
   RESPONSIVE LAYOUT:
   - Mobile (< 960px): Single column with toolbar, content stacked vertically
@@ -9,15 +9,16 @@
   - If entry.locked === true, immediately redirect to /preview/:id
   - This ensures paid content is never accidentally shown on the read page
 
-  SHORT/LONG THRESHOLD:
-  - This page is the destination for LONG entries (> 600 characters)
-  - For SHORT entries, use EntryPreviewDialog modal instead
+  CONTENT RENDERING:
+  - description: Short metadata description (shown below title)
+  - resourceContent: Full article body text (main reading area)
+  - asset: Attached file with download button, served via CDN /media/:entryId
 
   STATES:
   - Loading: Skeleton placeholders for all sections
   - Error: Alert with retry button
   - Not Found: Empty state with navigation options
-  - Success: Full reading view
+  - Success: Full reading view with optional attachment download
 -->
 <template>
   <div>
@@ -295,13 +296,72 @@
               </template>
             </v-img>
 
-            <!-- Content -->
-            <article class="mb-6">
+            <!-- Description (short metadata blurb) -->
+            <p
+              v-if="entry.description"
+              class="text-body-1 text-medium-emphasis mb-6"
+            >
+              {{ entry.description }}
+            </p>
+
+            <!-- ═══ ATTACHMENT DOWNLOAD CARD ═══ -->
+            <v-card
+              v-if="entry.asset"
+              class="mb-6 attachment-card"
+              variant="outlined"
+            >
+              <div class="d-flex align-center pa-4">
+                <v-avatar
+                  class="me-4 flex-shrink-0"
+                  color="primary"
+                  rounded="lg"
+                  size="48"
+                >
+                  <v-icon color="on-primary" size="24">{{ fileIcon }}</v-icon>
+                </v-avatar>
+                <div class="flex-grow-1 min-width-0">
+                  <div class="text-body-1 font-weight-medium text-truncate">
+                    {{ entry.asset.fileName }}
+                  </div>
+                  <div class="text-caption text-medium-emphasis">
+                    {{ formatFileSize(entry.asset.fileSizeBytes) }}
+                    <span class="mx-1">&middot;</span>
+                    {{ friendlyContentType(entry.asset.contentType) }}
+                  </div>
+                </div>
+                <v-btn
+                  class="ms-3 flex-shrink-0"
+                  color="primary"
+                  :href="downloadUrl"
+                  prepend-icon="mdi-download"
+                  rounded="pill"
+                  target="_blank"
+                  variant="elevated"
+                >
+                  {{ $t('Common.download') }}
+                </v-btn>
+              </div>
+            </v-card>
+
+            <!-- ═══ ARTICLE BODY (resourceContent) ═══ -->
+            <article v-if="hasResourceContent" class="mb-6">
+              <v-divider v-if="entry.asset" class="mb-6" />
               <div
-                class="text-body-1"
+                class="text-body-1 resource-body"
                 v-html="formattedContent"
               />
             </article>
+
+            <!-- Empty state: no content at all -->
+            <v-alert
+              v-if="!hasResourceContent && !entry.asset"
+              class="mb-6"
+              icon="mdi-text-box-outline"
+              type="info"
+              variant="tonal"
+            >
+              {{ $t('Common.entryNotFoundDescription') }}
+            </v-alert>
 
             <!-- Tags -->
             <div v-if="tags.length > 0" class="d-flex flex-wrap ga-2 mb-6">
@@ -421,6 +481,8 @@
   import { api } from '@/api/api'
   import { useAppStore } from '@/stores/app'
   import { usePurchasesStore } from '@/stores/purchases'
+  import { cdnMediaUrl } from '@/config/env'
+  import { formatFileSize } from '@/api/types/upload.types'
 
   import ReadRecommendationsList from './ReadRecommendationsList.vue'
 
@@ -459,11 +521,61 @@
   // Real data from entry
   const tags = computed(() => entry.value?.tags ?? [])
 
-  // Format content with line breaks preserved
-  const formattedContent = computed(() => {
-    const raw = entry.value?.description ?? ''
-    return raw.replace(/\n\n/g, '</p><p class="mt-4">').replace(/\n/g, '<br>')
+  // Whether the entry has article text content
+  const hasResourceContent = computed(() => {
+    const raw = entry.value?.resourceContent ?? ''
+    return raw.trim().length > 0
   })
+
+  // Format resourceContent with line breaks preserved
+  const formattedContent = computed(() => {
+    const raw = entry.value?.resourceContent ?? ''
+    // Escape HTML to prevent XSS, then convert line breaks
+    const escaped = raw
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+    return escaped.replace(/\n\n/g, '</p><p class="mt-4">').replace(/\n/g, '<br>')
+  })
+
+  // Download URL for the attached file (via CDN worker with entitlement)
+  const downloadUrl = computed(() => {
+    if (!entry.value) return ''
+    return cdnMediaUrl(entry.value.id)
+  })
+
+  // File icon based on content type
+  const fileIcon = computed(() => {
+    const ct = entry.value?.asset?.contentType ?? ''
+    if (ct.startsWith('application/pdf')) return 'mdi-file-pdf-box'
+    if (ct.startsWith('image/')) return 'mdi-file-image'
+    if (ct.startsWith('video/')) return 'mdi-file-video'
+    if (ct.startsWith('audio/')) return 'mdi-file-music'
+    if (ct.includes('zip') || ct.includes('rar') || ct.includes('tar') || ct.includes('gzip')) return 'mdi-folder-zip'
+    if (ct.includes('spreadsheet') || ct.includes('excel') || ct.includes('csv')) return 'mdi-file-table'
+    if (ct.includes('presentation') || ct.includes('powerpoint')) return 'mdi-file-presentation-box'
+    if (ct.includes('word') || ct.includes('document') || ct.includes('rtf')) return 'mdi-file-word'
+    if (ct.startsWith('text/')) return 'mdi-file-document'
+    return 'mdi-file'
+  })
+
+  // Human-readable content type label
+  function friendlyContentType (contentType: string): string {
+    const ct = contentType.toLowerCase()
+    if (ct === 'application/pdf') return 'PDF'
+    if (ct.includes('zip')) return 'ZIP'
+    if (ct.includes('rar')) return 'RAR'
+    if (ct.includes('spreadsheet') || ct.includes('excel')) return 'Excel'
+    if (ct.includes('word') || ct.includes('msword')) return 'Word'
+    if (ct.includes('powerpoint') || ct.includes('presentation')) return 'PowerPoint'
+    if (ct.startsWith('image/')) return ct.replace('image/', '').toUpperCase()
+    if (ct.startsWith('video/')) return ct.replace('video/', '').toUpperCase()
+    if (ct.startsWith('audio/')) return ct.replace('audio/', '').toUpperCase()
+    if (ct.startsWith('text/')) return ct.replace('text/', '').toUpperCase()
+    // Extract subtype from MIME
+    const parts = ct.split('/')
+    return parts.length > 1 ? parts[1].toUpperCase() : ct.toUpperCase()
+  }
 
   // Format count with K suffix
   const ONE_THOUSAND = 1000
@@ -574,6 +686,30 @@
     fetchEntry()
   })
 </script>
+
+<style scoped>
+  .resource-body {
+    line-height: 1.8;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .resource-body :deep(p) {
+    margin-bottom: 0;
+  }
+
+  .attachment-card {
+    transition: border-color 0.2s ease;
+  }
+
+  .attachment-card:hover {
+    border-color: rgb(var(--v-theme-primary));
+  }
+
+  .min-width-0 {
+    min-width: 0;
+  }
+</style>
 
 <route lang="json">
 {

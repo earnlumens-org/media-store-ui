@@ -432,6 +432,9 @@
       const entry = await api.upload.createEntry({
         title: form.title.trim(),
         description: form.description.trim() || undefined,
+        resourceContent: props.contentType === 'resource' && form.resourceContent.trim()
+          ? form.resourceContent.trim()
+          : undefined,
         type: toEntryType(props.contentType),
         isPaid: form.isPaid,
         priceXlm: form.isPaid && form.priceXlm ? form.priceXlm : null,

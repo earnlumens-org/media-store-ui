@@ -78,7 +78,11 @@
         "upload": "上传",
         "helpCenter": "帮助",
         "goHome": "返回首页",
-        "loadMore": "加载更多"
+        "loadMore": "加载更多",
+        "downloadFile": "下载文件",
+        "attachment": "附件",
+        "loginToDownload": "登录后下载",
+        "fileSize": "大小：{size}"
     },
     "Themes": {
         "title": "EarnLumens 主题选择器",
