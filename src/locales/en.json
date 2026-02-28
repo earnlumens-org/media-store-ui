@@ -330,7 +330,9 @@
             "inReview": "In Review",
             "approved": "Approved",
             "published": "Published",
-            "rejected": "Rejected"
+            "rejected": "Rejected",
+            "suspended": "Suspended",
+            "unlisted": "Unlisted"
         },
         "progress": {
             "initializingUpload": "Initializing upload...",

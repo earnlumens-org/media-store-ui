@@ -319,7 +319,9 @@
             "inReview": "Đang xét duyệt",
             "approved": "Đã duyệt",
             "published": "Đã xuất bản",
-            "rejected": "Bị từ chối"
+            "rejected": "Bị từ chối",
+            "suspended": "Bị đình chỉ",
+            "unlisted": "Không công khai"
         },
         "progress": {
             "initializingUpload": "Đang khởi tạo tải lên...",

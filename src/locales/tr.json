@@ -319,7 +319,9 @@
             "inReview": "İncelemede",
             "approved": "Onaylandı",
             "published": "Yayınlandı",
-            "rejected": "Reddedildi"
+            "rejected": "Reddedildi",
+            "suspended": "Askıya alındı",
+            "unlisted": "Listelenmemiş"
         },
         "progress": {
             "initializingUpload": "Yükleme başlatılıyor...",

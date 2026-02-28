@@ -319,7 +319,9 @@
             "inReview": "समीक्षा में",
             "approved": "स्वीकृत",
             "published": "प्रकाशित",
-            "rejected": "अस्वीकृत"
+            "rejected": "अस्वीकृत",
+            "suspended": "निलंबित",
+            "unlisted": "असूचीबद्ध"
         },
         "progress": {
             "initializingUpload": "अपलोड प्रारंभ किया जा रहा है...",

@@ -40,7 +40,7 @@
               <v-divider class="mb-4" />
 
               <div class="d-flex align-center">
-                <v-list density="compact" class="flex-grow-1 pa-0">
+                <v-list class="flex-grow-1 pa-0" density="compact">
                   <v-list-item>
                     <template #prepend>
                       <v-icon>mdi-account-group</v-icon>

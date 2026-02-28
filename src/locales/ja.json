@@ -319,7 +319,9 @@
             "inReview": "審査中",
             "approved": "承認済み",
             "published": "公開済み",
-            "rejected": "却下"
+            "rejected": "却下",
+            "suspended": "停止中",
+            "unlisted": "限定公開"
         },
         "progress": {
             "initializingUpload": "アップロードを初期化中...",

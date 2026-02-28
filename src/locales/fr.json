@@ -319,7 +319,9 @@
             "inReview": "En examen",
             "approved": "Approuvé",
             "published": "Publié",
-            "rejected": "Rejeté"
+            "rejected": "Rejeté",
+            "suspended": "Suspendu",
+            "unlisted": "Non répertorié"
         },
         "progress": {
             "initializingUpload": "Initialisation du téléversement...",

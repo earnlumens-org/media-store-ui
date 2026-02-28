@@ -319,7 +319,9 @@
             "inReview": "审核中",
             "approved": "已通过",
             "published": "已发布",
-            "rejected": "已拒绝"
+            "rejected": "已拒绝",
+            "suspended": "已暂停",
+            "unlisted": "未列出"
         },
         "progress": {
             "initializingUpload": "正在初始化上传...",

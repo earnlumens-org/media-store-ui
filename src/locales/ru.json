@@ -319,7 +319,9 @@
             "inReview": "На проверке",
             "approved": "Одобрено",
             "published": "Опубликовано",
-            "rejected": "Отклонено"
+            "rejected": "Отклонено",
+            "suspended": "Приостановлено",
+            "unlisted": "Не в списке"
         },
         "progress": {
             "initializingUpload": "Инициализация загрузки...",

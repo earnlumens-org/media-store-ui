@@ -319,7 +319,9 @@
             "inReview": "검토 중",
             "approved": "승인됨",
             "published": "게시됨",
-            "rejected": "거절됨"
+            "rejected": "거절됨",
+            "suspended": "정지됨",
+            "unlisted": "미등록"
         },
         "progress": {
             "initializingUpload": "업로드 초기화 중...",

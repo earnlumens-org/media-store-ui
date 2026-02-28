@@ -319,7 +319,9 @@
             "inReview": "Dalam semakan",
             "approved": "Diluluskan",
             "published": "Diterbitkan",
-            "rejected": "Ditolak"
+            "rejected": "Ditolak",
+            "suspended": "Digantung",
+            "unlisted": "Tidak tersenarai"
         },
         "progress": {
             "initializingUpload": "Memulakan muat naik...",

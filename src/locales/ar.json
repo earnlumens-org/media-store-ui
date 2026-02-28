@@ -319,7 +319,9 @@
             "inReview": "قيد المراجعة",
             "approved": "موافق عليه",
             "published": "منشور",
-            "rejected": "مرفوض"
+            "rejected": "مرفوض",
+            "suspended": "معلّق",
+            "unlisted": "غير مُدرج"
         },
         "progress": {
             "initializingUpload": "جارٍ تهيئة التحميل...",
