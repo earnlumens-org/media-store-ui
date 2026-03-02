@@ -82,7 +82,10 @@
         "downloadFile": "تحميل الملف",
         "attachment": "مرفق",
         "loginToDownload": "سجّل الدخول للتحميل",
-        "fileSize": "الحجم: {size}"
+        "fileSize": "الحجم: {size}",
+        "removeFromFavorites": "إزالة من المفضلة",
+        "addedToFavorites": "تمت الإضافة إلى المفضلة",
+        "removedFromFavorites": "تمت الإزالة من المفضلة"
     },
     "Themes": {
         "title": "محدد سمات EarnLumens",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "يجب عليك تسجيل الدخول لعرض المحتوى المشترى.",
         "loginButton": "تسجيل الدخول",
         "purchasedOn": "تم الشراء في {date}"
+    },
+    "Favorites": {
+        "empty": "لا توجد مفضلات بعد",
+        "emptyDescription": "ستظهر العناصر التي تحفظها في المفضلة هنا.",
+        "loginRequired": "تسجيل الدخول مطلوب",
+        "loginRequiredDescription": "يرجى تسجيل الدخول لرؤية مفضلاتك.",
+        "errorTitle": "خطأ في تحميل المفضلات",
+        "errorDescription": "حدث خطأ ما. انقر لإعادة المحاولة."
     }
 }

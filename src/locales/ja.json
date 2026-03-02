@@ -82,7 +82,10 @@
         "downloadFile": "ファイルをダウンロード",
         "attachment": "添付ファイル",
         "loginToDownload": "ダウンロードするにはログイン",
-        "fileSize": "サイズ: {size}"
+        "fileSize": "サイズ: {size}",
+        "removeFromFavorites": "お気に入りから削除",
+        "addedToFavorites": "お気に入りに追加しました",
+        "removedFromFavorites": "お気に入りから削除しました"
     },
     "Themes": {
         "title": "EarnLumens テーマセレクター",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "購入したコンテンツを表示するにはログインが必要です。",
         "loginButton": "ログイン",
         "purchasedOn": "{date}に購入"
+    },
+    "Favorites": {
+        "empty": "お気に入りはまだありません",
+        "emptyDescription": "お気に入りに保存したアイテムがここに表示されます。",
+        "loginRequired": "ログインが必要です",
+        "loginRequiredDescription": "お気に入りを表示するにはログインしてください。",
+        "errorTitle": "お気に入りの読み込みエラー",
+        "errorDescription": "問題が発生しました。タップして再試行してください。"
     }
 }

@@ -82,7 +82,10 @@
         "downloadFile": "Dosyayı indir",
         "attachment": "Ek",
         "loginToDownload": "İndirmek için giriş yapın",
-        "fileSize": "Boyut: {size}"
+        "fileSize": "Boyut: {size}",
+        "removeFromFavorites": "Favorilerden kaldır",
+        "addedToFavorites": "Favorilere eklendi",
+        "removedFromFavorites": "Favorilerden kaldırıldı"
     },
     "Themes": {
         "title": "EarnLumens Tema Seçici",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "Satın aldığınız içerikleri görmek için giriş yapmanız gerekiyor.",
         "loginButton": "Giriş yap",
         "purchasedOn": "{date} tarihinde satın alındı"
+    },
+    "Favorites": {
+        "empty": "Henüz favori yok",
+        "emptyDescription": "Favorilere kaydettiğiniz öğeler burada görünecektir.",
+        "loginRequired": "Giriş gerekli",
+        "loginRequiredDescription": "Favorilerinizi görmek için lütfen giriş yapın.",
+        "errorTitle": "Favoriler yüklenirken hata",
+        "errorDescription": "Bir şeyler ters gitti. Tekrar denemek için dokunun."
     }
 }

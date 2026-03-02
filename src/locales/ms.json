@@ -82,7 +82,10 @@
         "downloadFile": "Muat turun fail",
         "attachment": "Lampiran",
         "loginToDownload": "Log masuk untuk muat turun",
-        "fileSize": "Saiz: {size}"
+        "fileSize": "Saiz: {size}",
+        "removeFromFavorites": "Alih keluar daripada kegemaran",
+        "addedToFavorites": "Ditambah ke kegemaran",
+        "removedFromFavorites": "Dialih keluar daripada kegemaran"
     },
     "Themes": {
         "title": "Pemilih Tema EarnLumens",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "Anda perlu log masuk untuk melihat kandungan yang dibeli.",
         "loginButton": "Log masuk",
         "purchasedOn": "Dibeli pada {date}"
+    },
+    "Favorites": {
+        "empty": "Tiada kegemaran lagi",
+        "emptyDescription": "Item yang anda simpan ke kegemaran akan muncul di sini.",
+        "loginRequired": "Log masuk diperlukan",
+        "loginRequiredDescription": "Sila log masuk untuk melihat kegemaran anda.",
+        "errorTitle": "Ralat memuatkan kegemaran",
+        "errorDescription": "Sesuatu tidak kena. Ketik untuk cuba semula."
     }
 }

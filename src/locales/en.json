@@ -82,7 +82,10 @@
         "video": "Video",
         "image": "Image",
         "entry": "Entry",
-        "loadMore": "Load more"
+        "loadMore": "Load more",
+        "removeFromFavorites": "Remove from favorites",
+        "addedToFavorites": "Added to favorites",
+        "removedFromFavorites": "Removed from favorites"
     },
     "Themes": {
         "title": "EarnLumens Theme Selector",
@@ -416,5 +419,13 @@
         "paymentFailed": "Payment failed. Please try again.",
         "resourceType": "Resource",
         "fullResourceAccess": "Full resource access"
+    },
+    "Favorites": {
+        "empty": "No favorites yet",
+        "emptyDescription": "Items you save to favorites will appear here.",
+        "loginRequired": "Login required",
+        "loginRequiredDescription": "Please log in to see your favorites.",
+        "errorTitle": "Error loading favorites",
+        "errorDescription": "Something went wrong. Tap to retry."
     }
 }

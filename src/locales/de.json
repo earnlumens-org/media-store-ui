@@ -82,7 +82,10 @@
         "downloadFile": "Datei herunterladen",
         "attachment": "Anhang",
         "loginToDownload": "Anmelden zum Herunterladen",
-        "fileSize": "Größe: {size}"
+        "fileSize": "Größe: {size}",
+        "removeFromFavorites": "Aus Favoriten entfernen",
+        "addedToFavorites": "Zu Favoriten hinzugefügt",
+        "removedFromFavorites": "Aus Favoriten entfernt"
     },
     "Themes": {
         "title": "EarnLumens Theme-Auswahl",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "Du musst angemeldet sein, um deine gekauften Inhalte zu sehen.",
         "loginButton": "Anmelden",
         "purchasedOn": "Gekauft am {date}"
+    },
+    "Favorites": {
+        "empty": "Noch keine Favoriten",
+        "emptyDescription": "Elemente, die Sie als Favoriten speichern, werden hier angezeigt.",
+        "loginRequired": "Anmeldung erforderlich",
+        "loginRequiredDescription": "Bitte melden Sie sich an, um Ihre Favoriten zu sehen.",
+        "errorTitle": "Fehler beim Laden der Favoriten",
+        "errorDescription": "Etwas ist schiefgelaufen. Tippen Sie, um es erneut zu versuchen."
     }
 }

@@ -82,7 +82,10 @@
         "downloadFile": "Скачать файл",
         "attachment": "Вложение",
         "loginToDownload": "Войдите, чтобы скачать",
-        "fileSize": "Размер: {size}"
+        "fileSize": "Размер: {size}",
+        "removeFromFavorites": "Удалить из избранного",
+        "addedToFavorites": "Добавлено в избранное",
+        "removedFromFavorites": "Удалено из избранного"
     },
     "Themes": {
         "title": "Выбор темы EarnLumens",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "Для просмотра купленного контента необходимо авторизоваться.",
         "loginButton": "Войти",
         "purchasedOn": "Куплено {date}"
+    },
+    "Favorites": {
+        "empty": "Пока нет избранного",
+        "emptyDescription": "Элементы, которые вы сохраните в избранное, появятся здесь.",
+        "loginRequired": "Требуется вход",
+        "loginRequiredDescription": "Войдите, чтобы увидеть избранное.",
+        "errorTitle": "Ошибка загрузки избранного",
+        "errorDescription": "Что-то пошло не так. Нажмите, чтобы повторить."
     }
 }

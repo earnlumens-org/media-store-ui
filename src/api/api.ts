@@ -10,6 +10,7 @@ import {
   getMockFeed,
   getMockFirstStepsFeed,
 } from './modules/entryMock.api'
+import { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
 import { preparePayment, submitPayment } from './modules/payment.api'
 import { getPurchases } from './modules/purchase.api'
 import { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
@@ -49,6 +50,12 @@ export const api = {
   },
   purchases: {
     list: getPurchases,
+  },
+  favorites: {
+    list: getFavorites,
+    toggle: toggleFavorite,
+    check: checkFavorite,
+    remove: removeFavorite,
   },
   /** Mock API - TODO: Remove when real endpoints are available */
   mock: {
@@ -142,3 +149,9 @@ export type {
   PurchasedEntryModel,
   PurchasedEntryPageModel,
 } from './types/purchase.types'
+
+export { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
+export type {
+  FavoriteItemModel,
+  FavoritePageModel,
+} from './types/favorite.types'

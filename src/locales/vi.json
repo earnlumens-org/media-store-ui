@@ -82,7 +82,10 @@
         "downloadFile": "Tải tệp xuống",
         "attachment": "Tệp đính kèm",
         "loginToDownload": "Đăng nhập để tải xuống",
-        "fileSize": "Kích thước: {size}"
+        "fileSize": "Kích thước: {size}",
+        "removeFromFavorites": "Xóa khỏi yêu thích",
+        "addedToFavorites": "Đã thêm vào yêu thích",
+        "removedFromFavorites": "Đã xóa khỏi yêu thích"
     },
     "Themes": {
         "title": "Bộ chọn chủ đề EarnLumens",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "Bạn cần đăng nhập để xem nội dung đã mua.",
         "loginButton": "Đăng nhập",
         "purchasedOn": "Đã mua vào {date}"
+    },
+    "Favorites": {
+        "empty": "Chưa có mục yêu thích nào",
+        "emptyDescription": "Các mục bạn lưu vào yêu thích sẽ xuất hiện ở đây.",
+        "loginRequired": "Yêu cầu đăng nhập",
+        "loginRequiredDescription": "Vui lòng đăng nhập để xem mục yêu thích của bạn.",
+        "errorTitle": "Lỗi khi tải mục yêu thích",
+        "errorDescription": "Đã xảy ra lỗi. Nhấn để thử lại."
     }
 }

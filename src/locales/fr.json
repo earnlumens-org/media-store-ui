@@ -82,7 +82,10 @@
         "downloadFile": "Télécharger le fichier",
         "attachment": "Pièce jointe",
         "loginToDownload": "Connectez-vous pour télécharger",
-        "fileSize": "Taille : {size}"
+        "fileSize": "Taille : {size}",
+        "removeFromFavorites": "Retirer des favoris",
+        "addedToFavorites": "Ajouté aux favoris",
+        "removedFromFavorites": "Retiré des favoris"
     },
     "Themes": {
         "title": "Sélecteur de thèmes EarnLumens",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "Vous devez être connecté pour voir votre contenu acheté.",
         "loginButton": "Se connecter",
         "purchasedOn": "Acheté le {date}"
+    },
+    "Favorites": {
+        "empty": "Aucun favori pour le moment",
+        "emptyDescription": "Les éléments que vous enregistrez en favoris apparaîtront ici.",
+        "loginRequired": "Connexion requise",
+        "loginRequiredDescription": "Veuillez vous connecter pour voir vos favoris.",
+        "errorTitle": "Erreur lors du chargement des favoris",
+        "errorDescription": "Une erreur est survenue. Appuyez pour réessayer."
     }
 }

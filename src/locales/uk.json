@@ -82,7 +82,10 @@
         "downloadFile": "Завантажити файл",
         "attachment": "Вкладення",
         "loginToDownload": "Увійдіть, щоб завантажити",
-        "fileSize": "Розмір: {size}"
+        "fileSize": "Розмір: {size}",
+        "removeFromFavorites": "Видалити з обраного",
+        "addedToFavorites": "Додано до обраного",
+        "removedFromFavorites": "Видалено з обраного"
     },
     "Themes": {
         "title": "Вибір теми EarnLumens",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "Щоб переглянути куплений контент, потрібно увійти.",
         "loginButton": "Увійти",
         "purchasedOn": "Куплено {date}"
+    },
+    "Favorites": {
+        "empty": "Обране ще порожнє",
+        "emptyDescription": "Елементи, які ви збережете в обране, з'являться тут.",
+        "loginRequired": "Потрібен вхід",
+        "loginRequiredDescription": "Увійдіть, щоб переглянути обране.",
+        "errorTitle": "Помилка завантаження обраного",
+        "errorDescription": "Щось пішло не так. Натисніть, щоб повторити."
     }
 }

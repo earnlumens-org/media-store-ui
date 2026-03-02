@@ -82,7 +82,10 @@
         "downloadFile": "下載檔案",
         "attachment": "附件",
         "loginToDownload": "登入後下載",
-        "fileSize": "大小：{size}"
+        "fileSize": "大小：{size}",
+        "removeFromFavorites": "從收藏中移除",
+        "addedToFavorites": "已加入收藏",
+        "removedFromFavorites": "已從收藏中移除"
     },
     "Themes": {
         "title": "EarnLumens 主題選擇器",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "您需要登入才能查看已購買的內容。",
         "loginButton": "登入",
         "purchasedOn": "購買於 {date}"
+    },
+    "Favorites": {
+        "empty": "還沒有收藏",
+        "emptyDescription": "您收藏的項目將顯示在這裡。",
+        "loginRequired": "需要登入",
+        "loginRequiredDescription": "請登入以查看您的收藏。",
+        "errorTitle": "載入收藏時發生錯誤",
+        "errorDescription": "發生了一些問題。點擊以重試。"
     }
 }

@@ -82,7 +82,10 @@
         "downloadFile": "Baixar arquivo",
         "attachment": "Anexo",
         "loginToDownload": "Entre para baixar",
-        "fileSize": "Tamanho: {size}"
+        "fileSize": "Tamanho: {size}",
+        "removeFromFavorites": "Remover dos favoritos",
+        "addedToFavorites": "Adicionado aos favoritos",
+        "removedFromFavorites": "Removido dos favoritos"
     },
     "Themes": {
         "title": "Seletor de temas do EarnLumens",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "Você precisa estar logado para ver seu conteúdo comprado.",
         "loginButton": "Entrar",
         "purchasedOn": "Comprado em {date}"
+    },
+    "Favorites": {
+        "empty": "Sem favoritos ainda",
+        "emptyDescription": "Os itens que você salvar como favoritos aparecerão aqui.",
+        "loginRequired": "Login necessário",
+        "loginRequiredDescription": "Faça login para ver seus favoritos.",
+        "errorTitle": "Erro ao carregar favoritos",
+        "errorDescription": "Algo deu errado. Toque para tentar novamente."
     }
 }

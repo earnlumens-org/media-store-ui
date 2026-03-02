@@ -20,6 +20,7 @@ import { clearToken, initTokenWorker, onSessionExpired, refreshToken } from '@/s
 // Stores
 import pinia from '@/stores'
 import { useAuthStore } from '@/stores/auth'
+import { useFavoritesStore } from '@/stores/favorites'
 import { useWalletStore } from '@/stores/wallet'
 
 // Components
@@ -102,6 +103,10 @@ async function rehydrateSession (): Promise<void> {
       } else {
         authStore.setAuthenticated(true)
       }
+
+      // Pre-load favorite IDs so isFavorite() is instant across the app
+      const favoritesStore = useFavoritesStore(pinia)
+      favoritesStore.loadFavoriteIds().catch(() => {})
     } else {
       authStore.setAuthenticated(false)
     }
@@ -123,6 +128,10 @@ onSessionExpired(async () => {
 
   console.log('[Auth] Session expired, redirecting to login')
   authStore.clearAuth()
+
+  // Clear favorites cache
+  const favoritesStore = useFavoritesStore(pinia)
+  favoritesStore.clearAll()
 
   // Disconnect wallet on session expiration
   const walletStore = useWalletStore(pinia)
@@ -160,6 +169,10 @@ onAuthBroadcast(async event => {
     // Clear local state (don't broadcast again to avoid loops)
     await clearToken()
     authStore.clearAuth()
+
+    // Clear favorites cache
+    const favStore = useFavoritesStore(pinia)
+    favStore.clearAll()
 
     // Disconnect wallet on logout from other tab
     const walletStore = useWalletStore(pinia)

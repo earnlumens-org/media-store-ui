@@ -78,23 +78,37 @@
 
         <v-list density="compact">
           <v-list-item>{{ $t('Common.share') }}</v-list-item>
-          <v-list-item>{{ $t('Common.saveToFavorites') }}</v-list-item>
+          <v-list-item @click="onToggleFavorite">
+            <template #prepend>
+              <v-icon :icon="isFav ? 'mdi-heart' : 'mdi-heart-outline'" size="small" />
+            </template>
+            {{ isFav ? $t('Common.removeFromFavorites') : $t('Common.saveToFavorites') }}
+          </v-list-item>
           <v-list-item>{{ $t('Common.report') }}</v-list-item>
         </v-list>
       </v-menu>
     </v-card-text>
 
+    <v-snackbar
+      v-model="snackbar"
+      :timeout="2000"
+    >
+      {{ snackbarText }}
+    </v-snackbar>
   </v-sheet>
 </template>
 
 <script setup lang="ts">
   import type { Entry } from './EntryCard.vue'
 
-  import { computed } from 'vue'
+  import { computed, ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
 
   import AvatarFrame from '@/components/media/AvatarFrame.vue'
 
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { useAuthStore } from '@/stores/auth'
+  import { useFavoritesStore } from '@/stores/favorites'
 
   import { getEntryRoute } from './entryRoute'
 
@@ -106,6 +120,28 @@
   const props = withDefaults(defineProps<Props>(), {
     showAuthor: true,
   })
+
+  const { t } = useI18n()
+  const auth = useAuthStore()
+  const favoritesStore = useFavoritesStore()
+
+  const snackbar = ref(false)
+  const snackbarText = ref('')
+
+  const isFav = computed(() => favoritesStore.isFavorite(props.entry.id))
+
+  async function onToggleFavorite () {
+    if (!auth.isAuthenticated) return
+
+    const result = await favoritesStore.toggleFavorite(props.entry.id, 'ENTRY')
+
+    if (result != null) {
+      snackbarText.value = result
+        ? t('Common.addedToFavorites')
+        : t('Common.removedFromFavorites')
+      snackbar.value = true
+    }
+  }
 
   const entryRoute = computed(() => getEntryRoute(props.entry))
 

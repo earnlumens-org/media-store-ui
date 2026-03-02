@@ -82,7 +82,10 @@
         "downloadFile": "फ़ाइल डाउनलोड करें",
         "attachment": "अनुलग्नक",
         "loginToDownload": "डाउनलोड करने के लिए साइन इन करें",
-        "fileSize": "आकार: {size}"
+        "fileSize": "आकार: {size}",
+        "removeFromFavorites": "पसंदीदा से हटाएं",
+        "addedToFavorites": "पसंदीदा में जोड़ा गया",
+        "removedFromFavorites": "पसंदीदा से हटाया गया"
     },
     "Themes": {
         "title": "EarnLumens थीम चयनकर्ता",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "अपनी खरीदी गई सामग्री देखने के लिए आपको लॉगिन करना होगा।",
         "loginButton": "लॉगिन",
         "purchasedOn": "{date} को खरीदा गया"
+    },
+    "Favorites": {
+        "empty": "अभी तक कोई पसंदीदा नहीं",
+        "emptyDescription": "आपके द्वारा पसंदीदा में सहेजे गए आइटम यहां दिखाई देंगे।",
+        "loginRequired": "लॉगिन आवश्यक है",
+        "loginRequiredDescription": "अपने पसंदीदा देखने के लिए कृपया लॉग इन करें।",
+        "errorTitle": "पसंदीदा लोड करने में त्रुटि",
+        "errorDescription": "कुछ गलत हो गया। पुनः प्रयास करने के लिए टैप करें।"
     }
 }

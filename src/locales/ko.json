@@ -82,7 +82,10 @@
         "downloadFile": "파일 다운로드",
         "attachment": "첨부파일",
         "loginToDownload": "다운로드하려면 로그인",
-        "fileSize": "크기: {size}"
+        "fileSize": "크기: {size}",
+        "removeFromFavorites": "즐겨찾기에서 제거",
+        "addedToFavorites": "즐겨찾기에 추가되었습니다",
+        "removedFromFavorites": "즐겨찾기에서 제거되었습니다"
     },
     "Themes": {
         "title": "EarnLumens 테마 선택기",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "구매한 콘텐츠를 보려면 로그인해야 합니다.",
         "loginButton": "로그인",
         "purchasedOn": "{date}에 구매"
+    },
+    "Favorites": {
+        "empty": "아직 즐겨찾기가 없습니다",
+        "emptyDescription": "즐겨찾기에 저장한 항목이 여기에 표시됩니다.",
+        "loginRequired": "로그인 필요",
+        "loginRequiredDescription": "즐겨찾기를 보려면 로그인하세요.",
+        "errorTitle": "즐겨찾기 로딩 오류",
+        "errorDescription": "문제가 발생했습니다. 탭하여 다시 시도하세요."
     }
 }

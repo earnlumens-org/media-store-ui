@@ -82,7 +82,10 @@
         "downloadFile": "下载文件",
         "attachment": "附件",
         "loginToDownload": "登录后下载",
-        "fileSize": "大小：{size}"
+        "fileSize": "大小：{size}",
+        "removeFromFavorites": "从收藏中移除",
+        "addedToFavorites": "已添加到收藏",
+        "removedFromFavorites": "已从收藏中移除"
     },
     "Themes": {
         "title": "EarnLumens 主题选择器",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "您需要登录才能查看已购买的内容。",
         "loginButton": "登录",
         "purchasedOn": "购买于 {date}"
+    },
+    "Favorites": {
+        "empty": "还没有收藏",
+        "emptyDescription": "您收藏的项目将显示在这里。",
+        "loginRequired": "需要登录",
+        "loginRequiredDescription": "请登录以查看您的收藏。",
+        "errorTitle": "加载收藏时出错",
+        "errorDescription": "出了点问题。点击重试。"
     }
 }

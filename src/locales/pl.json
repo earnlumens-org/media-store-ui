@@ -82,7 +82,10 @@
         "downloadFile": "Pobierz plik",
         "attachment": "Załącznik",
         "loginToDownload": "Zaloguj się, aby pobrać",
-        "fileSize": "Rozmiar: {size}"
+        "fileSize": "Rozmiar: {size}",
+        "removeFromFavorites": "Usuń z ulubionych",
+        "addedToFavorites": "Dodano do ulubionych",
+        "removedFromFavorites": "Usunięto z ulubionych"
     },
     "Themes": {
         "title": "Wybór motywu EarnLumens",
@@ -416,5 +419,13 @@
         "loginRequiredDescription": "Musisz się zalogować, aby zobaczyć kupione treści.",
         "loginButton": "Zaloguj się",
         "purchasedOn": "Zakupiono {date}"
+    },
+    "Favorites": {
+        "empty": "Brak ulubionych",
+        "emptyDescription": "Elementy, które zapiszesz jako ulubione, pojawią się tutaj.",
+        "loginRequired": "Wymagane logowanie",
+        "loginRequiredDescription": "Zaloguj się, aby zobaczyć swoje ulubione.",
+        "errorTitle": "Błąd ładowania ulubionych",
+        "errorDescription": "Coś poszło nie tak. Dotknij, aby ponowić."
     }
 }

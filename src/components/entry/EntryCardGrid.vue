@@ -125,6 +125,7 @@
   import { computed, onMounted, ref } from 'vue'
 
   import { api } from '@/api/api'
+  import { useAuthStore } from '@/stores/auth'
   import { useFeedCacheStore } from '@/stores/feedCache'
   import { usePurchasesStore } from '@/stores/purchases'
 
@@ -140,6 +141,7 @@
 
   const feedCache = useFeedCacheStore()
   const purchasesStore = usePurchasesStore()
+  const authStore = useAuthStore()
 
   const entries = ref<PublicEntryModel[]>([])
   const loading = ref(true)
@@ -151,9 +153,12 @@
 
   /**
    * Maps a PublicEntryModel to the Entry interface expected by EntryCard.
+   * Own content (matching logged-in username) is never locked.
    */
   function toEntryCardProps (item: PublicEntryModel): Entry {
-    const isUnlocked = item.isPaid && purchasesStore.isUnlocked(item.id)
+    const isOwner = authStore.isAuthenticated
+      && authStore.user?.username === item.authorName
+    const isUnlocked = item.isPaid && (isOwner || purchasesStore.isUnlocked(item.id))
     return {
       id: item.id,
       type: item.type,
