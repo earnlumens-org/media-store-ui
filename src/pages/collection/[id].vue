@@ -532,21 +532,24 @@
 <script setup lang="ts">
   import type { CollectionModel, EntryModel } from '@/api/api'
 
-  import { computed, onMounted, ref, watch } from 'vue'
+  import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useRoute, useRouter } from 'vue-router'
+  import { onBeforeRouteLeave, useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import AudioPlayerDialog from '@/components/entry/AudioPlayerDialog.vue'
   import EntryPreviewDialog from '@/components/entry/EntryPreviewDialog.vue'
   import ImageLightbox from '@/components/entry/ImageLightbox.vue'
+  import { isPopNavigation } from '@/router'
   import { useAppStore } from '@/stores/app'
+  import { useScrollCacheStore } from '@/stores/scrollCache'
 
   const { t } = useI18n()
   const route = useRoute()
   const router = useRouter()
   const appStore = useAppStore()
+  const scrollCache = useScrollCacheStore()
 
   // Responsive check
   const isMobile = computed(() => appStore.mobileView)
@@ -831,9 +834,39 @@
     }
   })
 
+  onBeforeRouteLeave(() => {
+    if (collection.value) {
+      scrollCache.save(route.path, {
+        collection: { ...collection.value },
+        items: [...items.value],
+        activeTab: activeTab.value,
+        selectedType: selectedType.value,
+        searchQuery: searchQuery.value,
+        sortBy: sortBy.value,
+        scrollY: window.scrollY,
+      })
+    }
+  })
+
   // Initial load
   onMounted(() => {
-    fetchCollection()
+    const cached = scrollCache.get(route.path)
+    if (cached && isPopNavigation()) {
+      collection.value = cached.collection as CollectionModel
+      items.value = cached.items as EntryModel[]
+      activeTab.value = cached.activeTab as string
+      selectedType.value = cached.selectedType as string
+      searchQuery.value = cached.searchQuery as string
+      sortBy.value = cached.sortBy as 'default' | 'recent' | 'title'
+      loading.value = false
+      itemsLoading.value = false
+
+      nextTick(() => {
+        window.scrollTo(0, cached.scrollY as number)
+      })
+    } else {
+      fetchCollection()
+    }
   })
 </script>
 

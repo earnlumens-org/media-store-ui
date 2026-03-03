@@ -122,12 +122,15 @@
   import type { EntryModel } from '@/api/types/entryMock.types'
   import type { Entry } from '@/components/entry/EntryCard.vue'
 
-  import { computed, onMounted, ref } from 'vue'
+  import { computed, nextTick, onMounted, ref } from 'vue'
+  import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
+  import { isPopNavigation } from '@/router'
   import { useAuthStore } from '@/stores/auth'
   import { useFeedCacheStore } from '@/stores/feedCache'
   import { usePurchasesStore } from '@/stores/purchases'
+  import { useScrollCacheStore } from '@/stores/scrollCache'
 
   interface Props {
     showAuthor?: boolean
@@ -142,6 +145,8 @@
   const feedCache = useFeedCacheStore()
   const purchasesStore = usePurchasesStore()
   const authStore = useAuthStore()
+  const route = useRoute()
+  const scrollCache = useScrollCacheStore()
 
   const entries = ref<PublicEntryModel[]>([])
   const loading = ref(true)
@@ -240,7 +245,31 @@
     }
   }
 
+  onBeforeRouteLeave(() => {
+    if (entries.value.length > 0) {
+      scrollCache.save(route.path, {
+        items: [...entries.value],
+        currentPage: currentPage.value,
+        totalPages: totalPages.value,
+        scrollY: window.scrollY,
+      })
+    }
+  })
+
   onMounted(() => {
-    fetchEntries()
+    const cached = scrollCache.get(route.path)
+    if (cached && isPopNavigation()) {
+      entries.value = cached.items as PublicEntryModel[]
+      currentPage.value = cached.currentPage as number
+      totalPages.value = cached.totalPages as number
+      cacheRealEntries(entries.value)
+      loading.value = false
+
+      nextTick(() => {
+        window.scrollTo(0, cached.scrollY as number)
+      })
+    } else {
+      fetchEntries()
+    }
   })
 </script>

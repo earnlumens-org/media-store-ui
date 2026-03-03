@@ -91,15 +91,20 @@
   import type { Collection } from '@/components/collection/CollectionCard.vue'
   import type { Entry } from '@/components/entry/EntryCard.vue'
 
-  import { computed, onMounted, ref } from 'vue'
+  import { computed, nextTick, onMounted, ref } from 'vue'
+  import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
   import CollectionCard from '@/components/collection/CollectionCard.vue'
   import EntryCard from '@/components/entry/EntryCard.vue'
   import EntryCardSkeleton from '@/components/entry/EntryCardSkeleton.vue'
+  import { isPopNavigation } from '@/router'
   import { useAuthStore } from '@/stores/auth'
+  import { useScrollCacheStore } from '@/stores/scrollCache'
 
   const auth = useAuthStore()
+  const route = useRoute()
+  const scrollCache = useScrollCacheStore()
 
   const favorites = ref<FavoriteItemModel[]>([])
   const loading = ref(true)
@@ -184,8 +189,31 @@
     }
   }
 
+  onBeforeRouteLeave(() => {
+    if (favorites.value.length > 0) {
+      scrollCache.save(route.path, {
+        items: [...favorites.value],
+        currentPage: currentPage.value,
+        totalPages: totalPages.value,
+        scrollY: window.scrollY,
+      })
+    }
+  })
+
   onMounted(() => {
-    fetchFavorites()
+    const cached = scrollCache.get(route.path)
+    if (cached && isPopNavigation()) {
+      favorites.value = cached.items as FavoriteItemModel[]
+      currentPage.value = cached.currentPage as number
+      totalPages.value = cached.totalPages as number
+      loading.value = false
+
+      nextTick(() => {
+        window.scrollTo(0, cached.scrollY as number)
+      })
+    } else {
+      fetchFavorites()
+    }
   })
 </script>
 

@@ -21,6 +21,7 @@ import { clearToken, initTokenWorker, onSessionExpired, refreshToken } from '@/s
 import pinia from '@/stores'
 import { useAuthStore } from '@/stores/auth'
 import { useFavoritesStore } from '@/stores/favorites'
+import { useScrollCacheStore } from '@/stores/scrollCache'
 import { useWalletStore } from '@/stores/wallet'
 
 // Components
@@ -133,6 +134,10 @@ onSessionExpired(async () => {
   const favoritesStore = useFavoritesStore(pinia)
   favoritesStore.clearAll()
 
+  // Clear scroll cache (data may contain user-specific state)
+  const scrollCacheStore = useScrollCacheStore(pinia)
+  scrollCacheStore.clear()
+
   // Disconnect wallet on session expiration
   const walletStore = useWalletStore(pinia)
   await walletStore.disconnectAll()
@@ -174,6 +179,10 @@ onAuthBroadcast(async event => {
     const favStore = useFavoritesStore(pinia)
     favStore.clearAll()
 
+    // Clear scroll cache
+    const scrollCacheStore2 = useScrollCacheStore(pinia)
+    scrollCacheStore2.clear()
+
     // Disconnect wallet on logout from other tab
     const walletStore = useWalletStore(pinia)
     await walletStore.disconnectAll()
@@ -189,6 +198,11 @@ onAuthBroadcast(async event => {
 })
 
 // Initialize app
+// Prevent browser's native scroll restoration (we handle it manually)
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual'
+}
+
 async function initApp () {
   // Initialize broadcast channel early
   initAuthBroadcast()

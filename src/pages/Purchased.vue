@@ -98,18 +98,23 @@
   import type { PurchasedEntryModel } from '@/api/types/purchase.types'
   import type { Entry } from '@/components/entry/EntryCard.vue'
 
-  import { computed, onMounted, ref } from 'vue'
+  import { computed, nextTick, onMounted, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
+  import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
   import EntryCard from '@/components/entry/EntryCard.vue'
   import EntryCardSkeleton from '@/components/entry/EntryCardSkeleton.vue'
+  import { isPopNavigation } from '@/router'
   import { useAuthStore } from '@/stores/auth'
   import { usePurchasesStore } from '@/stores/purchases'
+  import { useScrollCacheStore } from '@/stores/scrollCache'
 
   const { t } = useI18n()
   const authStore = useAuthStore()
   const purchasesStore = usePurchasesStore()
+  const route = useRoute()
+  const scrollCache = useScrollCacheStore()
 
   const entries = ref<PurchasedEntryModel[]>([])
   const loading = ref(true)
@@ -196,8 +201,32 @@
     }
   }
 
+  onBeforeRouteLeave(() => {
+    if (entries.value.length > 0) {
+      scrollCache.save(route.path, {
+        items: [...entries.value],
+        currentPage: currentPage.value,
+        totalPages: totalPages.value,
+        scrollY: window.scrollY,
+      })
+    }
+  })
+
   onMounted(() => {
-    fetchPurchases()
+    const cached = scrollCache.get(route.path)
+    if (cached && isPopNavigation()) {
+      entries.value = cached.items as PurchasedEntryModel[]
+      currentPage.value = cached.currentPage as number
+      totalPages.value = cached.totalPages as number
+      syncPurchasesStore(entries.value)
+      loading.value = false
+
+      nextTick(() => {
+        window.scrollTo(0, cached.scrollY as number)
+      })
+    } else {
+      fetchPurchases()
+    }
   })
 </script>
 

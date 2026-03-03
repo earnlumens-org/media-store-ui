@@ -121,10 +121,13 @@
   import type { FeedPageModel, FeedRequestParams } from '@/api/api'
   import type { FeedItemModel } from '@/api/api'
 
-  import { computed, onMounted, ref } from 'vue'
+  import { computed, nextTick, onMounted, ref } from 'vue'
+  import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
+  import { isPopNavigation } from '@/router'
   import { useFeedCacheStore } from '@/stores/feedCache'
+  import { useScrollCacheStore } from '@/stores/scrollCache'
 
   interface Props {
     /** Whether to show author info on cards (UI design decision) */
@@ -142,6 +145,8 @@
   })
 
   const feedCache = useFeedCacheStore()
+  const route = useRoute()
+  const scrollCache = useScrollCacheStore()
 
   const feed = ref<FeedItemModel[]>([])
   const loading = ref(true)
@@ -213,7 +218,31 @@
     }
   }
 
+  onBeforeRouteLeave(() => {
+    if (feed.value.length > 0) {
+      scrollCache.save(route.path, {
+        items: [...feed.value],
+        currentPage: currentPage.value,
+        totalPages: totalPages.value,
+        scrollY: window.scrollY,
+      })
+    }
+  })
+
   onMounted(() => {
-    fetchFeed()
+    const cached = scrollCache.get(route.path)
+    if (cached && isPopNavigation()) {
+      feed.value = cached.items as FeedItemModel[]
+      currentPage.value = cached.currentPage as number
+      totalPages.value = cached.totalPages as number
+      cacheItems(feed.value)
+      loading.value = false
+
+      nextTick(() => {
+        window.scrollTo(0, cached.scrollY as number)
+      })
+    } else {
+      fetchFeed()
+    }
   })
 </script>

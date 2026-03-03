@@ -185,16 +185,19 @@
   import type { UserProfile } from '@/api/modules/user.api'
   import type { Entry } from '@/components/entry/EntryCard.vue'
 
-  import { computed, onMounted, ref, watch } from 'vue'
-  import { useRoute } from 'vue-router'
+  import { computed, nextTick, onMounted, ref, watch } from 'vue'
+  import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
+  import { isPopNavigation } from '@/router'
   import { useAuthStore } from '@/stores/auth'
   import { usePurchasesStore } from '@/stores/purchases'
+  import { useScrollCacheStore } from '@/stores/scrollCache'
 
   const route = useRoute()
   const authStore = useAuthStore()
   const purchasesStore = usePurchasesStore()
+  const scrollCache = useScrollCacheStore()
 
   const user = ref<UserProfile | null>(null)
   const loading = ref(true)
@@ -315,9 +318,37 @@
     fetchEntries()
   })
 
+  onBeforeRouteLeave(() => {
+    if (user.value && entries.value.length > 0) {
+      scrollCache.save(route.path, {
+        user: { ...user.value },
+        entries: [...entries.value],
+        activeTab: activeTab.value,
+        currentPage: currentPage.value,
+        totalPages: totalPages.value,
+        scrollY: window.scrollY,
+      })
+    }
+  })
+
   onMounted(() => {
-    fetchUser()
-    fetchEntries()
+    const cached = scrollCache.get(route.path)
+    if (cached && isPopNavigation()) {
+      user.value = cached.user as UserProfile
+      entries.value = cached.entries as PublicEntryModel[]
+      activeTab.value = cached.activeTab as string
+      currentPage.value = cached.currentPage as number
+      totalPages.value = cached.totalPages as number
+      loading.value = false
+      entriesLoading.value = false
+
+      nextTick(() => {
+        window.scrollTo(0, cached.scrollY as number)
+      })
+    } else {
+      fetchUser()
+      fetchEntries()
+    }
   })
 </script>
 
