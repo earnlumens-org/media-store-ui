@@ -380,26 +380,11 @@
             <!-- Actions -->
             <v-divider class="mb-4" />
             <div class="d-flex flex-wrap ga-2 mb-6">
-              <v-btn
-                :aria-label="isLiked ? 'Unlike' : 'Like'"
-                :color="isLiked ? 'primary' : undefined"
-                :prepend-icon="isLiked ? 'mdi-heart' : 'mdi-heart-outline'"
-                rounded="pill"
+              <CxFavoriteButton
+                :item-id="entryId"
+                item-type="ENTRY"
                 variant="tonal"
-                @click="toggleLike"
-              >
-                {{ formatCount(likes) }}
-              </v-btn>
-              <v-btn
-                :aria-label="isSaved ? $t('Common.removeFromSaved') : $t('Common.save')"
-                :color="isSaved ? 'primary' : undefined"
-                :prepend-icon="isSaved ? 'mdi-bookmark' : 'mdi-bookmark-outline'"
-                rounded="pill"
-                variant="tonal"
-                @click="toggleSave"
-              >
-                {{ isSaved ? $t('Common.saved') : $t('Common.save') }}
-              </v-btn>
+              />
               <v-btn
                 :aria-label="$t('Common.share')"
                 class="d-md-none"
@@ -479,6 +464,7 @@
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import { useAppStore } from '@/stores/app'
   import { usePurchasesStore } from '@/stores/purchases'
   import { cdnMediaUrl } from '@/config/env'
@@ -508,9 +494,6 @@
   const errorMessage = ref('')
 
   // UI State
-  const isLiked = ref(false)
-  const isSaved = ref(false)
-  const likes = ref(0)
   const avatarBroken = ref(false)
 
   /** Avatar URL — cleared when the OAuth provider image fails to load */
@@ -575,16 +558,6 @@
     // Extract subtype from MIME
     const parts = ct.split('/')
     return parts.length > 1 ? parts[1]!.toUpperCase() : ct.toUpperCase()
-  }
-
-  // Format count with K suffix
-  const ONE_THOUSAND = 1000
-
-  function formatCount (count: number): string {
-    if (count >= ONE_THOUSAND) {
-      return `${(count / ONE_THOUSAND).toFixed(1)}K`
-    }
-    return count.toString()
   }
 
   function formatDate (date: string | Date): string {
@@ -654,15 +627,6 @@
   }
 
   // Actions
-  function toggleLike () {
-    isLiked.value = !isLiked.value
-    likes.value += isLiked.value ? 1 : -1
-  }
-
-  function toggleSave () {
-    isSaved.value = !isSaved.value
-  }
-
   function onShare () {
     if (navigator.share) {
       navigator.share({

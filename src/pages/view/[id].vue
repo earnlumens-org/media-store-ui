@@ -331,16 +331,11 @@
 
               <!-- Action Buttons -->
               <div class="d-flex flex-wrap ga-2 mt-4">
-                <v-btn
-                  :aria-label="isLiked ? $t('Common.unlike') : $t('Common.like')"
-                  :color="isLiked ? 'primary' : undefined"
-                  :prepend-icon="isLiked ? 'mdi-heart' : 'mdi-heart-outline'"
-                  rounded="pill"
+                <CxFavoriteButton
+                  :item-id="entryId"
+                  item-type="ENTRY"
                   variant="tonal"
-                  @click="toggleLike"
-                >
-                  {{ formatCount(likes) }}
-                </v-btn>
+                />
                 <v-btn
                   :aria-label="$t('Common.share')"
                   class="d-md-none"
@@ -350,16 +345,6 @@
                   @click="onShare"
                 >
                   {{ $t('Common.share') }}
-                </v-btn>
-                <v-btn
-                  :aria-label="isSaved ? $t('Common.removeFromCollection') : $t('Common.saveToCollection')"
-                  :color="isSaved ? 'primary' : undefined"
-                  :prepend-icon="isSaved ? 'mdi-bookmark' : 'mdi-bookmark-outline'"
-                  rounded="pill"
-                  variant="tonal"
-                  @click="toggleSave"
-                >
-                  {{ isSaved ? $t('Common.saved') : $t('Common.save') }}
                 </v-btn>
                 <v-btn
                   :aria-label="$t('Common.download')"
@@ -441,6 +426,7 @@
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { usePurchasesStore } from '@/stores/purchases'
 
@@ -465,9 +451,6 @@
 
   // UI State
   const descriptionExpanded = ref(false)
-  const isLiked = ref(false)
-  const isSaved = ref(false)
-  const likes = ref(0)
   const avatarBroken = ref(false)
 
   // Computed
@@ -493,16 +476,6 @@
 
   /** Tags from the real entry data */
   const tags = computed(() => entry.value?.tags ?? [])
-
-  // Format count with K suffix
-  const ONE_THOUSAND = 1000
-
-  function formatCount (count: number): string {
-    if (count >= ONE_THOUSAND) {
-      return `${(count / ONE_THOUSAND).toFixed(1)}K`
-    }
-    return count.toString()
-  }
 
   function formatDate (date: string | Date): string {
     const d = date instanceof Date ? date : new Date(date)
@@ -599,15 +572,6 @@
   }
 
   // Actions
-  function toggleLike () {
-    isLiked.value = !isLiked.value
-    likes.value += isLiked.value ? 1 : -1
-  }
-
-  function toggleSave () {
-    isSaved.value = !isSaved.value
-  }
-
   function onShare () {
     if (navigator.share) {
       navigator.share({

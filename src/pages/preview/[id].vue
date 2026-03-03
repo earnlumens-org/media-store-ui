@@ -40,6 +40,15 @@
       <v-toolbar-title v-else>
         <v-skeleton-loader type="text" width="200" />
       </v-toolbar-title>
+
+      <template #append>
+        <CxFavoriteButton
+          v-if="content"
+          :item-id="contentId"
+          :item-type="contentType === 'collection' ? 'COLLECTION' : 'ENTRY'"
+          variant="icon"
+        />
+      </template>
     </v-toolbar>
 
     <!-- LOADING STATE -->
@@ -159,6 +168,12 @@
               <h1 class="text-h5 font-weight-bold">
                 {{ content.title }}
               </h1>
+              <v-spacer />
+              <CxFavoriteButton
+                :item-id="contentId"
+                :item-type="contentType === 'collection' ? 'COLLECTION' : 'ENTRY'"
+                variant="icon"
+              />
             </div>
 
             <!-- TYPE-SPECIFIC PREVIEW -->
@@ -613,6 +628,7 @@
 
   import { api } from '@/api/api'
   import CheckoutDialog from '@/components/checkout/CheckoutDialog.vue'
+  import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import AvatarFrame from '@/components/media/AvatarFrame.vue'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAuthStore } from '@/stores/auth'

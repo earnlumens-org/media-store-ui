@@ -332,16 +332,11 @@
                 >
                   {{ $t('Common.share') }}
                 </v-btn>
-                <v-btn
-                  :aria-label="isSaved ? $t('Common.removeFromSaved') : $t('Common.save')"
-                  :color="isSaved ? 'primary' : undefined"
-                  :prepend-icon="isSaved ? 'mdi-bookmark' : 'mdi-bookmark-outline'"
-                  rounded="pill"
+                <CxFavoriteButton
+                  :item-id="entryId"
+                  item-type="ENTRY"
                   variant="tonal"
-                  @click="toggleSave"
-                >
-                  {{ isSaved ? $t('Common.saved') : $t('Common.save') }}
-                </v-btn>
+                />
                 <v-btn
                   :aria-label="$t('Common.tipCreator')"
                   prepend-icon="mdi-hand-coin-outline"
@@ -420,6 +415,7 @@
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import ShakaVideoPlayer from '@/components/media/ShakaVideoPlayer.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { usePurchasesStore } from '@/stores/purchases'
@@ -448,7 +444,6 @@
 
   // UI State
   const isLiked = ref(false)
-  const isSaved = ref(false)
   const likes = ref(0)
   const descriptionExpanded = ref(false)
   const avatarBroken = ref(false)
@@ -529,10 +524,6 @@
   function toggleLike () {
     isLiked.value = !isLiked.value
     likes.value += isLiked.value ? 1 : -1
-  }
-
-  function toggleSave () {
-    isSaved.value = !isSaved.value
   }
 
   function onShare () {

@@ -382,14 +382,12 @@
                   @click="onShare"
                 />
 
-                <!-- Save/Bookmark -->
-                <v-btn
-                  :aria-label="isSaved ? $t('Common.removeFromSaved') : $t('Common.save')"
-                  :color="isSaved ? 'primary' : undefined"
-                  :icon="isSaved ? 'mdi-bookmark' : 'mdi-bookmark-outline'"
+                <!-- Favorite -->
+                <CxFavoriteButton
+                  :item-id="entryId"
+                  item-type="ENTRY"
                   size="small"
-                  variant="text"
-                  @click="isSaved = !isSaved"
+                  variant="icon"
                 />
               </div>
             </v-card>
@@ -492,6 +490,7 @@
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { usePurchasesStore } from '@/stores/purchases'
 
@@ -522,7 +521,6 @@
   const isPlaying = ref(false)
   const currentTime = ref(0)
   const playbackSpeed = ref(1)
-  const isSaved = ref(false)
   const isSeeking = ref(false)
   const audioDuration = ref(0)
   const descriptionExpanded = ref(false)

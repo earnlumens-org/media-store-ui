@@ -242,12 +242,10 @@
               >
                 {{ hasProgress ? $t('Common.continue') : $t('Common.start') }}
               </v-btn>
-              <v-btn
-                :aria-label="isSaved ? $t('Common.removeFromSaved') : $t('Common.save')"
-                :color="isSaved ? 'primary' : 'white'"
-                :icon="isSaved ? 'mdi-bookmark' : 'mdi-bookmark-outline'"
-                variant="tonal"
-                @click="toggleSave"
+              <CxFavoriteButton
+                :item-id="collectionId"
+                item-type="COLLECTION"
+                variant="icon"
               />
               <v-btn
                 :aria-label="$t('Common.share')"
@@ -539,6 +537,7 @@
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import AudioPlayerDialog from '@/components/entry/AudioPlayerDialog.vue'
   import EntryPreviewDialog from '@/components/entry/EntryPreviewDialog.vue'
   import ImageLightbox from '@/components/entry/ImageLightbox.vue'
@@ -574,7 +573,6 @@
   const selectedType = ref('all')
   const searchQuery = ref('')
   const sortBy = ref<'default' | 'recent' | 'title'>('default')
-  const isSaved = ref(false)
   const hasProgress = ref(false) // Would come from user progress API
 
   // Modal State
@@ -746,10 +744,6 @@
     if (firstItem) {
       openItem(firstItem)
     }
-  }
-
-  function toggleSave () {
-    isSaved.value = !isSaved.value
   }
 
   function onShare () {
