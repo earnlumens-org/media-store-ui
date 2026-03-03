@@ -84,7 +84,8 @@
         "fileSize": "Boyut: {size}",
         "removeFromFavorites": "Favorilerden kaldır",
         "addedToFavorites": "Favorilere eklendi",
-        "removedFromFavorites": "Favorilerden kaldırıldı"
+        "removedFromFavorites": "Favorilerden kaldırıldı",
+        "linkCopied": "Bağlantı panoya kopyalandı"
     },
     "Themes": {
         "title": "EarnLumens Tema Seçici",

@@ -84,7 +84,8 @@
         "fileSize": "Kích thước: {size}",
         "removeFromFavorites": "Xóa khỏi yêu thích",
         "addedToFavorites": "Đã thêm vào yêu thích",
-        "removedFromFavorites": "Đã xóa khỏi yêu thích"
+        "removedFromFavorites": "Đã xóa khỏi yêu thích",
+        "linkCopied": "Đã sao chép liên kết vào bộ nhớ tạm"
     },
     "Themes": {
         "title": "Bộ chọn chủ đề EarnLumens",

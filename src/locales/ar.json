@@ -84,7 +84,8 @@
         "fileSize": "الحجم: {size}",
         "removeFromFavorites": "إزالة من المفضلة",
         "addedToFavorites": "تمت الإضافة إلى المفضلة",
-        "removedFromFavorites": "تمت الإزالة من المفضلة"
+        "removedFromFavorites": "تمت الإزالة من المفضلة",
+        "linkCopied": "تم نسخ الرابط إلى الحافظة"
     },
     "Themes": {
         "title": "محدد سمات EarnLumens",

@@ -84,7 +84,8 @@
         "fileSize": "Größe: {size}",
         "removeFromFavorites": "Aus Favoriten entfernen",
         "addedToFavorites": "Zu Favoriten hinzugefügt",
-        "removedFromFavorites": "Aus Favoriten entfernt"
+        "removedFromFavorites": "Aus Favoriten entfernt",
+        "linkCopied": "Link in die Zwischenablage kopiert"
     },
     "Themes": {
         "title": "EarnLumens Theme-Auswahl",

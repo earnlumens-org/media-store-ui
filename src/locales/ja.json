@@ -84,7 +84,8 @@
         "fileSize": "サイズ: {size}",
         "removeFromFavorites": "お気に入りから削除",
         "addedToFavorites": "お気に入りに追加しました",
-        "removedFromFavorites": "お気に入りから削除しました"
+        "removedFromFavorites": "お気に入りから削除しました",
+        "linkCopied": "リンクをクリップボードにコピーしました"
     },
     "Themes": {
         "title": "EarnLumens テーマセレクター",

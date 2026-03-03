@@ -84,7 +84,8 @@
         "fileSize": "Rozmiar: {size}",
         "removeFromFavorites": "Usuń z ulubionych",
         "addedToFavorites": "Dodano do ulubionych",
-        "removedFromFavorites": "Usunięto z ulubionych"
+        "removedFromFavorites": "Usunięto z ulubionych",
+        "linkCopied": "Link skopiowany do schowka"
     },
     "Themes": {
         "title": "Wybór motywu EarnLumens",

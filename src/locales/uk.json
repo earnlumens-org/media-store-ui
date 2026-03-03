@@ -84,7 +84,8 @@
         "fileSize": "Розмір: {size}",
         "removeFromFavorites": "Видалити з обраного",
         "addedToFavorites": "Додано до обраного",
-        "removedFromFavorites": "Видалено з обраного"
+        "removedFromFavorites": "Видалено з обраного",
+        "linkCopied": "Посилання скопійовано до буфера обміну"
     },
     "Themes": {
         "title": "Вибір теми EarnLumens",

@@ -84,7 +84,8 @@
         "fileSize": "Taille : {size}",
         "removeFromFavorites": "Retirer des favoris",
         "addedToFavorites": "Ajouté aux favoris",
-        "removedFromFavorites": "Retiré des favoris"
+        "removedFromFavorites": "Retiré des favoris",
+        "linkCopied": "Lien copié dans le presse-papiers"
     },
     "Themes": {
         "title": "Sélecteur de thèmes EarnLumens",

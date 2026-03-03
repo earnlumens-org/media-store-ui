@@ -84,7 +84,8 @@
         "fileSize": "Saiz: {size}",
         "removeFromFavorites": "Alih keluar daripada kegemaran",
         "addedToFavorites": "Ditambah ke kegemaran",
-        "removedFromFavorites": "Dialih keluar daripada kegemaran"
+        "removedFromFavorites": "Dialih keluar daripada kegemaran",
+        "linkCopied": "Pautan disalin ke papan keratan"
     },
     "Themes": {
         "title": "Pemilih Tema EarnLumens",

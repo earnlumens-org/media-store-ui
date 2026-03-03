@@ -77,7 +77,12 @@
         </template>
 
         <v-list density="compact">
-          <v-list-item>{{ $t('Common.share') }}</v-list-item>
+          <v-list-item @click="onShare">
+            <template #prepend>
+              <v-icon icon="mdi-share-variant" size="small" />
+            </template>
+            {{ $t('Common.share') }}
+          </v-list-item>
           <v-list-item @click="onToggleFavorite">
             <template #prepend>
               <v-icon :icon="isFav ? 'mdi-heart' : 'mdi-heart-outline'" size="small" />
@@ -107,6 +112,7 @@
   import AvatarFrame from '@/components/media/AvatarFrame.vue'
 
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { useShare } from '@/lib/useShare'
   import { useAuthStore } from '@/stores/auth'
   import { useFavoritesStore } from '@/stores/favorites'
 
@@ -128,6 +134,8 @@
   const snackbar = ref(false)
   const snackbarText = ref('')
 
+  const { share } = useShare(snackbar, snackbarText)
+
   const isFav = computed(() => favoritesStore.isFavorite(props.entry.id))
 
   async function onToggleFavorite () {
@@ -141,6 +149,11 @@
         : t('Common.removedFromFavorites')
       snackbar.value = true
     }
+  }
+
+  function onShare () {
+    const url = `${window.location.origin}${getEntryRoute(props.entry)}`
+    share(props.entry.title, url)
   }
 
   const entryRoute = computed(() => getEntryRoute(props.entry))
