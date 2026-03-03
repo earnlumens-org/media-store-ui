@@ -89,7 +89,12 @@
             </template>
             {{ isFav ? $t('Common.removeFromFavorites') : $t('Common.saveToFavorites') }}
           </v-list-item>
-          <v-list-item>{{ $t('Common.report') }}</v-list-item>
+          <v-list-item>
+            <template #prepend>
+              <v-icon icon="mdi-flag" size="small" />
+            </template>
+            {{ $t('Common.report') }}
+          </v-list-item>
         </v-list>
       </v-menu>
     </v-card-text>

@@ -12,17 +12,10 @@
       >
         <template #placeholder>
           <v-sheet
-            class="w-100 h-100 d-flex align-center justify-center"
-            :class="[roundedClass, grayscale ? 'grayscale opacity-60' : '']"
-            :color="fallbackColor"
-          >
-            <v-icon
-              :color="fallbackIconColor"
-              :size="fallbackIconSize"
-            >
-              {{ fallbackIcon }}
-            </v-icon>
-          </v-sheet>
+            class="w-100 h-100 skeleton-pulse"
+            :class="[roundedClass]"
+            color="surface-variant"
+          />
         </template>
 
         <template #error>
@@ -82,3 +75,18 @@
     fallbackIconSize: 64,
   })
 </script>
+
+<style scoped>
+  .skeleton-pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+</style>
