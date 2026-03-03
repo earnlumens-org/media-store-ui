@@ -181,7 +181,10 @@
     "Account": {
         "account": "Tài khoản",
         "syncHint": "Để cập nhật thông tin hồ sơ, hãy đăng xuất rồi đăng nhập lại.",
-        "subscribers": "Người đăng ký"
+        "followers": "Người theo dõi",
+        "viewOnX": "Xem trên X",
+        "copyProfileLink": "Sao chép liên kết hồ sơ",
+        "profileLinkCopied": "Đã sao chép liên kết hồ sơ"
     },
     "AppBar": {
         "home": "Trang chủ",

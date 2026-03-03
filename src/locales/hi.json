@@ -181,7 +181,10 @@
     "Account": {
         "account": "खाता",
         "syncHint": "अपनी प्रोफ़ाइल जानकारी अपडेट करने के लिए, लॉग आउट करें और फिर से साइन इन करें।",
-        "subscribers": "सदस्य"
+        "followers": "फ़ॉलोअर्स",
+        "viewOnX": "X पर देखें",
+        "copyProfileLink": "प्रोफ़ाइल लिंक कॉपी करें",
+        "profileLinkCopied": "प्रोफ़ाइल लिंक कॉपी हो गया"
     },
     "AppBar": {
         "home": "होम",

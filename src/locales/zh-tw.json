@@ -181,7 +181,10 @@
     "Account": {
         "account": "帳戶",
         "syncHint": "如需更新個人資料，請登出後重新登入。",
-        "subscribers": "訂閱者"
+        "followers": "追蹤者",
+        "viewOnX": "在 X 上查看",
+        "copyProfileLink": "複製個人資料連結",
+        "profileLinkCopied": "個人資料連結已複製"
     },
     "AppBar": {
         "home": "主頁",

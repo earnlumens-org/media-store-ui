@@ -181,7 +181,10 @@
     "Account": {
         "account": "账户",
         "syncHint": "如需更新个人资料，请退出登录后重新登录。",
-        "subscribers": "订阅者"
+        "followers": "关注者",
+        "viewOnX": "在 X 上查看",
+        "copyProfileLink": "复制个人资料链接",
+        "profileLinkCopied": "个人资料链接已复制"
     },
     "AppBar": {
         "home": "主页",

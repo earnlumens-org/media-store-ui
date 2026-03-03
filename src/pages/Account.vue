@@ -3,9 +3,40 @@
     <v-row justify="center">
       <v-col cols="12" lg="6" md="8">
         <v-card>
-          <v-card-title class="text-h5">
+          <v-card-title class="d-flex align-center text-h5">
             <v-icon start>mdi-account</v-icon>
             {{ $t('Account.account') }}
+            <v-spacer />
+            <v-menu location="bottom end">
+              <template #activator="{ props }">
+                <v-btn
+                  v-bind="props"
+                  :aria-label="$t('Common.moreOptions')"
+                  icon="mdi-dots-vertical"
+                  size="small"
+                  variant="text"
+                />
+              </template>
+              <v-list density="compact" min-width="200">
+                <v-list-item
+                  v-if="user?.username"
+                  :href="`https://x.com/${user.username}`"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <template #prepend>
+                    <v-icon size="small">mdi-open-in-new</v-icon>
+                  </template>
+                  <v-list-item-title>{{ $t('Account.viewOnX') }}</v-list-item-title>
+                </v-list-item>
+                <v-list-item @click="copyProfileLink">
+                  <template #prepend>
+                    <v-icon size="small">mdi-link-variant</v-icon>
+                  </template>
+                  <v-list-item-title>{{ $t('Account.copyProfileLink') }}</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
           </v-card-title>
 
           <v-card-text>
@@ -45,7 +76,7 @@
                     <template #prepend>
                       <v-icon>mdi-account-group</v-icon>
                     </template>
-                    <v-list-item-title>{{ $t('Account.subscribers') }}</v-list-item-title>
+                    <v-list-item-title>{{ $t('Account.followers') }}</v-list-item-title>
                     <v-list-item-subtitle>{{ user.followersCount?.toLocaleString() ?? 'N/A' }}</v-list-item-subtitle>
                   </v-list-item>
                 </v-list>
@@ -55,7 +86,7 @@
                 </v-btn>
               </div>
 
-              <p class="text-caption text-medium-emphasis mt-6">
+              <p class="text-caption text-medium-emphasis mt-6 text-center">
                 {{ $t('Account.syncHint') }}
               </p>
             </div>
@@ -68,12 +99,17 @@
         </v-card>
       </v-col>
     </v-row>
+
+    <v-snackbar v-model="snackbar" color="success" :timeout="3000">
+      {{ snackbarText }}
+    </v-snackbar>
   </v-container>
 </template>
 
 <script setup lang="ts">
   import type { UserProfile } from '@/api/modules/user.api'
   import { onMounted, ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
   import { useRouter } from 'vue-router'
   import { api, ApiError } from '@/api/api'
   import { logout } from '@/api/modules/auth.api'
@@ -88,9 +124,13 @@
   const authStore = useAuthStore()
   const walletStore = useWalletStore()
 
+  const { t } = useI18n()
+
   const user = ref<UserProfile | null>(null)
   const loading = ref(false)
   const error = ref<string | null>(null)
+  const snackbar = ref(false)
+  const snackbarText = ref('')
 
   async function fetchUser () {
     loading.value = true
@@ -140,6 +180,18 @@
     } finally {
       window.clearTimeout(watchdog)
       appStore.setIsAppLocked(false)
+    }
+  }
+
+  async function copyProfileLink () {
+    if (!user.value?.username) return
+    const url = `${window.location.origin}/${user.value.username}`
+    try {
+      await navigator.clipboard.writeText(url)
+      snackbarText.value = t('Account.profileLinkCopied')
+      snackbar.value = true
+    } catch {
+      // Fallback: silently fail
     }
   }
 

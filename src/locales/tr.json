@@ -181,7 +181,10 @@
     "Account": {
         "account": "Hesap",
         "syncHint": "Profil bilgilerinizi güncellemek için çıkış yapıp tekrar giriş yapın.",
-        "subscribers": "Aboneler"
+        "followers": "Takipçiler",
+        "viewOnX": "X'te görüntüle",
+        "copyProfileLink": "Profil bağlantısını kopyala",
+        "profileLinkCopied": "Profil bağlantısı kopyalandı"
     },
     "AppBar": {
         "home": "Ana Sayfa",

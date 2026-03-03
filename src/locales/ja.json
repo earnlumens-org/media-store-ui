@@ -181,7 +181,10 @@
     "Account": {
         "account": "アカウント",
         "syncHint": "プロフィール情報を更新するには、ログアウトして再度サインインしてください。",
-        "subscribers": "登録者"
+        "followers": "フォロワー",
+        "viewOnX": "Xで見る",
+        "copyProfileLink": "プロフィールリンクをコピー",
+        "profileLinkCopied": "プロフィールリンクをコピーしました"
     },
     "AppBar": {
         "home": "ホームページ",

@@ -181,7 +181,10 @@
     "Account": {
         "account": "Account",
         "syncHint": "To update your profile info, log out and sign in again.",
-        "subscribers": "Subscribers"
+        "followers": "Followers",
+        "viewOnX": "View on X",
+        "copyProfileLink": "Copy profile link",
+        "profileLinkCopied": "Profile link copied"
     },
     "AppBar": {
         "home": "Home",

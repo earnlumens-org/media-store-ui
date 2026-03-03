@@ -181,7 +181,10 @@
     "Account": {
         "account": "Conta",
         "syncHint": "Para atualizar os dados do seu perfil, saia e entre novamente.",
-        "subscribers": "Inscritos"
+        "followers": "Seguidores",
+        "viewOnX": "Ver no X",
+        "copyProfileLink": "Copiar link do perfil",
+        "profileLinkCopied": "Link do perfil copiado"
     },
     "AppBar": {
         "home": "Início",

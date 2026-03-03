@@ -181,7 +181,10 @@
     "Account": {
         "account": "Compte",
         "syncHint": "Pour mettre à jour vos informations de profil, déconnectez-vous puis reconnectez-vous.",
-        "subscribers": "Abonnés"
+        "followers": "Abonnés",
+        "viewOnX": "Voir sur X",
+        "copyProfileLink": "Copier le lien du profil",
+        "profileLinkCopied": "Lien du profil copié"
     },
     "AppBar": {
         "home": "Accueil",

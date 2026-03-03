@@ -181,7 +181,10 @@
     "Account": {
         "account": "Akaun",
         "syncHint": "Untuk mengemas kini maklumat profil anda, log keluar dan log masuk semula.",
-        "subscribers": "Pelanggan"
+        "followers": "Pengikut",
+        "viewOnX": "Lihat di X",
+        "copyProfileLink": "Salin pautan profil",
+        "profileLinkCopied": "Pautan profil disalin"
     },
     "AppBar": {
         "home": "Laman Utama",

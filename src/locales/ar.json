@@ -181,7 +181,10 @@
     "Account": {
         "account": "الحساب",
         "syncHint": "لتحديث بيانات ملفك الشخصي، سجّل الخروج ثم سجّل الدخول مرة أخرى.",
-        "subscribers": "المشتركون"
+        "followers": "المتابعون",
+        "viewOnX": "عرض في X",
+        "copyProfileLink": "نسخ رابط الملف الشخصي",
+        "profileLinkCopied": "تم نسخ رابط الملف الشخصي"
     },
     "AppBar": {
         "home": "الصفحة الرئيسية",

@@ -181,7 +181,10 @@
     "Account": {
         "account": "Konto",
         "syncHint": "Aby zaktualizować dane profilu, wyloguj się i zaloguj ponownie.",
-        "subscribers": "Subskrybenci"
+        "followers": "Obserwujący",
+        "viewOnX": "Zobacz na X",
+        "copyProfileLink": "Kopiuj link do profilu",
+        "profileLinkCopied": "Link do profilu skopiowany"
     },
     "AppBar": {
         "home": "Strona główna",

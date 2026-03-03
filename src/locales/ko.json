@@ -181,7 +181,10 @@
     "Account": {
         "account": "계정",
         "syncHint": "프로필 정보를 업데이트하려면 로그아웃 후 다시 로그인하세요.",
-        "subscribers": "구독자"
+        "followers": "팔로워",
+        "viewOnX": "X에서 보기",
+        "copyProfileLink": "프로필 링크 복사",
+        "profileLinkCopied": "프로필 링크가 복사되었습니다"
     },
     "AppBar": {
         "home": "홈",
