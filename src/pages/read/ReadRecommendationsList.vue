@@ -52,11 +52,11 @@
   <v-sheet
     v-else-if="recommendations.length === 0"
     class="text-center pa-6"
-    color="surface-variant"
+    color="surface"
     rounded="lg"
   >
-    <v-icon color="grey" size="48">mdi-file-document-outline</v-icon>
-    <p class="text-body-2 text-medium-emphasis mt-2">
+    <v-icon size="48">mdi-file-document-outline</v-icon>
+    <p class="text-body-2 mt-2">
       No more entries to read
     </p>
   </v-sheet>

@@ -368,10 +368,10 @@
             <v-sheet
               v-else-if="filteredItems.length === 0"
               class="text-center pa-8"
-              color="surface-variant"
+              color="surface"
               rounded="lg"
             >
-              <v-icon color="grey" size="64">mdi-folder-open-outline</v-icon>
+              <v-icon size="64">mdi-folder-open-outline</v-icon>
               <p class="text-body-1 mt-4">
                 {{ searchQuery || selectedType !== 'all' ? $t('Common.noItemsMatchFilters') : $t('Common.collectionEmpty') }}
               </p>
