@@ -302,7 +302,6 @@
               <v-sheet class="d-flex align-center mt-4 pa-3 rounded-lg" color="surface">
                 <v-avatar
                   class="me-3"
-                  color="grey-lighten-2"
                   size="48"
                 >
                   <v-img
@@ -325,7 +324,7 @@
                   rounded="pill"
                   variant="flat"
                 >
-                  {{ $t('Common.follow') }}
+                  {{ $t('Common.subscribe') }}
                 </v-btn>
               </v-sheet>
 

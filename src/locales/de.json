@@ -66,7 +66,6 @@
         "readMore": "Mehr lesen",
         "upNext": "Als Nächstes",
         "download": "Herunterladen",
-        "follow": "Folgen",
         "creator": "Creator",
         "published": "Veröffentlicht {date}",
         "logout": "Abmelden",
@@ -180,8 +179,8 @@
     },
     "Account": {
         "account": "Konto",
-        "followers": "Follower",
-        "syncHint": "Um deine Profildaten zu aktualisieren, melde dich ab und erneut an."
+        "syncHint": "Um deine Profildaten zu aktualisieren, melde dich ab und erneut an.",
+        "subscribers": "Abonnenten"
     },
     "AppBar": {
         "home": "Startseite",
@@ -234,9 +233,7 @@
         "notFound": "Benutzer nicht gefunden",
         "notFoundDescription": "Der Benutzer {'@'}{username} existiert nicht oder wurde möglicherweise entfernt.",
         "goHome": "Zur Startseite",
-        "followers": "Follower",
         "likes": "Likes",
-        "follow": "Folgen",
         "message": "Nachricht",
         "tabs": {
             "all": "Alle",
@@ -247,7 +244,9 @@
         },
         "noEntries": "Noch keine Einträge",
         "noEntriesFiltered": "Noch keine {type}-Einträge",
-        "noResources": "Noch keine Ressourcen"
+        "noResources": "Noch keine Ressourcen",
+        "subscribers": "Abonnenten",
+        "subscribe": "Abonnieren"
     },
     "Upload": {
         "createNew": "Neu erstellen",

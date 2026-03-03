@@ -154,7 +154,7 @@
   function toEntryProps (item: FavoriteItemModel): Entry {
     return {
       id: item.itemId,
-      type: 'resource', // entries from favorites don't carry 'type' — default to resource
+      type: item.entryType ?? 'resource',
       title: item.title,
       authorName: item.authorName ?? '',
       authorAvatarUrl: item.authorAvatarUrl,

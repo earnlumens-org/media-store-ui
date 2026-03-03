@@ -66,7 +66,6 @@
         "readMore": "Baca lagi",
         "upNext": "Seterusnya",
         "download": "Muat turun",
-        "follow": "Ikuti",
         "creator": "Pencipta",
         "published": "Diterbitkan {date}",
         "logout": "Log keluar",
@@ -180,8 +179,8 @@
     },
     "Account": {
         "account": "Akaun",
-        "followers": "Pengikut",
-        "syncHint": "Untuk mengemas kini maklumat profil anda, log keluar dan log masuk semula."
+        "syncHint": "Untuk mengemas kini maklumat profil anda, log keluar dan log masuk semula.",
+        "subscribers": "Pelanggan"
     },
     "AppBar": {
         "home": "Laman Utama",
@@ -234,9 +233,7 @@
         "notFound": "Pengguna tidak ditemui",
         "notFoundDescription": "Pengguna {'@'}{username} tidak wujud atau mungkin telah dipadam.",
         "goHome": "Pergi ke Laman Utama",
-        "followers": "Pengikut",
         "likes": "Suka",
-        "follow": "Ikut",
         "message": "Mesej",
         "tabs": {
             "all": "Semua",
@@ -247,7 +244,9 @@
         },
         "noEntries": "Belum ada entri",
         "noEntriesFiltered": "Belum ada entri {type}",
-        "noResources": "Belum ada sumber"
+        "noResources": "Belum ada sumber",
+        "subscribers": "Pelanggan",
+        "subscribe": "Langgan"
     },
     "Upload": {
         "createNew": "Cipta baharu",

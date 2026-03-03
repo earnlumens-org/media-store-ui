@@ -66,7 +66,6 @@
         "readMore": "Czytaj więcej",
         "upNext": "Następne",
         "download": "Pobierz",
-        "follow": "Obserwuj",
         "creator": "Twórca",
         "published": "Opublikowano {date}",
         "logout": "Wyloguj się",
@@ -180,8 +179,8 @@
     },
     "Account": {
         "account": "Konto",
-        "followers": "Obserwujący",
-        "syncHint": "Aby zaktualizować dane profilu, wyloguj się i zaloguj ponownie."
+        "syncHint": "Aby zaktualizować dane profilu, wyloguj się i zaloguj ponownie.",
+        "subscribers": "Subskrybenci"
     },
     "AppBar": {
         "home": "Strona główna",
@@ -234,9 +233,7 @@
         "notFound": "Nie znaleziono użytkownika",
         "notFoundDescription": "Użytkownik {'@'}{username} nie istnieje lub mógł zostać usunięty.",
         "goHome": "Przejdź na stronę główną",
-        "followers": "Obserwujący",
         "likes": "Polubienia",
-        "follow": "Obserwuj",
         "message": "Wiadomość",
         "tabs": {
             "all": "Wszystkie",
@@ -247,7 +244,9 @@
         },
         "noEntries": "Brak wpisów",
         "noEntriesFiltered": "Brak wpisów typu {type}",
-        "noResources": "Brak zasobów"
+        "noResources": "Brak zasobów",
+        "subscribers": "Subskrybenci",
+        "subscribe": "Subskrybuj"
     },
     "Upload": {
         "createNew": "Utwórz nowy",

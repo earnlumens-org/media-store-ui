@@ -147,7 +147,6 @@
       <div class="d-flex align-center">
         <v-avatar
           class="me-3"
-          color="grey-lighten-2"
           :image="entry.authorAvatarUrl"
           size="40"
         >

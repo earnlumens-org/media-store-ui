@@ -66,7 +66,6 @@
         "readMore": "Đọc thêm",
         "upNext": "Tiếp theo",
         "download": "Tải xuống",
-        "follow": "Theo dõi",
         "creator": "Người tạo",
         "published": "Đã đăng {date}",
         "logout": "Đăng xuất",
@@ -180,8 +179,8 @@
     },
     "Account": {
         "account": "Tài khoản",
-        "followers": "Người theo dõi",
-        "syncHint": "Để cập nhật thông tin hồ sơ, hãy đăng xuất rồi đăng nhập lại."
+        "syncHint": "Để cập nhật thông tin hồ sơ, hãy đăng xuất rồi đăng nhập lại.",
+        "subscribers": "Người đăng ký"
     },
     "AppBar": {
         "home": "Trang chủ",
@@ -234,9 +233,7 @@
         "notFound": "Không tìm thấy người dùng",
         "notFoundDescription": "Người dùng {'@'}{username} không tồn tại hoặc có thể đã bị xóa.",
         "goHome": "Về Trang chủ",
-        "followers": "Người theo dõi",
         "likes": "Lượt thích",
-        "follow": "Theo dõi",
         "message": "Nhắn tin",
         "tabs": {
             "all": "Tất cả",
@@ -247,7 +244,9 @@
         },
         "noEntries": "Chưa có mục nào",
         "noEntriesFiltered": "Chưa có mục {type} nào",
-        "noResources": "Chưa có tài nguyên nào"
+        "noResources": "Chưa có tài nguyên nào",
+        "subscribers": "Người đăng ký",
+        "subscribe": "Đăng ký"
     },
     "Upload": {
         "createNew": "Tạo mới",

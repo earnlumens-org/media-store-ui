@@ -60,13 +60,12 @@
         "saveToFavorites": "お気に入りに保存",
         "saveToCollection": "コレクションに保存",
         "removeFromCollection": "コレクションから削除",
-        "subscribe": "チャンネル登録",
+        "subscribe": "登録",
         "subscribers": "登録者 {count} 人",
         "showLess": "折りたたむ",
         "readMore": "もっと読む",
         "upNext": "次へ",
         "download": "ダウンロード",
-        "follow": "フォロー",
         "creator": "クリエイター",
         "published": "公開日 {date}",
         "logout": "ログアウト",
@@ -180,8 +179,8 @@
     },
     "Account": {
         "account": "アカウント",
-        "followers": "フォロワー",
-        "syncHint": "プロフィール情報を更新するには、ログアウトして再度サインインしてください。"
+        "syncHint": "プロフィール情報を更新するには、ログアウトして再度サインインしてください。",
+        "subscribers": "登録者"
     },
     "AppBar": {
         "home": "ホームページ",
@@ -234,9 +233,7 @@
         "notFound": "ユーザーが見つかりません",
         "notFoundDescription": "ユーザー {'@'}{username} は存在しないか、削除された可能性があります。",
         "goHome": "ホームへ",
-        "followers": "フォロワー",
         "likes": "いいね",
-        "follow": "フォロー",
         "message": "メッセージ",
         "tabs": {
             "all": "すべて",
@@ -247,7 +244,9 @@
         },
         "noEntries": "まだエントリーがありません",
         "noEntriesFiltered": "まだ{type}のエントリーがありません",
-        "noResources": "まだリソースがありません"
+        "noResources": "まだリソースがありません",
+        "subscribers": "登録者",
+        "subscribe": "登録"
     },
     "Upload": {
         "createNew": "新規作成",

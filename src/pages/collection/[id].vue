@@ -474,7 +474,7 @@
                       rounded="pill"
                       variant="flat"
                     >
-                      {{ $t('Common.follow') }}
+                      {{ $t('Common.subscribe') }}
                     </v-btn>
                   </v-card-text>
                 </v-card>

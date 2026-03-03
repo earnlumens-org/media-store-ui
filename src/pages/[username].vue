@@ -14,7 +14,7 @@
     <v-row justify="center">
       <v-col cols="12" lg="6" md="8">
         <div class="text-center py-12">
-          <v-avatar class="mb-6 bg-grey-lighten-2" size="120">
+          <v-avatar class="mb-6" size="120">
             <v-icon color="grey" size="64">mdi-account-off</v-icon>
           </v-avatar>
           <h1 class="text-h4 mb-2">{{ $t('Profile.notFound') }}</h1>
@@ -55,7 +55,7 @@
               {{ user.displayName }}
             </p>
             <p class="text-body-2 text-medium-emphasis mb-4">
-              {{ user.followersCount?.toLocaleString() ?? 0 }} {{ $t('Profile.followers') }} | 0 {{ $t('Profile.likes') }}
+              {{ user.followersCount?.toLocaleString() ?? 0 }} {{ $t('Profile.subscribers') }} | 0 {{ $t('Profile.likes') }}
             </p>
 
             <!-- Action buttons -->
@@ -66,7 +66,7 @@
                 rounded="pill"
                 variant="flat"
               >
-                {{ $t('Profile.follow') }}
+                {{ $t('Profile.subscribe') }}
               </v-btn>
               <v-btn
                 :disabled="isOwnProfile"

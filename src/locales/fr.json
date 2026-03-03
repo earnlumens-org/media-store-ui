@@ -60,13 +60,12 @@
         "saveToFavorites": "Enregistrer dans les favoris",
         "saveToCollection": "Enregistrer dans la collection",
         "removeFromCollection": "Retirer de la collection",
-        "subscribe": "S’abonner",
+        "subscribe": "S'abonner",
         "subscribers": "{count} abonnés",
         "showLess": "Afficher moins",
         "readMore": "Lire la suite",
         "upNext": "À suivre",
         "download": "Télécharger",
-        "follow": "Suivre",
         "creator": "Créateur",
         "published": "Publié {date}",
         "logout": "Déconnexion",
@@ -180,8 +179,8 @@
     },
     "Account": {
         "account": "Compte",
-        "followers": "Abonnés",
-        "syncHint": "Pour mettre à jour vos informations de profil, déconnectez-vous puis reconnectez-vous."
+        "syncHint": "Pour mettre à jour vos informations de profil, déconnectez-vous puis reconnectez-vous.",
+        "subscribers": "Abonnés"
     },
     "AppBar": {
         "home": "Accueil",
@@ -234,9 +233,7 @@
         "notFound": "Utilisateur introuvable",
         "notFoundDescription": "L'utilisateur {'@'}{username} n'existe pas ou a peut-être été supprimé.",
         "goHome": "Aller à l’accueil",
-        "followers": "Abonnés",
         "likes": "J’aime",
-        "follow": "Suivre",
         "message": "Message",
         "tabs": {
             "all": "Tous",
@@ -247,7 +244,9 @@
         },
         "noEntries": "Aucune entrée pour le moment",
         "noEntriesFiltered": "Aucune entrée {type} pour le moment",
-        "noResources": "Aucune ressource pour le moment"
+        "noResources": "Aucune ressource pour le moment",
+        "subscribers": "Abonnés",
+        "subscribe": "S'abonner"
     },
     "Upload": {
         "createNew": "Créer",

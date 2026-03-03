@@ -44,7 +44,6 @@
         "attachment": "Attachment",
         "loginToDownload": "Sign in to download",
         "fileSize": "Size: {size}",
-        "follow": "Follow",
         "creator": "Creator",
         "published": "Published {date}",
         "logout": "Logout",
@@ -180,8 +179,8 @@
     },
     "Account": {
         "account": "Account",
-        "followers": "Followers",
-        "syncHint": "To update your profile info, log out and sign in again."
+        "syncHint": "To update your profile info, log out and sign in again.",
+        "subscribers": "Subscribers"
     },
     "AppBar": {
         "home": "Home",
@@ -234,9 +233,7 @@
         "notFound": "User not found",
         "notFoundDescription": "The user {'@'}{username} doesn't exist or may have been removed.",
         "goHome": "Go to Home",
-        "followers": "Followers",
         "likes": "Likes",
-        "follow": "Follow",
         "message": "Message",
         "tabs": {
             "all": "All",
@@ -247,7 +244,9 @@
         },
         "noEntries": "No entries yet",
         "noEntriesFiltered": "No {type} entries yet",
-        "noResources": "No resources yet"
+        "noResources": "No resources yet",
+        "subscribers": "Subscribers",
+        "subscribe": "Subscribe"
     },
     "Purchased": {
         "title": "My Purchases",

@@ -45,7 +45,7 @@
                     <template #prepend>
                       <v-icon>mdi-account-group</v-icon>
                     </template>
-                    <v-list-item-title>{{ $t('Account.followers') }}</v-list-item-title>
+                    <v-list-item-title>{{ $t('Account.subscribers') }}</v-list-item-title>
                     <v-list-item-subtitle>{{ user.followersCount?.toLocaleString() ?? 'N/A' }}</v-list-item-subtitle>
                   </v-list-item>
                 </v-list>

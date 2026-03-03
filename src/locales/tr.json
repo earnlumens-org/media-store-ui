@@ -66,7 +66,6 @@
         "readMore": "Daha fazla oku",
         "upNext": "Sıradaki",
         "download": "İndir",
-        "follow": "Takip et",
         "creator": "İçerik üreticisi",
         "published": "Yayınlandı {date}",
         "logout": "Çıkış Yap",
@@ -180,8 +179,8 @@
     },
     "Account": {
         "account": "Hesap",
-        "followers": "Takipçiler",
-        "syncHint": "Profil bilgilerinizi güncellemek için çıkış yapıp tekrar giriş yapın."
+        "syncHint": "Profil bilgilerinizi güncellemek için çıkış yapıp tekrar giriş yapın.",
+        "subscribers": "Aboneler"
     },
     "AppBar": {
         "home": "Ana Sayfa",
@@ -234,9 +233,7 @@
         "notFound": "Kullanıcı bulunamadı",
         "notFoundDescription": "Kullanıcı {'@'}{username} yok veya kaldırılmış olabilir.",
         "goHome": "Ana Sayfaya Git",
-        "followers": "Takipçiler",
         "likes": "Beğeni",
-        "follow": "Takip et",
         "message": "Mesaj",
         "tabs": {
             "all": "Tümü",
@@ -247,7 +244,9 @@
         },
         "noEntries": "Henüz girdi yok",
         "noEntriesFiltered": "Henüz {type} girdisi yok",
-        "noResources": "Henüz kaynak yok"
+        "noResources": "Henüz kaynak yok",
+        "subscribers": "Aboneler",
+        "subscribe": "Abone ol"
     },
     "Upload": {
         "createNew": "Yeni oluştur",

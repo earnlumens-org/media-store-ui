@@ -24,6 +24,7 @@ export function mapFavoriteItemDtoToModel (dto: FavoriteItemDto): FavoriteItemMo
     id: dto.id,
     itemId: dto.itemId,
     itemType: dto.itemType,
+    entryType: dto.entryType,
     title: dto.title,
     authorName: dto.authorName,
     authorAvatarUrl: dto.authorAvatarUrl,

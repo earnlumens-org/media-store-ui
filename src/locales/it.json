@@ -66,7 +66,6 @@
         "readMore": "Leggi di più",
         "upNext": "Successivo",
         "download": "Scarica",
-        "follow": "Segui",
         "creator": "Creatore",
         "published": "Pubblicato {date}",
         "logout": "Disconnetti",
@@ -180,8 +179,8 @@
     },
     "Account": {
         "account": "Account",
-        "followers": "Follower",
-        "syncHint": "Per aggiornare i dati del tuo profilo, esci e accedi di nuovo."
+        "syncHint": "Per aggiornare i dati del tuo profilo, esci e accedi di nuovo.",
+        "subscribers": "Iscritti"
     },
     "AppBar": {
         "home": "Home",
@@ -234,9 +233,7 @@
         "notFound": "Utente non trovato",
         "notFoundDescription": "L'utente {'@'}{username} non esiste o potrebbe essere stato rimosso.",
         "goHome": "Vai alla Home",
-        "followers": "Follower",
         "likes": "Mi piace",
-        "follow": "Segui",
         "message": "Messaggio",
         "tabs": {
             "all": "Tutti",
@@ -247,7 +244,9 @@
         },
         "noEntries": "Nessuna voce ancora",
         "noEntriesFiltered": "Nessuna voce {type} ancora",
-        "noResources": "Nessuna risorsa ancora"
+        "noResources": "Nessuna risorsa ancora",
+        "subscribers": "Iscritti",
+        "subscribe": "Iscriviti"
     },
     "Upload": {
         "createNew": "Crea nuovo",

@@ -60,13 +60,12 @@
         "saveToFavorites": "पसंदीदा में सहेजें",
         "saveToCollection": "संग्रह में सहेजें",
         "removeFromCollection": "संग्रह से हटाएँ",
-        "subscribe": "सब्सक्राइब करें",
+        "subscribe": "सदस्यता लें",
         "subscribers": "{count} सब्सक्राइबर",
         "showLess": "कम दिखाएँ",
         "readMore": "और पढ़ें",
         "upNext": "अगला",
         "download": "डाउनलोड",
-        "follow": "फ़ॉलो",
         "creator": "क्रिएटर",
         "published": "प्रकाशित {date}",
         "logout": "लॉग आउट",
@@ -180,8 +179,8 @@
     },
     "Account": {
         "account": "खाता",
-        "followers": "फ़ॉलोअर्स",
-        "syncHint": "अपनी प्रोफ़ाइल जानकारी अपडेट करने के लिए, लॉग आउट करें और फिर से साइन इन करें।"
+        "syncHint": "अपनी प्रोफ़ाइल जानकारी अपडेट करने के लिए, लॉग आउट करें और फिर से साइन इन करें।",
+        "subscribers": "सदस्य"
     },
     "AppBar": {
         "home": "होम",
@@ -234,9 +233,7 @@
         "notFound": "उपयोगकर्ता नहीं मिला",
         "notFoundDescription": "उपयोगकर्ता {'@'}{username} मौजूद नहीं है या हटाया जा सकता है।",
         "goHome": "होम पर जाएँ",
-        "followers": "फ़ॉलोअर्स",
         "likes": "लाइक्स",
-        "follow": "फ़ॉलो करें",
         "message": "संदेश",
         "tabs": {
             "all": "सभी",
@@ -247,7 +244,9 @@
         },
         "noEntries": "अभी कोई एंट्री नहीं",
         "noEntriesFiltered": "अभी कोई {type} एंट्री नहीं",
-        "noResources": "अभी कोई संसाधन नहीं"
+        "noResources": "अभी कोई संसाधन नहीं",
+        "subscribers": "सदस्य",
+        "subscribe": "सदस्यता लें"
     },
     "Upload": {
         "createNew": "नया बनाएँ",

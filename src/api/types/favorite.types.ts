@@ -9,6 +9,7 @@ export interface FavoriteItemDto {
   id: string
   itemId: string
   itemType: 'entry' | 'collection'
+  entryType?: 'video' | 'audio' | 'image' | 'resource'
   title: string
   authorName?: string
   authorAvatarUrl?: string
@@ -49,6 +50,7 @@ export interface FavoriteItemModel {
   id: string
   itemId: string
   itemType: 'entry' | 'collection'
+  entryType?: 'video' | 'audio' | 'image' | 'resource'
   title: string
   authorName?: string
   authorAvatarUrl?: string
