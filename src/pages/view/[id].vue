@@ -348,9 +348,11 @@
                 </v-btn>
                 <v-btn
                   :aria-label="$t('Common.download')"
+                  :loading="downloading"
                   prepend-icon="mdi-download"
                   rounded="pill"
                   variant="tonal"
+                  @click="downloadImage"
                 >
                   {{ $t('Common.download') }}
                 </v-btn>
@@ -452,6 +454,7 @@
   // UI State
   const descriptionExpanded = ref(false)
   const avatarBroken = ref(false)
+  const downloading = ref(false)
 
   // Computed
   const imageMaxHeight = computed(() => '70vh')
@@ -572,6 +575,70 @@
   }
 
   // Actions
+  async function downloadImage () {
+    if (downloading.value || !entry.value) return
+    downloading.value = true
+
+    try {
+      let blob: Blob | undefined
+
+      // If we already have the image as a blob, reuse it
+      if (mediaBlobUrl.value) {
+        const resp = await fetch(mediaBlobUrl.value)
+        blob = await resp.blob()
+      } else {
+        // Fetch from CDN with credentials
+        const url = cdnMediaUrl(entry.value.id)
+        const resp = await fetch(url, { credentials: 'include' })
+        if (resp.ok) {
+          blob = await resp.blob()
+        }
+      }
+
+      if (!blob) {
+        // Fallback: open thumbnail in new tab
+        if (entry.value.thumbnailUrl) {
+          window.open(entry.value.thumbnailUrl, '_blank')
+        }
+        return
+      }
+
+      // Determine file extension from MIME type
+      const mimeToExt: Record<string, string> = {
+        'image/jpeg': '.jpg',
+        'image/png': '.png',
+        'image/gif': '.gif',
+        'image/webp': '.webp',
+        'image/svg+xml': '.svg',
+        'image/avif': '.avif',
+      }
+      const ext = mimeToExt[blob.type] || '.jpg'
+
+      // Build a safe filename from the entry title
+      const safeTitle = (entry.value.title || 'image')
+        .replace(/[^a-zA-Z0-9_\-\s]/g, '')
+        .trim()
+        .replace(/\s+/g, '_')
+        .substring(0, 80)
+
+      const filename = `${safeTitle}${ext}`
+
+      // Trigger download via invisible anchor
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = filename
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+    } catch (err) {
+      console.error('[ViewPage] Download failed:', err)
+    } finally {
+      downloading.value = false
+    }
+  }
+
   function onShare () {
     if (navigator.share) {
       navigator.share({
