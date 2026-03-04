@@ -290,7 +290,7 @@
                     <v-icon class="ms-1" color="primary" size="18">mdi-check-decagram</v-icon>
                   </div>
                   <span class="text-body-2 text-medium-emphasis">
-                    {{ $t('Common.subscribers', { count: '1.2K' }) }}
+                    {{ $t('Common.creator') }}
                   </span>
                 </div>
                 <v-btn
