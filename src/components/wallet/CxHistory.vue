@@ -21,55 +21,102 @@
     </div>
 
     <!-- Empty state -->
-    <div v-else-if="transactions.length === 0" class="text-center py-8">
+    <div v-else-if="groupedTransactions.length === 0" class="text-center py-8">
       <v-icon color="grey" size="48">mdi-history</v-icon>
       <div class="text-body-2 mt-2 text-medium-emphasis">{{ $t('CxHistory.noTransactions') }}</div>
     </div>
 
-    <!-- Transactions list -->
+    <!-- Grouped transactions list -->
     <v-list v-else bg-color="transparent" class="pa-0">
-      <v-list-item
-        v-for="tx in transactions"
-        :key="tx.id"
-        class="px-0"
-        :ripple="false"
-      >
-        <template #prepend>
-          <v-avatar :color="tx.type === 'received' ? 'success' : 'grey-darken-1'" size="40">
-            <v-icon :icon="tx.type === 'received' ? 'mdi-arrow-down' : 'mdi-arrow-up'" size="20" />
-          </v-avatar>
-        </template>
+      <template v-for="group in groupedTransactions" :key="group.transactionHash">
+        <v-list-item
+          class="px-0"
+          :ripple="false"
+          @click="toggleExpand(group.transactionHash)"
+        >
+          <template #prepend>
+            <v-avatar :color="group.type === 'received' ? 'success' : 'grey-darken-1'" size="40">
+              <v-icon :icon="group.type === 'received' ? 'mdi-arrow-down' : 'mdi-arrow-up'" size="20" />
+            </v-avatar>
+          </template>
 
-        <v-list-item-title class="text-body-2 font-weight-medium">
-          {{ tx.type === 'received' ? $t('CxHistory.received') : $t('CxHistory.sent') }}
-        </v-list-item-title>
+          <v-list-item-title class="text-body-2 font-weight-medium">
+            {{ group.type === 'received' ? $t('CxHistory.received') : $t('CxHistory.sent') }}
+          </v-list-item-title>
 
-        <v-list-item-subtitle class="text-caption text-medium-emphasis">
-          {{ formatDate(tx.created_at) }}
-        </v-list-item-subtitle>
+          <v-list-item-subtitle class="text-caption text-medium-emphasis">
+            {{ formatDate(group.created_at) }}
+            <span v-if="group.operations.length > 1" class="ml-1">
+              · {{ $t('CxHistory.nOperations', { n: group.operations.length }) }}
+            </span>
+          </v-list-item-subtitle>
 
-        <template #append>
-          <div class="text-right">
-            <div
-              class="text-body-2 font-weight-medium"
-              :class="tx.type === 'received' ? 'text-success' : 'text-medium-emphasis'"
-            >
-              {{ tx.type === 'received' ? '+' : '-' }}{{ formatAmount(tx.amount) }} XLM
+          <template #append>
+            <div class="d-flex align-center">
+              <div class="text-right">
+                <div
+                  class="text-body-2 font-weight-medium"
+                  :class="group.type === 'received' ? 'text-success' : 'text-medium-emphasis'"
+                >
+                  {{ group.type === 'received' ? '+' : '-' }}{{ formatAmount(group.totalAmount) }} XLM
+                </div>
+                <div v-if="!mobileView && group.operations.length === 1" class="text-caption text-medium-emphasis">
+                  {{ formatAddress(group.operations[0].type === 'received' ? group.operations[0].from : group.operations[0].to) }}
+                </div>
+              </div>
+              <v-icon
+                class="ml-2"
+                :icon="expandedHashes.has(group.transactionHash) ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+                size="20"
+              />
             </div>
-            <div v-if="!mobileView" class="text-caption text-medium-emphasis">
-              {{ formatAddress(tx.type === 'received' ? tx.from : tx.to) }}
+          </template>
+        </v-list-item>
+
+        <!-- Expanded detail with operations breakdown + stellar.expert link -->
+        <v-expand-transition>
+          <div v-if="expandedHashes.has(group.transactionHash)">
+            <div class="ml-14 mr-2 mb-3">
+              <div
+                v-for="op in group.operations"
+                :key="op.id"
+                class="d-flex justify-space-between align-center py-1"
+              >
+                <span class="text-caption text-medium-emphasis">
+                  {{ formatAddress(op.type === 'received' ? op.from : op.to) }}
+                </span>
+                <span
+                  class="text-caption font-weight-medium"
+                  :class="op.type === 'received' ? 'text-success' : 'text-medium-emphasis'"
+                >
+                  {{ op.type === 'received' ? '+' : '-' }}{{ formatAmount(op.amount) }} XLM
+                </span>
+              </div>
+
+              <a
+                class="text-caption text-primary d-inline-flex align-center mt-2"
+                :href="stellarExpertTxUrl(group.transactionHash)"
+                rel="noopener noreferrer"
+                style="text-decoration: none;"
+                target="_blank"
+                @click.stop
+              >
+                {{ $t('CxHistory.viewOnStellarExpert') }}
+                <v-icon class="ml-1" icon="mdi-open-in-new" size="12" />
+              </a>
             </div>
           </div>
-        </template>
-      </v-list-item>
+        </v-expand-transition>
+      </template>
     </v-list>
   </v-container>
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted, ref, watch } from 'vue'
+  import { computed, onMounted, reactive, ref, watch } from 'vue'
 
-  import { getRecentTransactions, type StellarTransaction } from '@/services/stellar'
+  import { getStellarExpertTxUrl } from '@/config/env'
+  import { getRecentGroupedTransactions, type GroupedTransaction } from '@/services/stellar'
   import { useAppStore } from '@/stores/app'
   import { useWalletStore } from '@/stores/wallet'
 
@@ -81,22 +128,36 @@
 
   const loading = ref(false)
   const error = ref(false)
-  const transactions = ref<StellarTransaction[]>([])
+  const groupedTransactions = ref<GroupedTransaction[]>([])
+  const expandedHashes = reactive(new Set<string>())
 
   async function loadTransactions () {
     if (!activeAddress.value) return
 
     loading.value = true
     error.value = false
+    expandedHashes.clear()
 
     try {
-      transactions.value = await getRecentTransactions(activeAddress.value, 10)
+      groupedTransactions.value = await getRecentGroupedTransactions(activeAddress.value, 10)
     } catch (error_) {
       console.error('Error loading transactions:', error_)
       error.value = true
     } finally {
       loading.value = false
     }
+  }
+
+  function toggleExpand (hash: string) {
+    if (expandedHashes.has(hash)) {
+      expandedHashes.delete(hash)
+    } else {
+      expandedHashes.add(hash)
+    }
+  }
+
+  function stellarExpertTxUrl (hash: string): string {
+    return getStellarExpertTxUrl(hash)
   }
 
   function formatAmount (amount: string): string {

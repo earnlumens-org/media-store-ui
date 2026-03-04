@@ -4,4 +4,4 @@
 
 export { accountExists, getAllBalances, getXLMBalance } from './balance'
 export type { AccountBalances, StellarBalance } from './balance'
-export { getRecentTransactions, type StellarTransaction } from './transactions'
+export { getRecentGroupedTransactions, getRecentTransactions, type GroupedTransaction, type StellarTransaction } from './transactions'

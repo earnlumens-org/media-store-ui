@@ -1,9 +1,8 @@
 <!--
   CheckoutDialog.vue - Purchase flow modal
 
-  Two-step checkout process:
-  1. Confirm: Show product details (title, creator, price, what's included)
-  2. Pay: Select payment method and complete purchase
+  Single-step checkout: select payment method and complete purchase.
+  Wallet must be connected before this dialog opens (handled by the caller).
 
   Layout:
   - Desktop: v-dialog (max-width: 500px)
@@ -45,8 +44,6 @@
     price: number
     type: 'video' | 'audio' | 'image' | 'resource' | 'collection'
     thumbnail?: string
-    /** What's included in the purchase */
-    includes?: string[]
   }
 
   interface Props {
@@ -67,10 +64,8 @@
   const walletStore = useWalletStore()
 
   // State
-  const step = ref<1 | 2>(1)
   const selectedPayment = ref<'wallet' | 'card'>('wallet')
   const isProcessing = ref(false)
-  const isConnecting = ref(false)
   const error = ref<string | null>(null)
 
   // Computed
@@ -84,94 +79,15 @@
   // Reset state when dialog opens
   watch(dialogOpen, open => {
     if (open) {
-      step.value = 1
       selectedPayment.value = 'wallet'
       error.value = null
       isProcessing.value = false
-      isConnecting.value = false
     }
-  })
-
-  // Type icon mapping
-  const typeIcon = computed(() => {
-    const icons: Record<string, string> = {
-      video: 'mdi-play-circle',
-      audio: 'mdi-music-circle',
-      image: 'mdi-image',
-      resource: 'mdi-file-document',
-      collection: 'mdi-folder-multiple-image',
-    }
-    return icons[props.item?.type || 'resource'] || 'mdi-file'
-  })
-
-  // Type label mapping
-  const typeLabel = computed(() => {
-    const labels: Record<string, string> = {
-      video: t('Preview.videoType'),
-      audio: t('Preview.audioType'),
-      image: t('Preview.imageType'),
-      resource: t('Preview.resourceType'),
-      collection: t('Preview.collectionType'),
-    }
-    return labels[props.item?.type || 'resource'] || t('Preview.contentType')
-  })
-
-  // Default "includes" based on type
-  const defaultIncludes = computed((): string[] => {
-    const item = props.item
-    if (!item) return []
-
-    const includesMap: Record<string, string[]> = {
-      video: [t('Preview.fullHDStreaming'), t('Preview.downloadMultipleFormats'), t('Preview.lifetimeAccess')],
-      audio: [t('Preview.highQualityAudio'), t('Preview.downloadForOffline'), t('Preview.lifetimeAccess')],
-      image: [t('Preview.fullResolutionDownload'), t('Preview.commercialUseLicense'), t('Preview.lifetimeAccess')],
-      resource: [t('Preview.fullResourceAccess'), t('Preview.futureUpdates'), t('Preview.supportTheCreator')],
-      collection: [t('Preview.accessToAllItems'), t('Preview.futureAdditionsIncluded'), t('Preview.lifetimeAccess')],
-    }
-
-    return item.includes || includesMap[item.type] || [t('Preview.fullAccess'), t('Preview.lifetimeAccess')]
   })
 
   // Format price
   function formatPrice (price: number): string {
     return `${price.toFixed(2)} XLM`
-  }
-
-  // Go to payment step — requires wallet connection
-  async function goToPayment () {
-    error.value = null
-
-    // If wallet not connected, open SWK modal (it renders above our dialog
-    // thanks to the z-index override in settings.scss)
-    if (!walletStore.isConnected) {
-      isConnecting.value = true
-      try {
-        const connected = await walletStore.connect()
-        if (!connected) {
-          error.value = t('Preview.connectWalletError')
-          return
-        }
-      } catch {
-        error.value = t('Preview.connectWalletError')
-        return
-      } finally {
-        isConnecting.value = false
-      }
-    }
-
-    // Double-check address exists
-    if (!walletStore.activeAddress) {
-      error.value = t('Preview.noWalletAddress')
-      return
-    }
-
-    step.value = 2
-  }
-
-  // Go back to confirm step
-  function goBack () {
-    step.value = 1
-    error.value = null
   }
 
   // Handle purchase — real two-phase Stellar payment flow
@@ -235,21 +151,15 @@
   <v-bottom-sheet
     v-if="isMobile"
     v-model="dialogOpen"
-    :fullscreen="step === 2"
+    fullscreen
     :max-width="500"
     persistent
   >
-    <v-card class="rounded-t-xl" :rounded="step === 2 ? '0' : 'xl'">
+    <v-card class="rounded-t-xl rounded-0">
       <!-- Header -->
       <v-toolbar color="transparent" density="compact">
-        <v-btn
-          v-if="step === 2"
-          icon="mdi-arrow-left"
-          variant="text"
-          @click="goBack"
-        />
         <v-toolbar-title class="text-subtitle-1 font-weight-medium">
-          {{ step === 1 ? 'Unlock Content' : 'Payment' }}
+          {{ $t('Preview.payment') }}
         </v-toolbar-title>
         <v-spacer />
         <v-btn icon="mdi-close" variant="text" @click="closeDialog" />
@@ -257,101 +167,8 @@
 
       <v-divider />
 
-      <!-- Step 1: Confirm -->
-      <template v-if="step === 1 && item">
-        <v-card-text class="pa-4">
-          <!-- Product preview -->
-          <v-row align="center" class="mb-4">
-            <v-col cols="auto">
-              <v-avatar
-                v-if="item.thumbnail"
-                rounded="lg"
-                size="80"
-              >
-                <v-img cover :src="item.thumbnail" />
-              </v-avatar>
-              <v-avatar
-                v-else
-                color="primary"
-                rounded="lg"
-                size="80"
-                variant="tonal"
-              >
-                <v-icon :icon="typeIcon" size="32" />
-              </v-avatar>
-            </v-col>
-            <v-col>
-              <div class="text-subtitle-1 font-weight-medium">{{ item.title }}</div>
-              <div v-if="item.creator" class="text-body-2 text-medium-emphasis">
-                {{ $t('Preview.by') }} {{ item.creator.name }}
-              </div>
-              <v-chip
-                class="mt-1"
-                color="primary"
-                size="x-small"
-                variant="tonal"
-              >
-                {{ typeLabel }}
-              </v-chip>
-            </v-col>
-          </v-row>
-
-          <!-- Price -->
-          <v-card class="mb-4" color="primary" variant="tonal">
-            <v-card-text class="d-flex align-center justify-space-between py-3">
-              <span class="text-body-2">{{ $t('Preview.unlockPrice') }}</span>
-              <span class="text-h6 font-weight-bold">
-                {{ formatPrice(item.price) }}
-              </span>
-            </v-card-text>
-          </v-card>
-
-          <!-- What's included -->
-          <div class="text-subtitle-2 font-weight-medium mb-2">{{ $t('Preview.whatsIncluded') }}</div>
-          <v-list class="bg-transparent pa-0" density="compact">
-            <v-list-item
-              v-for="(include, idx) in defaultIncludes"
-              :key="idx"
-              class="px-0"
-            >
-              <template #prepend>
-                <v-icon class="mr-2" color="success" icon="mdi-check-circle" size="small" />
-              </template>
-              <v-list-item-title class="text-body-2">{{ include }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-
-          <!-- Error alert (wallet connection failed) -->
-          <v-alert
-            v-if="error"
-            class="mt-4"
-            closable
-            density="compact"
-            type="error"
-            variant="tonal"
-            @click:close="error = null"
-          >
-            {{ error }}
-          </v-alert>
-        </v-card-text>
-
-        <v-card-actions class="pa-4 pt-0">
-          <v-btn
-            block
-            color="primary"
-            :disabled="isConnecting"
-            :loading="isConnecting"
-            :prepend-icon="walletStore.isConnected ? undefined : 'mdi-wallet'"
-            size="large"
-            @click="goToPayment"
-          >
-            {{ walletStore.isConnected ? $t('Preview.continueToPayment') : $t('Common.connectWallet') }}
-          </v-btn>
-        </v-card-actions>
-      </template>
-
-      <!-- Step 2: Payment -->
-      <template v-if="step === 2 && item">
+      <!-- Payment -->
+      <template v-if="item">
         <v-card-text class="pa-4">
           <!-- Error alert -->
           <v-alert
@@ -423,19 +240,10 @@
           <!-- Order summary -->
           <v-divider class="my-4" />
 
-          <div class="d-flex justify-space-between align-center mb-2">
-            <span class="text-body-2 text-medium-emphasis">{{ $t('Preview.subtotal') }}</span>
-            <span class="text-body-2">{{ formatPrice(item.price) }}</span>
-          </div>
-          <div class="d-flex justify-space-between align-center mb-2">
-            <span class="text-body-2 text-medium-emphasis">{{ $t('Preview.networkFee') }}</span>
-            <span class="text-body-2">0.00001 XLM</span>
-          </div>
-          <v-divider class="my-2" />
           <div class="d-flex justify-space-between align-center">
             <span class="text-subtitle-1 font-weight-medium">{{ $t('Preview.total') }}</span>
             <span class="text-subtitle-1 font-weight-bold text-primary">
-              {{ formatPrice(item.price + 0.00001) }}
+              {{ formatPrice(item.price) }}
             </span>
           </div>
         </v-card-text>
@@ -468,14 +276,8 @@
     <v-card>
       <!-- Header -->
       <v-toolbar color="transparent" density="compact">
-        <v-btn
-          v-if="step === 2"
-          icon="mdi-arrow-left"
-          variant="text"
-          @click="goBack"
-        />
         <v-toolbar-title class="text-subtitle-1 font-weight-medium">
-          {{ step === 1 ? $t('Preview.unlockContent') : $t('Preview.payment') }}
+          {{ $t('Preview.payment') }}
         </v-toolbar-title>
         <v-spacer />
         <v-btn icon="mdi-close" variant="text" @click="closeDialog" />
@@ -483,100 +285,8 @@
 
       <v-divider />
 
-      <!-- Step 1: Confirm -->
-      <template v-if="step === 1 && item">
-        <v-card-text class="pa-6">
-          <!-- Product preview -->
-          <v-row align="center" class="mb-6">
-            <v-col cols="auto">
-              <v-avatar
-                v-if="item.thumbnail"
-                rounded="lg"
-                size="100"
-              >
-                <v-img cover :src="item.thumbnail" />
-              </v-avatar>
-              <v-avatar
-                v-else
-                color="primary"
-                rounded="lg"
-                size="100"
-                variant="tonal"
-              >
-                <v-icon :icon="typeIcon" size="40" />
-              </v-avatar>
-            </v-col>
-            <v-col>
-              <div class="text-h6">{{ item.title }}</div>
-              <div v-if="item.creator" class="text-body-1 text-medium-emphasis mb-1">
-                {{ $t('Preview.by') }} {{ item.creator.name }}
-              </div>
-              <v-chip
-                color="primary"
-                size="small"
-                variant="tonal"
-              >
-                {{ typeLabel }}
-              </v-chip>
-            </v-col>
-          </v-row>
-
-          <!-- Price -->
-          <v-card class="mb-6" color="primary" variant="tonal">
-            <v-card-text class="d-flex align-center justify-space-between py-4">
-              <span class="text-body-1">{{ $t('Preview.unlockPrice') }}</span>
-              <span class="text-h5 font-weight-bold">
-                {{ formatPrice(item.price) }}
-              </span>
-            </v-card-text>
-          </v-card>
-
-          <!-- What's included -->
-          <div class="text-subtitle-1 font-weight-medium mb-3">{{ $t('Preview.whatsIncluded') }}</div>
-          <v-list class="bg-transparent pa-0" density="compact">
-            <v-list-item
-              v-for="(include, idx) in defaultIncludes"
-              :key="idx"
-              class="px-0"
-            >
-              <template #prepend>
-                <v-icon class="mr-3" color="success" icon="mdi-check-circle" size="small" />
-              </template>
-              <v-list-item-title class="text-body-1">{{ include }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-
-          <!-- Error alert (wallet connection failed) -->
-          <v-alert
-            v-if="error"
-            class="mt-4"
-            closable
-            density="compact"
-            type="error"
-            variant="tonal"
-            @click:close="error = null"
-          >
-            {{ error }}
-          </v-alert>
-        </v-card-text>
-
-        <v-card-actions class="pa-6 pt-0">
-          <v-btn
-            block
-            color="primary"
-            :disabled="isConnecting"
-            :loading="isConnecting"
-            :prepend-icon="walletStore.isConnected ? undefined : 'mdi-wallet'"
-            size="large"
-            @click="goToPayment"
-          >
-            {{ walletStore.isConnected ? $t('Preview.continueToPayment') : $t('Common.connectWallet') }}
-          </v-btn>
-        </v-card-actions>
-      </template>
-
-      <!-- Step 2: Payment -->
-      <template v-if="step === 2 && item">
+      <!-- Payment -->
+      <template v-if="item">
         <v-card-text class="pa-6">
           <!-- Error alert -->
           <v-alert
@@ -648,19 +358,10 @@
           <!-- Order summary -->
           <v-divider class="my-4" />
 
-          <div class="d-flex justify-space-between align-center mb-3">
-            <span class="text-body-1 text-medium-emphasis">{{ $t('Preview.subtotal') }}</span>
-            <span class="text-body-1">{{ formatPrice(item.price) }}</span>
-          </div>
-          <div class="d-flex justify-space-between align-center mb-3">
-            <span class="text-body-1 text-medium-emphasis">{{ $t('Preview.networkFee') }}</span>
-            <span class="text-body-1">0.00001 XLM</span>
-          </div>
-          <v-divider class="my-3" />
           <div class="d-flex justify-space-between align-center">
             <span class="text-h6 font-weight-medium">{{ $t('Preview.total') }}</span>
             <span class="text-h6 font-weight-bold text-primary">
-              {{ formatPrice(item.price + 0.00001) }}
+              {{ formatPrice(item.price) }}
             </span>
           </div>
         </v-card-text>

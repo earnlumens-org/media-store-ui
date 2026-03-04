@@ -15,6 +15,7 @@ export interface StellarTransaction {
   from: string
   to: string
   memo?: string
+  transactionHash: string
 }
 
 export interface StellarOperation {
@@ -22,10 +23,19 @@ export interface StellarOperation {
   created_at: string
   type: string
   transaction_successful: boolean
+  transaction_hash: string
   from?: string
   to?: string
   amount?: string
   asset_type?: string
+}
+
+export interface GroupedTransaction {
+  transactionHash: string
+  created_at: string
+  type: 'sent' | 'received'
+  totalAmount: string
+  operations: StellarTransaction[]
 }
 
 /**
@@ -63,10 +73,58 @@ export async function getRecentTransactions (
           amount: op.amount || '0',
           from: op.from || '',
           to: op.to || address,
+          transactionHash: op.transaction_hash,
         } as StellarTransaction
       })
   } catch (error) {
     console.error('Error fetching transactions:', error)
     throw error
   }
+}
+
+/**
+ * Obtiene las transacciones recientes agrupadas por hash de transacción.
+ * Las transacciones multi-operación se muestran como una sola entrada con el total.
+ */
+export async function getRecentGroupedTransactions (
+  address: string,
+  maxGroups = 10,
+): Promise<GroupedTransaction[]> {
+  // Fetch more operations to ensure enough groups after merging
+  const operations = await getRecentTransactions(address, 50)
+
+  // Group by transaction hash preserving order
+  const groupMap = new Map<string, StellarTransaction[]>()
+  for (const op of operations) {
+    const hash = op.transactionHash
+    if (!groupMap.has(hash)) {
+      groupMap.set(hash, [])
+    }
+    groupMap.get(hash)!.push(op)
+  }
+
+  // Convert to grouped transactions
+  const groups: GroupedTransaction[] = []
+  for (const [hash, ops] of groupMap) {
+    const sentOps = ops.filter(o => o.type === 'sent')
+    const receivedOps = ops.filter(o => o.type === 'received')
+
+    // Determine overall transaction type by majority
+    const type: 'sent' | 'received' = sentOps.length >= receivedOps.length ? 'sent' : 'received'
+
+    // Calculate total amount from the relevant direction
+    const relevantOps = type === 'sent' ? sentOps : receivedOps
+    const total = (relevantOps.length > 0 ? relevantOps : ops)
+      .reduce((sum, o) => sum + Number.parseFloat(o.amount), 0)
+
+    groups.push({
+      transactionHash: hash,
+      created_at: ops[0].created_at,
+      type,
+      totalAmount: total.toFixed(7).replace(/0+$/, '').replace(/\.$/, ''),
+      operations: ops,
+    })
+  }
+
+  return groups.slice(0, maxGroups)
 }

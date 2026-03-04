@@ -211,3 +211,19 @@ export function getStellarNetworkPassphrase (): string {
   }
   return cachedNetworkPassphrase
 }
+
+/**
+ * Returns the Stellar Expert network slug for the current environment.
+ * - local / tunnelDev → 'testnet'
+ * - production → 'public'
+ */
+export function getStellarExpertNetwork (): string {
+  return detectEnvironment() === 'production' ? 'public' : 'testnet'
+}
+
+/**
+ * Builds a Stellar Expert transaction URL for the current network.
+ */
+export function getStellarExpertTxUrl (transactionHash: string): string {
+  return `https://stellar.expert/explorer/${getStellarExpertNetwork()}/tx/${transactionHash}`
+}

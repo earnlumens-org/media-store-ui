@@ -634,6 +634,7 @@
   import { useAuthStore } from '@/stores/auth'
   import { useFeedCacheStore } from '@/stores/feedCache'
   import { usePurchasesStore } from '@/stores/purchases'
+  import { useWalletStore } from '@/stores/wallet'
 
   const { t } = useI18n()
   const route = useRoute()
@@ -641,6 +642,7 @@
   const authStore = useAuthStore()
   const purchasesStore = usePurchasesStore()
   const feedCache = useFeedCacheStore()
+  const walletStore = useWalletStore()
 
   // Route param
   const contentId = computed(() => {
@@ -845,8 +847,17 @@
     }
   }
 
-  // Open checkout dialog
-  function openCheckout () {
+  // Open checkout dialog — connect wallet first if needed
+  async function openCheckout () {
+    if (!walletStore.isConnected) {
+      try {
+        const connected = await walletStore.connect()
+        if (!connected) return
+      } catch {
+        return
+      }
+    }
+    if (!walletStore.activeAddress) return
     checkoutOpen.value = true
   }
 
