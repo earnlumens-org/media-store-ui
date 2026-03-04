@@ -113,7 +113,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted, reactive, ref, watch } from 'vue'
+  import { computed, inject, onMounted, reactive, ref, type Ref, watch } from 'vue'
 
   import { getStellarExpertTxUrl } from '@/config/env'
   import { getRecentGroupedTransactions, type GroupedTransaction } from '@/services/stellar'
@@ -184,6 +184,14 @@
     if (diffDays < 7) return `Hace ${diffDays}d`
 
     return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short' })
+  }
+
+  // Real-time: reload when a new payment is detected by the stream
+  const newPaymentSignal = inject<Ref<number>>('newPaymentSignal')
+  if (newPaymentSignal) {
+    watch(newPaymentSignal, () => {
+      loadTransactions()
+    })
   }
 
   // Load on mount

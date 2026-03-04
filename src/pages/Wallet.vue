@@ -150,13 +150,13 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, onMounted, ref, watch } from 'vue'
+  import { computed, onMounted, onUnmounted, provide, ref, watch } from 'vue'
   import NumberAnimation from 'vue-number-animation'
 
   import stellarSvg from '@/assets/stellar.svg?raw'
   import CxDeposit from '@/components/wallet/CxDeposit.vue'
   import CxHistory from '@/components/wallet/CxHistory.vue'
-  import { getXLMBalance } from '@/services/stellar'
+  import { getXLMBalance, streamPayments } from '@/services/stellar'
   import { useWalletStore } from '@/stores/wallet'
 
   const BALANCE_TIMEOUT_MS = 10_000
@@ -170,6 +170,35 @@
 
   // Request ID para ignorar respuestas de requests obsoletas
   let currentRequestId = 0
+
+  // ── Real-time payment stream ──────────────────────────────────
+  let closeStream: (() => void) | null = null
+  const newPaymentSignal = ref(0)
+  provide('newPaymentSignal', newPaymentSignal)
+
+  function startStream () {
+    stopStream()
+    if (!walletStore.activeAddress) return
+    closeStream = streamPayments(walletStore.activeAddress, () => {
+      fetchBalance()
+      newPaymentSignal.value++
+    })
+  }
+
+  function stopStream () {
+    if (closeStream) {
+      closeStream()
+      closeStream = null
+    }
+  }
+
+  // ── Refresh on tab visibility ─────────────────────────────────
+  function handleVisibilityChange () {
+    if (document.visibilityState === 'visible' && walletStore.activeAddress) {
+      fetchBalance()
+      newPaymentSignal.value++
+    }
+  }
 
   const stellarLogoSized = computed(() => {
     return stellarSvg
@@ -235,10 +264,18 @@
 
   watch(() => walletStore.activeAddress, () => {
     fetchBalance()
+    startStream()
   })
 
   onMounted(async () => {
     await fetchBalance()
+    startStream()
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+  })
+
+  onUnmounted(() => {
+    stopStream()
+    document.removeEventListener('visibilitychange', handleVisibilityChange)
   })
 
   function handleMainButtonClick () {
