@@ -178,7 +178,9 @@
         "chooseWallet": "지갑 선택",
         "active": "활성",
         "addWallet": "지갑 추가",
-        "disconnectAll": "모두 연결 해제"
+        "disconnectAll": "모두 연결 해제",
+        "unfundedMessage": "이 지갑은 아직 Stellar 네트워크에서 활성화되지 않았습니다. 활성화하려면 이 주소로 최소 1 XLM을 보내세요.",
+        "learnMore": "자세히 보기"
     },
     "Account": {
         "account": "계정",

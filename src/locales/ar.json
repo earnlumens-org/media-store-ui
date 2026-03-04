@@ -178,7 +178,9 @@
         "chooseWallet": "اختر المحفظة",
         "active": "نشطة",
         "addWallet": "إضافة محفظة",
-        "disconnectAll": "قطع الاتصال بالكل"
+        "disconnectAll": "قطع الاتصال بالكل",
+        "unfundedMessage": "هذه المحفظة غير مفعّلة بعد على شبكة Stellar. أرسل 1 XLM على الأقل إلى هذا العنوان لتفعيلها.",
+        "learnMore": "اعرف المزيد"
     },
     "Account": {
         "account": "الحساب",

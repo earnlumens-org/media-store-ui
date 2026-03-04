@@ -50,6 +50,11 @@ export async function getRecentTransactions (
       `${HORIZON_URL}/accounts/${address}/payments?order=desc&limit=${limit}`,
     )
 
+    // Unfunded accounts (not yet on the ledger) return 404 — treat as empty history
+    if (response.status === 404) {
+      return []
+    }
+
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`)
     }

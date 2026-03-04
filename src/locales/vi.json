@@ -178,7 +178,9 @@
         "chooseWallet": "Chọn ví",
         "active": "Đang hoạt động",
         "addWallet": "Thêm ví",
-        "disconnectAll": "Ngắt kết nối tất cả"
+        "disconnectAll": "Ngắt kết nối tất cả",
+        "unfundedMessage": "Ví này chưa được kích hoạt trên mạng Stellar. Gửi ít nhất 1 XLM đến địa chỉ này để kích hoạt.",
+        "learnMore": "Tìm hiểu thêm"
     },
     "Account": {
         "account": "Tài khoản",

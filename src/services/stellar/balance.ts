@@ -41,6 +41,11 @@ export async function getXLMBalance (address: string): Promise<number> {
       { signal: currentAbortController.signal },
     )
 
+    // Unfunded accounts (not yet on the ledger) return 404
+    if (response.status === 404) {
+      return 0
+    }
+
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`)
     }

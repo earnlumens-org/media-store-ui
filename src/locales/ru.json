@@ -178,7 +178,9 @@
         "chooseWallet": "Выбрать кошелёк",
         "active": "Активен",
         "addWallet": "Добавить кошелёк",
-        "disconnectAll": "Отключить все"
+        "disconnectAll": "Отключить все",
+        "unfundedMessage": "Этот кошелёк ещё не активен в сети Stellar. Отправьте минимум 1 XLM на этот адрес для активации.",
+        "learnMore": "Узнать больше"
     },
     "Account": {
         "account": "Аккаунт",

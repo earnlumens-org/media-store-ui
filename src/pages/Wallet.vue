@@ -59,6 +59,31 @@
             <h2 v-if="!isLoadingBalance" class="text-left text-body-1 font-weight-bold text-primary">XLM</h2>
           </v-col>
         </v-row>
+
+        <!-- Unfunded account banner -->
+        <v-alert
+          v-if="isUnfunded && !isLoadingBalance"
+          border="start"
+          class="mt-2 mx-4"
+          closable
+          color="warning"
+          density="compact"
+          icon="mdi-alert-circle-outline"
+          max-width="480"
+          variant="tonal"
+        >
+          <div class="text-body-2">
+            {{ $t('Wallet.unfundedMessage') }}
+            <a
+              class="text-primary font-weight-medium"
+              href="https://developers.stellar.org/docs/build/guides/transactions/create-account#create-an-account-1"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {{ $t('Wallet.learnMore') }}
+            </a>
+          </div>
+        </v-alert>
       </v-col>
     </v-row>
   </v-container>
@@ -156,7 +181,7 @@
   import stellarSvg from '@/assets/stellar.svg?raw'
   import CxDeposit from '@/components/wallet/CxDeposit.vue'
   import CxHistory from '@/components/wallet/CxHistory.vue'
-  import { getXLMBalance, streamPayments } from '@/services/stellar'
+  import { accountExists, getXLMBalance, streamPayments } from '@/services/stellar'
   import { useWalletStore } from '@/stores/wallet'
 
   const BALANCE_TIMEOUT_MS = 10_000
@@ -166,6 +191,7 @@
   const xlmBalance = ref(0)
   const isLoadingBalance = ref(false)
   const balanceTimedOut = ref(false)
+  const isUnfunded = ref(false)
   const tab = ref('deposit')
 
   // Request ID para ignorar respuestas de requests obsoletas
@@ -241,6 +267,13 @@
       }
 
       xlmBalance.value = balance
+
+      // If balance is 0, check whether the account exists on the ledger
+      if (balance === 0) {
+        isUnfunded.value = !(await accountExists(walletStore.activeAddress))
+      } else {
+        isUnfunded.value = false
+      }
     } catch (error) {
       // Solo actualizar si este request sigue siendo el actual
       if (requestId !== currentRequestId) {

@@ -178,7 +178,9 @@
         "chooseWallet": "वॉलेट चुनें",
         "active": "सक्रिय",
         "addWallet": "वॉलेट जोड़ें",
-        "disconnectAll": "सभी डिस्कनेक्ट करें"
+        "disconnectAll": "सभी डिस्कनेक्ट करें",
+        "unfundedMessage": "यह वॉलेट अभी Stellar नेटवर्क पर सक्रिय नहीं है। इसे सक्रिय करने के लिए इस पते पर कम से कम 1 XLM भेजें।",
+        "learnMore": "और जानें"
     },
     "Account": {
         "account": "खाता",

@@ -178,7 +178,9 @@
         "chooseWallet": "Choisir un portefeuille",
         "active": "Actif",
         "addWallet": "Ajouter un portefeuille",
-        "disconnectAll": "Tout déconnecter"
+        "disconnectAll": "Tout déconnecter",
+        "unfundedMessage": "Ce portefeuille n'est pas encore actif sur le réseau Stellar. Envoyez au moins 1 XLM à cette adresse pour l'activer.",
+        "learnMore": "En savoir plus"
     },
     "Account": {
         "account": "Compte",

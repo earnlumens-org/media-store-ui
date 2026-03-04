@@ -178,7 +178,9 @@
         "chooseWallet": "Scegli portafoglio",
         "active": "Attivo",
         "addWallet": "Aggiungi portafoglio",
-        "disconnectAll": "Disconnetti tutto"
+        "disconnectAll": "Disconnetti tutto",
+        "unfundedMessage": "Questo portafoglio non è ancora attivo sulla rete Stellar. Invia almeno 1 XLM a questo indirizzo per attivarlo.",
+        "learnMore": "Scopri di più"
     },
     "Account": {
         "account": "Account",

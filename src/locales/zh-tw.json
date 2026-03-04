@@ -178,7 +178,9 @@
         "chooseWallet": "選擇錢包",
         "active": "已啟用",
         "addWallet": "新增錢包",
-        "disconnectAll": "全部中斷連線"
+        "disconnectAll": "全部中斷連線",
+        "unfundedMessage": "此錢包尚未在 Stellar 網路上啟用。請向此地址發送至少 1 XLM 以啟用。",
+        "learnMore": "了解更多"
     },
     "Account": {
         "account": "帳戶",

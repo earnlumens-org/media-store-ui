@@ -178,7 +178,9 @@
         "chooseWallet": "Choose wallet",
         "active": "Active",
         "addWallet": "Add wallet",
-        "disconnectAll": "Disconnect all"
+        "disconnectAll": "Disconnect all",
+        "unfundedMessage": "This wallet is not yet active on the Stellar network. Send at least 1 XLM to this address to activate it.",
+        "learnMore": "Learn more"
     },
     "Account": {
         "account": "Account",

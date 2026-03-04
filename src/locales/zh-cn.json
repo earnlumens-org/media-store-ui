@@ -178,7 +178,9 @@
         "chooseWallet": "选择钱包",
         "active": "已激活",
         "addWallet": "添加钱包",
-        "disconnectAll": "全部断开"
+        "disconnectAll": "全部断开",
+        "unfundedMessage": "此钱包尚未在 Stellar 网络上激活。请向此地址发送至少 1 XLM 以激活。",
+        "learnMore": "了解更多"
     },
     "Account": {
         "account": "账户",

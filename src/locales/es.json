@@ -178,7 +178,9 @@
         "chooseWallet": "Elegir billetera",
         "active": "Activa",
         "addWallet": "Agregar billetera",
-        "disconnectAll": "Desconectar todo"
+        "disconnectAll": "Desconectar todo",
+        "unfundedMessage": "Esta billetera aún no está activa en la red Stellar. Envía al menos 1 XLM a esta dirección para activarla.",
+        "learnMore": "Saber más"
     },
     "Account": {
         "account": "Cuenta",

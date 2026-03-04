@@ -178,7 +178,9 @@
         "chooseWallet": "ウォレットを選択",
         "active": "アクティブ",
         "addWallet": "ウォレットを追加",
-        "disconnectAll": "すべて切断"
+        "disconnectAll": "すべて切断",
+        "unfundedMessage": "このウォレットはまだStellarネットワーク上でアクティブではありません。アクティベートするには、このアドレスに1 XLM以上を送金してください。",
+        "learnMore": "詳しく見る"
     },
     "Account": {
         "account": "アカウント",

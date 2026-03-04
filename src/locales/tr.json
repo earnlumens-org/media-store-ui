@@ -178,7 +178,9 @@
         "chooseWallet": "Cüzdan seç",
         "active": "Aktif",
         "addWallet": "Cüzdan ekle",
-        "disconnectAll": "Tüm bağlantıları kes"
+        "disconnectAll": "Tüm bağlantıları kes",
+        "unfundedMessage": "Bu cüzdan henüz Stellar ağında aktif değil. Aktifleştirmek için bu adrese en az 1 XLM gönderin.",
+        "learnMore": "Daha fazla bilgi"
     },
     "Account": {
         "account": "Hesap",

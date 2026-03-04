@@ -178,7 +178,9 @@
         "chooseWallet": "Escolher carteira",
         "active": "Ativa",
         "addWallet": "Adicionar carteira",
-        "disconnectAll": "Desconectar tudo"
+        "disconnectAll": "Desconectar tudo",
+        "unfundedMessage": "Esta carteira ainda não está ativa na rede Stellar. Envie pelo menos 1 XLM para este endereço para ativá-la.",
+        "learnMore": "Saiba mais"
     },
     "Account": {
         "account": "Conta",
