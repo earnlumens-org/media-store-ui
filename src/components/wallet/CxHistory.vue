@@ -61,7 +61,7 @@
                   {{ group.type === 'received' ? '+' : '-' }}{{ formatAmount(group.totalAmount) }} XLM
                 </div>
                 <div v-if="!mobileView && group.operations.length === 1" class="text-caption text-medium-emphasis">
-                  {{ formatAddress(group.operations[0].type === 'received' ? group.operations[0].from : group.operations[0].to) }}
+                  {{ formatAddress(group.operations[0]!.type === 'received' ? group.operations[0]!.from : group.operations[0]!.to) }}
                 </div>
               </div>
               <v-icon

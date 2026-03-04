@@ -119,7 +119,7 @@ export async function getRecentGroupedTransactions (
 
     groups.push({
       transactionHash: hash,
-      created_at: ops[0].created_at,
+      created_at: ops[0]!.created_at,
       type,
       totalAmount: total.toFixed(7).replace(/0+$/, '').replace(/\.$/, ''),
       operations: ops,
