@@ -1,4 +1,5 @@
 <template>
+  <div class="d-flex flex-column" style="min-height: 100%;">
   <v-container :class="{ 'fill-height': !walletStore.isConnected }" fluid>
     <v-row
       :align="walletStore.isConnected ? 'start' : 'center'"
@@ -89,12 +90,12 @@
   </v-container>
 
   <!-- Tabs: Deposit / History (fuera del container para evitar márgenes) -->
-  <v-card v-if="walletStore.isConnected">
+  <v-card v-if="walletStore.isConnected" class="flex-grow-1 d-flex flex-column">
     <v-tabs v-model="tab" align-tabs="center" color="primary">
       <v-tab value="deposit">{{ $t('Wallet.deposit') }}</v-tab>
       <v-tab value="history">{{ $t('Wallet.history') }}</v-tab>
     </v-tabs>
-    <v-window v-model="tab">
+    <v-window v-model="tab" class="flex-grow-1">
       <v-window-item value="deposit">
         <CxDeposit />
       </v-window-item>
@@ -172,6 +173,7 @@
       </v-card-actions>
     </v-card>
   </v-bottom-sheet>
+  </div>
 </template>
 
 <script setup lang="ts">
