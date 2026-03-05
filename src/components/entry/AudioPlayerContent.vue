@@ -83,7 +83,7 @@
       </v-sheet>
 
       <h3 class="text-h6 mt-4">{{ entry.title }}</h3>
-      <p class="text-body-2 text-medium-emphasis">{{ entry.authorName }}</p>
+      <router-link class="text-body-2 text-medium-emphasis d-block text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
 
       <v-alert
         class="mt-4 text-left"
@@ -159,7 +159,7 @@
       <!-- Title & Author -->
       <div class="text-center mt-4">
         <h3 class="text-h6 font-weight-bold">{{ entry.title }}</h3>
-        <p class="text-body-2 text-medium-emphasis">{{ entry.authorName }}</p>
+        <router-link class="text-body-2 text-medium-emphasis d-block text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
       </div>
 
       <!-- Progress Slider -->

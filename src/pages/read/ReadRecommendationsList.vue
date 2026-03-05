@@ -85,7 +85,7 @@
       </v-list-item-title>
 
       <v-list-item-subtitle class="text-caption">
-        {{ item.authorName }} · {{ formatDate(item.publishedAt) }}
+        <router-link class="text-decoration-none" style="color: inherit" :to="`/${item.authorName}`">{{ item.authorName }}</router-link> · {{ formatDate(item.publishedAt) }}
       </v-list-item-subtitle>
 
       <!-- Locked indicator -->

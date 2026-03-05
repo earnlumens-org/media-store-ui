@@ -204,16 +204,16 @@
             </h1>
 
             <!-- Author -->
-            <div class="d-flex align-center mb-3">
+            <router-link class="d-flex align-center mb-3 text-decoration-none" style="min-width: 0" :to="`/${collection.authorName}`">
               <v-avatar
-                class="me-2"
+                class="me-2 flex-shrink-0"
                 :image="collection.authorAvatarUrl"
                 size="28"
               >
                 <v-icon v-if="!collection.authorAvatarUrl" size="16">mdi-account</v-icon>
               </v-avatar>
-              <span class="text-body-2 text-white">{{ collection.authorName }}</span>
-            </div>
+              <span class="text-body-2 text-white text-truncate">{{ collection.authorName }}</span>
+            </router-link>
 
             <!-- Stats Row -->
             <div class="d-flex flex-wrap align-center ga-3 text-body-2 text-white text-medium-emphasis mb-4">
@@ -458,20 +458,23 @@
                 <!-- Author Card -->
                 <v-card class="mb-4" variant="tonal">
                   <v-card-text class="d-flex align-center">
-                    <v-avatar
-                      class="me-4"
-                      :image="collection.authorAvatarUrl"
-                      size="56"
-                    >
-                      <v-icon v-if="!collection.authorAvatarUrl" size="28">mdi-account</v-icon>
-                    </v-avatar>
-                    <div class="flex-grow-1">
-                      <h3 class="text-body-1 font-weight-medium">{{ collection.authorName }}</h3>
+                    <router-link class="me-4 flex-shrink-0" :to="`/${collection.authorName}`">
+                      <v-avatar
+                        :image="collection.authorAvatarUrl"
+                        size="56"
+                      >
+                        <v-icon v-if="!collection.authorAvatarUrl" size="28">mdi-account</v-icon>
+                      </v-avatar>
+                    </router-link>
+                    <div class="flex-grow-1" style="min-width: 0">
+                      <router-link class="text-body-1 font-weight-medium text-truncate d-block text-decoration-none" style="color: inherit" :to="`/${collection.authorName}`">{{ collection.authorName }}</router-link>
                       <p class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</p>
                     </div>
                     <v-btn
+                      class="flex-shrink-0 ms-2"
                       color="primary"
                       rounded="pill"
+                      :size="$vuetify.display.smAndDown ? 'small' : 'default'"
                       variant="flat"
                     >
                       {{ $t('Common.subscribe') }}

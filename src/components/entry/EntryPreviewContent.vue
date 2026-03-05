@@ -145,18 +145,20 @@
 
       <!-- Author Block -->
       <div class="d-flex align-center">
-        <v-avatar
-          class="me-3"
-          :image="entry.authorAvatarUrl"
-          size="40"
-        >
-          <v-icon v-if="!entry.authorAvatarUrl">mdi-account</v-icon>
-        </v-avatar>
-        <div class="flex-grow-1">
-          <span class="text-body-1 font-weight-medium">{{ entry.authorName }}</span>
+        <router-link class="me-3 flex-shrink-0" :to="`/${entry.authorName}`">
+          <v-avatar
+            :image="entry.authorAvatarUrl"
+            size="40"
+          >
+            <v-icon v-if="!entry.authorAvatarUrl">mdi-account</v-icon>
+          </v-avatar>
+        </router-link>
+        <div class="flex-grow-1" style="min-width: 0">
+          <router-link class="text-body-1 font-weight-medium text-truncate d-block text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
         </div>
         <v-btn
           :aria-label="$t('Common.share')"
+          class="flex-shrink-0"
           icon="mdi-share-variant"
           size="small"
           variant="text"
@@ -164,6 +166,7 @@
         />
         <v-btn
           :aria-label="isSaved ? $t('Common.removeFromSaved') : $t('Common.save')"
+          class="flex-shrink-0"
           :color="isSaved ? 'primary' : undefined"
           :icon="isSaved ? 'mdi-bookmark' : 'mdi-bookmark-outline'"
           size="small"

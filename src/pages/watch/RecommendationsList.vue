@@ -128,7 +128,7 @@
       </v-list-item-title>
 
       <v-list-item-subtitle class="text-caption">
-        {{ item.authorName }}
+        <router-link class="text-decoration-none" style="color: inherit" :to="`/${item.authorName}`">{{ item.authorName }}</router-link>
       </v-list-item-subtitle>
 
       <v-list-item-subtitle class="text-caption text-medium-emphasis">

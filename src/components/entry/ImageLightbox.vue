@@ -43,15 +43,15 @@
         <template #append>
           <!-- Author avatar (if available) -->
           <template v-if="entry && !loading && !error">
-            <v-avatar
-              v-if="entry.authorAvatarUrl"
-              class="me-2"
-              :image="entry.authorAvatarUrl"
-              size="32"
-            />
-            <span class="text-body-2 text-white text-medium-emphasis me-2 d-none d-sm-inline">
+            <router-link v-if="entry.authorAvatarUrl" class="me-2" :to="`/${entry.authorName}`">
+              <v-avatar
+                :image="entry.authorAvatarUrl"
+                size="32"
+              />
+            </router-link>
+            <router-link class="text-body-2 text-white text-medium-emphasis me-2 d-none d-sm-inline text-decoration-none" :to="`/${entry.authorName}`">
               {{ entry.authorName }}
-            </span>
+            </router-link>
 
             <!-- Share button -->
             <v-btn
@@ -145,7 +145,7 @@
 
               <h2 class="text-h5 text-white mt-4">{{ entry.title }}</h2>
               <p class="text-body-2 text-medium-emphasis text-grey-lighten-1 mt-2">
-                by {{ entry.authorName }}
+                by <router-link class="text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
               </p>
 
               <v-alert

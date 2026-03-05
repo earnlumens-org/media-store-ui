@@ -272,30 +272,31 @@
 
               <!-- Author Row -->
               <v-sheet class="d-flex align-center mt-4 pa-3 rounded-lg" color="surface">
-                <v-avatar
-                  class="me-3"
-                  size="48"
-                >
-                  <v-img
-                    v-if="avatarUrl"
-                    cover
-                    :src="avatarUrl"
-                    @error="avatarBroken = true"
-                  />
-                  <v-icon v-else>mdi-account</v-icon>
-                </v-avatar>
-                <div class="flex-grow-1">
+                <router-link class="me-3 flex-shrink-0" :to="`/${entry.authorName}`">
+                  <v-avatar size="48">
+                    <v-img
+                      v-if="avatarUrl"
+                      cover
+                      :src="avatarUrl"
+                      @error="avatarBroken = true"
+                    />
+                    <v-icon v-else>mdi-account</v-icon>
+                  </v-avatar>
+                </router-link>
+                <div class="flex-grow-1" style="min-width: 0">
                   <div class="d-flex align-center">
-                    <span class="text-body-1 font-weight-medium">{{ entry.authorName }}</span>
-                    <v-icon class="ms-1" color="primary" size="18">mdi-check-decagram</v-icon>
+                    <router-link class="text-body-1 font-weight-medium text-truncate text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+                    <v-icon class="ms-1 flex-shrink-0" color="primary" size="18">mdi-check-decagram</v-icon>
                   </div>
                   <span class="text-body-2 text-medium-emphasis">
                     {{ $t('Common.creator') }}
                   </span>
                 </div>
                 <v-btn
+                  class="flex-shrink-0 ms-2"
                   color="primary"
                   rounded="pill"
+                  :size="$vuetify.display.smAndDown ? 'small' : 'default'"
                   variant="flat"
                 >
                   {{ $t('Common.subscribe') }}

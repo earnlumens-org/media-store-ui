@@ -249,28 +249,29 @@
 
             <!-- Author Block -->
             <v-sheet class="d-flex align-center pa-3 rounded-lg mb-6" color="surface">
-              <v-avatar
-                class="me-3"
-                size="48"
-              >
-                <v-img
-                  v-if="avatarUrl"
-                  cover
-                  :src="avatarUrl"
-                  @error="avatarBroken = true"
-                />
-                <v-icon v-else>mdi-account</v-icon>
-              </v-avatar>
-              <div class="flex-grow-1">
+              <router-link class="me-3 flex-shrink-0" :to="`/${entry.authorName}`">
+                <v-avatar size="48">
+                  <v-img
+                    v-if="avatarUrl"
+                    cover
+                    :src="avatarUrl"
+                    @error="avatarBroken = true"
+                  />
+                  <v-icon v-else>mdi-account</v-icon>
+                </v-avatar>
+              </router-link>
+              <div class="flex-grow-1" style="min-width: 0">
                 <div class="d-flex align-center">
-                  <span class="text-body-1 font-weight-medium">{{ entry.authorName }}</span>
-                  <v-icon class="ms-1" color="primary" size="18">mdi-check-decagram</v-icon>
+                  <router-link class="text-body-1 font-weight-medium text-truncate text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+                  <v-icon class="ms-1 flex-shrink-0" color="primary" size="18">mdi-check-decagram</v-icon>
                 </div>
                 <span class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</span>
               </div>
               <v-btn
+                class="flex-shrink-0 ms-2"
                 color="primary"
                 rounded="pill"
+                :size="$vuetify.display.smAndDown ? 'small' : 'default'"
                 variant="flat"
               >
                 {{ $t('Common.subscribe') }}
@@ -417,19 +418,21 @@
             <!-- Author Card -->
             <v-card class="mb-4" color="surface" variant="flat">
               <v-card-text class="text-center">
-                <v-avatar
-                  class="mb-3"
-                  size="64"
-                >
-                  <v-img
-                    v-if="avatarUrl"
-                    cover
-                    :src="avatarUrl"
-                    @error="avatarBroken = true"
-                  />
-                  <v-icon v-else size="32">mdi-account</v-icon>
-                </v-avatar>
-                <h3 class="text-body-1 font-weight-medium">{{ entry.authorName }}</h3>
+                <router-link :to="`/${entry.authorName}`">
+                  <v-avatar
+                    class="mb-3"
+                    size="64"
+                  >
+                    <v-img
+                      v-if="avatarUrl"
+                      cover
+                      :src="avatarUrl"
+                      @error="avatarBroken = true"
+                    />
+                    <v-icon v-else size="32">mdi-account</v-icon>
+                  </v-avatar>
+                </router-link>
+                <router-link class="text-body-1 font-weight-medium text-truncate d-block text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
                 <p class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</p>
                 <v-btn
                   block

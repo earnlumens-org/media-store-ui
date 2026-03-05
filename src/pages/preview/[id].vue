@@ -262,7 +262,7 @@
 
                 <div class="text-h6 mb-1">{{ content.title }}</div>
                 <div class="text-body-2 text-medium-emphasis mb-6">
-                  {{ $t('Preview.by') }} {{ content.authorName }}
+                  {{ $t('Preview.by') }} <router-link class="text-decoration-none" style="color: inherit" :to="`/${content.authorName}`">{{ content.authorName }}</router-link>
                 </div>
 
                 <!-- Disabled progress bar -->
@@ -361,7 +361,7 @@
               <v-card-text class="pa-6">
                 <div class="text-h5 font-weight-bold mb-2">{{ content.title }}</div>
                 <div class="d-flex align-center text-body-2 text-medium-emphasis mb-4">
-                  <span>{{ content.authorName }}</span>
+                  <router-link class="text-decoration-none" style="color: inherit" :to="`/${content.authorName}`">{{ content.authorName }}</router-link>
                   <v-icon class="mx-2" size="4">mdi-circle</v-icon>
                   <span>{{ formatDate(content.publishedAt) }}</span>
                 </div>
@@ -421,7 +421,7 @@
               <v-card-text class="pa-4">
                 <div class="text-h5 font-weight-bold mb-2">{{ collectionData?.title || content.title }}</div>
                 <div class="d-flex align-center text-body-2 text-medium-emphasis mb-4">
-                  <span>{{ collectionData?.authorName || content.authorName }}</span>
+                  <router-link class="text-decoration-none" style="color: inherit" :to="`/${(collectionData?.authorName || content.authorName)}`">{{ collectionData?.authorName || content.authorName }}</router-link>
                   <v-icon class="mx-2" size="4">mdi-circle</v-icon>
                   <span>{{ collectionData?.itemsCount || 0 }} {{ $t('Preview.items') }}</span>
                 </div>
@@ -469,14 +469,15 @@
                 <v-card-text class="pa-4">
                   <!-- Creator info -->
                   <div class="d-flex align-center mb-4">
-                    <AvatarFrame
-                      class="mr-3"
-                      :size="48"
-                      :src="content.authorAvatarUrl"
-                    />
-                    <div>
+                    <router-link class="mr-3 flex-shrink-0" :to="`/${content.authorName}`">
+                      <AvatarFrame
+                        :size="48"
+                        :src="content.authorAvatarUrl"
+                      />
+                    </router-link>
+                    <div style="min-width: 0">
                       <div class="d-flex align-center text-subtitle-1 font-weight-medium">
-                        {{ content.authorName }}
+                        <router-link class="text-truncate text-decoration-none" style="color: inherit" :to="`/${content.authorName}`">{{ content.authorName }}</router-link>
                         <v-avatar
                           v-if="profileBadgeSrc"
                           class="ms-2 flex-shrink-0"
@@ -539,14 +540,15 @@
               <v-card-text class="pa-6">
                 <!-- Creator info -->
                 <div class="d-flex align-center mb-6">
-                  <AvatarFrame
-                    class="mr-4"
-                    :size="56"
-                    :src="content.authorAvatarUrl"
-                  />
-                  <div>
+                  <router-link class="mr-4 flex-shrink-0" :to="`/${content.authorName}`">
+                    <AvatarFrame
+                      :size="56"
+                      :src="content.authorAvatarUrl"
+                    />
+                  </router-link>
+                  <div style="min-width: 0">
                     <div class="d-flex align-center text-subtitle-1 font-weight-medium">
-                      {{ content.authorName }}
+                      <router-link class="text-truncate text-decoration-none" style="color: inherit" :to="`/${content.authorName}`">{{ content.authorName }}</router-link>
                       <v-avatar
                         v-if="profileBadgeSrc"
                         class="ms-2 flex-shrink-0"
