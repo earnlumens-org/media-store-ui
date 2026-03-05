@@ -19,6 +19,7 @@ export interface PublicEntryDto {
   durationSec?: number
   isPaid: boolean
   priceXlm?: number
+  viewCount?: number
   tags?: string[]
   asset?: {
     fileName: string
