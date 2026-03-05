@@ -19,7 +19,7 @@
 <template>
   <v-container class="pa-0" fluid>
     <!-- MOBILE: Top App Bar (visible on xs/sm only) -->
-    <v-app-bar
+    <v-toolbar
       class="d-md-none"
       color="surface"
       density="compact"
@@ -32,12 +32,12 @@
         @click="goBack"
       />
 
-      <v-app-bar-title v-if="entry" class="text-body-1">
+      <v-toolbar-title v-if="entry" class="text-body-1">
         {{ entry.title }}
-      </v-app-bar-title>
-      <v-app-bar-title v-else>
+      </v-toolbar-title>
+      <v-toolbar-title v-else>
         <v-skeleton-loader type="text" width="200" />
-      </v-app-bar-title>
+      </v-toolbar-title>
 
       <template #append>
         <v-btn
@@ -61,7 +61,7 @@
           </v-list>
         </v-menu>
       </template>
-    </v-app-bar>
+    </v-toolbar>
 
     <!-- LOADING STATE -->
     <template v-if="loading">

@@ -42,22 +42,30 @@ export function streamPayments (address: string, onPayment: PaymentHandler): () 
   }
 
   // Check if the account exists before opening the stream
-  accountExists(address).then((exists) => {
-    if (stopped) return
+  accountExists(address).then(exists => {
+    if (stopped) {
+      return
+    }
     if (exists) {
       openStream()
     } else {
       // Poll until the account is funded
       pollTimer = setInterval(async () => {
         if (stopped) {
-          if (pollTimer) clearInterval(pollTimer)
+          if (pollTimer) {
+            clearInterval(pollTimer)
+          }
           return
         }
         const funded = await accountExists(address)
         if (funded) {
-          if (pollTimer) clearInterval(pollTimer)
+          if (pollTimer) {
+            clearInterval(pollTimer)
+          }
           pollTimer = null
-          if (!stopped) openStream()
+          if (!stopped) {
+            openStream()
+          }
         }
       }, 30_000)
     }
