@@ -6,7 +6,7 @@
 
 export type EntryType = 'VIDEO' | 'AUDIO' | 'IMAGE' | 'RESOURCE'
 
-export type EntryStatus = 'DRAFT' | 'IN_REVIEW' | 'APPROVED' | 'PUBLISHED' | 'REJECTED'
+export type EntryStatus = 'DRAFT' | 'IN_REVIEW' | 'APPROVED' | 'PUBLISHED' | 'REJECTED' | 'ARCHIVED'
 
 export type AssetKind = 'THUMBNAIL' | 'PREVIEW' | 'FULL'
 

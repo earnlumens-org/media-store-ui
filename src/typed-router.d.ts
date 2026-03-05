@@ -24,6 +24,7 @@ declare module 'vue-router/auto-routes' {
     '/Account': RouteRecordInfo<'/Account', '/account', Record<never, never>, Record<never, never>>,
     '/collection/[id]': RouteRecordInfo<'/collection/[id]', '/collection/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/Community': RouteRecordInfo<'/Community', '/community', Record<never, never>, Record<never, never>>,
+    '/CreatorStudio': RouteRecordInfo<'/CreatorStudio', '/creator-studio', Record<never, never>, Record<never, never>>,
     '/Ecosystem': RouteRecordInfo<'/Ecosystem', '/ecosystem', Record<never, never>, Record<never, never>>,
     '/Explore': RouteRecordInfo<'/Explore', '/explore', Record<never, never>, Record<never, never>>,
     '/Favorites': RouteRecordInfo<'/Favorites', '/favorites', Record<never, never>, Record<never, never>>,
@@ -82,6 +83,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/Community.vue': {
       routes: '/Community'
+      views: never
+    }
+    'src/pages/CreatorStudio.vue': {
+      routes: '/CreatorStudio'
       views: never
     }
     'src/pages/Ecosystem.vue': {

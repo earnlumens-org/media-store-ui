@@ -49,6 +49,7 @@ export interface PublicEntryModel {
   thumbnailUrl?: string
   previewUrl?: string
   durationSec?: number
+  viewCount?: number
   isPaid: boolean
   priceXlm?: number
   tags: string[]

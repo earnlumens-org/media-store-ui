@@ -188,7 +188,9 @@
         "followers": "Seguidores",
         "viewOnX": "Ver en X",
         "copyProfileLink": "Copiar enlace del perfil",
-        "profileLinkCopied": "Enlace del perfil copiado"
+        "profileLinkCopied": "Enlace del perfil copiado",
+        "creatorStudio": "Creator Studio",
+        "creatorStudioHint": "Gestiona tu contenido, analiza el rendimiento y sube material nuevo"
     },
     "AppBar": {
         "home": "Inicio",
@@ -331,7 +333,8 @@
             "published": "Publicado",
             "rejected": "Rechazado",
             "suspended": "Suspendido",
-            "unlisted": "No listado"
+            "unlisted": "No listado",
+            "archived": "Archivado"
         },
         "progress": {
             "initializingUpload": "Inicializando subida...",
@@ -422,5 +425,70 @@
         "loginRequiredDescription": "Inicia sesión para ver tus favoritos.",
         "errorTitle": "Error al cargar favoritos",
         "errorDescription": "Algo salió mal. Toca para reintentar."
+    },
+    "CreatorStudio": {
+        "title": "Creator Studio",
+        "subtitle": "Gestiona tu contenido y analiza el rendimiento",
+        "createNew": "Crear",
+        "loading": "Cargando tu contenido...",
+        "errorTitle": "Error",
+        "errorDescription": "No se pudo cargar tu contenido. Inténtalo de nuevo.",
+        "empty": "Aún no tienes contenido",
+        "emptyDescription": "Comienza a crear y compartir tu trabajo con el mundo.",
+        "uploadFirst": "Sube tu primer contenido",
+        "noResults": "Sin resultados",
+        "noResultsDescription": "Intenta ajustar los filtros o los términos de búsqueda.",
+        "searchPlaceholder": "Buscar en tu contenido...",
+        "filterStatus": "Estado",
+        "filterType": "Tipo",
+        "sortBy": "Ordenar por",
+        "allStatuses": "Todos los estados",
+        "allTypes": "Todos los tipos",
+        "free": "Gratis",
+        "showingEntries": "Mostrando {count} de {total} entradas",
+        "stats": {
+            "total": "Total",
+            "published": "Publicados",
+            "drafts": "Borradores",
+            "inReview": "En revisión",
+            "views": "Vistas",
+            "revenue": "Ingresos"
+        },
+        "tabs": {
+            "active": "Activos",
+            "archived": "Archivados"
+        },
+        "sort": {
+            "newest": "Más recientes",
+            "oldest": "Más antiguos",
+            "titleAZ": "Título A → Z",
+            "titleZA": "Título Z → A"
+        },
+        "table": {
+            "content": "Contenido",
+            "status": "Estado",
+            "type": "Tipo",
+            "date": "Fecha",
+            "price": "Precio",
+            "actions": "Acciones"
+        },
+        "actions": {
+            "view": "Ver",
+            "edit": "Editar",
+            "archive": "Archivar",
+            "unarchive": "Desarchivar",
+            "submitReview": "Enviar a revisión"
+        },
+        "editEntry": "Editar entrada",
+        "editSuccess": "Entrada actualizada correctamente",
+        "editError": "Error al actualizar la entrada. Inténtalo de nuevo.",
+        "archiveConfirm": {
+            "title": "¿Archivar entrada?",
+            "message": "¿Estás seguro de que deseas archivar \"{title}\"? Se ocultará del catálogo público pero los compradores existentes mantendrán acceso."
+        },
+        "archiveSuccess": "Entrada archivada correctamente",
+        "archiveError": "Error al archivar la entrada. Inténtalo de nuevo.",
+        "unarchiveSuccess": "Entrada desarchivada y restaurada a su estado anterior",
+        "unarchiveError": "Error al desarchivar la entrada. Inténtalo de nuevo."
     }
 }

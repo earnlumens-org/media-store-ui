@@ -1,4 +1,5 @@
 import { createSession, logout, refreshAccessToken } from './modules/auth.api'
+import { archiveEntry, getCreatorDashboardStats, getCreatorEntries, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
 import { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
 import {
   getMockCollectionById,
@@ -37,6 +38,13 @@ export const api = {
     getById: getPublishedEntryById,
     getByUser: getPublishedEntriesByUser,
   },
+  creator: {
+    getEntries: getCreatorEntries,
+    getDashboardStats: getCreatorDashboardStats,
+    updateMetadata: updateEntryMetadata,
+    archiveEntry,
+    unarchiveEntry,
+  },
   upload: {
     createEntry,
     initUpload,
@@ -72,6 +80,7 @@ export const api = {
 
 export { ApiError, apiRequest } from './apiRequest'
 export { createSession, logout, refreshAccessToken } from './modules/auth.api'
+export { archiveEntry, getCreatorDashboardStats, getCreatorEntries, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
 export { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
 export {
   getMockCollectionById,
@@ -155,3 +164,11 @@ export type {
   FavoriteItemModel,
   FavoritePageModel,
 } from './types/favorite.types'
+
+export type {
+  CreatorDashboardStats,
+  CreatorEntryFilters,
+  CreatorEntryModel,
+  CreatorEntryPageModel,
+  UpdateEntryMetadataRequest,
+} from './types/creator.types'

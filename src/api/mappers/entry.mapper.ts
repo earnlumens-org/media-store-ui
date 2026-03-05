@@ -28,6 +28,7 @@ export function mapPublicEntryDtoToModel (dto: PublicEntryDto): PublicEntryModel
     thumbnailUrl: r2KeyToCdnUrl(dto.thumbnailR2Key),
     previewUrl: r2KeyToCdnUrl(dto.previewR2Key),
     durationSec: dto.durationSec,
+    viewCount: dto.viewCount ?? 0,
     isPaid: dto.isPaid,
     priceXlm: dto.priceXlm,
     tags: dto.tags ?? [],

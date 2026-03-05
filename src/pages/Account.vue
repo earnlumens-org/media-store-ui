@@ -70,6 +70,28 @@
 
               <v-divider class="mb-4" />
 
+              <!-- ── Quick Actions ─────────────────────────── -->
+              <div class="mb-4">
+                <v-list class="pa-0" density="compact" nav>
+                  <v-list-item
+                    prepend-icon="mdi-movie-open-star-outline"
+                    :to="'/creator-studio'"
+                  >
+                    <v-list-item-title class="font-weight-medium">
+                      {{ $t('Account.creatorStudio') }}
+                    </v-list-item-title>
+                    <v-list-item-subtitle>
+                      {{ $t('Account.creatorStudioHint') }}
+                    </v-list-item-subtitle>
+                    <template #append>
+                      <v-icon size="small">mdi-chevron-right</v-icon>
+                    </template>
+                  </v-list-item>
+                </v-list>
+              </div>
+
+              <v-divider class="mb-4" />
+
               <div class="d-flex align-center">
                 <v-list class="flex-grow-1 pa-0" density="compact">
                   <v-list-item>
