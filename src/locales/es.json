@@ -323,8 +323,10 @@
             "uploading": "Subiendo...",
             "submitForReview": "Enviar para revisión",
             "submitting": "Enviando...",
-            "saveDraft": "Guardar borrador",
-            "cancel": "Cancelar"
+            "saveDraft": "Guardar como borrador",
+            "cancel": "Cancelar",
+            "goToStudio": "Ir a Creator Studio",
+            "uploadAnother": "Subir otro"
         },
         "status": {
             "draft": "Borrador",
@@ -341,7 +343,8 @@
             "uploadingFile": "Subiendo {name}...",
             "finalizingUpload": "Finalizando subida...",
             "uploadComplete": "¡Subida completa!",
-            "creatingEntry": "Creando entrada..."
+            "creatingEntry": "Creando entrada...",
+            "submittingForReview": "Enviando para revisión..."
         },
         "errors": {
             "uploadFailed": "La subida falló. Por favor, inténtalo de nuevo.",
@@ -353,7 +356,10 @@
         "success": {
             "entryCreated": "Entrada creada como borrador",
             "uploadComplete": "Archivo subido correctamente",
-            "submittedForReview": "Enviado para revisión correctamente"
+            "submittedForReview": "Enviado para revisión correctamente",
+            "title": "¡Subida completada!",
+            "draftMessage": "Tu {type} ha sido guardado como borrador. Puedes editarlo o enviarlo en cualquier momento desde Creator Studio.",
+            "reviewMessage": "Tu {type} ha sido enviado para revisión. Se te notificará cuando sea aprobado."
         }
     },
     "Preview": {
@@ -452,7 +458,8 @@
             "drafts": "Borradores",
             "inReview": "En revisión",
             "views": "Vistas",
-            "revenue": "Ingresos"
+            "sales": "Ventas",
+            "viewDetails": "Ver detalle"
         },
         "tabs": {
             "active": "Activos",
@@ -490,5 +497,25 @@
         "archiveError": "Error al archivar la entrada. Inténtalo de nuevo.",
         "unarchiveSuccess": "Entrada desarchivada y restaurada a su estado anterior",
         "unarchiveError": "Error al desarchivar la entrada. Inténtalo de nuevo."
+    },
+    "SalesHistory": {
+        "title": "Historial de ventas",
+        "subtitle": "Todas tus ventas completadas y desglose de pagos",
+        "errorLoading": "No se pudieron cargar tus ventas. Inténtalo de nuevo.",
+        "noSales": "Aún no tienes ventas",
+        "noSalesHint": "Cuando alguien compre tu contenido, aparecerá aquí.",
+        "paymentBreakdown": "Desglose de pago",
+        "viewOnStellarExpert": "Ver en Stellar Expert",
+        "type": {
+            "VIDEO": "Video",
+            "AUDIO": "Audio",
+            "IMAGE": "Imagen",
+            "RESOURCE": "Recurso"
+        },
+        "role": {
+            "SELLER": "Vendedor",
+            "PLATFORM": "Plataforma",
+            "COLLABORATOR": "Colaborador"
+        }
     }
 }

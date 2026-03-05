@@ -322,7 +322,9 @@
             "submitForReview": "Gửi để xét duyệt",
             "submitting": "Đang gửi...",
             "saveDraft": "Lưu bản nháp",
-            "cancel": "Hủy"
+            "cancel": "Hủy",
+            "goToStudio": "Go to Creator Studio",
+            "uploadAnother": "Upload Another"
         },
         "status": {
             "draft": "Bản nháp",
@@ -338,7 +340,8 @@
             "uploadingFile": "Đang tải lên {name}...",
             "finalizingUpload": "Đang hoàn tất tải lên...",
             "uploadComplete": "Tải lên hoàn tất!",
-            "creatingEntry": "Đang tạo bài viết..."
+            "creatingEntry": "Đang tạo bài viết...",
+            "submittingForReview": "Submitting for review..."
         },
         "errors": {
             "uploadFailed": "Tải lên thất bại. Vui lòng thử lại.",
@@ -350,7 +353,10 @@
         "success": {
             "entryCreated": "Bài viết đã được tạo dưới dạng bản nháp",
             "uploadComplete": "Tệp đã được tải lên thành công",
-            "submittedForReview": "Đã gửi để xét duyệt thành công"
+            "submittedForReview": "Đã gửi để xét duyệt thành công",
+            "title": "Upload Complete!",
+            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
+            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
         }
     },
     "Preview": {
@@ -422,5 +428,91 @@
         "loginRequiredDescription": "Vui lòng đăng nhập để xem mục yêu thích của bạn.",
         "errorTitle": "Lỗi khi tải mục yêu thích",
         "errorDescription": "Đã xảy ra lỗi. Nhấn để thử lại."
+    },
+    "CreatorStudio": {
+        "title": "Creator Studio",
+        "subtitle": "Manage your content and track performance",
+        "createNew": "Create",
+        "loading": "Loading your content...",
+        "errorTitle": "Error",
+        "errorDescription": "Failed to load your content. Please try again.",
+        "empty": "No content yet",
+        "emptyDescription": "Start creating and sharing your work with the world.",
+        "uploadFirst": "Upload your first content",
+        "noResults": "No matching content",
+        "noResultsDescription": "Try adjusting your filters or search terms.",
+        "searchPlaceholder": "Search your content...",
+        "filterStatus": "Status",
+        "filterType": "Type",
+        "sortBy": "Sort by",
+        "allStatuses": "All statuses",
+        "allTypes": "All types",
+        "free": "Free",
+        "showingEntries": "Showing {count} of {total} entries",
+        "stats": {
+            "total": "Total",
+            "published": "Published",
+            "drafts": "Drafts",
+            "inReview": "In Review",
+            "views": "Views",
+            "sales": "Doanh số",
+            "viewDetails": "Xem chi tiết"
+        },
+        "tabs": {
+            "active": "Active",
+            "archived": "Archived"
+        },
+        "sort": {
+            "newest": "Newest first",
+            "oldest": "Oldest first",
+            "titleAZ": "Title A → Z",
+            "titleZA": "Title Z → A"
+        },
+        "table": {
+            "content": "Content",
+            "status": "Status",
+            "type": "Type",
+            "date": "Date",
+            "price": "Price",
+            "actions": "Actions"
+        },
+        "actions": {
+            "view": "View",
+            "edit": "Edit",
+            "archive": "Archive",
+            "unarchive": "Unarchive",
+            "submitReview": "Submit for review"
+        },
+        "editEntry": "Edit entry",
+        "editSuccess": "Entry updated successfully",
+        "editError": "Failed to update entry. Please try again.",
+        "archiveConfirm": {
+            "title": "Archive entry?",
+            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+        },
+        "archiveSuccess": "Entry archived successfully",
+        "archiveError": "Failed to archive entry. Please try again.",
+        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
+        "unarchiveError": "Failed to unarchive entry. Please try again."
+    },
+    "SalesHistory": {
+        "title": "Lịch sử bán hàng",
+        "subtitle": "Tất cả giao dịch đã hoàn tất và chi tiết thanh toán",
+        "errorLoading": "Không thể tải lịch sử bán hàng. Vui lòng thử lại.",
+        "noSales": "Chưa có đơn hàng nào",
+        "noSalesHint": "Khi ai đó mua nội dung của bạn, nó sẽ xuất hiện ở đây.",
+        "paymentBreakdown": "Chi tiết thanh toán",
+        "viewOnStellarExpert": "Xem trên Stellar Expert",
+        "type": {
+            "VIDEO": "Video",
+            "AUDIO": "Âm thanh",
+            "IMAGE": "Hình ảnh",
+            "RESOURCE": "Tài nguyên"
+        },
+        "role": {
+            "SELLER": "Người bán",
+            "PLATFORM": "Nền tảng",
+            "COLLABORATOR": "Cộng tác viên"
+        }
     }
 }

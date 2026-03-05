@@ -40,7 +40,7 @@ export interface CreatorDashboardStats {
   rejected: number
   archived: number
   totalViews: number
-  totalRevenue: number
+  totalSales: number
 }
 
 export interface UpdateEntryMetadataRequest {

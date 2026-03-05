@@ -322,7 +322,9 @@
             "submitForReview": "提交審核",
             "submitting": "提交中...",
             "saveDraft": "儲存草稿",
-            "cancel": "取消"
+            "cancel": "取消",
+            "goToStudio": "Go to Creator Studio",
+            "uploadAnother": "Upload Another"
         },
         "status": {
             "draft": "草稿",
@@ -338,7 +340,8 @@
             "uploadingFile": "正在上傳 {name}...",
             "finalizingUpload": "正在完成上傳...",
             "uploadComplete": "上傳完成！",
-            "creatingEntry": "正在建立條目..."
+            "creatingEntry": "正在建立條目...",
+            "submittingForReview": "Submitting for review..."
         },
         "errors": {
             "uploadFailed": "上傳失敗。請重試。",
@@ -350,7 +353,10 @@
         "success": {
             "entryCreated": "條目已建立為草稿",
             "uploadComplete": "檔案上傳成功",
-            "submittedForReview": "已成功提交審核"
+            "submittedForReview": "已成功提交審核",
+            "title": "Upload Complete!",
+            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
+            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
         }
     },
     "Preview": {
@@ -422,5 +428,91 @@
         "loginRequiredDescription": "請登入以查看您的收藏。",
         "errorTitle": "載入收藏時發生錯誤",
         "errorDescription": "發生了一些問題。點擊以重試。"
+    },
+    "CreatorStudio": {
+        "title": "Creator Studio",
+        "subtitle": "Manage your content and track performance",
+        "createNew": "Create",
+        "loading": "Loading your content...",
+        "errorTitle": "Error",
+        "errorDescription": "Failed to load your content. Please try again.",
+        "empty": "No content yet",
+        "emptyDescription": "Start creating and sharing your work with the world.",
+        "uploadFirst": "Upload your first content",
+        "noResults": "No matching content",
+        "noResultsDescription": "Try adjusting your filters or search terms.",
+        "searchPlaceholder": "Search your content...",
+        "filterStatus": "Status",
+        "filterType": "Type",
+        "sortBy": "Sort by",
+        "allStatuses": "All statuses",
+        "allTypes": "All types",
+        "free": "Free",
+        "showingEntries": "Showing {count} of {total} entries",
+        "stats": {
+            "total": "Total",
+            "published": "Published",
+            "drafts": "Drafts",
+            "inReview": "In Review",
+            "views": "Views",
+            "sales": "銷售",
+            "viewDetails": "查看詳情"
+        },
+        "tabs": {
+            "active": "Active",
+            "archived": "Archived"
+        },
+        "sort": {
+            "newest": "Newest first",
+            "oldest": "Oldest first",
+            "titleAZ": "Title A → Z",
+            "titleZA": "Title Z → A"
+        },
+        "table": {
+            "content": "Content",
+            "status": "Status",
+            "type": "Type",
+            "date": "Date",
+            "price": "Price",
+            "actions": "Actions"
+        },
+        "actions": {
+            "view": "View",
+            "edit": "Edit",
+            "archive": "Archive",
+            "unarchive": "Unarchive",
+            "submitReview": "Submit for review"
+        },
+        "editEntry": "Edit entry",
+        "editSuccess": "Entry updated successfully",
+        "editError": "Failed to update entry. Please try again.",
+        "archiveConfirm": {
+            "title": "Archive entry?",
+            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+        },
+        "archiveSuccess": "Entry archived successfully",
+        "archiveError": "Failed to archive entry. Please try again.",
+        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
+        "unarchiveError": "Failed to unarchive entry. Please try again."
+    },
+    "SalesHistory": {
+        "title": "銷售紀錄",
+        "subtitle": "所有已完成的銷售及付款明細",
+        "errorLoading": "無法載入銷售紀錄，請重試。",
+        "noSales": "尚無銷售",
+        "noSalesHint": "當有人購買您的內容時，將在此處顯示。",
+        "paymentBreakdown": "付款明細",
+        "viewOnStellarExpert": "在 Stellar Expert 上查看",
+        "type": {
+            "VIDEO": "影片",
+            "AUDIO": "音訊",
+            "IMAGE": "圖片",
+            "RESOURCE": "資源"
+        },
+        "role": {
+            "SELLER": "賣家",
+            "PLATFORM": "平台",
+            "COLLABORATOR": "協作者"
+        }
     }
 }

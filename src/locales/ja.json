@@ -322,7 +322,9 @@
             "submitForReview": "審査に提出",
             "submitting": "提出中...",
             "saveDraft": "下書きを保存",
-            "cancel": "キャンセル"
+            "cancel": "キャンセル",
+            "goToStudio": "Go to Creator Studio",
+            "uploadAnother": "Upload Another"
         },
         "status": {
             "draft": "下書き",
@@ -338,7 +340,8 @@
             "uploadingFile": "{name} をアップロード中...",
             "finalizingUpload": "アップロードを完了処理中...",
             "uploadComplete": "アップロード完了！",
-            "creatingEntry": "エントリーを作成中..."
+            "creatingEntry": "エントリーを作成中...",
+            "submittingForReview": "Submitting for review..."
         },
         "errors": {
             "uploadFailed": "アップロードに失敗しました。もう一度お試しください。",
@@ -350,7 +353,10 @@
         "success": {
             "entryCreated": "エントリーを下書きとして作成しました",
             "uploadComplete": "ファイルのアップロードに成功しました",
-            "submittedForReview": "審査に正常に提出しました"
+            "submittedForReview": "審査に正常に提出しました",
+            "title": "Upload Complete!",
+            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
+            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
         }
     },
     "Preview": {
@@ -422,5 +428,91 @@
         "loginRequiredDescription": "お気に入りを表示するにはログインしてください。",
         "errorTitle": "お気に入りの読み込みエラー",
         "errorDescription": "問題が発生しました。タップして再試行してください。"
+    },
+    "CreatorStudio": {
+        "title": "Creator Studio",
+        "subtitle": "Manage your content and track performance",
+        "createNew": "Create",
+        "loading": "Loading your content...",
+        "errorTitle": "Error",
+        "errorDescription": "Failed to load your content. Please try again.",
+        "empty": "No content yet",
+        "emptyDescription": "Start creating and sharing your work with the world.",
+        "uploadFirst": "Upload your first content",
+        "noResults": "No matching content",
+        "noResultsDescription": "Try adjusting your filters or search terms.",
+        "searchPlaceholder": "Search your content...",
+        "filterStatus": "Status",
+        "filterType": "Type",
+        "sortBy": "Sort by",
+        "allStatuses": "All statuses",
+        "allTypes": "All types",
+        "free": "Free",
+        "showingEntries": "Showing {count} of {total} entries",
+        "stats": {
+            "total": "Total",
+            "published": "Published",
+            "drafts": "Drafts",
+            "inReview": "In Review",
+            "views": "Views",
+            "sales": "売上",
+            "viewDetails": "詳細を見る"
+        },
+        "tabs": {
+            "active": "Active",
+            "archived": "Archived"
+        },
+        "sort": {
+            "newest": "Newest first",
+            "oldest": "Oldest first",
+            "titleAZ": "Title A → Z",
+            "titleZA": "Title Z → A"
+        },
+        "table": {
+            "content": "Content",
+            "status": "Status",
+            "type": "Type",
+            "date": "Date",
+            "price": "Price",
+            "actions": "Actions"
+        },
+        "actions": {
+            "view": "View",
+            "edit": "Edit",
+            "archive": "Archive",
+            "unarchive": "Unarchive",
+            "submitReview": "Submit for review"
+        },
+        "editEntry": "Edit entry",
+        "editSuccess": "Entry updated successfully",
+        "editError": "Failed to update entry. Please try again.",
+        "archiveConfirm": {
+            "title": "Archive entry?",
+            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+        },
+        "archiveSuccess": "Entry archived successfully",
+        "archiveError": "Failed to archive entry. Please try again.",
+        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
+        "unarchiveError": "Failed to unarchive entry. Please try again."
+    },
+    "SalesHistory": {
+        "title": "販売履歴",
+        "subtitle": "完了した販売と支払い内訳",
+        "errorLoading": "販売データを読み込めませんでした。もう一度お試しください。",
+        "noSales": "まだ売上がありません",
+        "noSalesHint": "コンテンツが購入されると、ここに表示されます。",
+        "paymentBreakdown": "支払い内訳",
+        "viewOnStellarExpert": "Stellar Expertで確認",
+        "type": {
+            "VIDEO": "動画",
+            "AUDIO": "音声",
+            "IMAGE": "画像",
+            "RESOURCE": "リソース"
+        },
+        "role": {
+            "SELLER": "販売者",
+            "PLATFORM": "プラットフォーム",
+            "COLLABORATOR": "コラボレーター"
+        }
     }
 }

@@ -322,7 +322,9 @@
             "submitForReview": "검토 요청",
             "submitting": "제출 중...",
             "saveDraft": "초안 저장",
-            "cancel": "취소"
+            "cancel": "취소",
+            "goToStudio": "Go to Creator Studio",
+            "uploadAnother": "Upload Another"
         },
         "status": {
             "draft": "초안",
@@ -338,7 +340,8 @@
             "uploadingFile": "{name} 업로드 중...",
             "finalizingUpload": "업로드 마무리 중...",
             "uploadComplete": "업로드 완료!",
-            "creatingEntry": "엔트리 생성 중..."
+            "creatingEntry": "엔트리 생성 중...",
+            "submittingForReview": "Submitting for review..."
         },
         "errors": {
             "uploadFailed": "업로드에 실패했습니다. 다시 시도해주세요.",
@@ -350,7 +353,10 @@
         "success": {
             "entryCreated": "엔트리가 초안으로 생성되었습니다",
             "uploadComplete": "파일이 성공적으로 업로드되었습니다",
-            "submittedForReview": "검토 요청이 성공적으로 제출되었습니다"
+            "submittedForReview": "검토 요청이 성공적으로 제출되었습니다",
+            "title": "Upload Complete!",
+            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
+            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
         }
     },
     "Preview": {
@@ -422,5 +428,91 @@
         "loginRequiredDescription": "즐겨찾기를 보려면 로그인하세요.",
         "errorTitle": "즐겨찾기 로딩 오류",
         "errorDescription": "문제가 발생했습니다. 탭하여 다시 시도하세요."
+    },
+    "CreatorStudio": {
+        "title": "Creator Studio",
+        "subtitle": "Manage your content and track performance",
+        "createNew": "Create",
+        "loading": "Loading your content...",
+        "errorTitle": "Error",
+        "errorDescription": "Failed to load your content. Please try again.",
+        "empty": "No content yet",
+        "emptyDescription": "Start creating and sharing your work with the world.",
+        "uploadFirst": "Upload your first content",
+        "noResults": "No matching content",
+        "noResultsDescription": "Try adjusting your filters or search terms.",
+        "searchPlaceholder": "Search your content...",
+        "filterStatus": "Status",
+        "filterType": "Type",
+        "sortBy": "Sort by",
+        "allStatuses": "All statuses",
+        "allTypes": "All types",
+        "free": "Free",
+        "showingEntries": "Showing {count} of {total} entries",
+        "stats": {
+            "total": "Total",
+            "published": "Published",
+            "drafts": "Drafts",
+            "inReview": "In Review",
+            "views": "Views",
+            "sales": "판매",
+            "viewDetails": "상세보기"
+        },
+        "tabs": {
+            "active": "Active",
+            "archived": "Archived"
+        },
+        "sort": {
+            "newest": "Newest first",
+            "oldest": "Oldest first",
+            "titleAZ": "Title A → Z",
+            "titleZA": "Title Z → A"
+        },
+        "table": {
+            "content": "Content",
+            "status": "Status",
+            "type": "Type",
+            "date": "Date",
+            "price": "Price",
+            "actions": "Actions"
+        },
+        "actions": {
+            "view": "View",
+            "edit": "Edit",
+            "archive": "Archive",
+            "unarchive": "Unarchive",
+            "submitReview": "Submit for review"
+        },
+        "editEntry": "Edit entry",
+        "editSuccess": "Entry updated successfully",
+        "editError": "Failed to update entry. Please try again.",
+        "archiveConfirm": {
+            "title": "Archive entry?",
+            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+        },
+        "archiveSuccess": "Entry archived successfully",
+        "archiveError": "Failed to archive entry. Please try again.",
+        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
+        "unarchiveError": "Failed to unarchive entry. Please try again."
+    },
+    "SalesHistory": {
+        "title": "판매 내역",
+        "subtitle": "완료된 모든 판매 및 결제 내역",
+        "errorLoading": "판매 내역을 불러올 수 없습니다. 다시 시도해 주세요.",
+        "noSales": "아직 판매가 없습니다",
+        "noSalesHint": "누군가 콘텐츠를 구매하면 여기에 표시됩니다.",
+        "paymentBreakdown": "결제 내역",
+        "viewOnStellarExpert": "Stellar Expert에서 보기",
+        "type": {
+            "VIDEO": "동영상",
+            "AUDIO": "오디오",
+            "IMAGE": "이미지",
+            "RESOURCE": "리소스"
+        },
+        "role": {
+            "SELLER": "판매자",
+            "PLATFORM": "플랫폼",
+            "COLLABORATOR": "협력자"
+        }
     }
 }

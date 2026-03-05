@@ -140,6 +140,7 @@ interface OwnerStatsDto {
   rejected: number
   archived: number
   totalViews: number
+  totalSales: number
 }
 
 /**
@@ -157,7 +158,7 @@ export async function getCreatorDashboardStats (): Promise<CreatorDashboardStats
     rejected: stats.rejected ?? 0,
     archived: stats.archived ?? 0,
     totalViews: stats.totalViews ?? 0,
-    totalRevenue: 0,
+    totalSales: stats.totalSales ?? 0,
   }
 }
 

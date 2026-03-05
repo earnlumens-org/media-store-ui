@@ -14,6 +14,7 @@ import {
 import { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
 import { preparePayment, submitPayment } from './modules/payment.api'
 import { getPurchases } from './modules/purchase.api'
+import { getSellerSales } from './modules/sales.api'
 import { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
 import { checkUsernameExists, getCurrentUser, getUserByUsername } from './modules/user.api'
 import { getWaitlistStats, subscribeWaitlist } from './modules/waitlist.api'
@@ -44,6 +45,7 @@ export const api = {
     updateMetadata: updateEntryMetadata,
     archiveEntry,
     unarchiveEntry,
+    getSales: getSellerSales,
   },
   upload: {
     createEntry,
@@ -81,6 +83,7 @@ export const api = {
 export { ApiError, apiRequest } from './apiRequest'
 export { createSession, logout, refreshAccessToken } from './modules/auth.api'
 export { archiveEntry, getCreatorDashboardStats, getCreatorEntries, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
+export { getSellerSales } from './modules/sales.api'
 export { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
 export {
   getMockCollectionById,
@@ -172,3 +175,8 @@ export type {
   CreatorEntryPageModel,
   UpdateEntryMetadataRequest,
 } from './types/creator.types'
+
+export type {
+  SellerSaleModel,
+  SellerSaleSplit,
+} from './types/sales.types'

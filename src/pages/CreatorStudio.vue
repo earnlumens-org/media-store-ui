@@ -31,45 +31,53 @@
     <!-- ── Dashboard Stats Cards ───────────────────────────── -->
     <v-row class="mb-4 mb-md-6" dense>
       <v-col cols="6" lg="2" md="4" sm="4">
-        <v-card class="pa-3 pa-md-4 text-center" variant="tonal">
+        <v-card class="pa-3 pa-md-4 text-center h-100 d-flex flex-column align-center justify-center" variant="tonal">
           <v-icon class="mb-1" color="primary" size="28">mdi-file-document-multiple-outline</v-icon>
           <div class="text-h6 text-md-h5 font-weight-bold">{{ stats.totalEntries }}</div>
           <div class="text-caption text-medium-emphasis">{{ t('CreatorStudio.stats.total') }}</div>
         </v-card>
       </v-col>
       <v-col cols="6" lg="2" md="4" sm="4">
-        <v-card class="pa-3 pa-md-4 text-center" variant="tonal">
+        <v-card class="pa-3 pa-md-4 text-center h-100 d-flex flex-column align-center justify-center" variant="tonal">
           <v-icon class="mb-1" color="success" size="28">mdi-check-circle-outline</v-icon>
           <div class="text-h6 text-md-h5 font-weight-bold">{{ stats.published }}</div>
           <div class="text-caption text-medium-emphasis">{{ t('CreatorStudio.stats.published') }}</div>
         </v-card>
       </v-col>
       <v-col cols="6" lg="2" md="4" sm="4">
-        <v-card class="pa-3 pa-md-4 text-center" variant="tonal">
+        <v-card class="pa-3 pa-md-4 text-center h-100 d-flex flex-column align-center justify-center" variant="tonal">
           <v-icon class="mb-1" color="warning" size="28">mdi-pencil-outline</v-icon>
           <div class="text-h6 text-md-h5 font-weight-bold">{{ stats.drafts }}</div>
           <div class="text-caption text-medium-emphasis">{{ t('CreatorStudio.stats.drafts') }}</div>
         </v-card>
       </v-col>
       <v-col cols="6" lg="2" md="4" sm="4">
-        <v-card class="pa-3 pa-md-4 text-center" variant="tonal">
+        <v-card class="pa-3 pa-md-4 text-center h-100 d-flex flex-column align-center justify-center" variant="tonal">
           <v-icon class="mb-1" color="info" size="28">mdi-clock-outline</v-icon>
           <div class="text-h6 text-md-h5 font-weight-bold">{{ stats.inReview }}</div>
           <div class="text-caption text-medium-emphasis">{{ t('CreatorStudio.stats.inReview') }}</div>
         </v-card>
       </v-col>
       <v-col cols="6" lg="2" md="4" sm="4">
-        <v-card class="pa-3 pa-md-4 text-center" variant="tonal">
+        <v-card class="pa-3 pa-md-4 text-center h-100 d-flex flex-column align-center justify-center" variant="tonal">
           <v-icon class="mb-1" size="28">mdi-eye-outline</v-icon>
           <div class="text-h6 text-md-h5 font-weight-bold">{{ formatNumber(stats.totalViews) }}</div>
           <div class="text-caption text-medium-emphasis">{{ t('CreatorStudio.stats.views') }}</div>
         </v-card>
       </v-col>
       <v-col cols="6" lg="2" md="4" sm="4">
-        <v-card class="pa-3 pa-md-4 text-center" variant="tonal">
-          <v-icon class="mb-1" color="amber" size="28">mdi-currency-usd</v-icon>
-          <div class="text-h6 text-md-h5 font-weight-bold">{{ formatXlm(stats.totalRevenue) }}</div>
-          <div class="text-caption text-medium-emphasis">{{ t('CreatorStudio.stats.revenue') }}</div>
+        <v-card
+          class="pa-3 pa-md-4 text-center h-100 d-flex flex-column align-center justify-center"
+          style="cursor: pointer;"
+          variant="tonal"
+          @click="router.push('/creator-studio/sales')"
+        >
+          <v-icon class="mb-1" color="amber" size="28">mdi-cart-check</v-icon>
+          <div class="text-h6 text-md-h5 font-weight-bold">{{ stats.totalSales }}</div>
+          <div class="text-caption text-medium-emphasis">{{ t('CreatorStudio.stats.sales') }}</div>
+          <div class="text-caption text-primary mt-1" style="font-size: 0.7rem;">
+            {{ t('CreatorStudio.stats.viewDetails') }}
+          </div>
         </v-card>
       </v-col>
     </v-row>
@@ -668,7 +676,7 @@
     rejected: 0,
     totalViews: 0,
     archived: 0,
-    totalRevenue: 0,
+    totalSales: 0,
   })
 
   const filters = reactive<{
@@ -824,11 +832,6 @@
     if (num >= 1e6) return `${(num / 1e6).toFixed(1)}M`
     if (num >= 1e3) return `${(num / 1e3).toFixed(1)}K`
     return String(num)
-  }
-
-  function formatXlm (amount: number): string {
-    if (!amount) return '0 XLM'
-    return `${amount.toLocaleString(undefined, { maximumFractionDigits: 2 })} XLM`
   }
 
   function showToast (text: string, color = 'success') {

@@ -334,8 +334,10 @@
             "uploading": "Uploading...",
             "submitForReview": "Submit for Review",
             "submitting": "Submitting...",
-            "saveDraft": "Save Draft",
-            "cancel": "Cancel"
+            "saveDraft": "Save as Draft",
+            "cancel": "Cancel",
+            "goToStudio": "Go to Creator Studio",
+            "uploadAnother": "Upload Another"
         },
         "status": {
             "draft": "Draft",
@@ -352,7 +354,8 @@
             "uploadingFile": "Uploading {name}...",
             "finalizingUpload": "Finalizing upload...",
             "uploadComplete": "Upload complete!",
-            "creatingEntry": "Creating entry..."
+            "creatingEntry": "Creating entry...",
+            "submittingForReview": "Submitting for review..."
         },
         "errors": {
             "uploadFailed": "Upload failed. Please try again.",
@@ -364,7 +367,10 @@
         "success": {
             "entryCreated": "Entry created as draft",
             "uploadComplete": "File uploaded successfully",
-            "submittedForReview": "Submitted for review successfully"
+            "submittedForReview": "Submitted for review successfully",
+            "title": "Upload Complete!",
+            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
+            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
         }
     },
     "Preview": {
@@ -452,7 +458,8 @@
             "drafts": "Drafts",
             "inReview": "In Review",
             "views": "Views",
-            "revenue": "Revenue"
+            "sales": "Sales",
+            "viewDetails": "View details"
         },
         "tabs": {
             "active": "Active",
@@ -490,5 +497,25 @@
         "archiveError": "Failed to archive entry. Please try again.",
         "unarchiveSuccess": "Entry unarchived and restored to its previous status",
         "unarchiveError": "Failed to unarchive entry. Please try again."
+    },
+    "SalesHistory": {
+        "title": "Sales History",
+        "subtitle": "All your completed sales and payment breakdowns",
+        "errorLoading": "Could not load your sales. Please try again.",
+        "noSales": "No sales yet",
+        "noSalesHint": "When someone buys your content, it will appear here.",
+        "paymentBreakdown": "Payment breakdown",
+        "viewOnStellarExpert": "View on Stellar Expert",
+        "type": {
+            "VIDEO": "Video",
+            "AUDIO": "Audio",
+            "IMAGE": "Image",
+            "RESOURCE": "Resource"
+        },
+        "role": {
+            "SELLER": "Seller",
+            "PLATFORM": "Platform",
+            "COLLABORATOR": "Collaborator"
+        }
     }
 }

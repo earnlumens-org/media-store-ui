@@ -1,5 +1,62 @@
 <template>
-  <v-container class="upload-form" fluid>
+  <!-- ═══ Success Screen ═══ -->
+  <v-container v-if="uploadPhase === 'success'" class="fill-height" fluid>
+    <v-row align="center" justify="center">
+      <v-col cols="12" sm="8" md="6" lg="5">
+        <v-card class="pa-8 text-center" elevation="2">
+          <div class="success-icon-wrapper mb-5">
+            <v-icon color="success" size="72">mdi-check-circle</v-icon>
+          </div>
+
+          <h2 class="text-h5 font-weight-bold mb-2">
+            {{ t('Upload.success.title') }}
+          </h2>
+
+          <p class="text-body-1 text-medium-emphasis mb-2">
+            {{ savedAsDraft
+              ? t('Upload.success.draftMessage', { type: t(`Upload.type.${contentType}`) })
+              : t('Upload.success.reviewMessage', { type: t(`Upload.type.${contentType}`) })
+            }}
+          </p>
+
+          <v-chip
+            class="mb-6"
+            :color="savedAsDraft ? 'warning' : 'info'"
+            size="small"
+            variant="tonal"
+          >
+            {{ savedAsDraft ? t('Upload.status.draft') : t('Upload.status.inReview') }}
+          </v-chip>
+
+          <div class="d-flex flex-column ga-3">
+            <v-btn
+              block
+              color="primary"
+              size="large"
+              variant="elevated"
+              @click="router.push('/creator-studio')"
+            >
+              <v-icon class="me-2">mdi-view-dashboard-outline</v-icon>
+              {{ t('Upload.actions.goToStudio') }}
+            </v-btn>
+
+            <v-btn
+              block
+              size="large"
+              variant="outlined"
+              @click="uploadAnother"
+            >
+              <v-icon class="me-2">mdi-plus</v-icon>
+              {{ t('Upload.actions.uploadAnother') }}
+            </v-btn>
+          </div>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+
+  <!-- ═══ Upload Form ═══ -->
+  <v-container v-else class="upload-form" fluid>
     <v-row justify="center">
       <v-col cols="12" lg="8" md="10">
         <!-- Header -->
@@ -25,7 +82,7 @@
           </div>
         </div>
 
-        <v-form ref="formRef" @submit.prevent="handleSubmit">
+        <v-form ref="formRef" @submit.prevent>
           <v-row>
             <!-- Left column: metadata -->
             <v-col cols="12" md="7">
@@ -214,68 +271,68 @@
                   </v-btn>
 
                   <v-btn
-                    color="primary"
-                    :disabled="!canUpload"
-                    :loading="isUploading"
-                    variant="elevated"
-                    @click="handleSubmit"
+                    :disabled="!canUpload || isUploading"
+                    :loading="isUploading && savedAsDraft"
+                    variant="outlined"
+                    @click="handleUpload(false)"
                   >
-                    <v-icon class="me-1">mdi-cloud-upload-outline</v-icon>
-                    {{ isUploading ? t('Upload.actions.uploading') : t('Upload.actions.upload') }}
+                    <v-icon class="me-1">mdi-content-save-outline</v-icon>
+                    {{ t('Upload.actions.saveDraft') }}
                   </v-btn>
 
                   <v-btn
-                    color="success"
-                    :disabled="!canSubmitForReview"
-                    :loading="isSubmitting"
+                    color="primary"
+                    :disabled="!canUpload || isUploading"
+                    :loading="isUploading && !savedAsDraft"
                     variant="elevated"
-                    @click="handleSubmitForReview"
+                    @click="handleUpload(true)"
                   >
                     <v-icon class="me-1">mdi-send</v-icon>
-                    {{ isSubmitting ? t('Upload.actions.submitting') : t('Upload.actions.submitForReview') }}
+                    {{ t('Upload.actions.submitForReview') }}
                   </v-btn>
                 </div>
               </v-card>
             </v-col>
           </v-row>
         </v-form>
-
-        <!-- Progress overlay -->
-        <v-overlay
-          v-model="showProgressOverlay"
-          class="align-center justify-center"
-          persistent
-        >
-          <v-card class="pa-6 text-center" min-width="300">
-            <v-progress-circular
-              class="mb-4"
-              color="primary"
-              indeterminate
-              size="48"
-            />
-            <div class="text-body-1">{{ progressMessage }}</div>
-          </v-card>
-        </v-overlay>
-
-        <!-- Snackbar for feedback -->
-        <v-snackbar
-          v-model="snackbar.show"
-          :color="snackbar.color"
-          :timeout="4000"
-        >
-          {{ snackbar.text }}
-          <template #actions>
-            <v-btn
-              variant="text"
-              @click="snackbar.show = false"
-            >
-              {{ t('Common.close') }}
-            </v-btn>
-          </template>
-        </v-snackbar>
       </v-col>
     </v-row>
   </v-container>
+
+  <!-- ═══ Progress Overlay (shared) ═══ -->
+  <v-overlay
+    v-model="showProgressOverlay"
+    class="align-center justify-center"
+    persistent
+  >
+    <v-card class="pa-6 text-center" min-width="340">
+      <v-progress-circular
+        class="mb-4"
+        color="primary"
+        indeterminate
+        size="56"
+        width="4"
+      />
+      <div class="text-h6 mb-1">{{ progressMessage }}</div>
+    </v-card>
+  </v-overlay>
+
+  <!-- ═══ Snackbar (shared) ═══ -->
+  <v-snackbar
+    v-model="snackbar.show"
+    :color="snackbar.color"
+    :timeout="4000"
+  >
+    {{ snackbar.text }}
+    <template #actions>
+      <v-btn
+        variant="text"
+        @click="snackbar.show = false"
+      >
+        {{ t('Common.close') }}
+      </v-btn>
+    </template>
+  </v-snackbar>
 </template>
 
 <script setup lang="ts">
@@ -341,15 +398,10 @@
     return !!assets.full
   })
 
-  // Entry was created and full asset uploaded successfully
-  const entryCreated = ref(false)
-  const fullAssetUploaded = ref(false)
+  // ── Upload phase & post-upload state ─────────────────────
 
-  const canSubmitForReview = computed(() => {
-    if (!entryCreated.value) return false
-    if (props.contentType === 'resource') return true
-    return fullAssetUploaded.value
-  })
+  const uploadPhase = ref<'form' | 'success'>('form')
+  const savedAsDraft = ref(false)
 
   // ── Validation rules ───────────────────────────────────────
 
@@ -370,7 +422,6 @@
   // ── Upload state ────────────────────────────────────────────
 
   const isUploading = ref(false)
-  const isSubmitting = ref(false)
   const showProgressOverlay = ref(false)
   const progressMessage = ref('')
   const createdEntryId = ref<string | null>(null)
@@ -403,7 +454,7 @@
 
   // ── Upload flow ─────────────────────────────────────────────
 
-  async function handleSubmit () {
+  async function handleUpload (submitForReview: boolean) {
     const { valid } = await formRef.value?.validate()
     if (!valid) return
 
@@ -423,6 +474,7 @@
       return
     }
 
+    savedAsDraft.value = !submitForReview
     isUploading.value = true
     showProgressOverlay.value = true
 
@@ -442,7 +494,6 @@
       })
 
       createdEntryId.value = entry.id
-      entryCreated.value = true
 
       // 2. Upload assets (full, thumbnail, preview)
       const uploadTasks: Array<{ file: File, kind: AssetKind }> = []
@@ -454,11 +505,14 @@
         await uploadAsset(entry.id, task.file, task.kind)
       }
 
-      if (assets.full) {
-        fullAssetUploaded.value = true
+      // 3. Submit for review if requested
+      if (submitForReview) {
+        progressMessage.value = t('Upload.progress.submittingForReview')
+        await api.upload.updateEntryStatus(entry.id, { status: 'IN_REVIEW' })
       }
 
-      showSnackbar(t('Upload.success.entryCreated'))
+      // 4. Transition to success screen
+      uploadPhase.value = 'success'
     } catch (error) {
       console.error('Upload failed:', error)
       showSnackbar(t('Upload.errors.uploadFailed'), 'error')
@@ -503,27 +557,27 @@
     showSnackbar(t('Upload.success.uploadComplete'))
   }
 
-  async function handleSubmitForReview () {
-    if (!createdEntryId.value) return
-
-    isSubmitting.value = true
-    showProgressOverlay.value = true
-    progressMessage.value = t('Upload.actions.submitting')
-
-    try {
-      await api.upload.updateEntryStatus(createdEntryId.value, { status: 'IN_REVIEW' })
-      showSnackbar(t('Upload.success.submittedForReview'))
-
-      // Navigate away after successful submission
-      setTimeout(() => {
-        router.push('/ecosystem')
-      }, 1500)
-    } catch (error) {
-      console.error('Submit for review failed:', error)
-      showSnackbar(t('Upload.errors.submitForReviewFailed'), 'error')
-    } finally {
-      isSubmitting.value = false
-      showProgressOverlay.value = false
-    }
+  function uploadAnother () {
+    router.push({ path: '/upload' })
   }
 </script>
+
+<style scoped>
+  .success-icon-wrapper {
+    animation: success-pop 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes success-pop {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+</style>

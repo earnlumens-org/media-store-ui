@@ -322,7 +322,9 @@
             "submitForReview": "Hantar untuk semakan",
             "submitting": "Sedang menghantar...",
             "saveDraft": "Simpan draf",
-            "cancel": "Batal"
+            "cancel": "Batal",
+            "goToStudio": "Go to Creator Studio",
+            "uploadAnother": "Upload Another"
         },
         "status": {
             "draft": "Draf",
@@ -338,7 +340,8 @@
             "uploadingFile": "Sedang memuat naik {name}...",
             "finalizingUpload": "Menyelesaikan muat naik...",
             "uploadComplete": "Muat naik selesai!",
-            "creatingEntry": "Mencipta entri..."
+            "creatingEntry": "Mencipta entri...",
+            "submittingForReview": "Submitting for review..."
         },
         "errors": {
             "uploadFailed": "Muat naik gagal. Sila cuba lagi.",
@@ -350,7 +353,10 @@
         "success": {
             "entryCreated": "Entri dicipta sebagai draf",
             "uploadComplete": "Fail berjaya dimuat naik",
-            "submittedForReview": "Berjaya dihantar untuk semakan"
+            "submittedForReview": "Berjaya dihantar untuk semakan",
+            "title": "Upload Complete!",
+            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
+            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
         }
     },
     "Preview": {
@@ -422,5 +428,91 @@
         "loginRequiredDescription": "Sila log masuk untuk melihat kegemaran anda.",
         "errorTitle": "Ralat memuatkan kegemaran",
         "errorDescription": "Sesuatu tidak kena. Ketik untuk cuba semula."
+    },
+    "CreatorStudio": {
+        "title": "Creator Studio",
+        "subtitle": "Manage your content and track performance",
+        "createNew": "Create",
+        "loading": "Loading your content...",
+        "errorTitle": "Error",
+        "errorDescription": "Failed to load your content. Please try again.",
+        "empty": "No content yet",
+        "emptyDescription": "Start creating and sharing your work with the world.",
+        "uploadFirst": "Upload your first content",
+        "noResults": "No matching content",
+        "noResultsDescription": "Try adjusting your filters or search terms.",
+        "searchPlaceholder": "Search your content...",
+        "filterStatus": "Status",
+        "filterType": "Type",
+        "sortBy": "Sort by",
+        "allStatuses": "All statuses",
+        "allTypes": "All types",
+        "free": "Free",
+        "showingEntries": "Showing {count} of {total} entries",
+        "stats": {
+            "total": "Total",
+            "published": "Published",
+            "drafts": "Drafts",
+            "inReview": "In Review",
+            "views": "Views",
+            "sales": "Jualan",
+            "viewDetails": "Lihat butiran"
+        },
+        "tabs": {
+            "active": "Active",
+            "archived": "Archived"
+        },
+        "sort": {
+            "newest": "Newest first",
+            "oldest": "Oldest first",
+            "titleAZ": "Title A → Z",
+            "titleZA": "Title Z → A"
+        },
+        "table": {
+            "content": "Content",
+            "status": "Status",
+            "type": "Type",
+            "date": "Date",
+            "price": "Price",
+            "actions": "Actions"
+        },
+        "actions": {
+            "view": "View",
+            "edit": "Edit",
+            "archive": "Archive",
+            "unarchive": "Unarchive",
+            "submitReview": "Submit for review"
+        },
+        "editEntry": "Edit entry",
+        "editSuccess": "Entry updated successfully",
+        "editError": "Failed to update entry. Please try again.",
+        "archiveConfirm": {
+            "title": "Archive entry?",
+            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+        },
+        "archiveSuccess": "Entry archived successfully",
+        "archiveError": "Failed to archive entry. Please try again.",
+        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
+        "unarchiveError": "Failed to unarchive entry. Please try again."
+    },
+    "SalesHistory": {
+        "title": "Sejarah Jualan",
+        "subtitle": "Semua jualan dan pecahan pembayaran anda",
+        "errorLoading": "Tidak dapat memuatkan jualan anda. Sila cuba lagi.",
+        "noSales": "Tiada jualan lagi",
+        "noSalesHint": "Apabila seseorang membeli kandungan anda, ia akan muncul di sini.",
+        "paymentBreakdown": "Pecahan pembayaran",
+        "viewOnStellarExpert": "Lihat di Stellar Expert",
+        "type": {
+            "VIDEO": "Video",
+            "AUDIO": "Audio",
+            "IMAGE": "Imej",
+            "RESOURCE": "Sumber"
+        },
+        "role": {
+            "SELLER": "Penjual",
+            "PLATFORM": "Platform",
+            "COLLABORATOR": "Kolaborator"
+        }
     }
 }

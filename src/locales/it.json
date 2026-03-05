@@ -322,7 +322,9 @@
             "submitForReview": "Invia per revisione",
             "submitting": "Invio in corso...",
             "saveDraft": "Salva bozza",
-            "cancel": "Annulla"
+            "cancel": "Annulla",
+            "goToStudio": "Go to Creator Studio",
+            "uploadAnother": "Upload Another"
         },
         "status": {
             "draft": "Bozza",
@@ -338,7 +340,8 @@
             "uploadingFile": "Caricamento di {name}...",
             "finalizingUpload": "Finalizzazione caricamento...",
             "uploadComplete": "Caricamento completato!",
-            "creatingEntry": "Creazione voce..."
+            "creatingEntry": "Creazione voce...",
+            "submittingForReview": "Submitting for review..."
         },
         "errors": {
             "uploadFailed": "Caricamento non riuscito. Riprova.",
@@ -350,7 +353,10 @@
         "success": {
             "entryCreated": "Voce creata come bozza",
             "uploadComplete": "File caricato correttamente",
-            "submittedForReview": "Inviato per revisione correttamente"
+            "submittedForReview": "Inviato per revisione correttamente",
+            "title": "Upload Complete!",
+            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
+            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
         }
     },
     "Preview": {
@@ -422,5 +428,91 @@
         "loginRequiredDescription": "Accedi per vedere i tuoi preferiti.",
         "errorTitle": "Errore nel caricamento dei preferiti",
         "errorDescription": "Qualcosa è andato storto. Tocca per riprovare."
+    },
+    "CreatorStudio": {
+        "title": "Creator Studio",
+        "subtitle": "Manage your content and track performance",
+        "createNew": "Create",
+        "loading": "Loading your content...",
+        "errorTitle": "Error",
+        "errorDescription": "Failed to load your content. Please try again.",
+        "empty": "No content yet",
+        "emptyDescription": "Start creating and sharing your work with the world.",
+        "uploadFirst": "Upload your first content",
+        "noResults": "No matching content",
+        "noResultsDescription": "Try adjusting your filters or search terms.",
+        "searchPlaceholder": "Search your content...",
+        "filterStatus": "Status",
+        "filterType": "Type",
+        "sortBy": "Sort by",
+        "allStatuses": "All statuses",
+        "allTypes": "All types",
+        "free": "Free",
+        "showingEntries": "Showing {count} of {total} entries",
+        "stats": {
+            "total": "Total",
+            "published": "Published",
+            "drafts": "Drafts",
+            "inReview": "In Review",
+            "views": "Views",
+            "sales": "Vendite",
+            "viewDetails": "Vedi dettagli"
+        },
+        "tabs": {
+            "active": "Active",
+            "archived": "Archived"
+        },
+        "sort": {
+            "newest": "Newest first",
+            "oldest": "Oldest first",
+            "titleAZ": "Title A → Z",
+            "titleZA": "Title Z → A"
+        },
+        "table": {
+            "content": "Content",
+            "status": "Status",
+            "type": "Type",
+            "date": "Date",
+            "price": "Price",
+            "actions": "Actions"
+        },
+        "actions": {
+            "view": "View",
+            "edit": "Edit",
+            "archive": "Archive",
+            "unarchive": "Unarchive",
+            "submitReview": "Submit for review"
+        },
+        "editEntry": "Edit entry",
+        "editSuccess": "Entry updated successfully",
+        "editError": "Failed to update entry. Please try again.",
+        "archiveConfirm": {
+            "title": "Archive entry?",
+            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+        },
+        "archiveSuccess": "Entry archived successfully",
+        "archiveError": "Failed to archive entry. Please try again.",
+        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
+        "unarchiveError": "Failed to unarchive entry. Please try again."
+    },
+    "SalesHistory": {
+        "title": "Storico vendite",
+        "subtitle": "Tutte le vendite completate e i dettagli dei pagamenti",
+        "errorLoading": "Impossibile caricare le vendite. Riprova.",
+        "noSales": "Nessuna vendita",
+        "noSalesHint": "Quando qualcuno acquista i tuoi contenuti, apparirà qui.",
+        "paymentBreakdown": "Dettaglio pagamento",
+        "viewOnStellarExpert": "Vedi su Stellar Expert",
+        "type": {
+            "VIDEO": "Video",
+            "AUDIO": "Audio",
+            "IMAGE": "Immagine",
+            "RESOURCE": "Risorsa"
+        },
+        "role": {
+            "SELLER": "Venditore",
+            "PLATFORM": "Piattaforma",
+            "COLLABORATOR": "Collaboratore"
+        }
     }
 }

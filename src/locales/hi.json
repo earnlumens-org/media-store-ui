@@ -322,7 +322,9 @@
             "submitForReview": "समीक्षा के लिए भेजें",
             "submitting": "भेजा जा रहा है...",
             "saveDraft": "ड्राफ्ट सहेजें",
-            "cancel": "रद्द करें"
+            "cancel": "रद्द करें",
+            "goToStudio": "Go to Creator Studio",
+            "uploadAnother": "Upload Another"
         },
         "status": {
             "draft": "ड्राफ्ट",
@@ -338,7 +340,8 @@
             "uploadingFile": "{name} अपलोड हो रहा है...",
             "finalizingUpload": "अपलोड पूरा किया जा रहा है...",
             "uploadComplete": "अपलोड पूरा हुआ!",
-            "creatingEntry": "एंट्री बनाई जा रही है..."
+            "creatingEntry": "एंट्री बनाई जा रही है...",
+            "submittingForReview": "Submitting for review..."
         },
         "errors": {
             "uploadFailed": "अपलोड विफल हुआ। कृपया पुनः प्रयास करें।",
@@ -350,7 +353,10 @@
         "success": {
             "entryCreated": "एंट्री ड्राफ्ट के रूप में बनाई गई",
             "uploadComplete": "फ़ाइल सफलतापूर्वक अपलोड हुई",
-            "submittedForReview": "समीक्षा के लिए सफलतापूर्वक भेजा गया"
+            "submittedForReview": "समीक्षा के लिए सफलतापूर्वक भेजा गया",
+            "title": "Upload Complete!",
+            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
+            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
         }
     },
     "Preview": {
@@ -422,5 +428,91 @@
         "loginRequiredDescription": "अपने पसंदीदा देखने के लिए कृपया लॉग इन करें।",
         "errorTitle": "पसंदीदा लोड करने में त्रुटि",
         "errorDescription": "कुछ गलत हो गया। पुनः प्रयास करने के लिए टैप करें।"
+    },
+    "CreatorStudio": {
+        "title": "Creator Studio",
+        "subtitle": "Manage your content and track performance",
+        "createNew": "Create",
+        "loading": "Loading your content...",
+        "errorTitle": "Error",
+        "errorDescription": "Failed to load your content. Please try again.",
+        "empty": "No content yet",
+        "emptyDescription": "Start creating and sharing your work with the world.",
+        "uploadFirst": "Upload your first content",
+        "noResults": "No matching content",
+        "noResultsDescription": "Try adjusting your filters or search terms.",
+        "searchPlaceholder": "Search your content...",
+        "filterStatus": "Status",
+        "filterType": "Type",
+        "sortBy": "Sort by",
+        "allStatuses": "All statuses",
+        "allTypes": "All types",
+        "free": "Free",
+        "showingEntries": "Showing {count} of {total} entries",
+        "stats": {
+            "total": "Total",
+            "published": "Published",
+            "drafts": "Drafts",
+            "inReview": "In Review",
+            "views": "Views",
+            "sales": "बिक्री",
+            "viewDetails": "विवरण देखें"
+        },
+        "tabs": {
+            "active": "Active",
+            "archived": "Archived"
+        },
+        "sort": {
+            "newest": "Newest first",
+            "oldest": "Oldest first",
+            "titleAZ": "Title A → Z",
+            "titleZA": "Title Z → A"
+        },
+        "table": {
+            "content": "Content",
+            "status": "Status",
+            "type": "Type",
+            "date": "Date",
+            "price": "Price",
+            "actions": "Actions"
+        },
+        "actions": {
+            "view": "View",
+            "edit": "Edit",
+            "archive": "Archive",
+            "unarchive": "Unarchive",
+            "submitReview": "Submit for review"
+        },
+        "editEntry": "Edit entry",
+        "editSuccess": "Entry updated successfully",
+        "editError": "Failed to update entry. Please try again.",
+        "archiveConfirm": {
+            "title": "Archive entry?",
+            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+        },
+        "archiveSuccess": "Entry archived successfully",
+        "archiveError": "Failed to archive entry. Please try again.",
+        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
+        "unarchiveError": "Failed to unarchive entry. Please try again."
+    },
+    "SalesHistory": {
+        "title": "बिक्री इतिहास",
+        "subtitle": "आपकी सभी पूर्ण बिक्री और भुगतान विवरण",
+        "errorLoading": "आपकी बिक्री लोड नहीं हो सकी। कृपया पुनः प्रयास करें।",
+        "noSales": "अभी तक कोई बिक्री नहीं",
+        "noSalesHint": "जब कोई आपकी सामग्री खरीदेगा, तो यह यहाँ दिखाई देगा।",
+        "paymentBreakdown": "भुगतान विवरण",
+        "viewOnStellarExpert": "Stellar Expert पर देखें",
+        "type": {
+            "VIDEO": "वीडियो",
+            "AUDIO": "ऑडियो",
+            "IMAGE": "छवि",
+            "RESOURCE": "संसाधन"
+        },
+        "role": {
+            "SELLER": "विक्रेता",
+            "PLATFORM": "प्लेटफ़ॉर्म",
+            "COLLABORATOR": "सहयोगी"
+        }
     }
 }
