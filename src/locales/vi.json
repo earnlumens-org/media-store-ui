@@ -193,7 +193,11 @@
         "followers": "Người theo dõi",
         "viewOnX": "Xem trên X",
         "copyProfileLink": "Sao chép liên kết hồ sơ",
-        "profileLinkCopied": "Đã sao chép liên kết hồ sơ"
+        "profileLinkCopied": "Đã sao chép liên kết hồ sơ",
+        "creatorStudio": "Xưởng Sáng tạo",
+        "creatorStudioHint": "Quản lý nội dung, theo dõi hiệu suất và tải lên tài liệu mới",
+        "viewPublicProfile": "Hồ sơ công khai của tôi",
+        "viewPublicProfileHint": "Xem người khác nhìn hồ sơ của bạn như thế nào"
     },
     "AppBar": {
         "home": "Trang chủ",

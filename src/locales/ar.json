@@ -193,7 +193,11 @@
         "followers": "المتابعون",
         "viewOnX": "عرض في X",
         "copyProfileLink": "نسخ رابط الملف الشخصي",
-        "profileLinkCopied": "تم نسخ رابط الملف الشخصي"
+        "profileLinkCopied": "تم نسخ رابط الملف الشخصي",
+        "creatorStudio": "استوديو المبدعين",
+        "creatorStudioHint": "أدِر محتواك وتابع الأداء وارفع مواد جديدة",
+        "viewPublicProfile": "ملفي الشخصي العام",
+        "viewPublicProfileHint": "شاهد كيف يرى الآخرون ملفك الشخصي"
     },
     "AppBar": {
         "home": "الصفحة الرئيسية",

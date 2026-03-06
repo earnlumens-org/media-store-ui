@@ -31,7 +31,7 @@
             @click="goToProfile"
           >
             <template #append>
-              <v-icon>mdi-badge-account-outline</v-icon>
+              <v-icon>mdi-chevron-right</v-icon>
             </template>
           </v-list-item>
         </v-list>

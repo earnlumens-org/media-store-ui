@@ -193,7 +193,11 @@
         "followers": "关注者",
         "viewOnX": "在 X 上查看",
         "copyProfileLink": "复制个人资料链接",
-        "profileLinkCopied": "个人资料链接已复制"
+        "profileLinkCopied": "个人资料链接已复制",
+        "creatorStudio": "创作者工作室",
+        "creatorStudioHint": "管理您的内容、追踪表现并上传新素材",
+        "viewPublicProfile": "我的公开资料",
+        "viewPublicProfileHint": "查看他人如何看到您的个人资料"
     },
     "AppBar": {
         "home": "主页",

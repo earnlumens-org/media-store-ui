@@ -41,11 +41,11 @@
             <template #activator="{ props }">
               <v-btn
                 v-bind="props"
-                class="position-absolute"
-                style="top: 0; right: 0; z-index: 1"
                 :aria-label="$t('Common.moreOptions')"
+                class="position-absolute"
                 icon="mdi-dots-vertical"
                 size="small"
+                style="top: 0; right: 0; z-index: 1"
                 variant="text"
               />
             </template>
@@ -227,13 +227,11 @@
   import { api } from '@/api/api'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import { isPopNavigation } from '@/router'
-  import { useAuthStore } from '@/stores/auth'
   import { usePurchasesStore } from '@/stores/purchases'
   import { useScrollCacheStore } from '@/stores/scrollCache'
 
   const route = useRoute()
   const { t } = useI18n()
-  const authStore = useAuthStore()
   const purchasesStore = usePurchasesStore()
   const scrollCache = useScrollCacheStore()
 
@@ -259,11 +257,6 @@
     const params = route.params as Record<string, string | string[]>
     const param = params.username
     return (Array.isArray(param) ? param[0] : param)?.toLowerCase() ?? ''
-  })
-
-  // Check if viewing own profile
-  const isOwnProfile = computed(() => {
-    return authStore.user?.username?.toLowerCase() === requestedUsername.value
   })
 
   /**

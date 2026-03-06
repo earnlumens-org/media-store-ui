@@ -193,7 +193,11 @@
         "followers": "Follower",
         "viewOnX": "Vedi su X",
         "copyProfileLink": "Copia link del profilo",
-        "profileLinkCopied": "Link del profilo copiato"
+        "profileLinkCopied": "Link del profilo copiato",
+        "creatorStudio": "Creator Studio",
+        "creatorStudioHint": "Gestisci i tuoi contenuti, monitora le prestazioni e carica nuovo materiale",
+        "viewPublicProfile": "Il mio profilo pubblico",
+        "viewPublicProfileHint": "Vedi come gli altri vedono il tuo profilo"
     },
     "AppBar": {
         "home": "Home",

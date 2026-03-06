@@ -195,7 +195,9 @@
         "copyProfileLink": "Copiar enlace del perfil",
         "profileLinkCopied": "Enlace del perfil copiado",
         "creatorStudio": "Creator Studio",
-        "creatorStudioHint": "Gestiona tu contenido, analiza el rendimiento y sube material nuevo"
+        "creatorStudioHint": "Gestiona tu contenido, analiza el rendimiento y sube material nuevo",
+        "viewPublicProfile": "Mi Perfil Público",
+        "viewPublicProfileHint": "Mira cómo otros ven tu perfil"
     },
     "AppBar": {
         "home": "Inicio",

@@ -193,7 +193,11 @@
         "followers": "Pengikut",
         "viewOnX": "Lihat di X",
         "copyProfileLink": "Salin pautan profil",
-        "profileLinkCopied": "Pautan profil disalin"
+        "profileLinkCopied": "Pautan profil disalin",
+        "creatorStudio": "Studio Pencipta",
+        "creatorStudioHint": "Urus kandungan anda, jejak prestasi & muat naik bahan baharu",
+        "viewPublicProfile": "Profil Awam Saya",
+        "viewPublicProfileHint": "Lihat bagaimana orang lain melihat profil anda"
     },
     "AppBar": {
         "home": "Laman Utama",

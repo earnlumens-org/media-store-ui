@@ -193,7 +193,11 @@
         "followers": "Підписники",
         "viewOnX": "Переглянути в X",
         "copyProfileLink": "Копіювати посилання на профіль",
-        "profileLinkCopied": "Посилання на профіль скопійовано"
+        "profileLinkCopied": "Посилання на профіль скопійовано",
+        "creatorStudio": "Студія автора",
+        "creatorStudioHint": "Керуйте контентом, відстежуйте показники та завантажуйте нові матеріали",
+        "viewPublicProfile": "Мій публічний профіль",
+        "viewPublicProfileHint": "Подивіться, як інші бачать ваш профіль"
     },
     "AppBar": {
         "home": "Домашня",

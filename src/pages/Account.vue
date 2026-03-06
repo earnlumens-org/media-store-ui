@@ -68,6 +68,26 @@
                 </div>
               </div>
 
+              <div class="d-flex align-center mb-4">
+                <v-list class="flex-grow-1 pa-0" density="compact">
+                  <v-list-item>
+                    <template #prepend>
+                      <v-icon>mdi-account-group</v-icon>
+                    </template>
+                    <v-list-item-title>{{ $t('Account.followers') }}</v-list-item-title>
+                    <v-list-item-subtitle>{{ user.followersCount?.toLocaleString() ?? 'N/A' }}</v-list-item-subtitle>
+                  </v-list-item>
+                </v-list>
+                <v-btn class="text-uppercase" color="error" variant="text" @click="handleLogout">
+                  <v-icon start>mdi-logout</v-icon>
+                  {{ $t('Common.logout') }}
+                </v-btn>
+              </div>
+
+              <p class="text-caption text-medium-emphasis mt-2 mb-4 text-center">
+                {{ $t('Account.syncHint') }}
+              </p>
+
               <v-divider class="mb-4" />
 
               <!-- ── Quick Actions ─────────────────────────── -->
@@ -87,30 +107,26 @@
                       <v-icon size="small">mdi-chevron-right</v-icon>
                     </template>
                   </v-list-item>
-                </v-list>
-              </div>
 
-              <v-divider class="mb-4" />
+                  <v-divider class="my-2" />
 
-              <div class="d-flex align-center">
-                <v-list class="flex-grow-1 pa-0" density="compact">
-                  <v-list-item>
-                    <template #prepend>
-                      <v-icon>mdi-account-group</v-icon>
+                  <v-list-item
+                    v-if="user?.username"
+                    prepend-icon="mdi-account-eye-outline"
+                    :to="'/' + user.username"
+                  >
+                    <v-list-item-title class="font-weight-medium">
+                      {{ $t('Account.viewPublicProfile') }}
+                    </v-list-item-title>
+                    <v-list-item-subtitle>
+                      {{ $t('Account.viewPublicProfileHint') }}
+                    </v-list-item-subtitle>
+                    <template #append>
+                      <v-icon size="small">mdi-chevron-right</v-icon>
                     </template>
-                    <v-list-item-title>{{ $t('Account.followers') }}</v-list-item-title>
-                    <v-list-item-subtitle>{{ user.followersCount?.toLocaleString() ?? 'N/A' }}</v-list-item-subtitle>
                   </v-list-item>
                 </v-list>
-                <v-btn class="text-uppercase" color="error" variant="text" @click="handleLogout">
-                  <v-icon start>mdi-logout</v-icon>
-                  {{ $t('Common.logout') }}
-                </v-btn>
               </div>
-
-              <p class="text-caption text-medium-emphasis mt-6 text-center">
-                {{ $t('Account.syncHint') }}
-              </p>
             </div>
 
             <!-- No user -->

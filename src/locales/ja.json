@@ -193,7 +193,11 @@
         "followers": "フォロワー",
         "viewOnX": "Xで見る",
         "copyProfileLink": "プロフィールリンクをコピー",
-        "profileLinkCopied": "プロフィールリンクをコピーしました"
+        "profileLinkCopied": "プロフィールリンクをコピーしました",
+        "creatorStudio": "クリエイタースタジオ",
+        "creatorStudioHint": "コンテンツの管理、パフォーマンスの追跡、新しい素材のアップロード",
+        "viewPublicProfile": "公開プロフィール",
+        "viewPublicProfileHint": "他の人からの見え方を確認"
     },
     "AppBar": {
         "home": "ホームページ",
