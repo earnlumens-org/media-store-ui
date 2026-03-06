@@ -35,42 +35,78 @@
     <!-- Profile header -->
     <v-row align="center" justify="center">
       <v-col cols="12" lg="8" md="10">
-        <div class="d-flex flex-column flex-sm-row align-center align-sm-start ga-4 ga-sm-6">
-          <!-- Avatar -->
-          <v-avatar class="flex-shrink-0" size="120">
-            <v-img
-              v-if="user.profileImageUrl"
-              :alt="user.displayName"
-              :src="user.profileImageUrl"
-            />
-            <v-icon v-else color="grey" size="64">mdi-account</v-icon>
-          </v-avatar>
-
-          <!-- Info -->
-          <div class="text-center text-sm-start flex-grow-1">
-            <h1 class="text-h5 text-sm-h4 font-weight-bold mb-1">
-              @{{ user.username }}
-            </h1>
-            <p class="text-body-1 text-medium-emphasis mb-2">
-              {{ user.displayName }}
-            </p>
-            <p class="text-body-2 text-medium-emphasis mb-4">
-              {{ user.followersCount?.toLocaleString() ?? 0 }} {{ $t('Profile.subscribers') }} | 0 {{ $t('Profile.likes') }}
-            </p>
-
-            <!-- Action buttons -->
-            <div class="d-flex flex-wrap justify-center justify-sm-start ga-2">
-              <CxSubscribeButton
-                v-if="user.id"
-                :target-user-id="user.id"
-              />
+        <div class="position-relative">
+          <!-- Options menu (top right) -->
+          <v-menu location="bottom end">
+            <template #activator="{ props }">
               <v-btn
-                :disabled="isOwnProfile"
-                rounded="pill"
-                variant="outlined"
+                v-bind="props"
+                class="position-absolute"
+                style="top: 0; right: 0; z-index: 1"
+                :aria-label="$t('Common.moreOptions')"
+                icon="mdi-dots-vertical"
+                size="small"
+                variant="text"
+              />
+            </template>
+            <v-list density="compact" min-width="200">
+              <v-list-item
+                v-if="user?.username"
+                :href="`https://x.com/${user.username}`"
+                rel="noopener noreferrer"
+                target="_blank"
               >
-                {{ $t('Profile.message') }}
-              </v-btn>
+                <template #prepend>
+                  <v-icon size="small">mdi-open-in-new</v-icon>
+                </template>
+                <v-list-item-title>{{ $t('Account.viewOnX') }}</v-list-item-title>
+              </v-list-item>
+              <v-list-item @click="copyProfileLink">
+                <template #prepend>
+                  <v-icon size="small">mdi-link-variant</v-icon>
+                </template>
+                <v-list-item-title>{{ $t('Account.copyProfileLink') }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+
+          <div class="d-flex flex-column flex-sm-row align-center align-sm-start ga-4 ga-sm-6">
+            <!-- Avatar -->
+            <v-avatar class="flex-shrink-0" size="120">
+              <v-img
+                v-if="user.profileImageUrl"
+                :alt="user.displayName"
+                :src="user.profileImageUrl"
+              />
+              <v-icon v-else color="grey" size="64">mdi-account</v-icon>
+            </v-avatar>
+
+            <!-- Info -->
+            <div class="text-center text-sm-start flex-grow-1">
+              <h1 class="text-h5 text-sm-h4 font-weight-bold mb-1">
+                @{{ user.username }}
+              </h1>
+              <p class="text-body-1 text-medium-emphasis mb-2">
+                {{ user.displayName }}
+              </p>
+              <p class="text-body-2 text-medium-emphasis mb-4">
+                {{ user.followersCount?.toLocaleString() ?? 0 }} {{ $t('Account.followers') }}
+              </p>
+
+              <!-- Action buttons -->
+              <div class="d-flex flex-wrap justify-center justify-sm-start ga-2">
+                <CxSubscribeButton
+                  v-if="user.id"
+                  :target-user-id="user.id"
+                />
+                <v-btn
+                  :disabled="isOwnProfile"
+                  rounded="pill"
+                  variant="outlined"
+                >
+                  {{ $t('Profile.message') }}
+                </v-btn>
+              </div>
             </div>
           </div>
         </div>
@@ -173,6 +209,9 @@
         </div>
       </v-col>
     </v-row>
+    <v-snackbar v-model="snackbar" color="success" :timeout="3000">
+      {{ snackbarText }}
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -182,6 +221,7 @@
   import type { Entry } from '@/components/entry/EntryCard.vue'
 
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
+  import { useI18n } from 'vue-i18n'
   import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
@@ -192,12 +232,15 @@
   import { useScrollCacheStore } from '@/stores/scrollCache'
 
   const route = useRoute()
+  const { t } = useI18n()
   const authStore = useAuthStore()
   const purchasesStore = usePurchasesStore()
   const scrollCache = useScrollCacheStore()
 
   const user = ref<UserProfile | null>(null)
   const loading = ref(true)
+  const snackbar = ref(false)
+  const snackbarText = ref('')
   const activeTab = ref('all')
 
   // Entry state
@@ -301,6 +344,18 @@
       user.value = null
     } finally {
       loading.value = false
+    }
+  }
+
+  async function copyProfileLink () {
+    if (!user.value?.username) return
+    const url = `${window.location.origin}/${user.value.username}`
+    try {
+      await navigator.clipboard.writeText(url)
+      snackbarText.value = t('Account.profileLinkCopied')
+      snackbar.value = true
+    } catch {
+      // Fallback: silently fail
     }
   }
 
