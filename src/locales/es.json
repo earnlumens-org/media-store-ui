@@ -61,6 +61,11 @@
         "saveToCollection": "Guardar en colección",
         "removeFromCollection": "Quitar de la colección",
         "subscribe": "Suscribirse",
+        "subscribed": "Suscrito",
+        "unsubscribe": "Cancelar suscripción",
+        "edit": "Editar",
+        "subscribedNotification": "Suscripción exitosa",
+        "unsubscribedNotification": "Suscripción cancelada",
         "subscribers": "{count} suscriptores",
         "showLess": "Ver menos",
         "readMore": "Leer más",
@@ -198,6 +203,7 @@
         "firststeps": "Primeros pasos",
         "purchased": "Comprados",
         "favorites": "Favoritos",
+        "subscriptions": "Suscripciones",
         "account": "Cuenta",
         "ecosystem": "Ecosistema",
         "community": "Comunidad",
@@ -432,6 +438,23 @@
         "errorTitle": "Error al cargar favoritos",
         "errorDescription": "Algo salió mal. Toca para reintentar."
     },
+    "Subscriptions": {
+        "empty": "Sin suscripciones aún",
+        "emptyDescription": "Los creadores a los que te suscribas aparecerán aquí.",
+        "loginRequired": "Inicio de sesión requerido",
+        "loginRequiredDescription": "Inicia sesión para ver tus suscripciones.",
+        "errorTitle": "Error al cargar suscripciones",
+        "errorDescription": "Algo salió mal. Toca para reintentar."
+    },
+    "Subscribers": {
+        "title": "Mis Suscriptores",
+        "subtitle": "{count} suscriptores",
+        "empty": "Sin suscriptores aún",
+        "emptyDescription": "Los usuarios que se suscriban a ti aparecerán aquí.",
+        "errorTitle": "Error al cargar suscriptores",
+        "errorDescription": "Algo salió mal. Toca para reintentar.",
+        "since": "Desde {date}"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Gestiona tu contenido y analiza el rendimiento",
@@ -459,6 +482,7 @@
             "inReview": "En revisión",
             "views": "Vistas",
             "sales": "Ventas",
+            "subscribers": "Suscriptores",
             "viewDetails": "Ver detalle"
         },
         "tabs": {

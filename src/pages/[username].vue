@@ -60,14 +60,10 @@
 
             <!-- Action buttons -->
             <div class="d-flex flex-wrap justify-center justify-sm-start ga-2">
-              <v-btn
-                color="primary"
-                :disabled="isOwnProfile"
-                rounded="pill"
-                variant="flat"
-              >
-                {{ $t('Profile.subscribe') }}
-              </v-btn>
+              <CxSubscribeButton
+                v-if="user.id"
+                :target-user-id="user.id"
+              />
               <v-btn
                 :disabled="isOwnProfile"
                 rounded="pill"
@@ -189,6 +185,7 @@
   import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
+  import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import { isPopNavigation } from '@/router'
   import { useAuthStore } from '@/stores/auth'
   import { usePurchasesStore } from '@/stores/purchases'

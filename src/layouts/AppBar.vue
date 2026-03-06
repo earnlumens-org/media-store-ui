@@ -90,6 +90,21 @@
       </v-tooltip>
 
       <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
+      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.subscriptions')">
+        <template #activator="{ props }">
+          <v-list-item
+            v-bind="props"
+            :disabled="!loggedIn"
+            exact
+            prepend-icon="mdi-bell-outline"
+            :title="$t('AppBar.subscriptions')"
+            to="/subscriptions"
+            value="subscriptions"
+          />
+        </template>
+      </v-tooltip>
+
+      <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
       <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.purchased')">
         <template #activator="{ props }">
           <v-list-item

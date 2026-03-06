@@ -61,6 +61,11 @@
         "saveToCollection": "Salva nella raccolta",
         "removeFromCollection": "Rimuovi dalla raccolta",
         "subscribe": "Iscriviti",
+        "subscribed": "Iscritto",
+        "unsubscribe": "Annulla iscrizione",
+        "edit": "Modifica",
+        "subscribedNotification": "Iscrizione effettuata",
+        "unsubscribedNotification": "Iscrizione annullata",
         "subscribers": "{count} iscritti",
         "showLess": "Mostra meno",
         "readMore": "Leggi di più",
@@ -196,6 +201,7 @@
         "firststeps": "Primi passi",
         "purchased": "Acquistati",
         "favorites": "Preferiti",
+        "subscriptions": "Iscrizioni",
         "account": "Account",
         "ecosystem": "Ecosistema",
         "community": "Comunità",
@@ -429,6 +435,23 @@
         "errorTitle": "Errore nel caricamento dei preferiti",
         "errorDescription": "Qualcosa è andato storto. Tocca per riprovare."
     },
+    "Subscriptions": {
+        "empty": "Nessuna iscrizione",
+        "emptyDescription": "I creatori a cui ti iscrivi appariranno qui.",
+        "loginRequired": "Accesso richiesto",
+        "loginRequiredDescription": "Accedi per vedere le tue iscrizioni.",
+        "errorTitle": "Errore nel caricamento delle iscrizioni",
+        "errorDescription": "Qualcosa è andato storto. Tocca per riprovare."
+    },
+    "Subscribers": {
+        "title": "I miei Iscritti",
+        "subtitle": "{count} iscritti",
+        "empty": "Nessun iscritto",
+        "emptyDescription": "Gli utenti che si iscrivono a te appariranno qui.",
+        "errorTitle": "Errore nel caricamento degli iscritti",
+        "errorDescription": "Qualcosa è andato storto. Tocca per riprovare.",
+        "since": "Dal {date}"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "Vendite",
+            "subscribers": "Iscritti",
             "viewDetails": "Vedi dettagli"
         },
         "tabs": {

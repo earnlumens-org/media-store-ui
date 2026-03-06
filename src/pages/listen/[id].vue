@@ -411,15 +411,12 @@
                 </div>
                 <span class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</span>
               </div>
-              <v-btn
+              <CxSubscribeButton
+                v-if="entry.authorId"
                 class="flex-shrink-0 ms-2"
-                color="primary"
-                rounded="pill"
                 :size="$vuetify.display.smAndDown ? 'small' : 'default'"
-                variant="flat"
-              >
-                {{ $t('Common.subscribe') }}
-              </v-btn>
+                :target-user-id="entry.authorId"
+              />
             </v-sheet>
 
             <!-- Description -->
@@ -491,6 +488,7 @@
 
   import { api } from '@/api/api'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
+  import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { usePurchasesStore } from '@/stores/purchases'
 

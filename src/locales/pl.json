@@ -61,6 +61,11 @@
         "saveToCollection": "Zapisz do kolekcji",
         "removeFromCollection": "Usuń z kolekcji",
         "subscribe": "Subskrybuj",
+        "subscribed": "Subskrybowano",
+        "unsubscribe": "Anuluj subskrypcję",
+        "edit": "Edytuj",
+        "subscribedNotification": "Subskrypcja udana",
+        "unsubscribedNotification": "Anulowano subskrypcję",
         "subscribers": "{count} subskrybentów",
         "showLess": "Pokaż mniej",
         "readMore": "Czytaj więcej",
@@ -196,6 +201,7 @@
         "firststeps": "Pierwsze kroki",
         "purchased": "Kupione",
         "favorites": "Ulubione",
+        "subscriptions": "Subskrypcje",
         "account": "Konto",
         "ecosystem": "Ekosystem",
         "community": "Społeczność",
@@ -429,6 +435,23 @@
         "errorTitle": "Błąd ładowania ulubionych",
         "errorDescription": "Coś poszło nie tak. Dotknij, aby ponowić."
     },
+    "Subscriptions": {
+        "empty": "Brak subskrypcji",
+        "emptyDescription": "Twórcy, których subskrybujesz, pojawią się tutaj.",
+        "loginRequired": "Wymagane logowanie",
+        "loginRequiredDescription": "Zaloguj się, aby zobaczyć swoje subskrypcje.",
+        "errorTitle": "Błąd ładowania subskrypcji",
+        "errorDescription": "Coś poszło nie tak. Dotknij, aby ponowić."
+    },
+    "Subscribers": {
+        "title": "Moi subskrybenci",
+        "subtitle": "{count} subskrybentów",
+        "empty": "Brak subskrybentów",
+        "emptyDescription": "Użytkownicy, którzy cię subskrybują, pojawią się tutaj.",
+        "errorTitle": "Błąd ładowania subskrybentów",
+        "errorDescription": "Coś poszło nie tak. Dotknij, aby ponowić.",
+        "since": "Od {date}"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "Sprzedaż",
+            "subscribers": "Subskrybenci",
             "viewDetails": "Zobacz szczegóły"
         },
         "tabs": {

@@ -35,6 +35,11 @@
         "saveToCollection": "Save to collection",
         "removeFromCollection": "Remove from collection",
         "subscribe": "Subscribe",
+        "subscribed": "Subscribed",
+        "unsubscribe": "Unsubscribe",
+        "edit": "Edit",
+        "subscribedNotification": "Subscribed successfully",
+        "unsubscribedNotification": "Unsubscribed",
         "subscribers": "{count} subscribers",
         "showLess": "Show less",
         "readMore": "Read more",
@@ -198,6 +203,7 @@
         "firststeps": "First Steps",
         "purchased": "Purchased",
         "favorites": "Favorites",
+        "subscriptions": "Subscriptions",
         "account": "Account",
         "ecosystem": "Ecosystem",
         "community": "Community",
@@ -432,6 +438,23 @@
         "errorTitle": "Error loading favorites",
         "errorDescription": "Something went wrong. Tap to retry."
     },
+    "Subscriptions": {
+        "empty": "No subscriptions yet",
+        "emptyDescription": "Creators you subscribe to will appear here.",
+        "loginRequired": "Login required",
+        "loginRequiredDescription": "Please log in to see your subscriptions.",
+        "errorTitle": "Error loading subscriptions",
+        "errorDescription": "Something went wrong. Tap to retry."
+    },
+    "Subscribers": {
+        "title": "My Subscribers",
+        "subtitle": "{count} subscribers",
+        "empty": "No subscribers yet",
+        "emptyDescription": "Users who subscribe to you will appear here.",
+        "errorTitle": "Error loading subscribers",
+        "errorDescription": "Something went wrong. Tap to retry.",
+        "since": "Since {date}"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -459,6 +482,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "Sales",
+            "subscribers": "Subscribers",
             "viewDetails": "View details"
         },
         "tabs": {

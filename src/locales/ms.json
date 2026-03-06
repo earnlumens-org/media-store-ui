@@ -61,6 +61,11 @@
         "saveToCollection": "Simpan ke koleksi",
         "removeFromCollection": "Alih keluar daripada koleksi",
         "subscribe": "Langgan",
+        "subscribed": "Dilanggan",
+        "unsubscribe": "Nyahlanggan",
+        "edit": "Sunting",
+        "subscribedNotification": "Berjaya dilanggan",
+        "unsubscribedNotification": "Dinyahlanggan",
         "subscribers": "{count} pelanggan",
         "showLess": "Tunjukkan kurang",
         "readMore": "Baca lagi",
@@ -196,6 +201,7 @@
         "firststeps": "Langkah Pertama",
         "purchased": "Dibeli",
         "favorites": "Kegemaran",
+        "subscriptions": "Langganan",
         "account": "Akaun",
         "ecosystem": "Ecosystem",
         "community": "Komuniti",
@@ -429,6 +435,23 @@
         "errorTitle": "Ralat memuatkan kegemaran",
         "errorDescription": "Sesuatu tidak kena. Ketik untuk cuba semula."
     },
+    "Subscriptions": {
+        "empty": "Belum ada langganan",
+        "emptyDescription": "Pencipta yang anda langgan akan muncul di sini.",
+        "loginRequired": "Log masuk diperlukan",
+        "loginRequiredDescription": "Sila log masuk untuk melihat langganan anda.",
+        "errorTitle": "Ralat memuatkan langganan",
+        "errorDescription": "Sesuatu tidak kena. Ketik untuk cuba semula."
+    },
+    "Subscribers": {
+        "title": "Pelanggan Saya",
+        "subtitle": "{count} pelanggan",
+        "empty": "Belum ada pelanggan",
+        "emptyDescription": "Pengguna yang melanggan anda akan muncul di sini.",
+        "errorTitle": "Ralat memuatkan pelanggan",
+        "errorDescription": "Sesuatu tidak kena. Ketik untuk cuba semula.",
+        "since": "Sejak {date}"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "Jualan",
+            "subscribers": "Pelanggan",
             "viewDetails": "Lihat butiran"
         },
         "tabs": {

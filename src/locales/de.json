@@ -61,6 +61,11 @@
         "saveToCollection": "In Sammlung speichern",
         "removeFromCollection": "Aus Sammlung entfernen",
         "subscribe": "Abonnieren",
+        "subscribed": "Abonniert",
+        "unsubscribe": "Abbestellen",
+        "edit": "Bearbeiten",
+        "subscribedNotification": "Erfolgreich abonniert",
+        "unsubscribedNotification": "Abbestellt",
         "subscribers": "{count} Abonnenten",
         "showLess": "Weniger anzeigen",
         "readMore": "Mehr lesen",
@@ -196,6 +201,7 @@
         "firststeps": "Kostenlos",
         "purchased": "Gekauft",
         "favorites": "Favoriten",
+        "subscriptions": "Abonnements",
         "account": "Konto",
         "ecosystem": "Ecosystem",
         "community": "Community",
@@ -429,6 +435,23 @@
         "errorTitle": "Fehler beim Laden der Favoriten",
         "errorDescription": "Etwas ist schiefgelaufen. Tippen Sie, um es erneut zu versuchen."
     },
+    "Subscriptions": {
+        "empty": "Noch keine Abonnements",
+        "emptyDescription": "Ersteller, die du abonnierst, erscheinen hier.",
+        "loginRequired": "Anmeldung erforderlich",
+        "loginRequiredDescription": "Bitte melde dich an, um deine Abonnements zu sehen.",
+        "errorTitle": "Fehler beim Laden der Abonnements",
+        "errorDescription": "Etwas ist schiefgelaufen. Tippen zum Wiederholen."
+    },
+    "Subscribers": {
+        "title": "Meine Abonnenten",
+        "subtitle": "{count} Abonnenten",
+        "empty": "Noch keine Abonnenten",
+        "emptyDescription": "Benutzer, die dich abonnieren, erscheinen hier.",
+        "errorTitle": "Fehler beim Laden der Abonnenten",
+        "errorDescription": "Etwas ist schiefgelaufen. Tippen zum Wiederholen.",
+        "since": "Seit {date}"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "Verkäufe",
+            "subscribers": "Abonnenten",
             "viewDetails": "Details anzeigen"
         },
         "tabs": {

@@ -61,6 +61,11 @@
         "saveToCollection": "컬렉션에 저장",
         "removeFromCollection": "컬렉션에서 제거",
         "subscribe": "구독",
+        "subscribed": "구독 중",
+        "unsubscribe": "구독 취소",
+        "edit": "편집",
+        "subscribedNotification": "구독했습니다",
+        "unsubscribedNotification": "구독이 취소되었습니다",
         "subscribers": "구독자 {count}명",
         "showLess": "접기",
         "readMore": "더보기",
@@ -196,6 +201,7 @@
         "firststeps": "첫 번째 단계",
         "purchased": "구매함",
         "favorites": "즐겨찾기",
+        "subscriptions": "구독",
         "account": "계정",
         "ecosystem": "생태계",
         "community": "커뮤니티",
@@ -429,6 +435,23 @@
         "errorTitle": "즐겨찾기 로딩 오류",
         "errorDescription": "문제가 발생했습니다. 탭하여 다시 시도하세요."
     },
+    "Subscriptions": {
+        "empty": "아직 구독이 없습니다",
+        "emptyDescription": "구독하는 크리에이터가 여기에 표시됩니다.",
+        "loginRequired": "로그인 필요",
+        "loginRequiredDescription": "구독 목록을 보려면 로그인하세요.",
+        "errorTitle": "구독 목록 로드 오류",
+        "errorDescription": "문제가 발생했습니다. 탭하여 다시 시도하세요."
+    },
+    "Subscribers": {
+        "title": "내 구독자",
+        "subtitle": "구독자 {count}명",
+        "empty": "아직 구독자가 없습니다",
+        "emptyDescription": "당신을 구독하는 사용자가 여기에 표시됩니다.",
+        "errorTitle": "구독자 로드 오류",
+        "errorDescription": "문제가 발생했습니다. 탭하여 다시 시도하세요.",
+        "since": "{date}부터"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "판매",
+            "subscribers": "구독자",
             "viewDetails": "상세보기"
         },
         "tabs": {

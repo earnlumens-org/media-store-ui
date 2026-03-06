@@ -80,6 +80,21 @@
           </div>
         </v-card>
       </v-col>
+      <v-col cols="6" lg="2" md="4" sm="4">
+        <v-card
+          class="pa-3 pa-md-4 text-center h-100 d-flex flex-column align-center justify-center"
+          style="cursor: pointer;"
+          variant="tonal"
+          @click="router.push('/creator-studio/subscribers')"
+        >
+          <v-icon class="mb-1" color="deep-purple" size="28">mdi-account-group-outline</v-icon>
+          <div class="text-h6 text-md-h5 font-weight-bold">{{ formatNumber(subscriberCount) }}</div>
+          <div class="text-caption text-medium-emphasis">{{ t('CreatorStudio.stats.subscribers') }}</div>
+          <div class="text-caption text-primary mt-1" style="font-size: 0.7rem;">
+            {{ t('CreatorStudio.stats.viewDetails') }}
+          </div>
+        </v-card>
+      </v-col>
     </v-row>
 
     <!-- ── Active / Archived Tabs ───────────────────────────── -->
@@ -111,13 +126,12 @@
         <!-- Search -->
         <v-text-field
           v-model="filters.search"
-          class="flex-grow-1"
+          class="flex-grow-1 search-field"
           clearable
           density="compact"
           hide-details
           :placeholder="t('CreatorStudio.searchPlaceholder')"
           prepend-inner-icon="mdi-magnify"
-          style="max-width: 400px;"
           variant="outlined"
           @update:model-value="debouncedFetch"
         />
@@ -679,6 +693,8 @@
     totalSales: 0,
   })
 
+  const subscriberCount = ref(0)
+
   const filters = reactive<{
     search: string
     status: EntryStatus | 'ALL'
@@ -1028,6 +1044,12 @@
   onMounted(() => {
     fetchEntries()
     fetchStats()
+    // Fetch subscriber count in parallel
+    api.subscriptions.mySubscriberCount()
+      .then(count => {
+        subscriberCount.value = count
+      })
+      .catch(() => { /* silently fail */ })
   })
 </script>
 
@@ -1037,3 +1059,15 @@
   "meta": { "requiresAuth": true }
 }
 </route>
+
+<style scoped>
+.search-field {
+  width: 100%;
+}
+
+@media (min-width: 960px) {
+  .search-field {
+    max-width: 400px;
+  }
+}
+</style>

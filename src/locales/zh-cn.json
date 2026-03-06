@@ -61,6 +61,11 @@
         "saveToCollection": "保存到收藏",
         "removeFromCollection": "从收藏移除",
         "subscribe": "订阅",
+        "subscribed": "已订阅",
+        "unsubscribe": "取消订阅",
+        "edit": "编辑",
+        "subscribedNotification": "订阅成功",
+        "unsubscribedNotification": "已取消订阅",
         "subscribers": "{count} 位订阅者",
         "showLess": "收起",
         "readMore": "阅读更多",
@@ -196,6 +201,7 @@
         "firststeps": "第一步",
         "purchased": "已购买",
         "favorites": "收藏夹",
+        "subscriptions": "订阅",
         "account": "帐户",
         "ecosystem": "生态系统",
         "community": "社区",
@@ -429,6 +435,23 @@
         "errorTitle": "加载收藏时出错",
         "errorDescription": "出了点问题。点击重试。"
     },
+    "Subscriptions": {
+        "empty": "暂无订阅",
+        "emptyDescription": "您订阅的创作者将显示在这里。",
+        "loginRequired": "需要登录",
+        "loginRequiredDescription": "请登录以查看您的订阅。",
+        "errorTitle": "加载订阅出错",
+        "errorDescription": "出错了。点击重试。"
+    },
+    "Subscribers": {
+        "title": "我的订阅者",
+        "subtitle": "{count} 位订阅者",
+        "empty": "暂无订阅者",
+        "emptyDescription": "订阅您的用户将显示在这里。",
+        "errorTitle": "加载订阅者出错",
+        "errorDescription": "出错了。点击重试。",
+        "since": "自 {date} 起"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "销售",
+            "subscribers": "订阅者",
             "viewDetails": "查看详情"
         },
         "tabs": {

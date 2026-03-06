@@ -48,5 +48,5 @@ function dtoToModel (dto: SellerOrderDto): SellerSaleModel {
  */
 export async function getSellerSales (): Promise<SellerSaleModel[]> {
   const dtos = await apiRequest<SellerOrderDto[]>('/api/entries/mine/sales')
-  return dtos.map(dtoToModel)
+  return dtos.map(dto => dtoToModel(dto))
 }

@@ -61,6 +61,11 @@
         "saveToCollection": "Koleksiyona kaydet",
         "removeFromCollection": "Koleksiyondan kaldır",
         "subscribe": "Abone ol",
+        "subscribed": "Abone olundu",
+        "unsubscribe": "Abonelikten çık",
+        "edit": "Düzenle",
+        "subscribedNotification": "Başarıyla abone olundu",
+        "unsubscribedNotification": "Abonelik iptal edildi",
         "subscribers": "{count} abone",
         "showLess": "Daha az göster",
         "readMore": "Daha fazla oku",
@@ -196,6 +201,7 @@
         "firststeps": "İlk Adımlar",
         "purchased": "Satın Alınan",
         "favorites": "Favoriler",
+        "subscriptions": "Abonelikler",
         "account": "Hesap",
         "ecosystem": "Ecosystem",
         "community": "Topluluk",
@@ -429,6 +435,23 @@
         "errorTitle": "Favoriler yüklenirken hata",
         "errorDescription": "Bir şeyler ters gitti. Tekrar denemek için dokunun."
     },
+    "Subscriptions": {
+        "empty": "Henüz abonelik yok",
+        "emptyDescription": "Abone olduğunuz içerik üreticileri burada görünecek.",
+        "loginRequired": "Giriş gerekli",
+        "loginRequiredDescription": "Aboneliklerinizi görmek için lütfen giriş yapın.",
+        "errorTitle": "Abonelikler yüklenirken hata",
+        "errorDescription": "Bir şeyler yanlış gitti. Yeniden denemek için dokunun."
+    },
+    "Subscribers": {
+        "title": "Abonelerim",
+        "subtitle": "{count} abone",
+        "empty": "Henüz abone yok",
+        "emptyDescription": "Size abone olan kullanıcılar burada görünecek.",
+        "errorTitle": "Aboneler yüklenirken hata",
+        "errorDescription": "Bir şeyler yanlış gitti. Yeniden denemek için dokunun.",
+        "since": "{date} tarihinden beri"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "Satışlar",
+            "subscribers": "Aboneler",
             "viewDetails": "Detayları gör"
         },
         "tabs": {

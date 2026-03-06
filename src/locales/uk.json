@@ -61,6 +61,11 @@
         "saveToCollection": "Зберегти в колекцію",
         "removeFromCollection": "Видалити з колекції",
         "subscribe": "Підписатися",
+        "subscribed": "Підписано",
+        "unsubscribe": "Відписатися",
+        "edit": "Редагувати",
+        "subscribedNotification": "Підписку оформлено",
+        "unsubscribedNotification": "Підписку скасовано",
         "subscribers": "{count} підписників",
         "showLess": "Показати менше",
         "readMore": "Читати більше",
@@ -196,6 +201,7 @@
         "firststeps": "Перші кроки",
         "purchased": "Куплено",
         "favorites": "Улюблені",
+        "subscriptions": "Підписки",
         "account": "Аккаунт",
         "ecosystem": "Екосистема",
         "community": "Спільнота",
@@ -429,6 +435,23 @@
         "errorTitle": "Помилка завантаження обраного",
         "errorDescription": "Щось пішло не так. Натисніть, щоб повторити."
     },
+    "Subscriptions": {
+        "empty": "Ще немає підписок",
+        "emptyDescription": "Автори, на яких ви підписані, з'являться тут.",
+        "loginRequired": "Потрібен вхід",
+        "loginRequiredDescription": "Увійдіть, щоб переглянути свої підписки.",
+        "errorTitle": "Помилка завантаження підписок",
+        "errorDescription": "Щось пішло не так. Торкніться, щоб повторити."
+    },
+    "Subscribers": {
+        "title": "Мої підписники",
+        "subtitle": "{count} підписників",
+        "empty": "Ще немає підписників",
+        "emptyDescription": "Користувачі, які на вас підписані, з'являться тут.",
+        "errorTitle": "Помилка завантаження підписників",
+        "errorDescription": "Щось пішло не так. Торкніться, щоб повторити.",
+        "since": "З {date}"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "Продажі",
+            "subscribers": "Підписники",
             "viewDetails": "Детальніше"
         },
         "tabs": {

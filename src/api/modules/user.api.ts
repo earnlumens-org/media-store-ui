@@ -5,6 +5,7 @@
 import { apiRequest } from '@/api/apiRequest'
 
 export interface UserProfile {
+  id?: string
   username: string
   displayName: string
   profileImageUrl: string
@@ -25,6 +26,7 @@ export function parseUserFromToken (accessToken: string): UserProfile | null {
     const payload = JSON.parse(atob(parts[1]))
 
     return {
+      id: payload.sub ?? '',
       username: payload.username ?? '',
       displayName: payload.name ?? '',
       profileImageUrl: payload.profile_image_url ?? '',

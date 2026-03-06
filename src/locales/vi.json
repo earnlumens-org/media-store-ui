@@ -61,6 +61,11 @@
         "saveToCollection": "Lưu vào bộ sưu tập",
         "removeFromCollection": "Xóa khỏi bộ sưu tập",
         "subscribe": "Đăng ký",
+        "subscribed": "Đã đăng ký",
+        "unsubscribe": "Hủy đăng ký",
+        "edit": "Chỉnh sửa",
+        "subscribedNotification": "Đăng ký thành công",
+        "unsubscribedNotification": "Đã hủy đăng ký",
         "subscribers": "{count} người đăng ký",
         "showLess": "Thu gọn",
         "readMore": "Đọc thêm",
@@ -196,6 +201,7 @@
         "firststeps": "Bước đầu",
         "purchased": "Đã mua",
         "favorites": "Yêu thích",
+        "subscriptions": "Đăng ký",
         "account": "Tài khoản",
         "ecosystem": "Ecosystem",
         "community": "Cộng đồng",
@@ -429,6 +435,23 @@
         "errorTitle": "Lỗi khi tải mục yêu thích",
         "errorDescription": "Đã xảy ra lỗi. Nhấn để thử lại."
     },
+    "Subscriptions": {
+        "empty": "Chưa có đăng ký nào",
+        "emptyDescription": "Những nhà sáng tạo bạn đăng ký sẽ xuất hiện ở đây.",
+        "loginRequired": "Yêu cầu đăng nhập",
+        "loginRequiredDescription": "Vui lòng đăng nhập để xem các đăng ký của bạn.",
+        "errorTitle": "Lỗi tải đăng ký",
+        "errorDescription": "Đã xảy ra lỗi. Nhấn để thử lại."
+    },
+    "Subscribers": {
+        "title": "Người đăng ký của tôi",
+        "subtitle": "{count} người đăng ký",
+        "empty": "Chưa có người đăng ký nào",
+        "emptyDescription": "Những người đăng ký bạn sẽ xuất hiện ở đây.",
+        "errorTitle": "Lỗi tải người đăng ký",
+        "errorDescription": "Đã xảy ra lỗi. Nhấn để thử lại.",
+        "since": "Từ {date}"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "Doanh số",
+            "subscribers": "Người đăng ký",
             "viewDetails": "Xem chi tiết"
         },
         "tabs": {

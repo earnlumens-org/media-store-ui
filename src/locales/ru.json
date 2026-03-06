@@ -61,6 +61,11 @@
         "saveToCollection": "Сохранить в коллекцию",
         "removeFromCollection": "Удалить из коллекции",
         "subscribe": "Подписаться",
+        "subscribed": "Подписан",
+        "unsubscribe": "Отписаться",
+        "edit": "Редактировать",
+        "subscribedNotification": "Подписка оформлена",
+        "unsubscribedNotification": "Подписка отменена",
         "subscribers": "{count} подписчиков",
         "showLess": "Свернуть",
         "readMore": "Читать далее",
@@ -196,6 +201,7 @@
         "firststeps": "первые шаги",
         "purchased": "приобретенный",
         "favorites": "избранное",
+        "subscriptions": "Подписки",
         "account": "учетная запись",
         "ecosystem": "экосистема",
         "community": "сообщество",
@@ -429,6 +435,23 @@
         "errorTitle": "Ошибка загрузки избранного",
         "errorDescription": "Что-то пошло не так. Нажмите, чтобы повторить."
     },
+    "Subscriptions": {
+        "empty": "Пока нет подписок",
+        "emptyDescription": "Авторы, на которых вы подписаны, появятся здесь.",
+        "loginRequired": "Необходим вход",
+        "loginRequiredDescription": "Войдите, чтобы увидеть свои подписки.",
+        "errorTitle": "Ошибка загрузки подписок",
+        "errorDescription": "Что-то пошло не так. Нажмите, чтобы повторить."
+    },
+    "Subscribers": {
+        "title": "Мои подписчики",
+        "subtitle": "{count} подписчиков",
+        "empty": "Пока нет подписчиков",
+        "emptyDescription": "Пользователи, подписанные на вас, появятся здесь.",
+        "errorTitle": "Ошибка загрузки подписчиков",
+        "errorDescription": "Что-то пошло не так. Нажмите, чтобы повторить.",
+        "since": "С {date}"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "Продажи",
+            "subscribers": "Подписчики",
             "viewDetails": "Подробнее"
         },
         "tabs": {

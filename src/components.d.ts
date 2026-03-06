@@ -28,6 +28,7 @@ declare module 'vue' {
     CxLoginDialog: typeof import('./components/CxLoginDialog.vue')['default']
     CxPopoverMenu: typeof import('./components/CxPopoverMenu.vue')['default']
     CxSearchDialog: typeof import('./components/CxSearchDialog.vue')['default']
+    CxSubscribeButton: typeof import('./components/CxSubscribeButton.vue')['default']
     CxXButton: typeof import('./components/login/CxXButton.vue')['default']
     EntryCard: typeof import('./components/entry/EntryCard.vue')['default']
     EntryCardGrid: typeof import('./components/entry/EntryCardGrid.vue')['default']

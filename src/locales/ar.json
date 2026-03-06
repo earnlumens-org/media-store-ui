@@ -61,6 +61,11 @@
         "saveToCollection": "حفظ في المجموعة",
         "removeFromCollection": "إزالة من المجموعة",
         "subscribe": "اشتراك",
+        "subscribed": "مُشترَك",
+        "unsubscribe": "إلغاء الاشتراك",
+        "edit": "تعديل",
+        "subscribedNotification": "تم الاشتراك بنجاح",
+        "unsubscribedNotification": "تم إلغاء الاشتراك",
         "subscribers": "{count} مشترك",
         "showLess": "عرض أقل",
         "readMore": "قراءة المزيد",
@@ -196,6 +201,7 @@
         "firststeps": "الخطوات الأولى",
         "purchased": "تم الشراء",
         "favorites": "المفضلة",
+        "subscriptions": "الاشتراكات",
         "account": "الحساب",
         "ecosystem": "النظام البيئي",
         "community": "المجتمع",
@@ -429,6 +435,23 @@
         "errorTitle": "خطأ في تحميل المفضلات",
         "errorDescription": "حدث خطأ ما. انقر لإعادة المحاولة."
     },
+    "Subscriptions": {
+        "empty": "لا توجد اشتراكات بعد",
+        "emptyDescription": "المنشئون الذين تشترك فيهم سيظهرون هنا.",
+        "loginRequired": "تسجيل الدخول مطلوب",
+        "loginRequiredDescription": "يرجى تسجيل الدخول لرؤية اشتراكاتك.",
+        "errorTitle": "خطأ في تحميل الاشتراكات",
+        "errorDescription": "حدث خطأ ما. انقر لإعادة المحاولة."
+    },
+    "Subscribers": {
+        "title": "مشتركوني",
+        "subtitle": "{count} مشترك",
+        "empty": "لا يوجد مشتركون بعد",
+        "emptyDescription": "المستخدمون الذين يشتركون فيك سيظهرون هنا.",
+        "errorTitle": "خطأ في تحميل المشتركين",
+        "errorDescription": "حدث خطأ ما. انقر لإعادة المحاولة.",
+        "since": "منذ {date}"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "المبيعات",
+            "subscribers": "المشتركون",
             "viewDetails": "عرض التفاصيل"
         },
         "tabs": {

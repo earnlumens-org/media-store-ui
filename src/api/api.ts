@@ -12,6 +12,7 @@ import {
   getMockFirstStepsFeed,
 } from './modules/entryMock.api'
 import { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
+import { checkSubscription, getMySubscribers, getMySubscriberCount, getMySubscriptions, getPublicSubscriberCount, subscribe, unsubscribe } from './modules/subscription.api'
 import { preparePayment, submitPayment } from './modules/payment.api'
 import { getPurchases } from './modules/purchase.api'
 import { getSellerSales } from './modules/sales.api'
@@ -66,6 +67,15 @@ export const api = {
     toggle: toggleFavorite,
     check: checkFavorite,
     remove: removeFavorite,
+  },
+  subscriptions: {
+    subscribe,
+    unsubscribe,
+    check: checkSubscription,
+    mySubscriptions: getMySubscriptions,
+    mySubscribers: getMySubscribers,
+    mySubscriberCount: getMySubscriberCount,
+    publicCount: getPublicSubscriberCount,
   },
   /** Mock API - TODO: Remove when real endpoints are available */
   mock: {
@@ -163,10 +173,16 @@ export type {
 } from './types/purchase.types'
 
 export { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
+export { checkSubscription, getMySubscribers, getMySubscriberCount, getMySubscriptions, getPublicSubscriberCount, subscribe, unsubscribe } from './modules/subscription.api'
 export type {
   FavoriteItemModel,
   FavoritePageModel,
 } from './types/favorite.types'
+
+export type {
+  SubscriptionPageModel,
+  SubscriptionUserModel,
+} from './types/subscription.types'
 
 export type {
   CreatorDashboardStats,

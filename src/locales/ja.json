@@ -61,6 +61,11 @@
         "saveToCollection": "コレクションに保存",
         "removeFromCollection": "コレクションから削除",
         "subscribe": "登録",
+        "subscribed": "登録済み",
+        "unsubscribe": "登録解除",
+        "edit": "編集",
+        "subscribedNotification": "登録しました",
+        "unsubscribedNotification": "登録を解除しました",
         "subscribers": "登録者 {count} 人",
         "showLess": "折りたたむ",
         "readMore": "もっと読む",
@@ -196,6 +201,7 @@
         "firststeps": "最初のステップ",
         "purchased": "購入済み",
         "favorites": "お気に入り",
+        "subscriptions": "登録チャンネル",
         "account": "アカウント",
         "ecosystem": "エコシステム",
         "community": "コミュニティ",
@@ -429,6 +435,23 @@
         "errorTitle": "お気に入りの読み込みエラー",
         "errorDescription": "問題が発生しました。タップして再試行してください。"
     },
+    "Subscriptions": {
+        "empty": "まだ登録がありません",
+        "emptyDescription": "登録したクリエイターがここに表示されます。",
+        "loginRequired": "ログインが必要です",
+        "loginRequiredDescription": "登録を表示するにはログインしてください。",
+        "errorTitle": "登録の読み込みエラー",
+        "errorDescription": "問題が発生しました。タップして再試行してください。"
+    },
+    "Subscribers": {
+        "title": "登録者",
+        "subtitle": "登録者 {count} 人",
+        "empty": "まだ登録者がいません",
+        "emptyDescription": "あなたに登録したユーザーがここに表示されます。",
+        "errorTitle": "登録者の読み込みエラー",
+        "errorDescription": "問題が発生しました。タップして再試行してください。",
+        "since": "{date} から"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "売上",
+            "subscribers": "登録者",
             "viewDetails": "詳細を見る"
         },
         "tabs": {

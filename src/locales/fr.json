@@ -61,6 +61,11 @@
         "saveToCollection": "Enregistrer dans la collection",
         "removeFromCollection": "Retirer de la collection",
         "subscribe": "S'abonner",
+        "subscribed": "Abonné",
+        "unsubscribe": "Se désabonner",
+        "edit": "Modifier",
+        "subscribedNotification": "Abonnement réussi",
+        "unsubscribedNotification": "Désabonné",
         "subscribers": "{count} abonnés",
         "showLess": "Afficher moins",
         "readMore": "Lire la suite",
@@ -196,6 +201,7 @@
         "firststeps": "Premiers pas",
         "purchased": "Acheté",
         "favorites": "Favoris",
+        "subscriptions": "Abonnements",
         "account": "Compte",
         "ecosystem": "Écosystème",
         "community": "Communauté",
@@ -429,6 +435,23 @@
         "errorTitle": "Erreur lors du chargement des favoris",
         "errorDescription": "Une erreur est survenue. Appuyez pour réessayer."
     },
+    "Subscriptions": {
+        "empty": "Aucun abonnement",
+        "emptyDescription": "Les créateurs auxquels vous vous abonnez apparaîtront ici.",
+        "loginRequired": "Connexion requise",
+        "loginRequiredDescription": "Veuillez vous connecter pour voir vos abonnements.",
+        "errorTitle": "Erreur lors du chargement des abonnements",
+        "errorDescription": "Une erreur s'est produite. Appuyez pour réessayer."
+    },
+    "Subscribers": {
+        "title": "Mes Abonnés",
+        "subtitle": "{count} abonnés",
+        "empty": "Aucun abonné",
+        "emptyDescription": "Les utilisateurs qui s'abonnent à vous apparaîtront ici.",
+        "errorTitle": "Erreur lors du chargement des abonnés",
+        "errorDescription": "Une erreur s'est produite. Appuyez pour réessayer.",
+        "since": "Depuis {date}"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "Ventes",
+            "subscribers": "Abonnés",
             "viewDetails": "Voir les détails"
         },
         "tabs": {

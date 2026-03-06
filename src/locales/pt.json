@@ -61,6 +61,11 @@
         "saveToCollection": "Salvar na coleção",
         "removeFromCollection": "Remover da coleção",
         "subscribe": "Inscrever-se",
+        "subscribed": "Inscrito",
+        "unsubscribe": "Cancelar inscrição",
+        "edit": "Editar",
+        "subscribedNotification": "Inscrição realizada",
+        "unsubscribedNotification": "Inscrição cancelada",
         "subscribers": "{count} inscritos",
         "showLess": "Mostrar menos",
         "readMore": "Ler mais",
@@ -196,6 +201,7 @@
         "firststeps": "Primeiros passos",
         "purchased": "Comprados",
         "favorites": "Favoritos",
+        "subscriptions": "Inscrições",
         "account": "Conta",
         "ecosystem": "Ecosistema",
         "community": "Comunidade",
@@ -429,6 +435,23 @@
         "errorTitle": "Erro ao carregar favoritos",
         "errorDescription": "Algo deu errado. Toque para tentar novamente."
     },
+    "Subscriptions": {
+        "empty": "Nenhuma inscrição ainda",
+        "emptyDescription": "Os criadores em que você se inscrever aparecerão aqui.",
+        "loginRequired": "Login necessário",
+        "loginRequiredDescription": "Faça login para ver suas inscrições.",
+        "errorTitle": "Erro ao carregar inscrições",
+        "errorDescription": "Algo deu errado. Toque para tentar novamente."
+    },
+    "Subscribers": {
+        "title": "Meus Inscritos",
+        "subtitle": "{count} inscritos",
+        "empty": "Nenhum inscrito ainda",
+        "emptyDescription": "Os usuários que se inscreverem em você aparecerão aqui.",
+        "errorTitle": "Erro ao carregar inscritos",
+        "errorDescription": "Algo deu errado. Toque para tentar novamente.",
+        "since": "Desde {date}"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "Vendas",
+            "subscribers": "Inscritos",
             "viewDetails": "Ver detalhes"
         },
         "tabs": {

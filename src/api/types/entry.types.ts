@@ -11,6 +11,7 @@ export interface PublicEntryDto {
   title: string
   description?: string
   resourceContent?: string
+  authorId?: string
   authorName: string
   authorAvatarUrl?: string
   publishedAt?: string
@@ -44,6 +45,7 @@ export interface PublicEntryModel {
   title: string
   description?: string
   resourceContent?: string
+  authorId?: string
   authorName: string
   authorAvatarUrl?: string
   publishedAt: string

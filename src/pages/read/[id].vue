@@ -267,15 +267,12 @@
                 </div>
                 <span class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</span>
               </div>
-              <v-btn
+              <CxSubscribeButton
+                v-if="entry.authorId"
                 class="flex-shrink-0 ms-2"
-                color="primary"
-                rounded="pill"
                 :size="$vuetify.display.smAndDown ? 'small' : 'default'"
-                variant="flat"
-              >
-                {{ $t('Common.subscribe') }}
-              </v-btn>
+                :target-user-id="entry.authorId"
+              />
             </v-sheet>
 
             <!-- Featured Image (if exists) -->
@@ -434,15 +431,12 @@
                 </router-link>
                 <router-link class="text-body-1 font-weight-medium text-truncate d-block text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
                 <p class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</p>
-                <v-btn
-                  block
+                <CxSubscribeButton
+                  v-if="entry.authorId"
                   class="mt-3"
-                  color="primary"
-                  rounded="pill"
-                  variant="flat"
-                >
-                  {{ $t('Common.subscribe') }}
-                </v-btn>
+                  :target-user-id="entry.authorId"
+                  variant="block"
+                />
               </v-card-text>
             </v-card>
 
@@ -466,6 +460,7 @@
 
   import { api } from '@/api/api'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
+  import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import { useAppStore } from '@/stores/app'
   import { usePurchasesStore } from '@/stores/purchases'
   import { cdnMediaUrl } from '@/config/env'

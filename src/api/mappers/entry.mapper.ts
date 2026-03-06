@@ -22,6 +22,7 @@ export function mapPublicEntryDtoToModel (dto: PublicEntryDto): PublicEntryModel
     title: dto.title,
     description: dto.description,
     resourceContent: dto.resourceContent,
+    authorId: dto.authorId,
     authorName: dto.authorName,
     authorAvatarUrl: dto.authorAvatarUrl,
     publishedAt: dto.publishedAt ?? '',

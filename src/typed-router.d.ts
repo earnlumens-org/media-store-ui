@@ -26,6 +26,7 @@ declare module 'vue-router/auto-routes' {
     '/Community': RouteRecordInfo<'/Community', '/community', Record<never, never>, Record<never, never>>,
     '/CreatorStudio': RouteRecordInfo<'/CreatorStudio', '/creator-studio', Record<never, never>, Record<never, never>>,
     '/SalesHistory': RouteRecordInfo<'/SalesHistory', '/creator-studio/sales', Record<never, never>, Record<never, never>>,
+    '/SubscribersList': RouteRecordInfo<'/SubscribersList', '/creator-studio/subscribers', Record<never, never>, Record<never, never>>,
     '/Ecosystem': RouteRecordInfo<'/Ecosystem', '/ecosystem', Record<never, never>, Record<never, never>>,
     '/Explore': RouteRecordInfo<'/Explore', '/explore', Record<never, never>, Record<never, never>>,
     '/Favorites': RouteRecordInfo<'/Favorites', '/favorites', Record<never, never>, Record<never, never>>,
@@ -40,6 +41,7 @@ declare module 'vue-router/auto-routes' {
     '/read/[id]': RouteRecordInfo<'/read/[id]', '/read/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/read/ReadRecommendationsList': RouteRecordInfo<'/read/ReadRecommendationsList', '/read/ReadRecommendationsList', Record<never, never>, Record<never, never>>,
     '/section/[...path]': RouteRecordInfo<'/section/[...path]', '/section/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
+    '/subscriptions': RouteRecordInfo<'/subscriptions', '/subscriptions', Record<never, never>, Record<never, never>>,
     '/themes': RouteRecordInfo<'/themes', '/themes', Record<never, never>, Record<never, never>>,
     '/VideoUpload': RouteRecordInfo<'/VideoUpload', '/upload', Record<never, never>, Record<never, never>>,
     '/view/[id]': RouteRecordInfo<'/view/[id]', '/view/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
@@ -92,6 +94,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/SalesHistory.vue': {
       routes: '/SalesHistory'
+      views: never
+    }
+    'src/pages/SubscribersList.vue': {
+      routes: '/SubscribersList'
       views: never
     }
     'src/pages/Ecosystem.vue': {
@@ -148,6 +154,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/section/[...path].vue': {
       routes: '/section/[...path]'
+      views: never
+    }
+    'src/pages/subscriptions.vue': {
+      routes: '/subscriptions'
       views: never
     }
     'src/pages/themes.vue': {

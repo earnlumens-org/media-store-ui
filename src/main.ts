@@ -21,6 +21,7 @@ import { clearToken, initTokenWorker, onSessionExpired, refreshToken } from '@/s
 import pinia from '@/stores'
 import { useAuthStore } from '@/stores/auth'
 import { useFavoritesStore } from '@/stores/favorites'
+import { useSubscriptionsStore } from '@/stores/subscriptions'
 import { useScrollCacheStore } from '@/stores/scrollCache'
 import { useWalletStore } from '@/stores/wallet'
 
@@ -108,6 +109,10 @@ async function rehydrateSession (): Promise<void> {
       // Pre-load favorite IDs so isFavorite() is instant across the app
       const favoritesStore = useFavoritesStore(pinia)
       favoritesStore.loadFavoriteIds().catch(() => {})
+
+      // Pre-load subscription IDs so isSubscribed() is instant across the app
+      const subscriptionsStore = useSubscriptionsStore(pinia)
+      subscriptionsStore.loadSubscriptionIds().catch(() => {})
     } else {
       authStore.setAuthenticated(false)
     }
@@ -133,6 +138,10 @@ onSessionExpired(async () => {
   // Clear favorites cache
   const favoritesStore = useFavoritesStore(pinia)
   favoritesStore.clearAll()
+
+  // Clear subscriptions cache
+  const subscriptionsStore = useSubscriptionsStore(pinia)
+  subscriptionsStore.clearAll()
 
   // Clear scroll cache (data may contain user-specific state)
   const scrollCacheStore = useScrollCacheStore(pinia)
@@ -178,6 +187,10 @@ onAuthBroadcast(async event => {
     // Clear favorites cache
     const favStore = useFavoritesStore(pinia)
     favStore.clearAll()
+
+    // Clear subscriptions cache
+    const subsStore = useSubscriptionsStore(pinia)
+    subsStore.clearAll()
 
     // Clear scroll cache
     const scrollCacheStore2 = useScrollCacheStore(pinia)

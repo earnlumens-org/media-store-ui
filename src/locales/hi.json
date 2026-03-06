@@ -61,6 +61,11 @@
         "saveToCollection": "संग्रह में सहेजें",
         "removeFromCollection": "संग्रह से हटाएँ",
         "subscribe": "सदस्यता लें",
+        "subscribed": "सदस्यता ली",
+        "unsubscribe": "सदस्यता रद्द करें",
+        "edit": "संपादित करें",
+        "subscribedNotification": "सेफलतापूर्वक सदस्यता ली",
+        "unsubscribedNotification": "सदस्यता रद्द की",
         "subscribers": "{count} सब्सक्राइबर",
         "showLess": "कम दिखाएँ",
         "readMore": "और पढ़ें",
@@ -196,6 +201,7 @@
         "firststeps": "प्रथम कदम",
         "purchased": "खरीदा हुआ",
         "favorites": "पसंदीदा",
+        "subscriptions": "सदस्यताएँ",
         "account": "खाता",
         "ecosystem": "प्रीमियर",
         "community": "समुदाय",
@@ -429,6 +435,23 @@
         "errorTitle": "पसंदीदा लोड करने में त्रुटि",
         "errorDescription": "कुछ गलत हो गया। पुनः प्रयास करने के लिए टैप करें।"
     },
+    "Subscriptions": {
+        "empty": "अभी तक कोई सदस्यता नहीं",
+        "emptyDescription": "जिन क्रिएटर्स की आप सदस्यता लेते हैं वे यहाँ दिखाई देंगे।",
+        "loginRequired": "लॉगिन आवश्यक",
+        "loginRequiredDescription": "अपनी सदस्यताएँ देखने के लिए कृपया लॉगिन करें।",
+        "errorTitle": "सदस्यताएँ लोड करने में त्रुटि",
+        "errorDescription": "कुछ गलत हो गया। पुनः प्रयास करने के लिए टैप करें।"
+    },
+    "Subscribers": {
+        "title": "मेरे सदस्य",
+        "subtitle": "{count} सदस्य",
+        "empty": "अभी तक कोई सदस्य नहीं",
+        "emptyDescription": "जो उपयोगकर्ता आपकी सदस्यता लेते हैं वे यहाँ दिखाई देंगे।",
+        "errorTitle": "सदस्य लोड करने में त्रुटि",
+        "errorDescription": "कुछ गलत हो गया। पुनः प्रयास करने के लिए टैप करें।",
+        "since": "{date} से"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "बिक्री",
+            "subscribers": "सदस्य",
             "viewDetails": "विवरण देखें"
         },
         "tabs": {

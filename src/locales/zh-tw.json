@@ -61,6 +61,11 @@
         "saveToCollection": "儲存到收藏",
         "removeFromCollection": "從收藏移除",
         "subscribe": "訂閱",
+        "subscribed": "已訂閱",
+        "unsubscribe": "取消訂閱",
+        "edit": "編輯",
+        "subscribedNotification": "訂閱成功",
+        "unsubscribedNotification": "已取消訂閱",
         "subscribers": "{count} 位訂閱者",
         "showLess": "收起",
         "readMore": "閱讀更多",
@@ -196,6 +201,7 @@
         "firststeps": "第一步",
         "purchased": "已購買",
         "favorites": "收藏夾",
+        "subscriptions": "訂閱",
         "account": "帳戶",
         "ecosystem": "生態系統",
         "community": "社區",
@@ -429,6 +435,23 @@
         "errorTitle": "載入收藏時發生錯誤",
         "errorDescription": "發生了一些問題。點擊以重試。"
     },
+    "Subscriptions": {
+        "empty": "尚無訂閱",
+        "emptyDescription": "您訂閱的創作者將顯示在這裡。",
+        "loginRequired": "需要登入",
+        "loginRequiredDescription": "請登入以查看您的訂閱。",
+        "errorTitle": "載入訂閱時發生錯誤",
+        "errorDescription": "發生錯誤。點擊重試。"
+    },
+    "Subscribers": {
+        "title": "我的訂閱者",
+        "subtitle": "{count} 位訂閱者",
+        "empty": "尚無訂閱者",
+        "emptyDescription": "訂閱您的用戶將顯示在這裡。",
+        "errorTitle": "載入訂閱者時發生錯誤",
+        "errorDescription": "發生錯誤。點擊重試。",
+        "since": "自 {date} 起"
+    },
     "CreatorStudio": {
         "title": "Creator Studio",
         "subtitle": "Manage your content and track performance",
@@ -456,6 +479,7 @@
             "inReview": "In Review",
             "views": "Views",
             "sales": "銷售",
+            "subscribers": "訂閱者",
             "viewDetails": "查看詳情"
         },
         "tabs": {
