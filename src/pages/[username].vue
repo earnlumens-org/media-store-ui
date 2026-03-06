@@ -100,7 +100,7 @@
                   :target-user-id="user.id"
                 />
                 <v-btn
-                  :disabled="isOwnProfile"
+                  disabled
                   rounded="pill"
                   variant="outlined"
                 >
