@@ -149,6 +149,7 @@
         </template>
       </v-tooltip>
 
+      <!-- TODO: temporarily hidden – re-enable when Featured is ready
       <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
       <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.featured')">
         <template #activator="{ props }">
@@ -162,6 +163,7 @@
           />
         </template>
       </v-tooltip>
+      -->
 
       <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
       <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.explore')">
