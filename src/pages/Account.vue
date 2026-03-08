@@ -125,6 +125,40 @@
                       <v-icon size="small">mdi-chevron-right</v-icon>
                     </template>
                   </v-list-item>
+
+                  <v-divider class="my-2" />
+
+                  <v-list-item
+                    prepend-icon="mdi-file-document-outline"
+                    to="/terms"
+                  >
+                    <v-list-item-title class="font-weight-medium">
+                      {{ $t('Account.termsAndConditions') }}
+                    </v-list-item-title>
+                    <v-list-item-subtitle>
+                      {{ $t('Account.termsAndConditionsHint') }}
+                    </v-list-item-subtitle>
+                    <template #append>
+                      <v-icon size="small">mdi-chevron-right</v-icon>
+                    </template>
+                  </v-list-item>
+
+                  <v-divider class="my-2" />
+
+                  <v-list-item
+                    prepend-icon="mdi-book-open-page-variant-outline"
+                    to="/guidelines"
+                  >
+                    <v-list-item-title class="font-weight-medium">
+                      {{ $t('Account.contentGuidelines') }}
+                    </v-list-item-title>
+                    <v-list-item-subtitle>
+                      {{ $t('Account.contentGuidelinesHint') }}
+                    </v-list-item-subtitle>
+                    <template #append>
+                      <v-icon size="small">mdi-chevron-right</v-icon>
+                    </template>
+                  </v-list-item>
                 </v-list>
               </div>
             </div>

@@ -197,7 +197,9 @@
         "creatorStudio": "Studio Pencipta",
         "creatorStudioHint": "Urus kandungan anda, jejak prestasi & muat naik bahan baharu",
         "viewPublicProfile": "Profil Awam Saya",
-        "viewPublicProfileHint": "Lihat bagaimana orang lain melihat profil anda"
+        "viewPublicProfileHint": "Lihat bagaimana orang lain melihat profil anda",
+        "termsAndConditions": "Terma dan Syarat",
+        "termsAndConditionsHint": "Semak terma perkhidmatan dan dasar privasi kami"
     },
     "AppBar": {
         "home": "Laman Utama",

@@ -197,7 +197,9 @@
         "creatorStudio": "İçerik Stüdyosu",
         "creatorStudioHint": "İçeriğinizi yönetin, performansı takip edin ve yeni materyal yükleyin",
         "viewPublicProfile": "Herkese Açık Profilim",
-        "viewPublicProfileHint": "Başkalarının profilinizi nasıl gördüğünü görün"
+        "viewPublicProfileHint": "Başkalarının profilinizi nasıl gördüğünü görün",
+        "termsAndConditions": "Şartlar ve Koşullar",
+        "termsAndConditionsHint": "Hizmet şartlarımızı ve gizlilik politikamızı inceleyin"
     },
     "AppBar": {
         "home": "Ana Sayfa",

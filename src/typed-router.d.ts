@@ -33,6 +33,7 @@ declare module 'vue-router/auto-routes' {
     '/Featured': RouteRecordInfo<'/Featured', '/featured', Record<never, never>, Record<never, never>>,
     '/feed/[...path]': RouteRecordInfo<'/feed/[...path]', '/feed/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
     '/FirstSteps': RouteRecordInfo<'/FirstSteps', '/firststeps', Record<never, never>, Record<never, never>>,
+    '/Guidelines': RouteRecordInfo<'/Guidelines', '/guidelines', Record<never, never>, Record<never, never>>,
     '/listen/[id]': RouteRecordInfo<'/listen/[id]', '/listen/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/listen/AudioRecommendationsList': RouteRecordInfo<'/listen/AudioRecommendationsList', '/listen/AudioRecommendationsList', Record<never, never>, Record<never, never>>,
     'AuthXCallback': RouteRecordInfo<'AuthXCallback', '/oauth2/callback', Record<never, never>, Record<never, never>>,
@@ -42,6 +43,7 @@ declare module 'vue-router/auto-routes' {
     '/read/ReadRecommendationsList': RouteRecordInfo<'/read/ReadRecommendationsList', '/read/ReadRecommendationsList', Record<never, never>, Record<never, never>>,
     '/section/[...path]': RouteRecordInfo<'/section/[...path]', '/section/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
     '/subscriptions': RouteRecordInfo<'/subscriptions', '/subscriptions', Record<never, never>, Record<never, never>>,
+    '/Terms': RouteRecordInfo<'/Terms', '/terms', Record<never, never>, Record<never, never>>,
     '/themes': RouteRecordInfo<'/themes', '/themes', Record<never, never>, Record<never, never>>,
     '/VideoUpload': RouteRecordInfo<'/VideoUpload', '/upload', Record<never, never>, Record<never, never>>,
     '/view/[id]': RouteRecordInfo<'/view/[id]', '/view/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
@@ -124,6 +126,10 @@ declare module 'vue-router/auto-routes' {
       routes: '/FirstSteps'
       views: never
     }
+    'src/pages/Guidelines.vue': {
+      routes: '/Guidelines'
+      views: never
+    }
     'src/pages/listen/[id].vue': {
       routes: '/listen/[id]'
       views: never
@@ -158,6 +164,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/subscriptions.vue': {
       routes: '/subscriptions'
+      views: never
+    }
+    'src/pages/Terms.vue': {
+      routes: '/Terms'
       views: never
     }
     'src/pages/themes.vue': {

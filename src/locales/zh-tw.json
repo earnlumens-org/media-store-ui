@@ -197,7 +197,9 @@
         "creatorStudio": "創作者工作室",
         "creatorStudioHint": "管理您的內容、追蹤表現並上傳新素材",
         "viewPublicProfile": "我的公開資料",
-        "viewPublicProfileHint": "查看其他人如何看到您的個人資料"
+        "viewPublicProfileHint": "查看其他人如何看到您的個人資料",
+        "termsAndConditions": "條款與條件",
+        "termsAndConditionsHint": "查看我們的服務條款和隱私權政策"
     },
     "AppBar": {
         "home": "主頁",

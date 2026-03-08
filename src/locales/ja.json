@@ -197,7 +197,9 @@
         "creatorStudio": "クリエイタースタジオ",
         "creatorStudioHint": "コンテンツの管理、パフォーマンスの追跡、新しい素材のアップロード",
         "viewPublicProfile": "公開プロフィール",
-        "viewPublicProfileHint": "他の人からの見え方を確認"
+        "viewPublicProfileHint": "他の人からの見え方を確認",
+        "termsAndConditions": "利用規約",
+        "termsAndConditionsHint": "利用規約とプライバシーポリシーを確認"
     },
     "AppBar": {
         "home": "ホームページ",

@@ -1,0 +1,81 @@
+{
+  "Legal": {
+    "termsTitle": "Termini e condizioni",
+    "privacyTitle": "Informativa sulla privacy",
+    "lastUpdated": "Ultimo aggiornamento: {date}",
+    "terms": {
+      "intro": "Benvenuto su EarnLumens. Accedendo o utilizzando la nostra piattaforma, accetti di essere vincolato da questi Termini e condizioni.",
+      "sections": [
+        {
+          "heading": "1. Accettazione dei termini",
+          "body": "Creando un account o utilizzando qualsiasi parte della piattaforma EarnLumens, riconosci di aver letto, compreso e accettato di essere vincolato da questi Termini e condizioni e dalla nostra Informativa sulla privacy. Se non sei d'accordo, non devi utilizzare la piattaforma."
+        },
+        {
+          "heading": "2. Descrizione del servizio",
+          "body": "EarnLumens è una piattaforma collaborativa di educazione finanziaria costruita sulla rete Stellar. I creatori possono pubblicare contenuti educativi (video, audio, immagini e risorse) e fissare i prezzi in XLM (Stellar Lumens). Gli utenti possono acquistare, visualizzare e interagire con questi contenuti."
+        },
+        {
+          "heading": "3. Registrazione dell'account",
+          "body": "Devi fornire informazioni accurate e complete durante la creazione di un account. Sei responsabile del mantenimento della riservatezza delle tue credenziali e di tutte le attività che si verificano sotto il tuo account. Devi informarci immediatamente di qualsiasi uso non autorizzato."
+        },
+        {
+          "heading": "4. Contenuti e proprietà intellettuale",
+          "body": "I creatori mantengono la proprietà dei contenuti che pubblicano su EarnLumens. Pubblicando, i creatori concedono a EarnLumens una licenza non esclusiva e mondiale per visualizzare, distribuire e promuovere i contenuti sulla piattaforma. Gli utenti non possono riprodurre, ridistribuire o rivendere contenuti acquistati senza il permesso esplicito del creatore."
+        },
+        {
+          "heading": "5. Pagamenti e transazioni",
+          "body": "Tutte le transazioni su EarnLumens vengono effettuate utilizzando XLM sulla rete Stellar. I prezzi sono fissati dai creatori. EarnLumens può addebitare una commissione di piattaforma sulle transazioni. Tutte le vendite sono definitive a meno che la legge applicabile non disponga diversamente. Sei responsabile di eventuali commissioni di rete associate alle transazioni Stellar."
+        },
+        {
+          "heading": "6. Condotta vietata",
+          "body": "Accetti di non: (a) caricare contenuti dannosi, illegali o che violino diritti; (b) impersonare altri; (c) tentare di sfruttare o interrompere la piattaforma; (d) utilizzare strumenti automatizzati per estrarre dati o accedere alla piattaforma senza autorizzazione; (e) partecipare a qualsiasi attività che violi le leggi o i regolamenti applicabili."
+        },
+        {
+          "heading": "7. Risoluzione",
+          "body": "Ci riserviamo il diritto di sospendere o risolvere il tuo account in qualsiasi momento se violi questi Termini. Alla risoluzione, il tuo diritto di utilizzare la piattaforma cessa immediatamente, sebbene le disposizioni che per loro natura devono sopravvivere rimarranno in vigore."
+        },
+        {
+          "heading": "8. Esclusioni di responsabilità",
+          "body": "La piattaforma è fornita \"così com'è\" e \"secondo disponibilità\" senza garanzie di alcun tipo. EarnLumens non garantisce l'accuratezza, la completezza o l'utilità di alcun contenuto pubblicato dai creatori. Non siamo responsabili di perdite derivanti da transazioni sulla rete Stellar."
+        },
+        {
+          "heading": "9. Limitazione di responsabilità",
+          "body": "Nella misura massima consentita dalla legge, EarnLumens non sarà responsabile per danni indiretti, incidentali, speciali, consequenziali o punitivi derivanti dall'utilizzo della piattaforma."
+        },
+        {
+          "heading": "10. Modifiche ai termini",
+          "body": "Possiamo aggiornare questi Termini in qualsiasi momento. Ci impegneremo a informare gli utenti di modifiche sostanziali attraverso la piattaforma, ma è tua responsabilità consultare i Termini periodicamente. L'uso continuato dopo le modifiche costituisce accettazione dei Termini rivisti."
+        },
+        {
+          "heading": "11. Contatto",
+          "body": "Per domande su questi Termini, contattaci a legal{'@'}earnlumens.org."
+        }
+      ]
+    },
+    "privacy": {
+      "intro": "Questa Informativa sulla privacy descrive come EarnLumens raccoglie, utilizza e protegge le tue informazioni personali.",
+      "sections": [
+        {
+          "heading": "1. Informazioni che raccogliamo",
+          "body": "Raccogliamo le informazioni che fornisci direttamente (dettagli dell'account, informazioni del profilo) e le informazioni generate dal tuo utilizzo della piattaforma (cronologia delle transazioni, attività di visualizzazione, informazioni sul dispositivo)."
+        },
+        {
+          "heading": "2. Come utilizziamo le tue informazioni",
+          "body": "Utilizziamo le tue informazioni per: fornire e migliorare i nostri servizi, elaborare le transazioni, comunicare con te, garantire la sicurezza della piattaforma e rispettare gli obblighi legali."
+        },
+        {
+          "heading": "3. Condivisione dei dati",
+          "body": "Non vendiamo le tue informazioni personali. Possiamo condividere dati con fornitori di servizi che assistono nel funzionamento della piattaforma, o quando richiesto dalla legge."
+        },
+        {
+          "heading": "4. Sicurezza dei dati",
+          "body": "Implementiamo misure di sicurezza commercialmente ragionevoli per proteggere i tuoi dati. Tuttavia, nessun metodo di trasmissione su Internet è sicuro al 100% e non possiamo garantire una sicurezza assoluta."
+        },
+        {
+          "heading": "5. I tuoi diritti",
+          "body": "Puoi accedere ai tuoi dati personali, correggerli o richiederne la cancellazione contattandoci. Faremo sforzi ragionevoli per soddisfare la tua richiesta entro un tempo ragionevole."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "Legal": {
+    "termsTitle": "Terms and Conditions",
+    "privacyTitle": "Privacy Policy",
+    "lastUpdated": "Last updated: {date}",
+    "terms": {
+      "intro": "Welcome to EarnLumens. By accessing or using our platform, you agree to be bound by these Terms and Conditions.",
+      "sections": [
+        {
+          "heading": "1. Acceptance of Terms",
+          "body": "By creating an account or using any part of the EarnLumens platform, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions, as well as our Privacy Policy. If you do not agree, you must not use the platform."
+        },
+        {
+          "heading": "2. Description of Service",
+          "body": "EarnLumens is a collaborative financial education platform built on the Stellar network. Creators can publish educational content (videos, audio, images, and resources) and set prices in XLM (Stellar Lumens). Users can purchase, view, and interact with this content."
+        },
+        {
+          "heading": "3. Account Registration",
+          "body": "You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your credentials and for all activities that occur under your account. You must notify us immediately of any unauthorized use."
+        },
+        {
+          "heading": "4. Content and Intellectual Property",
+          "body": "Creators retain ownership of the content they publish on EarnLumens. By publishing, creators grant EarnLumens a non-exclusive, worldwide license to display, distribute, and promote the content on the platform. Users may not reproduce, redistribute, or resell purchased content without the creator's explicit permission."
+        },
+        {
+          "heading": "5. Payments and Transactions",
+          "body": "All transactions on EarnLumens are conducted using XLM on the Stellar network. Prices are set by creators. EarnLumens may charge a platform fee on transactions. All sales are final unless otherwise required by applicable law. You are responsible for any network fees associated with Stellar transactions."
+        },
+        {
+          "heading": "6. Prohibited Conduct",
+          "body": "You agree not to: (a) upload harmful, illegal, or infringing content; (b) impersonate others; (c) attempt to exploit or disrupt the platform; (d) use automated tools to scrape or access the platform without authorization; (e) engage in any activity that violates applicable laws or regulations."
+        },
+        {
+          "heading": "7. Termination",
+          "body": "We reserve the right to suspend or terminate your account at any time if you violate these Terms. Upon termination, your right to use the platform ceases immediately, though provisions that by their nature should survive will remain in effect."
+        },
+        {
+          "heading": "8. Disclaimers",
+          "body": "The platform is provided \"as is\" and \"as available\" without warranties of any kind. EarnLumens does not guarantee the accuracy, completeness, or usefulness of any content published by creators. We are not responsible for any losses resulting from Stellar network transactions."
+        },
+        {
+          "heading": "9. Limitation of Liability",
+          "body": "To the maximum extent permitted by law, EarnLumens shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the platform."
+        },
+        {
+          "heading": "10. Changes to Terms",
+          "body": "We may update these Terms at any time. We will endeavor to inform users of material changes through the platform, but it is your responsibility to review the Terms periodically. Your continued use after changes constitutes acceptance of the revised Terms."
+        },
+        {
+          "heading": "11. Contact",
+          "body": "For questions about these Terms, please contact us at legal{'@'}earnlumens.org."
+        }
+      ]
+    },
+    "privacy": {
+      "intro": "This Privacy Policy describes how EarnLumens collects, uses, and protects your personal information.",
+      "sections": [
+        {
+          "heading": "1. Information We Collect",
+          "body": "We collect information you provide directly (account details, profile information) and information generated through your use of the platform (transaction history, viewing activity, device information)."
+        },
+        {
+          "heading": "2. How We Use Your Information",
+          "body": "We use your information to: provide and improve our services, process transactions, communicate with you, ensure platform security, and comply with legal obligations."
+        },
+        {
+          "heading": "3. Data Sharing",
+          "body": "We do not sell your personal information. We may share data with service providers who assist in operating the platform, or when required by law."
+        },
+        {
+          "heading": "4. Data Security",
+          "body": "We implement commercially reasonable security measures to protect your data. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security."
+        },
+        {
+          "heading": "5. Your Rights",
+          "body": "You may access, correct, or request deletion of your personal data by contacting us. We will make reasonable efforts to address your request within a reasonable timeframe."
+        }
+      ]
+    }
+  }
+}

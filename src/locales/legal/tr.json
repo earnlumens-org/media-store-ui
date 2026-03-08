@@ -1,0 +1,81 @@
+{
+  "Legal": {
+    "termsTitle": "Şartlar ve Koşullar",
+    "privacyTitle": "Gizlilik Politikası",
+    "lastUpdated": "Son güncelleme: {date}",
+    "terms": {
+      "intro": "EarnLumens'e hoş geldiniz. Platformumuza erişerek veya kullanarak bu Şartlar ve Koşullar'a bağlı kalmayı kabul etmiş olursunuz.",
+      "sections": [
+        {
+          "heading": "1. Şartların Kabulü",
+          "body": "Bir hesap oluşturarak veya EarnLumens platformunun herhangi bir bölümünü kullanarak, bu Şartlar ve Koşullar ile Gizlilik Politikamızı okuduğunuzu, anladığınızı ve bunlara bağlı kalmayı kabul ettiğinizi onaylarsınız. Kabul etmiyorsanız platformu kullanmamalısınız."
+        },
+        {
+          "heading": "2. Hizmet Açıklaması",
+          "body": "EarnLumens, Stellar ağı üzerine kurulmuş işbirlikçi bir finansal eğitim platformudur. İçerik oluşturucular eğitim içeriği (video, ses, görüntü ve kaynaklar) yayınlayabilir ve XLM (Stellar Lumens) cinsinden fiyat belirleyebilir. Kullanıcılar bu içeriği satın alabilir, görüntüleyebilir ve etkileşimde bulunabilir."
+        },
+        {
+          "heading": "3. Hesap Kaydı",
+          "body": "Hesap oluştururken doğru ve eksiksiz bilgi sağlamalısınız. Kimlik bilgilerinizin gizliliğini korumaktan ve hesabınız altında gerçekleşen tüm faaliyetlerden siz sorumlusunuz. Yetkisiz kullanım durumunda bizi derhal bilgilendirmelisiniz."
+        },
+        {
+          "heading": "4. İçerik ve Fikri Mülkiyet",
+          "body": "İçerik oluşturucular, EarnLumens'te yayınladıkları içeriğin sahipliğini korurlar. Yayınlayarak, içerik oluşturucular EarnLumens'e platformda içeriği görüntüleme, dağıtma ve tanıtma konusunda münhasır olmayan, dünya çapında bir lisans verirler. Kullanıcılar, içerik oluşturucunun açık izni olmadan satın alınan içeriği çoğaltamaz, yeniden dağıtamaz veya yeniden satamaz."
+        },
+        {
+          "heading": "5. Ödemeler ve İşlemler",
+          "body": "EarnLumens'teki tüm işlemler Stellar ağında XLM kullanılarak gerçekleştirilir. Fiyatlar içerik oluşturucular tarafından belirlenir. EarnLumens işlemler üzerinden platform ücreti alabilir. Geçerli yasa aksini gerektirmedikçe tüm satışlar kesindir. Stellar işlemleriyle ilişkili ağ ücretlerinden siz sorumlusunuz."
+        },
+        {
+          "heading": "6. Yasaklanan Davranışlar",
+          "body": "Aşağıdakileri yapmamayı kabul edersiniz: (a) zararlı, yasa dışı veya hak ihlali oluşturan içerik yüklemek; (b) başkalarının kimliğine bürünmek; (c) platformu istismar etmeye veya bozmaya çalışmak; (d) yetkisiz olarak veri çıkarmak veya platforma erişmek için otomatik araçlar kullanmak; (e) geçerli yasa veya düzenlemeleri ihlal eden herhangi bir faaliyette bulunmak."
+        },
+        {
+          "heading": "7. Fesih",
+          "body": "Bu Şartları ihlal etmeniz durumunda hesabınızı herhangi bir zamanda askıya alma veya feshetme hakkını saklı tutarız. Fesih üzerine, platformu kullanma hakkınız derhal sona erer, ancak doğası gereği devam etmesi gereken hükümler yürürlükte kalır."
+        },
+        {
+          "heading": "8. Sorumluluk Reddi",
+          "body": "Platform hiçbir garanti olmaksızın \"olduğu gibi\" ve \"mevcut olduğu şekilde\" sağlanmaktadır. EarnLumens, içerik oluşturucuların yayınladığı içeriğin doğruluğunu, eksiksizliğini veya faydalılığını garanti etmez. Stellar ağı işlemlerinden kaynaklanan zararlardan sorumlu değiliz."
+        },
+        {
+          "heading": "9. Sorumluluk Sınırlaması",
+          "body": "Yasaların izin verdiği azami ölçüde, EarnLumens platformu kullanımınızdan kaynaklanan dolaylı, arızi, özel, sonuç olarak ortaya çıkan veya cezai zararlardan sorumlu olmayacaktır."
+        },
+        {
+          "heading": "10. Şartlardaki Değişiklikler",
+          "body": "Bu Şartları herhangi bir zamanda güncelleyebiliriz. Önemli değişiklikleri platform aracılığıyla kullanıcılara bildirmeye çalışacağız, ancak Şartları düzenli olarak gözden geçirmek sizin sorumluluğunuzdadır. Değişikliklerden sonra kullanmaya devam etmeniz, revize edilmiş Şartları kabul ettiğiniz anlamına gelir."
+        },
+        {
+          "heading": "11. İletişim",
+          "body": "Bu Şartlar hakkındaki sorularınız için lütfen legal{'@'}earnlumens.org adresinden bize ulaşın."
+        }
+      ]
+    },
+    "privacy": {
+      "intro": "Bu Gizlilik Politikası, EarnLumens'in kişisel bilgilerinizi nasıl topladığını, kullandığını ve koruduğunu açıklar.",
+      "sections": [
+        {
+          "heading": "1. Topladığımız Bilgiler",
+          "body": "Doğrudan sağladığınız bilgileri (hesap detayları, profil bilgileri) ve platform kullanımınız aracılığıyla oluşturulan bilgileri (işlem geçmişi, görüntüleme etkinliği, cihaz bilgileri) topluyoruz."
+        },
+        {
+          "heading": "2. Bilgilerinizi Nasıl Kullanıyoruz",
+          "body": "Bilgilerinizi şu amaçlarla kullanıyoruz: hizmetlerimizi sağlamak ve iyileştirmek, işlemleri işlemek, sizinle iletişim kurmak, platform güvenliğini sağlamak ve yasal yükümlülüklere uymak."
+        },
+        {
+          "heading": "3. Veri Paylaşımı",
+          "body": "Kişisel bilgilerinizi satmıyoruz. Platformun işletilmesine yardımcı olan hizmet sağlayıcılarla veya yasa gerektirdiğinde verileri paylaşabiliriz."
+        },
+        {
+          "heading": "4. Veri Güvenliği",
+          "body": "Verilerinizi korumak için ticari olarak makul güvenlik önlemleri uyguluyoruz. Ancak internet üzerinden hiçbir iletim yöntemi %100 güvenli değildir ve mutlak güvenliği garanti edemeyiz."
+        },
+        {
+          "heading": "5. Haklarınız",
+          "body": "Bizimle iletişime geçerek kişisel verilerinize erişebilir, düzeltebilir veya silinmesini talep edebilirsiniz. Talebinizi makul bir süre içinde karşılamak için makul çaba göstereceğiz."
+        }
+      ]
+    }
+  }
+}

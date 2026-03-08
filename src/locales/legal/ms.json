@@ -1,0 +1,81 @@
+{
+  "Legal": {
+    "termsTitle": "Terma dan Syarat",
+    "privacyTitle": "Dasar Privasi",
+    "lastUpdated": "Kemas kini terakhir: {date}",
+    "terms": {
+      "intro": "Selamat datang ke EarnLumens. Dengan mengakses atau menggunakan platform kami, anda bersetuju untuk terikat dengan Terma dan Syarat ini.",
+      "sections": [
+        {
+          "heading": "1. Penerimaan Terma",
+          "body": "Dengan mencipta akaun atau menggunakan mana-mana bahagian platform EarnLumens, anda mengakui bahawa anda telah membaca, memahami dan bersetuju untuk terikat dengan Terma dan Syarat ini serta Dasar Privasi kami. Jika anda tidak bersetuju, anda tidak boleh menggunakan platform ini."
+        },
+        {
+          "heading": "2. Penerangan Perkhidmatan",
+          "body": "EarnLumens adalah platform pendidikan kewangan kolaboratif yang dibina di atas rangkaian Stellar. Pencipta boleh menerbitkan kandungan pendidikan (video, audio, imej dan sumber) dan menetapkan harga dalam XLM (Stellar Lumens). Pengguna boleh membeli, melihat dan berinteraksi dengan kandungan ini."
+        },
+        {
+          "heading": "3. Pendaftaran Akaun",
+          "body": "Anda mesti memberikan maklumat yang tepat dan lengkap semasa membuat akaun. Anda bertanggungjawab untuk mengekalkan kerahsiaan kelayakan anda dan untuk semua aktiviti yang berlaku di bawah akaun anda. Anda mesti memberitahu kami dengan segera tentang sebarang penggunaan tanpa kebenaran."
+        },
+        {
+          "heading": "4. Kandungan dan Harta Intelek",
+          "body": "Pencipta mengekalkan pemilikan kandungan yang mereka terbitkan di EarnLumens. Dengan menerbitkan, pencipta memberikan EarnLumens lesen bukan eksklusif dan seluruh dunia untuk memaparkan, mengedarkan dan mempromosikan kandungan di platform. Pengguna tidak boleh mengeluarkan semula, mengedarkan semula atau menjual semula kandungan yang dibeli tanpa kebenaran jelas pencipta."
+        },
+        {
+          "heading": "5. Pembayaran dan Transaksi",
+          "body": "Semua transaksi di EarnLumens dilakukan menggunakan XLM di rangkaian Stellar. Harga ditetapkan oleh pencipta. EarnLumens mungkin mengenakan yuran platform ke atas transaksi. Semua jualan adalah muktamad kecuali undang-undang terpakai memerlukan sebaliknya. Anda bertanggungjawab untuk sebarang yuran rangkaian yang berkaitan dengan transaksi Stellar."
+        },
+        {
+          "heading": "6. Kelakuan Dilarang",
+          "body": "Anda bersetuju untuk tidak: (a) memuat naik kandungan berbahaya, menyalahi undang-undang atau melanggar hak; (b) menyamar sebagai orang lain; (c) cuba mengeksploitasi atau mengganggu platform; (d) menggunakan alat automatik untuk mengambil data atau mengakses platform tanpa kebenaran; (e) terlibat dalam sebarang aktiviti yang melanggar undang-undang atau peraturan terpakai."
+        },
+        {
+          "heading": "7. Penamatan",
+          "body": "Kami berhak untuk menggantung atau menamatkan akaun anda pada bila-bila masa jika anda melanggar Terma ini. Selepas penamatan, hak anda untuk menggunakan platform berakhir serta-merta, walaupun peruntukan yang secara semula jadinya perlu kekal akan terus berkuat kuasa."
+        },
+        {
+          "heading": "8. Penafian",
+          "body": "Platform ini disediakan \"sebagaimana adanya\" dan \"mengikut ketersediaan\" tanpa jaminan apa-apa jenis. EarnLumens tidak menjamin ketepatan, kesempurnaan atau kegunaan mana-mana kandungan yang diterbitkan oleh pencipta. Kami tidak bertanggungjawab untuk sebarang kerugian yang timbul daripada transaksi rangkaian Stellar."
+        },
+        {
+          "heading": "9. Had Liabiliti",
+          "body": "Setakat yang dibenarkan oleh undang-undang, EarnLumens tidak akan bertanggungjawab untuk sebarang kerosakan tidak langsung, sampingan, khas, akibat atau punitif yang timbul daripada penggunaan platform oleh anda."
+        },
+        {
+          "heading": "10. Perubahan kepada Terma",
+          "body": "Kami mungkin mengemas kini Terma ini pada bila-bila masa. Kami akan berusaha untuk memaklumkan pengguna tentang perubahan penting melalui platform, tetapi adalah tanggungjawab anda untuk menyemak Terma secara berkala. Penggunaan berterusan anda selepas perubahan merupakan penerimaan Terma yang disemak."
+        },
+        {
+          "heading": "11. Hubungi Kami",
+          "body": "Untuk soalan mengenai Terma ini, sila hubungi kami di legal{'@'}earnlumens.org."
+        }
+      ]
+    },
+    "privacy": {
+      "intro": "Dasar Privasi ini menerangkan bagaimana EarnLumens mengumpul, menggunakan dan melindungi maklumat peribadi anda.",
+      "sections": [
+        {
+          "heading": "1. Maklumat yang Kami Kumpul",
+          "body": "Kami mengumpul maklumat yang anda berikan secara langsung (butiran akaun, maklumat profil) dan maklumat yang dijana melalui penggunaan platform oleh anda (sejarah transaksi, aktiviti tontonan, maklumat peranti)."
+        },
+        {
+          "heading": "2. Bagaimana Kami Menggunakan Maklumat Anda",
+          "body": "Kami menggunakan maklumat anda untuk: menyediakan dan meningkatkan perkhidmatan kami, memproses transaksi, berkomunikasi dengan anda, memastikan keselamatan platform dan mematuhi kewajipan undang-undang."
+        },
+        {
+          "heading": "3. Perkongsian Data",
+          "body": "Kami tidak menjual maklumat peribadi anda. Kami mungkin berkongsi data dengan pembekal perkhidmatan yang membantu dalam mengendalikan platform, atau apabila dikehendaki oleh undang-undang."
+        },
+        {
+          "heading": "4. Keselamatan Data",
+          "body": "Kami melaksanakan langkah-langkah keselamatan yang munasabah secara komersial untuk melindungi data anda. Walau bagaimanapun, tiada kaedah penghantaran melalui Internet yang 100% selamat, dan kami tidak dapat menjamin keselamatan mutlak."
+        },
+        {
+          "heading": "5. Hak Anda",
+          "body": "Anda boleh mengakses, membetulkan atau meminta pemadaman data peribadi anda dengan menghubungi kami. Kami akan berusaha secara munasabah untuk menangani permintaan anda dalam tempoh masa yang munasabah."
+        }
+      ]
+    }
+  }
+}

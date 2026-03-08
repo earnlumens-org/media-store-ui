@@ -197,7 +197,9 @@
         "creatorStudio": "استوديو المبدعين",
         "creatorStudioHint": "أدِر محتواك وتابع الأداء وارفع مواد جديدة",
         "viewPublicProfile": "ملفي الشخصي العام",
-        "viewPublicProfileHint": "شاهد كيف يرى الآخرون ملفك الشخصي"
+        "viewPublicProfileHint": "شاهد كيف يرى الآخرون ملفك الشخصي",
+        "termsAndConditions": "الشروط والأحكام",
+        "termsAndConditionsHint": "راجع شروط الخدمة وسياسة الخصوصية الخاصة بنا"
     },
     "AppBar": {
         "home": "الصفحة الرئيسية",

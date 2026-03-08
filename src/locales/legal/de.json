@@ -1,0 +1,81 @@
+{
+  "Legal": {
+    "termsTitle": "Allgemeine Geschäftsbedingungen",
+    "privacyTitle": "Datenschutzrichtlinie",
+    "lastUpdated": "Letzte Aktualisierung: {date}",
+    "terms": {
+      "intro": "Willkommen bei EarnLumens. Durch den Zugriff auf oder die Nutzung unserer Plattform erklären Sie sich mit diesen Allgemeinen Geschäftsbedingungen einverstanden.",
+      "sections": [
+        {
+          "heading": "1. Annahme der Bedingungen",
+          "body": "Durch die Erstellung eines Kontos oder die Nutzung eines Teils der EarnLumens-Plattform bestätigen Sie, dass Sie diese Allgemeinen Geschäftsbedingungen sowie unsere Datenschutzrichtlinie gelesen und verstanden haben und sich daran gebunden fühlen. Wenn Sie nicht einverstanden sind, dürfen Sie die Plattform nicht nutzen."
+        },
+        {
+          "heading": "2. Beschreibung des Dienstes",
+          "body": "EarnLumens ist eine kollaborative Finanzbildungsplattform, die auf dem Stellar-Netzwerk aufgebaut ist. Ersteller können Bildungsinhalte (Videos, Audio, Bilder und Ressourcen) veröffentlichen und Preise in XLM (Stellar Lumens) festlegen. Benutzer können diese Inhalte kaufen, ansehen und damit interagieren."
+        },
+        {
+          "heading": "3. Kontoregistrierung",
+          "body": "Sie müssen bei der Erstellung eines Kontos genaue und vollständige Angaben machen. Sie sind für die Wahrung der Vertraulichkeit Ihrer Anmeldedaten und für alle Aktivitäten unter Ihrem Konto verantwortlich. Sie müssen uns unverzüglich über jede unbefugte Nutzung informieren."
+        },
+        {
+          "heading": "4. Inhalte und geistiges Eigentum",
+          "body": "Ersteller behalten das Eigentum an den Inhalten, die sie auf EarnLumens veröffentlichen. Durch die Veröffentlichung gewähren Ersteller EarnLumens eine nicht-exklusive, weltweite Lizenz zur Anzeige, Verbreitung und Bewerbung der Inhalte auf der Plattform. Benutzer dürfen gekaufte Inhalte ohne ausdrückliche Genehmigung des Erstellers nicht reproduzieren, weiterverbreiten oder weiterverkaufen."
+        },
+        {
+          "heading": "5. Zahlungen und Transaktionen",
+          "body": "Alle Transaktionen auf EarnLumens werden mit XLM im Stellar-Netzwerk durchgeführt. Die Preise werden von den Erstellern festgelegt. EarnLumens kann eine Plattformgebühr auf Transaktionen erheben. Alle Verkäufe sind endgültig, sofern das geltende Recht nichts anderes vorschreibt. Sie sind für alle mit Stellar-Transaktionen verbundenen Netzwerkgebühren verantwortlich."
+        },
+        {
+          "heading": "6. Verbotenes Verhalten",
+          "body": "Sie stimmen zu, Folgendes nicht zu tun: (a) schädliche, illegale oder rechtsverletzende Inhalte hochladen; (b) andere Personen imitieren; (c) versuchen, die Plattform auszunutzen oder zu stören; (d) automatisierte Tools zum Scraping oder unbefugten Zugriff auf die Plattform verwenden; (e) an Aktivitäten teilnehmen, die gegen geltendes Recht oder Vorschriften verstoßen."
+        },
+        {
+          "heading": "7. Kündigung",
+          "body": "Wir behalten uns das Recht vor, Ihr Konto jederzeit zu sperren oder zu kündigen, wenn Sie gegen diese Bedingungen verstoßen. Bei Kündigung erlischt Ihr Recht zur Nutzung der Plattform sofort, wobei Bestimmungen, die ihrer Natur nach fortbestehen sollten, wirksam bleiben."
+        },
+        {
+          "heading": "8. Haftungsausschluss",
+          "body": "Die Plattform wird „wie sie ist“ und „nach Verfügbarkeit“ ohne Gewährleistung jeglicher Art bereitgestellt. EarnLumens garantiert nicht die Genauigkeit, Vollständigkeit oder Nützlichkeit von Inhalten, die von Erstellern veröffentlicht werden. Wir sind nicht verantwortlich für Verluste, die aus Transaktionen im Stellar-Netzwerk resultieren."
+        },
+        {
+          "heading": "9. Haftungsbeschränkung",
+          "body": "Im größtmöglichen gesetzlich zulässigen Umfang haftet EarnLumens nicht für indirekte, zufällige, besondere, Folge- oder Strafschäden, die aus Ihrer Nutzung der Plattform entstehen."
+        },
+        {
+          "heading": "10. Änderungen der Bedingungen",
+          "body": "Wir können diese Bedingungen jederzeit aktualisieren. Wir werden uns bemühen, Benutzer über wesentliche Änderungen über die Plattform zu informieren, jedoch liegt es in Ihrer Verantwortung, die Bedingungen regelmäßig zu überprüfen. Ihre fortgesetzte Nutzung nach Änderungen stellt die Annahme der überarbeiteten Bedingungen dar."
+        },
+        {
+          "heading": "11. Kontakt",
+          "body": "Bei Fragen zu diesen Bedingungen kontaktieren Sie uns bitte unter legal{'@'}earnlumens.org."
+        }
+      ]
+    },
+    "privacy": {
+      "intro": "Diese Datenschutzrichtlinie beschreibt, wie EarnLumens Ihre persönlichen Daten erhebt, verwendet und schützt.",
+      "sections": [
+        {
+          "heading": "1. Informationen, die wir erheben",
+          "body": "Wir erheben Informationen, die Sie direkt angeben (Kontodaten, Profilinformationen) sowie Informationen, die durch Ihre Nutzung der Plattform generiert werden (Transaktionsverlauf, Anzeigeaktivität, Geräteinformationen)."
+        },
+        {
+          "heading": "2. Wie wir Ihre Informationen verwenden",
+          "body": "Wir verwenden Ihre Informationen, um: unsere Dienste bereitzustellen und zu verbessern, Transaktionen zu verarbeiten, mit Ihnen zu kommunizieren, die Sicherheit der Plattform zu gewährleisten und gesetzliche Verpflichtungen zu erfüllen."
+        },
+        {
+          "heading": "3. Datenweitergabe",
+          "body": "Wir verkaufen Ihre persönlichen Daten nicht. Wir können Daten an Dienstleister weitergeben, die beim Betrieb der Plattform helfen, oder wenn es gesetzlich vorgeschrieben ist."
+        },
+        {
+          "heading": "4. Datensicherheit",
+          "body": "Wir implementieren wirtschaftlich angemessene Sicherheitsmaßnahmen zum Schutz Ihrer Daten. Jedoch ist keine Übertragungsmethode über das Internet zu 100% sicher, und wir können keine absolute Sicherheit garantieren."
+        },
+        {
+          "heading": "5. Ihre Rechte",
+          "body": "Sie können auf Ihre persönlichen Daten zugreifen, sie korrigieren oder deren Löschung beantragen, indem Sie uns kontaktieren. Wir werden angemessene Anstrengungen unternehmen, um Ihre Anfrage innerhalb einer angemessenen Frist zu bearbeiten."
+        }
+      ]
+    }
+  }
+}

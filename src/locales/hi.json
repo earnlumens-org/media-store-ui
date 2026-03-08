@@ -197,7 +197,9 @@
         "creatorStudio": "क्रिएटर स्टूडियो",
         "creatorStudioHint": "अपनी सामग्री प्रबंधित करें, प्रदर्शन ट्रैक करें और नई सामग्री अपलोड करें",
         "viewPublicProfile": "मेरी सार्वजनिक प्रोफ़ाइल",
-        "viewPublicProfileHint": "देखें कि दूसरे आपकी प्रोफ़ाइल कैसे देखते हैं"
+        "viewPublicProfileHint": "देखें कि दूसरे आपकी प्रोफ़ाइल कैसे देखते हैं",
+        "termsAndConditions": "नियम और शर्तें",
+        "termsAndConditionsHint": "हमारी सेवा की शर्तें और गोपनीयता नीति देखें"
     },
     "AppBar": {
         "home": "होम",

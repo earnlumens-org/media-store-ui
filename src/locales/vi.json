@@ -197,7 +197,9 @@
         "creatorStudio": "Xưởng Sáng tạo",
         "creatorStudioHint": "Quản lý nội dung, theo dõi hiệu suất và tải lên tài liệu mới",
         "viewPublicProfile": "Hồ sơ công khai của tôi",
-        "viewPublicProfileHint": "Xem người khác nhìn hồ sơ của bạn như thế nào"
+        "viewPublicProfileHint": "Xem người khác nhìn hồ sơ của bạn như thế nào",
+        "termsAndConditions": "Điều khoản và Điều kiện",
+        "termsAndConditionsHint": "Xem điều khoản dịch vụ và chính sách bảo mật của chúng tôi"
     },
     "AppBar": {
         "home": "Trang chủ",

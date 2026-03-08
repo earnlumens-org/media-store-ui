@@ -1,0 +1,46 @@
+{
+  "Guidelines": {
+    "title": "Guía de Contenido para Creadores",
+    "subtitle": "Reglas para publicar contenido de educación financiera en EarnLumens",
+    "lastUpdated": "Última actualización: {date}",
+    "intro": "EarnLumens es una plataforma de educación financiera alineada al ecosistema Stellar. Todo contenido debe aportar valor educativo real. EarnLumens se reserva el derecho de rechazar o retirar publicaciones que no cumplan estas directrices. La única referencia válida para verificar proyectos, billeteras y herramientas es el directorio oficial de la SDF: https://stellar.org/ecosystem",
+    "forCreators": {
+      "heading": "Para Creadores",
+      "sections": [
+        {
+          "heading": "1. Contenido Permitido",
+          "body": "Se permite contenido educativo sobre la red Stellar (protocolo, SCP, Soroban, SDK), el uso de XLM, y educación financiera general (ahorro, presupuesto, inversión responsable). Si mencionas billeteras, DEXs, protocolos o herramientas específicas, deben figurar en https://stellar.org/ecosystem. También se permiten comparativas objetivas con otras redes y tutoriales prácticos.",
+          "items": []
+        },
+        {
+          "heading": "2. Contenido Prohibido",
+          "body": "Podrá ser rechazado o retirado sin previo aviso:",
+          "items": [
+            "Cualquier proyecto, billetera, exchange o herramienta que NO figure en https://stellar.org/ecosystem",
+            "Esquemas piramidales, Ponzi, pump & dump o promesas de retornos garantizados",
+            "Señales de trading, recomendaciones de inversión en montos específicos o contenido que simule asesoramiento financiero",
+            "Airdrops falsos, phishing o cualquier solicitud de claves privadas",
+            "Spam, contenido duplicado o generado en masa sin revisión humana",
+            "Contenido sin relación con Stellar, XLM o educación financiera",
+            "Desinformación sobre la red Stellar, el precio de XLM o el ecosistema",
+            "Lenguaje de odio, discriminación o acoso"
+          ]
+        },
+        {
+          "heading": "3. Calidad y Transparencia",
+          "body": "Requisitos mínimos para que tu contenido sea aprobado:",
+          "items": [
+            "Título descriptivo y coherente con el contenido — sin clickbait",
+            "Descripción que explique qué aprenderá el usuario",
+            "Audio/video con calidad aceptable (sin ruido excesivo, imagen legible)",
+            "Datos y estadísticas con fuente citada (blog SDF, exploradores públicos, etc.)",
+            "Disclaimer obligatorio: 'Este contenido es educativo y no constituye asesoramiento financiero'",
+            "Si tienes posiciones en XLM u otros activos, decláralo al inicio",
+            "Si el contenido es patrocinado, indicarlo claramente"
+          ]
+        }
+      ]
+    },
+    "footer": "Estas directrices pueden actualizarse en cualquier momento. Es responsabilidad del creador revisar periódicamente esta guía. El objetivo es construir un espacio de educación financiera confiable dentro del ecosistema Stellar."
+  }
+}

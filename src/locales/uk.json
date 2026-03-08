@@ -197,7 +197,9 @@
         "creatorStudio": "Студія автора",
         "creatorStudioHint": "Керуйте контентом, відстежуйте показники та завантажуйте нові матеріали",
         "viewPublicProfile": "Мій публічний профіль",
-        "viewPublicProfileHint": "Подивіться, як інші бачать ваш профіль"
+        "viewPublicProfileHint": "Подивіться, як інші бачать ваш профіль",
+        "termsAndConditions": "Умови використання",
+        "termsAndConditionsHint": "Перегляньте наші умови надання послуг та політику конфіденційності"
     },
     "AppBar": {
         "home": "Домашня",

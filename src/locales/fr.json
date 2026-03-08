@@ -197,7 +197,9 @@
         "creatorStudio": "Creator Studio",
         "creatorStudioHint": "Gérez votre contenu, suivez les performances et téléversez du nouveau matériel",
         "viewPublicProfile": "Mon profil public",
-        "viewPublicProfileHint": "Voyez comment les autres voient votre profil"
+        "viewPublicProfileHint": "Voyez comment les autres voient votre profil",
+        "termsAndConditions": "Conditions générales",
+        "termsAndConditionsHint": "Consultez nos conditions d'utilisation et notre politique de confidentialité"
     },
     "AppBar": {
         "home": "Accueil",

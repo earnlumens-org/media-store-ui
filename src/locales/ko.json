@@ -197,7 +197,9 @@
         "creatorStudio": "크리에이터 스튜디오",
         "creatorStudioHint": "콘텐츠를 관리하고 성과를 추적하며 새로운 자료를 업로드하세요",
         "viewPublicProfile": "내 공개 프로필",
-        "viewPublicProfileHint": "다른 사람들이 보는 내 프로필 확인"
+        "viewPublicProfileHint": "다른 사람들이 보는 내 프로필 확인",
+        "termsAndConditions": "이용약관",
+        "termsAndConditionsHint": "서비스 이용약관 및 개인정보 처리방침 확인"
     },
     "AppBar": {
         "home": "홈",

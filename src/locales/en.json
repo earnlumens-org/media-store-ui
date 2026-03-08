@@ -197,7 +197,11 @@
         "creatorStudio": "Creator Studio",
         "creatorStudioHint": "Manage your content, track performance & upload new material",
         "viewPublicProfile": "My Public Profile",
-        "viewPublicProfileHint": "See how others view your profile"
+        "viewPublicProfileHint": "See how others view your profile",
+        "termsAndConditions": "Terms & Conditions",
+        "termsAndConditionsHint": "Review our terms of service and privacy policy",
+        "contentGuidelines": "Content Guidelines",
+        "contentGuidelinesHint": "Rules for publishing financial education content"
     },
     "AppBar": {
         "home": "Home",

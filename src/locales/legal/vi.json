@@ -1,0 +1,81 @@
+{
+  "Legal": {
+    "termsTitle": "Điều khoản và Điều kiện",
+    "privacyTitle": "Chính sách Bảo mật",
+    "lastUpdated": "Cập nhật lần cuối: {date}",
+    "terms": {
+      "intro": "Chào mừng bạn đến với EarnLumens. Bằng việc truy cập hoặc sử dụng nền tảng của chúng tôi, bạn đồng ý tuân theo các Điều khoản và Điều kiện này.",
+      "sections": [
+        {
+          "heading": "1. Chấp nhận Điều khoản",
+          "body": "Bằng việc tạo tài khoản hoặc sử dụng bất kỳ phần nào của nền tảng EarnLumens, bạn xác nhận rằng bạn đã đọc, hiểu và đồng ý tuân theo các Điều khoản và Điều kiện này cũng như Chính sách Bảo mật của chúng tôi. Nếu bạn không đồng ý, bạn không nên sử dụng nền tảng."
+        },
+        {
+          "heading": "2. Mô tả Dịch vụ",
+          "body": "EarnLumens là một nền tảng giáo dục tài chính hợp tác được xây dựng trên mạng Stellar. Người sáng tạo có thể xuất bản nội dung giáo dục (video, âm thanh, hình ảnh và tài nguyên) và đặt giá bằng XLM (Stellar Lumens). Người dùng có thể mua, xem và tương tác với nội dung này."
+        },
+        {
+          "heading": "3. Đăng ký Tài khoản",
+          "body": "Bạn phải cung cấp thông tin chính xác và đầy đủ khi tạo tài khoản. Bạn chịu trách nhiệm duy trì tính bảo mật của thông tin đăng nhập và cho tất cả các hoạt động xảy ra dưới tài khoản của bạn. Bạn phải thông báo cho chúng tôi ngay lập tức về bất kỳ việc sử dụng trái phép nào."
+        },
+        {
+          "heading": "4. Nội dung và Sở hữu Trí tuệ",
+          "body": "Người sáng tạo giữ quyền sở hữu nội dung họ xuất bản trên EarnLumens. Bằng việc xuất bản, người sáng tạo cấp cho EarnLumens giấy phép không độc quyền, toàn cầu để hiển thị, phân phối và quảng bá nội dung trên nền tảng. Người dùng không được sao chép, phân phối lại hoặc bán lại nội dung đã mua mà không có sự cho phép rõ ràng của người sáng tạo."
+        },
+        {
+          "heading": "5. Thanh toán và Giao dịch",
+          "body": "Tất cả giao dịch trên EarnLumens được thực hiện bằng XLM trên mạng Stellar. Giá do người sáng tạo đặt. EarnLumens có thể tính phí nền tảng cho các giao dịch. Tất cả các giao dịch mua bán là cuối cùng trừ khi luật hiện hành yêu cầu khác. Bạn chịu trách nhiệm cho bất kỳ phí mạng nào liên quan đến giao dịch Stellar."
+        },
+        {
+          "heading": "6. Hành vi Bị cấm",
+          "body": "Bạn đồng ý không: (a) tải lên nội dung có hại, bất hợp pháp hoặc vi phạm quyền; (b) mạo danh người khác; (c) cố gắng khai thác hoặc làm gián đoạn nền tảng; (d) sử dụng công cụ tự động để trích xuất dữ liệu hoặc truy cập nền tảng mà không được phép; (e) tham gia vào bất kỳ hoạt động nào vi phạm luật hoặc quy định hiện hành."
+        },
+        {
+          "heading": "7. Chấm dứt",
+          "body": "Chúng tôi có quyền đình chỉ hoặc chấm dứt tài khoản của bạn bất cứ lúc nào nếu bạn vi phạm các Điều khoản này. Khi chấm dứt, quyền sử dụng nền tảng của bạn chấm dứt ngay lập tức, mặc dù các điều khoản mà theo bản chất cần tiếp tục có hiệu lực sẽ vẫn còn hiệu lực."
+        },
+        {
+          "heading": "8. Tuyên bố Miễn trừ",
+          "body": "Nền tảng được cung cấp \"nguyên trạng\" và \"theo tình trạng sẵn có\" mà không có bất kỳ bảo đảm nào. EarnLumens không đảm bảo tính chính xác, đầy đủ hoặc hữu ích của bất kỳ nội dung nào do người sáng tạo xuất bản. Chúng tôi không chịu trách nhiệm cho bất kỳ tổn thất nào phát sinh từ giao dịch trên mạng Stellar."
+        },
+        {
+          "heading": "9. Giới hạn Trách nhiệm",
+          "body": "Trong phạm vi tối đa được pháp luật cho phép, EarnLumens sẽ không chịu trách nhiệm cho bất kỳ thiệt hại gián tiếp, ngẫu nhiên, đặc biệt, hậu quả hoặc mang tính trừng phạt nào phát sinh từ việc bạn sử dụng nền tảng."
+        },
+        {
+          "heading": "10. Thay đổi Điều khoản",
+          "body": "Chúng tôi có thể cập nhật các Điều khoản này bất cứ lúc nào. Chúng tôi sẽ nỗ lực thông báo cho người dùng về các thay đổi quan trọng thông qua nền tảng, nhưng việc xem xét các Điều khoản định kỳ là trách nhiệm của bạn. Việc bạn tiếp tục sử dụng sau các thay đổi cấu thành sự chấp nhận các Điều khoản đã sửa đổi."
+        },
+        {
+          "heading": "11. Liên hệ",
+          "body": "Để có câu hỏi về các Điều khoản này, vui lòng liên hệ chúng tôi tại legal{'@'}earnlumens.org."
+        }
+      ]
+    },
+    "privacy": {
+      "intro": "Chính sách Bảo mật này mô tả cách EarnLumens thu thập, sử dụng và bảo vệ thông tin cá nhân của bạn.",
+      "sections": [
+        {
+          "heading": "1. Thông tin Chúng tôi Thu thập",
+          "body": "Chúng tôi thu thập thông tin bạn cung cấp trực tiếp (chi tiết tài khoản, thông tin hồ sơ) và thông tin được tạo ra thông qua việc sử dụng nền tảng của bạn (lịch sử giao dịch, hoạt động xem, thông tin thiết bị)."
+        },
+        {
+          "heading": "2. Cách Chúng tôi Sử dụng Thông tin của Bạn",
+          "body": "Chúng tôi sử dụng thông tin của bạn để: cung cấp và cải thiện dịch vụ, xử lý giao dịch, liên lạc với bạn, đảm bảo an ninh nền tảng và tuân thủ các nghĩa vụ pháp lý."
+        },
+        {
+          "heading": "3. Chia sẻ Dữ liệu",
+          "body": "Chúng tôi không bán thông tin cá nhân của bạn. Chúng tôi có thể chia sẻ dữ liệu với các nhà cung cấp dịch vụ hỗ trợ vận hành nền tảng, hoặc khi luật pháp yêu cầu."
+        },
+        {
+          "heading": "4. Bảo mật Dữ liệu",
+          "body": "Chúng tôi triển khai các biện pháp bảo mật hợp lý về mặt thương mại để bảo vệ dữ liệu của bạn. Tuy nhiên, không có phương thức truyền tải qua Internet nào an toàn 100%, và chúng tôi không thể đảm bảo an ninh tuyệt đối."
+        },
+        {
+          "heading": "5. Quyền của Bạn",
+          "body": "Bạn có thể truy cập, sửa chữa hoặc yêu cầu xóa dữ liệu cá nhân của mình bằng cách liên hệ với chúng tôi. Chúng tôi sẽ nỗ lực hợp lý để xử lý yêu cầu của bạn trong thời gian hợp lý."
+        }
+      ]
+    }
+  }
+}
