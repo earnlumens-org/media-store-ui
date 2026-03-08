@@ -1,17 +1,17 @@
 <template>
   <Hero />
   <v-container class="mt-6 mb-2 px-1 px-sm-4" fluid>
-    <div class="d-flex align-center">
+    <router-link class="d-flex align-center text-decoration-none" style="color: inherit; cursor: pointer;" to="/explore">
       <div class="text-h4 font-weight-bold">Explore</div>
       <v-icon class="ml-2" size="32">mdi-chevron-right</v-icon>
-    </div>
+    </router-link>
   </v-container>
 
-  <EntryCardMockGrid class="pt-0" />
+  <EntryCardGrid class="pt-0" />
 </template>
 
 <script setup lang="ts">
-  import EntryCardMockGrid from '@/components/entry/EntryCardMockGrid.vue'
+  import EntryCardGrid from '@/components/entry/EntryCardGrid.vue'
   import Hero from '@/components/home/Hero.vue'
 </script>
 
