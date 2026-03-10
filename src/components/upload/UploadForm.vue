@@ -440,6 +440,64 @@
 
   // ── Wallet ──────────────────────────────────────────────────
 
+  /**
+   * Extracts media metadata from a File using the browser's HTMLVideoElement/HTMLAudioElement/HTMLImageElement.
+   * Returns null values for anything that can't be determined (best-effort).
+   * This runs entirely client-side — no upload or server call needed.
+   */
+  async function extractMediaMetadata (file: File): Promise<{
+    widthPx: number | null
+    heightPx: number | null
+    durationSec: number | null
+    bitrateBps: number | null
+  }> {
+    const result = { widthPx: null as number | null, heightPx: null as number | null, durationSec: null as number | null, bitrateBps: null as number | null }
+    const mime = file.type || ''
+
+    if (mime.startsWith('video/') || mime.startsWith('audio/')) {
+      try {
+        const url = URL.createObjectURL(file)
+        const el = document.createElement(mime.startsWith('video/') ? 'video' : 'audio') as HTMLVideoElement | HTMLAudioElement
+        await new Promise<void>((resolve, reject) => {
+          el.preload = 'metadata'
+          el.onloadedmetadata = () => resolve()
+          el.onerror = () => reject(new Error('Failed to load media metadata'))
+          el.src = url
+        })
+
+        if (Number.isFinite(el.duration) && el.duration > 0) {
+          result.durationSec = Math.round(el.duration)
+          result.bitrateBps = Math.round((file.size * 8) / el.duration)
+        }
+        if ('videoWidth' in el && (el as HTMLVideoElement).videoWidth > 0) {
+          result.widthPx = (el as HTMLVideoElement).videoWidth
+          result.heightPx = (el as HTMLVideoElement).videoHeight
+        }
+
+        URL.revokeObjectURL(url)
+      } catch (err) {
+        console.warn('extractMediaMetadata: could not probe file', err)
+      }
+    } else if (mime.startsWith('image/')) {
+      try {
+        const url = URL.createObjectURL(file)
+        const img = new Image()
+        await new Promise<void>((resolve, reject) => {
+          img.onload = () => resolve()
+          img.onerror = () => reject(new Error('Failed to load image'))
+          img.src = url
+        })
+        result.widthPx = img.naturalWidth
+        result.heightPx = img.naturalHeight
+        URL.revokeObjectURL(url)
+      } catch (err) {
+        console.warn('extractMediaMetadata: could not probe image', err)
+      }
+    }
+
+    return result
+  }
+
   async function connectWallet () {
     try {
       const result = await walletStore.connect()
@@ -543,6 +601,10 @@
 
     // Finalize
     progressMessage.value = t('Upload.progress.finalizingUpload')
+
+    // Extract media metadata from the browser (best-effort, runs client-side)
+    const meta = await extractMediaMetadata(file)
+
     await api.upload.finalizeUpload({
       uploadId: initResp.uploadId,
       entryId,
@@ -551,6 +613,10 @@
       fileName: file.name,
       fileSizeBytes: file.size,
       kind,
+      widthPx: meta.widthPx,
+      heightPx: meta.heightPx,
+      durationSec: meta.durationSec,
+      bitrateBps: meta.bitrateBps,
     })
 
     progress[progressKey] = 100

@@ -56,6 +56,18 @@ export interface FinalizeUploadRequest {
   fileName: string
   fileSizeBytes: number
   kind: AssetKind
+  /** Video/image width in pixels (from HTMLVideoElement.videoWidth or naturalWidth) */
+  widthPx?: number | null
+  /** Video/image height in pixels (from HTMLVideoElement.videoHeight or naturalHeight) */
+  heightPx?: number | null
+  /** Duration in whole seconds (from HTMLVideoElement.duration or HTMLAudioElement.duration) */
+  durationSec?: number | null
+  /** Video codec string — reserved for future use */
+  codecVideo?: string | null
+  /** Audio codec string — reserved for future use */
+  codecAudio?: string | null
+  /** Approximate bitrate in bits per second (fileSizeBytes * 8 / durationSec) */
+  bitrateBps?: number | null
 }
 
 export interface FinalizeUploadResponse {

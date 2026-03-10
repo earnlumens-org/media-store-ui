@@ -7,9 +7,6 @@
  *   3. uploadToR2()        → PUT  presignedUrl          (direct to R2)
  *   4. finalizeUpload()    → POST /api/uploads/finalize → { assetId, status }
  *   5. submitForReview()   → PATCH /api/entries/:id/status → { status: IN_REVIEW }
- *
- * TODO: Backend endpoints for steps 1-5 are not yet implemented.
- *       These stubs match the planned API contract from DATA-MODEL.md.
  */
 
 import type {
@@ -25,7 +22,6 @@ import { apiRequest } from '../apiRequest'
 
 /**
  * Create a new entry in DRAFT status.
- * TODO: Backend endpoint POST /api/entries not yet implemented.
  */
 export async function createEntry (data: CreateEntryRequest): Promise<CreateEntryResponse> {
   return apiRequest<CreateEntryResponse>('/api/entries', {
@@ -36,7 +32,6 @@ export async function createEntry (data: CreateEntryRequest): Promise<CreateEntr
 
 /**
  * Initialize an upload — get a presigned R2 PUT URL.
- * TODO: Backend endpoint POST /api/uploads/init not yet implemented.
  */
 export async function initUpload (data: InitUploadRequest): Promise<InitUploadResponse> {
   return apiRequest<InitUploadResponse>('/api/uploads/init', {
@@ -87,8 +82,7 @@ export async function uploadToR2 (
 }
 
 /**
- * Finalize an upload — register the asset in the database.
- * TODO: Backend endpoint POST /api/uploads/finalize not yet implemented.
+ * Finalize an upload — register the asset in the database with media metadata.
  */
 export async function finalizeUpload (data: FinalizeUploadRequest): Promise<FinalizeUploadResponse> {
   return apiRequest<FinalizeUploadResponse>('/api/uploads/finalize', {
@@ -99,7 +93,6 @@ export async function finalizeUpload (data: FinalizeUploadRequest): Promise<Fina
 
 /**
  * Update entry status (e.g. DRAFT → IN_REVIEW).
- * TODO: Backend endpoint PATCH /api/entries/:id/status not yet implemented.
  */
 export async function updateEntryStatus (
   entryId: string,
