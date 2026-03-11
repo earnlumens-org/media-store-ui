@@ -328,7 +328,10 @@
             "sellerWallet": "Empfangende Wallet",
             "sellerWalletHint": "Zahlungen für diesen Inhalt werden an diese Wallet gesendet. Nach der Veröffentlichung kann sie nicht mehr geändert werden.",
             "connectSuccess": "Wallet erfolgreich verbunden",
-            "connectError": "Wallet konnte nicht verbunden werden. Bitte versuche es erneut."
+            "connectError": "Wallet konnte nicht verbunden werden. Bitte versuche es erneut.",
+            "unfunded": "Wallet noch nicht auf Stellar aktiviert",
+            "unfundedHint": "Deine Wallet muss im Stellar-Netzwerk aktiviert sein, bevor du kostenpflichtige Inhalte veröffentlichst. Sende mindestens 1 XLM zur Aktivierung.",
+            "goToWallet": "Zur Wallet"
         },
         "actions": {
             "upload": "Hochladen",
@@ -426,7 +429,9 @@
         "timeRemaining": "Verbleibende Zeit",
         "transactionExpired": "Transaktion abgelaufen",
         "transactionExpiredMessage": "Diese Zahlungssitzung ist abgelaufen. Der Wechselkurs hat sich möglicherweise geändert. Bitte versuche es erneut für ein aktuelles Angebot.",
-        "tryAgain": "Erneut versuchen"
+        "tryAgain": "Erneut versuchen",
+        "walletNotActivated": "Deine Wallet ist noch nicht im Stellar-Netzwerk aktiviert. Sende mindestens 1 XLM, um sie vor einem Kauf zu aktivieren.",
+        "goToWallet": "Zur Wallet"
     },
     "Purchased": {
         "title": "Meine Käufe",

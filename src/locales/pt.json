@@ -328,7 +328,10 @@
             "sellerWallet": "Carteira de recebimento",
             "sellerWalletHint": "Os pagamentos por este conteúdo serão enviados para esta carteira. Ela não pode ser alterada após a publicação.",
             "connectSuccess": "Carteira conectada com sucesso",
-            "connectError": "Não foi possível conectar a carteira. Tente novamente."
+            "connectError": "Não foi possível conectar a carteira. Tente novamente.",
+            "unfunded": "Carteira ainda não ativa na Stellar",
+            "unfundedHint": "Sua carteira deve ser ativada na rede Stellar antes de publicar conteúdo pago. Envie pelo menos 1 XLM para ativá-la.",
+            "goToWallet": "Ir para Carteira"
         },
         "actions": {
             "upload": "Carregar",
@@ -426,7 +429,9 @@
         "timeRemaining": "Tempo restante",
         "transactionExpired": "Transação expirada",
         "transactionExpiredMessage": "Esta sessão de pagamento expirou. A taxa de câmbio pode ter mudado. Tente novamente para obter uma cotação atualizada.",
-        "tryAgain": "Tentar novamente"
+        "tryAgain": "Tentar novamente",
+        "walletNotActivated": "Sua carteira ainda não está ativa na rede Stellar. Envie pelo menos 1 XLM para ativá-la antes de realizar uma compra.",
+        "goToWallet": "Ir para Carteira"
     },
     "Purchased": {
         "title": "Minhas compras",

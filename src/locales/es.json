@@ -330,7 +330,10 @@
             "sellerWallet": "Wallet receptora",
             "sellerWalletHint": "Los pagos de este contenido se enviarán a esta wallet. No se puede cambiar después de publicar.",
             "connectSuccess": "Wallet conectada exitosamente",
-            "connectError": "Error al conectar wallet. Intenta de nuevo."
+            "connectError": "Error al conectar wallet. Intenta de nuevo.",
+            "unfunded": "Billetera aún no activa en Stellar",
+            "unfundedHint": "Tu billetera debe estar activada en la red Stellar antes de publicar contenido pago. Envía al menos 1 XLM a esta dirección para activarla.",
+            "goToWallet": "Ir a Billetera"
         },
         "actions": {
             "upload": "Subir",
@@ -429,7 +432,9 @@
         "timeRemaining": "Tiempo restante",
         "transactionExpired": "Transacción expirada",
         "transactionExpiredMessage": "Esta sesión de pago ha expirado. El tipo de cambio puede haber cambiado. Intenta de nuevo para obtener una cotización actualizada.",
-        "tryAgain": "Intentar de nuevo"
+        "tryAgain": "Intentar de nuevo",
+        "walletNotActivated": "Tu billetera aún no está activa en la red Stellar. Envía al menos 1 XLM para activarla antes de realizar una compra.",
+        "goToWallet": "Ir a Billetera"
     },
     "Purchased": {
         "title": "Mis compras",

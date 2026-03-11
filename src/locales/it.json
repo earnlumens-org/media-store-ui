@@ -328,7 +328,10 @@
             "sellerWallet": "Wallet di ricezione",
             "sellerWalletHint": "I pagamenti per questo contenuto verranno inviati a questo wallet. Non può essere modificato dopo la pubblicazione.",
             "connectSuccess": "Wallet collegato con successo",
-            "connectError": "Impossibile collegare il wallet. Riprova."
+            "connectError": "Impossibile collegare il wallet. Riprova.",
+            "unfunded": "Wallet non ancora attivo su Stellar",
+            "unfundedHint": "Il tuo wallet deve essere attivato sulla rete Stellar prima di pubblicare contenuti a pagamento. Invia almeno 1 XLM per attivarlo.",
+            "goToWallet": "Vai al Portafoglio"
         },
         "actions": {
             "upload": "Carica",
@@ -426,7 +429,9 @@
         "timeRemaining": "Tempo rimanente",
         "transactionExpired": "Transazione scaduta",
         "transactionExpiredMessage": "Questa sessione di pagamento è scaduta. Il tasso di cambio potrebbe essere cambiato. Riprova per ottenere un preventivo aggiornato.",
-        "tryAgain": "Riprova"
+        "tryAgain": "Riprova",
+        "walletNotActivated": "Il tuo portafoglio non è ancora attivo sulla rete Stellar. Invia almeno 1 XLM per attivarlo prima di effettuare un acquisto.",
+        "goToWallet": "Vai al Portafoglio"
     },
     "Purchased": {
         "title": "I miei acquisti",

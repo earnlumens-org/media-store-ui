@@ -195,7 +195,33 @@
                     </v-btn>
                   </v-alert>
 
-                  <!-- Wallet connected: show public key (read-only) -->
+                  <!-- Wallet connected but unfunded -->
+                  <v-alert
+                    v-else-if="isWalletUnfunded"
+                    class="mt-3"
+                    color="warning"
+                    icon="mdi-wallet-outline"
+                    variant="tonal"
+                  >
+                    <div class="text-body-2 font-weight-medium">
+                      {{ t('Upload.wallet.unfunded') }}
+                    </div>
+                    <div class="text-caption mt-1">
+                      {{ t('Upload.wallet.unfundedHint') }}
+                    </div>
+                    <v-btn
+                      class="mt-2"
+                      color="warning"
+                      size="small"
+                      variant="elevated"
+                      @click="router.push('/wallet')"
+                    >
+                      <v-icon class="me-1" size="small">mdi-wallet</v-icon>
+                      {{ t('Upload.wallet.goToWallet') }}
+                    </v-btn>
+                  </v-alert>
+
+                  <!-- Wallet connected and funded: show public key (read-only) -->
                   <v-alert
                     v-else
                     class="mt-3"
@@ -359,7 +385,7 @@
 
 <script setup lang="ts">
   import type { AssetKind, UploadContentType } from '@/api/types/upload.types'
-  import { computed, reactive, ref } from 'vue'
+  import { computed, reactive, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRouter } from 'vue-router'
   import { api } from '@/api/api'
@@ -372,6 +398,7 @@
   } from '@/api/types/upload.types'
   import UploadAssetPicker from '@/components/upload/UploadAssetPicker.vue'
   import { CONTENT_LANGUAGES } from '@/config/contentLanguages'
+  import { accountExists } from '@/services/stellar'
   import { useWalletStore } from '@/stores/wallet'
 
   const props = defineProps<{
@@ -414,10 +441,34 @@
   const acceptedMimes = computed(() => ACCEPTED_MIMES[props.contentType])
   const maxFileSize = computed(() => MAX_FILE_SIZES[props.contentType])
 
+  const isWalletUnfunded = ref(false)
+  const isCheckingWallet = ref(false)
+
+  // Check if wallet is funded whenever wallet connects or paid toggle changes
+  watch(
+    () => [walletStore.activeAddress, form.isPaid] as const,
+    async ([address, isPaid]) => {
+      if (!address || !isPaid) {
+        isWalletUnfunded.value = false
+        return
+      }
+      isCheckingWallet.value = true
+      try {
+        isWalletUnfunded.value = !(await accountExists(address))
+      } catch {
+        isWalletUnfunded.value = false
+      } finally {
+        isCheckingWallet.value = false
+      }
+    },
+    { immediate: true },
+  )
+
   const canUpload = computed(() => {
     if (!form.title.trim()) return false
-    // Paid content requires a connected wallet
+    // Paid content requires a connected AND funded wallet
     if (form.isPaid && !walletStore.isConnected) return false
+    if (form.isPaid && isWalletUnfunded.value) return false
     if (props.contentType === 'resource') {
       // Resource requires text content OR a file (at least one)
       return !!form.resourceContent.trim() || !!assets.full

@@ -328,7 +328,10 @@
             "sellerWallet": "Ví người bán",
             "sellerWalletHint": "Địa chỉ Stellar nơi thanh toán sẽ được gửi",
             "connectSuccess": "Kết nối ví thành công",
-            "connectError": "Không thể kết nối ví. Vui lòng thử lại."
+            "connectError": "Không thể kết nối ví. Vui lòng thử lại.",
+            "unfunded": "Ví chưa được kích hoạt trên Stellar",
+            "unfundedHint": "Ví của bạn phải được kích hoạt trên mạng Stellar trước khi xuất bản nội dung trả phí. Gửi ít nhất 1 XLM để kích hoạt.",
+            "goToWallet": "Đi đến Ví"
         },
         "actions": {
             "upload": "Tải lên",
@@ -426,7 +429,9 @@
         "timeRemaining": "Thời gian còn lại",
         "transactionExpired": "Giao dịch đã hết hạn",
         "transactionExpiredMessage": "Phiên thanh toán này đã hết hạn. Tỷ giá hối đoái có thể đã thay đổi. Vui lòng thử lại để nhận báo giá cập nhật.",
-        "tryAgain": "Thử lại"
+        "tryAgain": "Thử lại",
+        "walletNotActivated": "Ví của bạn chưa được kích hoạt trên mạng Stellar. Gửi ít nhất 1 XLM để kích hoạt trước khi mua hàng.",
+        "goToWallet": "Đi đến Ví"
     },
     "Purchased": {
         "title": "Mua hàng của tôi",

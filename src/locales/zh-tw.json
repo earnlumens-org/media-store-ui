@@ -328,7 +328,10 @@
             "sellerWallet": "賣家錢包",
             "sellerWalletHint": "將接收付款的 Stellar 位址",
             "connectSuccess": "錢包連接成功",
-            "connectError": "無法連接錢包。請再試一次。"
+            "connectError": "無法連接錢包。請再試一次。",
+            "unfunded": "錢包尚未在 Stellar 上啟用",
+            "unfundedHint": "發布付費內容前，您的錢包必須在 Stellar 網路上啟用。請發送至少 1 XLM 來啟用它。",
+            "goToWallet": "前往錢包"
         },
         "actions": {
             "upload": "上傳",
@@ -426,7 +429,9 @@
         "timeRemaining": "剩餘時間",
         "transactionExpired": "交易已過期",
         "transactionExpiredMessage": "此付款工作階段已過期。匯率可能已變更。請重試以取得最新報價。",
-        "tryAgain": "重試"
+        "tryAgain": "重試",
+        "walletNotActivated": "您的錢包尚未在 Stellar 網路上啟用。請發送至少 1 XLM 來啟用它，然後再進行購買。",
+        "goToWallet": "前往錢包"
     },
     "Purchased": {
         "title": "我的購買",

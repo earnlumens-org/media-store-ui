@@ -328,7 +328,10 @@
             "sellerWallet": "受取ウォレット",
             "sellerWalletHint": "このコンテンツの支払いはこのウォレットに送金されます。公開後は変更できません。",
             "connectSuccess": "ウォレットを接続しました",
-            "connectError": "ウォレットを接続できませんでした。もう一度お試しください。"
+            "connectError": "ウォレットを接続できませんでした。もう一度お試しください。",
+            "unfunded": "ウォレットがまだStellarで有効化されていません",
+            "unfundedHint": "有料コンテンツを公開する前に、Stellarネットワークでウォレットを有効化する必要があります。少なくとも1 XLMを送信して有効化してください。",
+            "goToWallet": "ウォレットへ移動"
         },
         "actions": {
             "upload": "アップロード",
@@ -426,7 +429,9 @@
         "timeRemaining": "残り時間",
         "transactionExpired": "取引が期限切れです",
         "transactionExpiredMessage": "この支払いセッションは期限切れです。為替レートが変更された可能性があります。最新の見積もりを取得するには、もう一度お試しください。",
-        "tryAgain": "もう一度試す"
+        "tryAgain": "もう一度試す",
+        "walletNotActivated": "ウォレットはまだStellarネットワークで有効化されていません。購入前に少なくとも1 XLMを送信して有効化してください。",
+        "goToWallet": "ウォレットへ移動"
     },
     "Purchased": {
         "title": "購入済み",

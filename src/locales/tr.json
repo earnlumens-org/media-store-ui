@@ -328,7 +328,10 @@
             "sellerWallet": "Satıcı cüzdanı",
             "sellerWalletHint": "Ödemelerin gönderileceği Stellar adresi",
             "connectSuccess": "Cüzdan başarıyla bağlandı",
-            "connectError": "Cüzdan bağlanamadı. Lütfen tekrar deneyin."
+            "connectError": "Cüzdan bağlanamadı. Lütfen tekrar deneyin.",
+            "unfunded": "Cüzdan henüz Stellar'da etkinleştirilmemiş",
+            "unfundedHint": "Ücretli içerik yayınlamadan önce cüzdanınızın Stellar ağında etkinleştirilmesi gerekir. Etkinleştirmek için en az 1 XLM gönderin.",
+            "goToWallet": "Cüzdana Git"
         },
         "actions": {
             "upload": "Yükle",
@@ -426,7 +429,9 @@
         "timeRemaining": "Kalan süre",
         "transactionExpired": "İşlem süresi doldu",
         "transactionExpiredMessage": "Bu ödeme oturumunun süresi doldu. Döviz kuru değişmiş olabilir. Güncel bir teklif almak için lütfen tekrar deneyin.",
-        "tryAgain": "Tekrar dene"
+        "tryAgain": "Tekrar dene",
+        "walletNotActivated": "Cüzdanınız henüz Stellar ağında etkinleştirilmemiş. Satın alma yapmadan önce etkinleştirmek için en az 1 XLM gönderin.",
+        "goToWallet": "Cüzdana Git"
     },
     "Purchased": {
         "title": "Satın Alımlarım",

@@ -21,6 +21,7 @@
 <script setup lang="ts">
   import { computed, onBeforeUnmount, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
+  import { useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
   import xIcon from '@/assets/twitterx.svg?raw'
@@ -28,6 +29,8 @@
   import { useAppStore } from '@/stores/app'
   import { usePurchasesStore } from '@/stores/purchases'
   import { useWalletStore } from '@/stores/wallet'
+
+  const router = useRouter()
 
   const { t } = useI18n()
 
@@ -68,6 +71,7 @@
   const selectedPayment = ref<'wallet' | 'card'>('wallet')
   const isProcessing = ref(false)
   const error = ref<string | null>(null)
+  const isWalletNotActivated = computed(() => error.value === t('Preview.walletNotActivated'))
   /** After prepare(), holds the actual XLM amount the Stellar tx will charge */
   const resolvedXlmAmount = ref<number | null>(null)
   /** XLM/USD rate used for conversion (shown to buyer for transparency) */
@@ -239,7 +243,12 @@
       // 7. Close dialog
       dialogOpen.value = false
     } catch (error_) {
-      error.value = error_ instanceof Error ? error_.message : t('Preview.paymentFailed')
+      const msg = error_ instanceof Error ? error_.message : ''
+      if (msg === 'WALLET_NOT_ACTIVATED') {
+        error.value = t('Preview.walletNotActivated')
+      } else {
+        error.value = msg || t('Preview.paymentFailed')
+      }
     } finally {
       isProcessing.value = false
     }
@@ -275,9 +284,30 @@
       <!-- Payment -->
       <template v-if="item">
         <v-card-text class="pa-4">
+          <!-- Wallet not activated alert -->
+          <v-alert
+            v-if="isWalletNotActivated"
+            class="mb-4"
+            density="compact"
+            type="warning"
+            variant="tonal"
+          >
+            {{ error }}
+            <template #append>
+              <v-btn
+                color="warning"
+                size="small"
+                variant="tonal"
+                @click="router.push('/wallet'); closeDialog()"
+              >
+                {{ $t('Preview.goToWallet') }}
+              </v-btn>
+            </template>
+          </v-alert>
+
           <!-- Error alert -->
           <v-alert
-            v-if="error"
+            v-else-if="error"
             class="mb-4"
             closable
             density="compact"
@@ -436,9 +466,30 @@
       <!-- Payment -->
       <template v-if="item">
         <v-card-text class="pa-6">
+          <!-- Wallet not activated alert -->
+          <v-alert
+            v-if="isWalletNotActivated"
+            class="mb-4"
+            density="compact"
+            type="warning"
+            variant="tonal"
+          >
+            {{ error }}
+            <template #append>
+              <v-btn
+                color="warning"
+                size="small"
+                variant="tonal"
+                @click="router.push('/wallet'); closeDialog()"
+              >
+                {{ $t('Preview.goToWallet') }}
+              </v-btn>
+            </template>
+          </v-alert>
+
           <!-- Error alert -->
           <v-alert
-            v-if="error"
+            v-else-if="error"
             class="mb-4"
             closable
             density="compact"

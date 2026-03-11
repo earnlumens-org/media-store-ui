@@ -341,7 +341,10 @@
             "sellerWallet": "Receiving wallet",
             "sellerWalletHint": "Payments for this content will be sent to this wallet. It cannot be changed after publishing.",
             "connectSuccess": "Wallet connected successfully",
-            "connectError": "Failed to connect wallet. Please try again."
+            "connectError": "Failed to connect wallet. Please try again.",
+            "unfunded": "Wallet not yet active on Stellar",
+            "unfundedHint": "Your wallet must be activated on the Stellar network before you can publish paid content. Send at least 1 XLM to this address to activate it.",
+            "goToWallet": "Go to Wallet"
         },
         "actions": {
             "upload": "Upload",
@@ -440,7 +443,9 @@
         "timeRemaining": "Time remaining",
         "transactionExpired": "Transaction expired",
         "transactionExpiredMessage": "This payment session has expired. The exchange rate may have changed. Please try again to get an updated quote.",
-        "tryAgain": "Try again"
+        "tryAgain": "Try again",
+        "walletNotActivated": "Your wallet is not yet active on the Stellar network. Send at least 1 XLM to activate it before making a purchase.",
+        "goToWallet": "Go to Wallet"
     },
     "Favorites": {
         "empty": "No favorites yet",

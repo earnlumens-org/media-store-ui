@@ -328,7 +328,10 @@
             "sellerWallet": "Portefeuille de réception",
             "sellerWalletHint": "Les paiements pour ce contenu seront envoyés à ce portefeuille. Il ne peut pas être modifié après publication.",
             "connectSuccess": "Portefeuille connecté avec succès",
-            "connectError": "Impossible de connecter le portefeuille. Veuillez réessayer."
+            "connectError": "Impossible de connecter le portefeuille. Veuillez réessayer.",
+            "unfunded": "Portefeuille pas encore activé sur Stellar",
+            "unfundedHint": "Votre portefeuille doit être activé sur le réseau Stellar avant de publier du contenu payant. Envoyez au moins 1 XLM pour l'activer.",
+            "goToWallet": "Aller au Portefeuille"
         },
         "actions": {
             "upload": "Téléverser",
@@ -426,7 +429,9 @@
         "timeRemaining": "Temps restant",
         "transactionExpired": "Transaction expirée",
         "transactionExpiredMessage": "Cette session de paiement a expiré. Le taux de change a peut-être changé. Veuillez réessayer pour obtenir un devis actualisé.",
-        "tryAgain": "Réessayer"
+        "tryAgain": "Réessayer",
+        "walletNotActivated": "Votre portefeuille n'est pas encore actif sur le réseau Stellar. Envoyez au moins 1 XLM pour l'activer avant d'effectuer un achat.",
+        "goToWallet": "Aller au Portefeuille"
     },
     "Purchased": {
         "title": "Mes achats",

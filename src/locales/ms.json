@@ -328,7 +328,10 @@
             "sellerWallet": "Dompet penerima",
             "sellerWalletHint": "Pembayaran untuk kandungan ini akan dihantar ke dompet ini. Ia tidak boleh diubah selepas diterbitkan.",
             "connectSuccess": "Dompet berjaya disambungkan",
-            "connectError": "Tidak dapat menyambungkan dompet. Sila cuba lagi."
+            "connectError": "Tidak dapat menyambungkan dompet. Sila cuba lagi.",
+            "unfunded": "Dompet belum aktif di Stellar",
+            "unfundedHint": "Dompet anda mesti diaktifkan di rangkaian Stellar sebelum menerbitkan kandungan berbayar. Hantar sekurang-kurangnya 1 XLM untuk mengaktifkannya.",
+            "goToWallet": "Pergi ke Dompet"
         },
         "actions": {
             "upload": "Muat naik",
@@ -426,7 +429,9 @@
         "timeRemaining": "Masa berbaki",
         "transactionExpired": "Transaksi telah tamat tempoh",
         "transactionExpiredMessage": "Sesi pembayaran ini telah tamat tempoh. Kadar pertukaran mungkin telah berubah. Sila cuba lagi untuk mendapatkan sebut harga terkini.",
-        "tryAgain": "Cuba lagi"
+        "tryAgain": "Cuba lagi",
+        "walletNotActivated": "Dompet anda belum aktif di rangkaian Stellar. Hantar sekurang-kurangnya 1 XLM untuk mengaktifkannya sebelum membuat pembelian.",
+        "goToWallet": "Pergi ke Dompet"
     },
     "Purchased": {
         "title": "Pembelian Saya",
