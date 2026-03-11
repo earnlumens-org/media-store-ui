@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "Descrivi il tuo contenuto (opzionale)",
             "descriptionMaxLength": "La descrizione deve essere lunga al massimo 2000 caratteri",
             "isPaid": "Contenuto a pagamento",
-            "isPaidHint": "Abilita per impostare un prezzo in XLM",
+            "isPaidHint": "Attiva per impostare un prezzo",
             "priceXlm": "Prezzo (XLM)",
+            "priceUsd": "Prezzo (USD)",
             "pricePlaceholder": "0.00",
             "priceRequired": "Il prezzo è obbligatorio per i contenuti a pagamento",
             "pricePositive": "Il prezzo deve essere maggiore di 0",
             "resourceContent": "Contenuto",
             "resourceContentPlaceholder": "Scrivi il tuo contenuto qui (opzionale)...",
-            "resourceContentRequired": "Il contenuto è obbligatorio"
+            "resourceContentRequired": "Il contenuto è obbligatorio",
+            "contentLanguage": "Lingua del contenuto"
         },
         "assets": {
             "thumbnail": "Miniatura",
@@ -420,7 +422,11 @@
         "connectWalletError": "Collega il tuo wallet per continuare",
         "noWalletAddress": "Nessun indirizzo wallet trovato. Collega di nuovo il tuo wallet.",
         "paymentFailed": "Pagamento non riuscito. Riprova.",
-        "fullResourceAccess": "Accesso completo alla risorsa"
+        "fullResourceAccess": "Accesso completo alla risorsa",
+        "timeRemaining": "Tempo rimanente",
+        "transactionExpired": "Transazione scaduta",
+        "transactionExpiredMessage": "Questa sessione di pagamento è scaduta. Il tasso di cambio potrebbe essere cambiato. Riprova per ottenere un preventivo aggiornato.",
+        "tryAgain": "Riprova"
     },
     "Purchased": {
         "title": "I miei acquisti",

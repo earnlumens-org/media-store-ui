@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "Terangkan kandungan anda (pilihan)",
             "descriptionMaxLength": "Penerangan mesti 2000 aksara atau kurang",
             "isPaid": "Kandungan berbayar",
-            "isPaidHint": "Aktifkan untuk menetapkan harga dalam XLM",
+            "isPaidHint": "Aktifkan untuk menetapkan harga",
             "priceXlm": "Harga (XLM)",
+            "priceUsd": "Harga (USD)",
             "pricePlaceholder": "0.00",
             "priceRequired": "Harga diperlukan untuk kandungan berbayar",
             "pricePositive": "Harga mesti lebih besar daripada 0",
             "resourceContent": "Kandungan",
             "resourceContentPlaceholder": "Tulis kandungan anda di sini (pilihan)...",
-            "resourceContentRequired": "Kandungan diperlukan"
+            "resourceContentRequired": "Kandungan diperlukan",
+            "contentLanguage": "Bahasa kandungan"
         },
         "assets": {
             "thumbnail": "Gambar kecil",
@@ -420,7 +422,11 @@
         "connectWalletError": "Sila sambungkan dompet anda untuk meneruskan",
         "noWalletAddress": "Tiada alamat dompet ditemui. Sila sambungkan semula dompet anda.",
         "paymentFailed": "Pembayaran gagal. Sila cuba lagi.",
-        "fullResourceAccess": "Akses sumber penuh"
+        "fullResourceAccess": "Akses sumber penuh",
+        "timeRemaining": "Masa berbaki",
+        "transactionExpired": "Transaksi telah tamat tempoh",
+        "transactionExpiredMessage": "Sesi pembayaran ini telah tamat tempoh. Kadar pertukaran mungkin telah berubah. Sila cuba lagi untuk mendapatkan sebut harga terkini.",
+        "tryAgain": "Cuba lagi"
     },
     "Purchased": {
         "title": "Pembelian Saya",

@@ -306,14 +306,16 @@
             "descriptionPlaceholder": "Describe your content (optional)",
             "descriptionMaxLength": "Description must be 2000 characters or less",
             "isPaid": "Paid content",
-            "isPaidHint": "Enable to set a price in XLM",
+            "isPaidHint": "Enable to set a price",
             "priceXlm": "Price (XLM)",
+            "priceUsd": "Price (USD)",
             "pricePlaceholder": "0.00",
             "priceRequired": "Price is required for paid content",
             "pricePositive": "Price must be greater than 0",
             "resourceContent": "Content",
             "resourceContentPlaceholder": "Write your content here (optional)...",
-            "resourceContentRequired": "Content is required"
+            "resourceContentRequired": "Content is required",
+            "contentLanguage": "Content language"
         },
         "assets": {
             "thumbnail": "Thumbnail",
@@ -434,7 +436,11 @@
         "connectWalletError": "Please connect your wallet to continue",
         "noWalletAddress": "No wallet address found. Please reconnect your wallet.",
         "paymentFailed": "Payment failed. Please try again.",
-        "fullResourceAccess": "Full resource access"
+        "fullResourceAccess": "Full resource access",
+        "timeRemaining": "Time remaining",
+        "transactionExpired": "Transaction expired",
+        "transactionExpiredMessage": "This payment session has expired. The exchange rate may have changed. Please try again to get an updated quote.",
+        "tryAgain": "Try again"
     },
     "Favorites": {
         "empty": "No favorites yet",

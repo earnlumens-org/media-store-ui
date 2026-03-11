@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "Опишите ваш контент (необязательно)",
             "descriptionMaxLength": "Описание должно быть не длиннее 2000 символов",
             "isPaid": "Платный контент",
-            "isPaidHint": "Включите, чтобы установить цену в XLM",
+            "isPaidHint": "Включите, чтобы установить цену",
             "priceXlm": "Цена (XLM)",
+            "priceUsd": "Цена (USD)",
             "pricePlaceholder": "0.00",
             "priceRequired": "Для платного контента требуется цена",
             "pricePositive": "Цена должна быть больше 0",
             "resourceContent": "Содержимое",
             "resourceContentPlaceholder": "Напишите содержимое здесь (необязательно)...",
-            "resourceContentRequired": "Содержимое обязательно"
+            "resourceContentRequired": "Содержимое обязательно",
+            "contentLanguage": "Язык контента"
         },
         "assets": {
             "thumbnail": "Миниатюра",
@@ -420,7 +422,11 @@
         "connectWalletError": "Подключите кошелёк, чтобы продолжить",
         "noWalletAddress": "Адрес кошелька не найден. Пожалуйста, подключите кошелёк снова.",
         "paymentFailed": "Платёж не прошёл. Пожалуйста, попробуйте ещё раз.",
-        "fullResourceAccess": "Полный доступ к ресурсу"
+        "fullResourceAccess": "Полный доступ к ресурсу",
+        "timeRemaining": "Оставшееся время",
+        "transactionExpired": "Транзакция истекла",
+        "transactionExpiredMessage": "Сессия оплаты истекла. Курс обмена мог измениться. Пожалуйста, попробуйте снова для получения актуальной цены.",
+        "tryAgain": "Попробовать снова"
     },
     "Purchased": {
         "title": "Мои покупки",

@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "描述您的内容（可选）",
             "descriptionMaxLength": "描述长度不得超过 2000 个字符",
             "isPaid": "付费内容",
-            "isPaidHint": "开启后可设置 XLM 价格",
+            "isPaidHint": "启用以设定价格",
             "priceXlm": "价格（XLM）",
+            "priceUsd": "价格（USD）",
             "pricePlaceholder": "0.00",
             "priceRequired": "付费内容需要填写价格",
             "pricePositive": "价格必须大于 0",
             "resourceContent": "内容",
             "resourceContentPlaceholder": "在此编写内容（可选）...",
-            "resourceContentRequired": "内容为必填项"
+            "resourceContentRequired": "内容为必填项",
+            "contentLanguage": "内容语言"
         },
         "assets": {
             "thumbnail": "缩略图",
@@ -420,7 +422,11 @@
         "connectWalletError": "请连接您的钱包以完成支付。",
         "noWalletAddress": "未找到已连接的钱包地址。",
         "paymentFailed": "支付失败。请重试。",
-        "fullResourceAccess": "完整资源访问"
+        "fullResourceAccess": "完整资源访问",
+        "timeRemaining": "剩余时间",
+        "transactionExpired": "交易已过期",
+        "transactionExpiredMessage": "此付款会话已过期。汇率可能已发生变化。请重试以获取最新报价。",
+        "tryAgain": "重试"
     },
     "Purchased": {
         "title": "我的购买",

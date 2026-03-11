@@ -668,6 +668,7 @@
 
   // Cached metadata from the real API (when available)
   const realPrice = ref<number | undefined>()
+  const realPriceCurrency = ref<'XLM' | 'USD'>('XLM')
   const realDescription = ref<string | undefined>()
 
   // Profile badge
@@ -725,6 +726,7 @@
         avatar: data.authorAvatarUrl,
       },
       price: contentPrice.value,
+      priceCurrency: realPriceCurrency.value,
       type: contentType.value,
       thumbnail: collectionData.value?.coverUrl || content.value?.thumbnailUrl,
     }
@@ -741,6 +743,9 @@
 
   // Format helpers
   function formatPrice (price: number): string {
+    if (realPriceCurrency.value === 'USD') {
+      return `$${price.toFixed(2)} USD`
+    }
     return `${price.toFixed(2)} XLM`
   }
 
@@ -781,7 +786,8 @@
     const cached = feedCache.getEntry(contentId.value)
     if (cached) {
       content.value = cached.entry
-      realPrice.value = cached.priceXlm
+      realPrice.value = cached.priceCurrency === 'USD' ? cached.priceUsd : cached.priceXlm
+      realPriceCurrency.value = cached.priceCurrency || 'XLM'
       realDescription.value = cached.description
     } else {
       content.value = null
@@ -804,7 +810,8 @@
         durationSec: data.durationSec,
         locked: data.isPaid,
       }
-      realPrice.value = data.priceXlm
+      realPrice.value = data.priceCurrency === 'USD' ? data.priceUsd : data.priceXlm
+      realPriceCurrency.value = (data.priceCurrency as 'XLM' | 'USD') || 'XLM'
       realDescription.value = data.description
       isVerified.value = true
 

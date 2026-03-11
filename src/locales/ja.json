@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "コンテンツを説明（任意）",
             "descriptionMaxLength": "説明は2000文字以内で入力してください",
             "isPaid": "有料コンテンツ",
-            "isPaidHint": "有効にするとXLMで価格を設定できます",
+            "isPaidHint": "価格を設定するには有効にしてください",
             "priceXlm": "価格（XLM）",
+            "priceUsd": "価格（USD）",
             "pricePlaceholder": "0.00",
             "priceRequired": "有料コンテンツには価格の設定が必要です",
             "pricePositive": "価格は0より大きい値にしてください",
             "resourceContent": "本文",
             "resourceContentPlaceholder": "コンテンツをここに入力（任意）...",
-            "resourceContentRequired": "コンテンツは必須です"
+            "resourceContentRequired": "コンテンツは必須です",
+            "contentLanguage": "コンテンツの言語"
         },
         "assets": {
             "thumbnail": "サムネイル",
@@ -420,7 +422,11 @@
         "connectWalletError": "続行するにはウォレットを接続してください",
         "noWalletAddress": "ウォレットアドレスが見つかりません。ウォレットを再接続してください。",
         "paymentFailed": "支払いに失敗しました。もう一度お試しください。",
-        "fullResourceAccess": "リソースへの完全アクセス"
+        "fullResourceAccess": "リソースへの完全アクセス",
+        "timeRemaining": "残り時間",
+        "transactionExpired": "取引が期限切れです",
+        "transactionExpiredMessage": "この支払いセッションは期限切れです。為替レートが変更された可能性があります。最新の見積もりを取得するには、もう一度お試しください。",
+        "tryAgain": "もう一度試す"
     },
     "Purchased": {
         "title": "購入済み",

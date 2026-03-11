@@ -19,7 +19,7 @@
 -->
 
 <script setup lang="ts">
-  import { computed, ref, watch } from 'vue'
+  import { computed, onBeforeUnmount, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
 
   import { api } from '@/api/api'
@@ -42,6 +42,7 @@
       avatar?: string
     }
     price: number
+    priceCurrency: 'XLM' | 'USD'
     type: 'video' | 'audio' | 'image' | 'resource' | 'collection'
     thumbnail?: string
   }
@@ -67,6 +68,15 @@
   const selectedPayment = ref<'wallet' | 'card'>('wallet')
   const isProcessing = ref(false)
   const error = ref<string | null>(null)
+  /** After prepare(), holds the actual XLM amount the Stellar tx will charge */
+  const resolvedXlmAmount = ref<number | null>(null)
+  /** XLM/USD rate used for conversion (shown to buyer for transparency) */
+  const resolvedXlmRate = ref<number | null>(null)
+
+  /** Countdown state */
+  const countdownSeconds = ref<number | null>(null)
+  const countdownTimer = ref<ReturnType<typeof setInterval> | null>(null)
+  const isExpired = ref(false)
 
   // Computed
   const dialogOpen = computed({
@@ -76,19 +86,103 @@
 
   const isMobile = computed(() => appStore.mobileView)
 
+  // Countdown computed
+  const countdownDisplay = computed(() => {
+    if (countdownSeconds.value == null) return ''
+    const mins = Math.floor(countdownSeconds.value / 60)
+    const secs = countdownSeconds.value % 60
+    return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`
+  })
+
+  const countdownColor = computed(() => {
+    if (countdownSeconds.value == null) return 'success'
+    if (countdownSeconds.value <= 60) return 'error'
+    if (countdownSeconds.value <= 120) return 'warning'
+    return 'success'
+  })
+
+  // Countdown functions
+  function startCountdown (expiresAtIso: string) {
+    stopCountdown()
+    isExpired.value = false
+
+    const expiresAt = new Date(expiresAtIso).getTime()
+    const tick = () => {
+      const remaining = Math.floor((expiresAt - Date.now()) / 1000)
+      if (remaining <= 0) {
+        countdownSeconds.value = 0
+        isExpired.value = true
+        stopCountdown()
+        return
+      }
+      countdownSeconds.value = remaining
+    }
+
+    tick()
+    countdownTimer.value = setInterval(tick, 1000)
+  }
+
+  function stopCountdown () {
+    if (countdownTimer.value) {
+      clearInterval(countdownTimer.value)
+      countdownTimer.value = null
+    }
+  }
+
+  function retryPayment () {
+    stopCountdown()
+    isExpired.value = false
+    countdownSeconds.value = null
+    resolvedXlmAmount.value = null
+    resolvedXlmRate.value = null
+    error.value = null
+  }
+
+  // Cleanup on unmount
+  onBeforeUnmount(stopCountdown)
+
   // Reset state when dialog opens
   watch(dialogOpen, open => {
     if (open) {
       selectedPayment.value = 'wallet'
       error.value = null
       isProcessing.value = false
+      resolvedXlmAmount.value = null
+      resolvedXlmRate.value = null
+      countdownSeconds.value = null
+      isExpired.value = false
+      stopCountdown()
+    } else {
+      stopCountdown()
     }
   })
 
-  // Format price
+  // Format price in the entry's original currency
   function formatPrice (price: number): string {
+    if (props.item?.priceCurrency === 'USD') {
+      return `$${price.toFixed(2)} USD`
+    }
     return `${price.toFixed(2)} XLM`
   }
+
+  // Format XLM amount (always XLM)
+  function formatXlm (amount: number): string {
+    return `${amount.toFixed(2)} XLM`
+  }
+
+  // The label for the pay button
+  const payLabel = computed(() => {
+    if (!props.item) return ''
+    const price = formatPrice(props.item.price)
+    if (props.item.priceCurrency === 'USD') {
+      // Show resolved XLM if available, otherwise indicate it'll be in XLM
+      if (resolvedXlmAmount.value != null) {
+        return `${t('Preview.pay')} ${formatXlm(resolvedXlmAmount.value)}`
+      }
+      return `${t('Preview.pay')} ${price} en XLM`
+    }
+    return `${t('Preview.pay')} ${price}`
+  })
 
   // Handle purchase — real two-phase Stellar payment flow
   async function handlePurchase () {
@@ -113,6 +207,17 @@
 
       // 2. Prepare — backend builds unsigned Stellar tx
       const prepared = await api.payment.prepare(props.item.id, buyerWallet)
+
+      // Store the resolved XLM amount (backend computed for USD entries)
+      resolvedXlmAmount.value = prepared.totalXlm
+      if (prepared.xlmUsdRate) {
+        resolvedXlmRate.value = prepared.xlmUsdRate
+      }
+
+      // 2b. Start countdown timer from backend expiresAt
+      if (prepared.expiresAt) {
+        startCountdown(prepared.expiresAt)
+      }
 
       // 3. Sign — wallet extension signs the XDR
       const signResult = await walletStore.signTransaction(prepared.unsignedXdr, {
@@ -240,26 +345,69 @@
           <!-- Order summary -->
           <v-divider class="my-4" />
 
+          <!-- USD→XLM conversion note (shown after prepare resolves) -->
+          <div v-if="item.priceCurrency === 'USD' && resolvedXlmAmount" class="text-caption text-medium-emphasis mb-2">
+            {{ formatPrice(item.price) }} ≈ {{ formatXlm(resolvedXlmAmount) }}
+            <span v-if="resolvedXlmRate" class="text-caption">(1 XLM ≈ ${{ resolvedXlmRate.toFixed(4) }})</span>
+          </div>
+
           <div class="d-flex justify-space-between align-center">
             <span class="text-subtitle-1 font-weight-medium">{{ $t('Preview.total') }}</span>
             <span class="text-subtitle-1 font-weight-bold text-primary">
-              {{ formatPrice(item.price) }}
+              {{ resolvedXlmAmount != null ? formatXlm(resolvedXlmAmount) : formatPrice(item.price) }}
             </span>
           </div>
+
+          <!-- Countdown Timer -->
+          <div
+            v-if="countdownSeconds != null && !isExpired"
+            class="countdown-timer d-flex align-center justify-center mt-4 pa-3 rounded-lg"
+            :class="`countdown-timer--${countdownColor}`"
+          >
+            <v-icon class="mr-2" :color="countdownColor" icon="mdi-timer-outline" size="20" />
+            <span class="text-body-2 font-weight-medium">{{ $t('Preview.timeRemaining') }}</span>
+            <span
+              class="text-subtitle-1 font-weight-bold ml-2 countdown-digits"
+              :class="`text-${countdownColor}`"
+            >{{ countdownDisplay }}</span>
+          </div>
+
+          <!-- Expired Alert -->
+          <v-alert
+            v-if="isExpired"
+            class="mt-4"
+            icon="mdi-clock-alert-outline"
+            prominent
+            type="error"
+            variant="tonal"
+          >
+            <div class="text-subtitle-2 font-weight-bold">{{ $t('Preview.transactionExpired') }}</div>
+            <div class="text-body-2 mt-1">{{ $t('Preview.transactionExpiredMessage') }}</div>
+            <v-btn
+              class="mt-3"
+              color="error"
+              prepend-icon="mdi-refresh"
+              size="small"
+              variant="outlined"
+              @click="retryPayment"
+            >
+              {{ $t('Preview.tryAgain') }}
+            </v-btn>
+          </v-alert>
         </v-card-text>
 
         <v-card-actions class="pa-4 pt-0">
           <v-btn
             block
             color="primary"
-            :disabled="isProcessing || !walletStore.isConnected"
+            :disabled="isProcessing || !walletStore.isConnected || isExpired"
             :loading="isProcessing"
             prepend-icon="mdi-lock-open"
             size="large"
             variant="flat"
             @click="handlePurchase"
           >
-            {{ $t('Preview.pay') }} {{ formatPrice(item.price) }}
+            {{ payLabel }}
           </v-btn>
         </v-card-actions>
       </template>
@@ -358,26 +506,69 @@
           <!-- Order summary -->
           <v-divider class="my-4" />
 
+          <!-- USD→XLM conversion note (shown after prepare resolves) -->
+          <div v-if="item.priceCurrency === 'USD' && resolvedXlmAmount" class="text-caption text-medium-emphasis mb-2">
+            {{ formatPrice(item.price) }} ≈ {{ formatXlm(resolvedXlmAmount) }}
+            <span v-if="resolvedXlmRate" class="text-caption">(1 XLM ≈ ${{ resolvedXlmRate.toFixed(4) }})</span>
+          </div>
+
           <div class="d-flex justify-space-between align-center">
             <span class="text-h6 font-weight-medium">{{ $t('Preview.total') }}</span>
             <span class="text-h6 font-weight-bold text-primary">
-              {{ formatPrice(item.price) }}
+              {{ resolvedXlmAmount != null ? formatXlm(resolvedXlmAmount) : formatPrice(item.price) }}
             </span>
           </div>
+
+          <!-- Countdown Timer -->
+          <div
+            v-if="countdownSeconds != null && !isExpired"
+            class="countdown-timer d-flex align-center justify-center mt-4 pa-4 rounded-lg"
+            :class="`countdown-timer--${countdownColor}`"
+          >
+            <v-icon class="mr-2" :color="countdownColor" icon="mdi-timer-outline" size="24" />
+            <span class="text-body-1 font-weight-medium">{{ $t('Preview.timeRemaining') }}</span>
+            <span
+              class="text-h5 font-weight-bold ml-3 countdown-digits"
+              :class="`text-${countdownColor}`"
+            >{{ countdownDisplay }}</span>
+          </div>
+
+          <!-- Expired Alert -->
+          <v-alert
+            v-if="isExpired"
+            class="mt-4"
+            icon="mdi-clock-alert-outline"
+            prominent
+            type="error"
+            variant="tonal"
+          >
+            <div class="text-subtitle-1 font-weight-bold">{{ $t('Preview.transactionExpired') }}</div>
+            <div class="text-body-2 mt-1">{{ $t('Preview.transactionExpiredMessage') }}</div>
+            <v-btn
+              class="mt-3"
+              color="error"
+              prepend-icon="mdi-refresh"
+              size="small"
+              variant="outlined"
+              @click="retryPayment"
+            >
+              {{ $t('Preview.tryAgain') }}
+            </v-btn>
+          </v-alert>
         </v-card-text>
 
         <v-card-actions class="pa-6 pt-0">
           <v-btn
             block
             color="primary"
-            :disabled="isProcessing || !walletStore.isConnected"
+            :disabled="isProcessing || !walletStore.isConnected || isExpired"
             :loading="isProcessing"
             prepend-icon="mdi-lock-open"
             size="large"
             variant="flat"
             @click="handlePurchase"
           >
-            {{ $t('Preview.pay') }} {{ formatPrice(item.price) }}
+            {{ payLabel }}
           </v-btn>
         </v-card-actions>
       </template>
@@ -416,5 +607,31 @@
 .x-payments-disabled {
   opacity: 0.5;
   pointer-events: none;
+}
+
+/* Countdown timer */
+.countdown-timer {
+  border: 1px solid;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.countdown-timer--success {
+  background-color: rgba(var(--v-theme-success), 0.08);
+  border-color: rgba(var(--v-theme-success), 0.3);
+}
+
+.countdown-timer--warning {
+  background-color: rgba(var(--v-theme-warning), 0.08);
+  border-color: rgba(var(--v-theme-warning), 0.3);
+}
+
+.countdown-timer--error {
+  background-color: rgba(var(--v-theme-error), 0.08);
+  border-color: rgba(var(--v-theme-error), 0.3);
+}
+
+.countdown-digits {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
 }
 </style>

@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "Décrivez votre contenu (facultatif)",
             "descriptionMaxLength": "La description doit contenir 2000 caractères ou moins",
             "isPaid": "Contenu payant",
-            "isPaidHint": "Activez pour définir un prix en XLM",
+            "isPaidHint": "Activer pour définir un prix",
             "priceXlm": "Prix (XLM)",
+            "priceUsd": "Prix (USD)",
             "pricePlaceholder": "0.00",
             "priceRequired": "Le prix est requis pour le contenu payant",
             "pricePositive": "Le prix doit être supérieur à 0",
             "resourceContent": "Contenu",
             "resourceContentPlaceholder": "Rédigez votre contenu ici (optionnel)...",
-            "resourceContentRequired": "Le contenu est requis"
+            "resourceContentRequired": "Le contenu est requis",
+            "contentLanguage": "Langue du contenu"
         },
         "assets": {
             "thumbnail": "Miniature",
@@ -420,7 +422,11 @@
         "connectWalletError": "Veuillez connecter votre portefeuille pour continuer",
         "noWalletAddress": "Aucune adresse de portefeuille trouvée. Veuillez reconnecter votre portefeuille.",
         "paymentFailed": "Échec du paiement. Veuillez réessayer.",
-        "fullResourceAccess": "Accès complet à la ressource"
+        "fullResourceAccess": "Accès complet à la ressource",
+        "timeRemaining": "Temps restant",
+        "transactionExpired": "Transaction expirée",
+        "transactionExpiredMessage": "Cette session de paiement a expiré. Le taux de change a peut-être changé. Veuillez réessayer pour obtenir un devis actualisé.",
+        "tryAgain": "Réessayer"
     },
     "Purchased": {
         "title": "Mes achats",

@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "İçeriğinizi açıklayın (isteğe bağlı)",
             "descriptionMaxLength": "Açıklama 2000 karakter veya daha az olmalıdır",
             "isPaid": "Ücretli içerik",
-            "isPaidHint": "XLM cinsinden fiyat belirlemek için etkinleştirin",
+            "isPaidHint": "Fiyat belirlemek için etkinleştirin",
             "priceXlm": "Fiyat (XLM)",
+            "priceUsd": "Fiyat (USD)",
             "pricePlaceholder": "0.00",
             "priceRequired": "Ücretli içerik için fiyat gereklidir",
             "pricePositive": "Fiyat 0'dan büyük olmalıdır",
             "resourceContent": "İçerik",
             "resourceContentPlaceholder": "İçeriğinizi buraya yazın (isteğe bağlı)...",
-            "resourceContentRequired": "İçerik gereklidir"
+            "resourceContentRequired": "İçerik gereklidir",
+            "contentLanguage": "İçerik dili"
         },
         "assets": {
             "thumbnail": "Küçük resim",
@@ -420,7 +422,11 @@
         "connectWalletError": "Ödeme yapmak için cüzdanınızı bağlayın.",
         "noWalletAddress": "Bağlı cüzdan adresi bulunamadı.",
         "paymentFailed": "Ödeme başarısız oldu. Lütfen tekrar deneyin.",
-        "fullResourceAccess": "Tam kaynak erişimi"
+        "fullResourceAccess": "Tam kaynak erişimi",
+        "timeRemaining": "Kalan süre",
+        "transactionExpired": "İşlem süresi doldu",
+        "transactionExpiredMessage": "Bu ödeme oturumunun süresi doldu. Döviz kuru değişmiş olabilir. Güncel bir teklif almak için lütfen tekrar deneyin.",
+        "tryAgain": "Tekrar dene"
     },
     "Purchased": {
         "title": "Satın Alımlarım",

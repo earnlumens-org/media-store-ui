@@ -355,7 +355,7 @@
             <!-- Price -->
             <td class="text-center">
               <span v-if="entry.isPaid" class="text-body-2 font-weight-medium">
-                {{ entry.priceXlm }} XLM
+                {{ entry.priceCurrency === 'USD' ? `$${entry.priceUsd} USD` : `${entry.priceXlm} XLM` }}
               </span>
               <v-chip v-else color="success" size="x-small" variant="tonal">
                 {{ t('CreatorStudio.free') }}
@@ -488,7 +488,7 @@
                 {{ getTypeLabel(entry.type) }}
               </v-chip>
               <span v-if="entry.isPaid" class="text-caption font-weight-medium">
-                {{ entry.priceXlm }} XLM
+                {{ entry.priceCurrency === 'USD' ? `$${entry.priceUsd} USD` : `${entry.priceXlm} XLM` }}
               </span>
             </div>
             <div class="text-caption text-medium-emphasis mt-1">
@@ -582,6 +582,15 @@
             rows="3"
             variant="outlined"
           />
+          <v-select
+            v-model="editForm.contentLanguage"
+            class="mb-3"
+            clearable
+            :items="contentLanguageItems"
+            :label="t('Upload.form.contentLanguage')"
+            prepend-inner-icon="mdi-translate"
+            variant="outlined"
+          />
           <v-switch
             v-model="editForm.isPaid"
             color="primary"
@@ -591,14 +600,27 @@
           />
           <v-text-field
             v-if="editForm.isPaid"
-            v-model="editForm.priceXlm"
+            v-model="editPrice"
             class="mt-3"
-            :label="t('Upload.form.priceXlm')"
-            prefix="XLM"
+            :label="editForm.priceCurrency === 'USD' ? t('Upload.form.priceUsd') : t('Upload.form.priceXlm')"
+            :prefix="editForm.priceCurrency"
             step="0.01"
             type="number"
             variant="outlined"
-          />
+          >
+            <template #append-inner>
+              <v-btn-toggle
+                v-model="editForm.priceCurrency"
+                color="primary"
+                density="compact"
+                mandatory
+                variant="outlined"
+              >
+                <v-btn size="small" value="XLM">XLM</v-btn>
+                <v-btn size="small" value="USD">USD</v-btn>
+              </v-btn-toggle>
+            </template>
+          </v-text-field>
         </v-card-text>
 
         <v-card-actions class="pa-4">
@@ -664,12 +686,15 @@
   import { useRouter } from 'vue-router'
   import { api, ApiError } from '@/api/api'
   import UploadTypeDialog from '@/components/upload/UploadTypeDialog.vue'
+  import { CONTENT_LANGUAGES } from '@/config/contentLanguages'
   import { useAppStore } from '@/stores/app'
 
   const router = useRouter()
   const { t } = useI18n()
   const appStore = useAppStore()
   const { mobileView } = storeToRefs(appStore)
+
+  const contentLanguageItems = CONTENT_LANGUAGES.map(l => ({ value: l.value, title: l.title }))
 
   // ── State ─────────────────────────────────────────────────
 
@@ -715,8 +740,23 @@
     description: '',
     isPaid: false,
     priceXlm: null as number | null,
+    priceUsd: null as number | null,
+    priceCurrency: 'XLM' as 'XLM' | 'USD',
+    contentLanguage: '' as string,
   })
   const isSaving = ref(false)
+
+  // Computed price that maps to the correct field based on currency
+  const editPrice = computed({
+    get: () => editForm.priceCurrency === 'USD' ? editForm.priceUsd : editForm.priceXlm,
+    set: (val: number | null) => {
+      if (editForm.priceCurrency === 'USD') {
+        editForm.priceUsd = val
+      } else {
+        editForm.priceXlm = val
+      }
+    },
+  })
 
   // Archive dialog
   const archiveDialog = ref(false)
@@ -946,6 +986,9 @@
     editForm.description = entry.description ?? ''
     editForm.isPaid = entry.isPaid
     editForm.priceXlm = entry.priceXlm ?? null
+    editForm.priceUsd = entry.priceUsd ?? null
+    editForm.priceCurrency = entry.priceCurrency ?? 'XLM'
+    editForm.contentLanguage = entry.contentLanguage ?? ''
     editDialog.value = true
   }
 
@@ -958,7 +1001,10 @@
         title: editForm.title.trim(),
         description: editForm.description.trim() || undefined,
         isPaid: editForm.isPaid,
-        priceXlm: editForm.isPaid ? editForm.priceXlm : null,
+        priceXlm: editForm.isPaid && editForm.priceCurrency === 'XLM' ? editForm.priceXlm : null,
+        priceUsd: editForm.isPaid && editForm.priceCurrency === 'USD' ? editForm.priceUsd : null,
+        priceCurrency: editForm.isPaid ? editForm.priceCurrency : null,
+        contentLanguage: editForm.contentLanguage || null,
       })
       showToast(t('CreatorStudio.editSuccess'))
       editDialog.value = false

@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "Mô tả nội dung của bạn (tùy chọn)",
             "descriptionMaxLength": "Mô tả phải dài tối đa 2000 ký tự",
             "isPaid": "Nội dung trả phí",
-            "isPaidHint": "Bật để đặt giá bằng XLM",
+            "isPaidHint": "Bật để đặt giá",
             "priceXlm": "Giá (XLM)",
+            "priceUsd": "Giá (USD)",
             "pricePlaceholder": "0.00",
             "priceRequired": "Giá là bắt buộc đối với nội dung trả phí",
             "pricePositive": "Giá phải lớn hơn 0",
             "resourceContent": "Nội dung",
             "resourceContentPlaceholder": "Viết nội dung của bạn tại đây (tùy chọn)...",
-            "resourceContentRequired": "Nội dung là bắt buộc"
+            "resourceContentRequired": "Nội dung là bắt buộc",
+            "contentLanguage": "Ngôn ngữ nội dung"
         },
         "assets": {
             "thumbnail": "Hình thu nhỏ",
@@ -420,7 +422,11 @@
         "connectWalletError": "Vui lòng kết nối ví của bạn để thanh toán.",
         "noWalletAddress": "Không tìm thấy địa chỉ ví đã kết nối.",
         "paymentFailed": "Thanh toán thất bại. Vui lòng thử lại.",
-        "fullResourceAccess": "Truy cập đầy đủ tài nguyên"
+        "fullResourceAccess": "Truy cập đầy đủ tài nguyên",
+        "timeRemaining": "Thời gian còn lại",
+        "transactionExpired": "Giao dịch đã hết hạn",
+        "transactionExpiredMessage": "Phiên thanh toán này đã hết hạn. Tỷ giá hối đoái có thể đã thay đổi. Vui lòng thử lại để nhận báo giá cập nhật.",
+        "tryAgain": "Thử lại"
     },
     "Purchased": {
         "title": "Mua hàng của tôi",

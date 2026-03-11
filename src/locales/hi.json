@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "अपनी सामग्री का वर्णन करें (वैकल्पिक)",
             "descriptionMaxLength": "विवरण 2000 अक्षरों या उससे कम का होना चाहिए",
             "isPaid": "पेड सामग्री",
-            "isPaidHint": "XLM में कीमत सेट करने के लिए सक्षम करें",
+            "isPaidHint": "कीमत सेट करने के लिए सक्षम करें",
             "priceXlm": "कीमत (XLM)",
+            "priceUsd": "कीमत (USD)",
             "pricePlaceholder": "0.00",
             "priceRequired": "पेड सामग्री के लिए कीमत आवश्यक है",
             "pricePositive": "कीमत 0 से अधिक होनी चाहिए",
             "resourceContent": "सामग्री",
             "resourceContentPlaceholder": "अपनी सामग्री यहाँ लिखें (वैकल्पिक)...",
-            "resourceContentRequired": "सामग्री आवश्यक है"
+            "resourceContentRequired": "सामग्री आवश्यक है",
+            "contentLanguage": "सामग्री की भाषा"
         },
         "assets": {
             "thumbnail": "थंबनेल",
@@ -420,7 +422,11 @@
         "connectWalletError": "कृपया जारी रखने के लिए अपना वॉलेट कनेक्ट करें",
         "noWalletAddress": "कोई वॉलेट पता नहीं मिला। कृपया अपना वॉलेट फिर से कनेक्ट करें।",
         "paymentFailed": "भुगतान विफल हुआ। कृपया पुनः प्रयास करें।",
-        "fullResourceAccess": "पूर्ण संसाधन पहुंच"
+        "fullResourceAccess": "पूर्ण संसाधन पहुंच",
+        "timeRemaining": "शेष समय",
+        "transactionExpired": "लेनदेन समाप्त हो गया",
+        "transactionExpiredMessage": "यह भुगतान सत्र समाप्त हो गया है। विनिमय दर बदल गई हो सकती है। अपडेटेड कोट के लिए कृपया पुनः प्रयास करें।",
+        "tryAgain": "पुनः प्रयास करें"
     },
     "Purchased": {
         "title": "मेरी खरीदारी",

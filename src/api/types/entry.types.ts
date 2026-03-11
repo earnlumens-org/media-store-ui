@@ -20,6 +20,9 @@ export interface PublicEntryDto {
   durationSec?: number
   isPaid: boolean
   priceXlm?: number
+  priceUsd?: number
+  priceCurrency?: 'XLM' | 'USD'
+  contentLanguage?: string
   viewCount?: number
   tags?: string[]
   asset?: {
@@ -55,6 +58,9 @@ export interface PublicEntryModel {
   viewCount?: number
   isPaid: boolean
   priceXlm?: number
+  priceUsd?: number
+  priceCurrency?: 'XLM' | 'USD'
+  contentLanguage?: string
   tags: string[]
   asset?: {
     fileName: string

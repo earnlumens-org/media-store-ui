@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "描述您的內容（選填）",
             "descriptionMaxLength": "描述不得超過 2000 個字元",
             "isPaid": "付費內容",
-            "isPaidHint": "啟用以設定 XLM 價格",
+            "isPaidHint": "啟用以設定價格",
             "priceXlm": "價格（XLM）",
+            "priceUsd": "價格（USD）",
             "pricePlaceholder": "0.00",
             "priceRequired": "付費內容需要填寫價格",
             "pricePositive": "價格必須大於 0",
             "resourceContent": "內容",
             "resourceContentPlaceholder": "在此撰寫內容（選填）...",
-            "resourceContentRequired": "內容為必填項"
+            "resourceContentRequired": "內容為必填項",
+            "contentLanguage": "內容語言"
         },
         "assets": {
             "thumbnail": "縮圖",
@@ -420,7 +422,11 @@
         "connectWalletError": "請連接您的錢包以完成付款。",
         "noWalletAddress": "找不到已連接的錢包位址。",
         "paymentFailed": "付款失敗。請再試一次。",
-        "fullResourceAccess": "完整資源存取"
+        "fullResourceAccess": "完整資源存取",
+        "timeRemaining": "剩餘時間",
+        "transactionExpired": "交易已過期",
+        "transactionExpiredMessage": "此付款工作階段已過期。匯率可能已變更。請重試以取得最新報價。",
+        "tryAgain": "重試"
     },
     "Purchased": {
         "title": "我的購買",

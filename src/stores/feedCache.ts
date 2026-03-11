@@ -22,6 +22,12 @@ export interface CachedEntry {
   entry: EntryModel
   /** Real price from backend, if available */
   priceXlm?: number
+  /** USD price from backend, if available */
+  priceUsd?: number
+  /** Price currency: 'XLM' or 'USD' */
+  priceCurrency?: 'XLM' | 'USD'
+  /** ISO 639-1 content language */
+  contentLanguage?: string
   /** Entry description/body, if available */
   description?: string
 }
@@ -40,11 +46,14 @@ export const useFeedCacheStore = defineStore('feedCache', {
 
   actions: {
     /** Cache a single entry with optional metadata */
-    cacheEntry (entry: EntryModel, meta?: { priceXlm?: number, description?: string }) {
+    cacheEntry (entry: EntryModel, meta?: { priceXlm?: number, priceUsd?: number, priceCurrency?: 'XLM' | 'USD', contentLanguage?: string, description?: string }) {
       this.items.set(entry.id, {
         kind: 'entry',
         entry,
         priceXlm: meta?.priceXlm,
+        priceUsd: meta?.priceUsd,
+        priceCurrency: meta?.priceCurrency,
+        contentLanguage: meta?.contentLanguage,
         description: meta?.description,
       })
     },

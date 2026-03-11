@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "صف محتواك (اختياري)",
             "descriptionMaxLength": "يجب ألا يتجاوز الوصف 2000 حرف",
             "isPaid": "محتوى مدفوع",
-            "isPaidHint": "فعّل لتحديد سعر بـ XLM",
+            "isPaidHint": "فعّل لتحديد سعر",
             "priceXlm": "السعر (XLM)",
+            "priceUsd": "السعر (USD)",
             "pricePlaceholder": "0.00",
             "priceRequired": "السعر مطلوب للمحتوى المدفوع",
             "pricePositive": "يجب أن يكون السعر أكبر من 0",
             "resourceContent": "المحتوى",
             "resourceContentPlaceholder": "اكتب المحتوى هنا (اختياري)...",
-            "resourceContentRequired": "المحتوى مطلوب"
+            "resourceContentRequired": "المحتوى مطلوب",
+            "contentLanguage": "لغة المحتوى"
         },
         "assets": {
             "thumbnail": "صورة مصغّرة",
@@ -420,7 +422,11 @@
         "connectWalletError": "يرجى توصيل محفظتك للمتابعة",
         "noWalletAddress": "لم يتم العثور على عنوان محفظة. يرجى إعادة توصيل محفظتك.",
         "paymentFailed": "فشلت عملية الدفع. يرجى المحاولة مرة أخرى.",
-        "fullResourceAccess": "الوصول الكامل للمورد"
+        "fullResourceAccess": "الوصول الكامل للمورد",
+        "timeRemaining": "الوقت المتبقي",
+        "transactionExpired": "انتهت صلاحية المعاملة",
+        "transactionExpiredMessage": "انتهت صلاحية جلسة الدفع هذه. ربما تغير سعر الصرف. يرجى المحاولة مرة أخرى للحصول على عرض سعر محدث.",
+        "tryAgain": "حاول مرة أخرى"
     },
     "Purchased": {
         "title": "مشترياتي",

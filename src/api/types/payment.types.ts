@@ -24,6 +24,9 @@ export interface PreparePaymentResponseDto {
   unsignedXdr: string
   integrityHash: string
   totalXlm: number
+  originalAmountUsd?: number | null
+  priceCurrency?: string | null
+  xlmUsdRate?: number | null
   memo: string
   expiresAt: string
   networkPassphrase: string
@@ -43,6 +46,9 @@ export interface PreparePaymentModel {
   unsignedXdr: string
   integrityHash: string
   totalXlm: number
+  originalAmountUsd?: number | null
+  priceCurrency?: string | null
+  xlmUsdRate?: number | null
   memo: string
   expiresAt: string
   networkPassphrase: string

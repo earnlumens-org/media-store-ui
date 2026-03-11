@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "Opisz swoją treść (opcjonalnie)",
             "descriptionMaxLength": "Opis może mieć maksymalnie 2000 znaków",
             "isPaid": "Treść płatna",
-            "isPaidHint": "Włącz, aby ustawić cenę w XLM",
+            "isPaidHint": "Włącz, aby ustawić cenę",
             "priceXlm": "Cena (XLM)",
+            "priceUsd": "Cena (USD)",
             "pricePlaceholder": "0.00",
             "priceRequired": "Cena jest wymagana dla treści płatnych",
             "pricePositive": "Cena musi być większa niż 0",
             "resourceContent": "Treść",
             "resourceContentPlaceholder": "Wpisz swoją treść tutaj (opcjonalnie)...",
-            "resourceContentRequired": "Treść jest wymagana"
+            "resourceContentRequired": "Treść jest wymagana",
+            "contentLanguage": "Język treści"
         },
         "assets": {
             "thumbnail": "Miniatura",
@@ -420,7 +422,11 @@
         "connectWalletError": "Podłącz swój portfel, aby kontynuować",
         "noWalletAddress": "Nie znaleziono adresu portfela. Podłącz portfel ponownie.",
         "paymentFailed": "Płatność nie powiodła się. Spróbuj ponownie.",
-        "fullResourceAccess": "Pełny dostęp do zasobu"
+        "fullResourceAccess": "Pełny dostęp do zasobu",
+        "timeRemaining": "Pozostały czas",
+        "transactionExpired": "Transakcja wygasła",
+        "transactionExpiredMessage": "Ta sesja płatności wygasła. Kurs wymiany mógł się zmienić. Spróbuj ponownie, aby uzyskać aktualną wycenę.",
+        "tryAgain": "Spróbuj ponownie"
     },
     "Purchased": {
         "title": "Moje zakupy",

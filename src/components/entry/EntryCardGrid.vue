@@ -196,6 +196,9 @@
       }
       feedCache.cacheEntry(entry, {
         priceXlm: item.priceXlm,
+        priceUsd: item.priceUsd,
+        priceCurrency: item.priceCurrency,
+        contentLanguage: item.contentLanguage,
         description: item.description,
       })
     }

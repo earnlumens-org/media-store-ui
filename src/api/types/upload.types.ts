@@ -17,8 +17,13 @@ export interface CreateEntryRequest {
   type: EntryType
   isPaid: boolean
   priceXlm?: number | null
+  priceUsd?: number | null
+  /** "XLM" or "USD". Defaults to XLM if absent (backward compatible). */
+  priceCurrency?: 'XLM' | 'USD' | null
   /** Stellar public key (G...) of the seller's connected wallet. Required when isPaid = true. */
   sellerWallet?: string | null
+  /** ISO 639-1 language code of the content (e.g. "es", "en"). */
+  contentLanguage?: string | null
 }
 
 export interface CreateEntryResponse {

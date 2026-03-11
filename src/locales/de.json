@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "Beschreibe deinen Inhalt (optional)",
             "descriptionMaxLength": "Die Beschreibung darf höchstens 2000 Zeichen lang sein",
             "isPaid": "Bezahlter Inhalt",
-            "isPaidHint": "Aktiviere dies, um einen Preis in XLM festzulegen",
+            "isPaidHint": "Aktivieren, um einen Preis festzulegen",
             "priceXlm": "Preis (XLM)",
+            "priceUsd": "Preis (USD)",
             "pricePlaceholder": "0.00",
             "priceRequired": "Für bezahlte Inhalte ist ein Preis erforderlich",
             "pricePositive": "Der Preis muss größer als 0 sein",
             "resourceContent": "Inhalt",
             "resourceContentPlaceholder": "Schreibe deinen Inhalt hier (optional)...",
-            "resourceContentRequired": "Inhalt ist erforderlich"
+            "resourceContentRequired": "Inhalt ist erforderlich",
+            "contentLanguage": "Sprache des Inhalts"
         },
         "assets": {
             "thumbnail": "Vorschaubild",
@@ -420,7 +422,11 @@
         "connectWalletError": "Bitte verbinde deine Wallet, um fortzufahren",
         "noWalletAddress": "Keine Wallet-Adresse gefunden. Bitte verbinde deine Wallet erneut.",
         "paymentFailed": "Zahlung fehlgeschlagen. Bitte versuche es erneut.",
-        "fullResourceAccess": "Vollständiger Ressourcen-Zugang"
+        "fullResourceAccess": "Vollständiger Ressourcen-Zugang",
+        "timeRemaining": "Verbleibende Zeit",
+        "transactionExpired": "Transaktion abgelaufen",
+        "transactionExpiredMessage": "Diese Zahlungssitzung ist abgelaufen. Der Wechselkurs hat sich möglicherweise geändert. Bitte versuche es erneut für ein aktuelles Angebot.",
+        "tryAgain": "Erneut versuchen"
     },
     "Purchased": {
         "title": "Meine Käufe",

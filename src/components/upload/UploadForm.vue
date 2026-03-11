@@ -123,6 +123,15 @@
                 <!-- Paid toggle + price -->
                 <v-divider class="my-4" />
 
+                <!-- Content Language -->
+                <v-select
+                  v-model="form.contentLanguage"
+                  :items="contentLanguageItems"
+                  :label="t('Upload.form.contentLanguage')"
+                  prepend-inner-icon="mdi-translate"
+                  variant="outlined"
+                />
+
                 <v-switch
                   v-model="form.isPaid"
                   color="primary"
@@ -133,16 +142,29 @@
 
                 <v-text-field
                   v-if="form.isPaid"
-                  v-model="form.priceXlm"
+                  v-model="form.price"
                   class="mt-3"
-                  :label="t('Upload.form.priceXlm')"
+                  :label="form.priceCurrency === 'USD' ? t('Upload.form.priceUsd') : t('Upload.form.priceXlm')"
                   :placeholder="t('Upload.form.pricePlaceholder')"
-                  prefix="XLM"
+                  :prefix="form.priceCurrency"
                   :rules="priceRules"
                   step="0.01"
                   type="number"
                   variant="outlined"
-                />
+                >
+                  <template #append-inner>
+                    <v-btn-toggle
+                      v-model="form.priceCurrency"
+                      color="primary"
+                      density="compact"
+                      mandatory
+                      variant="outlined"
+                    >
+                      <v-btn size="small" value="XLM">XLM</v-btn>
+                      <v-btn size="small" value="USD">USD</v-btn>
+                    </v-btn-toggle>
+                  </template>
+                </v-text-field>
 
                 <!-- Wallet requirement for paid content -->
                 <template v-if="form.isPaid">
@@ -349,6 +371,7 @@
     toEntryType,
   } from '@/api/types/upload.types'
   import UploadAssetPicker from '@/components/upload/UploadAssetPicker.vue'
+  import { CONTENT_LANGUAGES } from '@/config/contentLanguages'
   import { useWalletStore } from '@/stores/wallet'
 
   const props = defineProps<{
@@ -356,9 +379,11 @@
   }>()
 
   const router = useRouter()
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const formRef = ref()
   const walletStore = useWalletStore()
+
+  const contentLanguageItems = CONTENT_LANGUAGES.map(l => ({ value: l.value, title: l.title }))
 
   // ── Form state ──────────────────────────────────────────────
 
@@ -367,7 +392,9 @@
     description: '',
     resourceContent: '',
     isPaid: false,
-    priceXlm: null as number | null,
+    price: null as number | null,
+    priceCurrency: 'XLM' as 'XLM' | 'USD',
+    contentLanguage: locale.value,
   })
 
   const assets = reactive({
@@ -547,8 +574,11 @@
           : undefined,
         type: toEntryType(props.contentType),
         isPaid: form.isPaid,
-        priceXlm: form.isPaid && form.priceXlm ? form.priceXlm : null,
+        priceXlm: form.isPaid && form.priceCurrency === 'XLM' && form.price ? form.price : null,
+        priceUsd: form.isPaid && form.priceCurrency === 'USD' && form.price ? form.price : null,
+        priceCurrency: form.isPaid ? form.priceCurrency : null,
         sellerWallet: form.isPaid ? walletStore.activeAddress : null,
+        contentLanguage: form.contentLanguage || null,
       })
 
       createdEntryId.value = entry.id

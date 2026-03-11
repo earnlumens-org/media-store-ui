@@ -15,6 +15,9 @@ export interface CreatorEntryModel {
   thumbnailUrl?: string
   isPaid: boolean
   priceXlm?: number
+  priceUsd?: number
+  priceCurrency?: 'XLM' | 'USD'
+  contentLanguage?: string
   createdAt: string
   updatedAt: string
   publishedAt?: string
@@ -48,6 +51,9 @@ export interface UpdateEntryMetadataRequest {
   description?: string
   isPaid?: boolean
   priceXlm?: number | null
+  priceUsd?: number | null
+  priceCurrency?: 'XLM' | 'USD' | null
+  contentLanguage?: string | null
 }
 
 // ==================== Filter / sort params ====================

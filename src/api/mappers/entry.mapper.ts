@@ -32,6 +32,9 @@ export function mapPublicEntryDtoToModel (dto: PublicEntryDto): PublicEntryModel
     viewCount: dto.viewCount ?? 0,
     isPaid: dto.isPaid,
     priceXlm: dto.priceXlm,
+    priceUsd: dto.priceUsd,
+    priceCurrency: dto.priceCurrency,
+    contentLanguage: dto.contentLanguage,
     tags: dto.tags ?? [],
     asset: dto.asset,
   }

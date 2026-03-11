@@ -29,6 +29,9 @@ interface OwnerEntryDto {
   previewR2Key?: string
   isPaid: boolean
   priceXlm?: number
+  priceUsd?: number
+  priceCurrency?: string
+  contentLanguage?: string
   durationSec?: number
   viewCount?: number
   createdAt?: string
@@ -61,6 +64,9 @@ function dtoToCreatorEntry (dto: OwnerEntryDto): CreatorEntryModel {
     thumbnailUrl: r2KeyToCdnUrl(dto.thumbnailR2Key),
     isPaid: dto.isPaid,
     priceXlm: dto.priceXlm,
+    priceUsd: dto.priceUsd,
+    priceCurrency: (dto.priceCurrency as 'XLM' | 'USD') ?? undefined,
+    contentLanguage: dto.contentLanguage,
     createdAt: dto.createdAt ?? '',
     updatedAt: dto.updatedAt ?? '',
     publishedAt: dto.publishedAt ?? '',

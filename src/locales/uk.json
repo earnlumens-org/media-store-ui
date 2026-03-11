@@ -293,14 +293,16 @@
             "descriptionPlaceholder": "Опишіть ваш контент (необов’язково)",
             "descriptionMaxLength": "Опис має бути не довший за 2000 символів",
             "isPaid": "Платний контент",
-            "isPaidHint": "Увімкніть, щоб встановити ціну в XLM",
+            "isPaidHint": "Увімкніть, щоб встановити ціну",
             "priceXlm": "Ціна (XLM)",
+            "priceUsd": "Ціна (USD)",
             "pricePlaceholder": "0.00",
             "priceRequired": "Для платного контенту потрібна ціна",
             "pricePositive": "Ціна має бути більшою за 0",
             "resourceContent": "Вміст",
             "resourceContentPlaceholder": "Напишіть вміст тут (необовʼязково)...",
-            "resourceContentRequired": "Вміст є обовʼязковим"
+            "resourceContentRequired": "Вміст є обовʼязковим",
+            "contentLanguage": "Мова вмісту"
         },
         "assets": {
             "thumbnail": "Мініатюра",
@@ -420,7 +422,11 @@
         "connectWalletError": "Будь ласка, підключіть ваш гаманець, щоб здійснити оплату.",
         "noWalletAddress": "Не знайдено адреси підключеного гаманця.",
         "paymentFailed": "Оплата не вдалася. Будь ласка, спробуйте ще раз.",
-        "fullResourceAccess": "Повний доступ до ресурсу"
+        "fullResourceAccess": "Повний доступ до ресурсу",
+        "timeRemaining": "Залишок часу",
+        "transactionExpired": "Транзакцію прострочено",
+        "transactionExpiredMessage": "Сесія оплати закінчилася. Курс обміну міг змінитися. Будь ласка, спробуйте ще раз для отримання актуальної ціни.",
+        "tryAgain": "Спробувати знову"
     },
     "Purchased": {
         "title": "Мої покупки",
