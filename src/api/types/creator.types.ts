@@ -25,6 +25,8 @@ export interface CreatorEntryModel {
   views?: number
   purchases?: number
   revenue?: number
+  /** Active transcoding job status for video entries (PENDING, DISPATCHED, PROCESSING, FAILED, DEAD) */
+  transcodingStatus?: string
 }
 
 export interface CreatorEntryPageModel {

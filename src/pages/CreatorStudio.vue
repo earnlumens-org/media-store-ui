@@ -337,6 +337,23 @@
                 <v-icon size="14" start>{{ getStatusIcon(entry.status) }}</v-icon>
                 {{ getStatusLabel(entry.status) }}
               </v-chip>
+              <v-chip
+                v-if="entry.transcodingStatus"
+                class="ml-1"
+                :color="getTranscodingColor(entry.transcodingStatus)"
+                size="small"
+                variant="tonal"
+              >
+                <v-progress-circular
+                  v-if="isTranscodingInProgress(entry.transcodingStatus)"
+                  class="mr-1"
+                  :indeterminate="true"
+                  size="12"
+                  width="2"
+                />
+                <v-icon v-else size="14" start>{{ getTranscodingIcon(entry.transcodingStatus) }}</v-icon>
+                {{ getTranscodingLabel(entry.transcodingStatus) }}
+              </v-chip>
             </td>
 
             <!-- Type -->
@@ -483,6 +500,14 @@
                 variant="tonal"
               >
                 {{ getStatusLabel(entry.status) }}
+              </v-chip>
+              <v-chip
+                v-if="entry.transcodingStatus"
+                :color="getTranscodingColor(entry.transcodingStatus)"
+                size="x-small"
+                variant="tonal"
+              >
+                {{ getTranscodingLabel(entry.transcodingStatus) }}
               </v-chip>
               <v-chip size="x-small" variant="flat">
                 {{ getTypeLabel(entry.type) }}
@@ -846,6 +871,42 @@
       ARCHIVED: t('Upload.status.archived'),
     }
     return map[status] ?? status
+  }
+
+  function getTranscodingColor (status: string): string {
+    const map: Record<string, string> = {
+      PENDING: 'info',
+      DISPATCHED: 'info',
+      PROCESSING: 'info',
+      FAILED: 'error',
+      DEAD: 'error',
+    }
+    return map[status] ?? 'default'
+  }
+
+  function getTranscodingIcon (status: string): string {
+    const map: Record<string, string> = {
+      PENDING: 'mdi-clock-outline',
+      DISPATCHED: 'mdi-send-outline',
+      FAILED: 'mdi-alert-circle-outline',
+      DEAD: 'mdi-close-circle-outline',
+    }
+    return map[status] ?? 'mdi-help-circle-outline'
+  }
+
+  function getTranscodingLabel (status: string): string {
+    const map: Record<string, string> = {
+      PENDING: t('CreatorStudio.transcoding.pending'),
+      DISPATCHED: t('CreatorStudio.transcoding.dispatched'),
+      PROCESSING: t('CreatorStudio.transcoding.processing'),
+      FAILED: t('CreatorStudio.transcoding.failed'),
+      DEAD: t('CreatorStudio.transcoding.dead'),
+    }
+    return map[status] ?? status
+  }
+
+  function isTranscodingInProgress (status: string): boolean {
+    return status === 'PENDING' || status === 'DISPATCHED' || status === 'PROCESSING'
   }
 
   function getTypeIcon (type: string): string {

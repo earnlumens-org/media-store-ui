@@ -534,7 +534,14 @@
         "archiveSuccess": "Entry archived successfully",
         "archiveError": "Failed to archive entry. Please try again.",
         "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again."
+        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "transcoding": {
+            "pending": "轉碼排隊中",
+            "dispatched": "轉碼啟動中",
+            "processing": "轉碼中…",
+            "failed": "轉碼失敗",
+            "dead": "轉碼失敗"
+        }
     },
     "SalesHistory": {
         "title": "銷售紀錄",

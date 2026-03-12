@@ -534,7 +534,14 @@
         "archiveSuccess": "Entry archived successfully",
         "archiveError": "Failed to archive entry. Please try again.",
         "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again."
+        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "transcoding": {
+            "pending": "التحويل في الانتظار",
+            "dispatched": "بدء التحويل",
+            "processing": "جارٍ التحويل…",
+            "failed": "فشل التحويل",
+            "dead": "فشل التحويل"
+        }
     },
     "SalesHistory": {
         "title": "سجل المبيعات",

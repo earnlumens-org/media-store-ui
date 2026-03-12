@@ -534,7 +534,14 @@
         "archiveSuccess": "Entry archived successfully",
         "archiveError": "Failed to archive entry. Please try again.",
         "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again."
+        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "transcoding": {
+            "pending": "Transkodierung in Warteschlange",
+            "dispatched": "Transkodierung startet",
+            "processing": "Transkodierung…",
+            "failed": "Transkodierung fehlgeschlagen",
+            "dead": "Transkodierung fehlgeschlagen"
+        }
     },
     "SalesHistory": {
         "title": "Verkaufshistorie",

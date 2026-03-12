@@ -534,7 +534,14 @@
         "archiveSuccess": "Entry archived successfully",
         "archiveError": "Failed to archive entry. Please try again.",
         "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again."
+        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "transcoding": {
+            "pending": "트랜스코딩 대기 중",
+            "dispatched": "트랜스코딩 시작 중",
+            "processing": "트랜스코딩 중…",
+            "failed": "트랜스코딩 실패",
+            "dead": "트랜스코딩 실패"
+        }
     },
     "SalesHistory": {
         "title": "판매 내역",

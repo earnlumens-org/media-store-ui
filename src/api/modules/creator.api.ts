@@ -37,6 +37,7 @@ interface OwnerEntryDto {
   createdAt?: string
   updatedAt?: string
   publishedAt?: string
+  transcodingStatus?: string
 }
 
 interface OwnerEntryPageDto {
@@ -73,6 +74,7 @@ function dtoToCreatorEntry (dto: OwnerEntryDto): CreatorEntryModel {
     views: dto.viewCount ?? 0,
     purchases: 0,
     revenue: 0,
+    transcodingStatus: dto.transcodingStatus,
   }
 }
 

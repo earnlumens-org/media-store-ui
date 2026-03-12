@@ -534,7 +534,14 @@
         "archiveSuccess": "Entry archived successfully",
         "archiveError": "Failed to archive entry. Please try again.",
         "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again."
+        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "transcoding": {
+            "pending": "Транскодування в черзі",
+            "dispatched": "Транскодування починається",
+            "processing": "Транскодування…",
+            "failed": "Помилка транскодування",
+            "dead": "Помилка транскодування"
+        }
     },
     "SalesHistory": {
         "title": "Історія продажів",

@@ -537,7 +537,14 @@
         "archiveSuccess": "Entrada archivada correctamente",
         "archiveError": "Error al archivar la entrada. Inténtalo de nuevo.",
         "unarchiveSuccess": "Entrada desarchivada y restaurada a su estado anterior",
-        "unarchiveError": "Error al desarchivar la entrada. Inténtalo de nuevo."
+        "unarchiveError": "Error al desarchivar la entrada. Inténtalo de nuevo.",
+        "transcoding": {
+            "pending": "Transcodificación en cola",
+            "dispatched": "Transcodificación iniciando",
+            "processing": "Transcodificando…",
+            "failed": "Transcodificación fallida",
+            "dead": "Transcodificación fallida"
+        }
     },
     "SalesHistory": {
         "title": "Historial de ventas",

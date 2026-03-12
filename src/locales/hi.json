@@ -534,7 +534,14 @@
         "archiveSuccess": "Entry archived successfully",
         "archiveError": "Failed to archive entry. Please try again.",
         "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again."
+        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "transcoding": {
+            "pending": "ट्रांसकोडिंग कतार में",
+            "dispatched": "ट्रांसकोडिंग शुरू हो रही है",
+            "processing": "ट्रांसकोडिंग…",
+            "failed": "ट्रांसकोडिंग विफल",
+            "dead": "ट्रांसकोडिंग विफल"
+        }
     },
     "SalesHistory": {
         "title": "बिक्री इतिहास",
