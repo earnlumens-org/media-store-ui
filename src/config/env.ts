@@ -166,6 +166,16 @@ export function cdnMediaUrl (entryId: string): string {
 }
 
 /**
+ * Builds the CDN URL for an entry's HLS master playlist.
+ *
+ * @example cdnHlsUrl('665a1b2c3d4e5f6a7b8c9d0e')
+ *          // => 'https://cdn.earnlumens.org/public/media/665a.../hls/master.m3u8'
+ */
+export function cdnHlsUrl (entryId: string): string {
+  return `${getCdnBaseUrl()}/public/media/${entryId}/hls/master.m3u8`
+}
+
+/**
  * Returns the detected environment name (useful for debugging).
  */
 export function getEnvironment (): Environment {
