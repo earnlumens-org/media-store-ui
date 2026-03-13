@@ -30,6 +30,7 @@ export interface PublicEntryDto {
     fileSizeBytes: number
     contentType: string
   }
+  hlsReady?: boolean
 }
 
 export interface PublicEntryPageDto {
@@ -67,6 +68,7 @@ export interface PublicEntryModel {
     fileSizeBytes: number
     contentType: string
   }
+  hlsReady: boolean
 }
 
 export interface PublicEntryPageModel {

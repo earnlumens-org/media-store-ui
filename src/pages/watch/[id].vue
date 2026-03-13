@@ -218,6 +218,7 @@
             <!-- Video Player (Shaka Player) -->
             <ShakaVideoPlayer
               v-if="mediaUrl"
+              :crossorigin="hlsCrossorigin"
               :src="mediaUrl"
             />
 
@@ -415,7 +416,7 @@
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import ShakaVideoPlayer from '@/components/media/ShakaVideoPlayer.vue'
-  import { cdnMediaUrl } from '@/config/env'
+  import { cdnHlsUrl, cdnMediaUrl } from '@/config/env'
   import { usePurchasesStore } from '@/stores/purchases'
 
   // Lazy-load recommendations component (internal to this page)
@@ -455,9 +456,17 @@
   const description = computed(() => entry.value?.description ?? '')
   const tags = computed(() => entry.value?.tags ?? [])
 
-  // CDN URL for actual media content
-  const mediaUrl = computed(() =>
-    entry.value ? cdnMediaUrl(entry.value.id) : undefined,
+  // CDN URL for actual media content — HLS when transcoded, raw file fallback
+  const mediaUrl = computed(() => {
+    if (!entry.value) return undefined
+    return entry.value.hlsReady
+      ? cdnHlsUrl(entry.value.id)
+      : cdnMediaUrl(entry.value.id)
+  })
+
+  // HLS streams are public (no credentials needed), raw file needs auth cookies
+  const hlsCrossorigin = computed<'' | 'anonymous' | 'use-credentials'>(() =>
+    entry.value?.hlsReady ? 'anonymous' : 'use-credentials',
   )
 
   // Fetch entry data

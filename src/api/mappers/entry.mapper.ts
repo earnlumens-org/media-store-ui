@@ -37,6 +37,7 @@ export function mapPublicEntryDtoToModel (dto: PublicEntryDto): PublicEntryModel
     contentLanguage: dto.contentLanguage,
     tags: dto.tags ?? [],
     asset: dto.asset,
+    hlsReady: dto.hlsReady ?? false,
   }
 }
 

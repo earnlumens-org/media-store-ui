@@ -132,10 +132,12 @@
       await p.attach(videoRef.value!)
       player = p
 
-      // Configure networking for authenticated CDN (cookies)
-      player.getNetworkingEngine()?.registerRequestFilter((_type: number, request: { allowCrossSiteCredentials: boolean }) => {
-        request.allowCrossSiteCredentials = true
-      })
+      // Configure networking: send credentials only for authenticated CDN requests
+      if (props.crossorigin === 'use-credentials') {
+        player.getNetworkingEngine()?.registerRequestFilter((_type: number, request: { allowCrossSiteCredentials: boolean }) => {
+          request.allowCrossSiteCredentials = true
+        })
+      }
 
       // Configure player defaults
       player.configure({
