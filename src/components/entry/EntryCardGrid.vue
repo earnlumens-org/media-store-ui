@@ -122,11 +122,12 @@
   import type { EntryModel } from '@/api/types/entryMock.types'
   import type { Entry } from '@/components/entry/EntryCard.vue'
 
-  import { computed, nextTick, onMounted, ref } from 'vue'
+  import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
   import { isPopNavigation } from '@/router'
+  import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
   import { useFeedCacheStore } from '@/stores/feedCache'
   import { usePurchasesStore } from '@/stores/purchases'
@@ -145,6 +146,7 @@
   const feedCache = useFeedCacheStore()
   const purchasesStore = usePurchasesStore()
   const authStore = useAuthStore()
+  const appStore = useAppStore()
   const route = useRoute()
   const scrollCache = useScrollCacheStore()
 
@@ -274,5 +276,10 @@
     } else {
       fetchEntries()
     }
+  })
+
+  watch(() => appStore.refreshKey, () => {
+    window.scrollTo(0, 0)
+    fetchEntries()
   })
 </script>

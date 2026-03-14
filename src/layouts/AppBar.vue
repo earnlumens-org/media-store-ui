@@ -28,7 +28,7 @@
   >
     <v-list density="compact" nav>
       <v-skeleton-loader v-if="!isAuthReady" class="hidden-sm-and-down" type="list-item" />
-      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.home')">
+      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.home')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -38,12 +38,13 @@
             :title="$t('AppBar.home')"
             to="/"
             value="home"
+            @click="onNavClick('/')"
           />
         </template>
       </v-tooltip>
 
       <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
-      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.firststeps')">
+      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.firststeps')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -52,6 +53,7 @@
             :title="$t('AppBar.firststeps')"
             to="/firststeps"
             value="firststeps"
+            @click="onNavClick('/firststeps')"
           />
         </template>
       </v-tooltip>
@@ -59,7 +61,7 @@
       <v-divider />
 
       <v-skeleton-loader v-if="!isAuthReady" class="hidden-sm-and-down" type="list-item" />
-      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.wallet')">
+      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.wallet')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -70,12 +72,13 @@
             :title="$t('AppBar.wallet')"
             to="/wallet"
             value="wallet"
+            @click="onNavClick('/wallet')"
           />
         </template>
       </v-tooltip>
 
       <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
-      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.favorites')">
+      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.favorites')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -85,12 +88,13 @@
             :title="$t('AppBar.favorites')"
             to="/favorites"
             value="favorites"
+            @click="onNavClick('/favorites')"
           />
         </template>
       </v-tooltip>
 
       <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
-      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.subscriptions')">
+      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.subscriptions')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -100,12 +104,13 @@
             :title="$t('AppBar.subscriptions')"
             to="/subscriptions"
             value="subscriptions"
+            @click="onNavClick('/subscriptions')"
           />
         </template>
       </v-tooltip>
 
       <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
-      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.purchased')">
+      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.purchased')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -115,6 +120,7 @@
             :title="$t('AppBar.purchased')"
             to="/purchased"
             value="purchased"
+            @click="onNavClick('/purchased')"
           />
         </template>
       </v-tooltip>
@@ -122,7 +128,7 @@
       <v-divider />
 
       <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
-      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.ecosystem')">
+      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.ecosystem')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -131,12 +137,13 @@
             :title="$t('AppBar.ecosystem')"
             to="/ecosystem"
             value="ecosystem"
+            @click="onNavClick('/ecosystem')"
           />
         </template>
       </v-tooltip>
 
       <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
-      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.community')">
+      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.community')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -145,13 +152,14 @@
             :title="$t('AppBar.community')"
             to="/community"
             value="community"
+            @click="onNavClick('/community')"
           />
         </template>
       </v-tooltip>
 
       <!-- TODO: temporarily hidden – re-enable when Featured is ready
       <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
-      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.featured')">
+      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.featured')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -166,7 +174,7 @@
       -->
 
       <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
-      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.explore')">
+      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.explore')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -175,6 +183,7 @@
             :title="$t('AppBar.explore')"
             to="/explore"
             value="explore"
+            @click="onNavClick('/explore')"
           />
         </template>
       </v-tooltip>
@@ -182,7 +191,7 @@
       <v-divider />
 
       <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
-      <v-tooltip v-else :disabled="mobileView" :text="$t('AppBar.account')">
+      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.account')">
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
@@ -192,6 +201,7 @@
             :title="$t('AppBar.account')"
             to="/account"
             value="account"
+            @click="onNavClick('/account')"
           />
         </template>
       </v-tooltip>
@@ -206,12 +216,12 @@
   </v-navigation-drawer>
 
   <v-bottom-navigation class="hidden-md-and-up" :elevation="9" grow>
-    <v-btn exact to="/">
+    <v-btn exact to="/" @click="onNavClick('/')">
       <v-icon>mdi-home</v-icon>
       {{ $t("AppBar.home") }}
     </v-btn>
 
-    <v-btn :disabled="!loggedIn" exact to="/wallet">
+    <v-btn :disabled="!loggedIn" exact to="/wallet" @click="onNavClick('/wallet')">
       <v-icon>mdi-wallet-outline</v-icon>
       {{ $t("AppBar.wallet") }}
     </v-btn>
@@ -225,6 +235,7 @@
 <script setup lang="ts">
   import { storeToRefs } from 'pinia'
   import { computed, onMounted, ref, watch } from 'vue'
+  import { useRoute } from 'vue-router'
   import logo from '@/assets/logo.svg?raw'
   import CxDarkLightMode from '@/components/CxDarkLightMode.vue'
   import CxLanguageDialog from '@/components/CxLanguageDialog.vue'
@@ -235,6 +246,9 @@
   import { useAuthStore } from '@/stores/auth'
 
   const logoSvg = logo
+
+  // Router
+  const route = useRoute()
 
   // Store
   const appStore = useAppStore()
@@ -257,6 +271,12 @@
   })
 
   // Methods
+  function onNavClick (path: string) {
+    if (route.path === path) {
+      appStore.triggerRefresh()
+    }
+  }
+
   function handleResize () {
     if (mobileView.value) {
       rail.value = false

@@ -98,7 +98,7 @@
   import type { PurchasedEntryModel } from '@/api/types/purchase.types'
   import type { Entry } from '@/components/entry/EntryCard.vue'
 
-  import { computed, nextTick, onMounted, ref } from 'vue'
+  import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
@@ -106,12 +106,14 @@
   import EntryCard from '@/components/entry/EntryCard.vue'
   import EntryCardSkeleton from '@/components/entry/EntryCardSkeleton.vue'
   import { isPopNavigation } from '@/router'
+  import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
   import { usePurchasesStore } from '@/stores/purchases'
   import { useScrollCacheStore } from '@/stores/scrollCache'
 
   const { t } = useI18n()
   const authStore = useAuthStore()
+  const appStore = useAppStore()
   const purchasesStore = usePurchasesStore()
   const route = useRoute()
   const scrollCache = useScrollCacheStore()
@@ -175,8 +177,8 @@
       currentPage.value = response.page
       totalPages.value = response.totalPages
       syncPurchasesStore(response.items)
-    } catch (err) {
-      console.error('[Purchased] Failed to fetch purchases:', err)
+    } catch (error_) {
+      console.error('[Purchased] Failed to fetch purchases:', error_)
       error.value = true
     } finally {
       loading.value = false
@@ -194,8 +196,8 @@
       currentPage.value = response.page
       totalPages.value = response.totalPages
       syncPurchasesStore(response.items)
-    } catch (err) {
-      console.error('[Purchased] Failed to load more:', err)
+    } catch (error_) {
+      console.error('[Purchased] Failed to load more:', error_)
     } finally {
       loadingMore.value = false
     }
@@ -227,6 +229,11 @@
     } else {
       fetchPurchases()
     }
+  })
+
+  watch(() => appStore.refreshKey, () => {
+    window.scrollTo(0, 0)
+    fetchPurchases()
   })
 </script>
 

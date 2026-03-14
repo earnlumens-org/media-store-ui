@@ -184,11 +184,13 @@
   import CxDeposit from '@/components/wallet/CxDeposit.vue'
   import CxHistory from '@/components/wallet/CxHistory.vue'
   import { accountExists, getXLMBalance, streamPayments } from '@/services/stellar'
+  import { useAppStore } from '@/stores/app'
   import { useWalletStore } from '@/stores/wallet'
 
   const BALANCE_TIMEOUT_MS = 10_000
 
   const walletStore = useWalletStore()
+  const appStore = useAppStore()
   const showBottomSheet = ref(false)
   const xlmBalance = ref(0)
   const isLoadingBalance = ref(false)
@@ -306,6 +308,12 @@
     await fetchBalance()
     startStream()
     document.addEventListener('visibilitychange', handleVisibilityChange)
+  })
+
+  watch(() => appStore.refreshKey, () => {
+    window.scrollTo(0, 0)
+    fetchBalance()
+    newPaymentSignal.value++
   })
 
   onUnmounted(() => {

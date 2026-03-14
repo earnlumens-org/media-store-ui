@@ -121,11 +121,12 @@
   import type { FeedPageModel, FeedRequestParams } from '@/api/api'
   import type { FeedItemModel } from '@/api/api'
 
-  import { computed, nextTick, onMounted, ref } from 'vue'
+  import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
   import { isPopNavigation } from '@/router'
+  import { useAppStore } from '@/stores/app'
   import { useFeedCacheStore } from '@/stores/feedCache'
   import { useScrollCacheStore } from '@/stores/scrollCache'
 
@@ -145,6 +146,7 @@
   })
 
   const feedCache = useFeedCacheStore()
+  const appStore = useAppStore()
   const route = useRoute()
   const scrollCache = useScrollCacheStore()
 
@@ -244,5 +246,10 @@
     } else {
       fetchFeed()
     }
+  })
+
+  watch(() => appStore.refreshKey, () => {
+    window.scrollTo(0, 0)
+    fetchFeed()
   })
 </script>

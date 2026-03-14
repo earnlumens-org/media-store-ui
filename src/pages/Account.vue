@@ -180,7 +180,7 @@
 
 <script setup lang="ts">
   import type { UserProfile } from '@/api/modules/user.api'
-  import { onMounted, ref } from 'vue'
+  import { onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRouter } from 'vue-router'
   import { api, ApiError } from '@/api/api'
@@ -268,6 +268,11 @@
   }
 
   onMounted(() => {
+    fetchUser()
+  })
+
+  watch(() => appStore.refreshKey, () => {
+    window.scrollTo(0, 0)
     fetchUser()
   })
 </script>

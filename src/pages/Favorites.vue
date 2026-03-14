@@ -91,7 +91,7 @@
   import type { Collection } from '@/components/collection/CollectionCard.vue'
   import type { Entry } from '@/components/entry/EntryCard.vue'
 
-  import { computed, nextTick, onMounted, ref } from 'vue'
+  import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
@@ -99,10 +99,12 @@
   import EntryCard from '@/components/entry/EntryCard.vue'
   import EntryCardSkeleton from '@/components/entry/EntryCardSkeleton.vue'
   import { isPopNavigation } from '@/router'
+  import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
   import { useScrollCacheStore } from '@/stores/scrollCache'
 
   const auth = useAuthStore()
+  const appStore = useAppStore()
   const route = useRoute()
   const scrollCache = useScrollCacheStore()
 
@@ -214,6 +216,11 @@
     } else {
       fetchFavorites()
     }
+  })
+
+  watch(() => appStore.refreshKey, () => {
+    window.scrollTo(0, 0)
+    fetchFavorites()
   })
 </script>
 

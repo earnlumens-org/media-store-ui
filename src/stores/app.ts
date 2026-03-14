@@ -10,6 +10,7 @@ interface AppState {
   mobileView: boolean
   themeName: string
   isAppLocked: boolean
+  refreshKey: number
 }
 
 export const useAppStore = defineStore('app', {
@@ -18,6 +19,7 @@ export const useAppStore = defineStore('app', {
     mobileView: window.innerWidth < 960,
     themeName: 'amoledGray',
     isAppLocked: false,
+    refreshKey: 0,
   }),
 
   actions: {
@@ -30,6 +32,9 @@ export const useAppStore = defineStore('app', {
     },
     setIsAppLocked (value: boolean) {
       this.isAppLocked = value
+    },
+    triggerRefresh () {
+      this.refreshKey++
     },
   },
 })

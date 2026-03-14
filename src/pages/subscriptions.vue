@@ -111,13 +111,15 @@
 <script setup lang="ts">
   import type { SubscriptionUserModel } from '@/api/types/subscription.types'
 
-  import { computed, onMounted, ref } from 'vue'
+  import { computed, onMounted, ref, watch } from 'vue'
 
   import { api } from '@/api/api'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
+  import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
 
   const auth = useAuthStore()
+  const appStore = useAppStore()
 
   const subscriptions = ref<SubscriptionUserModel[]>([])
   const loading = ref(true)
@@ -167,6 +169,11 @@
   }
 
   onMounted(() => {
+    fetchSubscriptions()
+  })
+
+  watch(() => appStore.refreshKey, () => {
+    window.scrollTo(0, 0)
     fetchSubscriptions()
   })
 </script>
