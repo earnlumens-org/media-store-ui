@@ -462,6 +462,12 @@
               </v-card-text>
             </v-card>
 
+            <!-- Description -->
+            <div v-if="realDescription" class="pa-4">
+              <h2 class="text-subtitle-1 font-weight-medium mb-2">{{ $t('Preview.about') }}</h2>
+              <p class="text-body-2 text-medium-emphasis" style="white-space: pre-line;">{{ realDescription }}</p>
+            </div>
+
             <!-- Mobile: Paywall card inline -->
             <div class="d-md-none pa-4">
               <!-- Paywall Card -->

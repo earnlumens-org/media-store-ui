@@ -377,6 +377,7 @@
         }
     },
     "Preview": {
+        "about": "Beschreibung",
         "failedToLoadContent": "Inhalt konnte nicht geladen werden",
         "contentNotFound": "Inhalt nicht gefunden",
         "contentNotFoundDescription": "Der gesuchte Inhalt existiert nicht oder wurde entfernt.",

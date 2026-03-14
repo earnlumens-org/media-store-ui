@@ -377,6 +377,7 @@
         }
     },
     "Preview": {
+        "about": "विवरण",
         "failedToLoadContent": "सामग्री लोड करने में विफल",
         "contentNotFound": "सामग्री नहीं मिली",
         "contentNotFoundDescription": "जो सामग्री आप खोज रहे हैं वह मौजूद नहीं है या हटा दी गई है।",

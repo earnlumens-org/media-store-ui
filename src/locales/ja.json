@@ -377,6 +377,7 @@
         }
     },
     "Preview": {
+        "about": "説明",
         "failedToLoadContent": "コンテンツの読み込みに失敗しました",
         "contentNotFound": "コンテンツが見つかりません",
         "contentNotFoundDescription": "お探しのコンテンツは存在しないか、削除されました。",

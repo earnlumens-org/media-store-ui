@@ -357,11 +357,24 @@
       <v-progress-circular
         class="mb-4"
         color="primary"
-        indeterminate
+        :indeterminate="currentUploadPercent == null"
+        :model-value="currentUploadPercent ?? 0"
         size="56"
         width="4"
-      />
+      >
+        <span v-if="currentUploadPercent != null" class="text-caption">
+          {{ Math.round(currentUploadPercent) }}%
+        </span>
+      </v-progress-circular>
       <div class="text-h6 mb-1">{{ progressMessage }}</div>
+      <v-progress-linear
+        v-if="currentUploadPercent != null"
+        :model-value="currentUploadPercent"
+        color="primary"
+        class="mt-3"
+        rounded
+        height="6"
+      />
     </v-card>
   </v-overlay>
 
@@ -502,6 +515,7 @@
   const isUploading = ref(false)
   const showProgressOverlay = ref(false)
   const progressMessage = ref('')
+  const currentUploadPercent = ref<number | null>(null)
   const createdEntryId = ref<string | null>(null)
 
   const snackbar = reactive({
@@ -676,9 +690,12 @@
 
     // Upload to R2
     progressMessage.value = t('Upload.progress.uploadingFile', { name: file.name })
+    currentUploadPercent.value = 0
     await api.upload.uploadToR2(initResp.presignedUrl, file, percent => {
       progress[progressKey] = percent
+      currentUploadPercent.value = percent
     })
+    currentUploadPercent.value = null
 
     // Finalize
     progressMessage.value = t('Upload.progress.finalizingUpload')

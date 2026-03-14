@@ -377,6 +377,7 @@
         }
     },
     "Preview": {
+        "about": "الوصف",
         "failedToLoadContent": "فشل تحميل المحتوى",
         "contentNotFound": "المحتوى غير موجود",
         "contentNotFoundDescription": "المحتوى الذي تبحث عنه غير موجود أو تم حذفه.",

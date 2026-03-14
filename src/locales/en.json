@@ -391,6 +391,7 @@
         }
     },
     "Preview": {
+        "about": "About",
         "failedToLoadContent": "Failed to load content",
         "contentNotFound": "Content not found",
         "contentNotFoundDescription": "The content you're looking for doesn't exist or has been removed.",

@@ -377,6 +377,7 @@
         }
     },
     "Preview": {
+        "about": "简介",
         "failedToLoadContent": "加载内容失败",
         "contentNotFound": "未找到内容",
         "contentNotFoundDescription": "您查找的内容不存在或已被删除。",

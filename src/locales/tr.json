@@ -377,6 +377,7 @@
         }
     },
     "Preview": {
+        "about": "Açıklama",
         "failedToLoadContent": "İçerik yüklenemedi",
         "contentNotFound": "İçerik bulunamadı",
         "contentNotFoundDescription": "Aradığınız içerik mevcut değil veya kaldırılmış.",

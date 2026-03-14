@@ -2,7 +2,7 @@
   <!-- Inline type selector when no query param -->
   <v-container v-if="!resolvedType" class="fill-height" fluid>
     <v-row align="center" justify="center">
-      <v-col cols="12" sm="8" md="6" lg="5">
+      <v-col cols="12" lg="5" md="6" sm="8">
         <v-card class="picker-card pa-6">
           <div class="d-flex align-center mb-1">
             <v-icon class="me-2" color="primary" size="28">mdi-plus-circle-outline</v-icon>
@@ -59,11 +59,13 @@
 
 <script setup lang="ts">
   import type { UploadContentType } from '@/api/types/upload.types'
+
+  import { computed, ref } from 'vue'
+  import { useI18n } from 'vue-i18n'
+  import { useRoute, useRouter } from 'vue-router'
+
   import { UPLOAD_CONTENT_TYPES } from '@/api/types/upload.types'
   import UploadForm from '@/components/upload/UploadForm.vue'
-  import { computed, ref } from 'vue'
-  import { useRoute, useRouter } from 'vue-router'
-  import { useI18n } from 'vue-i18n'
 
   const route = useRoute()
   const router = useRouter()
@@ -71,7 +73,7 @@
 
   const hoveredType = ref<string | null>(null)
 
-  const contentTypes: { value: UploadContentType; icon: string }[] = [
+  const contentTypes: { value: UploadContentType, icon: string }[] = [
     { value: 'video', icon: 'mdi-video-outline' },
     { value: 'audio', icon: 'mdi-music-note' },
     { value: 'image', icon: 'mdi-image-outline' },

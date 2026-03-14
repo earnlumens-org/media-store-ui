@@ -377,6 +377,7 @@
         }
     },
     "Preview": {
+        "about": "簡介",
         "failedToLoadContent": "載入內容失敗",
         "contentNotFound": "找不到內容",
         "contentNotFoundDescription": "您尋找的內容不存在或已被移除。",

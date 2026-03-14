@@ -377,6 +377,7 @@
         }
     },
     "Preview": {
+        "about": "Опис",
         "failedToLoadContent": "Не вдалося завантажити вміст",
         "contentNotFound": "Вміст не знайдено",
         "contentNotFoundDescription": "Вміст, який ви шукаєте, не існує або був видалений.",

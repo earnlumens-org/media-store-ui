@@ -377,6 +377,7 @@
         }
     },
     "Preview": {
+        "about": "Описание",
         "failedToLoadContent": "Не удалось загрузить контент",
         "contentNotFound": "Контент не найден",
         "contentNotFoundDescription": "Контент, который вы ищете, не существует или был удалён.",

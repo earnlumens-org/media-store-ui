@@ -377,6 +377,7 @@
         }
     },
     "Preview": {
+        "about": "Mô tả",
         "failedToLoadContent": "Không thể tải nội dung",
         "contentNotFound": "Không tìm thấy nội dung",
         "contentNotFoundDescription": "Nội dung bạn tìm kiếm không tồn tại hoặc đã bị xóa.",

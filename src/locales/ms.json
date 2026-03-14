@@ -377,6 +377,7 @@
         }
     },
     "Preview": {
+        "about": "Penerangan",
         "failedToLoadContent": "Gagal memuatkan kandungan",
         "contentNotFound": "Kandungan tidak dijumpai",
         "contentNotFoundDescription": "Kandungan yang anda cari tidak wujud atau telah dibuang.",

@@ -377,6 +377,7 @@
         }
     },
     "Preview": {
+        "about": "Description",
         "failedToLoadContent": "Échec du chargement du contenu",
         "contentNotFound": "Contenu non trouvé",
         "contentNotFoundDescription": "Le contenu que vous recherchez n'existe pas ou a été supprimé.",
