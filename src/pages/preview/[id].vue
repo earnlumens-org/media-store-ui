@@ -210,45 +210,38 @@
                   </template>
                 </v-img>
               </template>
-              <!-- No preview: thumbnail with locked overlay -->
+              <!-- Locked state: blurred thumbnail or cinematic dark -->
               <template v-else>
-                <v-img
-                  aspect-ratio="16/9"
-                  cover
-                  :src="content.thumbnailUrl || 'https://picsum.photos/seed/video-preview/800/450'"
-                >
-                  <template #placeholder>
-                    <v-sheet class="h-100 w-100 d-flex align-center justify-center" color="grey-darken-4">
-                      <v-progress-circular color="white" indeterminate />
-                    </v-sheet>
-                  </template>
-                </v-img>
-                <!-- Locked overlay -->
-                <v-overlay
-                  class="d-flex align-center justify-center"
-                  :close-on-back="false"
-                  contained
-                  :model-value="true"
-                  persistent
-                  scrim="black"
-                >
-                  <div class="text-center">
-                    <v-icon color="white" size="80">mdi-lock</v-icon>
-                    <div class="text-h6 text-white mt-2">{{ $t('Preview.premiumVideo') }}</div>
-                    <div class="text-body-2 text-white-secondary">{{ $t('Preview.unlockToWatch') }}</div>
+                <div class="locked-player" style="position: relative; aspect-ratio: 16/9; overflow: hidden;">
+                  <!-- Background: blurred thumbnail or dark fallback -->
+                  <div
+                    v-if="content.thumbnailUrl"
+                    class="locked-player__bg"
+                    :style="{ backgroundImage: `url(${content.thumbnailUrl})` }"
+                  />
+                  <div v-else class="locked-player__bg locked-player__bg--empty" />
+
+                  <!-- Dark gradient + vignette overlay -->
+                  <div class="locked-player__vignette" />
+
+                  <!-- Center: glassmorphism card -->
+                  <div class="locked-player__center">
+                    <div class="locked-player__glass">
+                      <v-icon color="rgba(243,187,83,0.9)" size="28">mdi-lock</v-icon>
+                      <div class="locked-player__title">{{ $t('Preview.premiumVideo') }}</div>
+                      <div class="locked-player__subtitle">{{ $t('Preview.unlockToWatch') }}</div>
+                    </div>
                   </div>
-                </v-overlay>
+
+                  <!-- Duration badge -->
+                  <span
+                    v-if="content.durationSec"
+                    class="locked-player__duration"
+                  >
+                    {{ formatDuration(content.durationSec) }}
+                  </span>
+                </div>
               </template>
-              <!-- Duration badge -->
-              <v-chip
-                v-if="content.durationSec"
-                class="position-absolute"
-                color="black"
-                size="small"
-                style="bottom: 12px; right: 12px; opacity: 0.8;"
-              >
-                {{ formatDuration(content.durationSec) }}
-              </v-chip>
             </v-sheet>
 
             <!-- AUDIO Preview: Disabled player UI -->
@@ -336,33 +329,45 @@
               v-else-if="contentType === 'image'"
               class="rounded-0 rounded-md-lg overflow-hidden position-relative"
             >
-              <v-img
-                aspect-ratio="4/3"
-                class="blur-preview"
-                cover
-                :src="content.thumbnailUrl || 'https://picsum.photos/seed/image-preview/800/600'"
-              >
-                <template #placeholder>
-                  <v-sheet class="h-100 w-100 d-flex align-center justify-center" color="grey-darken-4">
-                    <v-progress-circular color="white" indeterminate />
-                  </v-sheet>
-                </template>
-              </v-img>
-              <!-- Locked overlay -->
-              <v-overlay
-                class="d-flex align-center justify-center"
-                :close-on-back="false"
-                contained
-                :model-value="true"
-                persistent
-                scrim="rgba(0,0,0,0.6)"
-              >
-                <div class="text-center">
-                  <v-icon color="white" size="80">mdi-lock</v-icon>
-                  <div class="text-h6 text-white mt-2">{{ $t('Preview.premiumImage') }}</div>
-                  <div class="text-body-2 text-white-secondary">{{ $t('Preview.unlockForFullResolution') }}</div>
-                </div>
-              </v-overlay>
+              <template v-if="content.thumbnailUrl">
+                <v-img
+                  aspect-ratio="4/3"
+                  class="blur-preview"
+                  cover
+                  :src="content.thumbnailUrl"
+                >
+                  <template #placeholder>
+                    <v-sheet class="h-100 w-100 d-flex align-center justify-center" color="grey-darken-4">
+                      <v-progress-circular color="white" indeterminate />
+                    </v-sheet>
+                  </template>
+                </v-img>
+                <v-overlay
+                  class="d-flex align-center justify-center"
+                  :close-on-back="false"
+                  contained
+                  :model-value="true"
+                  persistent
+                  scrim="rgba(0,0,0,0.55)"
+                >
+                  <div class="text-center">
+                    <v-icon color="white" size="64">mdi-lock-outline</v-icon>
+                    <div class="text-subtitle-1 text-white font-weight-medium mt-2">{{ $t('Preview.premiumImage') }}</div>
+                    <div class="text-body-2 text-grey-lighten-1">{{ $t('Preview.unlockForFullResolution') }}</div>
+                  </div>
+                </v-overlay>
+              </template>
+              <template v-else>
+                <v-sheet
+                  class="d-flex flex-column align-center justify-center"
+                  color="grey-darken-4"
+                  style="aspect-ratio: 4/3;"
+                >
+                  <v-icon class="mb-3" color="grey-lighten-1" size="64">mdi-lock-outline</v-icon>
+                  <div class="text-subtitle-1 text-white font-weight-medium">{{ $t('Preview.premiumImage') }}</div>
+                  <div class="text-body-2 text-grey mt-1">{{ $t('Preview.unlockForFullResolution') }}</div>
+                </v-sheet>
+              </template>
             </v-sheet>
 
             <!-- RESOURCE Preview: First 200 chars excerpt -->
@@ -949,6 +954,98 @@
 </script>
 
 <style scoped>
+/* ── Locked premium player ─────────────────────────────── */
+.locked-player {
+  background: #0a0a0f;
+  border-radius: inherit;
+}
+
+/* Blurred thumbnail background */
+.locked-player__bg {
+  position: absolute;
+  inset: -20px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(28px) brightness(0.35) saturate(0.7);
+  z-index: 0;
+}
+
+/* Fallback when no thumbnail */
+.locked-player__bg--empty {
+  background: radial-gradient(ellipse at 50% 40%, #1a1520 0%, #0a0a0f 70%);
+  filter: none;
+}
+
+/* Dark vignette + gradient overlay */
+.locked-player__vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.65) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+/* Center content positioning */
+.locked-player__center {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Glassmorphism card */
+.locked-player__glass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 40px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.locked-player__title {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.02em;
+}
+
+.locked-player__subtitle {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.01em;
+}
+
+/* Duration badge */
+.locked-player__duration {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 3;
+  padding: 2px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+/* ── Blur effects for other content types ──────────────── */
 /* Blur effect for locked previews - using Vuetify utility where possible */
 .blur-preview :deep(.v-img__img) {
   filter: blur(20px);
