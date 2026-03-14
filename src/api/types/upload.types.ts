@@ -110,6 +110,9 @@ export const ACCEPTED_MIMES: Record<UploadContentType, string> = {
 /** Accepted MIME types for thumbnails */
 export const THUMBNAIL_MIMES = 'image/jpeg,image/png,image/webp'
 
+/** Accepted MIME types for preview clips/images (browser-compatible only) */
+export const PREVIEW_MIMES = 'video/mp4,video/webm,image/jpeg,image/png,image/webp'
+
 /** Max file sizes in bytes */
 export const MAX_FILE_SIZES: Record<UploadContentType, number> = {
   video: 5 * 1024 * 1024 * 1024, // 5 GB
@@ -119,6 +122,7 @@ export const MAX_FILE_SIZES: Record<UploadContentType, number> = {
 }
 
 export const MAX_THUMBNAIL_SIZE = 10 * 1024 * 1024 // 10 MB
+export const MAX_PREVIEW_SIZE = 512 * 1024 * 1024 // 512 MB
 
 export function formatFileSize (bytes: number): string {
   if (bytes === 0) {

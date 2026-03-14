@@ -178,37 +178,67 @@
 
             <!-- TYPE-SPECIFIC PREVIEW -->
 
-            <!-- VIDEO Preview: Thumbnail with play overlay + locked badge -->
+            <!-- VIDEO Preview: Clip player or Thumbnail with locked badge -->
             <v-sheet
               v-if="contentType === 'video'"
               class="rounded-0 rounded-md-lg overflow-hidden position-relative"
             >
-              <v-img
-                aspect-ratio="16/9"
-                cover
-                :src="content.thumbnailUrl || 'https://picsum.photos/seed/video-preview/800/450'"
-              >
-                <template #placeholder>
-                  <v-sheet class="h-100 w-100 d-flex align-center justify-center" color="grey-darken-4">
-                    <v-progress-circular color="white" indeterminate />
-                  </v-sheet>
-                </template>
-              </v-img>
-              <!-- Locked overlay -->
-              <v-overlay
-                class="d-flex align-center justify-center"
-                :close-on-back="false"
-                contained
-                :model-value="true"
-                persistent
-                scrim="black"
-              >
-                <div class="text-center">
-                  <v-icon color="white" size="80">mdi-lock</v-icon>
-                  <div class="text-h6 text-white mt-2">{{ $t('Preview.premiumVideo') }}</div>
-                  <div class="text-body-2 text-white-secondary">{{ $t('Preview.unlockToWatch') }}</div>
-                </div>
-              </v-overlay>
+              <!-- Preview clip available: show playable video -->
+              <template v-if="content.previewUrl && isPreviewVideo">
+                <video
+                  class="w-100 d-block"
+                  controls
+                  controlslist="nodownload"
+                  :poster="content.thumbnailUrl"
+                  preload="metadata"
+                  style="aspect-ratio: 16/9; background: #111; object-fit: contain;"
+                >
+                  <source :src="content.previewUrl">
+                </video>
+              </template>
+              <!-- Preview image available: show it instead of thumbnail -->
+              <template v-else-if="content.previewUrl && !isPreviewVideo">
+                <v-img
+                  aspect-ratio="16/9"
+                  cover
+                  :src="content.previewUrl"
+                >
+                  <template #placeholder>
+                    <v-sheet class="h-100 w-100 d-flex align-center justify-center" color="grey-darken-4">
+                      <v-progress-circular color="white" indeterminate />
+                    </v-sheet>
+                  </template>
+                </v-img>
+              </template>
+              <!-- No preview: thumbnail with locked overlay -->
+              <template v-else>
+                <v-img
+                  aspect-ratio="16/9"
+                  cover
+                  :src="content.thumbnailUrl || 'https://picsum.photos/seed/video-preview/800/450'"
+                >
+                  <template #placeholder>
+                    <v-sheet class="h-100 w-100 d-flex align-center justify-center" color="grey-darken-4">
+                      <v-progress-circular color="white" indeterminate />
+                    </v-sheet>
+                  </template>
+                </v-img>
+                <!-- Locked overlay -->
+                <v-overlay
+                  class="d-flex align-center justify-center"
+                  :close-on-back="false"
+                  contained
+                  :model-value="true"
+                  persistent
+                  scrim="black"
+                >
+                  <div class="text-center">
+                    <v-icon color="white" size="80">mdi-lock</v-icon>
+                    <div class="text-h6 text-white mt-2">{{ $t('Preview.premiumVideo') }}</div>
+                    <div class="text-body-2 text-white-secondary">{{ $t('Preview.unlockToWatch') }}</div>
+                  </div>
+                </v-overlay>
+              </template>
               <!-- Duration badge -->
               <v-chip
                 v-if="content.durationSec"
@@ -686,6 +716,14 @@
     return content.value?.type || 'resource'
   })
 
+  // Detect if the preview asset is a video (vs image)
+  const isPreviewVideo = computed(() => {
+    const url = content.value?.previewUrl
+    if (!url) return false
+    const lower = url.toLowerCase()
+    return lower.includes('.mp4') || lower.includes('.webm') || lower.includes('video')
+  })
+
   // Price: use real price when available, fall back to type-based defaults
   const contentPrice = computed(() => {
     if (realPrice.value != null) return realPrice.value
@@ -813,6 +851,7 @@
         authorAvatarUrl: data.authorAvatarUrl,
         publishedAt: data.publishedAt,
         thumbnailUrl: data.thumbnailUrl,
+        previewUrl: data.previewUrl,
         durationSec: data.durationSec,
         locked: data.isPaid,
       }

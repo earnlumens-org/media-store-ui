@@ -299,8 +299,8 @@
                 <UploadAssetPicker
                   v-model:file="assets.preview"
                   v-model:progress="progress.preview"
-                  :accept="acceptedMimes || THUMBNAIL_MIMES"
-                  :max-size="maxFileSize || MAX_THUMBNAIL_SIZE"
+                  :accept="PREVIEW_MIMES"
+                  :max-size="MAX_PREVIEW_SIZE"
                 />
               </v-card>
             </v-col>
@@ -405,7 +405,9 @@
   import {
     ACCEPTED_MIMES,
     MAX_FILE_SIZES,
+    MAX_PREVIEW_SIZE,
     MAX_THUMBNAIL_SIZE,
+    PREVIEW_MIMES,
     THUMBNAIL_MIMES,
     toEntryType,
   } from '@/api/types/upload.types'

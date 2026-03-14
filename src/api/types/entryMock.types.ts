@@ -52,6 +52,7 @@ export interface EntryModel {
   profileBadge?: ProfileBadge
   publishedAt: string | Date
   thumbnailUrl?: string
+  previewUrl?: string
   durationSec?: number
   locked?: boolean
 }
