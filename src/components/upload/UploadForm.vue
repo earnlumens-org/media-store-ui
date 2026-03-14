@@ -288,8 +288,8 @@
                 />
               </v-card>
 
-              <!-- Preview -->
-              <v-card class="pa-4 mb-4">
+              <!-- Preview (only for paid content) -->
+              <v-card v-if="form.isPaid" class="pa-4 mb-4">
                 <div class="text-subtitle-2 mb-1">
                   {{ t('Upload.assets.preview') }}
                 </div>
@@ -465,6 +465,11 @@
     async ([address, isPaid]) => {
       if (!address || !isPaid) {
         isWalletUnfunded.value = false
+        // Clear preview asset when switching to free content
+        if (!isPaid) {
+          assets.preview = null
+          progress.preview = null
+        }
         return
       }
       isCheckingWallet.value = true
