@@ -90,7 +90,8 @@
         "removeFromFavorites": "पसंदीदा से हटाएं",
         "addedToFavorites": "पसंदीदा में जोड़ा गया",
         "removedFromFavorites": "पसंदीदा से हटाया गया",
-        "linkCopied": "लिंक क्लिपबोर्ड पर कॉपी किया गया"
+        "linkCopied": "लिंक क्लिपबोर्ड पर कॉपी किया गया",
+        "tooManyRequests": "बहुत अधिक अनुरोध। कृपया कुछ देर प्रतीक्षा करें और पुनः प्रयास करें।"
     },
     "Themes": {
         "title": "EarnLumens थीम चयनकर्ता",

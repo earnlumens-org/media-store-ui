@@ -90,7 +90,8 @@
         "removeFromFavorites": "Xóa khỏi yêu thích",
         "addedToFavorites": "Đã thêm vào yêu thích",
         "removedFromFavorites": "Đã xóa khỏi yêu thích",
-        "linkCopied": "Đã sao chép liên kết vào bộ nhớ tạm"
+        "linkCopied": "Đã sao chép liên kết vào bộ nhớ tạm",
+        "tooManyRequests": "Quá nhiều yêu cầu. Vui lòng đợi một chút và thử lại."
     },
     "Themes": {
         "title": "Bộ chọn chủ đề EarnLumens",

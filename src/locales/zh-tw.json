@@ -90,7 +90,8 @@
         "removeFromFavorites": "從收藏中移除",
         "addedToFavorites": "已加入收藏",
         "removedFromFavorites": "已從收藏中移除",
-        "linkCopied": "連結已複製到剪貼簿"
+        "linkCopied": "連結已複製到剪貼簿",
+        "tooManyRequests": "請求過多。請稍候再試。"
     },
     "Themes": {
         "title": "EarnLumens 主題選擇器",

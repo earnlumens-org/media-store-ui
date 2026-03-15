@@ -4,6 +4,7 @@
  */
 
 import { apiUrl } from '@/config/env'
+import { showGlobalNotification } from '@/services/globalNotification'
 import { getToken } from '@/services/tokenWorkerClient'
 
 export interface ApiRequestOptions extends Omit<RequestInit, 'headers'> {
@@ -66,6 +67,10 @@ export async function apiRequest<T> (
     let errorData: unknown
     if (isJson) {
       errorData = await response.json().catch(() => ({}))
+    }
+
+    if (response.status === 429) {
+      showGlobalNotification('Common.tooManyRequests')
     }
 
     throw new ApiError(

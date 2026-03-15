@@ -6,6 +6,8 @@ import type {
   InternalAxiosRequestConfig,
 } from 'axios'
 
+import { showGlobalNotification } from '@/services/globalNotification'
+
 export interface ApiHttpError {
   message: string
   status?: number
@@ -51,6 +53,10 @@ export function installAxiosInterceptors (client: AxiosInstance): void {
     (response: AxiosResponse) => response,
     (error: unknown) => {
       const normalized = toApiHttpError(error)
+
+      if (normalized.status === 429) {
+        showGlobalNotification('Common.tooManyRequests')
+      }
 
       // Cross-cutting concern only: keep business logic out.
       if (import.meta.env.DEV) {

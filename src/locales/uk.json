@@ -90,7 +90,8 @@
         "removeFromFavorites": "Видалити з обраного",
         "addedToFavorites": "Додано до обраного",
         "removedFromFavorites": "Видалено з обраного",
-        "linkCopied": "Посилання скопійовано до буфера обміну"
+        "linkCopied": "Посилання скопійовано до буфера обміну",
+        "tooManyRequests": "Забагато запитів. Зачекайте хвилинку і спробуйте знову."
     },
     "Themes": {
         "title": "Вибір теми EarnLumens",

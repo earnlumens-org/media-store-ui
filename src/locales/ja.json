@@ -90,7 +90,8 @@
         "removeFromFavorites": "お気に入りから削除",
         "addedToFavorites": "お気に入りに追加しました",
         "removedFromFavorites": "お気に入りから削除しました",
-        "linkCopied": "リンクをクリップボードにコピーしました"
+        "linkCopied": "リンクをクリップボードにコピーしました",
+        "tooManyRequests": "リクエストが多すぎます。しばらくしてからもう一度お試しください。"
     },
     "Themes": {
         "title": "EarnLumens テーマセレクター",

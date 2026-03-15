@@ -90,7 +90,8 @@
         "removeFromFavorites": "Favorilerden kaldır",
         "addedToFavorites": "Favorilere eklendi",
         "removedFromFavorites": "Favorilerden kaldırıldı",
-        "linkCopied": "Bağlantı panoya kopyalandı"
+        "linkCopied": "Bağlantı panoya kopyalandı",
+        "tooManyRequests": "Çok fazla istek. Lütfen bir süre bekleyin ve tekrar deneyin."
     },
     "Themes": {
         "title": "EarnLumens Tema Seçici",

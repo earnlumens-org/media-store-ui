@@ -90,7 +90,8 @@
         "removeFromFavorites": "Alih keluar daripada kegemaran",
         "addedToFavorites": "Ditambah ke kegemaran",
         "removedFromFavorites": "Dialih keluar daripada kegemaran",
-        "linkCopied": "Pautan disalin ke papan keratan"
+        "linkCopied": "Pautan disalin ke papan keratan",
+        "tooManyRequests": "Terlalu banyak permintaan. Sila tunggu sebentar dan cuba lagi."
     },
     "Themes": {
         "title": "Pemilih Tema EarnLumens",

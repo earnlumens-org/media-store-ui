@@ -90,7 +90,8 @@
         "removeFromFavorites": "إزالة من المفضلة",
         "addedToFavorites": "تمت الإضافة إلى المفضلة",
         "removedFromFavorites": "تمت الإزالة من المفضلة",
-        "linkCopied": "تم نسخ الرابط إلى الحافظة"
+        "linkCopied": "تم نسخ الرابط إلى الحافظة",
+        "tooManyRequests": "طلبات كثيرة جدًا. يرجى الانتظار لحظة والمحاولة مرة أخرى."
     },
     "Themes": {
         "title": "محدد سمات EarnLumens",

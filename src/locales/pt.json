@@ -90,7 +90,8 @@
         "removeFromFavorites": "Remover dos favoritos",
         "addedToFavorites": "Adicionado aos favoritos",
         "removedFromFavorites": "Removido dos favoritos",
-        "linkCopied": "Link copiado para a área de transferência"
+        "linkCopied": "Link copiado para a área de transferência",
+        "tooManyRequests": "Muitas solicitações. Por favor, aguarde um momento e tente novamente."
     },
     "Themes": {
         "title": "Seletor de temas do EarnLumens",

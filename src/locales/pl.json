@@ -90,7 +90,8 @@
         "removeFromFavorites": "Usuń z ulubionych",
         "addedToFavorites": "Dodano do ulubionych",
         "removedFromFavorites": "Usunięto z ulubionych",
-        "linkCopied": "Link skopiowany do schowka"
+        "linkCopied": "Link skopiowany do schowka",
+        "tooManyRequests": "Zbyt wiele żądań. Poczekaj chwilę i spróbuj ponownie."
     },
     "Themes": {
         "title": "Wybór motywu EarnLumens",

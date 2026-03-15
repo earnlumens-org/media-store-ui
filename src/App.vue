@@ -2,6 +2,16 @@
   <v-app>
     <router-view />
 
+    <!-- Global rate-limit / notification snackbar -->
+    <v-snackbar
+      v-model="globalSnack"
+      :color="globalSnackColor"
+      location="top"
+      timeout="5000"
+    >
+      {{ $t(globalSnackMsg) }}
+    </v-snackbar>
+
     <!-- Login error dialog -->
     <v-dialog
       v-model="loginErrorDialog"
@@ -35,8 +45,13 @@
   import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
   import { useTheme } from 'vuetify'
   import { DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from '@/plugins/vuetify'
+  import { globalSnackbar, globalSnackbarColor, globalSnackbarMessage } from '@/services/globalNotification'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
+
+  const globalSnack = globalSnackbar
+  const globalSnackMsg = globalSnackbarMessage
+  const globalSnackColor = globalSnackbarColor
 
   const app = useAppStore()
   const authStore = useAuthStore()
