@@ -485,6 +485,17 @@
         return
       }
 
+      // Server-side entitlement verification (defence-in-depth against localStorage tampering)
+      if (data.isPaid) {
+        const { verifyEntitlement } = await import('@/lib/verifyEntitlement')
+        const hasAccess = await verifyEntitlement(entryId.value)
+        if (!hasAccess) {
+          purchasesStore.removeUnlock(entryId.value)
+          router.replace(`/preview/${entryId.value}`)
+          return
+        }
+      }
+
       // Validate entry type is video
       if (data.type !== 'video') {
         // Redirect to appropriate page based on type
