@@ -19,6 +19,7 @@
           :to="`/collection/${collection.id}`"
         >
           <div
+            ref="titleRef"
             :style="{
               display: '-webkit-box',
               WebkitLineClamp: 2,
@@ -30,9 +31,9 @@
           </div>
         </router-link>
 
-        <!-- Nombre del autor + fecha -->
+        <!-- Nombre del autor + fecha (título 2 líneas) -->
         <div
-          v-if="showAuthor"
+          v-if="showAuthor && isTitleTwoLines"
           class="mt-1 d-flex align-center justify-space-between"
         >
           <div class="d-flex align-center overflow-hidden" style="min-width: 0">
@@ -54,7 +55,39 @@
           </div>
           <span class="text-caption text-medium-emphasis flex-shrink-0 ms-3 text-no-wrap">{{ formattedDate }}</span>
         </div>
+        <!-- Nombre del autor solo (título 1 línea) -->
+        <div
+          v-else-if="showAuthor"
+          class="mt-1 d-flex align-center"
+        >
+          <div class="d-flex align-center overflow-hidden" style="min-width: 0">
+            <router-link
+              class="text-body-1 font-weight-medium text-decoration-none text-truncate"
+              style="color: inherit"
+              :to="`/${collection.authorName}`"
+            >
+              {{ collection.authorName }}
+            </router-link>
+            <v-avatar
+              v-if="profileBadgeSrc"
+              class="ms-2 flex-shrink-0"
+              color="transparent"
+              size="18"
+            >
+              <v-img :src="profileBadgeSrc" />
+            </v-avatar>
+          </div>
+        </div>
       </div>
+
+      <!-- Fecha en esquina inferior derecha cuando título es 1 línea -->
+      <span
+        v-if="showAuthor && !isTitleTwoLines"
+        class="position-absolute text-caption text-medium-emphasis"
+        style="bottom: 4px; right: 40px"
+      >
+        {{ formattedDate }}
+      </span>
 
       <v-menu>
         <template #activator="{ props: menuProps }">
@@ -117,7 +150,7 @@
 <script setup lang="ts">
   import type { Collection } from './CollectionCard.vue'
 
-  import { computed, ref } from 'vue'
+  import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
 
   import AvatarFrame from '@/components/media/AvatarFrame.vue'
@@ -139,6 +172,33 @@
   const { t } = useI18n()
   const auth = useAuthStore()
   const favoritesStore = useFavoritesStore()
+
+  const titleRef = ref<HTMLElement>()
+  const isTitleTwoLines = ref(false)
+  let resizeObserver: ResizeObserver | undefined
+
+  function checkTitleLines () {
+    if (titleRef.value) {
+      const lineHeight = Number.parseFloat(getComputedStyle(titleRef.value).lineHeight) || 24
+      isTitleTwoLines.value = titleRef.value.scrollHeight > lineHeight * 1.4
+    }
+  }
+
+  onMounted(() => {
+    checkTitleLines()
+    if (titleRef.value) {
+      resizeObserver = new ResizeObserver(checkTitleLines)
+      resizeObserver.observe(titleRef.value)
+    }
+  })
+
+  onBeforeUnmount(() => {
+    resizeObserver?.disconnect()
+  })
+
+  watch(() => props.collection.title, () => {
+    requestAnimationFrame(checkTitleLines)
+  })
 
   const snackbar = ref(false)
   const snackbarText = ref('')
