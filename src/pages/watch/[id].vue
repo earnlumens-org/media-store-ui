@@ -464,9 +464,9 @@
       : cdnMediaUrl(entry.value.id)
   })
 
-  // HLS streams are public (no credentials needed), raw file needs auth cookies
+  // All media paths now require credentials (HLS is served through /media/ with auth)
   const hlsCrossorigin = computed<'' | 'anonymous' | 'use-credentials'>(() =>
-    entry.value?.hlsReady ? 'anonymous' : 'use-credentials',
+    'use-credentials',
   )
 
   // Fetch entry data
