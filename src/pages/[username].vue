@@ -120,6 +120,7 @@
           v-model="activeTab"
           centered
           color="primary"
+          grow
         >
           <v-tab value="all">
             <v-icon start>mdi-view-grid</v-icon>
