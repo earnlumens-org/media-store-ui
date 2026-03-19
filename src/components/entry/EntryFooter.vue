@@ -20,6 +20,7 @@
           :to="entryRoute"
         >
           <div
+            ref="titleRef"
             :style="{
               display: '-webkit-box',
               WebkitLineClamp: 2,
@@ -31,16 +32,33 @@
           </div>
         </router-link>
 
-        <!-- Nombre del autor (inline, sin fecha) -->
+        <!-- Título 1 línea: username ocupa su propia fila -->
         <div
-          v-if="showAuthor"
-          class="mt-1"
-        />
+          v-if="showAuthor && !isTitleMultiLine"
+          class="mt-1 d-flex align-center overflow-hidden"
+          style="min-width: 0"
+        >
+          <router-link
+            class="text-body-1 font-weight-medium text-decoration-none text-truncate"
+            style="color: inherit"
+            :to="`/${entry.authorName}`"
+          >
+            {{ entry.authorName }}
+          </router-link>
+          <v-avatar
+            v-if="profileBadgeSrc"
+            class="ms-2 flex-shrink-0"
+            color="transparent"
+            size="18"
+          >
+            <v-img :src="profileBadgeSrc" />
+          </v-avatar>
+        </div>
       </div>
 
-      <!-- Fila autor + fecha fijada al fondo -->
+      <!-- Título 2 líneas: username + fecha en la misma fila -->
       <div
-        v-if="showAuthor"
+        v-if="showAuthor && isTitleMultiLine"
         class="position-absolute d-flex align-center justify-space-between"
         style="bottom: 4px; left: 68px; right: 4px"
       >
@@ -63,6 +81,15 @@
         </div>
         <span class="text-caption text-medium-emphasis flex-shrink-0 mx-3 text-no-wrap">{{ formattedDate }}</span>
       </div>
+
+      <!-- Título 1 línea: fecha sola en la esquina inferior derecha -->
+      <span
+        v-if="showAuthor && !isTitleMultiLine"
+        class="position-absolute text-caption text-medium-emphasis text-no-wrap"
+        style="bottom: 4px; right: 4px"
+      >
+        {{ formattedDate }}
+      </span>
 
       <!-- Menú de tres puntos -->
       <v-menu>
@@ -111,7 +138,7 @@
 <script setup lang="ts">
   import type { Entry } from './EntryCard.vue'
 
-  import { computed, ref } from 'vue'
+  import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
 
   import AvatarFrame from '@/components/media/AvatarFrame.vue'
@@ -138,6 +165,22 @@
 
   const snackbar = ref(false)
   const snackbarText = ref('')
+
+  // Detección de líneas del título (one-shot + watch para infinite scroll)
+  const titleRef = ref<HTMLElement>()
+  const isTitleMultiLine = ref(false)
+
+  function checkTitleLines () {
+    const el = titleRef.value
+    if (el) {
+      const lh = Number.parseFloat(getComputedStyle(el).lineHeight)
+      isTitleMultiLine.value = el.scrollHeight > lh * 1.5
+    }
+  }
+
+  onMounted(checkTitleLines)
+
+  watch(() => props.entry.title, () => nextTick(checkTitleLines))
 
   const { share } = useShare(snackbar, snackbarText)
 
