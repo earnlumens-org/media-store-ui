@@ -115,7 +115,7 @@
 
     <!-- Content tabs -->
     <v-row class="mt-8" justify="center">
-      <v-col cols="12" lg="8" md="10">
+      <v-col cols="12">
         <v-tabs
           v-model="activeTab"
           centered
@@ -151,8 +151,10 @@
               v-for="n in 6"
               :key="`skeleton-${n}`"
               cols="12"
+              lg="3"
               md="4"
               sm="6"
+              xxl="2"
             >
               <EntryCardSkeleton />
             </v-col>
@@ -183,8 +185,10 @@
               v-for="item in entries"
               :key="item.id"
               cols="12"
+              lg="3"
               md="4"
               sm="6"
+              xxl="2"
             >
               <EntryCard
                 :entry="toEntryCardProps(item)"
