@@ -221,7 +221,7 @@
                     </v-btn>
                   </v-alert>
 
-                  <!-- Wallet connected and funded: show public key (read-only) -->
+                  <!-- Wallet connected and funded: wallet selector -->
                   <v-alert
                     v-else
                     class="mt-3"
@@ -232,22 +232,31 @@
                     <div class="text-body-2 font-weight-medium">
                       {{ t('Upload.wallet.connected') }}
                     </div>
-                    <v-text-field
+                    <v-select
+                      v-model="selectedSellerWallet"
                       class="mt-2"
                       density="compact"
                       hide-details
+                      :items="walletItems"
                       :label="t('Upload.wallet.sellerWallet')"
-                      :model-value="walletStore.activeAddress"
-                      readonly
                       variant="outlined"
                     >
                       <template #prepend-inner>
                         <v-icon color="success" size="small">mdi-check-circle</v-icon>
                       </template>
-                    </v-text-field>
+                    </v-select>
                     <div class="text-caption text-medium-emphasis mt-1">
                       {{ t('Upload.wallet.sellerWalletHint') }}
                     </div>
+                    <v-btn
+                      class="mt-2"
+                      size="small"
+                      variant="text"
+                      @click="connectWallet"
+                    >
+                      <v-icon class="me-1" size="small">mdi-wallet-plus</v-icon>
+                      {{ t('Upload.wallet.addAnother') }}
+                    </v-btn>
                   </v-alert>
                 </template>
               </v-card>
@@ -458,10 +467,28 @@
 
   const isWalletUnfunded = ref(false)
   const isCheckingWallet = ref(false)
+  const selectedSellerWallet = ref(walletStore.activeAddress || '')
 
-  // Check if wallet is funded whenever wallet connects or paid toggle changes
+  const walletItems = computed(() =>
+    walletStore.wallets.map(w => ({
+      value: w.address,
+      title: `${w.providerName} — ${w.address.slice(0, 7)}...${w.address.slice(-7)}`,
+    })),
+  )
+
+  // Default to active wallet when wallets change and nothing is selected
   watch(
-    () => [walletStore.activeAddress, form.isPaid] as const,
+    () => walletStore.activeAddress,
+    (addr) => {
+      if (addr && !selectedSellerWallet.value) {
+        selectedSellerWallet.value = addr
+      }
+    },
+  )
+
+  // Check if selected wallet is funded whenever it changes or paid toggle changes
+  watch(
+    () => [selectedSellerWallet.value, form.isPaid] as const,
     async ([address, isPaid]) => {
       if (!address || !isPaid) {
         isWalletUnfunded.value = false
@@ -488,6 +515,7 @@
     if (!form.title.trim()) return false
     // Paid content requires a connected AND funded wallet
     if (form.isPaid && !walletStore.isConnected) return false
+    if (form.isPaid && !selectedSellerWallet.value) return false
     if (form.isPaid && isWalletUnfunded.value) return false
     if (props.contentType === 'resource') {
       // Resource requires text content OR a file (at least one)
@@ -601,6 +629,7 @@
     try {
       const result = await walletStore.connect()
       if (result) {
+        selectedSellerWallet.value = result.address
         showSnackbar(t('Upload.wallet.connectSuccess'))
       }
     } catch (error) {
@@ -649,7 +678,7 @@
         priceXlm: form.isPaid && form.priceCurrency === 'XLM' && form.price ? form.price : null,
         priceUsd: form.isPaid && form.priceCurrency === 'USD' && form.price ? form.price : null,
         priceCurrency: form.isPaid ? form.priceCurrency : null,
-        sellerWallet: form.isPaid ? walletStore.activeAddress : null,
+        sellerWallet: form.isPaid ? selectedSellerWallet.value : null,
         contentLanguage: form.contentLanguage || null,
       })
 

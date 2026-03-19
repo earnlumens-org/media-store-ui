@@ -327,12 +327,14 @@
             "connect": "지갑 연결",
             "connected": "지갑이 연결되었습니다",
             "sellerWallet": "수신 지갑",
-            "sellerWalletHint": "이 콘텐츠의 결제는 이 지갑으로 전송됩니다. 게시 후에는 변경할 수 없습니다.",
+            "sellerWalletHint": "이 콘텐츠에 대한 결제가 이 지갑으로 전송됩니다.",
             "connectSuccess": "지갑이 성공적으로 연결되었습니다",
             "connectError": "지갑을 연결할 수 없습니다. 다시 시도해주세요.",
             "unfunded": "Stellar에서 지갑이 아직 활성화되지 않음",
             "unfundedHint": "유료 콘텐츠를 게시하려면 Stellar 네트워크에서 지갑을 활성화해야 합니다. 최소 1 XLM을 보내 활성화하세요.",
-            "goToWallet": "지갑으로 이동"
+            "goToWallet": "지갑으로 이동",
+            "addAnother": "다른 지갑 추가",
+            "currentWallet": "현재"
         },
         "actions": {
             "upload": "업로드",

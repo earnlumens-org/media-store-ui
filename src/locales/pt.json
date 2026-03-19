@@ -327,12 +327,14 @@
             "connect": "Conectar carteira",
             "connected": "Carteira conectada",
             "sellerWallet": "Carteira de recebimento",
-            "sellerWalletHint": "Os pagamentos por este conteúdo serão enviados para esta carteira. Ela não pode ser alterada após a publicação.",
+            "sellerWalletHint": "Os pagamentos deste conteúdo serão enviados para esta carteira.",
             "connectSuccess": "Carteira conectada com sucesso",
             "connectError": "Não foi possível conectar a carteira. Tente novamente.",
             "unfunded": "Carteira ainda não ativa na Stellar",
             "unfundedHint": "Sua carteira deve ser ativada na rede Stellar antes de publicar conteúdo pago. Envie pelo menos 1 XLM para ativá-la.",
-            "goToWallet": "Ir para Carteira"
+            "goToWallet": "Ir para Carteira",
+            "addAnother": "Adicionar outra carteira",
+            "currentWallet": "atual"
         },
         "actions": {
             "upload": "Carregar",

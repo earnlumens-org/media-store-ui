@@ -340,12 +340,14 @@
             "connect": "Connect Wallet",
             "connected": "Wallet connected",
             "sellerWallet": "Receiving wallet",
-            "sellerWalletHint": "Payments for this content will be sent to this wallet. It cannot be changed after publishing.",
+            "sellerWalletHint": "Payments for this content will be sent to this wallet.",
+            "currentWallet": "current",
             "connectSuccess": "Wallet connected successfully",
             "connectError": "Failed to connect wallet. Please try again.",
             "unfunded": "Wallet not yet active on Stellar",
             "unfundedHint": "Your wallet must be activated on the Stellar network before you can publish paid content. Send at least 1 XLM to this address to activate it.",
-            "goToWallet": "Go to Wallet"
+            "goToWallet": "Go to Wallet",
+            "addAnother": "Add another wallet"
         },
         "actions": {
             "upload": "Upload",

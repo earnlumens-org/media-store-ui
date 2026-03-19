@@ -327,12 +327,14 @@
             "connect": "ウォレットを接続",
             "connected": "ウォレット接続済み",
             "sellerWallet": "受取ウォレット",
-            "sellerWalletHint": "このコンテンツの支払いはこのウォレットに送金されます。公開後は変更できません。",
+            "sellerWalletHint": "このコンテンツの支払いはこのウォレットに送信されます。",
             "connectSuccess": "ウォレットを接続しました",
             "connectError": "ウォレットを接続できませんでした。もう一度お試しください。",
             "unfunded": "ウォレットがまだStellarで有効化されていません",
             "unfundedHint": "有料コンテンツを公開する前に、Stellarネットワークでウォレットを有効化する必要があります。少なくとも1 XLMを送信して有効化してください。",
-            "goToWallet": "ウォレットへ移動"
+            "goToWallet": "ウォレットへ移動",
+            "addAnother": "別のウォレットを追加",
+            "currentWallet": "現在"
         },
         "actions": {
             "upload": "アップロード",

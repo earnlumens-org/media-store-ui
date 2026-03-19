@@ -329,12 +329,14 @@
             "connect": "Conectar Wallet",
             "connected": "Wallet conectada",
             "sellerWallet": "Wallet receptora",
-            "sellerWalletHint": "Los pagos de este contenido se enviarán a esta wallet. No se puede cambiar después de publicar.",
+            "sellerWalletHint": "Los pagos de este contenido se enviarán a esta wallet.",
+            "currentWallet": "actual",
             "connectSuccess": "Wallet conectada exitosamente",
             "connectError": "Error al conectar wallet. Intenta de nuevo.",
             "unfunded": "Billetera aún no activa en Stellar",
             "unfundedHint": "Tu billetera debe estar activada en la red Stellar antes de publicar contenido pago. Envía al menos 1 XLM a esta dirección para activarla.",
-            "goToWallet": "Ir a Billetera"
+            "goToWallet": "Ir a Billetera",
+            "addAnother": "Agregar otra billetera"
         },
         "actions": {
             "upload": "Subir",

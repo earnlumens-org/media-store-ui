@@ -327,12 +327,14 @@
             "connect": "Cüzdanı bağla",
             "connected": "Cüzdan bağlandı",
             "sellerWallet": "Satıcı cüzdanı",
-            "sellerWalletHint": "Ödemelerin gönderileceği Stellar adresi",
+            "sellerWalletHint": "Bu içerik için ödemeler bu cüzdana gönderilecektir.",
             "connectSuccess": "Cüzdan başarıyla bağlandı",
             "connectError": "Cüzdan bağlanamadı. Lütfen tekrar deneyin.",
             "unfunded": "Cüzdan henüz Stellar'da etkinleştirilmemiş",
             "unfundedHint": "Ücretli içerik yayınlamadan önce cüzdanınızın Stellar ağında etkinleştirilmesi gerekir. Etkinleştirmek için en az 1 XLM gönderin.",
-            "goToWallet": "Cüzdana Git"
+            "goToWallet": "Cüzdana Git",
+            "addAnother": "Başka bir cüzdan ekle",
+            "currentWallet": "mevcut"
         },
         "actions": {
             "upload": "Yükle",

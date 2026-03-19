@@ -327,12 +327,14 @@
             "connect": "Connecter le portefeuille",
             "connected": "Portefeuille connecté",
             "sellerWallet": "Portefeuille de réception",
-            "sellerWalletHint": "Les paiements pour ce contenu seront envoyés à ce portefeuille. Il ne peut pas être modifié après publication.",
+            "sellerWalletHint": "Les paiements pour ce contenu seront envoyés à ce portefeuille.",
             "connectSuccess": "Portefeuille connecté avec succès",
             "connectError": "Impossible de connecter le portefeuille. Veuillez réessayer.",
             "unfunded": "Portefeuille pas encore activé sur Stellar",
             "unfundedHint": "Votre portefeuille doit être activé sur le réseau Stellar avant de publier du contenu payant. Envoyez au moins 1 XLM pour l'activer.",
-            "goToWallet": "Aller au Portefeuille"
+            "goToWallet": "Aller au Portefeuille",
+            "addAnother": "Ajouter un autre portefeuille",
+            "currentWallet": "actuel"
         },
         "actions": {
             "upload": "Téléverser",

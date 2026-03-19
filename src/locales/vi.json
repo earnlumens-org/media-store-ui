@@ -327,12 +327,14 @@
             "connect": "Kết nối ví",
             "connected": "Đã kết nối ví",
             "sellerWallet": "Ví người bán",
-            "sellerWalletHint": "Địa chỉ Stellar nơi thanh toán sẽ được gửi",
+            "sellerWalletHint": "Thanh toán cho nội dung này sẽ được gửi đến ví này.",
             "connectSuccess": "Kết nối ví thành công",
             "connectError": "Không thể kết nối ví. Vui lòng thử lại.",
             "unfunded": "Ví chưa được kích hoạt trên Stellar",
             "unfundedHint": "Ví của bạn phải được kích hoạt trên mạng Stellar trước khi xuất bản nội dung trả phí. Gửi ít nhất 1 XLM để kích hoạt.",
-            "goToWallet": "Đi đến Ví"
+            "goToWallet": "Đi đến Ví",
+            "addAnother": "Thêm ví khác",
+            "currentWallet": "hiện tại"
         },
         "actions": {
             "upload": "Tải lên",

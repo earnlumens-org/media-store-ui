@@ -327,12 +327,14 @@
             "connect": "Sambungkan dompet",
             "connected": "Dompet disambungkan",
             "sellerWallet": "Dompet penerima",
-            "sellerWalletHint": "Pembayaran untuk kandungan ini akan dihantar ke dompet ini. Ia tidak boleh diubah selepas diterbitkan.",
+            "sellerWalletHint": "Bayaran untuk kandungan ini akan dihantar ke dompet ini.",
             "connectSuccess": "Dompet berjaya disambungkan",
             "connectError": "Tidak dapat menyambungkan dompet. Sila cuba lagi.",
             "unfunded": "Dompet belum aktif di Stellar",
             "unfundedHint": "Dompet anda mesti diaktifkan di rangkaian Stellar sebelum menerbitkan kandungan berbayar. Hantar sekurang-kurangnya 1 XLM untuk mengaktifkannya.",
-            "goToWallet": "Pergi ke Dompet"
+            "goToWallet": "Pergi ke Dompet",
+            "addAnother": "Tambah dompet lain",
+            "currentWallet": "semasa"
         },
         "actions": {
             "upload": "Muat naik",

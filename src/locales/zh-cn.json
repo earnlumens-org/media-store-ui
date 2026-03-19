@@ -327,12 +327,14 @@
             "connect": "连接钱包",
             "connected": "钱包已连接",
             "sellerWallet": "卖家钱包",
-            "sellerWalletHint": "接收付款的 Stellar 地址",
+            "sellerWalletHint": "此内容的付款将发送到此钱包。",
             "connectSuccess": "钱包连接成功",
             "connectError": "无法连接钱包。请重试。",
             "unfunded": "钱包尚未在 Stellar 上激活",
             "unfundedHint": "发布付费内容前，您的钱包必须在 Stellar 网络上激活。请发送至少 1 XLM 来激活它。",
-            "goToWallet": "前往钱包"
+            "goToWallet": "前往钱包",
+            "addAnother": "添加其他钱包",
+            "currentWallet": "当前"
         },
         "actions": {
             "upload": "上传",

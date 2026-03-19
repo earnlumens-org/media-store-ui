@@ -327,12 +327,14 @@
             "connect": "Collega wallet",
             "connected": "Wallet collegato",
             "sellerWallet": "Wallet di ricezione",
-            "sellerWalletHint": "I pagamenti per questo contenuto verranno inviati a questo wallet. Non può essere modificato dopo la pubblicazione.",
+            "sellerWalletHint": "I pagamenti per questo contenuto verranno inviati a questo portafoglio.",
             "connectSuccess": "Wallet collegato con successo",
             "connectError": "Impossibile collegare il wallet. Riprova.",
             "unfunded": "Wallet non ancora attivo su Stellar",
             "unfundedHint": "Il tuo wallet deve essere attivato sulla rete Stellar prima di pubblicare contenuti a pagamento. Invia almeno 1 XLM per attivarlo.",
-            "goToWallet": "Vai al Portafoglio"
+            "goToWallet": "Vai al Portafoglio",
+            "addAnother": "Aggiungi un altro portafoglio",
+            "currentWallet": "attuale"
         },
         "actions": {
             "upload": "Carica",

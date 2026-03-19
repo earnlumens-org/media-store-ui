@@ -327,12 +327,14 @@
             "connect": "連接錢包",
             "connected": "錢包已連接",
             "sellerWallet": "賣家錢包",
-            "sellerWalletHint": "將接收付款的 Stellar 位址",
+            "sellerWalletHint": "此內容的付款將傳送至此錢包。",
             "connectSuccess": "錢包連接成功",
             "connectError": "無法連接錢包。請再試一次。",
             "unfunded": "錢包尚未在 Stellar 上啟用",
             "unfundedHint": "發布付費內容前，您的錢包必須在 Stellar 網路上啟用。請發送至少 1 XLM 來啟用它。",
-            "goToWallet": "前往錢包"
+            "goToWallet": "前往錢包",
+            "addAnother": "新增其他錢包",
+            "currentWallet": "目前"
         },
         "actions": {
             "upload": "上傳",

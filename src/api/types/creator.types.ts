@@ -18,6 +18,7 @@ export interface CreatorEntryModel {
   priceUsd?: number
   priceCurrency?: 'XLM' | 'USD'
   contentLanguage?: string
+  sellerWallet?: string
   createdAt: string
   updatedAt: string
   publishedAt?: string
@@ -56,6 +57,7 @@ export interface UpdateEntryMetadataRequest {
   priceUsd?: number | null
   priceCurrency?: 'XLM' | 'USD' | null
   contentLanguage?: string | null
+  sellerWallet?: string | null
 }
 
 // ==================== Filter / sort params ====================

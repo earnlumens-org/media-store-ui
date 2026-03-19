@@ -327,12 +327,14 @@
             "connect": "Podłącz portfel",
             "connected": "Portfel podłączony",
             "sellerWallet": "Portfel odbiorczy",
-            "sellerWalletHint": "Płatności za tę treść będą wysyłane na ten portfel. Po publikacji nie można go zmienić.",
+            "sellerWalletHint": "Płatności za tę treść zostaną wysłane do tego portfela.",
             "connectSuccess": "Portfel został pomyślnie podłączony",
             "connectError": "Nie udało się podłączyć portfela. Spróbuj ponownie.",
             "unfunded": "Portfel nie jest jeszcze aktywny w Stellar",
             "unfundedHint": "Twój portfel musi być aktywowany w sieci Stellar przed opublikowaniem płatnych treści. Wyślij co najmniej 1 XLM, aby go aktywować.",
-            "goToWallet": "Przejdź do Portfela"
+            "goToWallet": "Przejdź do Portfela",
+            "addAnother": "Dodaj inny portfel",
+            "currentWallet": "bieżący"
         },
         "actions": {
             "upload": "Prześlij",

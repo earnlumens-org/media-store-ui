@@ -610,7 +610,7 @@
           <v-select
             v-model="editForm.contentLanguage"
             class="mb-3"
-            clearable
+            disabled
             :items="contentLanguageItems"
             :label="t('Upload.form.contentLanguage')"
             prepend-inner-icon="mdi-translate"
@@ -646,6 +646,100 @@
               </v-btn-toggle>
             </template>
           </v-text-field>
+
+          <!-- Wallet requirement for paid content -->
+          <template v-if="editForm.isPaid">
+            <!-- No wallet available (entry has no wallet and none connected) -->
+            <v-alert
+              v-if="!selectedSellerWallet && !walletStore.isConnected"
+              class="mt-3"
+              closable
+              color="warning"
+              icon="mdi-wallet-outline"
+              variant="tonal"
+            >
+              <div class="text-body-2 font-weight-medium">
+                {{ t('Upload.wallet.required') }}
+              </div>
+              <div class="text-caption mt-1">
+                {{ t('Upload.wallet.requiredHint') }}
+              </div>
+              <v-btn
+                class="mt-2"
+                color="warning"
+                size="small"
+                variant="elevated"
+                @click="connectWallet"
+              >
+                <v-icon class="me-1" size="small">mdi-wallet-plus</v-icon>
+                {{ t('Upload.wallet.connect') }}
+              </v-btn>
+            </v-alert>
+
+            <!-- Wallet connected but unfunded -->
+            <v-alert
+              v-else-if="isWalletUnfunded"
+              class="mt-3"
+              color="warning"
+              icon="mdi-wallet-outline"
+              variant="tonal"
+            >
+              <div class="text-body-2 font-weight-medium">
+                {{ t('Upload.wallet.unfunded') }}
+              </div>
+              <div class="text-caption mt-1">
+                {{ t('Upload.wallet.unfundedHint') }}
+              </div>
+              <v-btn
+                class="mt-2"
+                color="warning"
+                size="small"
+                variant="elevated"
+                @click="router.push('/wallet')"
+              >
+                <v-icon class="me-1" size="small">mdi-wallet</v-icon>
+                {{ t('Upload.wallet.goToWallet') }}
+              </v-btn>
+            </v-alert>
+
+            <!-- Wallet connected and funded -->
+            <v-alert
+              v-else
+              class="mt-3"
+              color="success"
+              icon="mdi-wallet-outline"
+              variant="tonal"
+            >
+              <div class="text-body-2 font-weight-medium">
+                {{ t('Upload.wallet.connected') }}
+              </div>
+              <v-select
+                v-model="selectedSellerWallet"
+                class="mt-2"
+                density="compact"
+                hide-details
+                :items="walletItems"
+                :label="t('Upload.wallet.sellerWallet')"
+                variant="outlined"
+              >
+                <template #prepend-inner>
+                  <v-icon color="success" size="small">mdi-check-circle</v-icon>
+                </template>
+              </v-select>
+              <div class="text-caption text-medium-emphasis mt-1">
+                {{ t('Upload.wallet.sellerWalletHint') }}
+              </div>
+              <v-btn
+                class="mt-2"
+                size="small"
+                variant="text"
+                @click="connectWallet"
+              >
+                <v-icon class="me-1" size="small">mdi-wallet-plus</v-icon>
+                {{ t('Upload.wallet.addAnother') }}
+              </v-btn>
+            </v-alert>
+          </template>
         </v-card-text>
 
         <v-card-actions class="pa-4">
@@ -655,6 +749,7 @@
           </v-btn>
           <v-btn
             color="primary"
+            :disabled="!canSaveEdit"
             :loading="isSaving"
             variant="elevated"
             @click="saveEdit"
@@ -706,18 +801,21 @@
   import type { CreatorDashboardStats, CreatorEntryFilters, CreatorEntryModel } from '@/api/types/creator.types'
   import type { EntryStatus, EntryType } from '@/api/types/upload.types'
   import { storeToRefs } from 'pinia'
-  import { computed, onMounted, reactive, ref } from 'vue'
+  import { computed, onMounted, reactive, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRouter } from 'vue-router'
   import { api, ApiError } from '@/api/api'
   import UploadTypeDialog from '@/components/upload/UploadTypeDialog.vue'
   import { CONTENT_LANGUAGES } from '@/config/contentLanguages'
+  import { accountExists } from '@/services/stellar'
   import { useAppStore } from '@/stores/app'
+  import { useWalletStore } from '@/stores/wallet'
 
   const router = useRouter()
   const { t } = useI18n()
   const appStore = useAppStore()
   const { mobileView } = storeToRefs(appStore)
+  const walletStore = useWalletStore()
 
   const contentLanguageItems = CONTENT_LANGUAGES.map(l => ({ value: l.value, title: l.title }))
 
@@ -770,6 +868,69 @@
     contentLanguage: '' as string,
   })
   const isSaving = ref(false)
+  const isWalletUnfunded = ref(false)
+  const isCheckingWallet = ref(false)
+  const selectedSellerWallet = ref('')
+  const savedSellerWallet = ref('')
+
+  // Build wallet items: connected wallets + entry's current wallet if not connected and still selected
+  const walletItems = computed(() => {
+    const saved = savedSellerWallet.value
+    const currentLabel = t('Upload.wallet.currentWallet')
+    const connected = walletStore.wallets.map(w => {
+      const abbr = `${w.providerName} — ${w.address.slice(0, 7)}...${w.address.slice(-7)}`
+      return {
+        value: w.address,
+        title: w.address === saved ? `${abbr} (${currentLabel})` : abbr,
+      }
+    })
+    const selected = selectedSellerWallet.value
+    if (selected && !connected.some(w => w.value === selected)) {
+      const abbr = `${selected.slice(0, 7)}...${selected.slice(-7)}`
+      connected.unshift({
+        value: selected,
+        title: selected === saved ? `${abbr} (${currentLabel})` : abbr,
+      })
+    }
+    return connected
+  })
+
+  // Default to active wallet when wallets change and nothing is selected
+  watch(
+    () => walletStore.activeAddress,
+    addr => {
+      if (addr && !selectedSellerWallet.value) {
+        selectedSellerWallet.value = addr
+      }
+    },
+  )
+
+  // Check if selected wallet is funded whenever it changes or paid toggle changes
+  watch(
+    () => [selectedSellerWallet.value, editForm.isPaid] as const,
+    async ([address, isPaid]) => {
+      if (!address || !isPaid) {
+        isWalletUnfunded.value = false
+        return
+      }
+      isCheckingWallet.value = true
+      try {
+        isWalletUnfunded.value = !(await accountExists(address))
+      } catch {
+        isWalletUnfunded.value = false
+      } finally {
+        isCheckingWallet.value = false
+      }
+    },
+    { immediate: true },
+  )
+
+  const canSaveEdit = computed(() => {
+    if (!editForm.title.trim()) return false
+    if (editForm.isPaid && !selectedSellerWallet.value) return false
+    if (editForm.isPaid && isWalletUnfunded.value) return false
+    return true
+  })
 
   // Computed price that maps to the correct field based on currency
   const editPrice = computed({
@@ -932,6 +1093,19 @@
     return map[normalized] ?? type
   }
 
+  async function connectWallet () {
+    try {
+      const result = await walletStore.connect()
+      if (result) {
+        selectedSellerWallet.value = result.address
+        showToast(t('Upload.wallet.connectSuccess'))
+      }
+    } catch (error_) {
+      console.error('Wallet connection failed:', error_)
+      showToast(t('Upload.wallet.connectError'), 'error')
+    }
+  }
+
   function formatDate (dateStr: string): string {
     if (!dateStr) return '—'
     try {
@@ -1050,6 +1224,8 @@
     editForm.priceUsd = entry.priceUsd ?? null
     editForm.priceCurrency = entry.priceCurrency ?? 'XLM'
     editForm.contentLanguage = entry.contentLanguage ?? ''
+    selectedSellerWallet.value = entry.sellerWallet ?? walletStore.activeAddress ?? ''
+    savedSellerWallet.value = entry.sellerWallet ?? ''
     editDialog.value = true
   }
 
@@ -1065,7 +1241,7 @@
         priceXlm: editForm.isPaid && editForm.priceCurrency === 'XLM' ? editForm.priceXlm : null,
         priceUsd: editForm.isPaid && editForm.priceCurrency === 'USD' ? editForm.priceUsd : null,
         priceCurrency: editForm.isPaid ? editForm.priceCurrency : null,
-        contentLanguage: editForm.contentLanguage || null,
+        sellerWallet: editForm.isPaid ? selectedSellerWallet.value : null,
       })
       showToast(t('CreatorStudio.editSuccess'))
       editDialog.value = false
