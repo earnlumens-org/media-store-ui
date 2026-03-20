@@ -35,7 +35,7 @@
     <!-- Profile header -->
     <v-row align="center" justify="center">
       <v-col cols="12" lg="8" md="10">
-        <div class="position-relative">
+        <div class="position-relative" style="max-width: 500px; margin: 0 auto;">
           <!-- Options menu (top right) -->
           <v-menu location="bottom end">
             <template #activator="{ props }">

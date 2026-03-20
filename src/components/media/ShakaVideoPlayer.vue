@@ -25,7 +25,15 @@
       class="position-absolute w-100 h-100 d-flex flex-column align-center justify-center"
       style="z-index: 10; background: rgba(0, 0, 0, 0.85);"
     >
-      <v-icon class="mb-3" color="error" size="48">mdi-alert-circle-outline</v-icon>
+      <v-icon
+        class="mb-3"
+        color="error"
+        size="48"
+        style="cursor: pointer;"
+        @click="showErrorDetail = true"
+      >
+        mdi-alert-circle-outline
+      </v-icon>
       <p class="text-body-2 text-white text-center mb-4 px-4">
         {{ playerError }}
       </p>
@@ -39,6 +47,24 @@
         {{ $t('Common.retry') }}
       </v-btn>
     </div>
+
+    <!-- Error detail dialog (for debugging on mobile) -->
+    <v-dialog v-model="showErrorDetail" max-width="500" scrollable>
+      <v-card>
+        <v-card-title class="d-flex align-center">
+          <v-icon class="mr-2" color="error" size="small">mdi-bug-outline</v-icon>
+          Error Details
+        </v-card-title>
+        <v-card-text>
+          <pre class="text-caption" style="white-space: pre-wrap; word-break: break-all;">{{ errorDetail }}</pre>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn size="small" variant="text" @click="copyErrorDetail">{{ copied ? 'Copied!' : 'Copy' }}</v-btn>
+          <v-spacer />
+          <v-btn size="small" variant="text" @click="showErrorDetail = false">Close</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
 
     <!-- HTML5 video element — Shaka attaches to this -->
     <video
@@ -91,6 +117,9 @@
   const containerRef = ref<HTMLDivElement>()
   const videoRef = ref<HTMLVideoElement>()
   const playerError = ref<string | null>(null)
+  const errorDetail = ref<string>('')
+  const showErrorDetail = ref(false)
+  const copied = ref(false)
 
   /*
    * Shaka Player types are declared globally via `declare namespace shaka { ... }`
@@ -200,6 +229,7 @@
     } catch (error: unknown) {
       const message = error instanceof Error ? error.message : 'Failed to initialize video player'
       playerError.value = message
+      errorDetail.value = formatErrorDetail(error)
       emit('error', message)
       console.error('[ShakaVideoPlayer] Init error:', error)
     }
@@ -211,8 +241,50 @@
     const code = detail?.code ?? 'UNKNOWN'
     const message = `Playback error (code: ${code})`
     playerError.value = message
+    errorDetail.value = formatErrorDetail(detail)
     emit('error', message)
     console.error('[ShakaVideoPlayer] Shaka error:', detail)
+  }
+
+  /** Build a human-readable string with full error info for debugging */
+  function formatErrorDetail (error: unknown): string {
+    const lines: string[] = []
+    lines.push(`Timestamp: ${new Date().toISOString()}`)
+    lines.push(`Source: ${props.src}`)
+    lines.push(`User-Agent: ${navigator.userAgent}`)
+    lines.push('')
+
+    if (error && typeof error === 'object') {
+      const e = error as Record<string, unknown>
+      if (e.code != null) lines.push(`Code: ${e.code}`)
+      if (e.category != null) lines.push(`Category: ${e.category}`)
+      if (e.severity != null) lines.push(`Severity: ${e.severity}`)
+      if (e.message) lines.push(`Message: ${e.message}`)
+      if (e.data) {
+        try {
+          lines.push(`Data: ${JSON.stringify(e.data, null, 2)}`)
+        } catch {
+          lines.push(`Data: ${String(e.data)}`)
+        }
+      }
+      if (e.name) lines.push(`Name: ${e.name}`)
+      if (e.stack) lines.push(`\nStack:\n${e.stack}`)
+    } else {
+      lines.push(`Error: ${String(error)}`)
+    }
+
+    return lines.join('\n')
+  }
+
+  /** Copy error detail to clipboard */
+  async function copyErrorDetail () {
+    try {
+      await navigator.clipboard.writeText(errorDetail.value)
+      copied.value = true
+      setTimeout(() => { copied.value = false }, 2000)
+    } catch {
+      // Fallback: select text if clipboard API is unavailable
+    }
   }
 
   /** Forward timeupdate events */
