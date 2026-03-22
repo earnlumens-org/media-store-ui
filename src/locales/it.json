@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "La raccolta che stai cercando non esiste o è stata rimossa.",
         "itemsCount": "{count} elementi",
         "all": "Tutti",
+        "free": "Gratuito",
+        "premium": "Premium",
         "searchItems": "Cerca elementi...",
         "defaultOrder": "Ordine predefinito",
         "mostRecent": "Più recenti",

@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "المجموعة التي تبحث عنها غير موجودة أو تم حذفها.",
         "itemsCount": "{count} عناصر",
         "all": "الكل",
+        "free": "مجاني",
+        "premium": "مدفوع",
         "searchItems": "بحث عن العناصر...",
         "defaultOrder": "الترتيب الافتراضي",
         "mostRecent": "الأحدث",

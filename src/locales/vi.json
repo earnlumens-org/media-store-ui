@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "Bộ sưu tập bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.",
         "itemsCount": "{count} mục",
         "all": "Tất cả",
+        "free": "Miễn phí",
+        "premium": "Cao cấp",
         "searchItems": "Tìm kiếm mục...",
         "defaultOrder": "Thứ tự mặc định",
         "mostRecent": "Mới nhất",

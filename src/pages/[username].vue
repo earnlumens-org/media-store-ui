@@ -144,6 +144,81 @@
           </v-tab>
         </v-tabs>
 
+        <!-- Filter / Search / Sort bar -->
+        <div
+          v-if="!entriesLoading && !entriesError && entries.length > 0"
+          class="d-flex flex-wrap align-center ga-2 mt-4"
+        >
+          <!-- Pricing Filter Chips -->
+          <v-chip-group
+            v-model="pricingFilter"
+            class="flex-grow-1"
+            mandatory
+            selected-class="text-primary"
+          >
+            <v-chip
+              filter
+              size="small"
+              value="all"
+              variant="tonal"
+            >
+              {{ $t('Common.all') }}
+            </v-chip>
+            <v-chip
+              filter
+              size="small"
+              value="free"
+              variant="tonal"
+            >
+              {{ $t('Common.free') }}
+            </v-chip>
+            <v-chip
+              filter
+              size="small"
+              value="premium"
+              variant="tonal"
+            >
+              <v-icon size="14" start>mdi-lock</v-icon>
+              {{ $t('Common.premium') }}
+            </v-chip>
+          </v-chip-group>
+
+          <!-- Search -->
+          <v-text-field
+            v-model="searchQuery"
+            clearable
+            density="compact"
+            hide-details
+            :placeholder="$t('Common.searchItems')"
+            prepend-inner-icon="mdi-magnify"
+            variant="outlined"
+            width="200"
+          />
+
+          <!-- Sort Menu -->
+          <v-menu>
+            <template #activator="{ props: menuProps }">
+              <v-btn
+                v-bind="menuProps"
+                icon="mdi-sort"
+                variant="tonal"
+              />
+            </template>
+            <v-list density="compact">
+              <v-list-item
+                :active="sortBy === 'recent'"
+                :title="$t('Common.mostRecent')"
+                @click="sortBy = 'recent'"
+              />
+              <v-list-item
+                :active="sortBy === 'title'"
+                :title="$t('Common.titleAZ')"
+                @click="sortBy = 'title'"
+              />
+            </v-list>
+          </v-menu>
+        </div>
+
         <!-- Entry grid -->
         <div class="mt-4">
           <!-- Loading -->
@@ -180,10 +255,27 @@
             <p>{{ activeTab === 'all' ? $t('Profile.noEntries') : $t('Profile.noEntriesFiltered', { type: $t(`Profile.tabs.${activeTab}`) }) }}</p>
           </div>
 
+          <!-- No items match filters -->
+          <div
+            v-else-if="filteredEntries.length === 0"
+            class="text-center py-12 text-medium-emphasis"
+          >
+            <v-icon class="mb-4" size="64">mdi-filter-off</v-icon>
+            <p>{{ $t('Common.noItemsMatchFilters') }}</p>
+            <v-btn
+              class="mt-2"
+              size="small"
+              variant="text"
+              @click="clearFilters"
+            >
+              {{ $t('Common.clearFilters') }}
+            </v-btn>
+          </div>
+
           <!-- Entry cards -->
           <v-row v-else dense>
             <v-col
-              v-for="item in entries"
+              v-for="item in filteredEntries"
               :key="item.id"
               cols="12"
               lg="3"
@@ -255,7 +347,47 @@
   const totalPages = ref(0)
   const PAGE_SIZE = 24
 
+  // Filter / Search / Sort state
+  const pricingFilter = ref('all')
+  const searchQuery = ref('')
+  const sortBy = ref<'recent' | 'title'>('recent')
+
   const hasMorePages = computed(() => currentPage.value < totalPages.value - 1)
+
+  const filteredEntries = computed(() => {
+    let result = [...entries.value]
+
+    // Filter by pricing
+    if (pricingFilter.value === 'free') {
+      result = result.filter(item => !item.isPaid)
+    } else if (pricingFilter.value === 'premium') {
+      result = result.filter(item => item.isPaid)
+    }
+
+    // Filter by search
+    if (searchQuery.value) {
+      const query = searchQuery.value.toLowerCase()
+      result = result.filter(item =>
+        item.title.toLowerCase().includes(query)
+        || item.authorName.toLowerCase().includes(query),
+      )
+    }
+
+    // Sort
+    if (sortBy.value === 'recent') {
+      result.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    } else if (sortBy.value === 'title') {
+      result.sort((a, b) => a.title.localeCompare(b.title))
+    }
+
+    return result
+  })
+
+  function clearFilters () {
+    pricingFilter.value = 'all'
+    searchQuery.value = ''
+    sortBy.value = 'recent'
+  }
 
   // Get username from route param
   const requestedUsername = computed(() => {
@@ -359,6 +491,9 @@
 
   // Fetch entries when tab changes
   watch(activeTab, () => {
+    pricingFilter.value = 'all'
+    searchQuery.value = ''
+    sortBy.value = 'recent'
     fetchEntries()
   })
 
@@ -376,6 +511,9 @@
         activeTab: activeTab.value,
         currentPage: currentPage.value,
         totalPages: totalPages.value,
+        pricingFilter: pricingFilter.value,
+        searchQuery: searchQuery.value,
+        sortBy: sortBy.value,
         scrollY: window.scrollY,
       })
     }
@@ -389,6 +527,9 @@
       activeTab.value = cached.activeTab as string
       currentPage.value = cached.currentPage as number
       totalPages.value = cached.totalPages as number
+      pricingFilter.value = (cached.pricingFilter as string) ?? 'all'
+      searchQuery.value = (cached.searchQuery as string) ?? ''
+      sortBy.value = (cached.sortBy as 'recent' | 'title') ?? 'recent'
       loading.value = false
       entriesLoading.value = false
 

@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "La collection que vous recherchez n'existe pas ou a été supprimée.",
         "itemsCount": "{count} éléments",
         "all": "Tous",
+        "free": "Gratuit",
+        "premium": "Premium",
         "searchItems": "Rechercher des éléments...",
         "defaultOrder": "Ordre par défaut",
         "mostRecent": "Plus récents",

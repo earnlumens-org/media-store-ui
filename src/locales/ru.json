@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "Коллекция, которую вы ищете, не существует или была удалена.",
         "itemsCount": "{count} элементов",
         "all": "Все",
+        "free": "Бесплатно",
+        "premium": "Премиум",
         "searchItems": "Поиск элементов...",
         "defaultOrder": "По умолчанию",
         "mostRecent": "Новые",

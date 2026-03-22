@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "Aradığınız koleksiyon mevcut değil veya kaldırılmış.",
         "itemsCount": "{count} öğe",
         "all": "Tümü",
+        "free": "Ücretsiz",
+        "premium": "Premium",
         "searchItems": "Öğe ara...",
         "defaultOrder": "Varsayılan sıralama",
         "mostRecent": "En yeni",

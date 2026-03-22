@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "Колекція, яку ви шукаєте, не існує або була видалена.",
         "itemsCount": "{count} елементів",
         "all": "Всі",
+        "free": "Безкоштовно",
+        "premium": "Преміум",
         "searchItems": "Пошук елементів...",
         "defaultOrder": "За замовчуванням",
         "mostRecent": "Нові",

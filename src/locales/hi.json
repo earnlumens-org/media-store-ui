@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "आप जिस संग्रह को खोज रहे हैं वह मौजूद नहीं है या हटा दिया गया है।",
         "itemsCount": "{count} आइटम",
         "all": "सभी",
+        "free": "मुफ़्त",
+        "premium": "प्रीमियम",
         "searchItems": "आइटम खोजें...",
         "defaultOrder": "डिफ़ॉल्ट क्रम",
         "mostRecent": "सबसे नया",

@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "お探しのコレクションは存在しないか、削除されました。",
         "itemsCount": "{count} アイテム",
         "all": "すべて",
+        "free": "無料",
+        "premium": "プレミアム",
         "searchItems": "アイテムを検索...",
         "defaultOrder": "デフォルト順",
         "mostRecent": "最新",

@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "您查找的合集不存在或已被删除。",
         "itemsCount": "{count} 个项目",
         "all": "全部",
+        "free": "免费",
+        "premium": "付费",
         "searchItems": "搜索项目...",
         "defaultOrder": "默认顺序",
         "mostRecent": "最新",

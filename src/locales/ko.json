@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "찾고 계신 커렉션이 존재하지 않거나 삭제되었습니다.",
         "itemsCount": "{count}개 항목",
         "all": "모두",
+        "free": "무료",
+        "premium": "프리미엄",
         "searchItems": "항목 검색...",
         "defaultOrder": "기본 순서",
         "mostRecent": "최신순",

@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "您查找的合集不存在或已被刪除。",
         "itemsCount": "{count} 個項目",
         "all": "全部",
+        "free": "免費",
+        "premium": "付費",
         "searchItems": "搜尋項目...",
         "defaultOrder": "預設順序",
         "mostRecent": "最新",

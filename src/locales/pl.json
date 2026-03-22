@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "Kolekcja, której szukasz, nie istnieje lub została usunięta.",
         "itemsCount": "{count} elementów",
         "all": "Wszystkie",
+        "free": "Bezpłatne",
+        "premium": "Premium",
         "searchItems": "Szukaj elementów...",
         "defaultOrder": "Domyślna kolejność",
         "mostRecent": "Najnowsze",

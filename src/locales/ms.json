@@ -21,6 +21,8 @@
         "collectionNotFoundDescription": "Koleksi yang anda cari tidak wujud atau telah dipadamkan.",
         "itemsCount": "{count} item",
         "all": "Semua",
+        "free": "Percuma",
+        "premium": "Premium",
         "searchItems": "Cari item...",
         "defaultOrder": "Susunan lalai",
         "mostRecent": "Terbaru",
