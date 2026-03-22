@@ -46,6 +46,10 @@
           <v-icon start>mdi-text-box</v-icon>
           {{ t('Profile.tabs.resource') }}
         </v-tab>
+        <v-tab value="collections">
+          <v-icon start>mdi-folder-multiple</v-icon>
+          {{ t('Common.collections') }}
+        </v-tab>
       </v-tabs>
 
       <!-- Filter / Search / Sort bar -->
@@ -89,8 +93,8 @@
         </v-menu>
       </div>
 
-      <!-- Entry grid -->
-      <div class="mt-4">
+      <!-- Entry grid (entries tabs) -->
+      <div v-if="activeTab !== 'collections'" class="mt-4">
         <!-- Loading state -->
         <v-row v-if="loading" dense>
           <v-col
@@ -182,19 +186,98 @@
           </v-row>
         </template>
       </div>
+
+      <!-- Collections grid (collections tab) -->
+      <div v-if="activeTab === 'collections'" class="mt-4">
+        <!-- Loading state -->
+        <v-row v-if="collectionsLoading" dense>
+          <v-col
+            v-for="n in 8"
+            :key="`coll-skeleton-${n}`"
+            cols="12"
+            lg="3"
+            md="4"
+            sm="6"
+            xxl="2"
+          >
+            <EntryCardSkeleton />
+          </v-col>
+        </v-row>
+
+        <!-- Error state -->
+        <v-row v-else-if="collectionsError" dense>
+          <v-col cols="12">
+            <v-alert
+              class="ma-4"
+              closable
+              :text="t('Purchased.errorDescription')"
+              :title="t('Purchased.errorTitle')"
+              type="error"
+              @click:close="fetchCollections"
+            />
+          </v-col>
+        </v-row>
+
+        <!-- Empty state -->
+        <v-row v-else-if="collections.length === 0" dense>
+          <v-col cols="12">
+            <v-alert
+              class="ma-4"
+              icon="mdi-folder-multiple-outline"
+              :text="t('Purchased.emptyDescription')"
+              :title="t('Purchased.empty')"
+              type="info"
+            />
+          </v-col>
+        </v-row>
+
+        <!-- Collection cards -->
+        <template v-else>
+          <v-row dense>
+            <v-col
+              v-for="item in collections"
+              :key="item.id"
+              cols="12"
+              lg="3"
+              md="4"
+              sm="6"
+              xxl="2"
+            >
+              <CollectionCard
+                :collection="toCollectionCardProps(item)"
+              />
+            </v-col>
+          </v-row>
+
+          <!-- Load more -->
+          <v-row v-if="collectionsHasMorePages" dense>
+            <v-col class="d-flex justify-center py-4" cols="12">
+              <v-btn
+                :loading="collectionsLoadingMore"
+                variant="outlined"
+                @click="loadMoreCollections"
+              >
+                {{ t('Common.loadMore') }}
+              </v-btn>
+            </v-col>
+          </v-row>
+        </template>
+      </div>
     </template>
   </v-container>
 </template>
 
 <script setup lang="ts">
-  import type { PurchasedEntryModel } from '@/api/types/purchase.types'
+  import type { PurchasedCollectionModel, PurchasedEntryModel } from '@/api/types/purchase.types'
   import type { Entry } from '@/components/entry/EntryCard.vue'
+  import type { Collection } from '@/components/collection/CollectionCard.vue'
 
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
+  import CollectionCard from '@/components/collection/CollectionCard.vue'
   import EntryCard from '@/components/entry/EntryCard.vue'
   import EntryCardSkeleton from '@/components/entry/EntryCardSkeleton.vue'
   import { isPopNavigation } from '@/router'
@@ -224,6 +307,15 @@
   const sortBy = ref<'recent' | 'title'>('recent')
 
   const hasMorePages = computed(() => currentPage.value < totalPages.value - 1)
+
+  // Collections state
+  const collections = ref<PurchasedCollectionModel[]>([])
+  const collectionsLoading = ref(false)
+  const collectionsLoadingMore = ref(false)
+  const collectionsError = ref(false)
+  const collectionsCurrentPage = ref(0)
+  const collectionsTotalPages = ref(0)
+  const collectionsHasMorePages = computed(() => collectionsCurrentPage.value < collectionsTotalPages.value - 1)
 
   const filteredEntries = computed(() => {
     let result = [...entries.value]
@@ -257,10 +349,13 @@
     sortBy.value = 'recent'
   }
 
-  // Reset filters on tab change
-  watch(activeTab, () => {
+  // Reset filters on tab change & fetch collections on demand
+  watch(activeTab, (newTab) => {
     searchQuery.value = ''
     sortBy.value = 'recent'
+    if (newTab === 'collections' && collections.value.length === 0 && !collectionsLoading.value) {
+      fetchCollections()
+    }
   })
 
   function toEntryCardProps (item: PurchasedEntryModel): Entry {
@@ -327,6 +422,57 @@
       console.error('[Purchased] Failed to load more:', error_)
     } finally {
       loadingMore.value = false
+    }
+  }
+
+  function toCollectionCardProps (item: PurchasedCollectionModel): Collection {
+    return {
+      id: item.id,
+      collectionType: item.collectionType || 'collection',
+      title: item.title,
+      authorName: item.authorName || '',
+      authorAvatarUrl: item.authorAvatarUrl,
+      publishedAt: item.publishedAt,
+      coverUrl: item.coverUrl,
+      itemsCount: item.itemCount,
+      locked: false,
+      unlocked: true,
+    }
+  }
+
+  async function fetchCollections () {
+    if (!authStore.isAuthenticated) return
+
+    collectionsLoading.value = true
+    collectionsError.value = false
+
+    try {
+      const response = await api.purchases.collections({ page: 0, size: PAGE_SIZE })
+      collections.value = response.items
+      collectionsCurrentPage.value = response.page
+      collectionsTotalPages.value = response.totalPages
+    } catch (error_) {
+      console.error('[Purchased] Failed to fetch collections:', error_)
+      collectionsError.value = true
+    } finally {
+      collectionsLoading.value = false
+    }
+  }
+
+  async function loadMoreCollections () {
+    collectionsLoadingMore.value = true
+    try {
+      const response = await api.purchases.collections({
+        page: collectionsCurrentPage.value + 1,
+        size: PAGE_SIZE,
+      })
+      collections.value.push(...response.items)
+      collectionsCurrentPage.value = response.page
+      collectionsTotalPages.value = response.totalPages
+    } catch (error_) {
+      console.error('[Purchased] Failed to load more collections:', error_)
+    } finally {
+      collectionsLoadingMore.value = false
     }
   }
 

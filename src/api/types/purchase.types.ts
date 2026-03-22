@@ -56,3 +56,51 @@ export interface PurchasedEntryPageModel {
   totalElements: number
   totalPages: number
 }
+
+// ── Purchased Collections ─────────────────────────────────
+
+export interface PurchasedCollectionDto {
+  id: string
+  title: string
+  description?: string
+  collectionType?: string
+  coverR2Key?: string
+  authorUsername?: string
+  authorAvatarUrl?: string
+  publishedAt?: string
+  isPaid: boolean
+  priceXlm?: number
+  itemCount: number
+  purchasedAt?: string
+}
+
+export interface PurchasedCollectionPageDto {
+  content: PurchasedCollectionDto[]
+  page: number
+  size: number
+  totalElements: number
+  totalPages: number
+}
+
+export interface PurchasedCollectionModel {
+  id: string
+  title: string
+  description?: string
+  collectionType?: string
+  coverUrl?: string
+  authorName?: string
+  authorAvatarUrl?: string
+  publishedAt: string
+  isPaid: boolean
+  priceXlm?: number
+  itemCount: number
+  purchasedAt: string
+}
+
+export interface PurchasedCollectionPageModel {
+  items: PurchasedCollectionModel[]
+  page: number
+  size: number
+  totalElements: number
+  totalPages: number
+}

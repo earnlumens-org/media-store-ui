@@ -210,7 +210,11 @@
       }
 
       // 2. Prepare — backend builds unsigned Stellar tx
-      const prepared = await api.payment.prepare(props.item.id, buyerWallet)
+      const isCollection = props.item.type === 'collection'
+      const prepared = await api.payment.prepare(buyerWallet, isCollection
+        ? { collectionId: props.item.id }
+        : { entryId: props.item.id },
+      )
 
       // Store the resolved XLM amount (backend computed for USD entries)
       resolvedXlmAmount.value = prepared.totalXlm
@@ -238,7 +242,8 @@
       })
 
       // 6. Emit success
-      emit('purchased', result.entryId)
+      const purchasedId = result.entryId || result.collectionId || props.item.id
+      emit('purchased', purchasedId)
 
       // 7. Close dialog
       dialogOpen.value = false

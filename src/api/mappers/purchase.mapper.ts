@@ -4,6 +4,10 @@
  */
 
 import type {
+  PurchasedCollectionDto,
+  PurchasedCollectionModel,
+  PurchasedCollectionPageDto,
+  PurchasedCollectionPageModel,
   PurchasedEntryDto,
   PurchasedEntryModel,
   PurchasedEntryPageDto,
@@ -39,6 +43,33 @@ export function mapPurchasedEntryDtoToModel (dto: PurchasedEntryDto): PurchasedE
 export function mapPurchasedEntryPageDtoToModel (dto: PurchasedEntryPageDto): PurchasedEntryPageModel {
   return {
     items: dto.content.map(mapPurchasedEntryDtoToModel),
+    page: dto.page,
+    size: dto.size,
+    totalElements: dto.totalElements,
+    totalPages: dto.totalPages,
+  }
+}
+
+export function mapPurchasedCollectionDtoToModel (dto: PurchasedCollectionDto): PurchasedCollectionModel {
+  return {
+    id: dto.id,
+    title: dto.title,
+    description: dto.description,
+    collectionType: dto.collectionType,
+    coverUrl: r2KeyToCdnUrl(dto.coverR2Key),
+    authorName: dto.authorUsername,
+    authorAvatarUrl: dto.authorAvatarUrl,
+    publishedAt: dto.publishedAt ?? '',
+    isPaid: dto.isPaid,
+    priceXlm: dto.priceXlm,
+    itemCount: dto.itemCount,
+    purchasedAt: dto.purchasedAt ?? '',
+  }
+}
+
+export function mapPurchasedCollectionPageDtoToModel (dto: PurchasedCollectionPageDto): PurchasedCollectionPageModel {
+  return {
+    items: dto.content.map(mapPurchasedCollectionDtoToModel),
     page: dto.page,
     size: dto.size,
     totalElements: dto.totalElements,

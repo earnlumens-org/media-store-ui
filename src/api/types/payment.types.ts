@@ -8,7 +8,8 @@
 // ── Request DTOs ──────────────────────────────────────────
 
 export interface PreparePaymentRequestDto {
-  entryId: string
+  entryId?: string
+  collectionId?: string
   buyerWallet: string
 }
 
@@ -36,7 +37,8 @@ export interface SubmitPaymentResponseDto {
   orderId: string
   stellarTxHash: string
   status: string
-  entryId: string
+  entryId?: string
+  collectionId?: string
 }
 
 // ── Frontend Models ───────────────────────────────────────
@@ -58,5 +60,6 @@ export interface SubmitPaymentModel {
   orderId: string
   stellarTxHash: string
   status: string
-  entryId: string
+  entryId?: string
+  collectionId?: string
 }

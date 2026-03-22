@@ -5,10 +5,15 @@
  * Requires authentication (Bearer token via apiRequest).
  */
 
-import type { PurchasedEntryPageDto, PurchasedEntryPageModel } from '../types/purchase.types'
+import type {
+  PurchasedCollectionPageDto,
+  PurchasedCollectionPageModel,
+  PurchasedEntryPageDto,
+  PurchasedEntryPageModel,
+} from '../types/purchase.types'
 
 import { apiRequest } from '../apiRequest'
-import { mapPurchasedEntryPageDtoToModel } from '../mappers/purchase.mapper'
+import { mapPurchasedCollectionPageDtoToModel, mapPurchasedEntryPageDtoToModel } from '../mappers/purchase.mapper'
 
 const BASE_PATH = '/api/purchases'
 
@@ -28,4 +33,22 @@ export async function getPurchases (
 
   const dto = await apiRequest<PurchasedEntryPageDto>(url)
   return mapPurchasedEntryPageDtoToModel(dto)
+}
+
+/**
+ * Fetch a paginated list of collections the current user has purchased.
+ * Uses GET /api/purchases/collections.
+ */
+export async function getPurchaseCollections (
+  params: { page?: number, size?: number } = {},
+): Promise<PurchasedCollectionPageModel> {
+  const query = new URLSearchParams()
+  if (params.page != null) query.set('page', String(params.page))
+  if (params.size != null) query.set('size', String(params.size))
+
+  const qs = query.toString()
+  const url = qs ? `${BASE_PATH}/collections?${qs}` : `${BASE_PATH}/collections`
+
+  const dto = await apiRequest<PurchasedCollectionPageDto>(url)
+  return mapPurchasedCollectionPageDtoToModel(dto)
 }

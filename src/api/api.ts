@@ -1,4 +1,20 @@
 import { createSession, logout, refreshAccessToken } from './modules/auth.api'
+import {
+  addItem,
+  archiveCollection as archiveCollectionFn,
+  createCollection,
+  deleteCollection,
+  finalizeCoverUpload,
+  getCollectionDetail,
+  getMyCollections,
+  getPublishedCollections,
+  initCoverUpload,
+  publishCollection,
+  removeItem,
+  reorderItems,
+  unarchiveCollection as unarchiveCollectionFn,
+  updateCollection,
+} from './modules/collection.api'
 import { archiveEntry, getCreatorDashboardStats, getCreatorEntries, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
 import { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
 import {
@@ -14,7 +30,7 @@ import {
 import { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
 import { checkSubscription, getMySubscribers, getMySubscriberCount, getMySubscriptions, getPublicSubscriberCount, subscribe, unsubscribe } from './modules/subscription.api'
 import { preparePayment, submitPayment } from './modules/payment.api'
-import { getPurchases } from './modules/purchase.api'
+import { getPurchaseCollections, getPurchases } from './modules/purchase.api'
 import { getSellerSales } from './modules/sales.api'
 import { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
 import { checkUsernameExists, getCurrentUser, getUserByUsername } from './modules/user.api'
@@ -61,6 +77,23 @@ export const api = {
   },
   purchases: {
     list: getPurchases,
+    collections: getPurchaseCollections,
+  },
+  collections: {
+    getPublished: getPublishedCollections,
+    getDetail: getCollectionDetail,
+    create: createCollection,
+    update: updateCollection,
+    publish: publishCollection,
+    archive: archiveCollectionFn,
+    unarchive: unarchiveCollectionFn,
+    delete: deleteCollection,
+    getMine: getMyCollections,
+    addItem,
+    removeItem,
+    reorderItems,
+    initCoverUpload,
+    finalizeCoverUpload,
   },
   favorites: {
     list: getFavorites,
@@ -92,6 +125,22 @@ export const api = {
 
 export { ApiError, apiRequest } from './apiRequest'
 export { createSession, logout, refreshAccessToken } from './modules/auth.api'
+export {
+  addItem,
+  archiveCollection as archiveCollectionFn,
+  createCollection,
+  deleteCollection,
+  finalizeCoverUpload,
+  getCollectionDetail,
+  getMyCollections,
+  getPublishedCollections,
+  initCoverUpload,
+  publishCollection,
+  removeItem,
+  reorderItems,
+  unarchiveCollection as unarchiveCollectionFn,
+  updateCollection,
+} from './modules/collection.api'
 export { archiveEntry, getCreatorDashboardStats, getCreatorEntries, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
 export { getSellerSales } from './modules/sales.api'
 export { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
@@ -106,7 +155,7 @@ export {
   getMockFirstStepsFeed,
 } from './modules/entryMock.api'
 export { preparePayment, submitPayment } from './modules/payment.api'
-export { getPurchases } from './modules/purchase.api'
+export { getPurchaseCollections, getPurchases } from './modules/purchase.api'
 export { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
 export { checkUsernameExists, getCurrentUser, getUserByUsername, parseUserFromToken } from './modules/user.api'
 export { getWaitlistStats } from './modules/waitlist.api'
@@ -196,3 +245,15 @@ export type {
   SellerSaleModel,
   SellerSaleSplit,
 } from './types/sales.types'
+
+export type {
+  CollectionDetailModel,
+  CollectionEntryItemModel,
+  CollectionItemModel,
+  CollectionPageModel,
+} from './types/collection.types'
+
+export type {
+  PurchasedCollectionModel,
+  PurchasedCollectionPageModel,
+} from './types/purchase.types'

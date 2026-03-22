@@ -23,14 +23,19 @@ const BASE_PATH = '/api/payments'
 
 /**
  * Phase 1 — Prepare an unsigned Stellar payment transaction.
- * The backend reads the entry's price and splits from the database
+ * The backend reads the content's price and splits from the database
  * and returns the XDR for the wallet to sign.
+ * Pass either entryId or collectionId (exactly one).
  */
 export async function preparePayment (
-  entryId: string,
   buyerWallet: string,
+  options: { entryId?: string, collectionId?: string },
 ): Promise<PreparePaymentModel> {
-  const body: PreparePaymentRequestDto = { entryId, buyerWallet }
+  const body: PreparePaymentRequestDto = {
+    entryId: options.entryId,
+    collectionId: options.collectionId,
+    buyerWallet,
+  }
   const d = await apiRequest<PreparePaymentResponseDto>(
     `${BASE_PATH}/prepare`,
     {
@@ -74,5 +79,6 @@ export async function submitPayment (
     stellarTxHash: d.stellarTxHash,
     status: d.status,
     entryId: d.entryId,
+    collectionId: d.collectionId,
   }
 }

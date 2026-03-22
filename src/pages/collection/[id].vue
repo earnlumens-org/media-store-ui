@@ -217,13 +217,13 @@
 
             <!-- Stats Row -->
             <div class="d-flex flex-wrap align-center ga-3 text-body-2 text-white text-medium-emphasis mb-4">
-              <span v-if="collection.itemsCount">
+              <span v-if="collection.itemCount">
                 <v-icon class="me-1" size="16">mdi-format-list-bulleted</v-icon>
-                {{ $t('Common.itemsCount', { count: collection.itemsCount }) }}
+                {{ $t('Common.itemsCount', { count: collection.itemCount }) }}
               </span>
-              <span v-if="collection.totalDurationSec">
+              <span v-if="totalDurationSec">
                 <v-icon class="me-1" size="16">mdi-clock-outline</v-icon>
-                {{ formatDuration(collection.totalDurationSec) }}
+                {{ formatDuration(totalDurationSec) }}
               </span>
               <span>
                 <v-icon class="me-1" size="16">mdi-calendar</v-icon>
@@ -247,6 +247,16 @@
                 item-type="COLLECTION"
                 variant="icon"
               />
+              <v-btn
+                v-if="collection.isPaid && !collection.unlocked && !collection.isOwner"
+                color="accent"
+                prepend-icon="mdi-cart"
+                size="large"
+                variant="flat"
+                @click="openCheckout"
+              >
+                {{ $t('Common.buy') }}
+              </v-btn>
               <v-btn
                 :aria-label="$t('Common.share')"
                 color="white"
@@ -389,7 +399,7 @@
             <v-list v-else class="pa-0 bg-transparent">
               <v-list-item
                 v-for="(item, index) in filteredItems"
-                :key="item.id"
+                :key="item.entryId"
                 class="px-0 rounded-lg mb-1"
                 @click="openItem(item)"
               >
@@ -485,17 +495,17 @@
                 <!-- Stats -->
                 <v-card variant="outlined">
                   <v-list density="compact">
-                    <v-list-item v-if="collection.itemsCount">
+                    <v-list-item v-if="collection.itemCount">
                       <template #prepend>
                         <v-icon>mdi-format-list-bulleted</v-icon>
                       </template>
-                      <v-list-item-title>{{ $t('Common.itemsCount', { count: collection.itemsCount }) }}</v-list-item-title>
+                      <v-list-item-title>{{ $t('Common.itemsCount', { count: collection.itemCount }) }}</v-list-item-title>
                     </v-list-item>
-                    <v-list-item v-if="collection.totalDurationSec">
+                    <v-list-item v-if="totalDurationSec">
                       <template #prepend>
                         <v-icon>mdi-clock-outline</v-icon>
                       </template>
-                      <v-list-item-title>{{ formatDuration(collection.totalDurationSec) }} {{ $t('Common.total') }}</v-list-item-title>
+                      <v-list-item-title>{{ formatDuration(totalDurationSec) }} {{ $t('Common.total') }}</v-list-item-title>
                     </v-list-item>
                     <v-list-item>
                       <template #prepend>
@@ -528,12 +538,19 @@
         v-model="entryDialogOpen"
         :entry-id="selectedItemId"
       />
+
+      <!-- Checkout Dialog -->
+      <CheckoutDialog
+        v-model="checkoutOpen"
+        :item="checkoutItem"
+        @purchased="onPurchased"
+      />
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-  import type { CollectionModel, EntryModel } from '@/api/api'
+  import type { CollectionDetailModel, CollectionEntryItemModel } from '@/api/types/collection.types'
 
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
@@ -544,6 +561,7 @@
   import AudioPlayerDialog from '@/components/entry/AudioPlayerDialog.vue'
   import EntryPreviewDialog from '@/components/entry/EntryPreviewDialog.vue'
   import ImageLightbox from '@/components/entry/ImageLightbox.vue'
+  import CheckoutDialog from '@/components/checkout/CheckoutDialog.vue'
   import { isPopNavigation } from '@/router'
   import { useAppStore } from '@/stores/app'
   import { useScrollCacheStore } from '@/stores/scrollCache'
@@ -564,14 +582,13 @@
   })
 
   // Collection State
-  const collection = ref<CollectionModel | null>(null)
+  const collection = ref<CollectionDetailModel | null>(null)
   const loading = ref(true)
   const error = ref(false)
   const notFound = ref(false)
   const errorMessage = ref('')
 
-  // Items State
-  const items = ref<EntryModel[]>([])
+  // Items are now part of collection detail — no separate fetch
   const itemsLoading = ref(false)
 
   // UI State
@@ -579,7 +596,7 @@
   const selectedType = ref('all')
   const searchQuery = ref('')
   const sortBy = ref<'default' | 'recent' | 'title'>('default')
-  const hasProgress = ref(false) // Would come from user progress API
+  const hasProgress = ref(false)
 
   // Modal State
   const audioDialogOpen = ref(false)
@@ -587,8 +604,32 @@
   const entryDialogOpen = ref(false)
   const selectedItemId = ref('')
 
-  // Mock description
-  const collectionDescription = 'This collection brings together a curated selection of content designed to help you learn and explore new topics. Each item has been carefully selected to provide value and insight. Whether you\'re looking to expand your knowledge or simply enjoy quality content, this collection has something for everyone.'
+  // Checkout state
+  const checkoutOpen = ref(false)
+
+  const checkoutItem = computed(() => {
+    if (!collection.value) return null
+    const c = collection.value
+    return {
+      id: c.id,
+      title: c.title,
+      creator: {
+        name: c.authorName || '',
+        avatar: c.authorAvatarUrl,
+      },
+      price: c.priceXlm ?? c.priceUsd ?? 0,
+      priceCurrency: (c.priceCurrency === 'USD' ? 'USD' : 'XLM') as 'XLM' | 'USD',
+      type: 'collection' as const,
+      thumbnail: c.coverUrl,
+    }
+  })
+
+  // Derive items + description from collection detail
+  const items = computed<CollectionEntryItemModel[]>(() => collection.value?.items ?? [])
+  const collectionDescription = computed(() => collection.value?.description || '')
+  const totalDurationSec = computed(() =>
+    items.value.reduce((sum, item) => sum + (item.durationSec || 0), 0) || undefined,
+  )
 
   // Computed: Get unique types from items
   const uniqueTypes = computed(() => {
@@ -659,7 +700,7 @@
     return colors[type] || 'grey-lighten-3'
   }
 
-  function getActionIcon (item: EntryModel): string {
+  function getActionIcon (item: CollectionEntryItemModel): string {
     if (item.locked) return 'mdi-lock'
     if (item.type === 'video') return 'mdi-play'
     if (item.type === 'audio') return 'mdi-play'
@@ -708,18 +749,18 @@
   }
 
   // Item click handler
-  function openItem (item: EntryModel) {
+  function openItem (item: CollectionEntryItemModel) {
     // Locked items always go to preview
     if (item.locked) {
-      router.push(`/preview/${item.id}`)
+      router.push(`/preview/${item.entryId}`)
       return
     }
 
-    selectedItemId.value = item.id
+    selectedItemId.value = item.entryId
 
     switch (item.type) {
       case 'video': {
-        router.push(`/watch/${item.id}`)
+        router.push(`/watch/${item.entryId}`)
         break
       }
       case 'audio': {
@@ -738,7 +779,7 @@
         break
       }
       default: {
-        router.push(`/read/${item.id}`)
+        router.push(`/read/${item.entryId}`)
       }
     }
   }
@@ -776,7 +817,7 @@
     router.push('/')
   }
 
-  // Fetch collection data
+  // Fetch collection data (real API)
   async function fetchCollection () {
     loading.value = true
     error.value = false
@@ -784,7 +825,7 @@
     errorMessage.value = ''
 
     try {
-      const data = await api.mock.getCollectionById(collectionId.value)
+      const data = await api.collections.getDetail(collectionId.value)
 
       // LOCKED COLLECTION REDIRECT
       if (data.locked) {
@@ -793,9 +834,6 @@
       }
 
       collection.value = data
-
-      // Fetch items after collection loads
-      fetchItems()
     } catch (error_: unknown) {
       console.error('[CollectionPage] Failed to fetch collection:', error_)
 
@@ -810,24 +848,14 @@
     }
   }
 
-  // Fetch collection items (simulated with entries API)
-  async function fetchItems () {
-    itemsLoading.value = true
+  // Checkout handler
+  function openCheckout () {
+    checkoutOpen.value = true
+  }
 
-    try {
-      // Since there's no collection items endpoint, use entries as mock items
-      const response = await api.mock.getEntries({ size: 12 })
-
-      items.value = response.items
-        .filter(item => item.kind === 'entry')
-        .map(item => (item as { kind: 'entry', entry: EntryModel }).entry)
-    } catch (error_: unknown) {
-      console.error('[CollectionPage] Failed to fetch items:', error_)
-      // Don't set error state for items, just show empty
-      items.value = []
-    } finally {
-      itemsLoading.value = false
-    }
+  function onPurchased () {
+    // Re-fetch collection detail to get updated locked/unlocked status
+    fetchCollection()
   }
 
   // Watch for route changes
@@ -840,8 +868,7 @@
   onBeforeRouteLeave(() => {
     if (collection.value) {
       scrollCache.save(route.path, {
-        collection: { ...collection.value },
-        items: [...items.value],
+        collection: collection.value,
         activeTab: activeTab.value,
         selectedType: selectedType.value,
         searchQuery: searchQuery.value,
@@ -855,8 +882,7 @@
   onMounted(() => {
     const cached = scrollCache.get(route.path)
     if (cached && isPopNavigation()) {
-      collection.value = cached.collection as CollectionModel
-      items.value = cached.items as EntryModel[]
+      collection.value = cached.collection as CollectionDetailModel
       activeTab.value = cached.activeTab as string
       selectedType.value = cached.selectedType as string
       searchQuery.value = cached.searchQuery as string
