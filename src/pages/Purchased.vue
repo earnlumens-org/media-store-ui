@@ -49,16 +49,14 @@
       </v-tabs>
 
       <!-- Filter / Search / Sort bar -->
-      <div
-        v-if="!loading && !error && entries.length > 0"
-        class="d-flex flex-wrap align-center ga-2 mt-4"
-      >
+      <div class="d-flex flex-wrap align-center ga-2 mt-4">
         <!-- Search -->
         <v-spacer />
         <v-text-field
           v-model="searchQuery"
           clearable
           density="compact"
+          :disabled="loading"
           hide-details
           :placeholder="t('Common.searchItems')"
           prepend-inner-icon="mdi-magnify"
@@ -71,6 +69,7 @@
           <template #activator="{ props: menuProps }">
             <v-btn
               v-bind="menuProps"
+              :disabled="loading"
               icon="mdi-sort"
               variant="tonal"
             />

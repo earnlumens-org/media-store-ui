@@ -145,18 +145,17 @@
         </v-tabs>
 
         <!-- Filter / Search / Sort bar -->
-        <div
-          v-if="!entriesLoading && !entriesError && entries.length > 0"
-          class="d-flex flex-wrap align-center ga-2 mt-4"
-        >
+        <div class="d-flex flex-wrap align-center ga-2 mt-4">
           <!-- Pricing Filter Chips -->
           <v-chip-group
             v-model="pricingFilter"
             class="flex-grow-1"
+            :disabled="entriesLoading"
             mandatory
             selected-class="text-primary"
           >
             <v-chip
+              :disabled="entriesLoading"
               filter
               size="small"
               value="all"
@@ -165,6 +164,7 @@
               {{ $t('Common.all') }}
             </v-chip>
             <v-chip
+              :disabled="entriesLoading"
               filter
               size="small"
               value="free"
@@ -173,6 +173,7 @@
               {{ $t('Common.free') }}
             </v-chip>
             <v-chip
+              :disabled="entriesLoading"
               filter
               size="small"
               value="premium"
@@ -188,6 +189,7 @@
             v-model="searchQuery"
             clearable
             density="compact"
+            :disabled="entriesLoading"
             hide-details
             :placeholder="$t('Common.searchItems')"
             prepend-inner-icon="mdi-magnify"
@@ -200,6 +202,7 @@
             <template #activator="{ props: menuProps }">
               <v-btn
                 v-bind="menuProps"
+                :disabled="entriesLoading"
                 icon="mdi-sort"
                 variant="tonal"
               />

@@ -43,24 +43,22 @@
       </v-tabs>
 
       <!-- Filter / Search / Sort bar -->
-      <div
-        v-if="!loading && !error && favorites.length > 0"
-        class="d-flex flex-wrap align-center ga-2 mt-4"
-      >
+      <div class="d-flex flex-wrap align-center ga-2 mt-4">
         <!-- Pricing Filter Chips -->
         <v-chip-group
           v-model="pricingFilter"
           class="flex-grow-1"
+          :disabled="loading"
           mandatory
           selected-class="text-primary"
         >
-          <v-chip filter size="small" value="all" variant="tonal">
+          <v-chip :disabled="loading" filter size="small" value="all" variant="tonal">
             {{ $t('Common.all') }}
           </v-chip>
-          <v-chip filter size="small" value="free" variant="tonal">
+          <v-chip :disabled="loading" filter size="small" value="free" variant="tonal">
             {{ $t('Common.free') }}
           </v-chip>
-          <v-chip filter size="small" value="premium" variant="tonal">
+          <v-chip :disabled="loading" filter size="small" value="premium" variant="tonal">
             <v-icon size="14" start>mdi-lock</v-icon>
             {{ $t('Common.premium') }}
           </v-chip>
@@ -71,6 +69,7 @@
           v-model="searchQuery"
           clearable
           density="compact"
+          :disabled="loading"
           hide-details
           :placeholder="$t('Common.searchItems')"
           prepend-inner-icon="mdi-magnify"
@@ -83,6 +82,7 @@
           <template #activator="{ props: menuProps }">
             <v-btn
               v-bind="menuProps"
+              :disabled="loading"
               icon="mdi-sort"
               variant="tonal"
             />

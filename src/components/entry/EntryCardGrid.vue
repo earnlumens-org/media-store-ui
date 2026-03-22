@@ -8,19 +8,19 @@
     <v-container class="py-4 px-1 px-sm-4" fluid>
       <!-- Pricing filter chips -->
       <v-chip-group
-        v-if="!loading && !error && entries.length > 0"
         v-model="pricingFilter"
         class="mb-2"
+        :disabled="loading"
         mandatory
         selected-class="text-primary"
       >
-        <v-chip filter size="small" value="all" variant="tonal">
+        <v-chip :disabled="loading" filter size="small" value="all" variant="tonal">
           {{ $t('Common.all') }}
         </v-chip>
-        <v-chip filter size="small" value="free" variant="tonal">
+        <v-chip :disabled="loading" filter size="small" value="free" variant="tonal">
           {{ $t('Common.free') }}
         </v-chip>
-        <v-chip filter size="small" value="premium" variant="tonal">
+        <v-chip :disabled="loading" filter size="small" value="premium" variant="tonal">
           <v-icon size="14" start>mdi-lock</v-icon>
           {{ $t('Common.premium') }}
         </v-chip>
