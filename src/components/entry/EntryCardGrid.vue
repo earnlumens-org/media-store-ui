@@ -6,6 +6,26 @@
     @load="onInfiniteLoad"
   >
     <v-container class="py-4 px-1 px-sm-4" fluid>
+      <!-- Pricing filter chips -->
+      <v-chip-group
+        v-if="!loading && !error && entries.length > 0"
+        v-model="pricingFilter"
+        class="mb-2"
+        mandatory
+        selected-class="text-primary"
+      >
+        <v-chip filter size="small" value="all" variant="tonal">
+          {{ $t('Common.all') }}
+        </v-chip>
+        <v-chip filter size="small" value="free" variant="tonal">
+          {{ $t('Common.free') }}
+        </v-chip>
+        <v-chip filter size="small" value="premium" variant="tonal">
+          <v-icon size="14" start>mdi-lock</v-icon>
+          {{ $t('Common.premium') }}
+        </v-chip>
+      </v-chip-group>
+
       <!-- Loading state (initial load) -->
       <v-row v-if="loading" dense>
         <v-col
@@ -47,7 +67,7 @@
       <!-- Entry cards -->
       <v-row v-else dense>
         <v-col
-          v-for="item in entries"
+          v-for="item in filteredEntries"
           :key="item.id"
           cols="12"
           lg="3"
@@ -155,8 +175,15 @@
   const error = ref(false)
   const currentPage = ref(0)
   const totalPages = ref(0)
+  const pricingFilter = ref('all')
 
   const hasMorePages = computed(() => currentPage.value < totalPages.value - 1)
+
+  const filteredEntries = computed(() => {
+    if (pricingFilter.value === 'free') return entries.value.filter(e => !e.isPaid)
+    if (pricingFilter.value === 'premium') return entries.value.filter(e => e.isPaid)
+    return entries.value
+  })
 
   /**
    * Maps a PublicEntryModel to the Entry interface expected by EntryCard.

@@ -18,78 +18,171 @@
       </v-col>
     </v-row>
 
-    <!-- Loading state -->
-    <v-row v-else-if="loading" dense>
-      <v-col
-        v-for="n in 12"
-        :key="`skeleton-${n}`"
-        cols="12"
-        lg="3"
-        md="4"
-        sm="6"
-        xxl="2"
-      >
-        <EntryCardSkeleton />
-      </v-col>
-    </v-row>
-
-    <!-- Error state -->
-    <v-row v-else-if="error" dense>
-      <v-col cols="12">
-        <v-alert
-          class="ma-4"
-          closable
-          :text="t('Purchased.errorDescription')"
-          :title="t('Purchased.errorTitle')"
-          type="error"
-          @click:close="fetchPurchases"
-        />
-      </v-col>
-    </v-row>
-
-    <!-- Empty state -->
-    <v-row v-else-if="entries.length === 0" dense>
-      <v-col cols="12">
-        <v-alert
-          class="ma-4"
-          icon="mdi-cart-outline"
-          :text="t('Purchased.emptyDescription')"
-          :title="t('Purchased.empty')"
-          type="info"
-        />
-      </v-col>
-    </v-row>
-
-    <!-- Purchased entries grid -->
     <template v-else>
-      <v-row dense>
-        <v-col
-          v-for="item in entries"
-          :key="item.id"
-          cols="12"
-          lg="3"
-          md="4"
-          sm="6"
-          xxl="2"
-        >
-          <EntryCard
-            :entry="toEntryCardProps(item)"
-          />
-        </v-col>
-      </v-row>
+      <!-- Content tabs -->
+      <v-tabs
+        v-model="activeTab"
+        centered
+        color="primary"
+        grow
+      >
+        <v-tab value="all">
+          <v-icon start>mdi-view-grid</v-icon>
+          {{ t('Profile.tabs.all') }}
+        </v-tab>
+        <v-tab value="video">
+          <v-icon start>mdi-video</v-icon>
+          {{ t('Profile.tabs.video') }}
+        </v-tab>
+        <v-tab value="audio">
+          <v-icon start>mdi-music</v-icon>
+          {{ t('Profile.tabs.audio') }}
+        </v-tab>
+        <v-tab value="image">
+          <v-icon start>mdi-image</v-icon>
+          {{ t('Profile.tabs.image') }}
+        </v-tab>
+        <v-tab value="resource">
+          <v-icon start>mdi-text-box</v-icon>
+          {{ t('Profile.tabs.resource') }}
+        </v-tab>
+      </v-tabs>
 
-      <!-- Load more -->
-      <v-row v-if="hasMorePages" dense>
-        <v-col class="d-flex justify-center py-4" cols="12">
-          <v-btn
-            :loading="loadingMore"
-            variant="outlined"
-            @click="loadMore"
+      <!-- Filter / Search / Sort bar -->
+      <div
+        v-if="!loading && !error && entries.length > 0"
+        class="d-flex flex-wrap align-center ga-2 mt-4"
+      >
+        <!-- Search -->
+        <v-spacer />
+        <v-text-field
+          v-model="searchQuery"
+          clearable
+          density="compact"
+          hide-details
+          :placeholder="t('Common.searchItems')"
+          prepend-inner-icon="mdi-magnify"
+          variant="outlined"
+          width="200"
+        />
+
+        <!-- Sort Menu -->
+        <v-menu>
+          <template #activator="{ props: menuProps }">
+            <v-btn
+              v-bind="menuProps"
+              icon="mdi-sort"
+              variant="tonal"
+            />
+          </template>
+          <v-list density="compact">
+            <v-list-item
+              :active="sortBy === 'recent'"
+              :title="t('Common.mostRecent')"
+              @click="sortBy = 'recent'"
+            />
+            <v-list-item
+              :active="sortBy === 'title'"
+              :title="t('Common.titleAZ')"
+              @click="sortBy = 'title'"
+            />
+          </v-list>
+        </v-menu>
+      </div>
+
+      <!-- Entry grid -->
+      <div class="mt-4">
+        <!-- Loading state -->
+        <v-row v-if="loading" dense>
+          <v-col
+            v-for="n in 12"
+            :key="`skeleton-${n}`"
+            cols="12"
+            lg="3"
+            md="4"
+            sm="6"
+            xxl="2"
           >
-            {{ t('Common.loadMore') }}
+            <EntryCardSkeleton />
+          </v-col>
+        </v-row>
+
+        <!-- Error state -->
+        <v-row v-else-if="error" dense>
+          <v-col cols="12">
+            <v-alert
+              class="ma-4"
+              closable
+              :text="t('Purchased.errorDescription')"
+              :title="t('Purchased.errorTitle')"
+              type="error"
+              @click:close="fetchPurchases"
+            />
+          </v-col>
+        </v-row>
+
+        <!-- Empty state -->
+        <v-row v-else-if="entries.length === 0" dense>
+          <v-col cols="12">
+            <v-alert
+              class="ma-4"
+              icon="mdi-cart-outline"
+              :text="t('Purchased.emptyDescription')"
+              :title="t('Purchased.empty')"
+              type="info"
+            />
+          </v-col>
+        </v-row>
+
+        <!-- No items match filters -->
+        <div
+          v-else-if="filteredEntries.length === 0"
+          class="text-center py-12 text-medium-emphasis"
+        >
+          <v-icon class="mb-4" size="64">mdi-filter-off</v-icon>
+          <p>{{ t('Common.noItemsMatchFilters') }}</p>
+          <v-btn
+            class="mt-2"
+            size="small"
+            variant="text"
+            @click="clearFilters"
+          >
+            {{ t('Common.clearFilters') }}
           </v-btn>
-        </v-col>
-      </v-row>
+        </div>
+
+        <!-- Purchased entries grid -->
+        <template v-else>
+          <v-row dense>
+            <v-col
+              v-for="item in filteredEntries"
+              :key="item.id"
+              cols="12"
+              lg="3"
+              md="4"
+              sm="6"
+              xxl="2"
+            >
+              <EntryCard
+                :entry="toEntryCardProps(item)"
+              />
+            </v-col>
+          </v-row>
+
+          <!-- Load more -->
+          <v-row v-if="hasMorePages" dense>
+            <v-col class="d-flex justify-center py-4" cols="12">
+              <v-btn
+                :loading="loadingMore"
+                variant="outlined"
+                @click="loadMore"
+              >
+                {{ t('Common.loadMore') }}
+              </v-btn>
+            </v-col>
+          </v-row>
+        </template>
+      </div>
     </template>
   </v-container>
 </template>
@@ -126,12 +219,51 @@
   const totalPages = ref(0)
   const PAGE_SIZE = 24
 
+  // Tabs & filter state
+  const activeTab = ref('all')
+  const searchQuery = ref('')
+  const sortBy = ref<'recent' | 'title'>('recent')
+
   const hasMorePages = computed(() => currentPage.value < totalPages.value - 1)
 
-  /**
-   * Maps a PurchasedEntryModel to the Entry interface expected by EntryCard.
-   * All items are unlocked (they were purchased).
-   */
+  const filteredEntries = computed(() => {
+    let result = [...entries.value]
+
+    // Filter by type tab
+    if (activeTab.value !== 'all') {
+      result = result.filter(item => item.type === activeTab.value)
+    }
+
+    // Filter by search
+    if (searchQuery.value) {
+      const query = searchQuery.value.toLowerCase()
+      result = result.filter(item =>
+        item.title.toLowerCase().includes(query)
+        || item.authorName.toLowerCase().includes(query),
+      )
+    }
+
+    // Sort
+    if (sortBy.value === 'recent') {
+      result.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    } else if (sortBy.value === 'title') {
+      result.sort((a, b) => a.title.localeCompare(b.title))
+    }
+
+    return result
+  })
+
+  function clearFilters () {
+    searchQuery.value = ''
+    sortBy.value = 'recent'
+  }
+
+  // Reset filters on tab change
+  watch(activeTab, () => {
+    searchQuery.value = ''
+    sortBy.value = 'recent'
+  })
+
   function toEntryCardProps (item: PurchasedEntryModel): Entry {
     return {
       id: item.id,
@@ -147,10 +279,6 @@
     }
   }
 
-  /**
-   * Sync local purchasesStore with server data so other pages
-   * also know about these entitlements.
-   */
   function syncPurchasesStore (items: PurchasedEntryModel[]) {
     for (const item of items) {
       if (!purchasesStore.isUnlocked(item.id)) {
@@ -209,6 +337,9 @@
         items: [...entries.value],
         currentPage: currentPage.value,
         totalPages: totalPages.value,
+        activeTab: activeTab.value,
+        searchQuery: searchQuery.value,
+        sortBy: sortBy.value,
         scrollY: window.scrollY,
       })
     }
@@ -220,6 +351,9 @@
       entries.value = cached.items as PurchasedEntryModel[]
       currentPage.value = cached.currentPage as number
       totalPages.value = cached.totalPages as number
+      activeTab.value = (cached.activeTab as string) ?? 'all'
+      searchQuery.value = (cached.searchQuery as string) ?? ''
+      sortBy.value = (cached.sortBy as 'recent' | 'title') ?? 'recent'
       syncPurchasesStore(entries.value)
       loading.value = false
 

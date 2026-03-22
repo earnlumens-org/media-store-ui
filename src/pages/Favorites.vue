@@ -1,33 +1,7 @@
 <template>
   <v-container class="py-4 px-1 px-sm-4" fluid>
-    <!-- Loading state -->
-    <v-row v-if="loading" dense>
-      <v-col
-        v-for="n in 12"
-        :key="`skeleton-${n}`"
-        cols="12"
-        lg="3"
-        md="4"
-        sm="6"
-        xxl="2"
-      >
-        <EntryCardSkeleton />
-      </v-col>
-    </v-row>
-
-    <!-- Error state -->
-    <v-alert
-      v-else-if="error"
-      class="ma-4"
-      closable
-      :text="$t('Favorites.errorDescription')"
-      :title="$t('Favorites.errorTitle')"
-      type="error"
-      @click:close="fetchFavorites"
-    />
-
     <!-- Login required -->
-    <v-row v-else-if="!auth.isAuthenticated" justify="center">
+    <v-row v-if="!auth.isAuthenticated" justify="center">
       <v-col cols="12" md="6">
         <v-empty-state
           class="mt-8"
@@ -38,51 +12,188 @@
       </v-col>
     </v-row>
 
-    <!-- Empty state -->
-    <v-row v-else-if="favorites.length === 0" justify="center">
-      <v-col cols="12" md="6">
-        <v-empty-state
-          class="mt-8"
-          icon="mdi-heart-outline"
-          :text="$t('Favorites.emptyDescription')"
-          :title="$t('Favorites.empty')"
-        />
-      </v-col>
-    </v-row>
-
-    <!-- Favorites grid -->
-    <v-row v-else dense>
-      <v-col
-        v-for="item in favorites"
-        :key="item.id"
-        cols="12"
-        lg="3"
-        md="4"
-        sm="6"
-        xxl="2"
+    <template v-else>
+      <!-- Content tabs -->
+      <v-tabs
+        v-model="activeTab"
+        centered
+        color="primary"
+        grow
       >
-        <EntryCard
-          v-if="item.itemType === 'entry'"
-          :entry="toEntryProps(item)"
-        />
-        <CollectionCard
-          v-else
-          :collection="toCollectionProps(item)"
-        />
-      </v-col>
-    </v-row>
+        <v-tab value="all">
+          <v-icon start>mdi-view-grid</v-icon>
+          {{ $t('Profile.tabs.all') }}
+        </v-tab>
+        <v-tab value="video">
+          <v-icon start>mdi-video</v-icon>
+          {{ $t('Profile.tabs.video') }}
+        </v-tab>
+        <v-tab value="audio">
+          <v-icon start>mdi-music</v-icon>
+          {{ $t('Profile.tabs.audio') }}
+        </v-tab>
+        <v-tab value="image">
+          <v-icon start>mdi-image</v-icon>
+          {{ $t('Profile.tabs.image') }}
+        </v-tab>
+        <v-tab value="resource">
+          <v-icon start>mdi-text-box</v-icon>
+          {{ $t('Profile.tabs.resource') }}
+        </v-tab>
+      </v-tabs>
 
-    <!-- Load more (infinite scroll) -->
-    <v-row v-if="hasMorePages && !loading" justify="center">
-      <v-btn
-        class="my-4"
-        :loading="loadingMore"
-        variant="outlined"
-        @click="loadMore"
+      <!-- Filter / Search / Sort bar -->
+      <div
+        v-if="!loading && !error && favorites.length > 0"
+        class="d-flex flex-wrap align-center ga-2 mt-4"
       >
-        {{ $t('Common.loadMore') }}
-      </v-btn>
-    </v-row>
+        <!-- Pricing Filter Chips -->
+        <v-chip-group
+          v-model="pricingFilter"
+          class="flex-grow-1"
+          mandatory
+          selected-class="text-primary"
+        >
+          <v-chip filter size="small" value="all" variant="tonal">
+            {{ $t('Common.all') }}
+          </v-chip>
+          <v-chip filter size="small" value="free" variant="tonal">
+            {{ $t('Common.free') }}
+          </v-chip>
+          <v-chip filter size="small" value="premium" variant="tonal">
+            <v-icon size="14" start>mdi-lock</v-icon>
+            {{ $t('Common.premium') }}
+          </v-chip>
+        </v-chip-group>
+
+        <!-- Search -->
+        <v-text-field
+          v-model="searchQuery"
+          clearable
+          density="compact"
+          hide-details
+          :placeholder="$t('Common.searchItems')"
+          prepend-inner-icon="mdi-magnify"
+          variant="outlined"
+          width="200"
+        />
+
+        <!-- Sort Menu -->
+        <v-menu>
+          <template #activator="{ props: menuProps }">
+            <v-btn
+              v-bind="menuProps"
+              icon="mdi-sort"
+              variant="tonal"
+            />
+          </template>
+          <v-list density="compact">
+            <v-list-item
+              :active="sortBy === 'recent'"
+              :title="$t('Common.mostRecent')"
+              @click="sortBy = 'recent'"
+            />
+            <v-list-item
+              :active="sortBy === 'title'"
+              :title="$t('Common.titleAZ')"
+              @click="sortBy = 'title'"
+            />
+          </v-list>
+        </v-menu>
+      </div>
+
+      <!-- Entry grid -->
+      <div class="mt-4">
+        <!-- Loading state -->
+        <v-row v-if="loading" dense>
+          <v-col
+            v-for="n in 12"
+            :key="`skeleton-${n}`"
+            cols="12"
+            lg="3"
+            md="4"
+            sm="6"
+            xxl="2"
+          >
+            <EntryCardSkeleton />
+          </v-col>
+        </v-row>
+
+        <!-- Error state -->
+        <v-alert
+          v-else-if="error"
+          class="ma-4"
+          closable
+          :text="$t('Favorites.errorDescription')"
+          :title="$t('Favorites.errorTitle')"
+          type="error"
+          @click:close="fetchFavorites"
+        />
+
+        <!-- Empty state (no items from API) -->
+        <v-row v-else-if="favorites.length === 0" justify="center">
+          <v-col cols="12" md="6">
+            <v-empty-state
+              class="mt-8"
+              icon="mdi-heart-outline"
+              :text="$t('Favorites.emptyDescription')"
+              :title="$t('Favorites.empty')"
+            />
+          </v-col>
+        </v-row>
+
+        <!-- No items match filters -->
+        <div
+          v-else-if="filteredFavorites.length === 0"
+          class="text-center py-12 text-medium-emphasis"
+        >
+          <v-icon class="mb-4" size="64">mdi-filter-off</v-icon>
+          <p>{{ $t('Common.noItemsMatchFilters') }}</p>
+          <v-btn
+            class="mt-2"
+            size="small"
+            variant="text"
+            @click="clearFilters"
+          >
+            {{ $t('Common.clearFilters') }}
+          </v-btn>
+        </div>
+
+        <!-- Favorites grid -->
+        <v-row v-else dense>
+          <v-col
+            v-for="item in filteredFavorites"
+            :key="item.id"
+            cols="12"
+            lg="3"
+            md="4"
+            sm="6"
+            xxl="2"
+          >
+            <EntryCard
+              v-if="item.itemType === 'entry'"
+              :entry="toEntryProps(item)"
+            />
+            <CollectionCard
+              v-else
+              :collection="toCollectionProps(item)"
+            />
+          </v-col>
+        </v-row>
+
+        <!-- Load more -->
+        <v-row v-if="hasMorePages && !loading" justify="center">
+          <v-btn
+            class="my-4"
+            :loading="loadingMore"
+            variant="outlined"
+            @click="loadMore"
+          >
+            {{ $t('Common.loadMore') }}
+          </v-btn>
+        </v-row>
+      </div>
+    </template>
   </v-container>
 </template>
 
@@ -115,7 +226,63 @@
   const currentPage = ref(0)
   const totalPages = ref(0)
 
+  // Tabs & filter state
+  const activeTab = ref('all')
+  const pricingFilter = ref('all')
+  const searchQuery = ref('')
+  const sortBy = ref<'recent' | 'title'>('recent')
+
   const hasMorePages = computed(() => currentPage.value < totalPages.value - 1)
+
+  const filteredFavorites = computed(() => {
+    let result = [...favorites.value]
+
+    // Filter by type tab
+    if (activeTab.value !== 'all') {
+      result = result.filter(item => {
+        if (item.itemType === 'entry') return item.entryType === activeTab.value
+        return false // collections only show in "all"
+      })
+    }
+
+    // Filter by pricing
+    if (pricingFilter.value === 'free') {
+      result = result.filter(item => !item.locked)
+    } else if (pricingFilter.value === 'premium') {
+      result = result.filter(item => item.locked)
+    }
+
+    // Filter by search
+    if (searchQuery.value) {
+      const query = searchQuery.value.toLowerCase()
+      result = result.filter(item =>
+        item.title.toLowerCase().includes(query)
+        || (item.authorName ?? '').toLowerCase().includes(query),
+      )
+    }
+
+    // Sort
+    if (sortBy.value === 'recent') {
+      result.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    } else if (sortBy.value === 'title') {
+      result.sort((a, b) => a.title.localeCompare(b.title))
+    }
+
+    return result
+  })
+
+  function clearFilters () {
+    pricingFilter.value = 'all'
+    searchQuery.value = ''
+    sortBy.value = 'recent'
+  }
+
+  // Reset filters on tab change
+  watch(activeTab, () => {
+    pricingFilter.value = 'all'
+    searchQuery.value = ''
+    sortBy.value = 'recent'
+  })
 
   async function fetchFavorites () {
     if (!auth.isAuthenticated) {
@@ -155,9 +322,6 @@
     }
   }
 
-  /**
-   * Map a FavoriteItemModel to the Entry props shape expected by EntryCard.
-   */
   function toEntryProps (item: FavoriteItemModel): Entry {
     return {
       id: item.itemId,
@@ -173,9 +337,6 @@
     }
   }
 
-  /**
-   * Map a FavoriteItemModel to the Collection props shape expected by CollectionCard.
-   */
   function toCollectionProps (item: FavoriteItemModel): Collection {
     return {
       id: item.itemId,
@@ -197,6 +358,10 @@
         items: [...favorites.value],
         currentPage: currentPage.value,
         totalPages: totalPages.value,
+        activeTab: activeTab.value,
+        pricingFilter: pricingFilter.value,
+        searchQuery: searchQuery.value,
+        sortBy: sortBy.value,
         scrollY: window.scrollY,
       })
     }
@@ -208,6 +373,10 @@
       favorites.value = cached.items as FavoriteItemModel[]
       currentPage.value = cached.currentPage as number
       totalPages.value = cached.totalPages as number
+      activeTab.value = (cached.activeTab as string) ?? 'all'
+      pricingFilter.value = (cached.pricingFilter as string) ?? 'all'
+      searchQuery.value = (cached.searchQuery as string) ?? ''
+      sortBy.value = (cached.sortBy as 'recent' | 'title') ?? 'recent'
       loading.value = false
 
       nextTick(() => {
