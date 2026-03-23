@@ -8,6 +8,7 @@
         "language": "Language",
         "themes": "Themes",
         "close": "Close",
+        "cancel": "Cancel",
         "pleaseWait": "Please wait",
         "operationFailedPleaseTryAgain": "Operation failed. Please try again",
         "save": "Save",
