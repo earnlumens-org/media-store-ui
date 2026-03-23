@@ -265,10 +265,12 @@
             "video": "Videos",
             "audio": "Audio",
             "image": "Imágenes",
-            "resource": "Recursos"
+            "resource": "Recursos",
+            "collections": "Colecciones"
         },
         "noEntries": "Aún no hay entries",
         "noEntriesFiltered": "Aún no hay entries de {type}",
+        "noCollections": "Aún no hay colecciones",
         "noResources": "Aún no hay recursos",
         "subscribers": "Suscriptores",
         "subscribe": "Suscribirse"
@@ -280,13 +282,15 @@
             "video": "Video",
             "audio": "Audio",
             "image": "Imagen",
-            "resource": "Recurso"
+            "resource": "Recurso",
+            "collection": "Colección"
         },
         "typeDescription": {
             "video": "Sube un video para streaming",
             "audio": "Comparte una pista de música o un podcast",
             "image": "Comparte una foto o ilustración",
-            "resource": "Escribe un artículo y/o sube archivos adjuntos (PDF, ZIP, etc.)"
+            "resource": "Escribe un artículo y/o sube archivos adjuntos (PDF, ZIP, etc.)",
+            "collection": "Agrupa tu contenido en una colección curada"
         },
         "pageTitle": "Subir {type}",
         "form": {
@@ -510,7 +514,25 @@
         },
         "tabs": {
             "active": "Activos",
-            "archived": "Archivados"
+            "archived": "Archivados",
+            "collections": "Colecciones"
+        },
+        "collections": {
+            "empty": "Aún no tienes colecciones",
+            "emptyDescription": "Crea una colección para agrupar y vender tu contenido junto.",
+            "create": "Crear colección",
+            "items": "Items",
+            "publish": "Publicar",
+            "delete": "Eliminar",
+            "showing": "Mostrando {count} de {total} colecciones",
+            "publishSuccess": "Colección publicada correctamente",
+            "publishError": "Error al publicar la colección",
+            "deleteSuccess": "Colección eliminada correctamente",
+            "deleteError": "Error al eliminar la colección",
+            "deleteConfirm": {
+                "title": "¿Eliminar colección?",
+                "message": "¿Estás seguro de que deseas eliminar \"{title}\"? Esta acción no se puede deshacer."
+            }
         },
         "sort": {
             "newest": "Más recientes",
@@ -570,6 +592,78 @@
             "SELLER": "Vendedor",
             "PLATFORM": "Plataforma",
             "COLLABORATOR": "Colaborador"
+        }
+    },
+    "CreateCollection": {
+        "pageTitle": "Crear Colección",
+        "pageSubtitle": "Agrupa tu contenido en una colección para tu audiencia",
+        "steps": {
+            "details": "Detalles",
+            "items": "Items",
+            "cover": "Portada"
+        },
+        "details": {
+            "heading": "Detalles de la Colección",
+            "title": "Título",
+            "titlePlaceholder": "Ingresa un título para tu colección",
+            "description": "Descripción",
+            "descriptionPlaceholder": "Describe de qué trata esta colección",
+            "type": "Tipo de Colección",
+            "isPaid": "Colección de pago",
+            "isPaidHint": "Los compradores deberán adquirir la colección para acceder a todos los items",
+            "priceXlm": "Precio (XLM)",
+            "priceUsd": "Precio (USD)",
+            "pricePlaceholder": "Ingresa el precio"
+        },
+        "items": {
+            "heading": "Items",
+            "count": "{count} items seleccionados",
+            "searchPlaceholder": "Buscar en tus entradas publicadas...",
+            "noEntries": "No se encontraron entradas publicadas. Sube contenido primero.",
+            "loadError": "Error al cargar las entradas",
+            "selectedHeading": "Items Seleccionados (arrastra para reordenar)"
+        },
+        "cover": {
+            "heading": "Imagen de Portada",
+            "hint": "Sube una imagen de portada para tu colección (opcional). Recomendado: relación 16:9.",
+            "fileLabel": "Elegir imagen de portada"
+        },
+        "summary": {
+            "heading": "Resumen",
+            "free": "Gratis"
+        },
+        "actions": {
+            "saveDraft": "Guardar como Borrador",
+            "publish": "Crear y Publicar"
+        },
+        "progress": {
+            "creating": "Creando colección...",
+            "addingItems": "Agregando items...",
+            "uploadingCover": "Subiendo imagen de portada...",
+            "publishing": "Publicando..."
+        },
+        "success": {
+            "title": "¡Colección Creada!",
+            "draftMessage": "Tu colección ha sido guardada como borrador.",
+            "publishedMessage": "Tu colección está publicada y visible para todos.",
+            "viewCollection": "Ver Colección",
+            "goToStudio": "Ir al Creator Studio",
+            "createAnother": "Crear Otra"
+        },
+        "status": {
+            "draft": "Borrador",
+            "published": "Publicada"
+        },
+        "validation": {
+            "titleRequired": "El título es obligatorio",
+            "titleMaxLength": "El título debe tener 200 caracteres o menos",
+            "descriptionMaxLength": "La descripción debe tener 2000 caracteres o menos",
+            "typeRequired": "El tipo de colección es obligatorio",
+            "priceRequired": "El precio es obligatorio para colecciones de pago",
+            "pricePositive": "El precio debe ser mayor que 0"
+        },
+        "errors": {
+            "createFailed": "Error al crear la colección. Inténtalo de nuevo."
         }
     }
 }

@@ -2,7 +2,7 @@
   <v-dialog
     v-model="model"
     :fullscreen="smAndDown"
-    max-width="520"
+    max-width="600"
   >
     <v-card>
       <v-card-title class="d-flex align-center pa-4">
@@ -76,28 +76,44 @@
 
   const hoveredType = ref<string | null>(null)
 
-  const contentTypes: Array<{ value: UploadContentType, icon: string }> = [
+  type ContentOption = { value: UploadContentType | 'collection', icon: string }
+
+  const contentTypes: ContentOption[] = [
     { value: 'video', icon: 'mdi-video-outline' },
     { value: 'audio', icon: 'mdi-music-note' },
     { value: 'image', icon: 'mdi-image-outline' },
     { value: 'resource', icon: 'mdi-text-box-outline' },
+    { value: 'collection', icon: 'mdi-folder-multiple-outline' },
   ]
 
-  function selectType (type: UploadContentType) {
+  function selectType (type: UploadContentType | 'collection') {
     model.value = false
-    router.push({ path: '/upload', query: { type } })
+    if (type === 'collection') {
+      router.push('/create-collection')
+    } else {
+      router.push({ path: '/upload', query: { type } })
+    }
   }
 </script>
 
 <style scoped>
   .type-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 10px;
   }
 
+  /* First 3 items: each spans 2 of 6 cols → fills row of 3 */
+  .type-card:nth-child(1) { grid-column: 1 / 3; }
+  .type-card:nth-child(2) { grid-column: 3 / 5; }
+  .type-card:nth-child(3) { grid-column: 5 / 7; }
+
+  /* Last 2 items: offset by 1 col each side → centered pair */
+  .type-card:nth-child(4) { grid-column: 1 / 4; }
+  .type-card:nth-child(5) { grid-column: 4 / 7; }
+
   .type-card {
-    height: 100%;
+    width: 100%;
     min-height: 88px;
     cursor: pointer;
     transition: background-color 0.15s ease, border-color 0.15s ease;
@@ -113,7 +129,7 @@
 
   @media (max-width: 599.98px) {
     .type-grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(6, 1fr);
       gap: 10px;
     }
 
@@ -143,6 +159,10 @@
   @media (max-width: 359.98px) {
     .type-grid {
       grid-template-columns: 1fr;
+    }
+
+    .type-card:nth-child(n) {
+      grid-column: auto;
     }
 
     .type-card {

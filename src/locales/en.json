@@ -265,10 +265,12 @@
             "video": "Videos",
             "audio": "Audio",
             "image": "Images",
-            "resource": "Resources"
+            "resource": "Resources",
+            "collections": "Collections"
         },
         "noEntries": "No entries yet",
         "noEntriesFiltered": "No {type} entries yet",
+        "noCollections": "No collections yet",
         "noResources": "No resources yet",
         "subscribers": "Subscribers",
         "subscribe": "Subscribe"
@@ -291,13 +293,15 @@
             "video": "Video",
             "audio": "Audio",
             "image": "Image",
-            "resource": "Resource"
+            "resource": "Resource",
+            "collection": "Collection"
         },
         "typeDescription": {
             "video": "Upload a video for streaming",
             "audio": "Share a music track or podcast",
             "image": "Share a photo or illustration",
-            "resource": "Write an article and/or upload attachments (PDF, ZIP, etc.)"
+            "resource": "Write an article and/or upload attachments (PDF, ZIP, etc.)",
+            "collection": "Bundle your content into a curated collection"
         },
         "pageTitle": "Upload {type}",
         "form": {
@@ -510,7 +514,25 @@
         },
         "tabs": {
             "active": "Active",
-            "archived": "Archived"
+            "archived": "Archived",
+            "collections": "Collections"
+        },
+        "collections": {
+            "empty": "No collections yet",
+            "emptyDescription": "Create a collection to group and sell your content together.",
+            "create": "Create collection",
+            "items": "Items",
+            "publish": "Publish",
+            "delete": "Delete",
+            "showing": "Showing {count} of {total} collections",
+            "publishSuccess": "Collection published successfully",
+            "publishError": "Failed to publish collection",
+            "deleteSuccess": "Collection deleted successfully",
+            "deleteError": "Failed to delete collection",
+            "deleteConfirm": {
+                "title": "Delete collection?",
+                "message": "Are you sure you want to delete \"{title}\"? This action cannot be undone."
+            }
         },
         "sort": {
             "newest": "Newest first",
@@ -570,6 +592,78 @@
             "SELLER": "Seller",
             "PLATFORM": "Platform",
             "COLLABORATOR": "Collaborator"
+        }
+    },
+    "CreateCollection": {
+        "pageTitle": "Create Collection",
+        "pageSubtitle": "Bundle your content into a collection for your audience",
+        "steps": {
+            "details": "Details",
+            "items": "Items",
+            "cover": "Cover"
+        },
+        "details": {
+            "heading": "Collection Details",
+            "title": "Title",
+            "titlePlaceholder": "Enter a title for your collection",
+            "description": "Description",
+            "descriptionPlaceholder": "Describe what this collection is about",
+            "type": "Collection Type",
+            "isPaid": "Paid collection",
+            "isPaidHint": "Buyers will need to purchase the collection to access all items",
+            "priceXlm": "Price (XLM)",
+            "priceUsd": "Price (USD)",
+            "pricePlaceholder": "Enter price"
+        },
+        "items": {
+            "heading": "Items",
+            "count": "{count} items selected",
+            "searchPlaceholder": "Search your published entries...",
+            "noEntries": "No published entries found. Upload content first.",
+            "loadError": "Failed to load entries",
+            "selectedHeading": "Selected Items (drag to reorder)"
+        },
+        "cover": {
+            "heading": "Cover Image",
+            "hint": "Upload a cover image for your collection (optional). Recommended: 16:9 aspect ratio.",
+            "fileLabel": "Choose cover image"
+        },
+        "summary": {
+            "heading": "Summary",
+            "free": "Free"
+        },
+        "actions": {
+            "saveDraft": "Save as Draft",
+            "publish": "Create & Publish"
+        },
+        "progress": {
+            "creating": "Creating collection...",
+            "addingItems": "Adding items...",
+            "uploadingCover": "Uploading cover image...",
+            "publishing": "Publishing..."
+        },
+        "success": {
+            "title": "Collection Created!",
+            "draftMessage": "Your collection has been saved as a draft.",
+            "publishedMessage": "Your collection is now live and visible to everyone.",
+            "viewCollection": "View Collection",
+            "goToStudio": "Go to Creator Studio",
+            "createAnother": "Create Another"
+        },
+        "status": {
+            "draft": "Draft",
+            "published": "Published"
+        },
+        "validation": {
+            "titleRequired": "Title is required",
+            "titleMaxLength": "Title must be 200 characters or less",
+            "descriptionMaxLength": "Description must be 2000 characters or less",
+            "typeRequired": "Collection type is required",
+            "priceRequired": "Price is required for paid collections",
+            "pricePositive": "Price must be greater than 0"
+        },
+        "errors": {
+            "createFailed": "Failed to create collection. Please try again."
         }
     }
 }

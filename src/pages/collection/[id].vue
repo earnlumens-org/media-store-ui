@@ -651,17 +651,13 @@
       const query = searchQuery.value.toLowerCase()
       result = result.filter(item =>
         item.title.toLowerCase().includes(query)
-        || item.authorName.toLowerCase().includes(query),
+        || (item.authorName ?? '').toLowerCase().includes(query),
       )
     }
 
     // Sort
     if (sortBy.value === 'recent') {
-      result.sort((a, b) => {
-        const dateA = new Date(a.publishedAt).getTime()
-        const dateB = new Date(b.publishedAt).getTime()
-        return dateB - dateA
-      })
+      result.sort((a, b) => a.position - b.position)
     } else if (sortBy.value === 'title') {
       result.sort((a, b) => a.title.localeCompare(b.title))
     }
@@ -735,7 +731,12 @@
   }
 
   function formatDate (date: string | Date): string {
+    if (!date) return ''
+
     const d = date instanceof Date ? date : new Date(date)
+
+    if (Number.isNaN(d.getTime())) return ''
+
     return d.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',

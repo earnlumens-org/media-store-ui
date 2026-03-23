@@ -81,9 +81,9 @@
         <span class="text-caption text-medium-emphasis flex-shrink-0 mx-3 text-no-wrap">{{ formattedDate }}</span>
       </div>
 
-      <!-- Fecha sola en la esquina inferior derecha (sin autor, o título 1 línea) -->
+      <!-- Fecha sola en la esquina inferior derecha (con autor, título 1 línea) -->
       <span
-        v-if="(!showAuthor && isTitleMultiLine) || !isTitleMultiLine"
+        v-if="showAuthor && !isTitleMultiLine"
         class="position-absolute text-caption text-medium-emphasis text-no-wrap"
         style="bottom: 4px; right: 4px"
       >
@@ -216,9 +216,13 @@
   }
 
   const formattedDate = computed(() => {
+    if (!props.collection.publishedAt) return ''
+
     const date = props.collection.publishedAt instanceof Date
       ? props.collection.publishedAt
       : new Date(props.collection.publishedAt)
+
+    if (Number.isNaN(date.getTime())) return ''
 
     return date.toLocaleDateString('en-CA')
   })

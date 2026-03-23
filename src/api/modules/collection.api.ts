@@ -29,7 +29,7 @@ const API_PATH = '/api/collections'
 // ── Public Endpoints ──────────────────────────────────────
 
 export async function getPublishedCollections (
-  params: { page?: number, size?: number } = {},
+  params: { page?: number, size?: number, username?: string } = {},
 ): Promise<CollectionPageModel> {
   const query = new URLSearchParams()
   if (params.page != null) {
@@ -37,6 +37,9 @@ export async function getPublishedCollections (
   }
   if (params.size != null) {
     query.set('size', String(params.size))
+  }
+  if (params.username) {
+    query.set('username', params.username)
   }
   const qs = query.toString()
   const url = qs ? `${PUBLIC_PATH}?${qs}` : PUBLIC_PATH

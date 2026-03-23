@@ -142,10 +142,75 @@
             <v-icon start>mdi-text-box</v-icon>
             {{ $t('Profile.tabs.resource') }}
           </v-tab>
+          <v-tab value="collections">
+            <v-icon start>mdi-folder-multiple</v-icon>
+            {{ $t('Profile.tabs.collections') }}
+          </v-tab>
         </v-tabs>
 
+        <!-- Collections tab content -->
+        <div v-if="activeTab === 'collections'" class="mt-4">
+          <!-- Loading -->
+          <v-row v-if="collectionsLoading" dense>
+            <v-col
+              v-for="n in 6"
+              :key="`coll-skeleton-${n}`"
+              cols="12"
+              lg="3"
+              md="4"
+              sm="6"
+              xxl="2"
+            >
+              <v-skeleton-loader type="card" />
+            </v-col>
+          </v-row>
+
+          <!-- Empty -->
+          <div
+            v-else-if="collections.length === 0"
+            class="text-center py-12 text-medium-emphasis"
+          >
+            <v-icon class="mb-4" size="64">mdi-folder-open-outline</v-icon>
+            <p>{{ $t('Profile.noCollections') }}</p>
+          </div>
+
+          <!-- Collection cards -->
+          <v-row v-else dense>
+            <v-col
+              v-for="coll in collections"
+              :key="coll.id"
+              cols="12"
+              lg="3"
+              md="4"
+              sm="6"
+              xxl="2"
+            >
+              <router-link class="text-decoration-none" :to="`/collection/${coll.id}`">
+                <CollectionCard
+                  :collection="toCollectionCardProps(coll)"
+                  :show-author="false"
+                />
+              </router-link>
+            </v-col>
+          </v-row>
+
+          <!-- Load more -->
+          <div
+            v-if="collectionsHasMore && collections.length > 0"
+            class="text-center py-4"
+          >
+            <v-btn
+              :loading="collectionsLoadingMore"
+              variant="outlined"
+              @click="loadMoreCollections"
+            >
+              Load more
+            </v-btn>
+          </div>
+        </div>
+
         <!-- Filter / Search / Sort bar -->
-        <div class="d-flex flex-wrap align-center ga-2 mt-4">
+        <div v-if="activeTab !== 'collections'" class="d-flex flex-wrap align-center ga-2 mt-4">
           <!-- Pricing Filter Chips -->
           <v-chip-group
             v-model="pricingFilter"
@@ -223,7 +288,7 @@
         </div>
 
         <!-- Entry grid -->
-        <div class="mt-4">
+        <div v-if="activeTab !== 'collections'" class="mt-4">
           <!-- Loading -->
           <v-row v-if="entriesLoading" dense>
             <v-col
@@ -318,6 +383,8 @@
 <script setup lang="ts">
   import type { PublicEntryModel } from '@/api/api'
   import type { UserProfile } from '@/api/modules/user.api'
+  import type { CollectionItemModel } from '@/api/types/collection.types'
+  import type { Collection } from '@/components/collection/CollectionCard.vue'
   import type { Entry } from '@/components/entry/EntryCard.vue'
 
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
@@ -325,6 +392,7 @@
   import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
+  import CollectionCard from '@/components/collection/CollectionCard.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import { isPopNavigation } from '@/router'
   import { usePurchasesStore } from '@/stores/purchases'
@@ -349,6 +417,14 @@
   const currentPage = ref(0)
   const totalPages = ref(0)
   const PAGE_SIZE = 24
+
+  // Collection state
+  const collections = ref<CollectionItemModel[]>([])
+  const collectionsLoading = ref(false)
+  const collectionsLoadingMore = ref(false)
+  const collectionsPage = ref(0)
+  const collectionsTotalPages = ref(0)
+  const collectionsHasMore = computed(() => collectionsPage.value < collectionsTotalPages.value - 1)
 
   // Filter / Search / Sort state
   const pricingFilter = ref('all')
@@ -461,6 +537,60 @@
     }
   }
 
+  function toCollectionCardProps (item: CollectionItemModel): Collection {
+    return {
+      id: item.id,
+      collectionType: (item.collectionType ?? 'list').toLowerCase(),
+      title: item.title,
+      authorName: item.authorName ?? '',
+      authorAvatarUrl: item.authorAvatarUrl,
+      publishedAt: item.publishedAt,
+      coverUrl: item.coverUrl,
+      itemsCount: item.itemCount,
+      locked: item.locked,
+      unlocked: item.unlocked,
+    }
+  }
+
+  async function fetchCollections () {
+    if (!requestedUsername.value) return
+    collectionsLoading.value = true
+    collections.value = []
+
+    try {
+      const response = await api.collections.getPublished({
+        username: requestedUsername.value,
+        page: 0,
+        size: PAGE_SIZE,
+      })
+      collections.value = response.items
+      collectionsPage.value = response.page
+      collectionsTotalPages.value = response.totalPages
+    } catch (error_) {
+      console.error('[ProfilePage] Failed to fetch collections:', error_)
+    } finally {
+      collectionsLoading.value = false
+    }
+  }
+
+  async function loadMoreCollections () {
+    collectionsLoadingMore.value = true
+    try {
+      const response = await api.collections.getPublished({
+        username: requestedUsername.value,
+        page: collectionsPage.value + 1,
+        size: PAGE_SIZE,
+      })
+      collections.value.push(...response.items)
+      collectionsPage.value = response.page
+      collectionsTotalPages.value = response.totalPages
+    } catch (error_) {
+      console.error('[ProfilePage] Failed to load more collections:', error_)
+    } finally {
+      collectionsLoadingMore.value = false
+    }
+  }
+
   async function fetchUser () {
     if (!requestedUsername.value) {
       loading.value = false
@@ -497,23 +627,35 @@
     pricingFilter.value = 'all'
     searchQuery.value = ''
     sortBy.value = 'recent'
-    fetchEntries()
+    if (activeTab.value === 'collections') {
+      if (collections.value.length === 0) {
+        fetchCollections()
+      }
+    } else {
+      fetchEntries()
+    }
   })
 
   // Fetch user and entries when username changes
   watch(requestedUsername, () => {
     fetchUser()
     fetchEntries()
+    if (activeTab.value === 'collections') {
+      fetchCollections()
+    }
   })
 
   onBeforeRouteLeave(() => {
-    if (user.value && entries.value.length > 0) {
+    if (user.value && (entries.value.length > 0 || collections.value.length > 0)) {
       scrollCache.save(route.path, {
         user: { ...user.value },
         entries: [...entries.value],
+        collections: [...collections.value],
         activeTab: activeTab.value,
         currentPage: currentPage.value,
         totalPages: totalPages.value,
+        collectionsPage: collectionsPage.value,
+        collectionsTotalPages: collectionsTotalPages.value,
         pricingFilter: pricingFilter.value,
         searchQuery: searchQuery.value,
         sortBy: sortBy.value,
@@ -527,9 +669,12 @@
     if (cached && isPopNavigation()) {
       user.value = cached.user as UserProfile
       entries.value = cached.entries as PublicEntryModel[]
+      collections.value = (cached.collections as CollectionItemModel[]) ?? []
       activeTab.value = cached.activeTab as string
       currentPage.value = cached.currentPage as number
       totalPages.value = cached.totalPages as number
+      collectionsPage.value = (cached.collectionsPage as number) ?? 0
+      collectionsTotalPages.value = (cached.collectionsTotalPages as number) ?? 0
       pricingFilter.value = (cached.pricingFilter as string) ?? 'all'
       searchQuery.value = (cached.searchQuery as string) ?? ''
       sortBy.value = (cached.sortBy as 'recent' | 'title') ?? 'recent'
