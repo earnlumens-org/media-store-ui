@@ -8,6 +8,7 @@ import { VueRouterAutoImports } from 'unplugin-vue-router'
 import VueRouter from 'unplugin-vue-router/vite'
 // Utilities
 import { defineConfig } from 'vite'
+import type { UserConfig } from 'vitest/config'
 
 import Layouts from 'vite-plugin-vue-layouts-next'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
@@ -87,4 +88,9 @@ export default defineConfig({
     host: true,
     allowedHosts: ['.earnlumens.org'],
   },
+  test: {
+    globals: true,
+    environment: 'node',
+    include: ['src/**/__tests__/**/*.test.ts'],
+  } satisfies UserConfig['test'],
 })
