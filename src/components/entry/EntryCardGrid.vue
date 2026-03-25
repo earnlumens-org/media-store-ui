@@ -57,27 +57,6 @@
         </template>
       </v-alert>
 
-      <!-- Error debug dialog -->
-      <v-dialog v-model="showErrorDialog" max-width="500">
-        <v-card>
-          <v-card-title class="d-flex align-center">
-            <span>Error Details</span>
-            <v-spacer />
-            <v-btn icon size="small" variant="text" @click="showErrorDialog = false">
-              <v-icon>mdi-close</v-icon>
-            </v-btn>
-          </v-card-title>
-          <v-card-text>
-            <pre class="text-caption overflow-auto pa-3 bg-surface-variant rounded" style="white-space: pre-wrap; word-break: break-all;">{{ errorDebugInfo }}</pre>
-          </v-card-text>
-          <v-card-actions>
-            <v-btn block color="primary" prepend-icon="mdi-content-copy" @click="copyErrorInfo">
-              {{ copied ? 'Copied!' : 'Copy' }}
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-
       <!-- Empty state -->
       <v-row v-else-if="entries.length === 0" dense>
         <v-col cols="12">
@@ -107,6 +86,27 @@
           />
         </v-col>
       </v-row>
+
+      <!-- Error debug dialog -->
+      <v-dialog v-model="showErrorDialog" max-width="500">
+        <v-card>
+          <v-card-title class="d-flex align-center">
+            <span>Error Details</span>
+            <v-spacer />
+            <v-btn icon size="small" variant="text" @click="showErrorDialog = false">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </v-card-title>
+          <v-card-text>
+            <pre class="text-caption overflow-auto pa-3 bg-surface-variant rounded" style="white-space: pre-wrap; word-break: break-all;">{{ errorDebugInfo }}</pre>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn block color="primary" prepend-icon="mdi-content-copy" @click="copyErrorInfo">
+              {{ copied ? 'Copied!' : 'Copy' }}
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-container>
 
     <template #loading>
