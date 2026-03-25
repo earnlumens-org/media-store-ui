@@ -46,11 +46,37 @@
         v-else-if="error"
         class="ma-4"
         closable
-        text="Failed to load entries. Please try again."
-        title="Error"
         type="error"
         @click:close="fetchEntries"
-      />
+      >
+        <template #title>
+          <span class="cursor-pointer text-decoration-underline" @click="showErrorDialog = true">Error</span>
+        </template>
+        <template #text>
+          Failed to load entries. Please try again.
+        </template>
+      </v-alert>
+
+      <!-- Error debug dialog -->
+      <v-dialog v-model="showErrorDialog" max-width="500">
+        <v-card>
+          <v-card-title class="d-flex align-center">
+            <span>Error Details</span>
+            <v-spacer />
+            <v-btn icon size="small" variant="text" @click="showErrorDialog = false">
+              <v-icon>mdi-close</v-icon>
+            </v-btn>
+          </v-card-title>
+          <v-card-text>
+            <pre class="text-caption overflow-auto pa-3 bg-surface-variant rounded" style="white-space: pre-wrap; word-break: break-all;">{{ errorDebugInfo }}</pre>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn block color="primary" prepend-icon="mdi-content-copy" @click="copyErrorInfo">
+              {{ copied ? 'Copied!' : 'Copy' }}
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
 
       <!-- Empty state -->
       <v-row v-else-if="entries.length === 0" dense>
@@ -173,6 +199,9 @@
   const entries = ref<PublicEntryModel[]>([])
   const loading = ref(true)
   const error = ref(false)
+  const lastError = ref<Record<string, unknown> | null>(null)
+  const showErrorDialog = ref(false)
+  const copied = ref(false)
   const currentPage = ref(0)
   const totalPages = ref(0)
   const pricingFilter = ref('all')
@@ -236,6 +265,7 @@
   async function fetchEntries () {
     loading.value = true
     error.value = false
+    lastError.value = null
 
     try {
       const response = await api.entries.getPublished({
@@ -246,11 +276,35 @@
       cacheRealEntries(response.items)
       currentPage.value = response.page
       totalPages.value = response.totalPages
-    } catch (error_) {
+    } catch (error_: any) {
       console.error('[EntryCardGrid] Failed to fetch entries:', error_)
       error.value = true
+      lastError.value = {
+        message: error_?.message ?? String(error_),
+        status: error_?.status,
+        code: error_?.code,
+        method: error_?.method,
+        url: error_?.url,
+        data: error_?.data,
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent,
+      }
     } finally {
       loading.value = false
+    }
+  }
+
+  const errorDebugInfo = computed(() =>
+    lastError.value ? JSON.stringify(lastError.value, null, 2) : 'No error captured',
+  )
+
+  async function copyErrorInfo () {
+    try {
+      await navigator.clipboard.writeText(errorDebugInfo.value)
+      copied.value = true
+      setTimeout(() => { copied.value = false }, 2000)
+    } catch {
+      // Fallback: no-op
     }
   }
 
