@@ -87,9 +87,4 @@ export default defineConfig({
     host: true,
     allowedHosts: ['.earnlumens.org'],
   },
-  test: {
-    globals: true,
-    environment: 'node',
-    include: ['src/**/__tests__/**/*.test.ts'],
-  },
 })
