@@ -21,6 +21,7 @@ import { clearToken, initTokenWorker, onSessionExpired, refreshToken } from '@/s
 import pinia from '@/stores'
 import { useAuthStore } from '@/stores/auth'
 import { useFavoritesStore } from '@/stores/favorites'
+import { usePurchasesStore } from '@/stores/purchases'
 import { useSubscriptionsStore } from '@/stores/subscriptions'
 import { useScrollCacheStore } from '@/stores/scrollCache'
 import { useWalletStore } from '@/stores/wallet'
@@ -113,6 +114,13 @@ async function rehydrateSession (): Promise<void> {
       // Pre-load subscription IDs so isSubscribed() is instant across the app
       const subscriptionsStore = useSubscriptionsStore(pinia)
       subscriptionsStore.loadSubscriptionIds().catch(() => {})
+
+      // Pre-load purchase IDs so isUnlocked() is instant across the app
+      const purchasesStore = usePurchasesStore(pinia)
+      const username = userProfile?.username ?? authStore.user?.username
+      if (username) {
+        purchasesStore.loadPurchaseIds(username).catch(() => {})
+      }
     } else {
       authStore.setAuthenticated(false)
     }
@@ -142,6 +150,10 @@ onSessionExpired(async () => {
   // Clear subscriptions cache
   const subscriptionsStore = useSubscriptionsStore(pinia)
   subscriptionsStore.clearAll()
+
+  // Clear purchases cache
+  const purchasesStore = usePurchasesStore(pinia)
+  purchasesStore.clearAll()
 
   // Clear scroll cache (data may contain user-specific state)
   const scrollCacheStore = useScrollCacheStore(pinia)
@@ -191,6 +203,10 @@ onAuthBroadcast(async event => {
     // Clear subscriptions cache
     const subsStore = useSubscriptionsStore(pinia)
     subsStore.clearAll()
+
+    // Clear purchases cache
+    const purchStore = usePurchasesStore(pinia)
+    purchStore.clearAll()
 
     // Clear scroll cache
     const scrollCacheStore2 = useScrollCacheStore(pinia)

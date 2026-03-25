@@ -17,7 +17,16 @@
 
 import { defineStore } from 'pinia'
 
-const STORAGE_KEY = 'earnlumens_purchases'
+import { getPurchases } from '@/api/modules/purchase.api'
+
+const STORAGE_KEY_PREFIX = 'earnlumens_purchases'
+
+/** Active storage key, scoped to the current user */
+let activeStorageKey = STORAGE_KEY_PREFIX
+
+function storageKeyFor (username: string): string {
+  return `${STORAGE_KEY_PREFIX}_${username}`
+}
 
 interface PurchaseRecord {
   id: string
@@ -36,11 +45,11 @@ interface PurchasesState {
 }
 
 /**
- * Load purchases from localStorage
+ * Load purchases from localStorage using the active key
  */
 function loadFromStorage (): Map<string, PurchaseRecord> {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY)
+    const stored = localStorage.getItem(activeStorageKey)
     if (stored) {
       const data = JSON.parse(stored) as PurchaseRecord[]
       return new Map(data.map(p => [p.id, p]))
@@ -52,12 +61,12 @@ function loadFromStorage (): Map<string, PurchaseRecord> {
 }
 
 /**
- * Save purchases to localStorage
+ * Save purchases to localStorage using the active key
  */
 function saveToStorage (purchases: Map<string, PurchaseRecord>): void {
   try {
     const data = Array.from(purchases.values())
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+    localStorage.setItem(activeStorageKey, JSON.stringify(data))
   } catch (error) {
     console.error('[PurchasesStore] Failed to save to storage:', error)
   }
@@ -129,11 +138,47 @@ export const usePurchasesStore = defineStore('purchases', {
     },
 
     /**
-     * Clear all purchases (for testing/logout)
+     * Clear all purchases (for logout / user switch)
      */
     clearAll () {
       this.purchases.clear()
       saveToStorage(this.purchases)
+      activeStorageKey = STORAGE_KEY_PREFIX
+    },
+
+    /**
+     * Load all purchase IDs from the server and merge into local cache.
+     * Called on login / session rehydration so the grid reflects unlock
+     * state even on a new device.
+     */
+    async loadPurchaseIds (username: string) {
+      activeStorageKey = storageKeyFor(username)
+      this.purchases = loadFromStorage()
+
+      try {
+        let page = 0
+        let hasMore = true
+
+        while (hasMore) {
+          const response = await getPurchases({ page, size: 100 })
+          for (const item of response.items) {
+            if (!this.purchases.has(item.id)) {
+              this.purchases.set(item.id, {
+                id: item.id,
+                purchasedAt: item.purchasedAt,
+                type: item.type,
+                title: item.title,
+              })
+            }
+          }
+          page++
+          hasMore = page < response.totalPages
+        }
+
+        saveToStorage(this.purchases)
+      } catch (error) {
+        console.error('[PurchasesStore] Failed to load purchase IDs:', error)
+      }
     },
 
     /**

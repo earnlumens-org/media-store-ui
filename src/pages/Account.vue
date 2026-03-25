@@ -189,11 +189,13 @@
   import { clearToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
+  import { usePurchasesStore } from '@/stores/purchases'
   import { useWalletStore } from '@/stores/wallet'
 
   const router = useRouter()
   const appStore = useAppStore()
   const authStore = useAuthStore()
+  const purchasesStore = usePurchasesStore()
   const walletStore = useWalletStore()
 
   const { t } = useI18n()
@@ -245,6 +247,7 @@
 
       await clearToken()
       authStore.clearAuth()
+      purchasesStore.clearAll()
       await walletStore.disconnectAll()
       // Notify other tabs about logout
       broadcastAuthEvent('LOGOUT')
