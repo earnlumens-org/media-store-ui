@@ -21,9 +21,8 @@ import { clearToken, initTokenWorker, onSessionExpired, refreshToken } from '@/s
 import pinia from '@/stores'
 import { useAuthStore } from '@/stores/auth'
 import { useFavoritesStore } from '@/stores/favorites'
-import { usePurchasesStore } from '@/stores/purchases'
+import { usePurchasesStore, PURCHASES_STORAGE_KEY } from '@/stores/purchases'
 import { useSubscriptionsStore } from '@/stores/subscriptions'
-import { useScrollCacheStore } from '@/stores/scrollCache'
 import { useWalletStore } from '@/stores/wallet'
 
 // Components
@@ -117,10 +116,7 @@ async function rehydrateSession (): Promise<void> {
 
       // Pre-load purchase IDs so isUnlocked() is instant across the app
       const purchasesStore = usePurchasesStore(pinia)
-      const username = userProfile?.username ?? authStore.user?.username
-      if (username) {
-        purchasesStore.loadPurchaseIds(username).catch(() => {})
-      }
+      purchasesStore.loadPurchaseIds().catch(() => {})
     } else {
       authStore.setAuthenticated(false)
     }
@@ -138,92 +134,25 @@ async function rehydrateSession (): Promise<void> {
 // Only broadcast if we HAD an active session (not during failed rehydrate)
 onSessionExpired(async () => {
   const authStore = useAuthStore(pinia)
-  const wasAuthenticated = authStore.isAuthenticated
+  if (!authStore.isAuthenticated) return
 
-  console.log('[Auth] Session expired, redirecting to login')
-  authStore.clearAuth()
-
-  // Clear favorites cache
-  const favoritesStore = useFavoritesStore(pinia)
-  favoritesStore.clearAll()
-
-  // Clear subscriptions cache
-  const subscriptionsStore = useSubscriptionsStore(pinia)
-  subscriptionsStore.clearAll()
-
-  // Clear purchases cache
-  const purchasesStore = usePurchasesStore(pinia)
-  purchasesStore.clearAll()
-
-  // Clear scroll cache (data may contain user-specific state)
-  const scrollCacheStore = useScrollCacheStore(pinia)
-  scrollCacheStore.clear()
-
-  // Disconnect wallet on session expiration
-  const walletStore = useWalletStore(pinia)
-  await walletStore.disconnectAll()
-
-  // Only broadcast if we were actually logged in (avoid loop on rehydrate failure)
-  if (wasAuthenticated) {
-    broadcastAuthEvent('SESSION_EXPIRED')
-  }
+  await clearToken()
+  localStorage.removeItem(PURCHASES_STORAGE_KEY)
+  broadcastAuthEvent('SESSION_EXPIRED')
+  window.location.assign('/')
 })
 
 // Handle auth events from other tabs
-// Flag to prevent duplicate processing during rapid events
-let isProcessingBroadcast = false
-
-onAuthBroadcast(async event => {
-  // Prevent duplicate processing
-  if (isProcessingBroadcast) {
-    console.log(`[Auth] Already processing broadcast, ignoring duplicate ${event}`)
-    return
-  }
-
+onAuthBroadcast(async () => {
   const authStore = useAuthStore(pinia)
 
-  // Only process if we have an active session (nothing to clear otherwise)
   if (!authStore.isAuthenticated) {
-    console.log(`[Auth] 📡 Received ${event} but not authenticated, ignoring`)
     return
   }
 
-  isProcessingBroadcast = true
-  console.log(`[Auth] 📡 Received ${event} from another tab, clearing session`)
-
-  try {
-    // Clear local state (don't broadcast again to avoid loops)
-    await clearToken()
-    authStore.clearAuth()
-
-    // Clear favorites cache
-    const favStore = useFavoritesStore(pinia)
-    favStore.clearAll()
-
-    // Clear subscriptions cache
-    const subsStore = useSubscriptionsStore(pinia)
-    subsStore.clearAll()
-
-    // Clear purchases cache
-    const purchStore = usePurchasesStore(pinia)
-    purchStore.clearAll()
-
-    // Clear scroll cache
-    const scrollCacheStore2 = useScrollCacheStore(pinia)
-    scrollCacheStore2.clear()
-
-    // Disconnect wallet on logout from other tab
-    const walletStore = useWalletStore(pinia)
-    await walletStore.disconnectAll()
-
-    // Navigate without reload to avoid triggering rehydrate again
-    router.push('/')
-  } finally {
-    // Reset flag after short delay
-    setTimeout(() => {
-      isProcessingBroadcast = false
-    }, 100)
-  }
+  await clearToken()
+  localStorage.removeItem(PURCHASES_STORAGE_KEY)
+  window.location.assign('/')
 })
 
 // Initialize app

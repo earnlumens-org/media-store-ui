@@ -65,7 +65,7 @@ describe('purchasesStore.loadPurchaseIds', () => {
     )
 
     const store = usePurchasesStore()
-    await store.loadPurchaseIds('alice')
+    await store.loadPurchaseIds()
 
     expect(store.isUnlocked('e1')).toBe(true)
     expect(store.isUnlocked('e2')).toBe(true)
@@ -79,7 +79,7 @@ describe('purchasesStore.loadPurchaseIds', () => {
       .mockResolvedValueOnce(apiPage([makePurchasedEntry('p3')], 2, 3))
 
     const store = usePurchasesStore()
-    await store.loadPurchaseIds('bob')
+    await store.loadPurchaseIds()
 
     expect(store.totalPurchases).toBe(3)
     expect(getPurchasesMock).toHaveBeenCalledTimes(3)
@@ -89,9 +89,9 @@ describe('purchasesStore.loadPurchaseIds', () => {
   })
 
   it('merges server data with existing localStorage cache', async () => {
-    // Pre-populate localStorage for user "carol"
+    // Pre-populate localStorage
     const cached = [{ id: 'cached-1', purchasedAt: '2026-01-01T00:00:00Z' }]
-    storage.set('earnlumens_purchases_carol', JSON.stringify(cached))
+    storage.set('earnlumens_purchases', JSON.stringify(cached))
 
     // Server returns a new purchase
     getPurchasesMock.mockResolvedValueOnce(
@@ -99,7 +99,7 @@ describe('purchasesStore.loadPurchaseIds', () => {
     )
 
     const store = usePurchasesStore()
-    await store.loadPurchaseIds('carol')
+    await store.loadPurchaseIds()
 
     // Both cached and server entries should exist
     expect(store.isUnlocked('cached-1')).toBe(true)
@@ -115,7 +115,7 @@ describe('purchasesStore.loadPurchaseIds', () => {
       type: 'audio',
       title: 'My Custom Title',
     }]
-    storage.set('earnlumens_purchases_dave', JSON.stringify(cached))
+    storage.set('earnlumens_purchases', JSON.stringify(cached))
 
     // Server returns the same ID
     getPurchasesMock.mockResolvedValueOnce(
@@ -123,42 +123,36 @@ describe('purchasesStore.loadPurchaseIds', () => {
     )
 
     const store = usePurchasesStore()
-    await store.loadPurchaseIds('dave')
+    await store.loadPurchaseIds()
 
     // Should keep the cached version, not overwrite
     expect(store.getPurchase('e1')?.title).toBe('My Custom Title')
   })
 
-  it('scopes storage per username — different users see different purchases', async () => {
-    // Load purchases for user "alice"
-    getPurchasesMock.mockResolvedValueOnce(
-      apiPage([makePurchasedEntry('alice-entry')], 0, 1),
-    )
+  it('clearAll cancels in-flight loadPurchaseIds', async () => {
+    // First call returns page 0 of 2, then clearAll is called before page 1
+    let resolveSecondPage: (v: ReturnType<typeof apiPage>) => void
+    getPurchasesMock
+      .mockResolvedValueOnce(apiPage([makePurchasedEntry('p1')], 0, 2))
+      .mockImplementationOnce(() => new Promise(resolve => { resolveSecondPage = resolve }))
+
     const store = usePurchasesStore()
-    await store.loadPurchaseIds('alice')
-    expect(store.isUnlocked('alice-entry')).toBe(true)
+    const loadPromise = store.loadPurchaseIds()
 
-    // Verify alice's data is in her scoped storage
-    const aliceData = storage.get('earnlumens_purchases_alice')
-    expect(aliceData).toContain('alice-entry')
+    // Wait for the first page to resolve
+    await new Promise(r => setTimeout(r, 10))
 
-    // Logout clears in-memory state (and writes empty to current key)
+    // Logout clears while page 2 is still pending
     store.clearAll()
-    expect(store.isUnlocked('alice-entry')).toBe(false)
+    expect(store.totalPurchases).toBe(0)
+    expect(storage.has('earnlumens_purchases')).toBe(false)
 
-    // Login as bob — different namespace
-    getPurchasesMock.mockResolvedValueOnce(
-      apiPage([makePurchasedEntry('bob-entry')], 0, 1),
-    )
-    await store.loadPurchaseIds('bob')
+    // Resolve the pending page — should NOT write back to store/storage
+    resolveSecondPage!(apiPage([makePurchasedEntry('p2')], 1, 2))
+    await loadPromise
 
-    // Bob should see his entry, not alice's
-    expect(store.isUnlocked('bob-entry')).toBe(true)
-    expect(store.isUnlocked('alice-entry')).toBe(false)
-
-    // Bob's data is in his own scoped storage
-    const bobData = storage.get('earnlumens_purchases_bob')
-    expect(bobData).toContain('bob-entry')
+    expect(store.totalPurchases).toBe(0)
+    expect(storage.has('earnlumens_purchases')).toBe(false)
   })
 
   it('persists to localStorage after server sync', async () => {
@@ -167,9 +161,9 @@ describe('purchasesStore.loadPurchaseIds', () => {
     )
 
     const store = usePurchasesStore()
-    await store.loadPurchaseIds('eve')
+    await store.loadPurchaseIds()
 
-    const raw = storage.get('earnlumens_purchases_eve')
+    const raw = storage.get('earnlumens_purchases')
     expect(raw).toBeDefined()
     const parsed = JSON.parse(raw!)
     expect(parsed).toHaveLength(1)
@@ -179,12 +173,12 @@ describe('purchasesStore.loadPurchaseIds', () => {
   it('handles API error gracefully — keeps existing cache', async () => {
     // Pre-populate cache
     const cached = [{ id: 'safe-1', purchasedAt: '2026-01-01T00:00:00Z' }]
-    storage.set('earnlumens_purchases_frank', JSON.stringify(cached))
+    storage.set('earnlumens_purchases', JSON.stringify(cached))
 
     getPurchasesMock.mockRejectedValueOnce(new Error('Network error'))
 
     const store = usePurchasesStore()
-    await store.loadPurchaseIds('frank')
+    await store.loadPurchaseIds()
 
     // Cached data should survive the API failure
     expect(store.isUnlocked('safe-1')).toBe(true)

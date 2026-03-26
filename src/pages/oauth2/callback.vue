@@ -18,6 +18,9 @@
   import { initTokenWorker, setToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
+  import { useFavoritesStore } from '@/stores/favorites'
+  import { usePurchasesStore } from '@/stores/purchases'
+  import { useSubscriptionsStore } from '@/stores/subscriptions'
 
   const loading = true
 
@@ -25,6 +28,9 @@
 
   const appStore = useAppStore()
   const authStore = useAuthStore()
+  const favoritesStore = useFavoritesStore()
+  const purchasesStore = usePurchasesStore()
+  const subscriptionsStore = useSubscriptionsStore()
 
   const UUID_REGEX
     = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
@@ -71,6 +77,13 @@
         // Fallback: just mark as authenticated without profile
         authStore.setAuthenticated(true)
       }
+
+      // Pre-load user data so the app is ready after redirect
+      await Promise.all([
+        favoritesStore.loadFavoriteIds(),
+        subscriptionsStore.loadSubscriptionIds(),
+        purchasesStore.loadPurchaseIds(),
+      ].map(p => p.catch(() => {})))
     } catch (error) {
       console.error('Session creation failed:', error)
       authStore.setError(error instanceof Error ? error.message : 'login_failed')

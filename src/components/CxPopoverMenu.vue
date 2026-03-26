@@ -132,7 +132,7 @@
   import { clearToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
-  import { useWalletStore } from '@/stores/wallet'
+  import { PURCHASES_STORAGE_KEY } from '@/stores/purchases'
 
   const menu = ref(false)
   const showUploadDialog = ref(false)
@@ -140,7 +140,6 @@
   const router = useRouter()
   const appStore = useAppStore()
   const authStore = useAuthStore()
-  const walletStore = useWalletStore()
   const theme = useTheme()
 
   // Computed: true if current theme is dark
@@ -186,35 +185,20 @@
   }
 
   async function handleLogout () {
-    // Prevent re-entrancy (double-click) and show global loading overlay
     if (appStore.isAppLocked) return
-
     menu.value = false
     appStore.setIsAppLocked(true)
 
-    const watchdog = window.setTimeout(() => {
-      appStore.setIsAppLocked(false)
-    }, 20_000)
-
     try {
-      try {
-        await logout()
-      } catch {
-        // Backend call failed, but continue cleaning local state
-      }
-
-      await clearToken()
-      authStore.clearAuth()
-      await walletStore.disconnectAll()
-
-      // Notify other tabs about logout
-      broadcastAuthEvent('LOGOUT')
-
-      await router.push('/')
-    } finally {
-      window.clearTimeout(watchdog)
-      appStore.setIsAppLocked(false)
+      await logout()
+    } catch {
+      // Ignore logout errors
     }
+
+    await clearToken()
+    localStorage.removeItem(PURCHASES_STORAGE_KEY)
+    broadcastAuthEvent('LOGOUT')
+    window.location.assign('/')
   }
 
   // User profile from auth store

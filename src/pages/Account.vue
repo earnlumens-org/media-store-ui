@@ -182,21 +182,14 @@
   import type { UserProfile } from '@/api/modules/user.api'
   import { onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useRouter } from 'vue-router'
   import { api, ApiError } from '@/api/api'
   import { logout } from '@/api/modules/auth.api'
   import { broadcastAuthEvent } from '@/services/authBroadcast'
   import { clearToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
-  import { useAuthStore } from '@/stores/auth'
-  import { usePurchasesStore } from '@/stores/purchases'
-  import { useWalletStore } from '@/stores/wallet'
+  import { PURCHASES_STORAGE_KEY } from '@/stores/purchases'
 
-  const router = useRouter()
   const appStore = useAppStore()
-  const authStore = useAuthStore()
-  const purchasesStore = usePurchasesStore()
-  const walletStore = useWalletStore()
 
   const { t } = useI18n()
 
@@ -229,33 +222,19 @@
   }
 
   async function handleLogout () {
-    // Prevent re-entrancy (double-click) and show global loading overlay
     if (appStore.isAppLocked) return
-
     appStore.setIsAppLocked(true)
 
-    const watchdog = window.setTimeout(() => {
-      appStore.setIsAppLocked(false)
-    }, 20_000)
-
     try {
-      try {
-        await logout()
-      } catch {
-        // Ignore logout errors
-      }
-
-      await clearToken()
-      authStore.clearAuth()
-      purchasesStore.clearAll()
-      await walletStore.disconnectAll()
-      // Notify other tabs about logout
-      broadcastAuthEvent('LOGOUT')
-      await router.push('/')
-    } finally {
-      window.clearTimeout(watchdog)
-      appStore.setIsAppLocked(false)
+      await logout()
+    } catch {
+      // Ignore logout errors
     }
+
+    await clearToken()
+    localStorage.removeItem(PURCHASES_STORAGE_KEY)
+    broadcastAuthEvent('LOGOUT')
+    window.location.assign('/')
   }
 
   async function copyProfileLink () {
