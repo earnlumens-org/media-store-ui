@@ -479,13 +479,7 @@
     try {
       const data = await api.entries.getById(entryId.value)
 
-      // LOCKED CONTENT REDIRECT
-      if (data.isPaid && !purchasesStore.isUnlocked(entryId.value)) {
-        router.replace(`/preview/${entryId.value}`)
-        return
-      }
-
-      // Server-side entitlement verification (defence-in-depth against localStorage tampering)
+      // LOCKED CONTENT: verify entitlement server-side
       if (data.isPaid) {
         const { verifyEntitlement } = await import('@/lib/verifyEntitlement')
         const hasAccess = await verifyEntitlement(entryId.value)
@@ -493,6 +487,10 @@
           purchasesStore.removeUnlock(entryId.value)
           router.replace(`/preview/${entryId.value}`)
           return
+        }
+        // Ensure the store reflects the entitlement (e.g. collection purchase)
+        if (!purchasesStore.isUnlocked(entryId.value)) {
+          purchasesStore.markUnlocked(entryId.value, { type: data.type, title: data.title })
         }
       }
 

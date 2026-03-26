@@ -886,6 +886,25 @@
         router.replace(`${targetRoute}/${contentId.value}`)
         return
       }
+
+      // Server-side entitlement check (handles collection purchases not in store)
+      if (authStore.isAuthenticated) {
+        try {
+          const { verifyEntitlement } = await import('@/lib/verifyEntitlement')
+          const hasAccess = await verifyEntitlement(contentId.value)
+          if (hasAccess) {
+            purchasesStore.markUnlocked(contentId.value, {
+              type: content.value.type,
+              title: data.title,
+            })
+            const targetRoute = destinationRoutes[content.value.type] || '/read'
+            router.replace(`${targetRoute}/${contentId.value}`)
+            return
+          }
+        } catch {
+          // Ignore — stay on paywall
+        }
+      }
     } catch (error_: unknown) {
       // If we had cached data and the real fetch fails, keep showing cached data
       if (content.value) {

@@ -213,13 +213,6 @@
   // UI State
   const isSaved = ref(false)
 
-  // Mock content (since Entry model doesn't have content field yet)
-  const mockContent = `This is a sample entry content that demonstrates how the quick read modal displays text-based entries.
-
-The content is rendered with proper paragraph spacing and line breaks preserved. This makes it easy to read short posts, announcements, or articles directly in the modal without navigating to a full page.
-
-For longer content (over 600 characters), users are encouraged to open the full reading page for a better experience with more space and additional features.`
-
   // Preview text for locked content
   const previewText = computed(() => {
     return 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...'
@@ -227,8 +220,8 @@ For longer content (over 600 characters), users are encouraged to open the full 
 
   // Format content with line breaks preserved
   const formattedContent = computed(() => {
-    // Use mock content since Entry model doesn't have content field
-    return mockContent.replace(/\n/g, '<br>')
+    const text = props.entry?.resourceContent || ''
+    return text.replace(/\n/g, '<br>')
   })
 
   function formatDate (date: string | Date): string {

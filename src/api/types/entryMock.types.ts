@@ -55,6 +55,7 @@ export interface EntryModel {
   previewUrl?: string
   durationSec?: number
   locked?: boolean
+  resourceContent?: string
 }
 
 export interface CollectionModel {

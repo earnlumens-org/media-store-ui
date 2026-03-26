@@ -61,6 +61,7 @@
   import { useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import { usePurchasesStore } from '@/stores/purchases'
   import { useAppStore } from '@/stores/app'
 
   import EntryPreviewContent from './EntryPreviewContent.vue'
@@ -78,6 +79,7 @@
 
   const router = useRouter()
   const appStore = useAppStore()
+  const purchasesStore = usePurchasesStore()
 
   // Responsive check
   const isMobile = computed(() => appStore.mobileView)
@@ -103,9 +105,31 @@
     errorMessage.value = ''
 
     try {
-      // Force type 'resource' for this component
-      const data = await api.mock.getEntryById(props.entryId, 'resource')
-      entry.value = data
+      const data = await api.entries.getById(props.entryId)
+
+      // Determine locked state: check store first, then verify with backend
+      let isLocked = data.isPaid && !purchasesStore.isUnlocked(data.id)
+      if (isLocked) {
+        const { verifyEntitlement } = await import('@/lib/verifyEntitlement')
+        const hasAccess = await verifyEntitlement(data.id)
+        if (hasAccess) {
+          purchasesStore.markUnlocked(data.id, { type: data.type, title: data.title })
+          isLocked = false
+        }
+      }
+
+      entry.value = {
+        id: data.id,
+        type: data.type,
+        title: data.title,
+        authorName: data.authorName,
+        authorAvatarUrl: data.authorAvatarUrl,
+        publishedAt: data.publishedAt,
+        thumbnailUrl: data.thumbnailUrl,
+        durationSec: data.durationSec,
+        locked: isLocked,
+        resourceContent: data.resourceContent,
+      }
     } catch (error_: unknown) {
       console.error('[EntryPreviewDialog] Failed to fetch entry:', error_)
       error.value = true
