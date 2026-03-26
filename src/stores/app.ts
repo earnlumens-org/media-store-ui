@@ -11,6 +11,7 @@ interface AppState {
   themeName: string
   isAppLocked: boolean
   refreshKey: number
+  loginDialogOpen: boolean
 }
 
 export const useAppStore = defineStore('app', {
@@ -20,6 +21,7 @@ export const useAppStore = defineStore('app', {
     themeName: 'amoledGray',
     isAppLocked: false,
     refreshKey: 0,
+    loginDialogOpen: false,
   }),
 
   actions: {
@@ -35,6 +37,12 @@ export const useAppStore = defineStore('app', {
     },
     triggerRefresh () {
       this.refreshKey++
+    },
+    openLoginDialog () {
+      this.loginDialogOpen = true
+    },
+    closeLoginDialog () {
+      this.loginDialogOpen = false
     },
   },
 })

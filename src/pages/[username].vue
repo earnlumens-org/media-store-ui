@@ -395,11 +395,13 @@
   import CollectionCard from '@/components/collection/CollectionCard.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import { isPopNavigation } from '@/router'
+  import { useAuthStore } from '@/stores/auth'
   import { usePurchasesStore } from '@/stores/purchases'
   import { useScrollCacheStore } from '@/stores/scrollCache'
 
   const route = useRoute()
   const { t } = useI18n()
+  const authStore = useAuthStore()
   const purchasesStore = usePurchasesStore()
   const scrollCache = useScrollCacheStore()
 
@@ -479,7 +481,9 @@
    * Maps a PublicEntryModel to the Entry interface expected by EntryCard.
    */
   function toEntryCardProps (item: PublicEntryModel): Entry {
-    const isUnlocked = item.isPaid && purchasesStore.isUnlocked(item.id)
+    const isOwner = authStore.isAuthenticated
+      && authStore.user?.username === item.authorName
+    const isUnlocked = item.isPaid && (isOwner || purchasesStore.isUnlocked(item.id))
     return {
       id: item.id,
       type: item.type,

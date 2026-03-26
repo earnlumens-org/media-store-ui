@@ -564,12 +564,14 @@
   import CheckoutDialog from '@/components/checkout/CheckoutDialog.vue'
   import { isPopNavigation } from '@/router'
   import { useAppStore } from '@/stores/app'
+  import { useAuthStore } from '@/stores/auth'
   import { useScrollCacheStore } from '@/stores/scrollCache'
 
   const { t } = useI18n()
   const route = useRoute()
   const router = useRouter()
   const appStore = useAppStore()
+  const authStore = useAuthStore()
   const scrollCache = useScrollCacheStore()
 
   // Responsive check
@@ -851,6 +853,10 @@
 
   // Checkout handler
   function openCheckout () {
+    if (!authStore.isAuthenticated) {
+      appStore.openLoginDialog()
+      return
+    }
     checkoutOpen.value = true
   }
 

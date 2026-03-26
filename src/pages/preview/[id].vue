@@ -440,6 +440,7 @@
                 :src="collectionData.coverUrl"
               >
                 <v-overlay
+                  class="d-flex align-center justify-center"
                   :close-on-back="false"
                   contained
                   :model-value="true"
@@ -662,6 +663,7 @@
 </template>
 
 <script setup lang="ts">
+  import type { CollectionDetailModel } from '@/api/types/collection.types'
   import type { PublicEntryModel } from '@/api/types/entry.types'
   import type { CollectionModel, EntryModel } from '@/api/types/entryMock.types'
 
@@ -674,6 +676,7 @@
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import AvatarFrame from '@/components/media/AvatarFrame.vue'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
   import { useFeedCacheStore } from '@/stores/feedCache'
   import { usePurchasesStore } from '@/stores/purchases'
@@ -683,6 +686,7 @@
   const route = useRoute()
   const router = useRouter()
   const authStore = useAuthStore()
+  const appStore = useAppStore()
   const purchasesStore = usePurchasesStore()
   const feedCache = useFeedCacheStore()
   const walletStore = useWalletStore()
@@ -895,6 +899,56 @@
           : undefined
 
         if (status === 404) {
+          // Entry not found — try as collection (paid collections redirect here)
+          try {
+            const collDetail: CollectionDetailModel = await api.collections.getDetail(contentId.value)
+
+            collectionData.value = {
+              id: collDetail.id,
+              collectionType: collDetail.collectionType ?? 'CATALOG',
+              title: collDetail.title,
+              authorName: collDetail.authorName ?? '',
+              authorAvatarUrl: collDetail.authorAvatarUrl,
+              publishedAt: collDetail.publishedAt,
+              coverUrl: collDetail.coverUrl,
+              itemsCount: collDetail.itemCount,
+              locked: collDetail.locked,
+            }
+
+            content.value = {
+              id: collDetail.id,
+              type: 'resource', // placeholder — contentType computed returns 'collection' when collectionData is set
+              title: collDetail.title,
+              authorName: collDetail.authorName ?? '',
+              authorAvatarUrl: collDetail.authorAvatarUrl,
+              publishedAt: collDetail.publishedAt,
+              locked: collDetail.locked,
+            }
+
+            realPrice.value = collDetail.priceCurrency === 'USD' ? collDetail.priceUsd : collDetail.priceXlm
+            realPriceCurrency.value = (collDetail.priceCurrency as 'XLM' | 'USD') || 'XLM'
+            realDescription.value = collDetail.description
+            isVerified.value = true
+
+            // If not locked, redirect to collection page
+            if (!collDetail.locked) {
+              router.replace(`/collection/${contentId.value}`)
+              return
+            }
+
+            // Owner bypass — redirect straight to collection page
+            if (authStore.isAuthenticated && authStore.user?.username === collDetail.authorName) {
+              purchasesStore.markUnlocked(contentId.value, {
+                type: 'collection',
+                title: collDetail.title,
+              })
+              router.replace(`/collection/${contentId.value}`)
+              return
+            }
+            return
+          } catch {
+            // Also not a collection — truly not found
+          }
           notFound.value = true
         } else {
           error.value = true
@@ -906,8 +960,12 @@
     }
   }
 
-  // Open checkout dialog — connect wallet first if needed
+  // Open checkout dialog — require login first, then connect wallet
   async function openCheckout () {
+    if (!authStore.isAuthenticated) {
+      appStore.openLoginDialog()
+      return
+    }
     if (!walletStore.isConnected) {
       try {
         const connected = await walletStore.connect()

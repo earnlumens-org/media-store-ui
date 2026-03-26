@@ -118,340 +118,33 @@
           inline
         />
       </v-tab>
-      <v-tab value="collections">
-        <v-icon class="mr-2" size="18">mdi-folder-multiple</v-icon>
-        {{ t('CreatorStudio.tabs.collections') }}
-      </v-tab>
     </v-tabs>
 
-    <!-- ── Collections Tab ─────────────────────────────────── -->
-    <template v-if="activeTab === 'collections'">
-      <!-- Loading -->
-      <div v-if="collectionsLoading" class="text-center py-12">
-        <v-progress-circular color="primary" indeterminate size="48" />
-        <p class="mt-4 text-medium-emphasis">{{ t('CreatorStudio.loading') }}</p>
-      </div>
-
-      <!-- Empty -->
-      <v-card
-        v-else-if="myCollections.length === 0"
-        class="text-center pa-8 pa-md-12 bg-transparent"
-        variant="flat"
-      >
-        <v-icon class="mb-4" color="medium-emphasis" size="80">mdi-folder-multiple-outline</v-icon>
-        <h3 class="text-h6 mb-2">{{ t('CreatorStudio.collections.empty') }}</h3>
-        <p class="text-medium-emphasis mb-6">{{ t('CreatorStudio.collections.emptyDescription') }}</p>
-        <v-btn
-          color="primary"
-          prepend-icon="mdi-plus"
-          variant="elevated"
-          @click="router.push('/create-collection')"
-        >
-          {{ t('CreatorStudio.collections.create') }}
-        </v-btn>
+    <!-- ── Delete Collection Confirmation ──────────────── -->
+    <v-dialog v-model="deleteCollDialog" max-width="440">
+      <v-card>
+        <v-card-title class="text-h6">{{ t('CreatorStudio.collections.deleteConfirm.title') }}</v-card-title>
+        <v-card-text>
+          {{ t('CreatorStudio.collections.deleteConfirm.message', { title: collToDelete?.title ?? '' }) }}
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn variant="text" @click="deleteCollDialog = false">
+            {{ t('Upload.actions.cancel') }}
+          </v-btn>
+          <v-btn
+            color="error"
+            :loading="isDeletingColl"
+            variant="elevated"
+            @click="executeDeleteColl"
+          >
+            {{ t('CreatorStudio.collections.delete') }}
+          </v-btn>
+        </v-card-actions>
       </v-card>
+    </v-dialog>
 
-      <!-- Collections table (Desktop) -->
-      <v-card v-else-if="!mobileView" variant="outlined">
-        <v-table fixed-header hover style="table-layout: fixed; width: 100%;">
-          <colgroup>
-            <col style="width: 45%;">
-            <col style="width: 15%;">
-            <col style="width: 12%;">
-            <col style="width: 14%;">
-            <col style="width: 8%;">
-            <col style="width: 6%;">
-          </colgroup>
-          <thead>
-            <tr>
-              <th class="text-left">{{ t('CreatorStudio.table.content') }}</th>
-              <th class="text-center">{{ t('CreatorStudio.table.status') }}</th>
-              <th class="text-center">{{ t('CreatorStudio.collections.items') }}</th>
-              <th class="text-center">{{ t('CreatorStudio.table.price') }}</th>
-              <th class="text-center">{{ t('CreatorStudio.table.type') }}</th>
-              <th class="text-center">{{ t('CreatorStudio.table.actions') }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="coll in myCollections"
-              :key="coll.id"
-              class="cursor-pointer"
-              @click="router.push(`/collection/${coll.id}`)"
-            >
-              <!-- Title + cover -->
-              <td style="max-width: 0;">
-                <div class="d-flex align-center ga-3 py-2">
-                  <v-card
-                    class="flex-shrink-0 overflow-hidden"
-                    flat
-                    rounded="lg"
-                    width="120"
-                  >
-                    <v-img
-                      :alt="coll.title"
-                      :aspect-ratio="16 / 9"
-                      cover
-                      :src="coll.coverUrl"
-                    >
-                      <template #error>
-                        <div class="d-flex align-center justify-center fill-height bg-surface-variant">
-                          <v-icon color="medium-emphasis" size="28">mdi-folder-multiple</v-icon>
-                        </div>
-                      </template>
-                      <template #placeholder>
-                        <div class="d-flex align-center justify-center fill-height bg-surface-variant">
-                          <v-icon color="medium-emphasis" size="28">mdi-folder-multiple</v-icon>
-                        </div>
-                      </template>
-                    </v-img>
-                  </v-card>
-                  <div class="overflow-hidden" style="min-width: 0;">
-                    <div
-                      class="text-body-2 font-weight-medium"
-                      :style="{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }"
-                    >
-                      {{ coll.title }}
-                    </div>
-                    <div v-if="coll.description" class="text-caption text-medium-emphasis text-truncate">
-                      {{ coll.description }}
-                    </div>
-                  </div>
-                </div>
-              </td>
-
-              <!-- Status -->
-              <td class="text-center text-no-wrap">
-                <v-chip
-                  :color="getCollectionStatusColor(coll.status)"
-                  size="small"
-                  variant="tonal"
-                >
-                  <v-icon size="14" start>{{ getCollectionStatusIcon(coll.status) }}</v-icon>
-                  {{ getCollectionStatusLabel(coll.status) }}
-                </v-chip>
-              </td>
-
-              <!-- Items count -->
-              <td class="text-center">
-                <span class="text-body-2">{{ coll.itemCount }}</span>
-              </td>
-
-              <!-- Price -->
-              <td class="text-center">
-                <span v-if="coll.isPaid" class="text-body-2 font-weight-medium">
-                  {{ coll.priceCurrency === 'USD' ? `$${coll.priceUsd} USD` : `${coll.priceXlm} XLM` }}
-                </span>
-                <v-chip v-else color="success" size="x-small" variant="tonal">
-                  {{ t('CreatorStudio.free') }}
-                </v-chip>
-              </td>
-
-              <!-- Type -->
-              <td class="text-center text-no-wrap">
-                <span class="text-caption text-medium-emphasis">{{ coll.collectionType ?? '—' }}</span>
-              </td>
-
-              <!-- Actions -->
-              <td class="text-center" @click.stop>
-                <v-menu location="bottom end">
-                  <template #activator="{ props }">
-                    <v-btn
-                      v-bind="props"
-                      icon="mdi-dots-vertical"
-                      size="small"
-                      variant="text"
-                    />
-                  </template>
-                  <v-list density="compact" min-width="180">
-                    <v-list-item
-                      prepend-icon="mdi-eye-outline"
-                      @click="router.push(`/collection/${coll.id}`)"
-                    >
-                      <v-list-item-title>{{ t('CreatorStudio.actions.view') }}</v-list-item-title>
-                    </v-list-item>
-                    <v-list-item
-                      v-if="coll.status === 'DRAFT' || coll.status === 'ARCHIVED'"
-                      prepend-icon="mdi-publish"
-                      @click="publishColl(coll)"
-                    >
-                      <v-list-item-title>{{ t('CreatorStudio.collections.publish') }}</v-list-item-title>
-                    </v-list-item>
-                    <v-divider />
-                    <v-list-item
-                      v-if="coll.status !== 'ARCHIVED'"
-                      prepend-icon="mdi-archive-outline"
-                      @click="archiveColl(coll)"
-                    >
-                      <v-list-item-title>{{ t('CreatorStudio.actions.archive') }}</v-list-item-title>
-                    </v-list-item>
-                    <v-list-item
-                      v-if="coll.status === 'ARCHIVED'"
-                      class="text-success"
-                      prepend-icon="mdi-archive-arrow-up-outline"
-                      @click="unarchiveColl(coll)"
-                    >
-                      <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
-                    </v-list-item>
-                    <v-divider />
-                    <v-list-item
-                      v-if="coll.status === 'DRAFT'"
-                      class="text-error"
-                      prepend-icon="mdi-delete-outline"
-                      @click="confirmDeleteColl(coll)"
-                    >
-                      <v-list-item-title>{{ t('CreatorStudio.collections.delete') }}</v-list-item-title>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
-              </td>
-            </tr>
-          </tbody>
-        </v-table>
-
-        <!-- Pagination -->
-        <v-divider />
-        <div class="d-flex align-center justify-space-between pa-3">
-          <span class="text-body-2 text-medium-emphasis">
-            {{ t('CreatorStudio.collections.showing', { count: myCollections.length, total: collectionsTotalElements }) }}
-          </span>
-          <v-pagination
-            v-if="collectionsTotalPages > 1"
-            v-model="collectionsCurrentPage"
-            density="compact"
-            :length="collectionsTotalPages"
-            rounded
-            @update:model-value="onCollectionsPageChange"
-          />
-        </div>
-      </v-card>
-
-      <!-- Collections cards (Mobile) -->
-      <div v-else class="mobile-entries">
-        <v-card
-          v-for="coll in myCollections"
-          :key="coll.id"
-          class="mb-3"
-          variant="outlined"
-          @click="router.push(`/collection/${coll.id}`)"
-        >
-          <div class="d-flex pa-3 ga-3">
-            <v-card class="flex-shrink-0 overflow-hidden" flat rounded="lg" width="100">
-              <v-img :alt="coll.title" :aspect-ratio="16 / 9" cover :src="coll.coverUrl">
-                <template #error>
-                  <div class="d-flex align-center justify-center fill-height bg-surface-variant">
-                    <v-icon color="medium-emphasis" size="24">mdi-folder-multiple</v-icon>
-                  </div>
-                </template>
-                <template #placeholder>
-                  <div class="d-flex align-center justify-center fill-height bg-surface-variant">
-                    <v-icon color="medium-emphasis" size="24">mdi-folder-multiple</v-icon>
-                  </div>
-                </template>
-              </v-img>
-            </v-card>
-            <div class="flex-grow-1 overflow-hidden">
-              <div
-                class="text-body-2 font-weight-medium"
-                :style="{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }"
-              >
-                {{ coll.title }}
-              </div>
-              <div class="d-flex flex-wrap align-center ga-1 mt-1">
-                <v-chip :color="getCollectionStatusColor(coll.status)" size="x-small" variant="tonal">
-                  {{ getCollectionStatusLabel(coll.status) }}
-                </v-chip>
-                <span class="text-caption text-medium-emphasis">{{ coll.itemCount }} {{ t('CreatorStudio.collections.items') }}</span>
-                <span v-if="coll.isPaid" class="text-caption font-weight-medium">
-                  {{ coll.priceCurrency === 'USD' ? `$${coll.priceUsd} USD` : `${coll.priceXlm} XLM` }}
-                </span>
-              </div>
-            </div>
-            <div @click.stop>
-              <v-menu location="bottom end">
-                <template #activator="{ props }">
-                  <v-btn v-bind="props" icon="mdi-dots-vertical" size="x-small" variant="text" />
-                </template>
-                <v-list density="compact" min-width="180">
-                  <v-list-item prepend-icon="mdi-eye-outline" @click="router.push(`/collection/${coll.id}`)">
-                    <v-list-item-title>{{ t('CreatorStudio.actions.view') }}</v-list-item-title>
-                  </v-list-item>
-                  <v-list-item
-                    v-if="coll.status === 'DRAFT' || coll.status === 'ARCHIVED'"
-                    prepend-icon="mdi-publish"
-                    @click="publishColl(coll)"
-                  >
-                    <v-list-item-title>{{ t('CreatorStudio.collections.publish') }}</v-list-item-title>
-                  </v-list-item>
-                  <v-divider />
-                  <v-list-item
-                    v-if="coll.status !== 'ARCHIVED'"
-                    prepend-icon="mdi-archive-outline"
-                    @click="archiveColl(coll)"
-                  >
-                    <v-list-item-title>{{ t('CreatorStudio.actions.archive') }}</v-list-item-title>
-                  </v-list-item>
-                  <v-list-item
-                    v-if="coll.status === 'ARCHIVED'"
-                    class="text-success"
-                    prepend-icon="mdi-archive-arrow-up-outline"
-                    @click="unarchiveColl(coll)"
-                  >
-                    <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
-                  </v-list-item>
-                  <v-divider />
-                  <v-list-item
-                    v-if="coll.status === 'DRAFT'"
-                    class="text-error"
-                    prepend-icon="mdi-delete-outline"
-                    @click="confirmDeleteColl(coll)"
-                  >
-                    <v-list-item-title>{{ t('CreatorStudio.collections.delete') }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
-            </div>
-          </div>
-        </v-card>
-
-        <div v-if="collectionsTotalPages > 1" class="d-flex justify-center mt-4">
-          <v-pagination
-            v-model="collectionsCurrentPage"
-            density="compact"
-            :length="collectionsTotalPages"
-            rounded
-            @update:model-value="onCollectionsPageChange"
-          />
-        </div>
-      </div>
-
-      <!-- Delete Collection Confirmation -->
-      <v-dialog v-model="deleteCollDialog" max-width="440">
-        <v-card>
-          <v-card-title class="text-h6">{{ t('CreatorStudio.collections.deleteConfirm.title') }}</v-card-title>
-          <v-card-text>
-            {{ t('CreatorStudio.collections.deleteConfirm.message', { title: collToDelete?.title ?? '' }) }}
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer />
-            <v-btn variant="text" @click="deleteCollDialog = false">
-              {{ t('Upload.actions.cancel') }}
-            </v-btn>
-            <v-btn
-              color="error"
-              :loading="isDeletingColl"
-              variant="elevated"
-              @click="executeDeleteColl"
-            >
-              {{ t('CreatorStudio.collections.delete') }}
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-    </template>
-
-    <!-- ── Entries Tabs Content ─────────────────────────────── -->
-    <template v-else>
+    <!-- ── Content (entries + collections merged) ──────── -->
 
       <!-- ── Filters + Search Bar ────────────────────────────── -->
       <v-card class="mb-4 mb-md-6 pa-3 pa-md-4" variant="outlined">
@@ -562,7 +255,7 @@
       </v-alert>
 
       <!-- ── Empty State ─────────────────────────────────────── -->
-      <v-card v-else-if="entries.length === 0 && !loading" class="text-center pa-8 pa-md-12 bg-transparent" variant="flat">
+      <v-card v-else-if="studioItems.length === 0 && !loading" class="text-center pa-8 pa-md-12 bg-transparent" variant="flat">
         <v-icon class="mb-4" color="medium-emphasis" size="80">mdi-movie-open-plus-outline</v-icon>
         <h3 class="text-h6 mb-2">{{ hasActiveFilters ? t('CreatorStudio.noResults') : t('CreatorStudio.empty') }}</h3>
         <p class="text-medium-emphasis mb-6">
@@ -609,10 +302,10 @@
           </thead>
           <tbody>
             <tr
-              v-for="entry in entries"
-              :key="entry.id"
+              v-for="item in studioItems"
+              :key="item.id"
               class="cursor-pointer"
-              @click="goToEntry(entry)"
+              @click="goToItem(item)"
             >
               <!-- Content cell: thumbnail + title + description -->
               <td style="max-width: 0;">
@@ -624,19 +317,19 @@
                     width="120"
                   >
                     <v-img
-                      :alt="entry.title"
+                      :alt="item.title"
                       :aspect-ratio="16 / 9"
                       cover
-                      :src="entry.thumbnailUrl"
+                      :src="item.thumbnailUrl"
                     >
                       <template #error>
                         <div class="d-flex align-center justify-center fill-height bg-surface-variant">
-                          <v-icon color="medium-emphasis" size="28">{{ getTypeIcon(entry.type) }}</v-icon>
+                          <v-icon color="medium-emphasis" size="28">{{ getTypeIcon(item.type) }}</v-icon>
                         </div>
                       </template>
                       <template #placeholder>
                         <div class="d-flex align-center justify-center fill-height bg-surface-variant">
-                          <v-icon color="medium-emphasis" size="28">{{ getTypeIcon(entry.type) }}</v-icon>
+                          <v-icon color="medium-emphasis" size="28">{{ getTypeIcon(item.type) }}</v-icon>
                         </div>
                       </template>
                     </v-img>
@@ -651,10 +344,10 @@
                         overflow: 'hidden',
                       }"
                     >
-                      {{ entry.title }}
+                      {{ item.title }}
                     </div>
-                    <div v-if="entry.description" class="text-caption text-medium-emphasis text-truncate">
-                      {{ entry.description }}
+                    <div v-if="item.description" class="text-caption text-medium-emphasis text-truncate">
+                      {{ item.description }}
                     </div>
                   </div>
                 </div>
@@ -663,49 +356,49 @@
               <!-- Status chip -->
               <td class="text-center text-no-wrap">
                 <v-chip
-                  :color="getStatusColor(entry.status)"
+                  :color="getStatusColor(item.status)"
                   size="small"
                   variant="tonal"
                 >
-                  <v-icon size="14" start>{{ getStatusIcon(entry.status) }}</v-icon>
-                  {{ getStatusLabel(entry.status) }}
+                  <v-icon size="14" start>{{ getStatusIcon(item.status) }}</v-icon>
+                  {{ getStatusLabel(item.status) }}
                 </v-chip>
                 <v-chip
-                  v-if="entry.transcodingStatus"
+                  v-if="item.transcodingStatus"
                   class="ml-1"
-                  :color="getTranscodingColor(entry.transcodingStatus)"
+                  :color="getTranscodingColor(item.transcodingStatus)"
                   size="small"
                   variant="tonal"
                 >
                   <v-progress-circular
-                    v-if="isTranscodingInProgress(entry.transcodingStatus)"
+                    v-if="isTranscodingInProgress(item.transcodingStatus)"
                     class="mr-1"
                     :indeterminate="true"
                     size="12"
                     width="2"
                   />
-                  <v-icon v-else size="14" start>{{ getTranscodingIcon(entry.transcodingStatus) }}</v-icon>
-                  {{ getTranscodingLabel(entry.transcodingStatus) }}
+                  <v-icon v-else size="14" start>{{ getTranscodingIcon(item.transcodingStatus) }}</v-icon>
+                  {{ getTranscodingLabel(item.transcodingStatus) }}
                 </v-chip>
               </td>
 
               <!-- Type -->
               <td class="text-center text-no-wrap">
                 <v-chip size="small" variant="flat">
-                  <v-icon size="14" start>{{ getTypeIcon(entry.type) }}</v-icon>
-                  {{ getTypeLabel(entry.type) }}
+                  <v-icon size="14" start>{{ getTypeIcon(item.type) }}</v-icon>
+                  {{ getTypeLabel(item.type) }}
                 </v-chip>
               </td>
 
               <!-- Date -->
               <td class="text-center text-no-wrap">
-                <span class="text-body-2 text-medium-emphasis">{{ formatDate(entry.publishedAt || entry.createdAt) }}</span>
+                <span class="text-body-2 text-medium-emphasis">{{ formatDate(item.sortDate) }}</span>
               </td>
 
               <!-- Price -->
               <td class="text-center">
-                <span v-if="entry.isPaid" class="text-body-2 font-weight-medium">
-                  {{ entry.priceCurrency === 'USD' ? `$${entry.priceUsd} USD` : `${entry.priceXlm} XLM` }}
+                <span v-if="item.isPaid" class="text-body-2 font-weight-medium">
+                  {{ item.priceCurrency === 'USD' ? `$${item.priceUsd} USD` : `${item.priceXlm} XLM` }}
                 </span>
                 <v-chip v-else color="success" size="x-small" variant="tonal">
                   {{ t('CreatorStudio.free') }}
@@ -724,35 +417,73 @@
                     />
                   </template>
                   <v-list density="compact" min-width="180">
-                    <v-list-item prepend-icon="mdi-eye-outline" @click="goToEntry(entry)">
+                    <v-list-item prepend-icon="mdi-eye-outline" @click="goToItem(item)">
                       <v-list-item-title>{{ t('CreatorStudio.actions.view') }}</v-list-item-title>
                     </v-list-item>
-                    <v-list-item prepend-icon="mdi-pencil-outline" @click="openEditDialog(entry)">
-                      <v-list-item-title>{{ t('CreatorStudio.actions.edit') }}</v-list-item-title>
-                    </v-list-item>
-                    <v-list-item
-                      v-if="entry.status === 'DRAFT'"
-                      prepend-icon="mdi-send-outline"
-                      @click="submitForReview(entry)"
-                    >
-                      <v-list-item-title>{{ t('CreatorStudio.actions.submitReview') }}</v-list-item-title>
-                    </v-list-item>
-                    <v-divider />
-                    <v-list-item
-                      v-if="entry.status !== 'ARCHIVED'"
-                      prepend-icon="mdi-archive-outline"
-                      @click="confirmArchive(entry)"
-                    >
-                      <v-list-item-title>{{ t('CreatorStudio.actions.archive') }}</v-list-item-title>
-                    </v-list-item>
-                    <v-list-item
-                      v-if="entry.status === 'ARCHIVED'"
-                      class="text-success"
-                      prepend-icon="mdi-archive-arrow-up-outline"
-                      @click="executeUnarchive(entry)"
-                    >
-                      <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
-                    </v-list-item>
+                    <!-- Entry-specific actions -->
+                    <template v-if="item.kind === 'entry' && item._entry">
+                      <v-list-item prepend-icon="mdi-pencil-outline" @click="openEditDialog(item._entry)">
+                        <v-list-item-title>{{ t('CreatorStudio.actions.edit') }}</v-list-item-title>
+                      </v-list-item>
+                      <v-list-item
+                        v-if="item.status === 'DRAFT'"
+                        prepend-icon="mdi-send-outline"
+                        @click="submitForReview(item._entry)"
+                      >
+                        <v-list-item-title>{{ t('CreatorStudio.actions.submitReview') }}</v-list-item-title>
+                      </v-list-item>
+                      <v-divider />
+                      <v-list-item
+                        v-if="item.status !== 'ARCHIVED'"
+                        prepend-icon="mdi-archive-outline"
+                        @click="confirmArchive(item._entry)"
+                      >
+                        <v-list-item-title>{{ t('CreatorStudio.actions.archive') }}</v-list-item-title>
+                      </v-list-item>
+                      <v-list-item
+                        v-if="item.status === 'ARCHIVED'"
+                        class="text-success"
+                        prepend-icon="mdi-archive-arrow-up-outline"
+                        @click="executeUnarchive(item._entry)"
+                      >
+                        <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
+                      </v-list-item>
+                    </template>
+                    <!-- Collection-specific actions -->
+                    <template v-if="item.kind === 'collection' && item._collection">
+                      <v-list-item
+                        v-if="item.status === 'DRAFT' || item.status === 'ARCHIVED'"
+                        prepend-icon="mdi-publish"
+                        @click="publishColl(item._collection)"
+                      >
+                        <v-list-item-title>{{ t('CreatorStudio.collections.publish') }}</v-list-item-title>
+                      </v-list-item>
+                      <v-divider />
+                      <v-list-item
+                        v-if="item.status !== 'ARCHIVED'"
+                        prepend-icon="mdi-archive-outline"
+                        @click="archiveColl(item._collection)"
+                      >
+                        <v-list-item-title>{{ t('CreatorStudio.actions.archive') }}</v-list-item-title>
+                      </v-list-item>
+                      <v-list-item
+                        v-if="item.status === 'ARCHIVED'"
+                        class="text-success"
+                        prepend-icon="mdi-archive-arrow-up-outline"
+                        @click="unarchiveColl(item._collection)"
+                      >
+                        <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
+                      </v-list-item>
+                      <v-divider />
+                      <v-list-item
+                        v-if="item.status === 'DRAFT'"
+                        class="text-error"
+                        prepend-icon="mdi-delete-outline"
+                        @click="confirmDeleteColl(item._collection)"
+                      >
+                        <v-list-item-title>{{ t('CreatorStudio.collections.delete') }}</v-list-item-title>
+                      </v-list-item>
+                    </template>
                   </v-list>
                 </v-menu>
               </td>
@@ -764,7 +495,7 @@
         <v-divider />
         <div class="d-flex align-center justify-space-between pa-3">
           <span class="text-body-2 text-medium-emphasis">
-            {{ t('CreatorStudio.showingEntries', { count: entries.length, total: totalElements }) }}
+            {{ t('CreatorStudio.showingEntries', { count: studioItems.length, total: totalElements }) }}
           </span>
           <v-pagination
             v-if="totalPages > 1"
@@ -780,11 +511,11 @@
       <!-- ── Content Cards (Mobile < md) ─────────────────────── -->
       <div v-else class="mobile-entries">
         <v-card
-          v-for="entry in entries"
-          :key="entry.id"
+          v-for="item in studioItems"
+          :key="item.id"
           class="mb-3"
           variant="outlined"
-          @click="goToEntry(entry)"
+          @click="goToItem(item)"
         >
           <div class="d-flex pa-3 ga-3">
             <!-- Thumbnail -->
@@ -795,19 +526,19 @@
               width="100"
             >
               <v-img
-                :alt="entry.title"
+                :alt="item.title"
                 :aspect-ratio="16 / 9"
                 cover
-                :src="entry.thumbnailUrl"
+                :src="item.thumbnailUrl"
               >
                 <template #error>
                   <div class="d-flex align-center justify-center fill-height bg-surface-variant">
-                    <v-icon color="medium-emphasis" size="24">{{ getTypeIcon(entry.type) }}</v-icon>
+                    <v-icon color="medium-emphasis" size="24">{{ getTypeIcon(item.type) }}</v-icon>
                   </div>
                 </template>
                 <template #placeholder>
                   <div class="d-flex align-center justify-center fill-height bg-surface-variant">
-                    <v-icon color="medium-emphasis" size="24">{{ getTypeIcon(entry.type) }}</v-icon>
+                    <v-icon color="medium-emphasis" size="24">{{ getTypeIcon(item.type) }}</v-icon>
                   </div>
                 </template>
               </v-img>
@@ -824,33 +555,33 @@
                   overflow: 'hidden',
                 }"
               >
-                {{ entry.title }}
+                {{ item.title }}
               </div>
               <div class="d-flex flex-wrap align-center ga-1 mt-1">
                 <v-chip
-                  :color="getStatusColor(entry.status)"
+                  :color="getStatusColor(item.status)"
                   size="x-small"
                   variant="tonal"
                 >
-                  {{ getStatusLabel(entry.status) }}
+                  {{ getStatusLabel(item.status) }}
                 </v-chip>
                 <v-chip
-                  v-if="entry.transcodingStatus"
-                  :color="getTranscodingColor(entry.transcodingStatus)"
+                  v-if="item.transcodingStatus"
+                  :color="getTranscodingColor(item.transcodingStatus)"
                   size="x-small"
                   variant="tonal"
                 >
-                  {{ getTranscodingLabel(entry.transcodingStatus) }}
+                  {{ getTranscodingLabel(item.transcodingStatus) }}
                 </v-chip>
                 <v-chip size="x-small" variant="flat">
-                  {{ getTypeLabel(entry.type) }}
+                  {{ getTypeLabel(item.type) }}
                 </v-chip>
-                <span v-if="entry.isPaid" class="text-caption font-weight-medium">
-                  {{ entry.priceCurrency === 'USD' ? `$${entry.priceUsd} USD` : `${entry.priceXlm} XLM` }}
+                <span v-if="item.isPaid" class="text-caption font-weight-medium">
+                  {{ item.priceCurrency === 'USD' ? `$${item.priceUsd} USD` : `${item.priceXlm} XLM` }}
                 </span>
               </div>
               <div class="text-caption text-medium-emphasis mt-1">
-                {{ formatDate(entry.publishedAt || entry.createdAt) }}
+                {{ formatDate(item.sortDate) }}
               </div>
             </div>
 
@@ -866,35 +597,73 @@
                   />
                 </template>
                 <v-list density="compact" min-width="180">
-                  <v-list-item prepend-icon="mdi-eye-outline" @click="goToEntry(entry)">
+                  <v-list-item prepend-icon="mdi-eye-outline" @click="goToItem(item)">
                     <v-list-item-title>{{ t('CreatorStudio.actions.view') }}</v-list-item-title>
                   </v-list-item>
-                  <v-list-item prepend-icon="mdi-pencil-outline" @click="openEditDialog(entry)">
-                    <v-list-item-title>{{ t('CreatorStudio.actions.edit') }}</v-list-item-title>
-                  </v-list-item>
-                  <v-list-item
-                    v-if="entry.status === 'DRAFT'"
-                    prepend-icon="mdi-send-outline"
-                    @click="submitForReview(entry)"
-                  >
-                    <v-list-item-title>{{ t('CreatorStudio.actions.submitReview') }}</v-list-item-title>
-                  </v-list-item>
-                  <v-divider />
-                  <v-list-item
-                    v-if="entry.status !== 'ARCHIVED'"
-                    prepend-icon="mdi-archive-outline"
-                    @click="confirmArchive(entry)"
-                  >
-                    <v-list-item-title>{{ t('CreatorStudio.actions.archive') }}</v-list-item-title>
-                  </v-list-item>
-                  <v-list-item
-                    v-if="entry.status === 'ARCHIVED'"
-                    class="text-success"
-                    prepend-icon="mdi-archive-arrow-up-outline"
-                    @click="executeUnarchive(entry)"
-                  >
-                    <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
-                  </v-list-item>
+                  <!-- Entry-specific actions -->
+                  <template v-if="item.kind === 'entry' && item._entry">
+                    <v-list-item prepend-icon="mdi-pencil-outline" @click="openEditDialog(item._entry)">
+                      <v-list-item-title>{{ t('CreatorStudio.actions.edit') }}</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item
+                      v-if="item.status === 'DRAFT'"
+                      prepend-icon="mdi-send-outline"
+                      @click="submitForReview(item._entry)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.actions.submitReview') }}</v-list-item-title>
+                    </v-list-item>
+                    <v-divider />
+                    <v-list-item
+                      v-if="item.status !== 'ARCHIVED'"
+                      prepend-icon="mdi-archive-outline"
+                      @click="confirmArchive(item._entry)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.actions.archive') }}</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item
+                      v-if="item.status === 'ARCHIVED'"
+                      class="text-success"
+                      prepend-icon="mdi-archive-arrow-up-outline"
+                      @click="executeUnarchive(item._entry)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
+                    </v-list-item>
+                  </template>
+                  <!-- Collection-specific actions -->
+                  <template v-if="item.kind === 'collection' && item._collection">
+                    <v-list-item
+                      v-if="item.status === 'DRAFT' || item.status === 'ARCHIVED'"
+                      prepend-icon="mdi-publish"
+                      @click="publishColl(item._collection)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.collections.publish') }}</v-list-item-title>
+                    </v-list-item>
+                    <v-divider />
+                    <v-list-item
+                      v-if="item.status !== 'ARCHIVED'"
+                      prepend-icon="mdi-archive-outline"
+                      @click="archiveColl(item._collection)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.actions.archive') }}</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item
+                      v-if="item.status === 'ARCHIVED'"
+                      class="text-success"
+                      prepend-icon="mdi-archive-arrow-up-outline"
+                      @click="unarchiveColl(item._collection)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
+                    </v-list-item>
+                    <v-divider />
+                    <v-list-item
+                      v-if="item.status === 'DRAFT'"
+                      class="text-error"
+                      prepend-icon="mdi-delete-outline"
+                      @click="confirmDeleteColl(item._collection)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.collections.delete') }}</v-list-item-title>
+                    </v-list-item>
+                  </template>
                 </v-list>
               </v-menu>
             </div>
@@ -1117,8 +886,6 @@
         </v-card>
       </v-dialog>
 
-    </template><!-- end entries tab content -->
-
     <!-- ── Upload Type Dialog ──────────────────────────────── -->
     <upload-type-dialog v-model="showUploadDialog" />
 
@@ -1155,23 +922,77 @@
 
   const contentLanguageItems = CONTENT_LANGUAGES.map(l => ({ value: l.value, title: l.title }))
 
+  // ── StudioItem (unified entry + collection) ──────────────
+
+  interface StudioItem {
+    id: string
+    kind: 'entry' | 'collection'
+    title: string
+    description?: string
+    type: string
+    status: string
+    thumbnailUrl?: string
+    isPaid: boolean
+    priceXlm?: number
+    priceUsd?: number
+    priceCurrency?: string
+    sortDate: string
+    transcodingStatus?: string
+    itemCount?: number
+    _entry?: CreatorEntryModel
+    _collection?: CollectionItemModel
+  }
+
+  function entryToStudioItem (e: CreatorEntryModel): StudioItem {
+    return {
+      id: e.id,
+      kind: 'entry',
+      title: e.title,
+      description: e.description,
+      type: (e.type ?? 'RESOURCE').toUpperCase(),
+      status: e.status,
+      thumbnailUrl: e.thumbnailUrl,
+      isPaid: e.isPaid,
+      priceXlm: e.priceXlm,
+      priceUsd: e.priceUsd,
+      priceCurrency: e.priceCurrency,
+      sortDate: e.createdAt,
+      transcodingStatus: e.transcodingStatus,
+      _entry: e,
+    }
+  }
+
+  function collectionToStudioItem (c: CollectionItemModel): StudioItem {
+    return {
+      id: `coll-${c.id}`,
+      kind: 'collection',
+      title: c.title,
+      description: c.description,
+      type: 'COLLECTION',
+      status: c.status ?? 'DRAFT',
+      thumbnailUrl: c.coverUrl,
+      isPaid: c.isPaid,
+      priceXlm: c.priceXlm,
+      priceUsd: c.priceUsd,
+      priceCurrency: c.priceCurrency,
+      sortDate: c.publishedAt ?? '',
+      itemCount: c.itemCount,
+      _collection: c,
+    }
+  }
+
   // ── State ─────────────────────────────────────────────────
 
   const loading = ref(false)
   const error = ref<string | null>(null)
-  const entries = ref<CreatorEntryModel[]>([])
+  const studioItems = ref<StudioItem[]>([])
   const totalElements = ref(0)
   const totalPages = ref(0)
   const currentPage = ref(1)
   const showUploadDialog = ref(false)
-  const activeTab = ref<'active' | 'archived' | 'collections'>('active')
+  const activeTab = ref<'active' | 'archived'>('active')
 
-  // Collections state
-  const myCollections = ref<CollectionItemModel[]>([])
-  const collectionsLoading = ref(false)
-  const collectionsTotalElements = ref(0)
-  const collectionsTotalPages = ref(0)
-  const collectionsCurrentPage = ref(1)
+  // Collection delete dialog state
   const deleteCollDialog = ref(false)
   const collToDelete = ref<CollectionItemModel | null>(null)
   const isDeletingColl = ref(false)
@@ -1192,7 +1013,7 @@
   const filters = reactive<{
     search: string
     status: EntryStatus | 'ALL'
-    type: EntryType | 'ALL'
+    type: EntryType | 'COLLECTION' | 'ALL'
     sort: 'newest' | 'oldest' | 'title_asc' | 'title_desc'
   }>({
     search: '',
@@ -1325,6 +1146,7 @@
     { title: t('Upload.type.audio'), value: 'AUDIO' },
     { title: t('Upload.type.image'), value: 'IMAGE' },
     { title: t('Upload.type.resource'), value: 'RESOURCE' },
+    { title: t('Upload.type.collection'), value: 'COLLECTION' },
   ])
 
   const sortOptions = computed(() => [
@@ -1423,6 +1245,7 @@
       AUDIO: 'mdi-music-note',
       IMAGE: 'mdi-image-outline',
       RESOURCE: 'mdi-file-document-outline',
+      COLLECTION: 'mdi-folder-multiple',
     }
     return map[normalized] ?? 'mdi-file-outline'
   }
@@ -1434,6 +1257,7 @@
       audio: t('Upload.type.audio'),
       image: t('Upload.type.image'),
       resource: t('Upload.type.resource'),
+      collection: t('Upload.type.collection'),
       all: t('CreatorStudio.allTypes'),
     }
     return map[normalized] ?? type
@@ -1491,10 +1315,6 @@
   // ── Data fetching ─────────────────────────────────────────
 
   function onTabChange () {
-    if (activeTab.value === 'collections') {
-      fetchMyCollections()
-      return
-    }
     currentPage.value = 1
     // Reset status filter when switching to archived tab
     if (activeTab.value === 'archived') {
@@ -1503,28 +1323,80 @@
     fetchEntries()
   }
 
+  const STUDIO_PAGE_SIZE = 20
+
   async function fetchEntries () {
     loading.value = true
     error.value = null
 
     try {
       const isArchivedTab = activeTab.value === 'archived'
+      const isCollectionType = filters.type === 'COLLECTION'
+      const isEntryType = filters.type !== 'ALL' && filters.type !== 'COLLECTION'
 
-      const filterParams: CreatorEntryFilters = {
-        status: isArchivedTab
-          ? 'ARCHIVED'
-          : (filters.status === 'ALL' ? undefined : filters.status),
-        type: filters.type === 'ALL' ? undefined : filters.type,
-        search: filters.search || undefined,
-        sort: filters.sort,
-        page: currentPage.value - 1, // API is 0-based
-        size: 20,
+      let entryItems: StudioItem[] = []
+      let collectionItems: StudioItem[] = []
+
+      // Fetch entries (skip when filtering by COLLECTION)
+      if (!isCollectionType) {
+        const filterParams: CreatorEntryFilters = {
+          status: isArchivedTab
+            ? 'ARCHIVED'
+            : (filters.status === 'ALL' ? undefined : filters.status),
+          type: isEntryType ? (filters.type as EntryType) : undefined,
+          search: filters.search || undefined,
+          sort: filters.sort,
+          page: 0,
+          size: 500,
+        }
+        const page = await api.creator.getEntries(filterParams)
+        entryItems = page.items.map(entryToStudioItem)
       }
 
-      const page = await api.creator.getEntries(filterParams)
-      entries.value = page.items
-      totalElements.value = page.totalElements
-      totalPages.value = page.totalPages
+      // Fetch collections (skip when filtering by a specific entry type)
+      if (!isEntryType) {
+        const collPage = await api.collections.getMine({ page: 0, size: 500 })
+        let filtered = collPage.items.filter(c => {
+          const s = c.status ?? 'DRAFT'
+          return isArchivedTab ? s === 'ARCHIVED' : s !== 'ARCHIVED'
+        })
+        // Status filter (active tab only)
+        if (!isArchivedTab && filters.status !== 'ALL') {
+          filtered = filtered.filter(c => (c.status ?? 'DRAFT') === filters.status)
+        }
+        // Client-side search for collections
+        if (filters.search) {
+          const q = filters.search.toLowerCase()
+          filtered = filtered.filter(c =>
+            c.title.toLowerCase().includes(q)
+            || (c.description ?? '').toLowerCase().includes(q),
+          )
+        }
+        collectionItems = filtered.map(collectionToStudioItem)
+      }
+
+      // Merge & sort
+      const merged = [...entryItems, ...collectionItems]
+      switch (filters.sort) {
+        case 'oldest':
+          merged.sort((a, b) => new Date(a.sortDate).getTime() - new Date(b.sortDate).getTime())
+          break
+        case 'title_asc':
+          merged.sort((a, b) => a.title.localeCompare(b.title))
+          break
+        case 'title_desc':
+          merged.sort((a, b) => b.title.localeCompare(a.title))
+          break
+        default:
+          merged.sort((a, b) => new Date(b.sortDate).getTime() - new Date(a.sortDate).getTime())
+      }
+
+      // Client-side pagination
+      totalElements.value = merged.length
+      totalPages.value = Math.max(1, Math.ceil(merged.length / STUDIO_PAGE_SIZE))
+      if (currentPage.value > totalPages.value) currentPage.value = 1
+      const start = (currentPage.value - 1) * STUDIO_PAGE_SIZE
+      studioItems.value = merged.slice(start, start + STUDIO_PAGE_SIZE)
     } catch (error_) {
       console.error('[CreatorStudio] Failed to load entries:', error_)
       if (error_ instanceof ApiError) {
@@ -1561,6 +1433,14 @@
     }
     const prefix = typeRoutes[entry.type] ?? 'view'
     router.push(`/${prefix}/${entry.id}`)
+  }
+
+  function goToItem (item: StudioItem) {
+    if (item.kind === 'collection' && item._collection) {
+      router.push(`/collection/${item._collection.id}`)
+      return
+    }
+    if (item._entry) goToEntry(item._entry)
   }
 
   // ── Edit ──────────────────────────────────────────────────
@@ -1683,32 +1563,11 @@
     return map[status ?? ''] ?? (status ?? '')
   }
 
-  async function fetchMyCollections () {
-    collectionsLoading.value = true
-    try {
-      const page = await api.collections.getMine({
-        page: collectionsCurrentPage.value - 1,
-        size: 20,
-      })
-      myCollections.value = page.items
-      collectionsTotalElements.value = page.totalElements
-      collectionsTotalPages.value = page.totalPages
-    } catch (error_) {
-      console.error('[CreatorStudio] Failed to load collections:', error_)
-    } finally {
-      collectionsLoading.value = false
-    }
-  }
-
-  function onCollectionsPageChange () {
-    fetchMyCollections()
-  }
-
   async function publishColl (coll: CollectionItemModel) {
     try {
       await api.collections.publish(coll.id)
       showToast(t('CreatorStudio.collections.publishSuccess'))
-      await fetchMyCollections()
+      await fetchEntries()
     } catch (error_) {
       console.error('[CreatorStudio] Publish collection failed:', error_)
       const msg = error_ instanceof ApiError ? error_.message : t('CreatorStudio.collections.publishError')
@@ -1720,7 +1579,7 @@
     try {
       await api.collections.archive(coll.id)
       showToast(t('CreatorStudio.archiveSuccess'))
-      await fetchMyCollections()
+      await fetchEntries()
     } catch (error_) {
       console.error('[CreatorStudio] Archive collection failed:', error_)
       showToast(t('CreatorStudio.archiveError'), 'error')
@@ -1731,7 +1590,7 @@
     try {
       await api.collections.unarchive(coll.id)
       showToast(t('CreatorStudio.unarchiveSuccess'))
-      await fetchMyCollections()
+      await fetchEntries()
     } catch (error_) {
       console.error('[CreatorStudio] Unarchive collection failed:', error_)
       showToast(t('CreatorStudio.unarchiveError'), 'error')
@@ -1751,7 +1610,7 @@
       showToast(t('CreatorStudio.collections.deleteSuccess'))
       deleteCollDialog.value = false
       collToDelete.value = null
-      await fetchMyCollections()
+      await fetchEntries()
     } catch (error_) {
       console.error('[CreatorStudio] Delete collection failed:', error_)
       showToast(t('CreatorStudio.collections.deleteError'), 'error')

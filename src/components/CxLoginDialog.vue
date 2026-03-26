@@ -54,7 +54,7 @@
 
 <script setup lang="ts">
   import { storeToRefs } from 'pinia'
-  import { ref } from 'vue'
+  import { ref, watch } from 'vue'
   import { useRouter } from 'vue-router'
   import CxXButton from '@/components/login/CxXButton.vue'
   import { useAppStore } from '@/stores/app'
@@ -64,6 +64,14 @@
   const { mobileView } = storeToRefs(appStore)
 
   const dialog = ref(false)
+
+  // Allow any component to open the login dialog via appStore.openLoginDialog()
+  watch(() => appStore.loginDialogOpen, open => {
+    if (open) {
+      dialog.value = true
+      appStore.closeLoginDialog()
+    }
+  })
 
   function closeDialog () {
     dialog.value = false
