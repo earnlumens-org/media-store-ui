@@ -263,7 +263,8 @@
             "video": "影片",
             "audio": "音頻",
             "image": "圖片",
-            "resource": "資源"
+            "resource": "資源",
+            "collections": "合輯"
         },
         "noEntries": "尚無條目",
         "noEntriesFiltered": "尚無{type}條目",

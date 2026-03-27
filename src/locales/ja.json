@@ -263,7 +263,8 @@
             "video": "動画",
             "audio": "音声",
             "image": "画像",
-            "resource": "リソース"
+            "resource": "リソース",
+            "collections": "コレクション"
         },
         "noEntries": "まだエントリーがありません",
         "noEntriesFiltered": "まだ{type}のエントリーがありません",

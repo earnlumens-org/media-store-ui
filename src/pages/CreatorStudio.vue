@@ -320,7 +320,7 @@
                       :alt="item.title"
                       :aspect-ratio="16 / 9"
                       cover
-                      :src="item.thumbnailUrl"
+                      :src="item.thumbnailUrl || item.coverUrl"
                     >
                       <template #error>
                         <div class="d-flex align-center justify-center fill-height bg-surface-variant">
@@ -392,7 +392,7 @@
 
               <!-- Date -->
               <td class="text-center text-no-wrap">
-                <span class="text-body-2 text-medium-emphasis">{{ formatDate(item.sortDate) }}</span>
+                <span class="text-body-2 text-medium-emphasis">{{ formatDate(item.createdAt) }}</span>
               </td>
 
               <!-- Price -->
@@ -529,7 +529,7 @@
                 :alt="item.title"
                 :aspect-ratio="16 / 9"
                 cover
-                :src="item.thumbnailUrl"
+                :src="item.thumbnailUrl || item.coverUrl"
               >
                 <template #error>
                   <div class="d-flex align-center justify-center fill-height bg-surface-variant">
@@ -581,7 +581,7 @@
                 </span>
               </div>
               <div class="text-caption text-medium-emphasis mt-1">
-                {{ formatDate(item.sortDate) }}
+                {{ formatDate(item.createdAt) }}
               </div>
             </div>
 
@@ -901,7 +901,7 @@
 
 <script setup lang="ts">
   import type { CollectionItemModel } from '@/api/types/collection.types'
-  import type { CreatorDashboardStats, CreatorEntryFilters, CreatorEntryModel } from '@/api/types/creator.types'
+  import type { CreatorDashboardStats, CreatorEntryModel, StudioItemModel } from '@/api/types/creator.types'
   import type { EntryStatus, EntryType } from '@/api/types/upload.types'
   import { storeToRefs } from 'pinia'
   import { computed, onMounted, reactive, ref, watch } from 'vue'
@@ -922,63 +922,12 @@
 
   const contentLanguageItems = CONTENT_LANGUAGES.map(l => ({ value: l.value, title: l.title }))
 
-  // ── StudioItem (unified entry + collection) ──────────────
+  // ── StudioItem — backed by the unified server response ────
 
-  interface StudioItem {
-    id: string
-    kind: 'entry' | 'collection'
-    title: string
-    description?: string
-    type: string
-    status: string
-    thumbnailUrl?: string
-    isPaid: boolean
-    priceXlm?: number
-    priceUsd?: number
-    priceCurrency?: string
-    sortDate: string
-    transcodingStatus?: string
-    itemCount?: number
+  // Re-use StudioItemModel directly; extend with optional originals for actions
+  interface StudioItem extends StudioItemModel {
     _entry?: CreatorEntryModel
     _collection?: CollectionItemModel
-  }
-
-  function entryToStudioItem (e: CreatorEntryModel): StudioItem {
-    return {
-      id: e.id,
-      kind: 'entry',
-      title: e.title,
-      description: e.description,
-      type: (e.type ?? 'RESOURCE').toUpperCase(),
-      status: e.status,
-      thumbnailUrl: e.thumbnailUrl,
-      isPaid: e.isPaid,
-      priceXlm: e.priceXlm,
-      priceUsd: e.priceUsd,
-      priceCurrency: e.priceCurrency,
-      sortDate: e.createdAt,
-      transcodingStatus: e.transcodingStatus,
-      _entry: e,
-    }
-  }
-
-  function collectionToStudioItem (c: CollectionItemModel): StudioItem {
-    return {
-      id: `coll-${c.id}`,
-      kind: 'collection',
-      title: c.title,
-      description: c.description,
-      type: 'COLLECTION',
-      status: c.status ?? 'DRAFT',
-      thumbnailUrl: c.coverUrl,
-      isPaid: c.isPaid,
-      priceXlm: c.priceXlm,
-      priceUsd: c.priceUsd,
-      priceCurrency: c.priceCurrency,
-      sortDate: c.publishedAt ?? '',
-      itemCount: c.itemCount,
-      _collection: c,
-    }
   }
 
   // ── State ─────────────────────────────────────────────────
@@ -1331,72 +1280,63 @@
 
     try {
       const isArchivedTab = activeTab.value === 'archived'
-      const isCollectionType = filters.type === 'COLLECTION'
-      const isEntryType = filters.type !== 'ALL' && filters.type !== 'COLLECTION'
 
-      let entryItems: StudioItem[] = []
-      let collectionItems: StudioItem[] = []
+      const result = await api.creator.getStudioItems({
+        status: isArchivedTab
+          ? 'ARCHIVED'
+          : (filters.status === 'ALL' ? undefined : filters.status),
+        type: filters.type === 'ALL' ? undefined : filters.type,
+        search: filters.search || undefined,
+        sort: filters.sort,
+        page: currentPage.value - 1, // server is 0-based
+        size: STUDIO_PAGE_SIZE,
+      })
 
-      // Fetch entries (skip when filtering by COLLECTION)
-      if (!isCollectionType) {
-        const filterParams: CreatorEntryFilters = {
-          status: isArchivedTab
-            ? 'ARCHIVED'
-            : (filters.status === 'ALL' ? undefined : filters.status),
-          type: isEntryType ? (filters.type as EntryType) : undefined,
-          search: filters.search || undefined,
-          sort: filters.sort,
-          page: 0,
-          size: 500,
+      studioItems.value = result.items.map(item => {
+        const si: StudioItem = { ...item }
+        if (item.kind === 'entry') {
+          si._entry = {
+            id: item.id,
+            type: (item.type?.toUpperCase() ?? 'RESOURCE') as CreatorEntryModel['type'],
+            title: item.title,
+            description: item.description,
+            status: item.status as CreatorEntryModel['status'],
+            thumbnailUrl: item.thumbnailUrl,
+            isPaid: item.isPaid,
+            priceXlm: item.priceXlm,
+            priceUsd: item.priceUsd,
+            priceCurrency: item.priceCurrency as 'XLM' | 'USD' | undefined,
+            contentLanguage: item.contentLanguage,
+            createdAt: item.createdAt,
+            updatedAt: item.updatedAt,
+            publishedAt: item.publishedAt,
+            transcodingStatus: item.transcodingStatus,
+            sellerWallet: item.sellerWallet,
+          }
+        } else {
+          si._collection = {
+            id: item.id,
+            title: item.title,
+            description: item.description,
+            status: item.status,
+            coverUrl: item.coverUrl,
+            isPaid: item.isPaid,
+            priceXlm: item.priceXlm,
+            priceUsd: item.priceUsd,
+            priceCurrency: item.priceCurrency,
+            itemCount: item.itemCount,
+            publishedAt: item.publishedAt ?? '',
+            locked: false,
+            unlocked: true,
+          } as CollectionItemModel
         }
-        const page = await api.creator.getEntries(filterParams)
-        entryItems = page.items.map(entryToStudioItem)
+        return si
+      })
+      totalElements.value = result.totalElements
+      totalPages.value = result.totalPages
+      if (currentPage.value > totalPages.value && totalPages.value > 0) {
+        currentPage.value = 1
       }
-
-      // Fetch collections (skip when filtering by a specific entry type)
-      if (!isEntryType) {
-        const collPage = await api.collections.getMine({ page: 0, size: 500 })
-        let filtered = collPage.items.filter(c => {
-          const s = c.status ?? 'DRAFT'
-          return isArchivedTab ? s === 'ARCHIVED' : s !== 'ARCHIVED'
-        })
-        // Status filter (active tab only)
-        if (!isArchivedTab && filters.status !== 'ALL') {
-          filtered = filtered.filter(c => (c.status ?? 'DRAFT') === filters.status)
-        }
-        // Client-side search for collections
-        if (filters.search) {
-          const q = filters.search.toLowerCase()
-          filtered = filtered.filter(c =>
-            c.title.toLowerCase().includes(q)
-            || (c.description ?? '').toLowerCase().includes(q),
-          )
-        }
-        collectionItems = filtered.map(collectionToStudioItem)
-      }
-
-      // Merge & sort
-      const merged = [...entryItems, ...collectionItems]
-      switch (filters.sort) {
-        case 'oldest':
-          merged.sort((a, b) => new Date(a.sortDate).getTime() - new Date(b.sortDate).getTime())
-          break
-        case 'title_asc':
-          merged.sort((a, b) => a.title.localeCompare(b.title))
-          break
-        case 'title_desc':
-          merged.sort((a, b) => b.title.localeCompare(a.title))
-          break
-        default:
-          merged.sort((a, b) => new Date(b.sortDate).getTime() - new Date(a.sortDate).getTime())
-      }
-
-      // Client-side pagination
-      totalElements.value = merged.length
-      totalPages.value = Math.max(1, Math.ceil(merged.length / STUDIO_PAGE_SIZE))
-      if (currentPage.value > totalPages.value) currentPage.value = 1
-      const start = (currentPage.value - 1) * STUDIO_PAGE_SIZE
-      studioItems.value = merged.slice(start, start + STUDIO_PAGE_SIZE)
     } catch (error_) {
       console.error('[CreatorStudio] Failed to load entries:', error_)
       if (error_ instanceof ApiError) {

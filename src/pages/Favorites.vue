@@ -24,6 +24,10 @@
           <v-icon start>mdi-view-grid</v-icon>
           {{ $t('Profile.tabs.all') }}
         </v-tab>
+        <v-tab value="collections">
+          <v-icon start>mdi-folder-multiple</v-icon>
+          {{ $t('Profile.tabs.collections') }}
+        </v-tab>
         <v-tab value="video">
           <v-icon start>mdi-video</v-icon>
           {{ $t('Profile.tabs.video') }}
@@ -238,10 +242,12 @@
     let result = [...favorites.value]
 
     // Filter by type tab
-    if (activeTab.value !== 'all') {
+    if (activeTab.value === 'collections') {
+      result = result.filter(item => item.itemType === 'collection')
+    } else if (activeTab.value !== 'all') {
       result = result.filter(item => {
         if (item.itemType === 'entry') return item.entryType === activeTab.value
-        return false // collections only show in "all"
+        return false
       })
     }
 

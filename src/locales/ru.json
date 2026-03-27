@@ -263,7 +263,8 @@
             "video": "Видео",
             "audio": "Аудио",
             "image": "Изображения",
-            "resource": "Ресурсы"
+            "resource": "Ресурсы",
+            "collections": "Коллекции"
         },
         "noEntries": "Пока нет записей",
         "noEntriesFiltered": "Пока нет записей типа {type}",

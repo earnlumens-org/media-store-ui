@@ -263,7 +263,8 @@
             "video": "مقاطع الفيديو",
             "audio": "الصوت",
             "image": "الصور",
-            "resource": "الموارد"
+            "resource": "الموارد",
+            "collections": "المجموعات"
         },
         "noEntries": "لا توجد إدخالات بعد",
         "noEntriesFiltered": "لا توجد إدخالات {type} بعد",

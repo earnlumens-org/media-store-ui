@@ -263,7 +263,8 @@
             "video": "视频",
             "audio": "音频",
             "image": "图片",
-            "resource": "资源"
+            "resource": "资源",
+            "collections": "合集"
         },
         "noEntries": "暂无条目",
         "noEntriesFiltered": "暂无{type}条目",

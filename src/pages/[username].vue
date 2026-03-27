@@ -126,6 +126,10 @@
             <v-icon start>mdi-view-grid</v-icon>
             {{ $t('Profile.tabs.all') }}
           </v-tab>
+          <v-tab value="collections">
+            <v-icon start>mdi-folder-multiple</v-icon>
+            {{ $t('Profile.tabs.collections') }}
+          </v-tab>
           <v-tab value="video">
             <v-icon start>mdi-video</v-icon>
             {{ $t('Profile.tabs.video') }}
@@ -142,85 +146,18 @@
             <v-icon start>mdi-text-box</v-icon>
             {{ $t('Profile.tabs.resource') }}
           </v-tab>
-          <v-tab value="collections">
-            <v-icon start>mdi-folder-multiple</v-icon>
-            {{ $t('Profile.tabs.collections') }}
-          </v-tab>
         </v-tabs>
 
-        <!-- Collections tab content -->
-        <div v-if="activeTab === 'collections'" class="mt-4">
-          <!-- Loading -->
-          <v-row v-if="collectionsLoading" dense>
-            <v-col
-              v-for="n in 6"
-              :key="`coll-skeleton-${n}`"
-              cols="12"
-              lg="3"
-              md="4"
-              sm="6"
-              xxl="2"
-            >
-              <v-skeleton-loader type="card" />
-            </v-col>
-          </v-row>
-
-          <!-- Empty -->
-          <div
-            v-else-if="collections.length === 0"
-            class="text-center py-12 text-medium-emphasis"
-          >
-            <v-icon class="mb-4" size="64">mdi-folder-open-outline</v-icon>
-            <p>{{ $t('Profile.noCollections') }}</p>
-          </div>
-
-          <!-- Collection cards -->
-          <v-row v-else dense>
-            <v-col
-              v-for="coll in collections"
-              :key="coll.id"
-              cols="12"
-              lg="3"
-              md="4"
-              sm="6"
-              xxl="2"
-            >
-              <router-link class="text-decoration-none" :to="`/collection/${coll.id}`">
-                <CollectionCard
-                  :collection="toCollectionCardProps(coll)"
-                  :show-author="false"
-                />
-              </router-link>
-            </v-col>
-          </v-row>
-
-          <!-- Load more -->
-          <div
-            v-if="collectionsHasMore && collections.length > 0"
-            class="text-center py-4"
-          >
-            <v-btn
-              :loading="collectionsLoadingMore"
-              variant="outlined"
-              @click="loadMoreCollections"
-            >
-              Load more
-            </v-btn>
-          </div>
-        </div>
-
         <!-- Filter / Search / Sort bar -->
-        <div v-if="activeTab !== 'collections'" class="d-flex flex-wrap align-center ga-2 mt-4">
+        <div class="d-flex flex-wrap align-center ga-2 mt-4">
           <!-- Pricing Filter Chips -->
           <v-chip-group
             v-model="pricingFilter"
             class="flex-grow-1"
-            :disabled="entriesLoading"
             mandatory
             selected-class="text-primary"
           >
             <v-chip
-              :disabled="entriesLoading"
               filter
               size="small"
               value="all"
@@ -229,7 +166,6 @@
               {{ $t('Common.all') }}
             </v-chip>
             <v-chip
-              :disabled="entriesLoading"
               filter
               size="small"
               value="free"
@@ -238,7 +174,6 @@
               {{ $t('Common.free') }}
             </v-chip>
             <v-chip
-              :disabled="entriesLoading"
               filter
               size="small"
               value="premium"
@@ -254,7 +189,6 @@
             v-model="searchQuery"
             clearable
             density="compact"
-            :disabled="entriesLoading"
             hide-details
             :placeholder="$t('Common.searchItems')"
             prepend-inner-icon="mdi-magnify"
@@ -267,7 +201,6 @@
             <template #activator="{ props: menuProps }">
               <v-btn
                 v-bind="menuProps"
-                :disabled="entriesLoading"
                 icon="mdi-sort"
                 variant="tonal"
               />
@@ -287,10 +220,10 @@
           </v-menu>
         </div>
 
-        <!-- Entry grid -->
-        <div v-if="activeTab !== 'collections'" class="mt-4">
+        <!-- Unified content grid -->
+        <div class="mt-4">
           <!-- Loading -->
-          <v-row v-if="entriesLoading" dense>
+          <v-row v-if="feedLoading" dense>
             <v-col
               v-for="n in 6"
               :key="`skeleton-${n}`"
@@ -306,26 +239,26 @@
 
           <!-- Error -->
           <v-alert
-            v-else-if="entriesError"
+            v-else-if="feedError"
             class="ma-4"
             closable
             text="Failed to load entries. Please try again."
             type="error"
-            @click:close="fetchEntries"
+            @click:close="fetchFeed"
           />
 
-          <!-- Empty state -->
+          <!-- Empty state (no items from API) -->
           <div
-            v-else-if="entries.length === 0"
+            v-else-if="feedItems.length === 0"
             class="text-center py-12 text-medium-emphasis"
           >
             <v-icon class="mb-4" size="64">mdi-image-off</v-icon>
-            <p>{{ activeTab === 'all' ? $t('Profile.noEntries') : $t('Profile.noEntriesFiltered', { type: $t(`Profile.tabs.${activeTab}`) }) }}</p>
+            <p>{{ $t('Profile.noEntries') }}</p>
           </div>
 
           <!-- No items match filters -->
           <div
-            v-else-if="filteredEntries.length === 0"
+            v-else-if="filteredItems.length === 0"
             class="text-center py-12 text-medium-emphasis"
           >
             <v-icon class="mb-4" size="64">mdi-filter-off</v-icon>
@@ -340,10 +273,10 @@
             </v-btn>
           </div>
 
-          <!-- Entry cards -->
+          <!-- Mixed entry + collection cards -->
           <v-row v-else dense>
             <v-col
-              v-for="item in filteredEntries"
+              v-for="item in filteredItems"
               :key="item.id"
               cols="12"
               lg="3"
@@ -351,7 +284,18 @@
               sm="6"
               xxl="2"
             >
+              <router-link
+                v-if="item.kind === 'collection'"
+                class="text-decoration-none"
+                :to="`/collection/${item.id}`"
+              >
+                <CollectionCard
+                  :collection="toCollectionCardProps(item)"
+                  :show-author="false"
+                />
+              </router-link>
               <EntryCard
+                v-else
                 :entry="toEntryCardProps(item)"
                 :show-author="false"
               />
@@ -360,7 +304,7 @@
 
           <!-- Load more -->
           <div
-            v-if="hasMorePages && entries.length > 0"
+            v-if="hasMorePages && feedItems.length > 0"
             class="text-center py-4"
           >
             <v-btn
@@ -381,9 +325,8 @@
 </template>
 
 <script setup lang="ts">
-  import type { PublicEntryModel } from '@/api/api'
+  import type { PublicFeedItemModel } from '@/api/types/feed.types'
   import type { UserProfile } from '@/api/modules/user.api'
-  import type { CollectionItemModel } from '@/api/types/collection.types'
   import type { Collection } from '@/components/collection/CollectionCard.vue'
   import type { Entry } from '@/components/entry/EntryCard.vue'
 
@@ -396,13 +339,11 @@
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import { isPopNavigation } from '@/router'
   import { useAuthStore } from '@/stores/auth'
-  import { usePurchasesStore } from '@/stores/purchases'
   import { useScrollCacheStore } from '@/stores/scrollCache'
 
   const route = useRoute()
   const { t } = useI18n()
   const authStore = useAuthStore()
-  const purchasesStore = usePurchasesStore()
   const scrollCache = useScrollCacheStore()
 
   const user = ref<UserProfile | null>(null)
@@ -411,22 +352,14 @@
   const snackbarText = ref('')
   const activeTab = ref('all')
 
-  // Entry state
-  const entries = ref<PublicEntryModel[]>([])
-  const entriesLoading = ref(false)
-  const entriesError = ref(false)
+  // Unified feed state
+  const feedItems = ref<PublicFeedItemModel[]>([])
+  const feedLoading = ref(false)
+  const feedError = ref(false)
   const loadingMore = ref(false)
   const currentPage = ref(0)
   const totalPages = ref(0)
   const PAGE_SIZE = 24
-
-  // Collection state
-  const collections = ref<CollectionItemModel[]>([])
-  const collectionsLoading = ref(false)
-  const collectionsLoadingMore = ref(false)
-  const collectionsPage = ref(0)
-  const collectionsTotalPages = ref(0)
-  const collectionsHasMore = computed(() => collectionsPage.value < collectionsTotalPages.value - 1)
 
   // Filter / Search / Sort state
   const pricingFilter = ref('all')
@@ -435,10 +368,20 @@
 
   const hasMorePages = computed(() => currentPage.value < totalPages.value - 1)
 
-  const filteredEntries = computed(() => {
-    let result = [...entries.value]
+  const filteredItems = computed(() => {
+    let result = [...feedItems.value]
 
-    // Filter by pricing
+    // Filter by type tab
+    if (activeTab.value === 'collections') {
+      result = result.filter(item => item.kind === 'collection')
+    } else if (activeTab.value !== 'all') {
+      result = result.filter(item => {
+        if (item.kind === 'entry') return item.type === activeTab.value
+        return false
+      })
+    }
+
+    // Client-side pricing filter
     if (pricingFilter.value === 'free') {
       result = result.filter(item => !item.isPaid)
     } else if (pricingFilter.value === 'premium') {
@@ -450,7 +393,7 @@
       const query = searchQuery.value.toLowerCase()
       result = result.filter(item =>
         item.title.toLowerCase().includes(query)
-        || item.authorName.toLowerCase().includes(query),
+        || (item.authorName ?? '').toLowerCase().includes(query),
       )
     }
 
@@ -477,76 +420,27 @@
     return (Array.isArray(param) ? param[0] : param)?.toLowerCase() ?? ''
   })
 
-  /**
-   * Maps a PublicEntryModel to the Entry interface expected by EntryCard.
-   */
-  function toEntryCardProps (item: PublicEntryModel): Entry {
-    const isOwner = authStore.isAuthenticated
-      && authStore.user?.username === item.authorName
-    const isUnlocked = item.isPaid && (isOwner || purchasesStore.isUnlocked(item.id))
+  function toEntryCardProps (item: PublicFeedItemModel): Entry {
     return {
       id: item.id,
-      type: item.type,
+      type: item.type as 'video' | 'audio' | 'image' | 'resource',
       title: item.title,
       authorName: item.authorName,
       authorAvatarUrl: item.authorAvatarUrl,
       publishedAt: item.publishedAt,
       thumbnailUrl: item.thumbnailUrl,
       durationSec: item.durationSec,
-      locked: item.isPaid && !isUnlocked,
-      unlocked: isUnlocked,
+      locked: item.locked,
+      unlocked: item.unlocked,
     }
   }
 
-  async function fetchEntries () {
-    if (!requestedUsername.value) return
-    entriesLoading.value = true
-    entriesError.value = false
-    entries.value = []
-
-    try {
-      const typeFilter = activeTab.value === 'all' ? undefined : activeTab.value as 'video' | 'audio' | 'image' | 'resource'
-      const response = await api.entries.getByUser(requestedUsername.value, {
-        type: typeFilter,
-        page: 0,
-        size: PAGE_SIZE,
-      })
-      entries.value = response.items
-      currentPage.value = response.page
-      totalPages.value = response.totalPages
-    } catch (error_) {
-      console.error('[ProfilePage] Failed to fetch entries:', error_)
-      entriesError.value = true
-    } finally {
-      entriesLoading.value = false
-    }
-  }
-
-  async function loadMore () {
-    loadingMore.value = true
-    try {
-      const typeFilter = activeTab.value === 'all' ? undefined : activeTab.value as 'video' | 'audio' | 'image' | 'resource'
-      const response = await api.entries.getByUser(requestedUsername.value, {
-        type: typeFilter,
-        page: currentPage.value + 1,
-        size: PAGE_SIZE,
-      })
-      entries.value.push(...response.items)
-      currentPage.value = response.page
-      totalPages.value = response.totalPages
-    } catch (error_) {
-      console.error('[ProfilePage] Failed to load more:', error_)
-    } finally {
-      loadingMore.value = false
-    }
-  }
-
-  function toCollectionCardProps (item: CollectionItemModel): Collection {
+  function toCollectionCardProps (item: PublicFeedItemModel): Collection {
     return {
       id: item.id,
-      collectionType: (item.collectionType ?? 'list').toLowerCase(),
+      collectionType: item.type || 'catalog',
       title: item.title,
-      authorName: item.authorName ?? '',
+      authorName: item.authorName,
       authorAvatarUrl: item.authorAvatarUrl,
       publishedAt: item.publishedAt,
       coverUrl: item.coverUrl,
@@ -556,42 +450,41 @@
     }
   }
 
-  async function fetchCollections () {
+  async function fetchFeed () {
     if (!requestedUsername.value) return
-    collectionsLoading.value = true
-    collections.value = []
+    feedLoading.value = true
+    feedError.value = false
 
     try {
-      const response = await api.collections.getPublished({
-        username: requestedUsername.value,
+      const response = await api.entries.getProfileFeed(requestedUsername.value, {
         page: 0,
         size: PAGE_SIZE,
       })
-      collections.value = response.items
-      collectionsPage.value = response.page
-      collectionsTotalPages.value = response.totalPages
+      feedItems.value = response.items
+      currentPage.value = response.page
+      totalPages.value = response.totalPages
     } catch (error_) {
-      console.error('[ProfilePage] Failed to fetch collections:', error_)
+      console.error('[ProfilePage] Failed to fetch feed:', error_)
+      feedError.value = true
     } finally {
-      collectionsLoading.value = false
+      feedLoading.value = false
     }
   }
 
-  async function loadMoreCollections () {
-    collectionsLoadingMore.value = true
+  async function loadMore () {
+    loadingMore.value = true
     try {
-      const response = await api.collections.getPublished({
-        username: requestedUsername.value,
-        page: collectionsPage.value + 1,
+      const response = await api.entries.getProfileFeed(requestedUsername.value, {
+        page: currentPage.value + 1,
         size: PAGE_SIZE,
       })
-      collections.value.push(...response.items)
-      collectionsPage.value = response.page
-      collectionsTotalPages.value = response.totalPages
+      feedItems.value.push(...response.items)
+      currentPage.value = response.page
+      totalPages.value = response.totalPages
     } catch (error_) {
-      console.error('[ProfilePage] Failed to load more collections:', error_)
+      console.error('[ProfilePage] Failed to load more:', error_)
     } finally {
-      collectionsLoadingMore.value = false
+      loadingMore.value = false
     }
   }
 
@@ -626,40 +519,27 @@
     }
   }
 
-  // Fetch entries when tab changes
+  // Reset filters on tab change
   watch(activeTab, () => {
     pricingFilter.value = 'all'
     searchQuery.value = ''
     sortBy.value = 'recent'
-    if (activeTab.value === 'collections') {
-      if (collections.value.length === 0) {
-        fetchCollections()
-      }
-    } else {
-      fetchEntries()
-    }
   })
 
-  // Fetch user and entries when username changes
+  // Fetch user and feed when username changes
   watch(requestedUsername, () => {
     fetchUser()
-    fetchEntries()
-    if (activeTab.value === 'collections') {
-      fetchCollections()
-    }
+    fetchFeed()
   })
 
   onBeforeRouteLeave(() => {
-    if (user.value && (entries.value.length > 0 || collections.value.length > 0)) {
+    if (user.value && feedItems.value.length > 0) {
       scrollCache.save(route.path, {
         user: { ...user.value },
-        entries: [...entries.value],
-        collections: [...collections.value],
+        feedItems: [...feedItems.value],
         activeTab: activeTab.value,
         currentPage: currentPage.value,
         totalPages: totalPages.value,
-        collectionsPage: collectionsPage.value,
-        collectionsTotalPages: collectionsTotalPages.value,
         pricingFilter: pricingFilter.value,
         searchQuery: searchQuery.value,
         sortBy: sortBy.value,
@@ -672,25 +552,22 @@
     const cached = scrollCache.get(route.path)
     if (cached && isPopNavigation()) {
       user.value = cached.user as UserProfile
-      entries.value = cached.entries as PublicEntryModel[]
-      collections.value = (cached.collections as CollectionItemModel[]) ?? []
+      feedItems.value = (cached.feedItems as PublicFeedItemModel[]) ?? []
       activeTab.value = cached.activeTab as string
       currentPage.value = cached.currentPage as number
       totalPages.value = cached.totalPages as number
-      collectionsPage.value = (cached.collectionsPage as number) ?? 0
-      collectionsTotalPages.value = (cached.collectionsTotalPages as number) ?? 0
       pricingFilter.value = (cached.pricingFilter as string) ?? 'all'
       searchQuery.value = (cached.searchQuery as string) ?? ''
       sortBy.value = (cached.sortBy as 'recent' | 'title') ?? 'recent'
       loading.value = false
-      entriesLoading.value = false
+      feedLoading.value = false
 
       nextTick(() => {
         window.scrollTo(0, cached.scrollY as number)
       })
     } else {
       fetchUser()
-      fetchEntries()
+      fetchFeed()
     }
   })
 </script>

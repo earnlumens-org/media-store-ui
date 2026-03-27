@@ -263,7 +263,8 @@
             "video": "Відео",
             "audio": "Аудіо",
             "image": "Зображення",
-            "resource": "Ресурси"
+            "resource": "Ресурси",
+            "collections": "Колекції"
         },
         "noEntries": "Поки що немає записів",
         "noEntriesFiltered": "Поки що немає записів типу {type}",

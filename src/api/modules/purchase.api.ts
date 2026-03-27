@@ -11,9 +11,11 @@ import type {
   PurchasedEntryPageDto,
   PurchasedEntryPageModel,
 } from '../types/purchase.types'
+import type { FeedRequestParams, PublicFeedPageDto, PublicFeedPageModel } from '../types/feed.types'
 
 import { apiRequest } from '../apiRequest'
 import { mapPurchasedCollectionPageDtoToModel, mapPurchasedEntryPageDtoToModel } from '../mappers/purchase.mapper'
+import { mapFeedPageDtoToModel } from '../mappers/feed.mapper'
 
 const BASE_PATH = '/api/purchases'
 
@@ -51,4 +53,25 @@ export async function getPurchaseCollections (
 
   const dto = await apiRequest<PurchasedCollectionPageDto>(url)
   return mapPurchasedCollectionPageDtoToModel(dto)
+}
+
+/**
+ * Fetch a unified purchased content feed (entries + collections merged server-side).
+ * Uses GET /api/purchases/feed.
+ */
+export async function getPurchasedFeed (
+  params: FeedRequestParams = {},
+): Promise<PublicFeedPageModel> {
+  const query = new URLSearchParams()
+  if (params.type) query.set('type', params.type)
+  if (params.search) query.set('search', params.search)
+  if (params.sort) query.set('sort', params.sort)
+  if (params.page != null) query.set('page', String(params.page))
+  if (params.size != null) query.set('size', String(params.size))
+
+  const qs = query.toString()
+  const url = qs ? `${BASE_PATH}/feed?${qs}` : `${BASE_PATH}/feed`
+
+  const dto = await apiRequest<PublicFeedPageDto>(url)
+  return mapFeedPageDtoToModel(dto)
 }

@@ -263,7 +263,8 @@
             "video": "Video",
             "audio": "Audio",
             "image": "Imej",
-            "resource": "Sumber"
+            "resource": "Sumber",
+            "collections": "Koleksi"
         },
         "noEntries": "Belum ada entri",
         "noEntriesFiltered": "Belum ada entri {type}",

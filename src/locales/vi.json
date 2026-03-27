@@ -263,7 +263,8 @@
             "video": "Video",
             "audio": "Âm thanh",
             "image": "Hình ảnh",
-            "resource": "Tài nguyên"
+            "resource": "Tài nguyên",
+            "collections": "Bộ sưu tập"
         },
         "noEntries": "Chưa có mục nào",
         "noEntriesFiltered": "Chưa có mục {type} nào",

@@ -13,6 +13,8 @@ import type {
   CreatorEntryFilters,
   CreatorEntryModel,
   CreatorEntryPageModel,
+  StudioItemModel,
+  StudioPageModel,
   UpdateEntryMetadataRequest,
 } from '../types/creator.types'
 import { getCdnBaseUrl } from '@/config/env'
@@ -202,4 +204,108 @@ export async function unarchiveEntry (entryId: string): Promise<void> {
   return apiRequest<void>(`/api/entries/${entryId}/unarchive`, {
     method: 'PATCH',
   })
+}
+
+// ==================== Unified Studio Feed ====================
+
+/** Raw DTO from GET /api/entries/mine/studio */
+interface StudioItemDto {
+  id: string
+  kind: 'entry' | 'collection'
+  type?: string
+  title: string
+  description?: string
+  status: string
+  thumbnailR2Key?: string
+  coverR2Key?: string
+  isPaid: boolean
+  priceXlm?: number
+  priceUsd?: number
+  priceCurrency?: string
+  contentLanguage?: string
+  durationSec?: number
+  viewCount: number
+  itemCount: number
+  createdAt?: string
+  updatedAt?: string
+  publishedAt?: string
+  transcodingStatus?: string
+  sellerWallet?: string
+}
+
+interface StudioPageDto {
+  content: StudioItemDto[]
+  page: number
+  size: number
+  totalElements: number
+  totalPages: number
+}
+
+function studioDtoToModel (dto: StudioItemDto): StudioItemModel {
+  return {
+    id: dto.id,
+    kind: dto.kind,
+    type: dto.type ?? 'resource',
+    title: dto.title,
+    description: dto.description,
+    status: dto.status,
+    thumbnailUrl: r2KeyToCdnUrl(dto.thumbnailR2Key),
+    coverUrl: r2KeyToCdnUrl(dto.coverR2Key),
+    isPaid: dto.isPaid,
+    priceXlm: dto.priceXlm,
+    priceUsd: dto.priceUsd,
+    priceCurrency: dto.priceCurrency,
+    contentLanguage: dto.contentLanguage,
+    durationSec: dto.durationSec,
+    viewCount: dto.viewCount ?? 0,
+    itemCount: dto.itemCount ?? 0,
+    createdAt: dto.createdAt ?? '',
+    updatedAt: dto.updatedAt ?? '',
+    publishedAt: dto.publishedAt,
+    transcodingStatus: dto.transcodingStatus,
+    sellerWallet: dto.sellerWallet,
+  }
+}
+
+export interface StudioFeedFilters {
+  status?: string
+  type?: string
+  search?: string
+  sort?: string
+  page?: number
+  size?: number
+}
+
+/**
+ * Unified Creator Studio feed — entries + collections merged server-side.
+ * GET /api/entries/mine/studio
+ */
+export async function getStudioItems (
+  filters: StudioFeedFilters = {},
+): Promise<StudioPageModel> {
+  const params = new URLSearchParams()
+
+  if (filters.status && filters.status !== 'ALL') {
+    params.set('status', filters.status)
+  }
+  if (filters.type && filters.type !== 'ALL') {
+    params.set('type', filters.type)
+  }
+  if (filters.search) {
+    params.set('search', filters.search)
+  }
+  params.set('sort', filters.sort ?? 'newest')
+  params.set('page', String(filters.page ?? 0))
+  params.set('size', String(filters.size ?? 20))
+
+  const qs = params.toString()
+  const dto = await apiRequest<StudioPageDto>(`/api/entries/mine/studio?${qs}`)
+
+  return {
+    items: dto.content.map(studioDtoToModel),
+    page: dto.page,
+    size: dto.size,
+    totalElements: dto.totalElements,
+    totalPages: dto.totalPages,
+  }
 }

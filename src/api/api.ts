@@ -15,8 +15,8 @@ import {
   unarchiveCollection as unarchiveCollectionFn,
   updateCollection,
 } from './modules/collection.api'
-import { archiveEntry, getCreatorDashboardStats, getCreatorEntries, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
-import { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
+import { archiveEntry, getCreatorDashboardStats, getCreatorEntries, getStudioItems, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
+import { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById, getProfileFeed } from './modules/entry.api'
 import {
   getMockCollectionById,
   getMockCollections,
@@ -30,7 +30,7 @@ import {
 import { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
 import { checkSubscription, getMySubscribers, getMySubscriberCount, getMySubscriptions, getPublicSubscriberCount, subscribe, unsubscribe } from './modules/subscription.api'
 import { preparePayment, submitPayment } from './modules/payment.api'
-import { getPurchaseCollections, getPurchases } from './modules/purchase.api'
+import { getPurchaseCollections, getPurchases, getPurchasedFeed } from './modules/purchase.api'
 import { getSellerSales } from './modules/sales.api'
 import { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
 import { checkUsernameExists, getCurrentUser, getUserByUsername } from './modules/user.api'
@@ -55,9 +55,11 @@ export const api = {
     getPublished: getPublishedEntries,
     getById: getPublishedEntryById,
     getByUser: getPublishedEntriesByUser,
+    getProfileFeed,
   },
   creator: {
     getEntries: getCreatorEntries,
+    getStudioItems,
     getDashboardStats: getCreatorDashboardStats,
     updateMetadata: updateEntryMetadata,
     archiveEntry,
@@ -78,6 +80,7 @@ export const api = {
   purchases: {
     list: getPurchases,
     collections: getPurchaseCollections,
+    feed: getPurchasedFeed,
   },
   collections: {
     getPublished: getPublishedCollections,
@@ -141,7 +144,7 @@ export {
   unarchiveCollection as unarchiveCollectionFn,
   updateCollection,
 } from './modules/collection.api'
-export { archiveEntry, getCreatorDashboardStats, getCreatorEntries, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
+export { archiveEntry, getCreatorDashboardStats, getCreatorEntries, getStudioItems, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
 export { getSellerSales } from './modules/sales.api'
 export { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
 export {
@@ -238,6 +241,8 @@ export type {
   CreatorEntryFilters,
   CreatorEntryModel,
   CreatorEntryPageModel,
+  StudioItemModel,
+  StudioPageModel,
   UpdateEntryMetadataRequest,
 } from './types/creator.types'
 

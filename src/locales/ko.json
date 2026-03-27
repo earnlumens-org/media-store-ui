@@ -263,7 +263,8 @@
             "video": "비디오",
             "audio": "오디오",
             "image": "이미지",
-            "resource": "리소스"
+            "resource": "리소스",
+            "collections": "컬렉션"
         },
         "noEntries": "아직 엔트리가 없습니다",
         "noEntriesFiltered": "아직 {type} 엔트리가 없습니다",

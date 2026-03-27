@@ -70,3 +70,41 @@ export interface CreatorEntryFilters {
   size?: number
   sort?: 'newest' | 'oldest' | 'title_asc' | 'title_desc'
 }
+
+// ==================== Unified Studio Feed ====================
+
+export interface StudioItemModel {
+  id: string
+  /** "entry" or "collection" */
+  kind: 'entry' | 'collection'
+  /** Entry type (video, audio, image, resource) or collection type — lowercase */
+  type: string
+  title: string
+  description?: string
+  status: string
+  thumbnailUrl?: string
+  coverUrl?: string
+  isPaid: boolean
+  priceXlm?: number
+  priceUsd?: number
+  priceCurrency?: string
+  contentLanguage?: string
+  durationSec?: number
+  viewCount: number
+  /** Number of items — only for collections */
+  itemCount: number
+  createdAt: string
+  updatedAt: string
+  publishedAt?: string
+  /** Transcoding status — only for video entries */
+  transcodingStatus?: string
+  sellerWallet?: string
+}
+
+export interface StudioPageModel {
+  items: StudioItemModel[]
+  page: number
+  size: number
+  totalElements: number
+  totalPages: number
+}

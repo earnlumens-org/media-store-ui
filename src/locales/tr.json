@@ -263,7 +263,8 @@
             "video": "Video",
             "audio": "Ses",
             "image": "Görseller",
-            "resource": "Kaynaklar"
+            "resource": "Kaynaklar",
+            "collections": "Koleksiyonlar"
         },
         "noEntries": "Henüz girdi yok",
         "noEntriesFiltered": "Henüz {type} girdisi yok",

@@ -4,9 +4,13 @@
  */
 
 import type { PublicEntryDto, PublicEntryModel, PublicEntryPageDto, PublicEntryPageModel, PublicEntryRequestParams, UserEntryRequestParams } from '../types/entry.types'
+import type { FeedRequestParams, PublicFeedPageDto, PublicFeedPageModel } from '../types/feed.types'
+
+import { getToken } from '@/services/tokenWorkerClient'
 
 import axiosClient from '../axios/axiosClient'
 import { mapPublicEntryDtoToModel, mapPublicEntryPageDtoToModel } from '../mappers/entry.mapper'
+import { mapFeedPageDtoToModel } from '../mappers/feed.mapper'
 
 const BASE_PATH = '/public/entries'
 
@@ -38,4 +42,22 @@ export async function getPublishedEntriesByUser (username: string, params: UserE
 export async function getPublishedEntryById (id: string): Promise<PublicEntryModel> {
   const response = await axiosClient.get<PublicEntryDto>(`${BASE_PATH}/${id}`)
   return mapPublicEntryDtoToModel(response.data)
+}
+
+/**
+ * Get a unified profile feed (entries + collections merged server-side).
+ * Uses the viewer's auth token (if present) to resolve locked/unlocked state.
+ */
+export async function getProfileFeed (username: string, params: FeedRequestParams = {}): Promise<PublicFeedPageModel> {
+  const headers: Record<string, string> = {}
+  try {
+    const result = await getToken()
+    if (result?.accessToken) {
+      headers['Authorization'] = `Bearer ${result.accessToken}`
+    }
+  } catch {
+    // continue without token — anonymous viewer
+  }
+  const response = await axiosClient.get<PublicFeedPageDto>(`${BASE_PATH}/by-user/${username}/feed`, { params, headers })
+  return mapFeedPageDtoToModel(response.data)
 }

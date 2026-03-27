@@ -263,7 +263,8 @@
             "video": "Wideo",
             "audio": "Audio",
             "image": "Obrazy",
-            "resource": "Zasoby"
+            "resource": "Zasoby",
+            "collections": "Kolekcje"
         },
         "noEntries": "Brak wpisów",
         "noEntriesFiltered": "Brak wpisów typu {type}",

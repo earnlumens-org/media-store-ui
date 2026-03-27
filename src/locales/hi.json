@@ -263,7 +263,8 @@
             "video": "वीडियो",
             "audio": "ऑडियो",
             "image": "चित्र",
-            "resource": "संसाधन"
+            "resource": "संसाधन",
+            "collections": "संग्रह"
         },
         "noEntries": "अभी कोई एंट्री नहीं",
         "noEntriesFiltered": "अभी कोई {type} एंट्री नहीं",
