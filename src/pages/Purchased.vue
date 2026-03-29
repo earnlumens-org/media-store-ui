@@ -395,7 +395,13 @@
       nextTick(() => {
         window.scrollTo(0, cached.scrollY as number)
       })
-    } else {
+    } else if (authStore.isAuthReady) {
+      fetchFeed()
+    }
+  })
+
+  watch(() => authStore.isAuthReady, (ready) => {
+    if (ready && feedItems.value.length === 0 && loading.value) {
       fetchFeed()
     }
   })
