@@ -29,7 +29,6 @@ import { useWalletStore } from '@/stores/wallet'
 import App from './App.vue'
 
 // Styles
-import 'unfonts.css'
 import '@/styles/global.css'
 
 const app = createApp(App)
