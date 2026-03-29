@@ -388,7 +388,13 @@
       nextTick(() => {
         window.scrollTo(0, cached.scrollY as number)
       })
-    } else {
+    } else if (auth.isAuthReady) {
+      fetchFavorites()
+    }
+  })
+
+  watch(() => auth.isAuthReady, (ready) => {
+    if (ready && favorites.value.length === 0 && loading.value) {
       fetchFavorites()
     }
   })
