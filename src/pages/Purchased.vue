@@ -6,7 +6,7 @@
     </h1>
 
     <!-- Not authenticated -->
-    <v-row v-if="!authStore.isAuthenticated" dense>
+    <v-row v-if="authStore.isAuthReady && !authStore.isAuthenticated" dense>
       <v-col cols="12">
         <v-alert
           class="ma-4"

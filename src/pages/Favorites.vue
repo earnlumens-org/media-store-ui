@@ -1,7 +1,7 @@
 <template>
   <v-container class="py-4 px-1 px-sm-4" fluid>
     <!-- Login required -->
-    <v-row v-if="!auth.isAuthenticated" justify="center">
+    <v-row v-if="auth.isAuthReady && !auth.isAuthenticated" justify="center">
       <v-col cols="12" md="6">
         <v-empty-state
           class="mt-8"
