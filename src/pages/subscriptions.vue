@@ -5,13 +5,20 @@
       <v-col
         v-for="n in 12"
         :key="`skeleton-${n}`"
-        cols="12"
-        lg="3"
-        md="4"
-        sm="6"
+        cols="6"
+        lg="2"
+        md="3"
+        sm="4"
         xxl="2"
       >
-        <v-skeleton-loader class="rounded-lg" type="list-item-avatar-two-line" />
+        <v-card class="rounded-lg overflow-hidden pa-2" color="surface" elevated>
+          <v-card-text class="d-flex flex-column align-center text-center ga-2">
+            <v-sheet class="rounded-circle" color="surface-variant" height="72" width="72" />
+            <v-sheet class="rounded" color="surface-variant" height="14" width="70%" />
+            <v-sheet class="rounded" color="surface-variant" height="12" width="50%" />
+            <v-sheet class="rounded-pill mt-1" color="surface-variant" height="30" width="100" />
+          </v-card-text>
+        </v-card>
       </v-col>
     </v-row>
 
@@ -55,27 +62,28 @@
       <v-col
         v-for="item in subscriptions"
         :key="item.userId"
-        cols="12"
-        lg="3"
-        md="4"
-        sm="6"
+        cols="6"
+        lg="2"
+        md="3"
+        sm="4"
         xxl="2"
       >
         <v-card
-          class="h-100"
+          class="h-100 rounded-lg overflow-hidden pa-2"
+          color="surface"
+          elevated
           :to="`/${item.username}`"
-          variant="outlined"
         >
-          <v-card-text class="d-flex align-center ga-3">
-            <v-avatar color="surface-variant" size="48">
+          <v-card-text class="d-flex flex-column align-center text-center ga-2">
+            <v-avatar color="surface-variant" size="72">
               <v-img
                 v-if="item.avatarUrl"
                 :alt="item.displayName"
                 :src="item.avatarUrl"
               />
-              <v-icon v-else>mdi-account</v-icon>
+              <v-icon v-else size="36">mdi-account</v-icon>
             </v-avatar>
-            <div class="flex-grow-1" style="min-width: 0">
+            <div class="w-100" style="min-width: 0">
               <div class="text-body-1 font-weight-medium text-truncate">
                 {{ item.displayName || item.username }}
               </div>
@@ -84,7 +92,8 @@
               </div>
             </div>
             <CxSubscribeButton
-              :size="$vuetify.display.smAndDown ? 'small' : 'default'"
+              class="mt-1"
+              size="small"
               :target-user-id="item.userId"
               variant="pill"
               @click.prevent
