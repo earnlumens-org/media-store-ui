@@ -178,7 +178,15 @@
   }
 
   onMounted(() => {
-    fetchSubscriptions()
+    if (auth.isAuthReady) {
+      fetchSubscriptions()
+    }
+  })
+
+  watch(() => auth.isAuthReady, (ready) => {
+    if (ready) {
+      fetchSubscriptions()
+    }
   })
 
   watch(() => appStore.refreshKey, () => {
