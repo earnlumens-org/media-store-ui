@@ -32,7 +32,7 @@ export function mapFeedItemDtoToModel (dto: PublicFeedItemDto): PublicFeedItemMo
     isPaid: dto.isPaid,
     priceXlm: dto.priceXlm,
     priceUsd: dto.priceUsd,
-    priceCurrency: dto.priceCurrency,
+    priceCurrency: dto.priceCurrency as 'XLM' | 'USD' | undefined,
     itemCount: dto.itemCount ?? 0,
     locked: dto.locked,
     unlocked: dto.unlocked,

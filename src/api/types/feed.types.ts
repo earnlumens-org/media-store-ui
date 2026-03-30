@@ -56,7 +56,7 @@ export interface PublicFeedItemModel {
   isPaid: boolean
   priceXlm?: number
   priceUsd?: number
-  priceCurrency?: string
+  priceCurrency?: 'XLM' | 'USD'
   itemCount: number
   locked: boolean
   unlocked: boolean
