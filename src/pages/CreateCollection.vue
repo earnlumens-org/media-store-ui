@@ -161,6 +161,15 @@
                 variant="outlined"
               />
 
+              <!-- Content Language -->
+              <v-select
+                v-model="form.contentLanguage"
+                :items="contentLanguageItems"
+                :label="t('Upload.form.contentLanguage')"
+                prepend-inner-icon="mdi-translate"
+                variant="outlined"
+              />
+
               <!-- Paid toggle + price -->
               <v-divider class="my-4" />
 
@@ -602,12 +611,17 @@
   import { useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import { CONTENT_LANGUAGES } from '@/config/contentLanguages'
   import { accountExists } from '@/services/stellar'
   import { useWalletStore } from '@/stores/wallet'
 
   const router = useRouter()
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const walletStore = useWalletStore()
+
+  // ── Content language items ──────────────────────────────────
+
+  const contentLanguageItems = CONTENT_LANGUAGES.map(l => ({ value: l.value, title: l.title }))
 
   // ── Phase & step ────────────────────────────────────────────
 
@@ -625,6 +639,7 @@
     isPaid: false,
     price: null as number | null,
     priceCurrency: 'XLM' as 'XLM' | 'USD',
+    contentLanguage: locale.value as string,
   })
 
   const detailsFormRef = ref()
@@ -881,6 +896,7 @@
         priceUsd: form.isPaid && form.priceCurrency === 'USD' && form.price ? form.price : undefined,
         priceCurrency: form.isPaid ? form.priceCurrency : undefined,
         sellerWallet: form.isPaid ? selectedSellerWallet.value : undefined,
+        contentLanguage: form.contentLanguage || undefined,
       })
 
       createdCollectionId.value = created.id
@@ -938,6 +954,7 @@
     form.isPaid = false
     form.price = null
     form.priceCurrency = 'XLM'
+    form.contentLanguage = locale.value
     selectedEntries.value = []
     removeCover()
     createdCollectionId.value = null

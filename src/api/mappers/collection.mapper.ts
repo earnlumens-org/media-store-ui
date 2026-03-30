@@ -42,6 +42,7 @@ export function mapCollectionDtoToModel (dto: CollectionDto): CollectionItemMode
     itemCount: dto.itemCount,
     locked: dto.locked,
     unlocked: dto.unlocked,
+    contentLanguage: dto.contentLanguage,
   }
 }
 
@@ -92,6 +93,7 @@ export function mapCollectionDetailDtoToModel (dto: CollectionDetailDto): Collec
     locked: dto.locked,
     unlocked: dto.unlocked,
     isOwner: dto.isOwner,
+    contentLanguage: dto.contentLanguage,
     items: dto.items.map(item => mapCollectionEntryItemDtoToModel(item)),
   }
 }

@@ -23,6 +23,7 @@ export interface CollectionDto {
   itemCount: number
   locked: boolean
   unlocked: boolean
+  contentLanguage?: string
 }
 
 export interface CollectionPageDto {
@@ -67,6 +68,7 @@ export interface CollectionDetailDto {
   locked: boolean
   unlocked: boolean
   isOwner: boolean
+  contentLanguage?: string
   items: CollectionEntryItemDto[]
 }
 
@@ -90,6 +92,7 @@ export interface CollectionItemModel {
   itemCount: number
   locked: boolean
   unlocked: boolean
+  contentLanguage?: string
 }
 
 export interface CollectionPageModel {
@@ -134,6 +137,7 @@ export interface CollectionDetailModel {
   locked: boolean
   unlocked: boolean
   isOwner: boolean
+  contentLanguage?: string
   items: CollectionEntryItemModel[]
 }
 
@@ -149,6 +153,7 @@ export interface CreateCollectionRequest {
   priceUsd?: number
   priceCurrency?: string
   sellerWallet?: string
+  contentLanguage?: string
 }
 
 export interface UpdateCollectionRequest {
@@ -160,6 +165,7 @@ export interface UpdateCollectionRequest {
   priceUsd?: number
   priceCurrency?: string
   sellerWallet?: string
+  contentLanguage?: string
 }
 
 export interface InitCoverUploadResponse {
