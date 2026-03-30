@@ -1,10 +1,9 @@
 <template>
-  <v-container class="py-4 px-1 px-sm-4" fluid>
+  <v-container class="overflow-x-hidden py-4 px-1 px-sm-4" fluid>
     <!-- Login required -->
-    <v-row v-if="auth.isAuthReady && !auth.isAuthenticated" justify="center">
+    <v-row v-if="auth.isAuthReady && !auth.isAuthenticated" justify="center" no-gutters>
       <v-col cols="12" md="6">
         <v-empty-state
-          class="mt-8"
           icon="mdi-heart-outline"
           :text="$t('Favorites.loginRequiredDescription')"
           :title="$t('Favorites.loginRequired')"
@@ -135,10 +134,9 @@
         />
 
         <!-- Empty state (no items from API) -->
-        <v-row v-else-if="favorites.length === 0" justify="center">
+        <v-row v-else-if="favorites.length === 0" justify="center" no-gutters>
           <v-col cols="12" md="6">
             <v-empty-state
-              class="mt-8"
               icon="mdi-heart-outline"
               :text="$t('Favorites.emptyDescription')"
               :title="$t('Favorites.empty')"

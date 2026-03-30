@@ -1,5 +1,5 @@
 <template>
-  <v-container class="py-4 px-1 px-sm-4" fluid>
+  <v-container class="overflow-x-hidden py-4 px-1 px-sm-4" fluid>
     <!-- Page title -->
     <h1 class="text-h5 text-sm-h4 font-weight-bold mb-4 px-2 px-sm-0">
       {{ t('Purchased.title') }}

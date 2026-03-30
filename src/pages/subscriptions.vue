@@ -1,5 +1,5 @@
 <template>
-  <v-container class="py-4 px-1 px-sm-4" fluid>
+  <v-container class="overflow-x-hidden py-4 px-1 px-sm-4" fluid>
     <!-- Loading state -->
     <v-row v-if="loading" dense>
       <v-col
@@ -34,10 +34,9 @@
     />
 
     <!-- Login required -->
-    <v-row v-else-if="auth.isAuthReady && !auth.isAuthenticated" justify="center">
+    <v-row v-else-if="auth.isAuthReady && !auth.isAuthenticated" justify="center" no-gutters>
       <v-col cols="12" md="6">
         <v-empty-state
-          class="mt-8"
           icon="mdi-bell-outline"
           :text="$t('Subscriptions.loginRequiredDescription')"
           :title="$t('Subscriptions.loginRequired')"
@@ -46,10 +45,9 @@
     </v-row>
 
     <!-- Empty state -->
-    <v-row v-else-if="subscriptions.length === 0" justify="center">
+    <v-row v-else-if="subscriptions.length === 0" justify="center" no-gutters>
       <v-col cols="12" md="6">
         <v-empty-state
-          class="mt-8"
           icon="mdi-bell-outline"
           :text="$t('Subscriptions.emptyDescription')"
           :title="$t('Subscriptions.empty')"

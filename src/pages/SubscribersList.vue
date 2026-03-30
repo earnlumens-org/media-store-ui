@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-2 pa-sm-4 pa-md-6 mx-auto" fluid style="max-width: 1200px;">
+  <v-container class="overflow-x-hidden pa-2 pa-sm-4 pa-md-6 mx-auto" fluid style="max-width: 1200px;">
     <!-- ── Header ──────────────────────────────────────────── -->
     <div class="d-flex align-center ga-3 mb-4 mb-md-6">
       <v-btn
@@ -44,10 +44,9 @@
     />
 
     <!-- Empty state -->
-    <v-row v-else-if="subscribers.length === 0" justify="center">
+    <v-row v-else-if="subscribers.length === 0" justify="center" no-gutters>
       <v-col cols="12" md="6">
         <v-empty-state
-          class="mt-8"
           icon="mdi-account-group-outline"
           :text="t('Subscribers.emptyDescription')"
           :title="t('Subscribers.empty')"
