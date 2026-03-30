@@ -247,29 +247,19 @@
 
   const hasMorePages = computed(() => currentPage.value < totalPages.value - 1)
 
-  // ── Client-side filtering ──
+  // Server-side type param derived from active tab
+  const feedTypeParam = computed(() => {
+    if (activeTab.value === 'all') return undefined
+    if (activeTab.value === 'collections') return 'collection'
+    return activeTab.value // video, audio, image, resource
+  })
+
+  // ── Client-side filtering (pricing only) ──
 
   const filteredItems = computed(() => {
-    let result = [...feedItems.value]
-
-    // Filter by type tab
-    if (activeTab.value === 'collections') {
-      result = result.filter(item => item.kind === 'collection')
-    } else if (activeTab.value !== 'all') {
-      result = result.filter(item => {
-        if (item.kind === 'entry') return item.type === activeTab.value
-        return false
-      })
-    }
-
-    // Filter by pricing
-    if (pricingFilter.value === 'free') {
-      result = result.filter(item => !item.isPaid)
-    } else if (pricingFilter.value === 'premium') {
-      result = result.filter(item => item.isPaid)
-    }
-
-    return result
+    if (pricingFilter.value === 'free') return feedItems.value.filter(item => !item.isPaid)
+    if (pricingFilter.value === 'premium') return feedItems.value.filter(item => item.isPaid)
+    return feedItems.value
   })
 
   function clearFilters () {
@@ -277,9 +267,11 @@
     pricingFilter.value = 'all'
   }
 
-  // Reset pricing on tab change
+  // Tab change → re-fetch from server with new type
   watch(activeTab, () => {
     pricingFilter.value = 'all'
+    feedItems.value = []
+    fetchFeed()
   })
 
   function toEntryCardProps (item: PublicFeedItemModel): Entry {
@@ -347,6 +339,7 @@
 
     try {
       const response = await api.entries.getExploreFeed({
+        type: feedTypeParam.value,
         page: 0,
         size: props.pageSize,
       })
@@ -370,6 +363,7 @@
 
     try {
       const response = await api.entries.getExploreFeed({
+        type: feedTypeParam.value,
         page: currentPage.value + 1,
         size: props.pageSize,
       })
