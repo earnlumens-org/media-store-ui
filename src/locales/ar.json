@@ -93,7 +93,8 @@
         "addedToFavorites": "تمت الإضافة إلى المفضلة",
         "removedFromFavorites": "تمت الإزالة من المفضلة",
         "linkCopied": "تم نسخ الرابط إلى الحافظة",
-        "tooManyRequests": "طلبات كثيرة جدًا. يرجى الانتظار لحظة والمحاولة مرة أخرى."
+        "tooManyRequests": "طلبات كثيرة جدًا. يرجى الانتظار لحظة والمحاولة مرة أخرى.",
+        "cancel": "إلغاء"
     },
     "Themes": {
         "title": "محدد سمات EarnLumens",
@@ -202,7 +203,9 @@
         "viewPublicProfile": "ملفي الشخصي العام",
         "viewPublicProfileHint": "شاهد كيف يرى الآخرون ملفك الشخصي",
         "termsAndConditions": "الشروط والأحكام",
-        "termsAndConditionsHint": "راجع شروط الخدمة وسياسة الخصوصية الخاصة بنا"
+        "termsAndConditionsHint": "راجع شروط الخدمة وسياسة الخصوصية الخاصة بنا",
+        "contentGuidelines": "إرشادات المحتوى",
+        "contentGuidelinesHint": "قواعد نشر محتوى التعليم المالي"
     },
     "AppBar": {
         "home": "الصفحة الرئيسية",
@@ -270,7 +273,8 @@
         "noEntriesFiltered": "لا توجد إدخالات {type} بعد",
         "noResources": "لا توجد موارد بعد",
         "subscribers": "المشتركون",
-        "subscribe": "اشتراك"
+        "subscribe": "اشتراك",
+        "noCollections": "لا توجد مجموعات بعد"
     },
     "Upload": {
         "createNew": "إنشاء جديد",
@@ -279,13 +283,15 @@
             "video": "فيديو",
             "audio": "صوت",
             "image": "صورة",
-            "resource": "مورد"
+            "resource": "مورد",
+            "collection": "مجموعة"
         },
         "typeDescription": {
             "video": "حمّل فيديو للبث",
             "audio": "شارك مقطعًا موسيقيًا أو بودكاست",
             "image": "شارك صورة أو رسماً توضيحيًا",
-            "resource": "اكتب مقالاً و/أو أرفق ملفات (PDF, ZIP, إلخ)"
+            "resource": "اكتب مقالاً و/أو أرفق ملفات (PDF, ZIP, إلخ)",
+            "collection": "اجمع محتواك في مجموعة منسّقة"
         },
         "pageTitle": "تحميل {type}",
         "form": {
@@ -346,8 +352,8 @@
             "submitting": "جارٍ الإرسال...",
             "saveDraft": "حفظ كمسودة",
             "cancel": "إلغاء",
-            "goToStudio": "Go to Creator Studio",
-            "uploadAnother": "Upload Another"
+            "goToStudio": "الذهاب إلى استوديو المبدعين",
+            "uploadAnother": "تحميل آخر"
         },
         "status": {
             "draft": "مسودة",
@@ -356,7 +362,8 @@
             "published": "منشور",
             "rejected": "مرفوض",
             "suspended": "معلّق",
-            "unlisted": "غير مُدرج"
+            "unlisted": "غير مُدرج",
+            "archived": "مؤرشف"
         },
         "progress": {
             "initializingUpload": "جارٍ تهيئة التحميل...",
@@ -364,7 +371,7 @@
             "finalizingUpload": "جارٍ إنهاء التحميل...",
             "uploadComplete": "اكتمل التحميل!",
             "creatingEntry": "جارٍ إنشاء إدخال...",
-            "submittingForReview": "Submitting for review..."
+            "submittingForReview": "جارٍ الإرسال للمراجعة..."
         },
         "errors": {
             "uploadFailed": "فشل التحميل. يرجى المحاولة مرة أخرى.",
@@ -377,9 +384,9 @@
             "entryCreated": "تم إنشاء الإدخال كمسودة",
             "uploadComplete": "تم تحميل الملف بنجاح",
             "submittedForReview": "تم الإرسال للمراجعة بنجاح",
-            "title": "Upload Complete!",
-            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
-            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
+            "title": "اكتمل التحميل!",
+            "draftMessage": "تم حفظ {type} كمسودة. يمكنك تعديله أو إرساله في أي وقت من استوديو المبدعين.",
+            "reviewMessage": "تم إرسال {type} للمراجعة. سيتم إشعارك عند الموافقة عليه."
         }
     },
     "Preview": {
@@ -477,77 +484,95 @@
         "since": "منذ {date}"
     },
     "CreatorStudio": {
-        "title": "Creator Studio",
-        "subtitle": "Manage your content and track performance",
-        "createNew": "Create",
-        "loading": "Loading your content...",
-        "errorTitle": "Error",
-        "errorDescription": "Failed to load your content. Please try again.",
-        "empty": "No content yet",
-        "emptyDescription": "Start creating and sharing your work with the world.",
-        "uploadFirst": "Upload your first content",
-        "noResults": "No matching content",
-        "noResultsDescription": "Try adjusting your filters or search terms.",
-        "searchPlaceholder": "Search your content...",
-        "filterStatus": "Status",
-        "filterType": "Type",
-        "sortBy": "Sort by",
-        "allStatuses": "All statuses",
-        "allTypes": "All types",
-        "free": "Free",
-        "showingEntries": "Showing {count} of {total} entries",
+        "title": "استوديو المبدعين",
+        "subtitle": "إدارة محتواك وتتبع الأداء",
+        "createNew": "إنشاء",
+        "loading": "جارٍ تحميل محتواك...",
+        "errorTitle": "خطأ",
+        "errorDescription": "فشل تحميل محتواك. يرجى المحاولة مرة أخرى.",
+        "empty": "لا يوجد محتوى بعد",
+        "emptyDescription": "ابدأ بإنشاء ومشاركة عملك مع العالم.",
+        "uploadFirst": "حمّل محتواك الأول",
+        "noResults": "لا يوجد محتوى مطابق",
+        "noResultsDescription": "حاول تعديل الفلاتر أو مصطلحات البحث.",
+        "searchPlaceholder": "ابحث في محتواك...",
+        "filterStatus": "الحالة",
+        "filterType": "النوع",
+        "sortBy": "ترتيب حسب",
+        "allStatuses": "جميع الحالات",
+        "allTypes": "جميع الأنواع",
+        "free": "مجاني",
+        "showingEntries": "عرض {count} من {total} إدخال",
         "stats": {
-            "total": "Total",
-            "published": "Published",
-            "drafts": "Drafts",
-            "inReview": "In Review",
-            "views": "Views",
+            "total": "الإجمالي",
+            "published": "منشور",
+            "drafts": "مسودات",
+            "inReview": "قيد المراجعة",
+            "views": "المشاهدات",
             "sales": "المبيعات",
             "subscribers": "المشتركون",
             "viewDetails": "عرض التفاصيل"
         },
         "tabs": {
-            "active": "Active",
-            "archived": "Archived"
+            "active": "نشط",
+            "archived": "مؤرشف",
+            "collections": "المجموعات"
         },
         "sort": {
-            "newest": "Newest first",
-            "oldest": "Oldest first",
-            "titleAZ": "Title A → Z",
-            "titleZA": "Title Z → A"
+            "newest": "الأحدث أولاً",
+            "oldest": "الأقدم أولاً",
+            "titleAZ": "العنوان أ → ي",
+            "titleZA": "العنوان ي → أ"
         },
         "table": {
-            "content": "Content",
-            "status": "Status",
-            "type": "Type",
-            "date": "Date",
-            "price": "Price",
-            "actions": "Actions"
+            "content": "المحتوى",
+            "status": "الحالة",
+            "type": "النوع",
+            "date": "التاريخ",
+            "price": "السعر",
+            "actions": "الإجراءات"
         },
         "actions": {
-            "view": "View",
-            "edit": "Edit",
-            "archive": "Archive",
-            "unarchive": "Unarchive",
-            "submitReview": "Submit for review"
+            "view": "عرض",
+            "edit": "تعديل",
+            "archive": "أرشفة",
+            "unarchive": "إلغاء الأرشفة",
+            "submitReview": "إرسال للمراجعة"
         },
-        "editEntry": "Edit entry",
-        "editSuccess": "Entry updated successfully",
-        "editError": "Failed to update entry. Please try again.",
+        "editEntry": "تعديل الإدخال",
+        "editSuccess": "تم تحديث الإدخال بنجاح",
+        "editError": "فشل تحديث الإدخال. يرجى المحاولة مرة أخرى.",
         "archiveConfirm": {
-            "title": "Archive entry?",
-            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+            "title": "أرشفة الإدخال؟",
+            "message": "هل أنت متأكد أنك تريد أرشفة \"{title}\"? سيتم إخفاؤه من الكتالوج العام لكن المشترين الحاليين سيحتفظون بالوصول."
         },
-        "archiveSuccess": "Entry archived successfully",
-        "archiveError": "Failed to archive entry. Please try again.",
-        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "archiveSuccess": "تمت أرشفة الإدخال بنجاح",
+        "archiveError": "فشلت أرشفة الإدخال. يرجى المحاولة مرة أخرى.",
+        "unarchiveSuccess": "تم إلغاء أرشفة الإدخال واستعادة حالته السابقة",
+        "unarchiveError": "فشل إلغاء أرشفة الإدخال. يرجى المحاولة مرة أخرى.",
         "transcoding": {
             "pending": "التحويل في الانتظار",
             "dispatched": "بدء التحويل",
             "processing": "جارٍ التحويل…",
             "failed": "فشل التحويل",
             "dead": "فشل التحويل"
+        },
+        "collections": {
+            "empty": "لا توجد مجموعات بعد",
+            "emptyDescription": "أنشئ مجموعة لتجميع وبيع محتواك معًا.",
+            "create": "إنشاء مجموعة",
+            "items": "العناصر",
+            "publish": "نشر",
+            "delete": "حذف",
+            "showing": "عرض {count} من {total} مجموعات",
+            "publishSuccess": "تم نشر المجموعة بنجاح",
+            "publishError": "فشل نشر المجموعة",
+            "deleteSuccess": "تم حذف المجموعة بنجاح",
+            "deleteError": "فشل حذف المجموعة",
+            "deleteConfirm": {
+                "title": "حذف المجموعة؟",
+                "message": "هل أنت متأكد أنك تريد حذف \"{title}\"؟ لا يمكن التراجع عن هذا الإجراء."
+            }
         }
     },
     "SalesHistory": {
@@ -568,6 +593,78 @@
             "SELLER": "البائع",
             "PLATFORM": "المنصة",
             "COLLABORATOR": "المتعاون"
+        }
+    },
+    "CreateCollection": {
+        "pageTitle": "إنشاء مجموعة",
+        "pageSubtitle": "اجمع محتواك في مجموعة لجمهورك",
+        "steps": {
+            "details": "التفاصيل",
+            "items": "العناصر",
+            "cover": "الغلاف"
+        },
+        "details": {
+            "heading": "تفاصيل المجموعة",
+            "title": "العنوان",
+            "titlePlaceholder": "أدخل عنوانًا لمجموعتك",
+            "description": "الوصف",
+            "descriptionPlaceholder": "صف موضوع هذه المجموعة",
+            "type": "نوع المجموعة",
+            "isPaid": "مجموعة مدفوعة",
+            "isPaidHint": "سيحتاج المشترون إلى شراء المجموعة للوصول إلى جميع العناصر",
+            "priceXlm": "السعر (XLM)",
+            "priceUsd": "السعر (USD)",
+            "pricePlaceholder": "أدخل السعر"
+        },
+        "items": {
+            "heading": "العناصر",
+            "count": "{count} عناصر محددة",
+            "searchPlaceholder": "ابحث في إدخالاتك المنشورة...",
+            "noEntries": "لم يتم العثور على إدخالات منشورة. قم بتحميل المحتوى أولاً.",
+            "loadError": "فشل تحميل الإدخالات",
+            "selectedHeading": "العناصر المحددة (اسحب لإعادة الترتيب)"
+        },
+        "cover": {
+            "heading": "صورة الغلاف",
+            "hint": "قم بتحميل صورة غلاف لمجموعتك (اختياري). مستحسن: نسبة 16:9.",
+            "fileLabel": "اختر صورة الغلاف"
+        },
+        "summary": {
+            "heading": "الملخص",
+            "free": "مجاني"
+        },
+        "actions": {
+            "saveDraft": "حفظ كمسودة",
+            "publish": "إنشاء ونشر"
+        },
+        "progress": {
+            "creating": "جارٍ إنشاء المجموعة...",
+            "addingItems": "جارٍ إضافة العناصر...",
+            "uploadingCover": "جارٍ تحميل صورة الغلاف...",
+            "publishing": "جارٍ النشر..."
+        },
+        "success": {
+            "title": "تم إنشاء المجموعة!",
+            "draftMessage": "تم حفظ مجموعتك كمسودة.",
+            "publishedMessage": "مجموعتك الآن مباشرة ومرئية للجميع.",
+            "viewCollection": "عرض المجموعة",
+            "goToStudio": "الذهاب إلى استوديو المبدعين",
+            "createAnother": "إنشاء أخرى"
+        },
+        "status": {
+            "draft": "مسودة",
+            "published": "منشور"
+        },
+        "validation": {
+            "titleRequired": "العنوان مطلوب",
+            "titleMaxLength": "يجب ألا يتجاوز العنوان 200 حرف",
+            "descriptionMaxLength": "يجب ألا يتجاوز الوصف 2000 حرف",
+            "typeRequired": "نوع المجموعة مطلوب",
+            "priceRequired": "السعر مطلوب للمجموعات المدفوعة",
+            "pricePositive": "يجب أن يكون السعر أكبر من 0"
+        },
+        "errors": {
+            "createFailed": "فشل إنشاء المجموعة. يرجى المحاولة مرة أخرى."
         }
     }
 }

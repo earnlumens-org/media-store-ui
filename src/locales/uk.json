@@ -93,7 +93,8 @@
         "addedToFavorites": "Додано до обраного",
         "removedFromFavorites": "Видалено з обраного",
         "linkCopied": "Посилання скопійовано до буфера обміну",
-        "tooManyRequests": "Забагато запитів. Зачекайте хвилинку і спробуйте знову."
+        "tooManyRequests": "Забагато запитів. Зачекайте хвилинку і спробуйте знову.",
+        "cancel": "Скасувати"
     },
     "Themes": {
         "title": "Вибір теми EarnLumens",
@@ -202,7 +203,9 @@
         "viewPublicProfile": "Мій публічний профіль",
         "viewPublicProfileHint": "Подивіться, як інші бачать ваш профіль",
         "termsAndConditions": "Умови використання",
-        "termsAndConditionsHint": "Перегляньте наші умови надання послуг та політику конфіденційності"
+        "termsAndConditionsHint": "Перегляньте наші умови надання послуг та політику конфіденційності",
+        "contentGuidelines": "Правила контенту",
+        "contentGuidelinesHint": "Правила публікації контенту з фінансової освіти"
     },
     "AppBar": {
         "home": "Домашня",
@@ -270,7 +273,8 @@
         "noEntriesFiltered": "Поки що немає записів типу {type}",
         "noResources": "Ресурсів ще немає",
         "subscribers": "Підписники",
-        "subscribe": "Підписатися"
+        "subscribe": "Підписатися",
+        "noCollections": "Колекцій поки немає"
     },
     "Upload": {
         "createNew": "Створити нове",
@@ -279,13 +283,15 @@
             "video": "Відео",
             "audio": "Аудіо",
             "image": "Зображення",
-            "resource": "Ресурс"
+            "resource": "Ресурс",
+            "collection": "Колекція"
         },
         "typeDescription": {
             "video": "Завантажте відео для потокового відтворення",
             "audio": "Поділіться музичним треком або подкастом",
             "image": "Поділіться фото або ілюстрацією",
-            "resource": "Напишіть статтю та/або завантажте вкладення (PDF, ZIP тощо)"
+            "resource": "Напишіть статтю та/або завантажте вкладення (PDF, ZIP тощо)",
+            "collection": "Об'єднайте свій контент у підібрану колекцію"
         },
         "pageTitle": "Завантажити {type}",
         "form": {
@@ -346,8 +352,8 @@
             "submitting": "Надсилання...",
             "saveDraft": "Зберегти чернетку",
             "cancel": "Скасувати",
-            "goToStudio": "Go to Creator Studio",
-            "uploadAnother": "Upload Another"
+            "goToStudio": "Перейти до Студії автора",
+            "uploadAnother": "Завантажити ще"
         },
         "status": {
             "draft": "Чернетка",
@@ -356,7 +362,8 @@
             "published": "Опубліковано",
             "rejected": "Відхилено",
             "suspended": "Призупинено",
-            "unlisted": "Не в списку"
+            "unlisted": "Не в списку",
+            "archived": "В архіві"
         },
         "progress": {
             "initializingUpload": "Ініціалізація завантаження...",
@@ -364,7 +371,7 @@
             "finalizingUpload": "Завершення завантаження...",
             "uploadComplete": "Завантаження завершено!",
             "creatingEntry": "Створення запису...",
-            "submittingForReview": "Submitting for review..."
+            "submittingForReview": "Надсилання на перевірку..."
         },
         "errors": {
             "uploadFailed": "Завантаження не вдалося. Будь ласка, спробуйте ще раз.",
@@ -377,9 +384,9 @@
             "entryCreated": "Запис створено як чернетку",
             "uploadComplete": "Файл успішно завантажено",
             "submittedForReview": "Успішно надіслано на перевірку",
-            "title": "Upload Complete!",
-            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
-            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
+            "title": "Завантаження завершено!",
+            "draftMessage": "Ваш {type} збережено як чернетку. Ви можете редагувати або надіслати його в будь-який час із Студії автора.",
+            "reviewMessage": "Ваш {type} надіслано на перевірку. Ви отримаєте сповіщення після схвалення."
         }
     },
     "Preview": {
@@ -477,77 +484,95 @@
         "since": "З {date}"
     },
     "CreatorStudio": {
-        "title": "Creator Studio",
-        "subtitle": "Manage your content and track performance",
-        "createNew": "Create",
-        "loading": "Loading your content...",
-        "errorTitle": "Error",
-        "errorDescription": "Failed to load your content. Please try again.",
-        "empty": "No content yet",
-        "emptyDescription": "Start creating and sharing your work with the world.",
-        "uploadFirst": "Upload your first content",
-        "noResults": "No matching content",
-        "noResultsDescription": "Try adjusting your filters or search terms.",
-        "searchPlaceholder": "Search your content...",
-        "filterStatus": "Status",
-        "filterType": "Type",
-        "sortBy": "Sort by",
-        "allStatuses": "All statuses",
-        "allTypes": "All types",
-        "free": "Free",
-        "showingEntries": "Showing {count} of {total} entries",
+        "title": "Студія автора",
+        "subtitle": "Керуйте своїм контентом та відстежуйте результати",
+        "createNew": "Створити",
+        "loading": "Завантаження вашого контенту...",
+        "errorTitle": "Помилка",
+        "errorDescription": "Не вдалося завантажити ваш контент. Будь ласка, спробуйте ще раз.",
+        "empty": "Контенту поки немає",
+        "emptyDescription": "Почніть створювати та ділитися своїми роботами зі світом.",
+        "uploadFirst": "Завантажте свій перший контент",
+        "noResults": "Немає відповідного контенту",
+        "noResultsDescription": "Спробуйте змінити фільтри або пошуковий запит.",
+        "searchPlaceholder": "Пошук вашого контенту...",
+        "filterStatus": "Статус",
+        "filterType": "Тип",
+        "sortBy": "Сортувати за",
+        "allStatuses": "Усі статуси",
+        "allTypes": "Усі типи",
+        "free": "Безкоштовно",
+        "showingEntries": "Показано {count} з {total} записів",
         "stats": {
-            "total": "Total",
-            "published": "Published",
-            "drafts": "Drafts",
-            "inReview": "In Review",
-            "views": "Views",
+            "total": "Усього",
+            "published": "Опубліковано",
+            "drafts": "Чернетки",
+            "inReview": "На перевірці",
+            "views": "Перегляди",
             "sales": "Продажі",
             "subscribers": "Підписники",
             "viewDetails": "Детальніше"
         },
         "tabs": {
-            "active": "Active",
-            "archived": "Archived"
+            "active": "Активні",
+            "archived": "В архіві",
+            "collections": "Колекції"
         },
         "sort": {
-            "newest": "Newest first",
-            "oldest": "Oldest first",
-            "titleAZ": "Title A → Z",
-            "titleZA": "Title Z → A"
+            "newest": "Спочатку нові",
+            "oldest": "Спочатку старі",
+            "titleAZ": "Назва А → Я",
+            "titleZA": "Назва Я → А"
         },
         "table": {
-            "content": "Content",
-            "status": "Status",
-            "type": "Type",
-            "date": "Date",
-            "price": "Price",
-            "actions": "Actions"
+            "content": "Контент",
+            "status": "Статус",
+            "type": "Тип",
+            "date": "Дата",
+            "price": "Ціна",
+            "actions": "Дії"
         },
         "actions": {
-            "view": "View",
-            "edit": "Edit",
-            "archive": "Archive",
-            "unarchive": "Unarchive",
-            "submitReview": "Submit for review"
+            "view": "Переглянути",
+            "edit": "Редагувати",
+            "archive": "Архівувати",
+            "unarchive": "Розархівувати",
+            "submitReview": "Надіслати на перевірку"
         },
-        "editEntry": "Edit entry",
-        "editSuccess": "Entry updated successfully",
-        "editError": "Failed to update entry. Please try again.",
+        "editEntry": "Редагувати запис",
+        "editSuccess": "Запис успішно оновлено",
+        "editError": "Не вдалося оновити запис. Будь ласка, спробуйте ще раз.",
         "archiveConfirm": {
-            "title": "Archive entry?",
-            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+            "title": "Архівувати запис?",
+            "message": "Ви впевнені, що хочете архівувати \"{title}\"? Його буде приховано з публічного каталогу, але наявні покупці збережуть доступ."
         },
-        "archiveSuccess": "Entry archived successfully",
-        "archiveError": "Failed to archive entry. Please try again.",
-        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "archiveSuccess": "Запис успішно архівовано",
+        "archiveError": "Не вдалося архівувати запис. Будь ласка, спробуйте ще раз.",
+        "unarchiveSuccess": "Запис розархівовано та відновлено до попереднього статусу",
+        "unarchiveError": "Не вдалося розархівувати запис. Будь ласка, спробуйте ще раз.",
         "transcoding": {
             "pending": "Транскодування в черзі",
             "dispatched": "Транскодування починається",
             "processing": "Транскодування…",
             "failed": "Помилка транскодування",
             "dead": "Помилка транскодування"
+        },
+        "collections": {
+            "empty": "Колекцій поки немає",
+            "emptyDescription": "Створіть колекцію, щоб об'єднати та продавати свій контент разом.",
+            "create": "Створити колекцію",
+            "items": "Елементи",
+            "publish": "Опублікувати",
+            "delete": "Видалити",
+            "showing": "Показано {count} з {total} колекцій",
+            "publishSuccess": "Колекцію успішно опубліковано",
+            "publishError": "Не вдалося опублікувати колекцію",
+            "deleteSuccess": "Колекцію успішно видалено",
+            "deleteError": "Не вдалося видалити колекцію",
+            "deleteConfirm": {
+                "title": "Видалити колекцію?",
+                "message": "Ви впевнені, що хочете видалити \"{title}\"? Цю дію не можна скасувати."
+            }
         }
     },
     "SalesHistory": {
@@ -568,6 +593,78 @@
             "SELLER": "Продавець",
             "PLATFORM": "Платформа",
             "COLLABORATOR": "Співавтор"
+        }
+    },
+    "CreateCollection": {
+        "pageTitle": "Створити колекцію",
+        "pageSubtitle": "Об'єднайте свій контент у колекцію для вашої аудиторії",
+        "steps": {
+            "details": "Деталі",
+            "items": "Елементи",
+            "cover": "Обкладинка"
+        },
+        "details": {
+            "heading": "Деталі колекції",
+            "title": "Назва",
+            "titlePlaceholder": "Введіть назву колекції",
+            "description": "Опис",
+            "descriptionPlaceholder": "Опишіть тему цієї колекції",
+            "type": "Тип колекції",
+            "isPaid": "Платна колекція",
+            "isPaidHint": "Покупцям потрібно буде придбати колекцію для доступу до всіх елементів",
+            "priceXlm": "Ціна (XLM)",
+            "priceUsd": "Ціна (USD)",
+            "pricePlaceholder": "Введіть ціну"
+        },
+        "items": {
+            "heading": "Елементи",
+            "count": "Вибрано елементів: {count}",
+            "searchPlaceholder": "Пошук опублікованих записів...",
+            "noEntries": "Опублікованих записів не знайдено. Спочатку завантажте контент.",
+            "loadError": "Не вдалося завантажити записи",
+            "selectedHeading": "Вибрані елементи (перетягніть для зміни порядку)"
+        },
+        "cover": {
+            "heading": "Зображення обкладинки",
+            "hint": "Завантажте зображення обкладинки для колекції (необов'язково). Рекомендовано: співвідношення сторін 16:9.",
+            "fileLabel": "Обрати зображення обкладинки"
+        },
+        "summary": {
+            "heading": "Підсумок",
+            "free": "Безкоштовно"
+        },
+        "actions": {
+            "saveDraft": "Зберегти як чернетку",
+            "publish": "Створити та опублікувати"
+        },
+        "progress": {
+            "creating": "Створення колекції...",
+            "addingItems": "Додавання елементів...",
+            "uploadingCover": "Завантаження зображення обкладинки...",
+            "publishing": "Публікація..."
+        },
+        "success": {
+            "title": "Колекцію створено!",
+            "draftMessage": "Вашу колекцію збережено як чернетку.",
+            "publishedMessage": "Ваша колекція опублікована і доступна всім.",
+            "viewCollection": "Переглянути колекцію",
+            "goToStudio": "Перейти до Студії автора",
+            "createAnother": "Створити ще одну"
+        },
+        "status": {
+            "draft": "Чернетка",
+            "published": "Опубліковано"
+        },
+        "validation": {
+            "titleRequired": "Назва обов'язкова",
+            "titleMaxLength": "Назва має бути не більше 200 символів",
+            "descriptionMaxLength": "Опис має бути не більше 2000 символів",
+            "typeRequired": "Тип колекції обов'язковий",
+            "priceRequired": "Ціна обов'язкова для платних колекцій",
+            "pricePositive": "Ціна має бути більше 0"
+        },
+        "errors": {
+            "createFailed": "Не вдалося створити колекцію. Спробуйте ще раз."
         }
     }
 }

@@ -93,7 +93,8 @@
         "addedToFavorites": "Добавлено в избранное",
         "removedFromFavorites": "Удалено из избранного",
         "linkCopied": "Ссылка скопирована в буфер обмена",
-        "tooManyRequests": "Слишком много запросов. Подождите немного и попробуйте снова."
+        "tooManyRequests": "Слишком много запросов. Подождите немного и попробуйте снова.",
+        "cancel": "Отмена"
     },
     "Themes": {
         "title": "Выбор темы EarnLumens",
@@ -202,7 +203,9 @@
         "viewPublicProfile": "Мой публичный профиль",
         "viewPublicProfileHint": "Посмотрите, как другие видят ваш профиль",
         "termsAndConditions": "Условия использования",
-        "termsAndConditionsHint": "Ознакомьтесь с условиями использования и политикой конфиденциальности"
+        "termsAndConditionsHint": "Ознакомьтесь с условиями использования и политикой конфиденциальности",
+        "contentGuidelines": "Правила контента",
+        "contentGuidelinesHint": "Правила публикации контента по финансовому образованию"
     },
     "AppBar": {
         "home": "Главная",
@@ -270,7 +273,8 @@
         "noEntriesFiltered": "Пока нет записей типа {type}",
         "noResources": "Пока нет ресурсов",
         "subscribers": "Подписчики",
-        "subscribe": "Подписаться"
+        "subscribe": "Подписаться",
+        "noCollections": "Коллекций пока нет"
     },
     "Upload": {
         "createNew": "Создать",
@@ -279,13 +283,15 @@
             "video": "Видео",
             "audio": "Аудио",
             "image": "Изображение",
-            "resource": "Ресурс"
+            "resource": "Ресурс",
+            "collection": "Коллекция"
         },
         "typeDescription": {
             "video": "Загрузите видео для стриминга",
             "audio": "Поделитесь музыкальным треком или подкастом",
             "image": "Поделитесь фотографией или иллюстрацией",
-            "resource": "Напишите статью и/или загрузите вложения (PDF, ZIP и т.д.)"
+            "resource": "Напишите статью и/или загрузите вложения (PDF, ZIP и т.д.)",
+            "collection": "Объедините свой контент в подобранную коллекцию"
         },
         "pageTitle": "Загрузить {type}",
         "form": {
@@ -346,8 +352,8 @@
             "submitting": "Отправка...",
             "saveDraft": "Сохранить черновик",
             "cancel": "Отмена",
-            "goToStudio": "Go to Creator Studio",
-            "uploadAnother": "Upload Another"
+            "goToStudio": "Перейти в Студию автора",
+            "uploadAnother": "Загрузить ещё"
         },
         "status": {
             "draft": "Черновик",
@@ -356,7 +362,8 @@
             "published": "Опубликовано",
             "rejected": "Отклонено",
             "suspended": "Приостановлено",
-            "unlisted": "Не в списке"
+            "unlisted": "Не в списке",
+            "archived": "В архиве"
         },
         "progress": {
             "initializingUpload": "Инициализация загрузки...",
@@ -364,7 +371,7 @@
             "finalizingUpload": "Завершение загрузки...",
             "uploadComplete": "Загрузка завершена!",
             "creatingEntry": "Создание записи...",
-            "submittingForReview": "Submitting for review..."
+            "submittingForReview": "Отправка на проверку..."
         },
         "errors": {
             "uploadFailed": "Не удалось загрузить. Пожалуйста, попробуйте ещё раз.",
@@ -377,9 +384,9 @@
             "entryCreated": "Запись создана как черновик",
             "uploadComplete": "Файл успешно загружен",
             "submittedForReview": "Успешно отправлено на проверку",
-            "title": "Upload Complete!",
-            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
-            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
+            "title": "Загрузка завершена!",
+            "draftMessage": "Ваш {type} сохранён как черновик. Вы можете отредактировать или отправить его в любое время из Студии автора.",
+            "reviewMessage": "Ваш {type} отправлен на проверку. Вы получите уведомление после одобрения."
         }
     },
     "Preview": {
@@ -477,77 +484,95 @@
         "since": "С {date}"
     },
     "CreatorStudio": {
-        "title": "Creator Studio",
-        "subtitle": "Manage your content and track performance",
-        "createNew": "Create",
-        "loading": "Loading your content...",
-        "errorTitle": "Error",
-        "errorDescription": "Failed to load your content. Please try again.",
-        "empty": "No content yet",
-        "emptyDescription": "Start creating and sharing your work with the world.",
-        "uploadFirst": "Upload your first content",
-        "noResults": "No matching content",
-        "noResultsDescription": "Try adjusting your filters or search terms.",
-        "searchPlaceholder": "Search your content...",
-        "filterStatus": "Status",
-        "filterType": "Type",
-        "sortBy": "Sort by",
-        "allStatuses": "All statuses",
-        "allTypes": "All types",
-        "free": "Free",
-        "showingEntries": "Showing {count} of {total} entries",
+        "title": "Студия автора",
+        "subtitle": "Управляйте своим контентом и отслеживайте результаты",
+        "createNew": "Создать",
+        "loading": "Загрузка вашего контента...",
+        "errorTitle": "Ошибка",
+        "errorDescription": "Не удалось загрузить ваш контент. Пожалуйста, попробуйте ещё раз.",
+        "empty": "Контента пока нет",
+        "emptyDescription": "Начните создавать и делиться своими работами со всем миром.",
+        "uploadFirst": "Загрузите свой первый контент",
+        "noResults": "Нет подходящего контента",
+        "noResultsDescription": "Попробуйте изменить фильтры или поисковый запрос.",
+        "searchPlaceholder": "Поиск вашего контента...",
+        "filterStatus": "Статус",
+        "filterType": "Тип",
+        "sortBy": "Сортировать по",
+        "allStatuses": "Все статусы",
+        "allTypes": "Все типы",
+        "free": "Бесплатно",
+        "showingEntries": "Показано {count} из {total} записей",
         "stats": {
-            "total": "Total",
-            "published": "Published",
-            "drafts": "Drafts",
-            "inReview": "In Review",
-            "views": "Views",
+            "total": "Всего",
+            "published": "Опубликовано",
+            "drafts": "Черновики",
+            "inReview": "На проверке",
+            "views": "Просмотры",
             "sales": "Продажи",
             "subscribers": "Подписчики",
             "viewDetails": "Подробнее"
         },
         "tabs": {
-            "active": "Active",
-            "archived": "Archived"
+            "active": "Активные",
+            "archived": "В архиве",
+            "collections": "Коллекции"
         },
         "sort": {
-            "newest": "Newest first",
-            "oldest": "Oldest first",
-            "titleAZ": "Title A → Z",
-            "titleZA": "Title Z → A"
+            "newest": "Сначала новые",
+            "oldest": "Сначала старые",
+            "titleAZ": "Название А → Я",
+            "titleZA": "Название Я → А"
         },
         "table": {
-            "content": "Content",
-            "status": "Status",
-            "type": "Type",
-            "date": "Date",
-            "price": "Price",
-            "actions": "Actions"
+            "content": "Контент",
+            "status": "Статус",
+            "type": "Тип",
+            "date": "Дата",
+            "price": "Цена",
+            "actions": "Действия"
         },
         "actions": {
-            "view": "View",
-            "edit": "Edit",
-            "archive": "Archive",
-            "unarchive": "Unarchive",
-            "submitReview": "Submit for review"
+            "view": "Просмотр",
+            "edit": "Редактировать",
+            "archive": "Архивировать",
+            "unarchive": "Разархивировать",
+            "submitReview": "Отправить на проверку"
         },
-        "editEntry": "Edit entry",
-        "editSuccess": "Entry updated successfully",
-        "editError": "Failed to update entry. Please try again.",
+        "editEntry": "Редактировать запись",
+        "editSuccess": "Запись успешно обновлена",
+        "editError": "Не удалось обновить запись. Пожалуйста, попробуйте ещё раз.",
         "archiveConfirm": {
-            "title": "Archive entry?",
-            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+            "title": "Архивировать запись?",
+            "message": "Вы уверены, что хотите архивировать \"{title}\"? Запись будет скрыта из публичного каталога, но существующие покупатели сохранят доступ."
         },
-        "archiveSuccess": "Entry archived successfully",
-        "archiveError": "Failed to archive entry. Please try again.",
-        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "archiveSuccess": "Запись успешно архивирована",
+        "archiveError": "Не удалось архивировать запись. Пожалуйста, попробуйте ещё раз.",
+        "unarchiveSuccess": "Запись разархивирована и восстановлена в предыдущий статус",
+        "unarchiveError": "Не удалось разархивировать запись. Пожалуйста, попробуйте ещё раз.",
         "transcoding": {
             "pending": "Транскодирование в очереди",
             "dispatched": "Транскодирование запускается",
             "processing": "Транскодирование…",
             "failed": "Ошибка транскодирования",
             "dead": "Ошибка транскодирования"
+        },
+        "collections": {
+            "empty": "Коллекций пока нет",
+            "emptyDescription": "Создайте коллекцию, чтобы объединить и продавать свой контент вместе.",
+            "create": "Создать коллекцию",
+            "items": "Элементы",
+            "publish": "Опубликовать",
+            "delete": "Удалить",
+            "showing": "Показано {count} из {total} коллекций",
+            "publishSuccess": "Коллекция успешно опубликована",
+            "publishError": "Не удалось опубликовать коллекцию",
+            "deleteSuccess": "Коллекция успешно удалена",
+            "deleteError": "Не удалось удалить коллекцию",
+            "deleteConfirm": {
+                "title": "Удалить коллекцию?",
+                "message": "Вы уверены, что хотите удалить \"{title}\"? Это действие нельзя отменить."
+            }
         }
     },
     "SalesHistory": {
@@ -568,6 +593,78 @@
             "SELLER": "Продавец",
             "PLATFORM": "Платформа",
             "COLLABORATOR": "Соавтор"
+        }
+    },
+    "CreateCollection": {
+        "pageTitle": "Создать коллекцию",
+        "pageSubtitle": "Объедините свой контент в коллекцию для вашей аудитории",
+        "steps": {
+            "details": "Детали",
+            "items": "Элементы",
+            "cover": "Обложка"
+        },
+        "details": {
+            "heading": "Детали коллекции",
+            "title": "Название",
+            "titlePlaceholder": "Введите название коллекции",
+            "description": "Описание",
+            "descriptionPlaceholder": "Опишите тему этой коллекции",
+            "type": "Тип коллекции",
+            "isPaid": "Платная коллекция",
+            "isPaidHint": "Покупателям нужно будет приобрести коллекцию для доступа ко всем элементам",
+            "priceXlm": "Цена (XLM)",
+            "priceUsd": "Цена (USD)",
+            "pricePlaceholder": "Введите цену"
+        },
+        "items": {
+            "heading": "Элементы",
+            "count": "Выбрано элементов: {count}",
+            "searchPlaceholder": "Поиск опубликованных записей...",
+            "noEntries": "Опубликованные записи не найдены. Сначала загрузите контент.",
+            "loadError": "Не удалось загрузить записи",
+            "selectedHeading": "Выбранные элементы (перетащите для изменения порядка)"
+        },
+        "cover": {
+            "heading": "Изображение обложки",
+            "hint": "Загрузите изображение обложки для коллекции (необязательно). Рекомендуется: соотношение сторон 16:9.",
+            "fileLabel": "Выбрать изображение обложки"
+        },
+        "summary": {
+            "heading": "Сводка",
+            "free": "Бесплатно"
+        },
+        "actions": {
+            "saveDraft": "Сохранить как черновик",
+            "publish": "Создать и опубликовать"
+        },
+        "progress": {
+            "creating": "Создание коллекции...",
+            "addingItems": "Добавление элементов...",
+            "uploadingCover": "Загрузка изображения обложки...",
+            "publishing": "Публикация..."
+        },
+        "success": {
+            "title": "Коллекция создана!",
+            "draftMessage": "Ваша коллекция сохранена как черновик.",
+            "publishedMessage": "Ваша коллекция опубликована и доступна всем.",
+            "viewCollection": "Просмотреть коллекцию",
+            "goToStudio": "Перейти в Студию автора",
+            "createAnother": "Создать ещё"
+        },
+        "status": {
+            "draft": "Черновик",
+            "published": "Опубликовано"
+        },
+        "validation": {
+            "titleRequired": "Название обязательно",
+            "titleMaxLength": "Название должно быть не более 200 символов",
+            "descriptionMaxLength": "Описание должно быть не более 2000 символов",
+            "typeRequired": "Тип коллекции обязателен",
+            "priceRequired": "Цена обязательна для платных коллекций",
+            "pricePositive": "Цена должна быть больше 0"
+        },
+        "errors": {
+            "createFailed": "Не удалось создать коллекцию. Попробуйте ещё раз."
         }
     }
 }

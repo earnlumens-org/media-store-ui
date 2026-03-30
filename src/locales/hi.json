@@ -93,7 +93,8 @@
         "addedToFavorites": "पसंदीदा में जोड़ा गया",
         "removedFromFavorites": "पसंदीदा से हटाया गया",
         "linkCopied": "लिंक क्लिपबोर्ड पर कॉपी किया गया",
-        "tooManyRequests": "बहुत अधिक अनुरोध। कृपया कुछ देर प्रतीक्षा करें और पुनः प्रयास करें।"
+        "tooManyRequests": "बहुत अधिक अनुरोध। कृपया कुछ देर प्रतीक्षा करें और पुनः प्रयास करें।",
+        "cancel": "रद्द करें"
     },
     "Themes": {
         "title": "EarnLumens थीम चयनकर्ता",
@@ -202,7 +203,9 @@
         "viewPublicProfile": "मेरी सार्वजनिक प्रोफ़ाइल",
         "viewPublicProfileHint": "देखें कि दूसरे आपकी प्रोफ़ाइल कैसे देखते हैं",
         "termsAndConditions": "नियम और शर्तें",
-        "termsAndConditionsHint": "हमारी सेवा की शर्तें और गोपनीयता नीति देखें"
+        "termsAndConditionsHint": "हमारी सेवा की शर्तें और गोपनीयता नीति देखें",
+        "contentGuidelines": "सामग्री दिशानिर्देश",
+        "contentGuidelinesHint": "वित्तीय शिक्षा सामग्री प्रकाशित करने के नियम"
     },
     "AppBar": {
         "home": "होम",
@@ -270,7 +273,8 @@
         "noEntriesFiltered": "अभी कोई {type} एंट्री नहीं",
         "noResources": "अभी कोई संसाधन नहीं",
         "subscribers": "सदस्य",
-        "subscribe": "सदस्यता लें"
+        "subscribe": "सदस्यता लें",
+        "noCollections": "अभी तक कोई संग्रह नहीं"
     },
     "Upload": {
         "createNew": "नया बनाएँ",
@@ -279,13 +283,15 @@
             "video": "वीडियो",
             "audio": "ऑडियो",
             "image": "चित्र",
-            "resource": "संसाधन"
+            "resource": "संसाधन",
+            "collection": "संग्रह"
         },
         "typeDescription": {
             "video": "स्ट्रीमिंग के लिए वीडियो अपलोड करें",
             "audio": "संगीत ट्रैक या पॉडकास्ट साझा करें",
             "image": "एक फ़ोटो या चित्रण साझा करें",
-            "resource": "एक लेख लिखें और/या अनुलग्नक अपलोड करें (PDF, ZIP, आदि)"
+            "resource": "एक लेख लिखें और/या अनुलग्नक अपलोड करें (PDF, ZIP, आदि)",
+            "collection": "अपनी सामग्री को एक क्यूरेटेड संग्रह में बंडल करें"
         },
         "pageTitle": "{type} अपलोड करें",
         "form": {
@@ -346,8 +352,8 @@
             "submitting": "भेजा जा रहा है...",
             "saveDraft": "ड्राफ्ट सहेजें",
             "cancel": "रद्द करें",
-            "goToStudio": "Go to Creator Studio",
-            "uploadAnother": "Upload Another"
+            "goToStudio": "क्रिएटर स्टूडियो पर जाएं",
+            "uploadAnother": "एक और अपलोड करें"
         },
         "status": {
             "draft": "ड्राफ्ट",
@@ -356,7 +362,8 @@
             "published": "प्रकाशित",
             "rejected": "अस्वीकृत",
             "suspended": "निलंबित",
-            "unlisted": "असूचीबद्ध"
+            "unlisted": "असूचीबद्ध",
+            "archived": "संग्रहीत"
         },
         "progress": {
             "initializingUpload": "अपलोड प्रारंभ किया जा रहा है...",
@@ -364,7 +371,7 @@
             "finalizingUpload": "अपलोड पूरा किया जा रहा है...",
             "uploadComplete": "अपलोड पूरा हुआ!",
             "creatingEntry": "एंट्री बनाई जा रही है...",
-            "submittingForReview": "Submitting for review..."
+            "submittingForReview": "समीक्षा के लिए भेजा जा रहा है..."
         },
         "errors": {
             "uploadFailed": "अपलोड विफल हुआ। कृपया पुनः प्रयास करें।",
@@ -377,9 +384,9 @@
             "entryCreated": "एंट्री ड्राफ्ट के रूप में बनाई गई",
             "uploadComplete": "फ़ाइल सफलतापूर्वक अपलोड हुई",
             "submittedForReview": "समीक्षा के लिए सफलतापूर्वक भेजा गया",
-            "title": "Upload Complete!",
-            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
-            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
+            "title": "अपलोड पूरा हुआ!",
+            "draftMessage": "आपका {type} ड्राफ्ट के रूप में सहेजा गया है। आप इसे क्रिएटर स्टूडियो से कभी भी संपादित या सबमिट कर सकते हैं।",
+            "reviewMessage": "आपका {type} समीक्षा के लिए भेजा गया है। स्वीकृत होने पर आपको सूचित किया जाएगा।"
         }
     },
     "Preview": {
@@ -477,77 +484,95 @@
         "since": "{date} से"
     },
     "CreatorStudio": {
-        "title": "Creator Studio",
-        "subtitle": "Manage your content and track performance",
-        "createNew": "Create",
-        "loading": "Loading your content...",
-        "errorTitle": "Error",
-        "errorDescription": "Failed to load your content. Please try again.",
-        "empty": "No content yet",
-        "emptyDescription": "Start creating and sharing your work with the world.",
-        "uploadFirst": "Upload your first content",
-        "noResults": "No matching content",
-        "noResultsDescription": "Try adjusting your filters or search terms.",
-        "searchPlaceholder": "Search your content...",
-        "filterStatus": "Status",
-        "filterType": "Type",
-        "sortBy": "Sort by",
-        "allStatuses": "All statuses",
-        "allTypes": "All types",
-        "free": "Free",
-        "showingEntries": "Showing {count} of {total} entries",
+        "title": "क्रिएटर स्टूडियो",
+        "subtitle": "अपनी सामग्री प्रबंधित करें और प्रदर्शन ट्रैक करें",
+        "createNew": "बनाएँ",
+        "loading": "आपकी सामग्री लोड हो रही है...",
+        "errorTitle": "त्रुटि",
+        "errorDescription": "आपकी सामग्री लोड करने में विफल। कृपया पुनः प्रयास करें।",
+        "empty": "अभी तक कोई सामग्री नहीं",
+        "emptyDescription": "अपना काम बनाना और दुनिया के साथ साझा करना शुरू करें।",
+        "uploadFirst": "अपनी पहली सामग्री अपलोड करें",
+        "noResults": "कोई मेल खाती सामग्री नहीं",
+        "noResultsDescription": "अपने फ़िल्टर या खोज शब्दों को समायोजित करके देखें।",
+        "searchPlaceholder": "अपनी सामग्री खोजें...",
+        "filterStatus": "स्थिति",
+        "filterType": "प्रकार",
+        "sortBy": "क्रम",
+        "allStatuses": "सभी स्थितियाँ",
+        "allTypes": "सभी प्रकार",
+        "free": "मुफ़्त",
+        "showingEntries": "{total} में से {count} प्रविष्टियाँ दिखाई जा रही हैं",
         "stats": {
-            "total": "Total",
-            "published": "Published",
-            "drafts": "Drafts",
-            "inReview": "In Review",
-            "views": "Views",
+            "total": "कुल",
+            "published": "प्रकाशित",
+            "drafts": "ड्राफ्ट",
+            "inReview": "समीक्षा में",
+            "views": "दृश्य",
             "sales": "बिक्री",
             "subscribers": "सदस्य",
             "viewDetails": "विवरण देखें"
         },
         "tabs": {
-            "active": "Active",
-            "archived": "Archived"
+            "active": "सक्रिय",
+            "archived": "संग्रहीत",
+            "collections": "संग्रह"
         },
         "sort": {
-            "newest": "Newest first",
-            "oldest": "Oldest first",
-            "titleAZ": "Title A → Z",
-            "titleZA": "Title Z → A"
+            "newest": "नवीनतम पहले",
+            "oldest": "सबसे पुराना पहले",
+            "titleAZ": "शीर्षक अ → ज्ञ",
+            "titleZA": "शीर्षक ज्ञ → अ"
         },
         "table": {
-            "content": "Content",
-            "status": "Status",
-            "type": "Type",
-            "date": "Date",
-            "price": "Price",
-            "actions": "Actions"
+            "content": "सामग्री",
+            "status": "स्थिति",
+            "type": "प्रकार",
+            "date": "तारीख",
+            "price": "मूल्य",
+            "actions": "कार्रवाइयाँ"
         },
         "actions": {
-            "view": "View",
-            "edit": "Edit",
-            "archive": "Archive",
-            "unarchive": "Unarchive",
-            "submitReview": "Submit for review"
+            "view": "देखें",
+            "edit": "संपादित करें",
+            "archive": "संग्रहित करें",
+            "unarchive": "संग्रह से निकालें",
+            "submitReview": "समीक्षा के लिए भेजें"
         },
-        "editEntry": "Edit entry",
-        "editSuccess": "Entry updated successfully",
-        "editError": "Failed to update entry. Please try again.",
+        "editEntry": "एंट्री संपादित करें",
+        "editSuccess": "एंट्री सफलतापूर्वक अपडेट हुई",
+        "editError": "एंट्री अपडेट करने में विफल। कृपया पुनः प्रयास करें।",
         "archiveConfirm": {
-            "title": "Archive entry?",
-            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+            "title": "एंट्री संग्रहित करें?",
+            "message": "क्या आप वाकई \"{title}\" को संग्रहित करना चाहते हैं? यह सार्वजनिक कैटलॉग से छिपा दिया जाएगा लेकिन मौजूदा खरीदारों की पहुँच बनी रहेगी।"
         },
-        "archiveSuccess": "Entry archived successfully",
-        "archiveError": "Failed to archive entry. Please try again.",
-        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "archiveSuccess": "एंट्री सफलतापूर्वक संग्रहित हुई",
+        "archiveError": "एंट्री संग्रहित करने में विफल। कृपया पुनः प्रयास करें।",
+        "unarchiveSuccess": "एंट्री संग्रह से निकाली गई और पिछली स्थिति में पुनर्स्थापित हुई",
+        "unarchiveError": "एंट्री को संग्रह से निकालने में विफल। कृपया पुनः प्रयास करें।",
         "transcoding": {
             "pending": "ट्रांसकोडिंग कतार में",
             "dispatched": "ट्रांसकोडिंग शुरू हो रही है",
             "processing": "ट्रांसकोडिंग…",
             "failed": "ट्रांसकोडिंग विफल",
             "dead": "ट्रांसकोडिंग विफल"
+        },
+        "collections": {
+            "empty": "अभी तक कोई संग्रह नहीं",
+            "emptyDescription": "अपनी सामग्री को एक साथ समूहित और बेचने के लिए एक संग्रह बनाएँ।",
+            "create": "संग्रह बनाएँ",
+            "items": "आइटम",
+            "publish": "प्रकाशित करें",
+            "delete": "हटाएँ",
+            "showing": "{total} में से {count} संग्रह दिखाए जा रहे हैं",
+            "publishSuccess": "संग्रह सफलतापूर्वक प्रकाशित हुआ",
+            "publishError": "संग्रह प्रकाशित करने में विफल",
+            "deleteSuccess": "संग्रह सफलतापूर्वक हटाया गया",
+            "deleteError": "संग्रह हटाने में विफल",
+            "deleteConfirm": {
+                "title": "संग्रह हटाएँ?",
+                "message": "क्या आप वाकई \"{title}\" को हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।"
+            }
         }
     },
     "SalesHistory": {
@@ -568,6 +593,78 @@
             "SELLER": "विक्रेता",
             "PLATFORM": "प्लेटफ़ॉर्म",
             "COLLABORATOR": "सहयोगी"
+        }
+    },
+    "CreateCollection": {
+        "pageTitle": "संग्रह बनाएँ",
+        "pageSubtitle": "अपनी सामग्री को अपने दर्शकों के लिए एक संग्रह में बंडल करें",
+        "steps": {
+            "details": "विवरण",
+            "items": "आइटम",
+            "cover": "कवर"
+        },
+        "details": {
+            "heading": "संग्रह विवरण",
+            "title": "शीर्षक",
+            "titlePlaceholder": "अपने संग्रह के लिए एक शीर्षक दर्ज करें",
+            "description": "विवरण",
+            "descriptionPlaceholder": "बताएँ कि यह संग्रह किस बारे में है",
+            "type": "संग्रह प्रकार",
+            "isPaid": "सशुल्क संग्रह",
+            "isPaidHint": "खरीदारों को सभी आइटम एक्सेस करने के लिए संग्रह खरीदना होगा",
+            "priceXlm": "मूल्य (XLM)",
+            "priceUsd": "मूल्य (USD)",
+            "pricePlaceholder": "मूल्य दर्ज करें"
+        },
+        "items": {
+            "heading": "आइटम",
+            "count": "{count} आइटम चयनित",
+            "searchPlaceholder": "अपनी प्रकाशित प्रविष्टियाँ खोजें...",
+            "noEntries": "कोई प्रकाशित प्रविष्टि नहीं मिली। पहले सामग्री अपलोड करें।",
+            "loadError": "प्रविष्टियाँ लोड करने में विफल",
+            "selectedHeading": "चयनित आइटम (पुनर्व्यवस्थित करने के लिए खींचें)"
+        },
+        "cover": {
+            "heading": "कवर छवि",
+            "hint": "अपने संग्रह के लिए एक कवर छवि अपलोड करें (वैकल्पिक)। अनुशंसित: 16:9 पक्षानुपात।",
+            "fileLabel": "कवर छवि चुनें"
+        },
+        "summary": {
+            "heading": "सारांश",
+            "free": "मुफ़्त"
+        },
+        "actions": {
+            "saveDraft": "ड्राफ्ट के रूप में सहेजें",
+            "publish": "बनाएँ और प्रकाशित करें"
+        },
+        "progress": {
+            "creating": "संग्रह बनाया जा रहा है...",
+            "addingItems": "आइटम जोड़े जा रहे हैं...",
+            "uploadingCover": "कवर छवि अपलोड हो रही है...",
+            "publishing": "प्रकाशित किया जा रहा है..."
+        },
+        "success": {
+            "title": "संग्रह बन गया!",
+            "draftMessage": "आपका संग्रह ड्राफ्ट के रूप में सहेजा गया है।",
+            "publishedMessage": "आपका संग्रह अब लाइव है और सभी को दिखाई दे रहा है।",
+            "viewCollection": "संग्रह देखें",
+            "goToStudio": "क्रिएटर स्टूडियो पर जाएँ",
+            "createAnother": "एक और बनाएँ"
+        },
+        "status": {
+            "draft": "ड्राफ्ट",
+            "published": "प्रकाशित"
+        },
+        "validation": {
+            "titleRequired": "शीर्षक आवश्यक है",
+            "titleMaxLength": "शीर्षक 200 अक्षर या उससे कम होना चाहिए",
+            "descriptionMaxLength": "विवरण 2000 अक्षर या उससे कम होना चाहिए",
+            "typeRequired": "संग्रह प्रकार आवश्यक है",
+            "priceRequired": "सशुल्क संग्रह के लिए मूल्य आवश्यक है",
+            "pricePositive": "मूल्य 0 से अधिक होना चाहिए"
+        },
+        "errors": {
+            "createFailed": "संग्रह बनाने में विफल। कृपया पुनः प्रयास करें।"
         }
     }
 }

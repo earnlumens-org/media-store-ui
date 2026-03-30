@@ -93,7 +93,8 @@
         "addedToFavorites": "Đã thêm vào yêu thích",
         "removedFromFavorites": "Đã xóa khỏi yêu thích",
         "linkCopied": "Đã sao chép liên kết vào bộ nhớ tạm",
-        "tooManyRequests": "Quá nhiều yêu cầu. Vui lòng đợi một chút và thử lại."
+        "tooManyRequests": "Quá nhiều yêu cầu. Vui lòng đợi một chút và thử lại.",
+        "cancel": "Hủy"
     },
     "Themes": {
         "title": "Bộ chọn chủ đề EarnLumens",
@@ -202,7 +203,9 @@
         "viewPublicProfile": "Hồ sơ công khai của tôi",
         "viewPublicProfileHint": "Xem người khác nhìn hồ sơ của bạn như thế nào",
         "termsAndConditions": "Điều khoản và Điều kiện",
-        "termsAndConditionsHint": "Xem điều khoản dịch vụ và chính sách bảo mật của chúng tôi"
+        "termsAndConditionsHint": "Xem điều khoản dịch vụ và chính sách bảo mật của chúng tôi",
+        "contentGuidelines": "Nguyên tắc nội dung",
+        "contentGuidelinesHint": "Quy tắc xuất bản nội dung giáo dục tài chính"
     },
     "AppBar": {
         "home": "Trang chủ",
@@ -270,7 +273,8 @@
         "noEntriesFiltered": "Chưa có mục {type} nào",
         "noResources": "Chưa có tài nguyên nào",
         "subscribers": "Người đăng ký",
-        "subscribe": "Đăng ký"
+        "subscribe": "Đăng ký",
+        "noCollections": "Chưa có bộ sưu tập nào"
     },
     "Upload": {
         "createNew": "Tạo mới",
@@ -279,13 +283,15 @@
             "video": "Video",
             "audio": "Âm thanh",
             "image": "Hình ảnh",
-            "resource": "Tài nguyên"
+            "resource": "Tài nguyên",
+            "collection": "Bộ sưu tập"
         },
         "typeDescription": {
             "video": "Tải lên video để phát trực tuyến",
             "audio": "Chia sẻ bản nhạc hoặc podcast",
             "image": "Chia sẻ ảnh hoặc minh hoạ",
-            "resource": "Viết bài và/hoặc tải lên tệp đính kèm (PDF, ZIP, v.v.)"
+            "resource": "Viết bài và/hoặc tải lên tệp đính kèm (PDF, ZIP, v.v.)",
+            "collection": "Gộp nội dung của bạn thành một bộ sưu tập được tuyển chọn"
         },
         "pageTitle": "Tải lên {type}",
         "form": {
@@ -346,8 +352,8 @@
             "submitting": "Đang gửi...",
             "saveDraft": "Lưu bản nháp",
             "cancel": "Hủy",
-            "goToStudio": "Go to Creator Studio",
-            "uploadAnother": "Upload Another"
+            "goToStudio": "Đi đến Xưởng sáng tạo",
+            "uploadAnother": "Tải lên cái khác"
         },
         "status": {
             "draft": "Bản nháp",
@@ -356,7 +362,8 @@
             "published": "Đã xuất bản",
             "rejected": "Bị từ chối",
             "suspended": "Bị đình chỉ",
-            "unlisted": "Không công khai"
+            "unlisted": "Không công khai",
+            "archived": "Đã lưu trữ"
         },
         "progress": {
             "initializingUpload": "Đang khởi tạo tải lên...",
@@ -364,7 +371,7 @@
             "finalizingUpload": "Đang hoàn tất tải lên...",
             "uploadComplete": "Tải lên hoàn tất!",
             "creatingEntry": "Đang tạo bài viết...",
-            "submittingForReview": "Submitting for review..."
+            "submittingForReview": "Đang gửi để xét duyệt..."
         },
         "errors": {
             "uploadFailed": "Tải lên thất bại. Vui lòng thử lại.",
@@ -377,9 +384,9 @@
             "entryCreated": "Bài viết đã được tạo dưới dạng bản nháp",
             "uploadComplete": "Tệp đã được tải lên thành công",
             "submittedForReview": "Đã gửi để xét duyệt thành công",
-            "title": "Upload Complete!",
-            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
-            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
+            "title": "Tải lên hoàn tất!",
+            "draftMessage": "{type} của bạn đã được lưu dưới dạng bản nháp. Bạn có thể chỉnh sửa hoặc gửi bất cứ lúc nào từ Xưởng sáng tạo.",
+            "reviewMessage": "{type} của bạn đã được gửi để xét duyệt. Bạn sẽ được thông báo khi được phê duyệt."
         }
     },
     "Preview": {
@@ -477,77 +484,95 @@
         "since": "Từ {date}"
     },
     "CreatorStudio": {
-        "title": "Creator Studio",
-        "subtitle": "Manage your content and track performance",
-        "createNew": "Create",
-        "loading": "Loading your content...",
-        "errorTitle": "Error",
-        "errorDescription": "Failed to load your content. Please try again.",
-        "empty": "No content yet",
-        "emptyDescription": "Start creating and sharing your work with the world.",
-        "uploadFirst": "Upload your first content",
-        "noResults": "No matching content",
-        "noResultsDescription": "Try adjusting your filters or search terms.",
-        "searchPlaceholder": "Search your content...",
-        "filterStatus": "Status",
-        "filterType": "Type",
-        "sortBy": "Sort by",
-        "allStatuses": "All statuses",
-        "allTypes": "All types",
-        "free": "Free",
-        "showingEntries": "Showing {count} of {total} entries",
+        "title": "Xưởng sáng tạo",
+        "subtitle": "Quản lý nội dung và theo dõi hiệu suất",
+        "createNew": "Tạo mới",
+        "loading": "Đang tải nội dung của bạn...",
+        "errorTitle": "Lỗi",
+        "errorDescription": "Không thể tải nội dung của bạn. Vui lòng thử lại.",
+        "empty": "Chưa có nội dung",
+        "emptyDescription": "Bắt đầu sáng tạo và chia sẻ tác phẩm của bạn với thế giới.",
+        "uploadFirst": "Tải lên nội dung đầu tiên",
+        "noResults": "Không có nội dung phù hợp",
+        "noResultsDescription": "Hãy thử điều chỉnh bộ lọc hoặc từ khóa tìm kiếm.",
+        "searchPlaceholder": "Tìm kiếm nội dung của bạn...",
+        "filterStatus": "Trạng thái",
+        "filterType": "Loại",
+        "sortBy": "Sắp xếp theo",
+        "allStatuses": "Tất cả trạng thái",
+        "allTypes": "Tất cả loại",
+        "free": "Miễn phí",
+        "showingEntries": "Hiển thị {count} trên {total} bài viết",
         "stats": {
-            "total": "Total",
-            "published": "Published",
-            "drafts": "Drafts",
-            "inReview": "In Review",
-            "views": "Views",
+            "total": "Tổng",
+            "published": "Đã xuất bản",
+            "drafts": "Bản nháp",
+            "inReview": "Đang xét duyệt",
+            "views": "Lượt xem",
             "sales": "Doanh số",
             "subscribers": "Người đăng ký",
             "viewDetails": "Xem chi tiết"
         },
         "tabs": {
-            "active": "Active",
-            "archived": "Archived"
+            "active": "Đang hoạt động",
+            "archived": "Đã lưu trữ",
+            "collections": "Bộ sưu tập"
         },
         "sort": {
-            "newest": "Newest first",
-            "oldest": "Oldest first",
-            "titleAZ": "Title A → Z",
-            "titleZA": "Title Z → A"
+            "newest": "Mới nhất trước",
+            "oldest": "Cũ nhất trước",
+            "titleAZ": "Tiêu đề A → Z",
+            "titleZA": "Tiêu đề Z → A"
         },
         "table": {
-            "content": "Content",
-            "status": "Status",
-            "type": "Type",
-            "date": "Date",
-            "price": "Price",
-            "actions": "Actions"
+            "content": "Nội dung",
+            "status": "Trạng thái",
+            "type": "Loại",
+            "date": "Ngày",
+            "price": "Giá",
+            "actions": "Hành động"
         },
         "actions": {
-            "view": "View",
-            "edit": "Edit",
-            "archive": "Archive",
-            "unarchive": "Unarchive",
-            "submitReview": "Submit for review"
+            "view": "Xem",
+            "edit": "Sửa",
+            "archive": "Lưu trữ",
+            "unarchive": "Bỏ lưu trữ",
+            "submitReview": "Gửi để xét duyệt"
         },
-        "editEntry": "Edit entry",
-        "editSuccess": "Entry updated successfully",
-        "editError": "Failed to update entry. Please try again.",
+        "editEntry": "Sửa bài viết",
+        "editSuccess": "Cập nhật bài viết thành công",
+        "editError": "Không thể cập nhật bài viết. Vui lòng thử lại.",
         "archiveConfirm": {
-            "title": "Archive entry?",
-            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+            "title": "Lưu trữ bài viết?",
+            "message": "Bạn có chắc chắn muốn lưu trữ \"{title}\" không? Nó sẽ bị ẩn khỏi danh mục công khai nhưng người mua hiện tại vẫn có thể truy cập."
         },
-        "archiveSuccess": "Entry archived successfully",
-        "archiveError": "Failed to archive entry. Please try again.",
-        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "archiveSuccess": "Lưu trữ bài viết thành công",
+        "archiveError": "Không thể lưu trữ bài viết. Vui lòng thử lại.",
+        "unarchiveSuccess": "Bài viết đã được bỏ lưu trữ và khôi phục trạng thái trước đó",
+        "unarchiveError": "Không thể bỏ lưu trữ bài viết. Vui lòng thử lại.",
         "transcoding": {
             "pending": "Chuyển mã đang chờ",
             "dispatched": "Chuyển mã đang bắt đầu",
             "processing": "Đang chuyển mã…",
             "failed": "Chuyển mã thất bại",
             "dead": "Chuyển mã thất bại"
+        },
+        "collections": {
+            "empty": "Chưa có bộ sưu tập nào",
+            "emptyDescription": "Tạo bộ sưu tập để gộp và bán nội dung cùng nhau.",
+            "create": "Tạo bộ sưu tập",
+            "items": "Mục",
+            "publish": "Xuất bản",
+            "delete": "Xóa",
+            "showing": "Hiển thị {count} trên {total} bộ sưu tập",
+            "publishSuccess": "Bộ sưu tập đã được xuất bản thành công",
+            "publishError": "Không thể xuất bản bộ sưu tập",
+            "deleteSuccess": "Bộ sưu tập đã được xóa thành công",
+            "deleteError": "Không thể xóa bộ sưu tập",
+            "deleteConfirm": {
+                "title": "Xóa bộ sưu tập?",
+                "message": "Bạn có chắc chắn muốn xóa \"{title}\" không? Hành động này không thể hoàn tác."
+            }
         }
     },
     "SalesHistory": {
@@ -568,6 +593,78 @@
             "SELLER": "Người bán",
             "PLATFORM": "Nền tảng",
             "COLLABORATOR": "Cộng tác viên"
+        }
+    },
+    "CreateCollection": {
+        "pageTitle": "Tạo bộ sưu tập",
+        "pageSubtitle": "Gộp nội dung của bạn thành một bộ sưu tập cho khán giả",
+        "steps": {
+            "details": "Chi tiết",
+            "items": "Mục",
+            "cover": "Ảnh bìa"
+        },
+        "details": {
+            "heading": "Chi tiết bộ sưu tập",
+            "title": "Tiêu đề",
+            "titlePlaceholder": "Nhập tiêu đề cho bộ sưu tập",
+            "description": "Mô tả",
+            "descriptionPlaceholder": "Mô tả chủ đề của bộ sưu tập này",
+            "type": "Loại bộ sưu tập",
+            "isPaid": "Bộ sưu tập trả phí",
+            "isPaidHint": "Người mua cần mua bộ sưu tập để truy cập tất cả các mục",
+            "priceXlm": "Giá (XLM)",
+            "priceUsd": "Giá (USD)",
+            "pricePlaceholder": "Nhập giá"
+        },
+        "items": {
+            "heading": "Mục",
+            "count": "Đã chọn {count} mục",
+            "searchPlaceholder": "Tìm kiếm bài viết đã xuất bản...",
+            "noEntries": "Không tìm thấy bài viết đã xuất bản. Hãy tải nội dung lên trước.",
+            "loadError": "Không thể tải bài viết",
+            "selectedHeading": "Các mục đã chọn (kéo để sắp xếp lại)"
+        },
+        "cover": {
+            "heading": "Ảnh bìa",
+            "hint": "Tải lên ảnh bìa cho bộ sưu tập (tùy chọn). Khuyến nghị: tỷ lệ 16:9.",
+            "fileLabel": "Chọn ảnh bìa"
+        },
+        "summary": {
+            "heading": "Tóm tắt",
+            "free": "Miễn phí"
+        },
+        "actions": {
+            "saveDraft": "Lưu bản nháp",
+            "publish": "Tạo và xuất bản"
+        },
+        "progress": {
+            "creating": "Đang tạo bộ sưu tập...",
+            "addingItems": "Đang thêm mục...",
+            "uploadingCover": "Đang tải ảnh bìa lên...",
+            "publishing": "Đang xuất bản..."
+        },
+        "success": {
+            "title": "Đã tạo bộ sưu tập!",
+            "draftMessage": "Bộ sưu tập đã được lưu dưới dạng bản nháp.",
+            "publishedMessage": "Bộ sưu tập của bạn đã được xuất bản và hiển thị với mọi người.",
+            "viewCollection": "Xem bộ sưu tập",
+            "goToStudio": "Đi đến Xưởng sáng tạo",
+            "createAnother": "Tạo thêm"
+        },
+        "status": {
+            "draft": "Bản nháp",
+            "published": "Đã xuất bản"
+        },
+        "validation": {
+            "titleRequired": "Tiêu đề là bắt buộc",
+            "titleMaxLength": "Tiêu đề tối đa 200 ký tự",
+            "descriptionMaxLength": "Mô tả tối đa 2000 ký tự",
+            "typeRequired": "Loại bộ sưu tập là bắt buộc",
+            "priceRequired": "Giá là bắt buộc cho bộ sưu tập trả phí",
+            "pricePositive": "Giá phải lớn hơn 0"
+        },
+        "errors": {
+            "createFailed": "Không thể tạo bộ sưu tập. Vui lòng thử lại."
         }
     }
 }

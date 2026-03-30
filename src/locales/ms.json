@@ -93,7 +93,8 @@
         "addedToFavorites": "Ditambah ke kegemaran",
         "removedFromFavorites": "Dialih keluar daripada kegemaran",
         "linkCopied": "Pautan disalin ke papan keratan",
-        "tooManyRequests": "Terlalu banyak permintaan. Sila tunggu sebentar dan cuba lagi."
+        "tooManyRequests": "Terlalu banyak permintaan. Sila tunggu sebentar dan cuba lagi.",
+        "cancel": "Batal"
     },
     "Themes": {
         "title": "Pemilih Tema EarnLumens",
@@ -202,7 +203,9 @@
         "viewPublicProfile": "Profil Awam Saya",
         "viewPublicProfileHint": "Lihat bagaimana orang lain melihat profil anda",
         "termsAndConditions": "Terma dan Syarat",
-        "termsAndConditionsHint": "Semak terma perkhidmatan dan dasar privasi kami"
+        "termsAndConditionsHint": "Semak terma perkhidmatan dan dasar privasi kami",
+        "contentGuidelines": "Garis Panduan Kandungan",
+        "contentGuidelinesHint": "Peraturan untuk menerbitkan kandungan pendidikan kewangan"
     },
     "AppBar": {
         "home": "Laman Utama",
@@ -270,7 +273,8 @@
         "noEntriesFiltered": "Belum ada entri {type}",
         "noResources": "Belum ada sumber",
         "subscribers": "Pelanggan",
-        "subscribe": "Langgan"
+        "subscribe": "Langgan",
+        "noCollections": "Belum ada koleksi"
     },
     "Upload": {
         "createNew": "Cipta baharu",
@@ -279,13 +283,15 @@
             "video": "Video",
             "audio": "Audio",
             "image": "Imej",
-            "resource": "Sumber"
+            "resource": "Sumber",
+            "collection": "Koleksi"
         },
         "typeDescription": {
             "video": "Muat naik video untuk penstriman",
             "audio": "Kongsi trek muzik atau podcast",
             "image": "Kongsi foto atau ilustrasi",
-            "resource": "Tulis artikel dan/atau muat naik lampiran (PDF, ZIP, dll.)"
+            "resource": "Tulis artikel dan/atau muat naik lampiran (PDF, ZIP, dll.)",
+            "collection": "Himpunkan kandungan anda dalam koleksi yang dikurasi"
         },
         "pageTitle": "Muat naik {type}",
         "form": {
@@ -346,8 +352,8 @@
             "submitting": "Sedang menghantar...",
             "saveDraft": "Simpan draf",
             "cancel": "Batal",
-            "goToStudio": "Go to Creator Studio",
-            "uploadAnother": "Upload Another"
+            "goToStudio": "Pergi ke Studio Pencipta",
+            "uploadAnother": "Muat Naik Lagi"
         },
         "status": {
             "draft": "Draf",
@@ -356,7 +362,8 @@
             "published": "Diterbitkan",
             "rejected": "Ditolak",
             "suspended": "Digantung",
-            "unlisted": "Tidak tersenarai"
+            "unlisted": "Tidak tersenarai",
+            "archived": "Diarkibkan"
         },
         "progress": {
             "initializingUpload": "Memulakan muat naik...",
@@ -364,7 +371,7 @@
             "finalizingUpload": "Menyelesaikan muat naik...",
             "uploadComplete": "Muat naik selesai!",
             "creatingEntry": "Mencipta entri...",
-            "submittingForReview": "Submitting for review..."
+            "submittingForReview": "Sedang menghantar untuk semakan..."
         },
         "errors": {
             "uploadFailed": "Muat naik gagal. Sila cuba lagi.",
@@ -377,9 +384,9 @@
             "entryCreated": "Entri dicipta sebagai draf",
             "uploadComplete": "Fail berjaya dimuat naik",
             "submittedForReview": "Berjaya dihantar untuk semakan",
-            "title": "Upload Complete!",
-            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
-            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
+            "title": "Muat Naik Selesai!",
+            "draftMessage": "{type} anda telah disimpan sebagai draf. Anda boleh mengedit atau menghantarnya bila-bila masa dari Studio Pencipta.",
+            "reviewMessage": "{type} anda telah dihantar untuk semakan. Anda akan dimaklumkan setelah ia diluluskan."
         }
     },
     "Preview": {
@@ -477,77 +484,95 @@
         "since": "Sejak {date}"
     },
     "CreatorStudio": {
-        "title": "Creator Studio",
-        "subtitle": "Manage your content and track performance",
-        "createNew": "Create",
-        "loading": "Loading your content...",
-        "errorTitle": "Error",
-        "errorDescription": "Failed to load your content. Please try again.",
-        "empty": "No content yet",
-        "emptyDescription": "Start creating and sharing your work with the world.",
-        "uploadFirst": "Upload your first content",
-        "noResults": "No matching content",
-        "noResultsDescription": "Try adjusting your filters or search terms.",
-        "searchPlaceholder": "Search your content...",
+        "title": "Studio Pencipta",
+        "subtitle": "Urus kandungan anda dan jejak prestasi",
+        "createNew": "Cipta",
+        "loading": "Memuatkan kandungan anda...",
+        "errorTitle": "Ralat",
+        "errorDescription": "Gagal memuatkan kandungan anda. Sila cuba lagi.",
+        "empty": "Belum ada kandungan",
+        "emptyDescription": "Mulakan mencipta dan berkongsi karya anda dengan dunia.",
+        "uploadFirst": "Muat naik kandungan pertama anda",
+        "noResults": "Tiada kandungan sepadan",
+        "noResultsDescription": "Cuba laraskan penapis atau istilah carian anda.",
+        "searchPlaceholder": "Cari kandungan anda...",
         "filterStatus": "Status",
-        "filterType": "Type",
-        "sortBy": "Sort by",
-        "allStatuses": "All statuses",
-        "allTypes": "All types",
-        "free": "Free",
-        "showingEntries": "Showing {count} of {total} entries",
+        "filterType": "Jenis",
+        "sortBy": "Isih mengikut",
+        "allStatuses": "Semua status",
+        "allTypes": "Semua jenis",
+        "free": "Percuma",
+        "showingEntries": "Menunjukkan {count} daripada {total} entri",
         "stats": {
-            "total": "Total",
-            "published": "Published",
-            "drafts": "Drafts",
-            "inReview": "In Review",
-            "views": "Views",
+            "total": "Jumlah",
+            "published": "Diterbitkan",
+            "drafts": "Draf",
+            "inReview": "Dalam Semakan",
+            "views": "Tontonan",
             "sales": "Jualan",
             "subscribers": "Pelanggan",
             "viewDetails": "Lihat butiran"
         },
         "tabs": {
-            "active": "Active",
-            "archived": "Archived"
+            "active": "Aktif",
+            "archived": "Diarkibkan",
+            "collections": "Koleksi"
         },
         "sort": {
-            "newest": "Newest first",
-            "oldest": "Oldest first",
-            "titleAZ": "Title A → Z",
-            "titleZA": "Title Z → A"
+            "newest": "Terbaharu dahulu",
+            "oldest": "Terlama dahulu",
+            "titleAZ": "Tajuk A → Z",
+            "titleZA": "Tajuk Z → A"
         },
         "table": {
-            "content": "Content",
+            "content": "Kandungan",
             "status": "Status",
-            "type": "Type",
-            "date": "Date",
-            "price": "Price",
-            "actions": "Actions"
+            "type": "Jenis",
+            "date": "Tarikh",
+            "price": "Harga",
+            "actions": "Tindakan"
         },
         "actions": {
-            "view": "View",
-            "edit": "Edit",
-            "archive": "Archive",
-            "unarchive": "Unarchive",
-            "submitReview": "Submit for review"
+            "view": "Lihat",
+            "edit": "Sunting",
+            "archive": "Arkib",
+            "unarchive": "Nyaharkib",
+            "submitReview": "Hantar untuk semakan"
         },
-        "editEntry": "Edit entry",
-        "editSuccess": "Entry updated successfully",
-        "editError": "Failed to update entry. Please try again.",
+        "editEntry": "Sunting entri",
+        "editSuccess": "Entri berjaya dikemas kini",
+        "editError": "Gagal mengemas kini entri. Sila cuba lagi.",
         "archiveConfirm": {
-            "title": "Archive entry?",
-            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+            "title": "Arkibkan entri?",
+            "message": "Adakah anda pasti mahu mengarkibkan \"{title}\"? Ia akan disembunyikan daripada katalog awam tetapi pembeli sedia ada akan mengekalkan akses."
         },
-        "archiveSuccess": "Entry archived successfully",
-        "archiveError": "Failed to archive entry. Please try again.",
-        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "archiveSuccess": "Entri berjaya diarkibkan",
+        "archiveError": "Gagal mengarkibkan entri. Sila cuba lagi.",
+        "unarchiveSuccess": "Entri dinyaharkib dan dipulihkan ke status sebelumnya",
+        "unarchiveError": "Gagal menyaharkib entri. Sila cuba lagi.",
         "transcoding": {
             "pending": "Pengekodan beratur",
             "dispatched": "Pengekodan bermula",
             "processing": "Mengekod…",
             "failed": "Pengekodan gagal",
             "dead": "Pengekodan gagal"
+        },
+        "collections": {
+            "empty": "Belum ada koleksi",
+            "emptyDescription": "Cipta koleksi untuk menghimpun dan menjual kandungan anda bersama.",
+            "create": "Cipta koleksi",
+            "items": "Item",
+            "publish": "Terbitkan",
+            "delete": "Padam",
+            "showing": "Menunjukkan {count} daripada {total} koleksi",
+            "publishSuccess": "Koleksi berjaya diterbitkan",
+            "publishError": "Gagal menerbitkan koleksi",
+            "deleteSuccess": "Koleksi berjaya dipadam",
+            "deleteError": "Gagal memadam koleksi",
+            "deleteConfirm": {
+                "title": "Padam koleksi?",
+                "message": "Adakah anda pasti mahu memadam \"{title}\"? Tindakan ini tidak boleh dibuat asal."
+            }
         }
     },
     "SalesHistory": {
@@ -568,6 +593,78 @@
             "SELLER": "Penjual",
             "PLATFORM": "Platform",
             "COLLABORATOR": "Kolaborator"
+        }
+    },
+    "CreateCollection": {
+        "pageTitle": "Cipta Koleksi",
+        "pageSubtitle": "Himpunkan kandungan anda dalam koleksi untuk audiens anda",
+        "steps": {
+            "details": "Butiran",
+            "items": "Item",
+            "cover": "Muka Depan"
+        },
+        "details": {
+            "heading": "Butiran Koleksi",
+            "title": "Tajuk",
+            "titlePlaceholder": "Masukkan tajuk untuk koleksi anda",
+            "description": "Penerangan",
+            "descriptionPlaceholder": "Terangkan tentang koleksi ini",
+            "type": "Jenis Koleksi",
+            "isPaid": "Koleksi berbayar",
+            "isPaidHint": "Pembeli perlu membeli koleksi untuk mengakses semua item",
+            "priceXlm": "Harga (XLM)",
+            "priceUsd": "Harga (USD)",
+            "pricePlaceholder": "Masukkan harga"
+        },
+        "items": {
+            "heading": "Item",
+            "count": "{count} item dipilih",
+            "searchPlaceholder": "Cari entri yang diterbitkan...",
+            "noEntries": "Tiada entri yang diterbitkan ditemui. Muat naik kandungan terlebih dahulu.",
+            "loadError": "Gagal memuatkan entri",
+            "selectedHeading": "Item Dipilih (seret untuk menyusun semula)"
+        },
+        "cover": {
+            "heading": "Imej Muka Depan",
+            "hint": "Muat naik imej muka depan untuk koleksi anda (pilihan). Disyorkan: nisbah aspek 16:9.",
+            "fileLabel": "Pilih imej muka depan"
+        },
+        "summary": {
+            "heading": "Ringkasan",
+            "free": "Percuma"
+        },
+        "actions": {
+            "saveDraft": "Simpan sebagai Draf",
+            "publish": "Cipta & Terbitkan"
+        },
+        "progress": {
+            "creating": "Mencipta koleksi...",
+            "addingItems": "Menambah item...",
+            "uploadingCover": "Memuat naik imej muka depan...",
+            "publishing": "Menerbitkan..."
+        },
+        "success": {
+            "title": "Koleksi Dicipta!",
+            "draftMessage": "Koleksi anda telah disimpan sebagai draf.",
+            "publishedMessage": "Koleksi anda kini dalam talian dan boleh dilihat oleh semua orang.",
+            "viewCollection": "Lihat Koleksi",
+            "goToStudio": "Pergi ke Studio Pencipta",
+            "createAnother": "Cipta Satu Lagi"
+        },
+        "status": {
+            "draft": "Draf",
+            "published": "Diterbitkan"
+        },
+        "validation": {
+            "titleRequired": "Tajuk diperlukan",
+            "titleMaxLength": "Tajuk mestilah 200 aksara atau kurang",
+            "descriptionMaxLength": "Penerangan mestilah 2000 aksara atau kurang",
+            "typeRequired": "Jenis koleksi diperlukan",
+            "priceRequired": "Harga diperlukan untuk koleksi berbayar",
+            "pricePositive": "Harga mestilah lebih daripada 0"
+        },
+        "errors": {
+            "createFailed": "Gagal mencipta koleksi. Sila cuba lagi."
         }
     }
 }

@@ -93,7 +93,8 @@
         "addedToFavorites": "Aggiunto ai preferiti",
         "removedFromFavorites": "Rimosso dai preferiti",
         "linkCopied": "Link copiato negli appunti",
-        "tooManyRequests": "Troppe richieste. Attendi un momento e riprova."
+        "tooManyRequests": "Troppe richieste. Attendi un momento e riprova.",
+        "cancel": "Annulla"
     },
     "Themes": {
         "title": "Selettore temi EarnLumens",
@@ -202,7 +203,9 @@
         "viewPublicProfile": "Il mio profilo pubblico",
         "viewPublicProfileHint": "Vedi come gli altri vedono il tuo profilo",
         "termsAndConditions": "Termini e condizioni",
-        "termsAndConditionsHint": "Consulta i nostri termini di servizio e l'informativa sulla privacy"
+        "termsAndConditionsHint": "Consulta i nostri termini di servizio e l'informativa sulla privacy",
+        "contentGuidelines": "Linee guida sui contenuti",
+        "contentGuidelinesHint": "Regole per la pubblicazione di contenuti di educazione finanziaria"
     },
     "AppBar": {
         "home": "Home",
@@ -270,7 +273,8 @@
         "noEntriesFiltered": "Nessuna voce {type} ancora",
         "noResources": "Nessuna risorsa ancora",
         "subscribers": "Iscritti",
-        "subscribe": "Iscriviti"
+        "subscribe": "Iscriviti",
+        "noCollections": "Nessuna raccolta ancora"
     },
     "Upload": {
         "createNew": "Crea nuovo",
@@ -279,13 +283,15 @@
             "video": "Video",
             "audio": "Audio",
             "image": "Immagine",
-            "resource": "Risorsa"
+            "resource": "Risorsa",
+            "collection": "Raccolta"
         },
         "typeDescription": {
             "video": "Carica un video per lo streaming",
             "audio": "Condividi un brano musicale o un podcast",
             "image": "Condividi una foto o un'illustrazione",
-            "resource": "Scrivi un articolo e/o carica allegati (PDF, ZIP, ecc.)"
+            "resource": "Scrivi un articolo e/o carica allegati (PDF, ZIP, ecc.)",
+            "collection": "Raggruppa i tuoi contenuti in una raccolta curata"
         },
         "pageTitle": "Carica {type}",
         "form": {
@@ -346,8 +352,8 @@
             "submitting": "Invio in corso...",
             "saveDraft": "Salva bozza",
             "cancel": "Annulla",
-            "goToStudio": "Go to Creator Studio",
-            "uploadAnother": "Upload Another"
+            "goToStudio": "Vai al Creator Studio",
+            "uploadAnother": "Carica un altro"
         },
         "status": {
             "draft": "Bozza",
@@ -356,7 +362,8 @@
             "published": "Pubblicato",
             "rejected": "Rifiutato",
             "suspended": "Sospeso",
-            "unlisted": "Non elencato"
+            "unlisted": "Non elencato",
+            "archived": "Archiviato"
         },
         "progress": {
             "initializingUpload": "Inizializzazione caricamento...",
@@ -364,7 +371,7 @@
             "finalizingUpload": "Finalizzazione caricamento...",
             "uploadComplete": "Caricamento completato!",
             "creatingEntry": "Creazione voce...",
-            "submittingForReview": "Submitting for review..."
+            "submittingForReview": "Invio per revisione..."
         },
         "errors": {
             "uploadFailed": "Caricamento non riuscito. Riprova.",
@@ -377,9 +384,9 @@
             "entryCreated": "Voce creata come bozza",
             "uploadComplete": "File caricato correttamente",
             "submittedForReview": "Inviato per revisione correttamente",
-            "title": "Upload Complete!",
-            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
-            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
+            "title": "Caricamento completato!",
+            "draftMessage": "Il tuo {type} è stato salvato come bozza. Puoi modificarlo o inviarlo in qualsiasi momento dal Creator Studio.",
+            "reviewMessage": "Il tuo {type} è stato inviato per revisione. Riceverai una notifica quando sarà approvato."
         }
     },
     "Preview": {
@@ -478,76 +485,94 @@
     },
     "CreatorStudio": {
         "title": "Creator Studio",
-        "subtitle": "Manage your content and track performance",
-        "createNew": "Create",
-        "loading": "Loading your content...",
-        "errorTitle": "Error",
-        "errorDescription": "Failed to load your content. Please try again.",
-        "empty": "No content yet",
-        "emptyDescription": "Start creating and sharing your work with the world.",
-        "uploadFirst": "Upload your first content",
-        "noResults": "No matching content",
-        "noResultsDescription": "Try adjusting your filters or search terms.",
-        "searchPlaceholder": "Search your content...",
-        "filterStatus": "Status",
-        "filterType": "Type",
-        "sortBy": "Sort by",
-        "allStatuses": "All statuses",
-        "allTypes": "All types",
-        "free": "Free",
-        "showingEntries": "Showing {count} of {total} entries",
+        "subtitle": "Gestisci i tuoi contenuti e monitora le prestazioni",
+        "createNew": "Crea",
+        "loading": "Caricamento dei tuoi contenuti...",
+        "errorTitle": "Errore",
+        "errorDescription": "Impossibile caricare i tuoi contenuti. Riprova.",
+        "empty": "Ancora nessun contenuto",
+        "emptyDescription": "Inizia a creare e condividere il tuo lavoro con il mondo.",
+        "uploadFirst": "Carica il tuo primo contenuto",
+        "noResults": "Nessun contenuto corrispondente",
+        "noResultsDescription": "Prova a modificare i filtri o i termini di ricerca.",
+        "searchPlaceholder": "Cerca nei tuoi contenuti...",
+        "filterStatus": "Stato",
+        "filterType": "Tipo",
+        "sortBy": "Ordina per",
+        "allStatuses": "Tutti gli stati",
+        "allTypes": "Tutti i tipi",
+        "free": "Gratuito",
+        "showingEntries": "Visualizzazione di {count} su {total} voci",
         "stats": {
-            "total": "Total",
-            "published": "Published",
-            "drafts": "Drafts",
-            "inReview": "In Review",
-            "views": "Views",
+            "total": "Totale",
+            "published": "Pubblicati",
+            "drafts": "Bozze",
+            "inReview": "In revisione",
+            "views": "Visualizzazioni",
             "sales": "Vendite",
             "subscribers": "Iscritti",
             "viewDetails": "Vedi dettagli"
         },
         "tabs": {
-            "active": "Active",
-            "archived": "Archived"
+            "active": "Attivi",
+            "archived": "Archiviati",
+            "collections": "Raccolte"
         },
         "sort": {
-            "newest": "Newest first",
-            "oldest": "Oldest first",
-            "titleAZ": "Title A → Z",
-            "titleZA": "Title Z → A"
+            "newest": "Più recenti",
+            "oldest": "Più vecchi",
+            "titleAZ": "Titolo A → Z",
+            "titleZA": "Titolo Z → A"
         },
         "table": {
-            "content": "Content",
-            "status": "Status",
-            "type": "Type",
-            "date": "Date",
-            "price": "Price",
-            "actions": "Actions"
+            "content": "Contenuto",
+            "status": "Stato",
+            "type": "Tipo",
+            "date": "Data",
+            "price": "Prezzo",
+            "actions": "Azioni"
         },
         "actions": {
-            "view": "View",
-            "edit": "Edit",
-            "archive": "Archive",
-            "unarchive": "Unarchive",
-            "submitReview": "Submit for review"
+            "view": "Visualizza",
+            "edit": "Modifica",
+            "archive": "Archivia",
+            "unarchive": "Ripristina",
+            "submitReview": "Invia per revisione"
         },
-        "editEntry": "Edit entry",
-        "editSuccess": "Entry updated successfully",
-        "editError": "Failed to update entry. Please try again.",
+        "editEntry": "Modifica voce",
+        "editSuccess": "Voce aggiornata con successo",
+        "editError": "Impossibile aggiornare la voce. Riprova.",
         "archiveConfirm": {
-            "title": "Archive entry?",
-            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+            "title": "Archiviare la voce?",
+            "message": "Sei sicuro di voler archiviare \"{title}\"? Sarà nascosta dal catalogo pubblico ma gli acquirenti esistenti manterranno l'accesso."
         },
-        "archiveSuccess": "Entry archived successfully",
-        "archiveError": "Failed to archive entry. Please try again.",
-        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "archiveSuccess": "Voce archiviata con successo",
+        "archiveError": "Impossibile archiviare la voce. Riprova.",
+        "unarchiveSuccess": "Voce ripristinata al suo stato precedente",
+        "unarchiveError": "Impossibile ripristinare la voce. Riprova.",
         "transcoding": {
             "pending": "Transcodifica in coda",
             "dispatched": "Transcodifica in avvio",
             "processing": "Transcodifica…",
             "failed": "Transcodifica fallita",
             "dead": "Transcodifica fallita"
+        },
+        "collections": {
+            "empty": "Nessuna raccolta ancora",
+            "emptyDescription": "Crea una raccolta per raggruppare e vendere i tuoi contenuti insieme.",
+            "create": "Crea raccolta",
+            "items": "Elementi",
+            "publish": "Pubblica",
+            "delete": "Elimina",
+            "showing": "Visualizzazione di {count} su {total} raccolte",
+            "publishSuccess": "Raccolta pubblicata con successo",
+            "publishError": "Impossibile pubblicare la raccolta",
+            "deleteSuccess": "Raccolta eliminata con successo",
+            "deleteError": "Impossibile eliminare la raccolta",
+            "deleteConfirm": {
+                "title": "Eliminare la raccolta?",
+                "message": "Sei sicuro di voler eliminare \"{title}\"? Questa azione non può essere annullata."
+            }
         }
     },
     "SalesHistory": {
@@ -568,6 +593,78 @@
             "SELLER": "Venditore",
             "PLATFORM": "Piattaforma",
             "COLLABORATOR": "Collaboratore"
+        }
+    },
+    "CreateCollection": {
+        "pageTitle": "Crea raccolta",
+        "pageSubtitle": "Raggruppa i tuoi contenuti in una raccolta per il tuo pubblico",
+        "steps": {
+            "details": "Dettagli",
+            "items": "Elementi",
+            "cover": "Copertina"
+        },
+        "details": {
+            "heading": "Dettagli della raccolta",
+            "title": "Titolo",
+            "titlePlaceholder": "Inserisci un titolo per la tua raccolta",
+            "description": "Descrizione",
+            "descriptionPlaceholder": "Descrivi l'argomento di questa raccolta",
+            "type": "Tipo di raccolta",
+            "isPaid": "Raccolta a pagamento",
+            "isPaidHint": "Gli acquirenti dovranno acquistare la raccolta per accedere a tutti gli elementi",
+            "priceXlm": "Prezzo (XLM)",
+            "priceUsd": "Prezzo (USD)",
+            "pricePlaceholder": "Inserisci il prezzo"
+        },
+        "items": {
+            "heading": "Elementi",
+            "count": "{count} elementi selezionati",
+            "searchPlaceholder": "Cerca tra le tue pubblicazioni...",
+            "noEntries": "Nessuna pubblicazione trovata. Carica prima dei contenuti.",
+            "loadError": "Impossibile caricare le pubblicazioni",
+            "selectedHeading": "Elementi selezionati (trascina per riordinare)"
+        },
+        "cover": {
+            "heading": "Immagine di copertina",
+            "hint": "Carica un'immagine di copertina per la tua raccolta (facoltativo). Consigliato: formato 16:9.",
+            "fileLabel": "Scegli immagine di copertina"
+        },
+        "summary": {
+            "heading": "Riepilogo",
+            "free": "Gratuito"
+        },
+        "actions": {
+            "saveDraft": "Salva come bozza",
+            "publish": "Crea e pubblica"
+        },
+        "progress": {
+            "creating": "Creazione della raccolta...",
+            "addingItems": "Aggiunta degli elementi...",
+            "uploadingCover": "Caricamento dell'immagine di copertina...",
+            "publishing": "Pubblicazione in corso..."
+        },
+        "success": {
+            "title": "Raccolta creata!",
+            "draftMessage": "La tua raccolta è stata salvata come bozza.",
+            "publishedMessage": "La tua raccolta è ora online e visibile a tutti.",
+            "viewCollection": "Visualizza raccolta",
+            "goToStudio": "Vai al Creator Studio",
+            "createAnother": "Creane un'altra"
+        },
+        "status": {
+            "draft": "Bozza",
+            "published": "Pubblicato"
+        },
+        "validation": {
+            "titleRequired": "Il titolo è obbligatorio",
+            "titleMaxLength": "Il titolo deve contenere al massimo 200 caratteri",
+            "descriptionMaxLength": "La descrizione deve contenere al massimo 2000 caratteri",
+            "typeRequired": "Il tipo di raccolta è obbligatorio",
+            "priceRequired": "Il prezzo è obbligatorio per le raccolte a pagamento",
+            "pricePositive": "Il prezzo deve essere maggiore di 0"
+        },
+        "errors": {
+            "createFailed": "Impossibile creare la raccolta. Riprova."
         }
     }
 }

@@ -93,7 +93,8 @@
         "addedToFavorites": "즐겨찾기에 추가되었습니다",
         "removedFromFavorites": "즐겨찾기에서 제거되었습니다",
         "linkCopied": "링크가 클립보드에 복사되었습니다",
-        "tooManyRequests": "요청이 너무 많습니다. 잠시 후 다시 시도해 주세요."
+        "tooManyRequests": "요청이 너무 많습니다. 잠시 후 다시 시도해 주세요.",
+        "cancel": "취소"
     },
     "Themes": {
         "title": "EarnLumens 테마 선택기",
@@ -202,7 +203,9 @@
         "viewPublicProfile": "내 공개 프로필",
         "viewPublicProfileHint": "다른 사람들이 보는 내 프로필 확인",
         "termsAndConditions": "이용약관",
-        "termsAndConditionsHint": "서비스 이용약관 및 개인정보 처리방침 확인"
+        "termsAndConditionsHint": "서비스 이용약관 및 개인정보 처리방침 확인",
+        "contentGuidelines": "콘텐츠 가이드라인",
+        "contentGuidelinesHint": "금융 교육 콘텐츠 게시 규칙"
     },
     "AppBar": {
         "home": "홈",
@@ -270,7 +273,8 @@
         "noEntriesFiltered": "아직 {type} 엔트리가 없습니다",
         "noResources": "아직 리소스가 없습니다",
         "subscribers": "구독자",
-        "subscribe": "구독"
+        "subscribe": "구독",
+        "noCollections": "아직 컬렉션이 없습니다"
     },
     "Upload": {
         "createNew": "새로 만들기",
@@ -279,13 +283,15 @@
             "video": "비디오",
             "audio": "오디오",
             "image": "이미지",
-            "resource": "리소스"
+            "resource": "리소스",
+            "collection": "컬렉션"
         },
         "typeDescription": {
             "video": "스트리밍용 비디오를 업로드하세요",
             "audio": "음악 트랙 또는 팟캐스트를 공유하세요",
             "image": "사진 또는 일러스트를 공유하세요",
-            "resource": "글을 작성하거나 첨부 파일을 업로드하세요 (PDF, ZIP 등)"
+            "resource": "글을 작성하거나 첨부 파일을 업로드하세요 (PDF, ZIP 등)",
+            "collection": "콘텐츠를 큐레이션된 컬렉션으로 묶기"
         },
         "pageTitle": "{type} 업로드",
         "form": {
@@ -346,8 +352,8 @@
             "submitting": "제출 중...",
             "saveDraft": "초안 저장",
             "cancel": "취소",
-            "goToStudio": "Go to Creator Studio",
-            "uploadAnother": "Upload Another"
+            "goToStudio": "크리에이터 스튜디오로 이동",
+            "uploadAnother": "다른 파일 업로드"
         },
         "status": {
             "draft": "초안",
@@ -356,7 +362,8 @@
             "published": "게시됨",
             "rejected": "거절됨",
             "suspended": "정지됨",
-            "unlisted": "미등록"
+            "unlisted": "미등록",
+            "archived": "보관됨"
         },
         "progress": {
             "initializingUpload": "업로드 초기화 중...",
@@ -364,7 +371,7 @@
             "finalizingUpload": "업로드 마무리 중...",
             "uploadComplete": "업로드 완료!",
             "creatingEntry": "엔트리 생성 중...",
-            "submittingForReview": "Submitting for review..."
+            "submittingForReview": "검토 요청 제출 중..."
         },
         "errors": {
             "uploadFailed": "업로드에 실패했습니다. 다시 시도해주세요.",
@@ -377,9 +384,9 @@
             "entryCreated": "엔트리가 초안으로 생성되었습니다",
             "uploadComplete": "파일이 성공적으로 업로드되었습니다",
             "submittedForReview": "검토 요청이 성공적으로 제출되었습니다",
-            "title": "Upload Complete!",
-            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
-            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
+            "title": "업로드 완료!",
+            "draftMessage": "{type}이(가) 초안으로 저장되었습니다. 크리에이터 스튜디오에서 언제든지 수정하거나 제출할 수 있습니다.",
+            "reviewMessage": "{type}이(가) 검토를 위해 제출되었습니다. 승인되면 알림을 받게 됩니다."
         }
     },
     "Preview": {
@@ -477,77 +484,95 @@
         "since": "{date}부터"
     },
     "CreatorStudio": {
-        "title": "Creator Studio",
-        "subtitle": "Manage your content and track performance",
-        "createNew": "Create",
-        "loading": "Loading your content...",
-        "errorTitle": "Error",
-        "errorDescription": "Failed to load your content. Please try again.",
-        "empty": "No content yet",
-        "emptyDescription": "Start creating and sharing your work with the world.",
-        "uploadFirst": "Upload your first content",
-        "noResults": "No matching content",
-        "noResultsDescription": "Try adjusting your filters or search terms.",
-        "searchPlaceholder": "Search your content...",
-        "filterStatus": "Status",
-        "filterType": "Type",
-        "sortBy": "Sort by",
-        "allStatuses": "All statuses",
-        "allTypes": "All types",
-        "free": "Free",
-        "showingEntries": "Showing {count} of {total} entries",
+        "title": "크리에이터 스튜디오",
+        "subtitle": "콘텐츠를 관리하고 성과를 추적하세요",
+        "createNew": "만들기",
+        "loading": "콘텐츠를 불러오는 중...",
+        "errorTitle": "오류",
+        "errorDescription": "콘텐츠를 불러오지 못했습니다. 다시 시도해주세요.",
+        "empty": "아직 콘텐츠가 없습니다",
+        "emptyDescription": "창작물을 만들고 세상과 공유해 보세요.",
+        "uploadFirst": "첫 번째 콘텐츠를 업로드하세요",
+        "noResults": "일치하는 콘텐츠가 없습니다",
+        "noResultsDescription": "필터나 검색어를 조정해 보세요.",
+        "searchPlaceholder": "콘텐츠 검색...",
+        "filterStatus": "상태",
+        "filterType": "유형",
+        "sortBy": "정렬 기준",
+        "allStatuses": "모든 상태",
+        "allTypes": "모든 유형",
+        "free": "무료",
+        "showingEntries": "{total}개 중 {count}개 표시",
         "stats": {
-            "total": "Total",
-            "published": "Published",
-            "drafts": "Drafts",
-            "inReview": "In Review",
-            "views": "Views",
+            "total": "전체",
+            "published": "게시됨",
+            "drafts": "초안",
+            "inReview": "검토 중",
+            "views": "조회수",
             "sales": "판매",
             "subscribers": "구독자",
             "viewDetails": "상세보기"
         },
         "tabs": {
-            "active": "Active",
-            "archived": "Archived"
+            "active": "활성",
+            "archived": "보관됨",
+            "collections": "컬렉션"
         },
         "sort": {
-            "newest": "Newest first",
-            "oldest": "Oldest first",
-            "titleAZ": "Title A → Z",
-            "titleZA": "Title Z → A"
+            "newest": "최신순",
+            "oldest": "오래된순",
+            "titleAZ": "제목 ㄱ → ㅎ",
+            "titleZA": "제목 ㅎ → ㄱ"
         },
         "table": {
-            "content": "Content",
-            "status": "Status",
-            "type": "Type",
-            "date": "Date",
-            "price": "Price",
-            "actions": "Actions"
+            "content": "콘텐츠",
+            "status": "상태",
+            "type": "유형",
+            "date": "날짜",
+            "price": "가격",
+            "actions": "작업"
         },
         "actions": {
-            "view": "View",
-            "edit": "Edit",
-            "archive": "Archive",
-            "unarchive": "Unarchive",
-            "submitReview": "Submit for review"
+            "view": "보기",
+            "edit": "수정",
+            "archive": "보관",
+            "unarchive": "보관 해제",
+            "submitReview": "검토 요청"
         },
-        "editEntry": "Edit entry",
-        "editSuccess": "Entry updated successfully",
-        "editError": "Failed to update entry. Please try again.",
+        "editEntry": "엔트리 수정",
+        "editSuccess": "엔트리가 성공적으로 업데이트되었습니다",
+        "editError": "엔트리를 업데이트하지 못했습니다. 다시 시도해주세요.",
         "archiveConfirm": {
-            "title": "Archive entry?",
-            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+            "title": "엔트리를 보관하시겠습니까?",
+            "message": "\"{title}\"을(를) 보관하시겠습니까? 공개 카탈로그에서 숨겨지지만 기존 구매자는 계속 접근할 수 있습니다."
         },
-        "archiveSuccess": "Entry archived successfully",
-        "archiveError": "Failed to archive entry. Please try again.",
-        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "archiveSuccess": "엔트리가 성공적으로 보관되었습니다",
+        "archiveError": "엔트리를 보관하지 못했습니다. 다시 시도해주세요.",
+        "unarchiveSuccess": "엔트리 보관이 해제되고 이전 상태로 복원되었습니다",
+        "unarchiveError": "엔트리 보관을 해제하지 못했습니다. 다시 시도해주세요.",
         "transcoding": {
             "pending": "트랜스코딩 대기 중",
             "dispatched": "트랜스코딩 시작 중",
             "processing": "트랜스코딩 중…",
             "failed": "트랜스코딩 실패",
             "dead": "트랜스코딩 실패"
+        },
+        "collections": {
+            "empty": "아직 컬렉션이 없습니다",
+            "emptyDescription": "콘텐츠를 묶어서 함께 판매할 컬렉션을 만들어 보세요.",
+            "create": "컬렉션 만들기",
+            "items": "항목",
+            "publish": "게시",
+            "delete": "삭제",
+            "showing": "{total}개 중 {count}개 컬렉션 표시",
+            "publishSuccess": "컬렉션이 성공적으로 게시되었습니다",
+            "publishError": "컬렉션 게시에 실패했습니다",
+            "deleteSuccess": "컬렉션이 성공적으로 삭제되었습니다",
+            "deleteError": "컬렉션 삭제에 실패했습니다",
+            "deleteConfirm": {
+                "title": "컬렉션을 삭제하시겠습니까?",
+                "message": "\"{title}\"을(를) 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다."
+            }
         }
     },
     "SalesHistory": {
@@ -568,6 +593,78 @@
             "SELLER": "판매자",
             "PLATFORM": "플랫폼",
             "COLLABORATOR": "협력자"
+        }
+    },
+    "CreateCollection": {
+        "pageTitle": "컬렉션 만들기",
+        "pageSubtitle": "콘텐츠를 컬렉션으로 묶어 오디언스에게 제공하세요",
+        "steps": {
+            "details": "세부 정보",
+            "items": "항목",
+            "cover": "커버"
+        },
+        "details": {
+            "heading": "컬렉션 세부 정보",
+            "title": "제목",
+            "titlePlaceholder": "컬렉션 제목을 입력하세요",
+            "description": "설명",
+            "descriptionPlaceholder": "이 컬렉션의 주제를 설명하세요",
+            "type": "컬렉션 유형",
+            "isPaid": "유료 컬렉션",
+            "isPaidHint": "구매자는 모든 항목에 접근하려면 컬렉션을 구매해야 합니다",
+            "priceXlm": "가격 (XLM)",
+            "priceUsd": "가격 (USD)",
+            "pricePlaceholder": "가격 입력"
+        },
+        "items": {
+            "heading": "항목",
+            "count": "{count}개 항목 선택됨",
+            "searchPlaceholder": "게시된 항목 검색...",
+            "noEntries": "게시된 항목이 없습니다. 먼저 콘텐츠를 업로드하세요.",
+            "loadError": "항목을 불러오지 못했습니다",
+            "selectedHeading": "선택된 항목 (드래그하여 순서 변경)"
+        },
+        "cover": {
+            "heading": "커버 이미지",
+            "hint": "컬렉션의 커버 이미지를 업로드하세요 (선택 사항). 권장: 16:9 비율.",
+            "fileLabel": "커버 이미지 선택"
+        },
+        "summary": {
+            "heading": "요약",
+            "free": "무료"
+        },
+        "actions": {
+            "saveDraft": "임시 저장",
+            "publish": "만들기 및 게시"
+        },
+        "progress": {
+            "creating": "컬렉션 생성 중...",
+            "addingItems": "항목 추가 중...",
+            "uploadingCover": "커버 이미지 업로드 중...",
+            "publishing": "게시 중..."
+        },
+        "success": {
+            "title": "컬렉션이 생성되었습니다!",
+            "draftMessage": "컬렉션이 임시 저장되었습니다.",
+            "publishedMessage": "컬렉션이 게시되어 모든 사람에게 공개됩니다.",
+            "viewCollection": "컬렉션 보기",
+            "goToStudio": "크리에이터 스튜디오로 이동",
+            "createAnother": "하나 더 만들기"
+        },
+        "status": {
+            "draft": "임시 저장",
+            "published": "게시됨"
+        },
+        "validation": {
+            "titleRequired": "제목은 필수입니다",
+            "titleMaxLength": "제목은 200자 이하여야 합니다",
+            "descriptionMaxLength": "설명은 2000자 이하여야 합니다",
+            "typeRequired": "컬렉션 유형은 필수입니다",
+            "priceRequired": "유료 컬렉션에는 가격이 필요합니다",
+            "pricePositive": "가격은 0보다 커야 합니다"
+        },
+        "errors": {
+            "createFailed": "컬렉션 생성에 실패했습니다. 다시 시도해 주세요."
         }
     }
 }

@@ -93,7 +93,8 @@
         "addedToFavorites": "お気に入りに追加しました",
         "removedFromFavorites": "お気に入りから削除しました",
         "linkCopied": "リンクをクリップボードにコピーしました",
-        "tooManyRequests": "リクエストが多すぎます。しばらくしてからもう一度お試しください。"
+        "tooManyRequests": "リクエストが多すぎます。しばらくしてからもう一度お試しください。",
+        "cancel": "キャンセル"
     },
     "Themes": {
         "title": "EarnLumens テーマセレクター",
@@ -202,7 +203,9 @@
         "viewPublicProfile": "公開プロフィール",
         "viewPublicProfileHint": "他の人からの見え方を確認",
         "termsAndConditions": "利用規約",
-        "termsAndConditionsHint": "利用規約とプライバシーポリシーを確認"
+        "termsAndConditionsHint": "利用規約とプライバシーポリシーを確認",
+        "contentGuidelines": "コンテンツガイドライン",
+        "contentGuidelinesHint": "金融教育コンテンツの公開に関するルール"
     },
     "AppBar": {
         "home": "ホームページ",
@@ -270,7 +273,8 @@
         "noEntriesFiltered": "まだ{type}のエントリーがありません",
         "noResources": "まだリソースがありません",
         "subscribers": "登録者",
-        "subscribe": "登録"
+        "subscribe": "登録",
+        "noCollections": "コレクションはまだありません"
     },
     "Upload": {
         "createNew": "新規作成",
@@ -279,13 +283,15 @@
             "video": "動画",
             "audio": "音声",
             "image": "画像",
-            "resource": "リソース"
+            "resource": "リソース",
+            "collection": "コレクション"
         },
         "typeDescription": {
             "video": "ストリーミング用の動画をアップロード",
             "audio": "音楽トラックやポッドキャストを共有",
             "image": "写真やイラストを共有",
-            "resource": "記事を書く、またはファイルを添付（PDF、ZIPなど）"
+            "resource": "記事を書く、またはファイルを添付（PDF、ZIPなど）",
+            "collection": "コンテンツをキュレーションされたコレクションにまとめる"
         },
         "pageTitle": "{type} をアップロード",
         "form": {
@@ -346,8 +352,8 @@
             "submitting": "提出中...",
             "saveDraft": "下書きを保存",
             "cancel": "キャンセル",
-            "goToStudio": "Go to Creator Studio",
-            "uploadAnother": "Upload Another"
+            "goToStudio": "クリエイタースタジオへ移動",
+            "uploadAnother": "別のファイルをアップロード"
         },
         "status": {
             "draft": "下書き",
@@ -356,7 +362,8 @@
             "published": "公開済み",
             "rejected": "却下",
             "suspended": "停止中",
-            "unlisted": "限定公開"
+            "unlisted": "限定公開",
+            "archived": "アーカイブ済み"
         },
         "progress": {
             "initializingUpload": "アップロードを初期化中...",
@@ -364,7 +371,7 @@
             "finalizingUpload": "アップロードを完了処理中...",
             "uploadComplete": "アップロード完了！",
             "creatingEntry": "エントリーを作成中...",
-            "submittingForReview": "Submitting for review..."
+            "submittingForReview": "審査に提出中..."
         },
         "errors": {
             "uploadFailed": "アップロードに失敗しました。もう一度お試しください。",
@@ -377,9 +384,9 @@
             "entryCreated": "エントリーを下書きとして作成しました",
             "uploadComplete": "ファイルのアップロードに成功しました",
             "submittedForReview": "審査に正常に提出しました",
-            "title": "Upload Complete!",
-            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
-            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
+            "title": "アップロード完了！",
+            "draftMessage": "{type}が下書きとして保存されました。クリエイタースタジオからいつでも編集・提出できます。",
+            "reviewMessage": "{type}が審査に提出されました。承認されると通知が届きます。"
         }
     },
     "Preview": {
@@ -477,77 +484,95 @@
         "since": "{date} から"
     },
     "CreatorStudio": {
-        "title": "Creator Studio",
-        "subtitle": "Manage your content and track performance",
-        "createNew": "Create",
-        "loading": "Loading your content...",
-        "errorTitle": "Error",
-        "errorDescription": "Failed to load your content. Please try again.",
-        "empty": "No content yet",
-        "emptyDescription": "Start creating and sharing your work with the world.",
-        "uploadFirst": "Upload your first content",
-        "noResults": "No matching content",
-        "noResultsDescription": "Try adjusting your filters or search terms.",
-        "searchPlaceholder": "Search your content...",
-        "filterStatus": "Status",
-        "filterType": "Type",
-        "sortBy": "Sort by",
-        "allStatuses": "All statuses",
-        "allTypes": "All types",
-        "free": "Free",
-        "showingEntries": "Showing {count} of {total} entries",
+        "title": "クリエイタースタジオ",
+        "subtitle": "コンテンツを管理し、パフォーマンスを追跡",
+        "createNew": "作成",
+        "loading": "コンテンツを読み込み中...",
+        "errorTitle": "エラー",
+        "errorDescription": "コンテンツの読み込みに失敗しました。もう一度お試しください。",
+        "empty": "まだコンテンツがありません",
+        "emptyDescription": "作品を作成して世界と共有しましょう。",
+        "uploadFirst": "最初のコンテンツをアップロード",
+        "noResults": "一致するコンテンツがありません",
+        "noResultsDescription": "フィルターや検索条件を変更してみてください。",
+        "searchPlaceholder": "コンテンツを検索...",
+        "filterStatus": "ステータス",
+        "filterType": "タイプ",
+        "sortBy": "並び替え",
+        "allStatuses": "すべてのステータス",
+        "allTypes": "すべてのタイプ",
+        "free": "無料",
+        "showingEntries": "{total}件中{count}件を表示",
         "stats": {
-            "total": "Total",
-            "published": "Published",
-            "drafts": "Drafts",
-            "inReview": "In Review",
-            "views": "Views",
+            "total": "合計",
+            "published": "公開済み",
+            "drafts": "下書き",
+            "inReview": "審査中",
+            "views": "閲覧数",
             "sales": "売上",
             "subscribers": "登録者",
             "viewDetails": "詳細を見る"
         },
         "tabs": {
-            "active": "Active",
-            "archived": "Archived"
+            "active": "アクティブ",
+            "archived": "アーカイブ済み",
+            "collections": "コレクション"
         },
         "sort": {
-            "newest": "Newest first",
-            "oldest": "Oldest first",
-            "titleAZ": "Title A → Z",
-            "titleZA": "Title Z → A"
+            "newest": "新しい順",
+            "oldest": "古い順",
+            "titleAZ": "タイトル A → Z",
+            "titleZA": "タイトル Z → A"
         },
         "table": {
-            "content": "Content",
-            "status": "Status",
-            "type": "Type",
-            "date": "Date",
-            "price": "Price",
-            "actions": "Actions"
+            "content": "コンテンツ",
+            "status": "ステータス",
+            "type": "タイプ",
+            "date": "日付",
+            "price": "価格",
+            "actions": "操作"
         },
         "actions": {
-            "view": "View",
-            "edit": "Edit",
-            "archive": "Archive",
-            "unarchive": "Unarchive",
-            "submitReview": "Submit for review"
+            "view": "表示",
+            "edit": "編集",
+            "archive": "アーカイブ",
+            "unarchive": "アーカイブ解除",
+            "submitReview": "審査に提出"
         },
-        "editEntry": "Edit entry",
-        "editSuccess": "Entry updated successfully",
-        "editError": "Failed to update entry. Please try again.",
+        "editEntry": "エントリーを編集",
+        "editSuccess": "エントリーが正常に更新されました",
+        "editError": "エントリーの更新に失敗しました。もう一度お試しください。",
         "archiveConfirm": {
-            "title": "Archive entry?",
-            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+            "title": "エントリーをアーカイブしますか？",
+            "message": "「{title}」をアーカイブしてもよろしいですか？公開カタログからは非表示になりますが、既存の購入者は引き続きアクセスできます。"
         },
-        "archiveSuccess": "Entry archived successfully",
-        "archiveError": "Failed to archive entry. Please try again.",
-        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "archiveSuccess": "エントリーが正常にアーカイブされました",
+        "archiveError": "エントリーのアーカイブに失敗しました。もう一度お試しください。",
+        "unarchiveSuccess": "エントリーのアーカイブが解除され、以前のステータスに復元されました",
+        "unarchiveError": "エントリーのアーカイブ解除に失敗しました。もう一度お試しください。",
         "transcoding": {
             "pending": "トランスコード待ち",
             "dispatched": "トランスコード開始中",
             "processing": "トランスコード中…",
             "failed": "トランスコード失敗",
             "dead": "トランスコード失敗"
+        },
+        "collections": {
+            "empty": "コレクションはまだありません",
+            "emptyDescription": "コンテンツをまとめて販売するためのコレクションを作成しましょう。",
+            "create": "コレクションを作成",
+            "items": "アイテム",
+            "publish": "公開",
+            "delete": "削除",
+            "showing": "{total}件中{count}件のコレクションを表示",
+            "publishSuccess": "コレクションが正常に公開されました",
+            "publishError": "コレクションの公開に失敗しました",
+            "deleteSuccess": "コレクションが正常に削除されました",
+            "deleteError": "コレクションの削除に失敗しました",
+            "deleteConfirm": {
+                "title": "コレクションを削除しますか？",
+                "message": "「{title}」を削除してもよろしいですか？この操作は元に戻せません。"
+            }
         }
     },
     "SalesHistory": {
@@ -568,6 +593,78 @@
             "SELLER": "販売者",
             "PLATFORM": "プラットフォーム",
             "COLLABORATOR": "コラボレーター"
+        }
+    },
+    "CreateCollection": {
+        "pageTitle": "コレクションを作成",
+        "pageSubtitle": "コンテンツをコレクションにまとめてオーディエンスに届けましょう",
+        "steps": {
+            "details": "詳細",
+            "items": "アイテム",
+            "cover": "カバー"
+        },
+        "details": {
+            "heading": "コレクションの詳細",
+            "title": "タイトル",
+            "titlePlaceholder": "コレクションのタイトルを入力してください",
+            "description": "説明",
+            "descriptionPlaceholder": "このコレクションの内容を説明してください",
+            "type": "コレクションタイプ",
+            "isPaid": "有料コレクション",
+            "isPaidHint": "購入者はすべてのアイテムにアクセスするためにコレクションを購入する必要があります",
+            "priceXlm": "価格（XLM）",
+            "priceUsd": "価格（USD）",
+            "pricePlaceholder": "価格を入力"
+        },
+        "items": {
+            "heading": "アイテム",
+            "count": "{count}件のアイテムを選択中",
+            "searchPlaceholder": "公開済みのエントリーを検索...",
+            "noEntries": "公開済みのエントリーが見つかりません。先にコンテンツをアップロードしてください。",
+            "loadError": "エントリーの読み込みに失敗しました",
+            "selectedHeading": "選択済みアイテム（ドラッグで並べ替え）"
+        },
+        "cover": {
+            "heading": "カバー画像",
+            "hint": "コレクションのカバー画像をアップロードしてください（任意）。推奨：16:9のアスペクト比。",
+            "fileLabel": "カバー画像を選択"
+        },
+        "summary": {
+            "heading": "概要",
+            "free": "無料"
+        },
+        "actions": {
+            "saveDraft": "下書きとして保存",
+            "publish": "作成して公開"
+        },
+        "progress": {
+            "creating": "コレクションを作成中...",
+            "addingItems": "アイテムを追加中...",
+            "uploadingCover": "カバー画像をアップロード中...",
+            "publishing": "公開中..."
+        },
+        "success": {
+            "title": "コレクションが作成されました！",
+            "draftMessage": "コレクションが下書きとして保存されました。",
+            "publishedMessage": "コレクションが公開され、すべての人に表示されています。",
+            "viewCollection": "コレクションを表示",
+            "goToStudio": "クリエイタースタジオへ",
+            "createAnother": "もう一つ作成"
+        },
+        "status": {
+            "draft": "下書き",
+            "published": "公開済み"
+        },
+        "validation": {
+            "titleRequired": "タイトルは必須です",
+            "titleMaxLength": "タイトルは200文字以内にしてください",
+            "descriptionMaxLength": "説明は2000文字以内にしてください",
+            "typeRequired": "コレクションタイプは必須です",
+            "priceRequired": "有料コレクションには価格が必要です",
+            "pricePositive": "価格は0より大きくしてください"
+        },
+        "errors": {
+            "createFailed": "コレクションの作成に失敗しました。もう一度お試しください。"
         }
     }
 }

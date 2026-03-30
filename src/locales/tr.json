@@ -93,7 +93,8 @@
         "addedToFavorites": "Favorilere eklendi",
         "removedFromFavorites": "Favorilerden kaldırıldı",
         "linkCopied": "Bağlantı panoya kopyalandı",
-        "tooManyRequests": "Çok fazla istek. Lütfen bir süre bekleyin ve tekrar deneyin."
+        "tooManyRequests": "Çok fazla istek. Lütfen bir süre bekleyin ve tekrar deneyin.",
+        "cancel": "İptal"
     },
     "Themes": {
         "title": "EarnLumens Tema Seçici",
@@ -202,7 +203,9 @@
         "viewPublicProfile": "Herkese Açık Profilim",
         "viewPublicProfileHint": "Başkalarının profilinizi nasıl gördüğünü görün",
         "termsAndConditions": "Şartlar ve Koşullar",
-        "termsAndConditionsHint": "Hizmet şartlarımızı ve gizlilik politikamızı inceleyin"
+        "termsAndConditionsHint": "Hizmet şartlarımızı ve gizlilik politikamızı inceleyin",
+        "contentGuidelines": "İçerik Kuralları",
+        "contentGuidelinesHint": "Finansal eğitim içeriği yayınlama kuralları"
     },
     "AppBar": {
         "home": "Ana Sayfa",
@@ -270,7 +273,8 @@
         "noEntriesFiltered": "Henüz {type} girdisi yok",
         "noResources": "Henüz kaynak yok",
         "subscribers": "Aboneler",
-        "subscribe": "Abone ol"
+        "subscribe": "Abone ol",
+        "noCollections": "Henüz koleksiyon yok"
     },
     "Upload": {
         "createNew": "Yeni oluştur",
@@ -279,13 +283,15 @@
             "video": "Video",
             "audio": "Ses",
             "image": "Görsel",
-            "resource": "Kaynak"
+            "resource": "Kaynak",
+            "collection": "Koleksiyon"
         },
         "typeDescription": {
             "video": "Yayın için bir video yükleyin",
             "audio": "Bir müzik parçası veya podcast paylaşın",
             "image": "Bir fotoğraf veya illüstrasyon paylaşın",
-            "resource": "Bir makale yazın ve/veya ek dosyalar yükleyin (PDF, ZIP, vb.)"
+            "resource": "Bir makale yazın ve/veya ek dosyalar yükleyin (PDF, ZIP, vb.)",
+            "collection": "İçeriklerinizi özenle seçilmiş bir koleksiyonda birleştirin"
         },
         "pageTitle": "{type} Yükle",
         "form": {
@@ -346,8 +352,8 @@
             "submitting": "Gönderiliyor...",
             "saveDraft": "Taslağı kaydet",
             "cancel": "İptal",
-            "goToStudio": "Go to Creator Studio",
-            "uploadAnother": "Upload Another"
+            "goToStudio": "İçerik Stüdyosuna Git",
+            "uploadAnother": "Başka Bir Tane Yükle"
         },
         "status": {
             "draft": "Taslak",
@@ -356,7 +362,8 @@
             "published": "Yayınlandı",
             "rejected": "Reddedildi",
             "suspended": "Askıya alındı",
-            "unlisted": "Listelenmemiş"
+            "unlisted": "Listelenmemiş",
+            "archived": "Arşivlendi"
         },
         "progress": {
             "initializingUpload": "Yükleme başlatılıyor...",
@@ -364,7 +371,7 @@
             "finalizingUpload": "Yükleme tamamlanıyor...",
             "uploadComplete": "Yükleme tamamlandı!",
             "creatingEntry": "Girdi oluşturuluyor...",
-            "submittingForReview": "Submitting for review..."
+            "submittingForReview": "İncelemeye gönderiliyor..."
         },
         "errors": {
             "uploadFailed": "Yükleme başarısız oldu. Lütfen tekrar deneyin.",
@@ -377,9 +384,9 @@
             "entryCreated": "Girdi taslak olarak oluşturuldu",
             "uploadComplete": "Dosya başarıyla yüklendi",
             "submittedForReview": "İncelemeye başarıyla gönderildi",
-            "title": "Upload Complete!",
-            "draftMessage": "Your {type} has been saved as a draft. You can edit or submit it anytime from Creator Studio.",
-            "reviewMessage": "Your {type} has been submitted for review. You'll be notified once it's approved."
+            "title": "Yükleme Tamamlandı!",
+            "draftMessage": "{type} taslak olarak kaydedildi. İçerik Stüdyosu'ndan istediğiniz zaman düzenleyebilir veya gönderebilirsiniz.",
+            "reviewMessage": "{type} incelemeye gönderildi. Onaylandığında bilgilendirileceksiniz."
         }
     },
     "Preview": {
@@ -477,77 +484,95 @@
         "since": "{date} tarihinden beri"
     },
     "CreatorStudio": {
-        "title": "Creator Studio",
-        "subtitle": "Manage your content and track performance",
-        "createNew": "Create",
-        "loading": "Loading your content...",
-        "errorTitle": "Error",
-        "errorDescription": "Failed to load your content. Please try again.",
-        "empty": "No content yet",
-        "emptyDescription": "Start creating and sharing your work with the world.",
-        "uploadFirst": "Upload your first content",
-        "noResults": "No matching content",
-        "noResultsDescription": "Try adjusting your filters or search terms.",
-        "searchPlaceholder": "Search your content...",
-        "filterStatus": "Status",
-        "filterType": "Type",
-        "sortBy": "Sort by",
-        "allStatuses": "All statuses",
-        "allTypes": "All types",
-        "free": "Free",
-        "showingEntries": "Showing {count} of {total} entries",
+        "title": "İçerik Stüdyosu",
+        "subtitle": "İçeriğinizi yönetin ve performansı takip edin",
+        "createNew": "Oluştur",
+        "loading": "İçeriğiniz yükleniyor...",
+        "errorTitle": "Hata",
+        "errorDescription": "İçeriğiniz yüklenemedi. Lütfen tekrar deneyin.",
+        "empty": "Henüz içerik yok",
+        "emptyDescription": "Eserlerinizi oluşturmaya ve dünyayla paylaşmaya başlayın.",
+        "uploadFirst": "İlk içeriğinizi yükleyin",
+        "noResults": "Eşleşen içerik yok",
+        "noResultsDescription": "Filtrelerinizi veya arama terimlerinizi ayarlamayı deneyin.",
+        "searchPlaceholder": "İçeriğinizi arayın...",
+        "filterStatus": "Durum",
+        "filterType": "Tür",
+        "sortBy": "Sırala",
+        "allStatuses": "Tüm durumlar",
+        "allTypes": "Tüm türler",
+        "free": "Ücretsiz",
+        "showingEntries": "{total} girdiden {count} tanesi gösteriliyor",
         "stats": {
-            "total": "Total",
-            "published": "Published",
-            "drafts": "Drafts",
-            "inReview": "In Review",
-            "views": "Views",
+            "total": "Toplam",
+            "published": "Yayınlanan",
+            "drafts": "Taslaklar",
+            "inReview": "İncelemede",
+            "views": "Görüntülenme",
             "sales": "Satışlar",
             "subscribers": "Aboneler",
             "viewDetails": "Detayları gör"
         },
         "tabs": {
-            "active": "Active",
-            "archived": "Archived"
+            "active": "Aktif",
+            "archived": "Arşivlenen",
+            "collections": "Koleksiyonlar"
         },
         "sort": {
-            "newest": "Newest first",
-            "oldest": "Oldest first",
-            "titleAZ": "Title A → Z",
-            "titleZA": "Title Z → A"
+            "newest": "Önce en yeni",
+            "oldest": "Önce en eski",
+            "titleAZ": "Başlık A → Z",
+            "titleZA": "Başlık Z → A"
         },
         "table": {
-            "content": "Content",
-            "status": "Status",
-            "type": "Type",
-            "date": "Date",
-            "price": "Price",
-            "actions": "Actions"
+            "content": "İçerik",
+            "status": "Durum",
+            "type": "Tür",
+            "date": "Tarih",
+            "price": "Fiyat",
+            "actions": "İşlemler"
         },
         "actions": {
-            "view": "View",
-            "edit": "Edit",
-            "archive": "Archive",
-            "unarchive": "Unarchive",
-            "submitReview": "Submit for review"
+            "view": "Görüntüle",
+            "edit": "Düzenle",
+            "archive": "Arşivle",
+            "unarchive": "Arşivden çıkar",
+            "submitReview": "İncelemeye gönder"
         },
-        "editEntry": "Edit entry",
-        "editSuccess": "Entry updated successfully",
-        "editError": "Failed to update entry. Please try again.",
+        "editEntry": "Girdiyi düzenle",
+        "editSuccess": "Girdi başarıyla güncellendi",
+        "editError": "Girdi güncellenemedi. Lütfen tekrar deneyin.",
         "archiveConfirm": {
-            "title": "Archive entry?",
-            "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
+            "title": "Girdi arşivlensin mi?",
+            "message": "\"{title}\" girdisini arşivlemek istediğinizden emin misiniz? Genel katalogdan gizlenecek ancak mevcut alıcılar erişimlerini koruyacaktır."
         },
-        "archiveSuccess": "Entry archived successfully",
-        "archiveError": "Failed to archive entry. Please try again.",
-        "unarchiveSuccess": "Entry unarchived and restored to its previous status",
-        "unarchiveError": "Failed to unarchive entry. Please try again.",
+        "archiveSuccess": "Girdi başarıyla arşivlendi",
+        "archiveError": "Girdi arşivlenemedi. Lütfen tekrar deneyin.",
+        "unarchiveSuccess": "Girdi arşivden çıkarıldı ve önceki durumuna geri yüklendi",
+        "unarchiveError": "Girdi arşivden çıkarılamadı. Lütfen tekrar deneyin.",
         "transcoding": {
             "pending": "Dönüştürme sırada",
             "dispatched": "Dönüştürme başlıyor",
             "processing": "Dönüştürülüyor…",
             "failed": "Dönüştürme başarısız",
             "dead": "Dönüştürme başarısız"
+        },
+        "collections": {
+            "empty": "Henüz koleksiyon yok",
+            "emptyDescription": "İçeriklerinizi gruplamak ve birlikte satmak için bir koleksiyon oluşturun.",
+            "create": "Koleksiyon oluştur",
+            "items": "Öğeler",
+            "publish": "Yayınla",
+            "delete": "Sil",
+            "showing": "{total} koleksiyondan {count} tanesi gösteriliyor",
+            "publishSuccess": "Koleksiyon başarıyla yayınlandı",
+            "publishError": "Koleksiyon yayınlanamadı",
+            "deleteSuccess": "Koleksiyon başarıyla silindi",
+            "deleteError": "Koleksiyon silinemedi",
+            "deleteConfirm": {
+                "title": "Koleksiyon silinsin mi?",
+                "message": "\"{title}\" koleksiyonunu silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+            }
         }
     },
     "SalesHistory": {
@@ -568,6 +593,78 @@
             "SELLER": "Satıcı",
             "PLATFORM": "Platform",
             "COLLABORATOR": "İşbirlikçi"
+        }
+    },
+    "CreateCollection": {
+        "pageTitle": "Koleksiyon Oluştur",
+        "pageSubtitle": "İçeriklerinizi kitleniz için bir koleksiyonda birleştirin",
+        "steps": {
+            "details": "Ayrıntılar",
+            "items": "Öğeler",
+            "cover": "Kapak"
+        },
+        "details": {
+            "heading": "Koleksiyon Ayrıntıları",
+            "title": "Başlık",
+            "titlePlaceholder": "Koleksiyonunuz için bir başlık girin",
+            "description": "Açıklama",
+            "descriptionPlaceholder": "Bu koleksiyonun konusunu açıklayın",
+            "type": "Koleksiyon Türü",
+            "isPaid": "Ücretli koleksiyon",
+            "isPaidHint": "Alıcıların tüm öğelere erişmek için koleksiyonu satın alması gerekecektir",
+            "priceXlm": "Fiyat (XLM)",
+            "priceUsd": "Fiyat (USD)",
+            "pricePlaceholder": "Fiyat girin"
+        },
+        "items": {
+            "heading": "Öğeler",
+            "count": "{count} öğe seçildi",
+            "searchPlaceholder": "Yayınlanmış girdilerinizi arayın...",
+            "noEntries": "Yayınlanmış girdi bulunamadı. Önce içerik yükleyin.",
+            "loadError": "Girdiler yüklenemedi",
+            "selectedHeading": "Seçilen Öğeler (yeniden sıralamak için sürükleyin)"
+        },
+        "cover": {
+            "heading": "Kapak Görseli",
+            "hint": "Koleksiyonunuz için bir kapak görseli yükleyin (isteğe bağlı). Önerilen: 16:9 en-boy oranı.",
+            "fileLabel": "Kapak görseli seçin"
+        },
+        "summary": {
+            "heading": "Özet",
+            "free": "Ücretsiz"
+        },
+        "actions": {
+            "saveDraft": "Taslak Olarak Kaydet",
+            "publish": "Oluştur ve Yayınla"
+        },
+        "progress": {
+            "creating": "Koleksiyon oluşturuluyor...",
+            "addingItems": "Öğeler ekleniyor...",
+            "uploadingCover": "Kapak görseli yükleniyor...",
+            "publishing": "Yayınlanıyor..."
+        },
+        "success": {
+            "title": "Koleksiyon Oluşturuldu!",
+            "draftMessage": "Koleksiyonunuz taslak olarak kaydedildi.",
+            "publishedMessage": "Koleksiyonunuz artık yayında ve herkes tarafından görülebilir.",
+            "viewCollection": "Koleksiyonu Görüntüle",
+            "goToStudio": "İçerik Stüdyosuna Git",
+            "createAnother": "Bir Tane Daha Oluştur"
+        },
+        "status": {
+            "draft": "Taslak",
+            "published": "Yayınlandı"
+        },
+        "validation": {
+            "titleRequired": "Başlık gereklidir",
+            "titleMaxLength": "Başlık en fazla 200 karakter olmalıdır",
+            "descriptionMaxLength": "Açıklama en fazla 2000 karakter olmalıdır",
+            "typeRequired": "Koleksiyon türü gereklidir",
+            "priceRequired": "Ücretli koleksiyonlar için fiyat gereklidir",
+            "pricePositive": "Fiyat 0'dan büyük olmalıdır"
+        },
+        "errors": {
+            "createFailed": "Koleksiyon oluşturulamadı. Lütfen tekrar deneyin."
         }
     }
 }
