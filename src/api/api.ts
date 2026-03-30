@@ -16,7 +16,7 @@ import {
   updateCollection,
 } from './modules/collection.api'
 import { archiveEntry, getCreatorDashboardStats, getCreatorEntries, getStudioItems, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
-import { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById, getProfileFeed } from './modules/entry.api'
+import { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById, getProfileFeed, getExploreFeed } from './modules/entry.api'
 import {
   getMockCollectionById,
   getMockCollections,
@@ -56,6 +56,7 @@ export const api = {
     getById: getPublishedEntryById,
     getByUser: getPublishedEntriesByUser,
     getProfileFeed,
+    getExploreFeed,
   },
   creator: {
     getEntries: getCreatorEntries,

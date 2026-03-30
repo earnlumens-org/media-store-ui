@@ -6,28 +6,60 @@
     @load="onInfiniteLoad"
   >
     <v-container class="py-4 px-1 px-sm-4" fluid>
-      <!-- Pricing filter chips -->
+      <!-- Content tabs -->
+      <v-tabs
+        v-model="activeTab"
+        centered
+        color="primary"
+        grow
+      >
+        <v-tab value="all">
+          <v-icon start>mdi-view-grid</v-icon>
+          {{ $t('Profile.tabs.all') }}
+        </v-tab>
+        <v-tab value="collections">
+          <v-icon start>mdi-folder-multiple</v-icon>
+          {{ $t('Profile.tabs.collections') }}
+        </v-tab>
+        <v-tab value="video">
+          <v-icon start>mdi-video</v-icon>
+          {{ $t('Profile.tabs.video') }}
+        </v-tab>
+        <v-tab value="audio">
+          <v-icon start>mdi-music</v-icon>
+          {{ $t('Profile.tabs.audio') }}
+        </v-tab>
+        <v-tab value="image">
+          <v-icon start>mdi-image</v-icon>
+          {{ $t('Profile.tabs.image') }}
+        </v-tab>
+        <v-tab value="resource">
+          <v-icon start>mdi-text-box</v-icon>
+          {{ $t('Profile.tabs.resource') }}
+        </v-tab>
+      </v-tabs>
+
+      <!-- Pricing Filter Chips -->
       <v-chip-group
         v-model="pricingFilter"
-        class="mb-2"
-        :disabled="loading"
+        class="mt-4"
         mandatory
         selected-class="text-primary"
       >
-        <v-chip :disabled="loading" filter size="small" value="all" variant="tonal">
+        <v-chip filter size="small" value="all" variant="tonal">
           {{ $t('Common.all') }}
         </v-chip>
-        <v-chip :disabled="loading" filter size="small" value="free" variant="tonal">
+        <v-chip filter size="small" value="free" variant="tonal">
           {{ $t('Common.free') }}
         </v-chip>
-        <v-chip :disabled="loading" filter size="small" value="premium" variant="tonal">
+        <v-chip filter size="small" value="premium" variant="tonal">
           <v-icon size="14" start>mdi-lock</v-icon>
           {{ $t('Common.premium') }}
         </v-chip>
       </v-chip-group>
 
       <!-- Loading state (initial load) -->
-      <v-row v-if="loading" dense>
+      <v-row v-if="loading" class="mt-4" dense>
         <v-col
           v-for="n in 36"
           :key="`skeleton-${n}`"
@@ -44,10 +76,10 @@
       <!-- Error state -->
       <v-alert
         v-else-if="error"
-        class="ma-4"
+        class="ma-4 mt-4"
         closable
         type="error"
-        @click:close="fetchEntries"
+        @click:close="fetchFeed"
       >
         <template #title>
           Error
@@ -57,8 +89,8 @@
         </template>
       </v-alert>
 
-      <!-- Empty state -->
-      <v-row v-else-if="entries.length === 0" dense>
+      <!-- Empty state (no items from API) -->
+      <v-row v-else-if="feedItems.length === 0" class="mt-4" dense>
         <v-col cols="12">
           <v-alert
             class="ma-4"
@@ -69,10 +101,27 @@
         </v-col>
       </v-row>
 
-      <!-- Entry cards -->
-      <v-row v-else dense>
+      <!-- No items match filters -->
+      <div
+        v-else-if="filteredItems.length === 0"
+        class="text-center py-12 text-medium-emphasis mt-4"
+      >
+        <v-icon class="mb-4" size="64">mdi-filter-off</v-icon>
+        <p>{{ $t('Common.noItemsMatchFilters') }}</p>
+        <v-btn
+          class="mt-2"
+          size="small"
+          variant="text"
+          @click="clearFilters"
+        >
+          {{ $t('Common.clearFilters') }}
+        </v-btn>
+      </div>
+
+      <!-- Content cards (entries + collections mixed) -->
+      <v-row v-else class="mt-4" dense>
         <v-col
-          v-for="item in filteredEntries"
+          v-for="item in filteredItems"
           :key="item.id"
           cols="12"
           lg="3"
@@ -80,7 +129,15 @@
           sm="6"
           xxl="2"
         >
+          <router-link
+            v-if="item.kind === 'collection'"
+            class="text-decoration-none"
+            :to="`/collection/${item.id}`"
+          >
+            <CollectionCard :collection="toCollectionCardProps(item)" />
+          </router-link>
           <EntryCard
+            v-else
             :entry="toEntryCardProps(item)"
             :show-author="showAuthor"
           />
@@ -144,14 +201,16 @@
 </template>
 
 <script setup lang="ts">
-  import type { PublicEntryModel } from '@/api/api'
+  import type { PublicFeedItemModel } from '@/api/types/feed.types'
   import type { EntryModel } from '@/api/types/entryMock.types'
   import type { Entry } from '@/components/entry/EntryCard.vue'
+  import type { Collection } from '@/components/collection/CollectionCard.vue'
 
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
+  import CollectionCard from '@/components/collection/CollectionCard.vue'
   import { isPopNavigation } from '@/router'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
@@ -176,32 +235,60 @@
   const route = useRoute()
   const scrollCache = useScrollCacheStore()
 
-  const entries = ref<PublicEntryModel[]>([])
+  const feedItems = ref<PublicFeedItemModel[]>([])
   const loading = ref(true)
   const error = ref(false)
   const currentPage = ref(0)
   const totalPages = ref(0)
+
+  // Tabs & filter state
+  const activeTab = ref('all')
   const pricingFilter = ref('all')
 
   const hasMorePages = computed(() => currentPage.value < totalPages.value - 1)
 
-  const filteredEntries = computed(() => {
-    if (pricingFilter.value === 'free') return entries.value.filter(e => !e.isPaid)
-    if (pricingFilter.value === 'premium') return entries.value.filter(e => e.isPaid)
-    return entries.value
+  // ── Client-side filtering ──
+
+  const filteredItems = computed(() => {
+    let result = [...feedItems.value]
+
+    // Filter by type tab
+    if (activeTab.value === 'collections') {
+      result = result.filter(item => item.kind === 'collection')
+    } else if (activeTab.value !== 'all') {
+      result = result.filter(item => {
+        if (item.kind === 'entry') return item.type === activeTab.value
+        return false
+      })
+    }
+
+    // Filter by pricing
+    if (pricingFilter.value === 'free') {
+      result = result.filter(item => !item.isPaid)
+    } else if (pricingFilter.value === 'premium') {
+      result = result.filter(item => item.isPaid)
+    }
+
+    return result
   })
 
-  /**
-   * Maps a PublicEntryModel to the Entry interface expected by EntryCard.
-   * Own content (matching logged-in username) is never locked.
-   */
-  function toEntryCardProps (item: PublicEntryModel): Entry {
+  function clearFilters () {
+    activeTab.value = 'all'
+    pricingFilter.value = 'all'
+  }
+
+  // Reset pricing on tab change
+  watch(activeTab, () => {
+    pricingFilter.value = 'all'
+  })
+
+  function toEntryCardProps (item: PublicFeedItemModel): Entry {
     const isOwner = authStore.isAuthenticated
       && authStore.user?.username === item.authorName
     const isUnlocked = item.isPaid && (isOwner || purchasesStore.isUnlocked(item.id))
     return {
       id: item.id,
-      type: item.type,
+      type: item.type as 'video' | 'audio' | 'image' | 'resource',
       title: item.title,
       authorName: item.authorName,
       authorAvatarUrl: item.authorAvatarUrl,
@@ -213,14 +300,30 @@
     }
   }
 
-  /**
-   * Caches real API entries so the preview page can display correct data.
-   */
-  function cacheRealEntries (items: PublicEntryModel[]) {
+  function toCollectionCardProps (item: PublicFeedItemModel): Collection {
+    const isOwner = authStore.isAuthenticated
+      && authStore.user?.username === item.authorName
+    const isUnlocked = item.isPaid && (isOwner || purchasesStore.isUnlocked(item.id))
+    return {
+      id: item.id,
+      collectionType: item.type || 'catalog',
+      title: item.title,
+      authorName: item.authorName || '',
+      authorAvatarUrl: item.authorAvatarUrl,
+      publishedAt: item.publishedAt,
+      coverUrl: item.coverUrl,
+      itemsCount: item.itemCount,
+      locked: item.isPaid && !isUnlocked,
+      unlocked: isUnlocked,
+    }
+  }
+
+  function cacheFeedEntries (items: PublicFeedItemModel[]) {
     for (const item of items) {
+      if (item.kind !== 'entry') continue
       const entry: EntryModel = {
         id: item.id,
-        type: item.type,
+        type: item.type as 'video' | 'audio' | 'image' | 'resource',
         title: item.title,
         authorName: item.authorName,
         authorAvatarUrl: item.authorAvatarUrl,
@@ -233,27 +336,26 @@
         priceXlm: item.priceXlm,
         priceUsd: item.priceUsd,
         priceCurrency: item.priceCurrency,
-        contentLanguage: item.contentLanguage,
         description: item.description,
       })
     }
   }
 
-  async function fetchEntries () {
+  async function fetchFeed () {
     loading.value = true
     error.value = false
 
     try {
-      const response = await api.entries.getPublished({
+      const response = await api.entries.getExploreFeed({
         page: 0,
         size: props.pageSize,
       })
-      entries.value = response.items
-      cacheRealEntries(response.items)
+      feedItems.value = response.items
+      cacheFeedEntries(response.items)
       currentPage.value = response.page
       totalPages.value = response.totalPages
     } catch (error_) {
-      console.error('[EntryCardGrid] Failed to fetch entries:', error_)
+      console.error('[EntryCardGrid] Failed to fetch feed:', error_)
       error.value = true
     } finally {
       loading.value = false
@@ -267,12 +369,12 @@
     }
 
     try {
-      const response = await api.entries.getPublished({
+      const response = await api.entries.getExploreFeed({
         page: currentPage.value + 1,
         size: props.pageSize,
       })
-      entries.value.push(...response.items)
-      cacheRealEntries(response.items)
+      feedItems.value.push(...response.items)
+      cacheFeedEntries(response.items)
       currentPage.value = response.page
       totalPages.value = response.totalPages
 
@@ -284,11 +386,13 @@
   }
 
   onBeforeRouteLeave(() => {
-    if (entries.value.length > 0) {
+    if (feedItems.value.length > 0) {
       scrollCache.save(route.path, {
-        items: [...entries.value],
+        items: [...feedItems.value],
         currentPage: currentPage.value,
         totalPages: totalPages.value,
+        activeTab: activeTab.value,
+        pricingFilter: pricingFilter.value,
         scrollY: window.scrollY,
       })
     }
@@ -297,22 +401,24 @@
   onMounted(() => {
     const cached = scrollCache.get(route.path)
     if (cached && isPopNavigation()) {
-      entries.value = cached.items as PublicEntryModel[]
+      feedItems.value = cached.items as PublicFeedItemModel[]
       currentPage.value = cached.currentPage as number
       totalPages.value = cached.totalPages as number
-      cacheRealEntries(entries.value)
+      activeTab.value = (cached.activeTab as string) ?? 'all'
+      pricingFilter.value = (cached.pricingFilter as string) ?? 'all'
+      cacheFeedEntries(feedItems.value)
       loading.value = false
 
       nextTick(() => {
         window.scrollTo(0, cached.scrollY as number)
       })
     } else {
-      fetchEntries()
+      fetchFeed()
     }
   })
 
   watch(() => appStore.refreshKey, () => {
     window.scrollTo(0, 0)
-    fetchEntries()
+    fetchFeed()
   })
 </script>
