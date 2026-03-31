@@ -114,7 +114,7 @@ export function installAxiosInterceptors (client: AxiosInstance): void {
       }
 
       // Cross-cutting concern only: keep business logic out.
-      if (import.meta.env.DEV) {
+      if (import.meta.env.DEV && normalized.code !== 'ERR_CANCELED') {
         console.warn('[api] HTTP error', normalized)
       }
 

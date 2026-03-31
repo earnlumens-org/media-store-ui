@@ -285,7 +285,7 @@
     pricingFilter.value = 'all'
   }
 
-  // Fix #1: Single watcher on both values prevents double-fetch
+  // Tab change resets pricing and re-fetches; suppress the pricing watcher
   let suppressFilterWatch = false
 
   watch(activeTab, () => {
@@ -298,7 +298,7 @@
   watch(pricingFilter, () => {
     if (suppressFilterWatch) return
     refetchFeed()
-  })
+  }, { flush: 'sync' })
 
   // Fix #3: Filter change keeps old cards visible with overlay
   function refetchFeed () {
@@ -387,8 +387,8 @@
       cacheFeedEntries(response.items)
       currentPage.value = response.page
       totalPages.value = response.totalPages
-    } catch (err) {
-      if (axios.isCancel(err)) return
+    } catch (err: any) {
+      if (axios.isCancel(err) || err?.code === 'ERR_CANCELED') return
       console.error('[EntryCardGrid] Failed to fetch feed:', err)
       error.value = true
     } finally {
@@ -418,8 +418,8 @@
       totalPages.value = response.totalPages
 
       done(hasMorePages.value ? 'ok' : 'empty')
-    } catch (err) {
-      if (axios.isCancel(err)) return
+    } catch (err: any) {
+      if (axios.isCancel(err) || err?.code === 'ERR_CANCELED') return
       console.error('[EntryCardGrid] Failed to load more:', err)
       done('error')
     }
