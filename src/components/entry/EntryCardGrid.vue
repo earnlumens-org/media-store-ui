@@ -11,6 +11,7 @@
         v-model="activeTab"
         centered
         color="primary"
+        :disabled="loading"
         grow
       >
         <v-tab value="all">
@@ -43,16 +44,17 @@
       <v-chip-group
         v-model="pricingFilter"
         class="mt-4"
+        :disabled="loading"
         mandatory
         selected-class="text-primary"
       >
-        <v-chip filter size="small" value="all" variant="tonal">
+        <v-chip :disabled="loading" filter size="small" value="all" variant="tonal">
           {{ $t('Common.all') }}
         </v-chip>
-        <v-chip filter size="small" value="free" variant="tonal">
+        <v-chip :disabled="loading" filter size="small" value="free" variant="tonal">
           {{ $t('Common.free') }}
         </v-chip>
-        <v-chip filter size="small" value="premium" variant="tonal">
+        <v-chip :disabled="loading" filter size="small" value="premium" variant="tonal">
           <v-icon size="14" start>mdi-lock</v-icon>
           {{ $t('Common.premium') }}
         </v-chip>

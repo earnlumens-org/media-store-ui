@@ -103,6 +103,7 @@
       class="mb-4 mb-md-6"
       color="primary"
       density="compact"
+      :disabled="loading"
       @update:model-value="onTabChange"
     >
       <v-tab value="active">

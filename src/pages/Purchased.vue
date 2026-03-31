@@ -24,6 +24,7 @@
         v-model="activeTab"
         centered
         color="primary"
+        :disabled="loading"
         grow
       >
         <v-tab value="all">
