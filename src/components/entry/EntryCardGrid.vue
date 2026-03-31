@@ -11,7 +11,6 @@
         v-model="activeTab"
         centered
         color="primary"
-        :disabled="loading"
         grow
       >
         <v-tab value="all">
@@ -44,24 +43,23 @@
       <v-chip-group
         v-model="pricingFilter"
         class="mt-4"
-        :disabled="loading"
         mandatory
         selected-class="text-primary"
       >
-        <v-chip :disabled="loading" filter size="small" value="all" variant="tonal">
+        <v-chip filter size="small" value="all" variant="tonal">
           {{ $t('Common.all') }}
         </v-chip>
-        <v-chip :disabled="loading" filter size="small" value="free" variant="tonal">
+        <v-chip filter size="small" value="free" variant="tonal">
           {{ $t('Common.free') }}
         </v-chip>
-        <v-chip :disabled="loading" filter size="small" value="premium" variant="tonal">
+        <v-chip filter size="small" value="premium" variant="tonal">
           <v-icon size="14" start>mdi-lock</v-icon>
           {{ $t('Common.premium') }}
         </v-chip>
       </v-chip-group>
 
-      <!-- Loading state (initial load) -->
-      <v-row v-if="loading" class="mt-4" dense>
+      <!-- Loading state (initial load only) -->
+      <v-row v-if="loading && feedItems.length === 0" class="mt-4" dense>
         <v-col
           v-for="n in 36"
           :key="`skeleton-${n}`"
@@ -121,30 +119,43 @@
       </div>
 
       <!-- Content cards (entries + collections mixed) -->
-      <v-row v-else class="mt-4" dense>
-        <v-col
-          v-for="item in filteredItems"
-          :key="item.id"
-          cols="12"
-          lg="3"
-          md="4"
-          sm="6"
-          xxl="2"
+      <div v-else class="position-relative mt-4">
+        <!-- Dimming overlay while switching filters -->
+        <v-overlay
+          v-model="switching"
+          contained
+          persistent
+          scrim="background"
+          class="align-center justify-center"
         >
-          <router-link
-            v-if="item.kind === 'collection'"
-            class="text-decoration-none"
-            :to="`/collection/${item.id}`"
+          <v-progress-circular indeterminate size="48" />
+        </v-overlay>
+
+        <v-row dense>
+          <v-col
+            v-for="item in filteredItems"
+            :key="item.id"
+            cols="12"
+            lg="3"
+            md="4"
+            sm="6"
+            xxl="2"
           >
-            <CollectionCard :collection="toCollectionCardProps(item)" />
-          </router-link>
-          <EntryCard
-            v-else
-            :entry="toEntryCardProps(item)"
-            :show-author="showAuthor"
-          />
-        </v-col>
-      </v-row>
+            <router-link
+              v-if="item.kind === 'collection'"
+              class="text-decoration-none"
+              :to="`/collection/${item.id}`"
+            >
+              <CollectionCard :collection="toCollectionCardProps(item)" />
+            </router-link>
+            <EntryCard
+              v-else
+              :entry="toEntryCardProps(item)"
+              :show-author="showAuthor"
+            />
+          </v-col>
+        </v-row>
+      </div>
 
     </v-container>
 
@@ -208,6 +219,7 @@
   import type { Entry } from '@/components/entry/EntryCard.vue'
   import type { Collection } from '@/components/collection/CollectionCard.vue'
 
+  import axios from 'axios'
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
@@ -239,6 +251,7 @@
 
   const feedItems = ref<PublicFeedItemModel[]>([])
   const loading = ref(true)
+  const switching = ref(false)
   const error = ref(false)
   const currentPage = ref(0)
   const totalPages = ref(0)
@@ -247,34 +260,51 @@
   const activeTab = ref('all')
   const pricingFilter = ref('all')
 
+  // Fix #4: AbortController to cancel in-flight requests
+  let fetchController: AbortController | null = null
+
   const hasMorePages = computed(() => currentPage.value < totalPages.value - 1)
 
-  // Server-side type param derived from active tab
+  // Server-side params derived from UI state
   const feedTypeParam = computed(() => {
     if (activeTab.value === 'all') return undefined
     if (activeTab.value === 'collections') return 'collection'
     return activeTab.value // video, audio, image, resource
   })
 
-  // ── Client-side filtering (pricing only) ──
-
-  const filteredItems = computed(() => {
-    if (pricingFilter.value === 'free') return feedItems.value.filter(item => !item.isPaid)
-    if (pricingFilter.value === 'premium') return feedItems.value.filter(item => item.isPaid)
-    return feedItems.value
+  const feedPricingParam = computed(() => {
+    if (pricingFilter.value === 'all') return undefined
+    return pricingFilter.value // 'free' or 'premium'
   })
+
+  // No client-side filtering — everything is server-side
+  const filteredItems = computed(() => feedItems.value)
 
   function clearFilters () {
     activeTab.value = 'all'
     pricingFilter.value = 'all'
   }
 
-  // Tab change → re-fetch from server with new type
+  // Fix #1: Single watcher on both values prevents double-fetch
+  let suppressFilterWatch = false
+
   watch(activeTab, () => {
+    suppressFilterWatch = true
     pricingFilter.value = 'all'
-    feedItems.value = []
-    fetchFeed()
+    suppressFilterWatch = false
+    refetchFeed()
   })
+
+  watch(pricingFilter, () => {
+    if (suppressFilterWatch) return
+    refetchFeed()
+  })
+
+  // Fix #3: Filter change keeps old cards visible with overlay
+  function refetchFeed () {
+    switching.value = true
+    fetchFeed(true)
+  }
 
   function toEntryCardProps (item: PublicFeedItemModel): Entry {
     const isOwner = authStore.isAuthenticated
@@ -335,25 +365,35 @@
     }
   }
 
-  async function fetchFeed () {
-    loading.value = true
+  async function fetchFeed (isSwitch = false) {
+    // Fix #4: Abort any in-flight request before starting a new one
+    if (fetchController) {
+      fetchController.abort()
+    }
+    fetchController = new AbortController()
+    const signal = fetchController.signal
+
+    if (!isSwitch) loading.value = true
     error.value = false
 
     try {
       const response = await api.entries.getExploreFeed({
         type: feedTypeParam.value,
+        pricing: feedPricingParam.value,
         page: 0,
         size: props.pageSize,
-      })
+      }, signal)
       feedItems.value = response.items
       cacheFeedEntries(response.items)
       currentPage.value = response.page
       totalPages.value = response.totalPages
-    } catch (error_) {
-      console.error('[EntryCardGrid] Failed to fetch feed:', error_)
+    } catch (err) {
+      if (axios.isCancel(err)) return
+      console.error('[EntryCardGrid] Failed to fetch feed:', err)
       error.value = true
     } finally {
       loading.value = false
+      switching.value = false
     }
   }
 
@@ -363,20 +403,24 @@
       return
     }
 
+    const controller = new AbortController()
+
     try {
       const response = await api.entries.getExploreFeed({
         type: feedTypeParam.value,
+        pricing: feedPricingParam.value,
         page: currentPage.value + 1,
         size: props.pageSize,
-      })
+      }, controller.signal)
       feedItems.value.push(...response.items)
       cacheFeedEntries(response.items)
       currentPage.value = response.page
       totalPages.value = response.totalPages
 
       done(hasMorePages.value ? 'ok' : 'empty')
-    } catch (error_) {
-      console.error('[EntryCardGrid] Failed to load more:', error_)
+    } catch (err) {
+      if (axios.isCancel(err)) return
+      console.error('[EntryCardGrid] Failed to load more:', err)
       done('error')
     }
   }

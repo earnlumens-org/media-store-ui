@@ -74,6 +74,7 @@ export interface PublicFeedPageModel {
 
 export interface FeedRequestParams {
   type?: string
+  pricing?: string
   search?: string
   sort?: 'newest' | 'oldest' | 'title_asc' | 'title_desc'
   page?: number

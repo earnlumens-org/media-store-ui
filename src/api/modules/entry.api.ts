@@ -66,7 +66,7 @@ export async function getProfileFeed (username: string, params: FeedRequestParam
  * Get a unified explore feed (ALL published entries + collections merged server-side).
  * No authentication required. Locked/unlocked resolved client-side.
  */
-export async function getExploreFeed (params: FeedRequestParams = {}): Promise<PublicFeedPageModel> {
-  const response = await axiosClient.get<PublicFeedPageDto>(`${BASE_PATH}/feed`, { params })
+export async function getExploreFeed (params: FeedRequestParams = {}, signal?: AbortSignal): Promise<PublicFeedPageModel> {
+  const response = await axiosClient.get<PublicFeedPageDto>(`${BASE_PATH}/feed`, { params, signal })
   return mapFeedPageDtoToModel(response.data)
 }
