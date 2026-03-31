@@ -238,7 +238,8 @@
         "italian": "Itali",
         "polish": "Poland",
         "vietnamese": "Vietnam",
-        "turkish": "Turki"
+        "turkish": "Turki",
+        "urdu": "Urdu"
     },
     "CxLoginDialog": {
         "emailMostBeValid": "E-mel mestilah sah",

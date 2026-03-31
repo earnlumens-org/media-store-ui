@@ -238,7 +238,8 @@
         "italian": "इतालवी",
         "polish": "पोलिश",
         "vietnamese": "वियतनामी",
-        "turkish": "तुर्की"
+        "turkish": "तुर्की",
+        "urdu": "उर्दू"
     },
     "CxLoginDialog": {
         "emailMostBeValid": "ईमेल मान्य होना चाहिए",

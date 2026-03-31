@@ -238,7 +238,8 @@
         "italian": "الإيطالية",
         "polish": "البولندية",
         "vietnamese": "الفيتنامية",
-        "turkish": "التركية"
+        "turkish": "التركية",
+        "urdu": "الأردية"
     },
     "CxLoginDialog": {
         "emailMostBeValid": "يجب أن يكون البريد الإلكتروني صالحًا",

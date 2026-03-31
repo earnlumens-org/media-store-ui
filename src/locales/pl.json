@@ -238,7 +238,8 @@
         "italian": "Włoski",
         "polish": "Polski",
         "vietnamese": "Wietnamski",
-        "turkish": "Turecki"
+        "turkish": "Turecki",
+        "urdu": "Urdu"
     },
     "CxLoginDialog": {
         "emailMostBeValid": "E-mail musi być poprawny",

@@ -238,7 +238,8 @@
         "italian": "итальянский",
         "polish": "польский",
         "vietnamese": "вьетнамский",
-        "turkish": "турецкий"
+        "turkish": "турецкий",
+        "urdu": "урду"
     },
     "CxLoginDialog": {
         "emailMostBeValid": "Электронная почта должна быть действительной",

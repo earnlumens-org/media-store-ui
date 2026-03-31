@@ -238,7 +238,8 @@
         "italian": "イタリア語",
         "polish": "ポーランド語",
         "vietnamese": "ベトナム語",
-        "turkish": "トルコ語"
+        "turkish": "トルコ語",
+        "urdu": "ウルドゥー語"
     },
     "CxLoginDialog": {
         "emailMostBeValid": "メールが有効である必要があります",
