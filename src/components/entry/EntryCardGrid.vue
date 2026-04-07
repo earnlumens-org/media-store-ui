@@ -79,7 +79,7 @@
         class="ma-4 mt-4"
         closable
         type="error"
-        @click:close="fetchFeed"
+        @click:close="() => fetchFeed()"
       >
         <template #title>
           Error
