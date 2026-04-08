@@ -11,6 +11,7 @@
         v-model="activeTab"
         centered
         color="primary"
+        :disabled="loading && feedItems.length === 0"
         grow
       >
         <v-tab value="all">
@@ -43,6 +44,7 @@
       <v-chip-group
         v-model="pricingFilter"
         class="mt-4"
+        :disabled="loading && feedItems.length === 0"
         mandatory
         selected-class="text-primary"
       >
