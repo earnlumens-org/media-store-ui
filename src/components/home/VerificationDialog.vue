@@ -13,9 +13,9 @@
         <div class="d-flex justify-center mb-5">
           <div class="badge-circle">
             <v-img
+              height="48"
               :src="blueBadge"
               width="48"
-              height="48"
             />
           </div>
         </div>
