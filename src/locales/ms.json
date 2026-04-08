@@ -247,7 +247,17 @@
     },
     "Home": {
         "aboutXLM": "Tentang XLM",
+        "claimFreeVerification": "Pengesahan percuma",
         "joinWaitlist": "senarai menunggu"
+    },
+    "Verification": {
+        "title": "Dapatkan 1 tahun pengesahan komuniti percuma",
+        "launchStore": "Lancarkan kedai kandungan anda sendiri",
+        "verifiedBadge": "Lencana akaun yang disahkan",
+        "postCommunity": "Siarkan dalam bahagian komuniti",
+        "featuredCreator": "Penempatan pencipta terpilih",
+        "storeAnalytics": "Analitik kedai lanjutan",
+        "getAccess": "Dapatkan akses"
     },
     "WaitList": {
         "joinOurWaitingList": "Sertai senarai tunggu kami",

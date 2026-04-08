@@ -247,7 +247,17 @@
     },
     "Home": {
         "aboutXLM": "Про XLM",
+        "claimFreeVerification": "Безкоштовна верифікація",
         "joinWaitlist": "список очікування"
+    },
+    "Verification": {
+        "title": "Отримайте 1 рік безкоштовної верифікації спільноти",
+        "launchStore": "Запустіть свій власний магазин контенту",
+        "verifiedBadge": "Значок верифікованого акаунту",
+        "postCommunity": "Публікуйте в розділі спільноти",
+        "featuredCreator": "Розміщення як обраний автор",
+        "storeAnalytics": "Розширена аналітика магазину",
+        "getAccess": "Отримати доступ"
     },
     "WaitList": {
         "joinOurWaitingList": "Приєднуйтесь до нашого списку очікування",

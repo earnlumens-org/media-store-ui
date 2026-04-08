@@ -247,7 +247,17 @@
     },
     "Home": {
         "aboutXLM": "關於XLM",
+        "claimFreeVerification": "免費認證",
         "joinWaitlist": "加入等候名單"
+    },
+    "Verification": {
+        "title": "獲取1年免費社區認證",
+        "launchStore": "開設您自己的內容商店",
+        "verifiedBadge": "認證帳戶徽章",
+        "postCommunity": "在社區版塊發帖",
+        "featuredCreator": "精選創作者展示位",
+        "storeAnalytics": "進階商店分析",
+        "getAccess": "獲取訪問權限"
     },
     "WaitList": {
         "joinOurWaitingList": "加入我們的等候名單",

@@ -247,7 +247,17 @@
     },
     "Home": {
         "aboutXLM": "حول XLM",
+        "claimFreeVerification": "احصل على توثيق مجاني",
         "joinWaitlist": "انضم إلى قائمة الانتظار"
+    },
+    "Verification": {
+        "title": "احصل على سنة مجانية من التحقق المجتمعي",
+        "launchStore": "أطلق متجر المحتوى الخاص بك",
+        "verifiedBadge": "شارة الحساب الموثق",
+        "postCommunity": "انشر في قسم المجتمع",
+        "featuredCreator": "موضع كمبدع مميز",
+        "storeAnalytics": "تحليلات متقدمة للمتجر",
+        "getAccess": "احصل على الوصول"
     },
     "WaitList": {
         "joinOurWaitingList": "انضم إلى قائمة انتظارنا",

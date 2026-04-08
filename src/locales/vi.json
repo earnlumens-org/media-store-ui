@@ -247,7 +247,17 @@
     },
     "Home": {
         "aboutXLM": "Về XLM",
+        "claimFreeVerification": "Xác minh miễn phí",
         "joinWaitlist": "danh sách chờ"
+    },
+    "Verification": {
+        "title": "Nhận 1 năm xác minh cộng đồng miễn phí",
+        "launchStore": "Khởi chạy cửa hàng nội dung của bạn",
+        "verifiedBadge": "Huy hiệu tài khoản đã xác minh",
+        "postCommunity": "Đăng bài trong mục cộng đồng",
+        "featuredCreator": "Vị trí nhà sáng tạo nổi bật",
+        "storeAnalytics": "Phân tích cửa hàng nâng cao",
+        "getAccess": "Nhận quyền truy cập"
     },
     "WaitList": {
         "joinOurWaitingList": "Tham gia danh sách chờ của chúng tôi",

@@ -230,6 +230,7 @@
 
 <route lang="json">
 {
-  "path": "/waitlist"
+  "path": "/waitlist",
+  "meta": { "requiresAuth": true }
 }
 </route>

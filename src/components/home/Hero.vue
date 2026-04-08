@@ -60,11 +60,13 @@
               elevation="2"
               rounded="lg"
               size="x-large"
-              to="/waitlist"
+              @click="showVerification = true"
             >
-              <v-icon class="me-2" icon="mdi-calendar-clock" />
-              {{ $t("Home.joinWaitlist") }}
+              {{ $t("Home.claimFreeVerification") }}
+              <v-icon class="ms-2" icon="mdi-check-decagram" />
             </v-btn>
+
+            <VerificationDialog v-model="showVerification" />
 
             <v-btn
               class="px-6 text-none font-weight-medium"
@@ -90,8 +92,10 @@
 
   import fireLogoImg from '@/assets/fire.svg'
   import stellarSvg from '@/assets/stellar.svg?raw'
+  import VerificationDialog from '@/components/home/VerificationDialog.vue'
 
   const fireLogo = ref(fireLogoImg)
+  const showVerification = ref(false)
 
   const stellarSvgIcon = computed(() => {
     return stellarSvg

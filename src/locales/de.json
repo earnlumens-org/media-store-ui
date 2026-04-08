@@ -247,7 +247,17 @@
     },
     "Home": {
         "aboutXLM": "Über XLM",
+        "claimFreeVerification": "Kostenlose Verifizierung",
         "joinWaitlist": "Warteliste beitreten"
+    },
+    "Verification": {
+        "title": "1 Jahr kostenlose Community-Verifizierung erhalten",
+        "launchStore": "Starte deinen eigenen Content-Store",
+        "verifiedBadge": "Verifiziertes Konto-Badge",
+        "postCommunity": "Im Community-Bereich posten",
+        "featuredCreator": "Hervorgehobene Creator-Platzierung",
+        "storeAnalytics": "Erweiterte Store-Analytik",
+        "getAccess": "Zugang erhalten"
     },
     "WaitList": {
         "joinOurWaitingList": "Tritt unserer Warteliste bei",

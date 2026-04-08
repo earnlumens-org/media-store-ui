@@ -247,7 +247,17 @@
     },
     "Home": {
         "aboutXLM": "XLM에 대하여",
+        "claimFreeVerification": "무료 인증 받기",
         "joinWaitlist": "대기 명단"
+    },
+    "Verification": {
+        "title": "1년간 무료 커뮤니티 인증 받기",
+        "launchStore": "나만의 콘텐츠 스토어 시작",
+        "verifiedBadge": "인증된 계정 배지",
+        "postCommunity": "커뮤니티 섹션에 게시",
+        "featuredCreator": "주목 크리에이터로 배치",
+        "storeAnalytics": "고급 스토어 분석",
+        "getAccess": "액세스 받기"
     },
     "WaitList": {
         "joinOurWaitingList": "우리의 대기 목록에 가입하세요",

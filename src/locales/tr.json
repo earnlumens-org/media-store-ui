@@ -247,7 +247,17 @@
     },
     "Home": {
         "aboutXLM": "XLM Hakkında",
+        "claimFreeVerification": "Ücretsiz doğrulama",
         "joinWaitlist": "bekleme listesi"
+    },
+    "Verification": {
+        "title": "1 yıl ücretsiz topluluk doğrulaması kazanın",
+        "launchStore": "Kendi içerik mağazanızı başlatın",
+        "verifiedBadge": "Doğrulanmış hesap rozeti",
+        "postCommunity": "Topluluk bölümünde paylaşın",
+        "featuredCreator": "Öne çıkan içerik üretici konumu",
+        "storeAnalytics": "Gelişmiş mağaza analitiği",
+        "getAccess": "Erişim al"
     },
     "WaitList": {
         "joinOurWaitingList": "Bekleme listemize katılın",

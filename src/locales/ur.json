@@ -247,7 +247,17 @@
     },
     "Home": {
         "aboutXLM": "XLM کے بارے میں",
+        "claimFreeVerification": "مفت تصدیق حاصل کریں",
         "joinWaitlist": "ویٹنگ لسٹ میں شامل ہوں"
+    },
+    "Verification": {
+        "title": "1 سال کی مفت کمیونٹی تصدیق حاصل کریں",
+        "launchStore": "اپنا مواد کا اسٹور شروع کریں",
+        "verifiedBadge": "تصدیق شدہ اکاؤنٹ بیج",
+        "postCommunity": "کمیونٹی سیکشن میں پوسٹ کریں",
+        "featuredCreator": "نمایاں تخلیق کار مقام",
+        "storeAnalytics": "جدید اسٹور تجزیات",
+        "getAccess": "رسائی حاصل کریں"
     },
     "WaitList": {
         "joinOurWaitingList": "ہماری ویٹنگ لسٹ میں شامل ہوں",

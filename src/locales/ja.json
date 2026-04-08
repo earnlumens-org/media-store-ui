@@ -247,7 +247,17 @@
     },
     "Home": {
         "aboutXLM": "XLMについて",
+        "claimFreeVerification": "無料認証を取得",
         "joinWaitlist": "待機リスト"
+    },
+    "Verification": {
+        "title": "1年間のコミュニティ認証を無料で取得",
+        "launchStore": "自分のコンテンツストアを開設",
+        "verifiedBadge": "認証済みアカウントバッジ",
+        "postCommunity": "コミュニティセクションに投稿",
+        "featuredCreator": "注目クリエイターとして掲載",
+        "storeAnalytics": "高度なストア分析",
+        "getAccess": "アクセスを取得"
     },
     "WaitList": {
         "joinOurWaitingList": "私たちのウェイトリストに参加する",

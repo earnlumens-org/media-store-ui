@@ -247,7 +247,17 @@
     },
     "Home": {
         "aboutXLM": "About XLM",
+        "claimFreeVerification": "Claim Free Verification",
         "joinWaitlist": "Join Waitlist"
+    },
+    "Verification": {
+        "title": "Get 1 Year Free Community Verification",
+        "launchStore": "Launch Your Own Content Store",
+        "verifiedBadge": "Verified account badge",
+        "postCommunity": "Post in the Community Section",
+        "featuredCreator": "Featured Creator Placement",
+        "storeAnalytics": "Advanced Store Analytics",
+        "getAccess": "Get Access"
     },
     "WaitList": {
         "joinOurWaitingList": "Join our waiting list",
