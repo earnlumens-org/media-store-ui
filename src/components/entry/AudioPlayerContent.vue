@@ -83,7 +83,17 @@
       </v-sheet>
 
       <h3 class="text-h6 mt-4">{{ entry.title }}</h3>
-      <router-link class="text-body-2 text-medium-emphasis d-block text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+      <div class="d-flex align-center justify-center">
+        <router-link class="text-body-2 text-medium-emphasis text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+        <v-avatar
+          v-if="getProfileBadgeSrc(entry.profileBadge)"
+          class="ms-1 flex-shrink-0"
+          color="transparent"
+          size="16"
+        >
+          <v-img :src="getProfileBadgeSrc(entry.profileBadge)" />
+        </v-avatar>
+      </div>
 
       <v-alert
         class="mt-4 text-left"
@@ -159,7 +169,17 @@
       <!-- Title & Author -->
       <div class="text-center mt-4">
         <h3 class="text-h6 font-weight-bold">{{ entry.title }}</h3>
-        <router-link class="text-body-2 text-medium-emphasis d-block text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+        <div class="d-flex align-center justify-center">
+          <router-link class="text-body-2 text-medium-emphasis text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+          <v-avatar
+            v-if="getProfileBadgeSrc(entry.profileBadge)"
+            class="ms-1 flex-shrink-0"
+            color="transparent"
+            size="16"
+          >
+            <v-img :src="getProfileBadgeSrc(entry.profileBadge)" />
+          </v-avatar>
+        </div>
       </div>
 
       <!-- Progress Slider -->
@@ -288,6 +308,7 @@
   import { computed, onBeforeUnmount, ref, watch } from 'vue'
 
   import { cdnMediaUrl } from '@/config/env'
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
 
   interface Props {
     entry: EntryModel | null

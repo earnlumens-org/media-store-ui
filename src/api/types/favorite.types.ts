@@ -3,6 +3,8 @@
  * Mirrors the backend FavoriteItemResponse / FavoritePageResponse DTOs.
  */
 
+import type { ProfileBadge } from '@/lib/profileBadge'
+
 // ── DTO (from server) ─────────────────────────────────────
 
 export interface FavoriteItemDto {
@@ -13,6 +15,7 @@ export interface FavoriteItemDto {
   title: string
   authorName?: string
   authorAvatarUrl?: string
+  profileBadge?: string
   publishedAt?: string
   thumbnailUrl?: string
   coverUrl?: string
@@ -54,6 +57,7 @@ export interface FavoriteItemModel {
   title: string
   authorName?: string
   authorAvatarUrl?: string
+  profileBadge?: ProfileBadge
   publishedAt: string
   thumbnailUrl?: string
   coverUrl?: string

@@ -3,6 +3,8 @@
  * Both entries and collections are merged server-side via $unionWith.
  */
 
+import type { ProfileBadge } from '@/lib/profileBadge'
+
 // ==================== DTOs (from server) ====================
 
 export interface PublicFeedItemDto {
@@ -15,6 +17,7 @@ export interface PublicFeedItemDto {
   description?: string
   authorUsername: string
   authorAvatarUrl?: string
+  profileBadge?: string
   publishedAt?: string
   thumbnailR2Key?: string
   coverR2Key?: string
@@ -48,6 +51,7 @@ export interface PublicFeedItemModel {
   description?: string
   authorName: string
   authorAvatarUrl?: string
+  profileBadge?: ProfileBadge
   publishedAt: string
   thumbnailUrl?: string
   coverUrl?: string

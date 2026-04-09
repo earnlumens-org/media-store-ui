@@ -260,9 +260,8 @@
         "getAccess": "アクセスを取得"
     },
     "WaitList": {
-        "joinOurWaitingList": "私たちのウェイトリストに参加する",
-        "feedbackOptional": "フィードバック（オプション）",
-        "join": "参加する",
+        "enterEmailMessage": "コンテンツストアが利用可能になったときに通知を受けるにはメールを入力してください",
+        "getAccess": "アクセスを取得",
         "registeredEmailWeWillKeepYouInformed": "あなたのメールアドレスが登録されました。進捗状況をお知らせします。"
     },
     "Profile": {

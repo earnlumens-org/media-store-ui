@@ -83,8 +83,16 @@
 
             <!-- Info -->
             <div class="text-center text-sm-start flex-grow-1">
-              <h1 class="text-h5 text-sm-h4 font-weight-bold mb-1">
+              <h1 class="text-h5 text-sm-h4 font-weight-bold mb-1 d-flex align-center justify-center justify-sm-start">
                 @{{ user.username }}
+                <v-avatar
+                  v-if="userBadgeSrc"
+                  class="ms-2 flex-shrink-0"
+                  color="transparent"
+                  size="24"
+                >
+                  <v-img :src="userBadgeSrc" />
+                </v-avatar>
               </h1>
               <p class="text-body-1 text-medium-emphasis mb-2">
                 {{ user.displayName }}
@@ -337,6 +345,8 @@
   import { api } from '@/api/api'
   import CollectionCard from '@/components/collection/CollectionCard.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
+  import type { ProfileBadge } from '@/lib/profileBadge'
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { isPopNavigation } from '@/router'
   import { useAuthStore } from '@/stores/auth'
   import { useScrollCacheStore } from '@/stores/scrollCache'
@@ -347,6 +357,8 @@
   const scrollCache = useScrollCacheStore()
 
   const user = ref<UserProfile | null>(null)
+  const userBadgeSrc = computed(() =>
+    getProfileBadgeSrc(user.value?.profileBadge as ProfileBadge | undefined))
   const loading = ref(true)
   const snackbar = ref(false)
   const snackbarText = ref('')
@@ -427,6 +439,7 @@
       title: item.title,
       authorName: item.authorName,
       authorAvatarUrl: item.authorAvatarUrl,
+      profileBadge: item.profileBadge,
       publishedAt: item.publishedAt,
       thumbnailUrl: item.thumbnailUrl,
       durationSec: item.durationSec,
@@ -442,6 +455,7 @@
       title: item.title,
       authorName: item.authorName,
       authorAvatarUrl: item.authorAvatarUrl,
+      profileBadge: item.profileBadge,
       publishedAt: item.publishedAt,
       coverUrl: item.coverUrl,
       itemsCount: item.itemCount,

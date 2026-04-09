@@ -260,9 +260,8 @@
         "getAccess": "獲取訪問權限"
     },
     "WaitList": {
-        "joinOurWaitingList": "加入我們的等候名單",
-        "feedbackOptional": "反饋（可選）",
-        "join": "加入",
+        "enterEmailMessage": "輸入您的電子郵件，以便在您的內容商店可用時收到通知",
+        "getAccess": "取得存取權限",
         "registeredEmailWeWillKeepYouInformed": "您的電子郵件已註冊。我們將通知您有關發展的消息。"
     },
     "Profile": {

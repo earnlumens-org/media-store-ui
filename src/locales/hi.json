@@ -260,9 +260,8 @@
         "getAccess": "एक्सेस प्राप्त करें"
     },
     "WaitList": {
-        "joinOurWaitingList": "हमारी प्रतीक्षा सूची में शामिल हों",
-        "feedbackOptional": "फीडबैक (वैकल्पिक)",
-        "join": "शामिल हों",
+        "enterEmailMessage": "अपना ईमेल दर्ज करें ताकि आपको सूचित किया जा सके जब आपका कंटेंट स्टोर उपलब्ध हो",
+        "getAccess": "एक्सेस प्राप्त करें",
         "registeredEmailWeWillKeepYouInformed": "आपका ईमेल पंजीकृत हो गया है। हम आपको विकासों के बारे में सूचित करेंगे।"
     },
     "Profile": {

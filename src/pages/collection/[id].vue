@@ -213,6 +213,14 @@
                 <v-icon v-if="!collection.authorAvatarUrl" size="16">mdi-account</v-icon>
               </v-avatar>
               <span class="text-body-2 text-white text-truncate">{{ collection.authorName }}</span>
+              <v-avatar
+                v-if="collBadgeSrc"
+                class="ms-1 flex-shrink-0"
+                color="transparent"
+                size="16"
+              >
+                <v-img :src="collBadgeSrc" />
+              </v-avatar>
             </router-link>
 
             <!-- Stats Row -->
@@ -477,7 +485,17 @@
                       </v-avatar>
                     </router-link>
                     <div class="flex-grow-1" style="min-width: 0">
-                      <router-link class="text-body-1 font-weight-medium text-truncate d-block text-decoration-none" style="color: inherit" :to="`/${collection.authorName}`">{{ collection.authorName }}</router-link>
+                      <div class="d-flex align-center">
+                        <router-link class="text-body-1 font-weight-medium text-truncate d-block text-decoration-none" style="color: inherit" :to="`/${collection.authorName}`">{{ collection.authorName }}</router-link>
+                        <v-avatar
+                          v-if="collBadgeSrc"
+                          class="ms-1 flex-shrink-0"
+                          color="transparent"
+                          size="18"
+                        >
+                          <v-img :src="collBadgeSrc" />
+                        </v-avatar>
+                      </div>
                       <p class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</p>
                     </div>
                     <v-btn
@@ -562,6 +580,7 @@
   import EntryPreviewDialog from '@/components/entry/EntryPreviewDialog.vue'
   import ImageLightbox from '@/components/entry/ImageLightbox.vue'
   import CheckoutDialog from '@/components/checkout/CheckoutDialog.vue'
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { isPopNavigation } from '@/router'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
@@ -585,6 +604,7 @@
 
   // Collection State
   const collection = ref<CollectionDetailModel | null>(null)
+  const collBadgeSrc = computed(() => getProfileBadgeSrc(collection.value?.profileBadge))
   const loading = ref(true)
   const error = ref(false)
   const notFound = ref(false)

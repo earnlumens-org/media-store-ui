@@ -6,6 +6,7 @@
 import type { PublicEntryDto, PublicEntryModel, PublicEntryPageDto, PublicEntryPageModel } from '../types/entry.types'
 
 import { getCdnBaseUrl } from '@/config/env'
+import type { ProfileBadge } from '@/lib/profileBadge'
 
 function r2KeyToCdnUrl (r2Key?: string): string | undefined {
   if (!r2Key) {
@@ -13,6 +14,11 @@ function r2KeyToCdnUrl (r2Key?: string): string | undefined {
   }
   const cdnBase = getCdnBaseUrl()
   return `${cdnBase}/${r2Key}`
+}
+
+function mapProfileBadge (badge?: string): ProfileBadge | undefined {
+  if (badge === 'u1' || badge === 'u2') return badge
+  return undefined
 }
 
 export function mapPublicEntryDtoToModel (dto: PublicEntryDto): PublicEntryModel {
@@ -25,6 +31,7 @@ export function mapPublicEntryDtoToModel (dto: PublicEntryDto): PublicEntryModel
     authorId: dto.authorId,
     authorName: dto.authorName,
     authorAvatarUrl: dto.authorAvatarUrl,
+    profileBadge: mapProfileBadge(dto.profileBadge),
     publishedAt: dto.publishedAt ?? '',
     thumbnailUrl: r2KeyToCdnUrl(dto.thumbnailR2Key),
     previewUrl: r2KeyToCdnUrl(dto.previewR2Key),

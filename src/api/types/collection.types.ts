@@ -3,6 +3,8 @@
  * Maps to backend CollectionResponse, CollectionDetailResponse, CollectionPageResponse.
  */
 
+import type { ProfileBadge } from '@/lib/profileBadge'
+
 // ── DTOs (from server) ────────────────────────────────────
 
 export interface CollectionDto {
@@ -59,6 +61,7 @@ export interface CollectionDetailDto {
   visibility?: string
   authorUsername?: string
   authorAvatarUrl?: string
+  profileBadge?: string
   publishedAt?: string
   isPaid: boolean
   priceXlm?: number
@@ -128,6 +131,7 @@ export interface CollectionDetailModel {
   visibility?: string
   authorName?: string
   authorAvatarUrl?: string
+  profileBadge?: ProfileBadge
   publishedAt: string
   isPaid: boolean
   priceXlm?: number

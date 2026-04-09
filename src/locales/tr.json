@@ -260,9 +260,8 @@
         "getAccess": "Erişim al"
     },
     "WaitList": {
-        "joinOurWaitingList": "Bekleme listemize katılın",
-        "feedbackOptional": "Geri Bildirim (İsteğe Bağlı)",
-        "join": "Katıl",
+        "enterEmailMessage": "İçerik mağazanız kullanılabilir olduğunda bildirim almak için e-postanızı girin",
+        "getAccess": "Erişim Al",
         "registeredEmailWeWillKeepYouInformed": "Kayıtlı e-posta. Sizi bilgilendireceğiz."
     },
     "Profile": {

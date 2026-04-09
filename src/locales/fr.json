@@ -260,9 +260,8 @@
         "getAccess": "Obtenir l'accès"
     },
     "WaitList": {
-        "joinOurWaitingList": "Rejoignez notre liste d’attente",
-        "feedbackOptional": "Commentaires (facultatif)",
-        "join": "Rejoindre",
+        "enterEmailMessage": "Entrez votre e-mail pour être notifié lorsque votre boutique de contenu sera disponible",
+        "getAccess": "Obtenir l'accès",
         "registeredEmailWeWillKeepYouInformed": "E-mail enregistré. Nous vous tiendrons informé."
     },
     "Profile": {

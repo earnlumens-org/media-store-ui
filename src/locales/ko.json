@@ -260,9 +260,8 @@
         "getAccess": "액세스 받기"
     },
     "WaitList": {
-        "joinOurWaitingList": "우리의 대기 목록에 가입하세요",
-        "feedbackOptional": "피드백 (선택사항)",
-        "join": "가입하기",
+        "enterEmailMessage": "콘텐츠 스토어가 이용 가능해지면 알림을 받으려면 이메일을 입력하세요",
+        "getAccess": "액세스 받기",
         "registeredEmailWeWillKeepYouInformed": "등록된 이메일. 우리는 당신에게 정보를 계속 제공할 것입니다."
     },
     "Profile": {

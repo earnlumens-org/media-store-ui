@@ -260,9 +260,8 @@
         "getAccess": "Zugang erhalten"
     },
     "WaitList": {
-        "joinOurWaitingList": "Tritt unserer Warteliste bei",
-        "feedbackOptional": "Feedback (Optional)",
-        "join": "Beitreten",
+        "enterEmailMessage": "Gib deine E-Mail ein, um benachrichtigt zu werden, wenn dein Content-Store verfügbar wird",
+        "getAccess": "Zugang erhalten",
         "registeredEmailWeWillKeepYouInformed": "Registrierte E-Mail. Wir halten dich auf dem Laufenden."
     },
     "Profile": {

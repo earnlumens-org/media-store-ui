@@ -154,7 +154,10 @@
           </v-avatar>
         </router-link>
         <div class="flex-grow-1" style="min-width: 0">
-          <router-link class="text-body-1 font-weight-medium text-truncate d-block text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+          <span class="d-inline-flex align-center">
+            <router-link class="text-body-1 font-weight-medium text-truncate text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+            <v-avatar v-if="getProfileBadgeSrc(entry.profileBadge)" class="ms-1 flex-shrink-0" color="transparent" size="18"><v-img :src="getProfileBadgeSrc(entry.profileBadge)!" /></v-avatar>
+          </span>
         </div>
         <v-btn
           :aria-label="$t('Common.share')"
@@ -192,6 +195,7 @@
 
 <script setup lang="ts">
   import type { EntryModel } from '@/api/api'
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
 
   import { computed, ref } from 'vue'
 

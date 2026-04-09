@@ -297,7 +297,17 @@
               <!-- Title & Author (Mobile only) -->
               <div class="text-center mt-4 d-md-none">
                 <h1 class="text-h6 font-weight-bold">{{ entry.title }}</h1>
-                <router-link class="text-body-2 text-medium-emphasis d-block text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+                <div class="d-flex align-center justify-center">
+                  <router-link class="text-body-2 text-medium-emphasis text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+                  <v-avatar
+                    v-if="entryBadgeSrc"
+                    class="ms-1 flex-shrink-0"
+                    color="transparent"
+                    size="16"
+                  >
+                    <v-img :src="entryBadgeSrc" />
+                  </v-avatar>
+                </div>
               </div>
 
               <!-- Progress Slider -->
@@ -408,6 +418,14 @@
               <div class="flex-grow-1" style="min-width: 0">
                 <div class="d-flex align-center">
                   <router-link class="text-body-1 font-weight-medium text-truncate text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+                  <v-avatar
+                    v-if="entryBadgeSrc"
+                    class="ms-1 flex-shrink-0"
+                    color="transparent"
+                    size="18"
+                  >
+                    <v-img :src="entryBadgeSrc" />
+                  </v-avatar>
                 </div>
                 <span class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</span>
               </div>
@@ -490,6 +508,7 @@
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import { cdnMediaUrl } from '@/config/env'
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { usePurchasesStore } from '@/stores/purchases'
 
   // Lazy-load recommendations component
@@ -509,6 +528,7 @@
 
   // State
   const entry = ref<PublicEntryModel | null>(null)
+  const entryBadgeSrc = computed(() => getProfileBadgeSrc(entry.value?.profileBadge))
   const loading = ref(true)
   const error = ref(false)
   const errorMessage = ref('')

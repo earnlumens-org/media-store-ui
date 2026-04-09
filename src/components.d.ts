@@ -52,5 +52,6 @@ declare module 'vue' {
     UploadAssetPicker: typeof import('./components/upload/UploadAssetPicker.vue')['default']
     UploadForm: typeof import('./components/upload/UploadForm.vue')['default']
     UploadTypeDialog: typeof import('./components/upload/UploadTypeDialog.vue')['default']
+    VerificationDialog: typeof import('./components/home/VerificationDialog.vue')['default']
   }
 }

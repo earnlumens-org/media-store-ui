@@ -2,7 +2,7 @@
   <v-card>
     <v-list lines="two" subheader>
       <div :style="mobileView ? '' : 'display: flex; justify-content: center; align-items: center; flex-direction: column;'">
-        <v-list-item :disabled="isLoading" :title="$t('WaitList.joinOurWaitingList')" />
+        <v-list-item :disabled="isLoading" :title="$t('WaitList.enterEmailMessage')" />
 
         <v-list-item>
           <v-text-field
@@ -17,17 +17,6 @@
         </v-list-item>
 
         <v-list-item>
-          <v-textarea
-            v-model="feedback"
-            :disabled="isLoading"
-            :label="$t('WaitList.feedbackOptional')"
-            prepend-icon="mdi-comment-text-outline"
-            :rules="feedbackRules"
-            :style="mobileView ? '' : 'width: 800px;'"
-          />
-        </v-list-item>
-
-        <v-list-item>
           <div :style="mobileView ? '' : 'width: 800px;'">
             <v-btn
               v-if="!responseOk"
@@ -38,7 +27,7 @@
               variant="tonal"
               @click="joinClicked"
             >
-              {{ $t('WaitList.join') }}
+              {{ $t('WaitList.getAccess') }}
             </v-btn>
             <v-btn v-else block color="green" @click="closeDialog">
               {{ $t('Common.close') }}
@@ -117,7 +106,6 @@
   const captcha69 = ref<any>(null)
 
   const email = ref('')
-  const feedback = ref('')
 
   const isLoading = ref(false)
   const sendingRequest = ref(false)
@@ -129,23 +117,16 @@
     (v: string) => (validateEmail(v) ? true : t('CxLoginDialog.emailMostBeValid')),
   ])
 
-  const feedbackRules = computed<Array<(v: string) => true | string>>(() => [
-    (v: string) => (!v || v.length <= 500 ? true : 'Max 500 characters'),
-  ])
-
   function isFieldValid (value: string, rules: Array<(v: string) => true | string>): boolean {
     return rules.every(rule => rule(value) === true)
   }
 
   const formIsValid = computed(() => {
-    const emailOk = isFieldValid(email.value, emailRules.value)
-    const feedbackOk = isFieldValid(feedback.value, feedbackRules.value)
-    return emailOk && feedbackOk
+    return isFieldValid(email.value, emailRules.value)
   })
 
   function resetForm () {
     email.value = ''
-    feedback.value = ''
     isLoading.value = false
     sendingRequest.value = false
     responseOk.value = false
@@ -181,9 +162,15 @@
 
       await api.waitlist.subscribe({
         email: email.value,
-        feedback: feedback.value || undefined,
         captchaResponse: captchaToken,
       })
+
+      // Claim the blue badge (ignore 409 if already claimed)
+      try {
+        await api.badges.claim()
+      } catch {
+        // 409 = already claimed — that's fine
+      }
 
       await refreshStats()
 

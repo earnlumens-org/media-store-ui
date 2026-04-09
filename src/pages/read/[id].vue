@@ -263,7 +263,14 @@
               <div class="flex-grow-1" style="min-width: 0">
                 <div class="d-flex align-center">
                   <router-link class="text-body-1 font-weight-medium text-truncate text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
-                  <v-icon class="ms-1 flex-shrink-0" color="primary" size="18">mdi-check-decagram</v-icon>
+                  <v-avatar
+                    v-if="entryBadgeSrc"
+                    class="ms-1 flex-shrink-0"
+                    color="transparent"
+                    size="18"
+                  >
+                    <v-img :src="entryBadgeSrc" />
+                  </v-avatar>
                 </div>
                 <span class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</span>
               </div>
@@ -429,7 +436,7 @@
                     <v-icon v-else size="32">mdi-account</v-icon>
                   </v-avatar>
                 </router-link>
-                <router-link class="text-body-1 font-weight-medium text-truncate d-block text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+                <div class=\"d-flex align-center\">\n                  <router-link class=\"text-body-1 font-weight-medium text-truncate text-decoration-none\" style=\"color: inherit\" :to=\"`/${entry.authorName}`\">{{ entry.authorName }}</router-link>\n                  <v-avatar\n                    v-if=\"entryBadgeSrc\"\n                    class=\"ms-1 flex-shrink-0\"\n                    color=\"transparent\"\n                    size=\"18\"\n                  >\n                    <v-img :src=\"entryBadgeSrc\" />\n                  </v-avatar>\n                </div>
                 <p class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</p>
                 <CxSubscribeButton
                   v-if="entry.authorId"
@@ -465,6 +472,7 @@
   import { usePurchasesStore } from '@/stores/purchases'
   import { cdnMediaUrl } from '@/config/env'
   import { formatFileSize } from '@/api/types/upload.types'
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
 
   import ReadRecommendationsList from './ReadRecommendationsList.vue'
 
@@ -484,6 +492,7 @@
 
   // State
   const entry = ref<PublicEntryModel | null>(null)
+  const entryBadgeSrc = computed(() => getProfileBadgeSrc(entry.value?.profileBadge))
   const loading = ref(true)
   const error = ref(false)
   const notFound = ref(false)

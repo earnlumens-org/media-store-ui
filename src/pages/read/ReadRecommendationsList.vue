@@ -85,7 +85,18 @@
       </v-list-item-title>
 
       <v-list-item-subtitle class="text-caption">
-        <router-link class="text-decoration-none" style="color: inherit" :to="`/${item.authorName}`">{{ item.authorName }}</router-link> · {{ formatDate(item.publishedAt) }}
+        <span class="d-inline-flex align-center">
+          <router-link class="text-decoration-none" style="color: inherit" :to="`/${item.authorName}`">{{ item.authorName }}</router-link>
+          <v-avatar
+            v-if="getProfileBadgeSrc(item.profileBadge)"
+            class="ms-1 flex-shrink-0"
+            color="transparent"
+            size="14"
+          >
+            <v-img :src="getProfileBadgeSrc(item.profileBadge)" />
+          </v-avatar>
+        </span>
+        · {{ formatDate(item.publishedAt) }}
       </v-list-item-subtitle>
 
       <!-- Locked indicator -->
@@ -102,6 +113,7 @@
   import { onMounted, ref, watch } from 'vue'
 
   import { api } from '@/api/api'
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { usePurchasesStore } from '@/stores/purchases'
 
   interface Props {

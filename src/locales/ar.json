@@ -260,9 +260,8 @@
         "getAccess": "احصل على الوصول"
     },
     "WaitList": {
-        "joinOurWaitingList": "انضم إلى قائمة انتظارنا",
-        "feedbackOptional": "ردود الفعل (اختياري)",
-        "join": "انضم",
+        "enterEmailMessage": "أدخل بريدك الإلكتروني ليتم إعلامك عندما يصبح متجر المحتوى الخاص بك متاحًا",
+        "getAccess": "الحصول على الوصول",
         "registeredEmailWeWillKeepYouInformed": "تم تسجيل البريد الإلكتروني الخاص بك. سنبقيك على علم بالتطورات."
     },
     "Profile": {

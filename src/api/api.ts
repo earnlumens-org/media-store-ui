@@ -1,4 +1,5 @@
 import { createSession, logout, refreshAccessToken } from './modules/auth.api'
+import { claimBadge, getMyBadges } from './modules/badge.api'
 import {
   addItem,
   archiveCollection as archiveCollectionFn,
@@ -46,6 +47,10 @@ export const api = {
     me: getCurrentUser,
     getByUsername: getUserByUsername,
     checkExists: checkUsernameExists,
+  },
+  badges: {
+    claim: claimBadge,
+    me: getMyBadges,
   },
   waitlist: {
     getStats: getWaitlistStats,

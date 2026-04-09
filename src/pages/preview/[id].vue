@@ -858,6 +858,7 @@
         title: data.title,
         authorName: data.authorName,
         authorAvatarUrl: data.authorAvatarUrl,
+        profileBadge: data.profileBadge,
         publishedAt: data.publishedAt,
         thumbnailUrl: data.thumbnailUrl,
         previewUrl: data.previewUrl,
@@ -928,6 +929,7 @@
               title: collDetail.title,
               authorName: collDetail.authorName ?? '',
               authorAvatarUrl: collDetail.authorAvatarUrl,
+              profileBadge: collDetail.profileBadge,
               publishedAt: collDetail.publishedAt,
               coverUrl: collDetail.coverUrl,
               itemsCount: collDetail.itemCount,
@@ -940,6 +942,7 @@
               title: collDetail.title,
               authorName: collDetail.authorName ?? '',
               authorAvatarUrl: collDetail.authorAvatarUrl,
+              profileBadge: collDetail.profileBadge,
               publishedAt: collDetail.publishedAt,
               locked: collDetail.locked,
             }

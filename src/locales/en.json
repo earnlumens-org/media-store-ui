@@ -260,9 +260,8 @@
         "getAccess": "Get Access"
     },
     "WaitList": {
-        "joinOurWaitingList": "Join our waiting list",
-        "feedbackOptional": "Feedback (Optional)",
-        "join": "Join",
+        "enterEmailMessage": "Enter email to be notified when your content store becomes available",
+        "getAccess": "Get Access",
         "registeredEmailWeWillKeepYouInformed": "Registered email. We will keep you informed."
     },
     "Profile": {

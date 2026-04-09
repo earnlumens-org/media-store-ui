@@ -314,7 +314,14 @@
                 <div class="flex-grow-1" style="min-width: 0">
                   <div class="d-flex align-center">
                     <router-link class="text-body-1 font-weight-medium text-truncate text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
-                    <v-icon class="ms-1 flex-shrink-0" color="primary" size="18">mdi-check-decagram</v-icon>
+                    <v-avatar
+                      v-if="entryBadgeSrc"
+                      class="ms-1 flex-shrink-0"
+                      color="transparent"
+                      size="18"
+                    >
+                      <v-img :src="entryBadgeSrc" />
+                    </v-avatar>
                   </div>
                   <span class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</span>
                 </div>
@@ -428,6 +435,7 @@
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import { cdnMediaUrl } from '@/config/env'
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { usePurchasesStore } from '@/stores/purchases'
 
   import ImageRecommendationsList from './ImageRecommendationsList.vue'
@@ -444,6 +452,7 @@
 
   // State
   const entry = ref<PublicEntryModel | null>(null)
+  const entryBadgeSrc = computed(() => getProfileBadgeSrc(entry.value?.profileBadge))
   const loading = ref(true)
   const error = ref(false)
   const notFound = ref(false)

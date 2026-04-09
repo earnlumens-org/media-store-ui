@@ -49,9 +49,17 @@
                 size="32"
               />
             </router-link>
-            <router-link class="text-body-2 text-white text-medium-emphasis me-2 d-none d-sm-inline text-decoration-none" :to="`/${entry.authorName}`">
+            <router-link class="text-body-2 text-white text-medium-emphasis me-1 d-none d-sm-inline text-decoration-none" :to="`/${entry.authorName}`">
               {{ entry.authorName }}
             </router-link>
+            <v-avatar
+              v-if="getProfileBadgeSrc(entry.profileBadge)"
+              class="me-2 flex-shrink-0 d-none d-sm-inline-flex"
+              color="transparent"
+              size="16"
+            >
+              <v-img :src="getProfileBadgeSrc(entry.profileBadge)" />
+            </v-avatar>
 
             <!-- Share button -->
             <v-btn
@@ -144,8 +152,16 @@
               <v-icon color="white" size="80">mdi-lock</v-icon>
 
               <h2 class="text-h5 text-white mt-4">{{ entry.title }}</h2>
-              <p class="text-body-2 text-medium-emphasis text-grey-lighten-1 mt-2">
-                by <router-link class="text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+              <p class="text-body-2 text-medium-emphasis text-grey-lighten-1 mt-2 d-flex align-center justify-center">
+                by <router-link class="text-decoration-none ms-1" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+                <v-avatar
+                  v-if="getProfileBadgeSrc(entry.profileBadge)"
+                  class="ms-1 flex-shrink-0"
+                  color="transparent"
+                  size="16"
+                >
+                  <v-img :src="getProfileBadgeSrc(entry.profileBadge)" />
+                </v-avatar>
               </p>
 
               <v-alert
@@ -299,6 +315,7 @@
   import { useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
 
   interface Props {
     modelValue: boolean

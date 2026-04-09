@@ -260,9 +260,8 @@
         "getAccess": "Dapatkan akses"
     },
     "WaitList": {
-        "joinOurWaitingList": "Sertai senarai tunggu kami",
-        "feedbackOptional": "Maklum balas (pilihan)",
-        "join": "Sertai",
+        "enterEmailMessage": "Masukkan e-mel anda untuk dimaklumkan apabila kedai kandungan anda tersedia",
+        "getAccess": "Dapatkan Akses",
         "registeredEmailWeWillKeepYouInformed": "E-mel anda telah didaftarkan. Kami akan memberitahu anda tentang perkembangan."
     },
     "Profile": {

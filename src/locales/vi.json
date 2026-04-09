@@ -260,9 +260,8 @@
         "getAccess": "Nhận quyền truy cập"
     },
     "WaitList": {
-        "joinOurWaitingList": "Tham gia danh sách chờ của chúng tôi",
-        "feedbackOptional": "Phản hồi (Tùy chọn)",
-        "join": "Tham gia",
+        "enterEmailMessage": "Nhập email để được thông báo khi cửa hàng nội dung của bạn sẵn sàng",
+        "getAccess": "Nhận quyền truy cập",
         "registeredEmailWeWillKeepYouInformed": "Email đã đăng ký. Chúng tôi sẽ giữ bạn được thông báo."
     },
     "Profile": {

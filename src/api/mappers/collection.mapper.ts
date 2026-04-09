@@ -15,12 +15,18 @@ import type {
 } from '../types/collection.types'
 
 import { getCdnBaseUrl } from '@/config/env'
+import type { ProfileBadge } from '@/lib/profileBadge'
 
 function r2KeyToCdnUrl (r2Key?: string): string | undefined {
   if (!r2Key) {
     return undefined
   }
   return `${getCdnBaseUrl()}/${r2Key}`
+}
+
+function mapProfileBadge (badge?: string): ProfileBadge | undefined {
+  if (badge === 'u1' || badge === 'u2') return badge
+  return undefined
 }
 
 export function mapCollectionDtoToModel (dto: CollectionDto): CollectionItemModel {
@@ -84,6 +90,7 @@ export function mapCollectionDetailDtoToModel (dto: CollectionDetailDto): Collec
     visibility: dto.visibility,
     authorName: dto.authorUsername,
     authorAvatarUrl: dto.authorAvatarUrl,
+    profileBadge: mapProfileBadge(dto.profileBadge),
     publishedAt: dto.publishedAt ?? '',
     isPaid: dto.isPaid,
     priceXlm: dto.priceXlm,

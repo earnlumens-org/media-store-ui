@@ -260,9 +260,8 @@
         "getAccess": "رسائی حاصل کریں"
     },
     "WaitList": {
-        "joinOurWaitingList": "ہماری ویٹنگ لسٹ میں شامل ہوں",
-        "feedbackOptional": "رائے (اختیاری)",
-        "join": "شامل ہوں",
+        "enterEmailMessage": "اپنا ای میل درج کریں تاکہ آپ کو مطلع کیا جا سکے جب آپ کا مواد کی دکان دستیاب ہو",
+        "getAccess": "رسائی حاصل کریں",
         "registeredEmailWeWillKeepYouInformed": "رجسٹرڈ ای میل۔ ہم آپ کو باخبر رکھیں گے۔"
     },
     "Profile": {

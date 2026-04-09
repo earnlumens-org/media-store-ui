@@ -3,6 +3,8 @@
  * These represent REAL published entries from the backend.
  */
 
+import type { ProfileBadge } from '@/lib/profileBadge'
+
 // ==================== DTOs (from server) ====================
 
 export interface PublicEntryDto {
@@ -14,6 +16,7 @@ export interface PublicEntryDto {
   authorId?: string
   authorName: string
   authorAvatarUrl?: string
+  profileBadge?: string
   publishedAt?: string
   thumbnailR2Key?: string
   previewR2Key?: string
@@ -52,6 +55,7 @@ export interface PublicEntryModel {
   authorId?: string
   authorName: string
   authorAvatarUrl?: string
+  profileBadge?: ProfileBadge
   publishedAt: string
   thumbnailUrl?: string
   previewUrl?: string

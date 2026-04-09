@@ -115,7 +115,17 @@
       </v-list-item-title>
 
       <v-list-item-subtitle class="text-caption">
-        <router-link class="text-decoration-none" style="color: inherit" :to="`/${item.authorName}`">{{ item.authorName }}</router-link>
+        <span class="d-inline-flex align-center">
+          <router-link class="text-decoration-none" style="color: inherit" :to="`/${item.authorName}`">{{ item.authorName }}</router-link>
+          <v-avatar
+            v-if="getProfileBadgeSrc(item.profileBadge)"
+            class="ms-1 flex-shrink-0"
+            color="transparent"
+            size="14"
+          >
+            <v-img :src="getProfileBadgeSrc(item.profileBadge)" />
+          </v-avatar>
+        </span>
       </v-list-item-subtitle>
 
       <v-list-item-subtitle v-if="item.durationSec" class="text-caption text-medium-emphasis">
@@ -131,6 +141,7 @@
   import { onMounted, ref, watch } from 'vue'
 
   import { api } from '@/api/api'
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { usePurchasesStore } from '@/stores/purchases'
 
   interface Props {
