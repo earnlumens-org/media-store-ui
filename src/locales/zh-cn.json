@@ -205,7 +205,18 @@
         "termsAndConditions": "条款与条件",
         "termsAndConditionsHint": "查看我们的服务条款和隐私政策",
         "contentGuidelines": "内容准则",
-        "contentGuidelinesHint": "发布金融教育内容的规则"
+        "contentGuidelinesHint": "发布金融教育内容的规则",
+        "badgeSection": "验证徽章",
+        "badgeActive": "您的蓝色验证徽章已激活",
+        "badgeType": "徽章类型",
+        "badgeStatus": "状态",
+        "badgeActiveStatus": "已激活",
+        "badgeSince": "激活日期",
+        "badgeExpires": "到期日期",
+        "badgeNoExpiration": "无到期日",
+        "badgeNone": "您还没有验证徽章",
+        "badgeNoneHint": "获取早期访问权限，限时免费获得验证徽章。",
+        "badgeGetAccess": "免费获取徽章"
     },
     "AppBar": {
         "home": "主页",
@@ -260,9 +271,17 @@
         "getAccess": "获取访问权限"
     },
     "WaitList": {
-        "enterEmailMessage": "输入您的电子邮件，以便在您的内容商店可用时收到通知",
-        "getAccess": "获取访问权限",
-        "registeredEmailWeWillKeepYouInformed": "您的电子邮件已注册。我们将通知您有关进展。"
+        "enterEmailMessage": "您的认证徽章将立即激活。请输入邮箱，我们会在您的商店准备就绪时通知您。",
+        "getAccess": "激活我的徽章",
+        "registeredEmailWeWillKeepYouInformed": "完成！您的认证徽章已激活。商店准备就绪时我们会通过邮件通知您。",
+        "title": "激活您的免费认证",
+        "totalUsersOnWaitlist": "等待列表用户总数",
+        "waitlistGrowth": "等待列表增长",
+        "alreadyJoinedTitle": "您的徽章已激活！",
+        "alreadyJoinedMessage": "您已拥有认证徽章。内容商店准备就绪后我们会通知您。",
+        "goHome": "返回首页",
+        "stepBadge": "认证徽章即时激活",
+        "stepNotify": "商店就绪时邮件通知"
     },
     "Profile": {
         "loading": "正在加载个人资料...",

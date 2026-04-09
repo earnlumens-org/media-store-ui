@@ -205,7 +205,18 @@
         "termsAndConditions": "Términos y Condiciones",
         "termsAndConditionsHint": "Revisa nuestros términos de servicio y política de privacidad",
         "contentGuidelines": "Guía de Contenido",
-        "contentGuidelinesHint": "Reglas para publicar contenido de educación financiera"
+        "contentGuidelinesHint": "Reglas para publicar contenido de educación financiera",
+        "badgeSection": "Insignia de verificación",
+        "badgeActive": "Tu insignia azul de verificación está activa",
+        "badgeType": "Tipo de insignia",
+        "badgeStatus": "Estado",
+        "badgeActiveStatus": "Activo",
+        "badgeSince": "Activo desde",
+        "badgeExpires": "Expira",
+        "badgeNoExpiration": "Sin expiración",
+        "badgeNone": "Aún no tienes una insignia de verificación",
+        "badgeNoneHint": "Obtén acceso anticipado y recibe una insignia de verificación gratuita por tiempo limitado.",
+        "badgeGetAccess": "Obtener insignia gratis"
     },
     "AppBar": {
         "home": "Inicio",
@@ -260,9 +271,17 @@
         "getAccess": "Obtener acceso"
     },
     "WaitList": {
-        "enterEmailMessage": "Ingresa tu correo para recibir una notificación cuando tu tienda de contenido esté disponible",
-        "getAccess": "Obtener Acceso",
-        "registeredEmailWeWillKeepYouInformed": "Correo electrónico registrado. Te mantendremos informado."
+        "enterEmailMessage": "Tu insignia de verificación se activa al instante. Ingresá tu correo para que te avisemos cuando tu tienda de contenido esté lista.",
+        "getAccess": "Activar mi insignia",
+        "registeredEmailWeWillKeepYouInformed": "¡Listo! Tu insignia de verificación ya está activa. Te enviaremos un correo cuando tu tienda esté lista.",
+        "title": "Activá tu verificación gratuita",
+        "totalUsersOnWaitlist": "Total de usuarios en la lista de espera",
+        "waitlistGrowth": "Crecimiento de la lista",
+        "alreadyJoinedTitle": "¡Tu insignia está activa!",
+        "alreadyJoinedMessage": "Ya tenés tu insignia de verificación. Te vamos a avisar cuando tu tienda de contenido esté lista para usar.",
+        "goHome": "Ir al inicio",
+        "stepBadge": "Insignia verificada activada al instante",
+        "stepNotify": "Notificación por correo cuando tu tienda esté lista"
     },
     "Profile": {
         "loading": "Cargando perfil...",

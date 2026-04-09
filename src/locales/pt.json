@@ -205,7 +205,18 @@
         "termsAndConditions": "Termos e Condições",
         "termsAndConditionsHint": "Consulte os nossos termos de serviço e política de privacidade",
         "contentGuidelines": "Diretrizes de Conteúdo",
-        "contentGuidelinesHint": "Regras para publicação de conteúdo de educação financeira"
+        "contentGuidelinesHint": "Regras para publicação de conteúdo de educação financeira",
+        "badgeSection": "Selo de verificação",
+        "badgeActive": "Seu selo azul de verificação está ativo",
+        "badgeType": "Tipo de selo",
+        "badgeStatus": "Status",
+        "badgeActiveStatus": "Ativo",
+        "badgeSince": "Ativo desde",
+        "badgeExpires": "Expira",
+        "badgeNoExpiration": "Sem expiração",
+        "badgeNone": "Você ainda não tem um selo de verificação",
+        "badgeNoneHint": "Obtenha acesso antecipado e receba um selo de verificação gratuito por tempo limitado.",
+        "badgeGetAccess": "Obter selo grátis"
     },
     "AppBar": {
         "home": "Início",
@@ -260,9 +271,17 @@
         "getAccess": "Obter acesso"
     },
     "WaitList": {
-        "enterEmailMessage": "Digite seu e-mail para ser notificado quando sua loja de conteúdo estiver disponível",
-        "getAccess": "Obter Acesso",
-        "registeredEmailWeWillKeepYouInformed": "Seu e-mail foi registrado. Manteremos você informado."
+        "enterEmailMessage": "Seu selo de verificação será ativado na hora. Insira seu e-mail para avisarmos quando sua loja estiver pronta.",
+        "getAccess": "Ativar meu selo",
+        "registeredEmailWeWillKeepYouInformed": "Pronto! Seu selo está ativo. Enviaremos um e-mail quando sua loja estiver pronta.",
+        "title": "Ative sua verificação gratuita",
+        "totalUsersOnWaitlist": "Total de usuários na lista de espera",
+        "waitlistGrowth": "Crescimento da lista",
+        "alreadyJoinedTitle": "Seu selo está ativo!",
+        "alreadyJoinedMessage": "Você já tem seu selo de verificação. Vamos avisar quando sua loja de conteúdo estiver pronta.",
+        "goHome": "Ir para o início",
+        "stepBadge": "Selo verificado ativado na hora",
+        "stepNotify": "Notificação por e-mail quando sua loja estiver pronta"
     },
     "Profile": {
         "loading": "A carregar perfil...",

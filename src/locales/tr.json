@@ -205,7 +205,18 @@
         "termsAndConditions": "Şartlar ve Koşullar",
         "termsAndConditionsHint": "Hizmet şartlarımızı ve gizlilik politikamızı inceleyin",
         "contentGuidelines": "İçerik Kuralları",
-        "contentGuidelinesHint": "Finansal eğitim içeriği yayınlama kuralları"
+        "contentGuidelinesHint": "Finansal eğitim içeriği yayınlama kuralları",
+        "badgeSection": "Doğrulama rozeti",
+        "badgeActive": "Mavi doğrulama rozetiniz aktif",
+        "badgeType": "Rozet türü",
+        "badgeStatus": "Durum",
+        "badgeActiveStatus": "Aktif",
+        "badgeSince": "Aktif olma tarihi",
+        "badgeExpires": "Bitiş tarihi",
+        "badgeNoExpiration": "Süresiz",
+        "badgeNone": "Henüz doğrulama rozetiniz yok",
+        "badgeNoneHint": "Erken erişim kazanın ve sınırlı süreliğine ücretsiz doğrulama rozeti alın.",
+        "badgeGetAccess": "Ücretsiz rozet al"
     },
     "AppBar": {
         "home": "Ana Sayfa",
@@ -260,9 +271,17 @@
         "getAccess": "Erişim al"
     },
     "WaitList": {
-        "enterEmailMessage": "İçerik mağazanız kullanılabilir olduğunda bildirim almak için e-postanızı girin",
-        "getAccess": "Erişim Al",
-        "registeredEmailWeWillKeepYouInformed": "Kayıtlı e-posta. Sizi bilgilendireceğiz."
+        "enterEmailMessage": "Doğrulama rozetiniz anında etkinleştirilecek. Mağazanız hazır olduğunda sizi bilgilendirebilmemiz için e-postanızı girin.",
+        "getAccess": "Rozetimi etkinleştir",
+        "registeredEmailWeWillKeepYouInformed": "Tamam! Rozetiniz aktif. Mağazanız hazır olduğunda e-posta göndereceğiz.",
+        "title": "Ücretsiz doğrulamanızı etkinleştirin",
+        "totalUsersOnWaitlist": "Bekleme listesindeki toplam kullanıcı",
+        "waitlistGrowth": "Bekleme listesi büyümesi",
+        "alreadyJoinedTitle": "Rozetiniz aktif!",
+        "alreadyJoinedMessage": "Doğrulama rozetiniz zaten aktif. Mağazanız hazır olduğunda sizi bilgilendireceğiz.",
+        "goHome": "Ana sayfaya git",
+        "stepBadge": "Doğrulama rozeti anında etkinleşir",
+        "stepNotify": "Mağazanız hazır olunca e-posta bildirimi"
     },
     "Profile": {
         "loading": "Profil yükleniyor...",

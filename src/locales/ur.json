@@ -205,7 +205,18 @@
         "termsAndConditions": "شرائط و ضوابط",
         "termsAndConditionsHint": "ہماری سروس کی شرائط اور رازداری کی پالیسی کا جائزہ لیں",
         "contentGuidelines": "مواد کی رہنما اصول",
-        "contentGuidelinesHint": "مالیاتی تعلیمی مواد شائع کرنے کے قواعد"
+        "contentGuidelinesHint": "مالیاتی تعلیمی مواد شائع کرنے کے قواعد",
+        "badgeSection": "تصدیقی بیج",
+        "badgeActive": "آپ کا نیلا تصدیقی بیج فعال ہے",
+        "badgeType": "بیج کی قسم",
+        "badgeStatus": "حالت",
+        "badgeActiveStatus": "فعال",
+        "badgeSince": "فعال ہونے کی تاریخ",
+        "badgeExpires": "میعاد ختم",
+        "badgeNoExpiration": "بلا میعاد",
+        "badgeNone": "آپ کے پاس ابھی تصدیقی بیج نہیں ہے",
+        "badgeNoneHint": "ابتدائی رسائی حاصل کریں اور محدود وقت کے لیے مفت تصدیقی بیج حاصل کریں۔",
+        "badgeGetAccess": "مفت بیج حاصل کریں"
     },
     "AppBar": {
         "home": "ہوم",
@@ -260,9 +271,17 @@
         "getAccess": "رسائی حاصل کریں"
     },
     "WaitList": {
-        "enterEmailMessage": "اپنا ای میل درج کریں تاکہ آپ کو مطلع کیا جا سکے جب آپ کا مواد کی دکان دستیاب ہو",
-        "getAccess": "رسائی حاصل کریں",
-        "registeredEmailWeWillKeepYouInformed": "رجسٹرڈ ای میل۔ ہم آپ کو باخبر رکھیں گے۔"
+        "enterEmailMessage": "آپ کا تصدیقی بیج فوری طور پر فعال ہو جائے گا۔ اپنا ای میل درج کریں تاکہ ہم آپ کو بتا سکیں جب آپ کی دکان تیار ہو۔",
+        "getAccess": "میرا بیج فعال کریں",
+        "registeredEmailWeWillKeepYouInformed": "ہو گیا! آپ کا بیج فعال ہے۔ دکان تیار ہونے پر ہم ای میل کریں گے۔",
+        "title": "اپنی مفت تصدیق فعال کریں",
+        "totalUsersOnWaitlist": "ویٹ لسٹ میں کل صارفین",
+        "waitlistGrowth": "انتظار فہرست کی نمو",
+        "alreadyJoinedTitle": "آپ کا بیج فعال ہے!",
+        "alreadyJoinedMessage": "آپ کے پاس پہلے سے تصدیقی بیج ہے۔ دکان تیار ہونے پر ہم آپ کو مطلع کریں گے۔",
+        "goHome": "ہوم پر جائیں",
+        "stepBadge": "تصدیقی بیج فوری طور پر فعال",
+        "stepNotify": "دکان تیار ہونے پر ای میل اطلاع"
     },
     "Profile": {
         "loading": "پروفائل لوڈ ہو رہی ہے...",

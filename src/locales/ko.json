@@ -205,7 +205,18 @@
         "termsAndConditions": "이용약관",
         "termsAndConditionsHint": "서비스 이용약관 및 개인정보 처리방침 확인",
         "contentGuidelines": "콘텐츠 가이드라인",
-        "contentGuidelinesHint": "금융 교육 콘텐츠 게시 규칙"
+        "contentGuidelinesHint": "금융 교육 콘텐츠 게시 규칙",
+        "badgeSection": "인증 배지",
+        "badgeActive": "블루 인증 배지가 활성화되어 있습니다",
+        "badgeType": "배지 유형",
+        "badgeStatus": "상태",
+        "badgeActiveStatus": "활성",
+        "badgeSince": "활성 시작일",
+        "badgeExpires": "만료일",
+        "badgeNoExpiration": "만료 없음",
+        "badgeNone": "아직 인증 배지가 없습니다",
+        "badgeNoneHint": "조기 액세스를 받고 기간 한정 무료 인증 배지를 받으세요.",
+        "badgeGetAccess": "무료 배지 받기"
     },
     "AppBar": {
         "home": "홈",
@@ -260,9 +271,17 @@
         "getAccess": "액세스 받기"
     },
     "WaitList": {
-        "enterEmailMessage": "콘텐츠 스토어가 이용 가능해지면 알림을 받으려면 이메일을 입력하세요",
-        "getAccess": "액세스 받기",
-        "registeredEmailWeWillKeepYouInformed": "등록된 이메일. 우리는 당신에게 정보를 계속 제공할 것입니다."
+        "enterEmailMessage": "인증 배지가 즉시 활성화됩니다. 스토어가 준비되면 알려드릴 수 있도록 이메일을 입력해 주세요.",
+        "getAccess": "내 배지 활성화",
+        "registeredEmailWeWillKeepYouInformed": "완료! 인증 배지가 활성화되었습니다. 스토어가 준비되면 이메일로 알려드리겠습니다.",
+        "title": "무료 인증을 활성화하세요",
+        "totalUsersOnWaitlist": "대기 목록의 총 사용자",
+        "waitlistGrowth": "대기 목록 성장",
+        "alreadyJoinedTitle": "배지가 활성화되었습니다!",
+        "alreadyJoinedMessage": "이미 인증 배지가 있습니다. 콘텐츠 스토어가 준비되면 알려드리겠습니다.",
+        "goHome": "홈으로 이동",
+        "stepBadge": "인증 배지 즉시 활성화",
+        "stepNotify": "스토어 준비 시 이메일 알림"
     },
     "Profile": {
         "loading": "프로필을 불러오는 중...",

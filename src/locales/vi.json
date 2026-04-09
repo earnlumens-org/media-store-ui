@@ -205,7 +205,18 @@
         "termsAndConditions": "Điều khoản và Điều kiện",
         "termsAndConditionsHint": "Xem điều khoản dịch vụ và chính sách bảo mật của chúng tôi",
         "contentGuidelines": "Nguyên tắc nội dung",
-        "contentGuidelinesHint": "Quy tắc xuất bản nội dung giáo dục tài chính"
+        "contentGuidelinesHint": "Quy tắc xuất bản nội dung giáo dục tài chính",
+        "badgeSection": "Huy hiệu xác minh",
+        "badgeActive": "Huy hiệu xác minh xanh của bạn đang hoạt động",
+        "badgeType": "Loại huy hiệu",
+        "badgeStatus": "Trạng thái",
+        "badgeActiveStatus": "Đang hoạt động",
+        "badgeSince": "Hoạt động từ",
+        "badgeExpires": "Hết hạn",
+        "badgeNoExpiration": "Không hết hạn",
+        "badgeNone": "Bạn chưa có huy hiệu xác minh",
+        "badgeNoneHint": "Nhận quyền truy cập sớm và huy hiệu xác minh miễn phí trong thời gian giới hạn.",
+        "badgeGetAccess": "Nhận huy hiệu miễn phí"
     },
     "AppBar": {
         "home": "Trang chủ",
@@ -260,9 +271,17 @@
         "getAccess": "Nhận quyền truy cập"
     },
     "WaitList": {
-        "enterEmailMessage": "Nhập email để được thông báo khi cửa hàng nội dung của bạn sẵn sàng",
-        "getAccess": "Nhận quyền truy cập",
-        "registeredEmailWeWillKeepYouInformed": "Email đã đăng ký. Chúng tôi sẽ giữ bạn được thông báo."
+        "enterEmailMessage": "Huy hiệu xác minh sẽ được kích hoạt ngay. Nhập email để chúng tôi thông báo khi cửa hàng của bạn sẵn sàng.",
+        "getAccess": "Kích hoạt huy hiệu",
+        "registeredEmailWeWillKeepYouInformed": "Xong! Huy hiệu đã hoạt động. Chúng tôi sẽ gửi email khi cửa hàng sẵn sàng.",
+        "title": "Kích hoạt xác minh miễn phí",
+        "totalUsersOnWaitlist": "Tổng người dùng trong danh sách chờ",
+        "waitlistGrowth": "Tăng trưởng danh sách chờ",
+        "alreadyJoinedTitle": "Huy hiệu đã hoạt động!",
+        "alreadyJoinedMessage": "Bạn đã có huy hiệu xác minh. Chúng tôi sẽ thông báo khi cửa hàng sẵn sàng.",
+        "goHome": "Về trang chủ",
+        "stepBadge": "Huy hiệu xác minh kích hoạt ngay",
+        "stepNotify": "Thông báo email khi cửa hàng sẵn sàng"
     },
     "Profile": {
         "loading": "Đang tải hồ sơ...",

@@ -205,7 +205,18 @@
         "termsAndConditions": "Regulamin",
         "termsAndConditionsHint": "Zapoznaj się z warunkami korzystania z usługi i polityką prywatności",
         "contentGuidelines": "Wytyczne dotyczące treści",
-        "contentGuidelinesHint": "Zasady publikowania treści edukacji finansowej"
+        "contentGuidelinesHint": "Zasady publikowania treści edukacji finansowej",
+        "badgeSection": "Odznaka weryfikacji",
+        "badgeActive": "Twoja niebieska odznaka weryfikacji jest aktywna",
+        "badgeType": "Typ odznaki",
+        "badgeStatus": "Status",
+        "badgeActiveStatus": "Aktywna",
+        "badgeSince": "Aktywna od",
+        "badgeExpires": "Wygasa",
+        "badgeNoExpiration": "Bez wygaśnięcia",
+        "badgeNone": "Nie masz jeszcze odznaki weryfikacji",
+        "badgeNoneHint": "Uzyskaj wczesny dostęp i otrzymaj bezpłatną odznakę weryfikacji na ograniczony czas.",
+        "badgeGetAccess": "Pobierz za darmo"
     },
     "AppBar": {
         "home": "Strona główna",
@@ -260,9 +271,17 @@
         "getAccess": "Uzyskaj dostęp"
     },
     "WaitList": {
-        "enterEmailMessage": "Wpisz e-mail, aby otrzymać powiadomienie, gdy Twój sklep z treściami będzie dostępny",
-        "getAccess": "Uzyskaj dostęp",
-        "registeredEmailWeWillKeepYouInformed": "Zarejestrowany adres e-mail. Będziemy informować Cię na bieżąco."
+        "enterEmailMessage": "Odznaka weryfikacji aktywuje się natychmiast. Wpisz e-mail, a powiadomimy Cię, gdy Twój sklep będzie gotowy.",
+        "getAccess": "Aktywuj moją odznakę",
+        "registeredEmailWeWillKeepYouInformed": "Gotowe! Odznaka jest aktywna. Wyślemy e-mail, gdy sklep będzie gotowy.",
+        "title": "Aktywuj darmową weryfikację",
+        "totalUsersOnWaitlist": "Łącznie użytkowników na liście",
+        "waitlistGrowth": "Wzrost listy oczekujących",
+        "alreadyJoinedTitle": "Twoja odznaka jest aktywna!",
+        "alreadyJoinedMessage": "Masz już odznakę weryfikacji. Powiadomimy Cię, gdy sklep będzie gotowy.",
+        "goHome": "Przejdź na stronę główną",
+        "stepBadge": "Odznaka weryfikacji — natychmiast",
+        "stepNotify": "Powiadomienie e-mail o gotowości sklepu"
     },
     "Profile": {
         "loading": "Ładowanie profilu...",

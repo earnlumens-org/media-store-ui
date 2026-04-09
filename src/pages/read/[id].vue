@@ -436,7 +436,17 @@
                     <v-icon v-else size="32">mdi-account</v-icon>
                   </v-avatar>
                 </router-link>
-                <div class=\"d-flex align-center\">\n                  <router-link class=\"text-body-1 font-weight-medium text-truncate text-decoration-none\" style=\"color: inherit\" :to=\"`/${entry.authorName}`\">{{ entry.authorName }}</router-link>\n                  <v-avatar\n                    v-if=\"entryBadgeSrc\"\n                    class=\"ms-1 flex-shrink-0\"\n                    color=\"transparent\"\n                    size=\"18\"\n                  >\n                    <v-img :src=\"entryBadgeSrc\" />\n                  </v-avatar>\n                </div>
+                <div class="d-flex align-center">
+                  <router-link class="text-body-1 font-weight-medium text-truncate text-decoration-none" style="color: inherit" :to="`/${entry.authorName}`">{{ entry.authorName }}</router-link>
+                  <v-avatar
+                    v-if="entryBadgeSrc"
+                    class="ms-1 flex-shrink-0"
+                    color="transparent"
+                    size="18"
+                  >
+                    <v-img :src="entryBadgeSrc" />
+                  </v-avatar>
+                </div>
                 <p class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</p>
                 <CxSubscribeButton
                   v-if="entry.authorId"

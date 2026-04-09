@@ -205,7 +205,18 @@
         "termsAndConditions": "Termini e condizioni",
         "termsAndConditionsHint": "Consulta i nostri termini di servizio e l'informativa sulla privacy",
         "contentGuidelines": "Linee guida sui contenuti",
-        "contentGuidelinesHint": "Regole per la pubblicazione di contenuti di educazione finanziaria"
+        "contentGuidelinesHint": "Regole per la pubblicazione di contenuti di educazione finanziaria",
+        "badgeSection": "Badge di verifica",
+        "badgeActive": "Il tuo badge blu di verifica è attivo",
+        "badgeType": "Tipo di badge",
+        "badgeStatus": "Stato",
+        "badgeActiveStatus": "Attivo",
+        "badgeSince": "Attivo dal",
+        "badgeExpires": "Scade",
+        "badgeNoExpiration": "Nessuna scadenza",
+        "badgeNone": "Non hai ancora un badge di verifica",
+        "badgeNoneHint": "Ottieni l'accesso anticipato e ricevi un badge di verifica gratuito per un tempo limitato.",
+        "badgeGetAccess": "Badge gratuito"
     },
     "AppBar": {
         "home": "Home",
@@ -260,9 +271,17 @@
         "getAccess": "Ottieni accesso"
     },
     "WaitList": {
-        "enterEmailMessage": "Inserisci la tua email per essere avvisato quando il tuo negozio di contenuti sarà disponibile",
-        "getAccess": "Ottieni l'accesso",
-        "registeredEmailWeWillKeepYouInformed": "Email registrata. Ti terremo informato."
+        "enterEmailMessage": "Il tuo badge sarà attivato subito. Inserisci la tua email per essere avvisato quando il tuo negozio sarà pronto.",
+        "getAccess": "Attiva il mio badge",
+        "registeredEmailWeWillKeepYouInformed": "Fatto! Il tuo badge è attivo. Ti invieremo un'email quando il negozio sarà pronto.",
+        "title": "Attiva la tua verifica gratuita",
+        "totalUsersOnWaitlist": "Utenti totali in lista d'attesa",
+        "waitlistGrowth": "Crescita della lista",
+        "alreadyJoinedTitle": "Il tuo badge è attivo!",
+        "alreadyJoinedMessage": "Hai già il tuo badge di verifica. Ti avviseremo quando il tuo negozio sarà pronto.",
+        "goHome": "Vai alla home",
+        "stepBadge": "Badge di verifica attivato subito",
+        "stepNotify": "Notifica via email quando il negozio è pronto"
     },
     "Profile": {
         "loading": "Caricamento profilo...",

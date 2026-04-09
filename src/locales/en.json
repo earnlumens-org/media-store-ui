@@ -205,7 +205,18 @@
         "termsAndConditions": "Terms & Conditions",
         "termsAndConditionsHint": "Review our terms of service and privacy policy",
         "contentGuidelines": "Content Guidelines",
-        "contentGuidelinesHint": "Rules for publishing financial education content"
+        "contentGuidelinesHint": "Rules for publishing financial education content",
+        "badgeSection": "Verification Badge",
+        "badgeActive": "Your blue verified badge is active",
+        "badgeType": "Badge type",
+        "badgeStatus": "Status",
+        "badgeActiveStatus": "Active",
+        "badgeSince": "Active since",
+        "badgeExpires": "Expires",
+        "badgeNoExpiration": "No expiration",
+        "badgeNone": "You don't have a verified badge yet",
+        "badgeNoneHint": "Get early access and receive a free verification badge for a limited time.",
+        "badgeGetAccess": "Get Free Badge"
     },
     "AppBar": {
         "home": "Home",
@@ -260,9 +271,17 @@
         "getAccess": "Get Access"
     },
     "WaitList": {
-        "enterEmailMessage": "Enter email to be notified when your content store becomes available",
-        "getAccess": "Get Access",
-        "registeredEmailWeWillKeepYouInformed": "Registered email. We will keep you informed."
+        "enterEmailMessage": "Your verified badge will be activated instantly. Enter your email so we can notify you when your content store is ready to launch.",
+        "getAccess": "Activate My Badge",
+        "registeredEmailWeWillKeepYouInformed": "Done! Your verified badge is now active. We'll email you when your store is ready.",
+        "title": "Claim Your Free Verification",
+        "totalUsersOnWaitlist": "Total users on waitlist",
+        "waitlistGrowth": "Waitlist Growth",
+        "alreadyJoinedTitle": "Your badge is active!",
+        "alreadyJoinedMessage": "You already have your verified badge. We'll notify you as soon as your content store is ready to launch.",
+        "goHome": "Go to Home",
+        "stepBadge": "Verified badge activated instantly",
+        "stepNotify": "Email notification when your store is ready"
     },
     "Profile": {
         "loading": "Loading profile...",

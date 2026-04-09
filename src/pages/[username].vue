@@ -33,9 +33,9 @@
   <!-- User profile -->
   <v-container v-else class="py-6 py-md-10">
     <!-- Profile header -->
-    <v-row align="center" justify="center">
+    <v-row align="center" class="justify-center justify-lg-start">
       <v-col cols="12" lg="8" md="10">
-        <div class="position-relative" style="max-width: 500px; margin: 0 auto;">
+        <div class="position-relative mx-auto mx-lg-0 ms-lg-6" style="max-width: 500px;">
           <!-- Options menu (top right) -->
           <v-menu location="bottom end">
             <template #activator="{ props }">

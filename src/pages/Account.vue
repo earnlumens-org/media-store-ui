@@ -161,6 +161,87 @@
                   </v-list-item>
                 </v-list>
               </div>
+
+              <v-divider class="mb-4" />
+
+              <!-- ── Verification Badge ────────────────────── -->
+              <div class="mb-4">
+                <p class="text-subtitle-2 font-weight-bold text-medium-emphasis mb-3">
+                  {{ $t('Account.badgeSection') }}
+                </p>
+
+                <!-- Loading badge info -->
+                <div v-if="badgeLoading" class="text-center py-4">
+                  <v-progress-circular color="primary" indeterminate size="24" width="2" />
+                </div>
+
+                <!-- Has active badge -->
+                <v-card
+                  v-else-if="activeBadge"
+                  class="badge-card"
+                  color="transparent"
+                  rounded="lg"
+                  variant="tonal"
+                >
+                  <v-card-text class="d-flex align-center pa-4">
+                    <div class="badge-icon-ring me-4 flex-shrink-0">
+                      <v-img
+                        v-if="activeBadgeSrc"
+                        height="32"
+                        :src="activeBadgeSrc"
+                        width="32"
+                      />
+                      <v-icon v-else color="primary" size="32">mdi-check-decagram</v-icon>
+                    </div>
+
+                    <div class="flex-grow-1">
+                      <p class="text-body-1 font-weight-medium mb-1">
+                        {{ $t('Account.badgeActive') }}
+                      </p>
+
+                      <div class="text-body-2 text-medium-emphasis">
+                        <div v-if="activeBadge.startedAt">
+                          {{ $t('Account.badgeSince') }}: {{ formatDate(activeBadge.startedAt) }}
+                        </div>
+                        <div>
+                          {{ $t('Account.badgeExpires') }}:
+                          {{ activeBadge.expiresAt ? formatDate(activeBadge.expiresAt) : $t('Account.badgeNoExpiration') }}
+                        </div>
+                      </div>
+                    </div>
+                  </v-card-text>
+                </v-card>
+
+                <!-- No badge -->
+                <v-card
+                  v-else
+                  class="badge-card"
+                  rounded="lg"
+                  variant="outlined"
+                >
+                  <v-card-text class="text-center pa-5">
+                    <v-icon class="mb-2" color="medium-emphasis" size="40">mdi-shield-check-outline</v-icon>
+                    <p class="text-body-1 font-weight-medium mb-1">
+                      {{ $t('Account.badgeNone') }}
+                    </p>
+                    <p class="text-body-2 text-medium-emphasis mb-4">
+                      {{ $t('Account.badgeNoneHint') }}
+                    </p>
+                    <v-btn
+                      class="text-none font-weight-bold"
+                      color="primary"
+                      rounded="lg"
+                      size="large"
+                      @click="showVerification = true"
+                    >
+                      <v-icon class="me-2">mdi-check-decagram</v-icon>
+                      {{ $t('Account.badgeGetAccess') }}
+                    </v-btn>
+                  </v-card-text>
+                </v-card>
+              </div>
+
+              <VerificationDialog v-model="showVerification" />
             </div>
 
             <!-- No user -->
@@ -179,11 +260,14 @@
 </template>
 
 <script setup lang="ts">
+  import type { BadgeAssignment } from '@/api/modules/badge.api'
   import type { UserProfile } from '@/api/modules/user.api'
   import { onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { api, ApiError } from '@/api/api'
   import { logout } from '@/api/modules/auth.api'
+  import VerificationDialog from '@/components/home/VerificationDialog.vue'
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { broadcastAuthEvent } from '@/services/authBroadcast'
   import { clearToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
@@ -191,13 +275,46 @@
 
   const appStore = useAppStore()
 
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
 
   const user = ref<UserProfile | null>(null)
   const loading = ref(false)
   const error = ref<string | null>(null)
   const snackbar = ref(false)
   const snackbarText = ref('')
+
+  const showVerification = ref(false)
+  const badgeLoading = ref(false)
+  const activeBadge = ref<BadgeAssignment | null>(null)
+  const activeBadgeSrc = ref<string | undefined>(undefined)
+
+  function formatDate (iso: string): string {
+    try {
+      return new Date(iso).toLocaleDateString(locale.value, {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      })
+    } catch {
+      return iso.slice(0, 10)
+    }
+  }
+
+  async function fetchBadges () {
+    badgeLoading.value = true
+    try {
+      const res = await api.badges.me()
+      if (res.activeBadge && res.assignments.length) {
+        const active = res.assignments.find(a => a.status === 'ACTIVE') ?? res.assignments[0]
+        activeBadge.value = active
+        activeBadgeSrc.value = getProfileBadgeSrc(res.activeBadge as any)
+      }
+    } catch {
+      // Badge fetch failed — section will show "no badge"
+    } finally {
+      badgeLoading.value = false
+    }
+  }
 
   async function fetchUser () {
     loading.value = true
@@ -251,11 +368,13 @@
 
   onMounted(() => {
     fetchUser()
+    fetchBadges()
   })
 
   watch(() => appStore.refreshKey, () => {
     window.scrollTo(0, 0)
     fetchUser()
+    fetchBadges()
   })
 </script>
 
@@ -265,3 +384,16 @@
   "meta": { "requiresAuth": true }
 }
 </route>
+
+<style scoped>
+.badge-icon-ring {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(29, 155, 240, 0.1);
+  border: 2px solid rgba(29, 155, 240, 0.25);
+}
+</style>

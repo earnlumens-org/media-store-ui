@@ -205,7 +205,18 @@
         "termsAndConditions": "नियम और शर्तें",
         "termsAndConditionsHint": "हमारी सेवा की शर्तें और गोपनीयता नीति देखें",
         "contentGuidelines": "सामग्री दिशानिर्देश",
-        "contentGuidelinesHint": "वित्तीय शिक्षा सामग्री प्रकाशित करने के नियम"
+        "contentGuidelinesHint": "वित्तीय शिक्षा सामग्री प्रकाशित करने के नियम",
+        "badgeSection": "सत्यापन बैज",
+        "badgeActive": "आपका नीला सत्यापन बैज सक्रिय है",
+        "badgeType": "बैज प्रकार",
+        "badgeStatus": "स्थिति",
+        "badgeActiveStatus": "सक्रिय",
+        "badgeSince": "सक्रिय तिथि",
+        "badgeExpires": "समाप्ति तिथि",
+        "badgeNoExpiration": "कोई समाप्ति नहीं",
+        "badgeNone": "आपके पास अभी तक सत्यापन बैज नहीं है",
+        "badgeNoneHint": "जल्दी पहुँच प्राप्त करें और सीमित समय के लिए मुफ्त सत्यापन बैज पाएं।",
+        "badgeGetAccess": "मुफ्त बैज पाएं"
     },
     "AppBar": {
         "home": "होम",
@@ -260,9 +271,17 @@
         "getAccess": "एक्सेस प्राप्त करें"
     },
     "WaitList": {
-        "enterEmailMessage": "अपना ईमेल दर्ज करें ताकि आपको सूचित किया जा सके जब आपका कंटेंट स्टोर उपलब्ध हो",
-        "getAccess": "एक्सेस प्राप्त करें",
-        "registeredEmailWeWillKeepYouInformed": "आपका ईमेल पंजीकृत हो गया है। हम आपको विकासों के बारे में सूचित करेंगे।"
+        "enterEmailMessage": "आपका सत्यापन बैज तुरंत सक्रिय हो जाएगा। अपना ईमेल दर्ज करें ताकि स्टोर तैयार होने पर हम आपको सूचित कर सकें।",
+        "getAccess": "मेरा बैज सक्रिय करें",
+        "registeredEmailWeWillKeepYouInformed": "हो गया! आपका बैज सक्रिय है। स्टोर तैयार होने पर ईमेल से सूचित करेंगे।",
+        "title": "अपना मुफ्त सत्यापन सक्रिय करें",
+        "totalUsersOnWaitlist": "प्रतीक्षा सूची में कुल उपयोगकर्ता",
+        "waitlistGrowth": "प्रतीक्षा सूची वृद्धि",
+        "alreadyJoinedTitle": "आपका बैज सक्रिय है!",
+        "alreadyJoinedMessage": "आपके पास पहले से सत्यापन बैज है। कंटेंट स्टोर तैयार होते ही सूचित करेंगे।",
+        "goHome": "होम पर जाएं",
+        "stepBadge": "सत्यापन बैज तुरंत सक्रिय",
+        "stepNotify": "स्टोर तैयार होने पर ईमेल सूचना"
     },
     "Profile": {
         "loading": "प्रोफ़ाइल लोड हो रही है...",

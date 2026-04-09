@@ -205,7 +205,18 @@
         "termsAndConditions": "الشروط والأحكام",
         "termsAndConditionsHint": "راجع شروط الخدمة وسياسة الخصوصية الخاصة بنا",
         "contentGuidelines": "إرشادات المحتوى",
-        "contentGuidelinesHint": "قواعد نشر محتوى التعليم المالي"
+        "contentGuidelinesHint": "قواعد نشر محتوى التعليم المالي",
+        "badgeSection": "شارة التحقق",
+        "badgeActive": "شارة التحقق الزرقاء الخاصة بك نشطة",
+        "badgeType": "نوع الشارة",
+        "badgeStatus": "الحالة",
+        "badgeActiveStatus": "نشط",
+        "badgeSince": "نشط منذ",
+        "badgeExpires": "تنتهي",
+        "badgeNoExpiration": "بدون انتهاء",
+        "badgeNone": "ليس لديك شارة تحقق بعد",
+        "badgeNoneHint": "احصل على وصول مبكر واحصل على شارة تحقق مجانية لفترة محدودة.",
+        "badgeGetAccess": "احصل على شارة مجانية"
     },
     "AppBar": {
         "home": "الصفحة الرئيسية",
@@ -260,9 +271,17 @@
         "getAccess": "احصل على الوصول"
     },
     "WaitList": {
-        "enterEmailMessage": "أدخل بريدك الإلكتروني ليتم إعلامك عندما يصبح متجر المحتوى الخاص بك متاحًا",
-        "getAccess": "الحصول على الوصول",
-        "registeredEmailWeWillKeepYouInformed": "تم تسجيل البريد الإلكتروني الخاص بك. سنبقيك على علم بالتطورات."
+        "enterEmailMessage": "سيتم تفعيل شارتك فورًا. أدخل بريدك الإلكتروني لنُعلمك عندما يكون متجرك جاهزًا.",
+        "getAccess": "تفعيل شارتي",
+        "registeredEmailWeWillKeepYouInformed": "تم! شارتك مفعّلة الآن. سنُعلمك عبر البريد عندما يكون متجرك جاهزًا.",
+        "title": "فعّل شارتك المجانية",
+        "totalUsersOnWaitlist": "إجمالي المستخدمين في قائمة الانتظار",
+        "waitlistGrowth": "نمو قائمة الانتظار",
+        "alreadyJoinedTitle": "شارتك مفعّلة!",
+        "alreadyJoinedMessage": "لديك شارة التحقق بالفعل. سنُعلمك فور جاهزية متجرك.",
+        "goHome": "الذهاب إلى الرئيسية",
+        "stepBadge": "شارة تحقق تُفعّل فورًا",
+        "stepNotify": "إشعار بالبريد عند جاهزية متجرك"
     },
     "Profile": {
         "loading": "جارٍ تحميل الملف الشخصي...",

@@ -205,7 +205,18 @@
         "termsAndConditions": "條款與條件",
         "termsAndConditionsHint": "查看我們的服務條款和隱私權政策",
         "contentGuidelines": "內容準則",
-        "contentGuidelinesHint": "發布金融教育內容的規範"
+        "contentGuidelinesHint": "發布金融教育內容的規範",
+        "badgeSection": "驗證徽章",
+        "badgeActive": "您的藍色驗證徽章已啟用",
+        "badgeType": "徽章類型",
+        "badgeStatus": "狀態",
+        "badgeActiveStatus": "已啟用",
+        "badgeSince": "啟用日期",
+        "badgeExpires": "到期日期",
+        "badgeNoExpiration": "無到期日",
+        "badgeNone": "您還沒有驗證徽章",
+        "badgeNoneHint": "取得早期使用權限，限時免費獲得驗證徽章。",
+        "badgeGetAccess": "免費取得徽章"
     },
     "AppBar": {
         "home": "主頁",
@@ -260,9 +271,17 @@
         "getAccess": "獲取訪問權限"
     },
     "WaitList": {
-        "enterEmailMessage": "輸入您的電子郵件，以便在您的內容商店可用時收到通知",
-        "getAccess": "取得存取權限",
-        "registeredEmailWeWillKeepYouInformed": "您的電子郵件已註冊。我們將通知您有關發展的消息。"
+        "enterEmailMessage": "您的認證徽章將立即啟用。請輸入電子郵件，我們會在商店準備就緒時通知您。",
+        "getAccess": "啟用我的徽章",
+        "registeredEmailWeWillKeepYouInformed": "完成！您的認證徽章已啟用。商店準備就緒時我們會通過郵件通知您。",
+        "title": "啟用您的免費認證",
+        "totalUsersOnWaitlist": "等待列表用戶總數",
+        "waitlistGrowth": "等待列表增長",
+        "alreadyJoinedTitle": "您的徽章已啟用！",
+        "alreadyJoinedMessage": "您已擁有認證徽章。內容商店準備就緒後我們會通知您。",
+        "goHome": "返回首頁",
+        "stepBadge": "認證徽章即時啟用",
+        "stepNotify": "商店就緒時郵件通知"
     },
     "Profile": {
         "loading": "正在載入個人資料...",

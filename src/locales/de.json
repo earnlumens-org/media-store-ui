@@ -205,7 +205,18 @@
         "termsAndConditions": "Allgemeine Geschäftsbedingungen",
         "termsAndConditionsHint": "Unsere Nutzungsbedingungen und Datenschutzrichtlinie einsehen",
         "contentGuidelines": "Inhaltsrichtlinien",
-        "contentGuidelinesHint": "Regeln für die Veröffentlichung von Finanzbildungsinhalten"
+        "contentGuidelinesHint": "Regeln für die Veröffentlichung von Finanzbildungsinhalten",
+        "badgeSection": "Verifizierungsabzeichen",
+        "badgeActive": "Dein blaues Verifizierungsabzeichen ist aktiv",
+        "badgeType": "Abzeichen-Typ",
+        "badgeStatus": "Status",
+        "badgeActiveStatus": "Aktiv",
+        "badgeSince": "Aktiv seit",
+        "badgeExpires": "Läuft ab",
+        "badgeNoExpiration": "Kein Ablaufdatum",
+        "badgeNone": "Du hast noch kein Verifizierungsabzeichen",
+        "badgeNoneHint": "Erhalte frühen Zugang und ein kostenloses Verifizierungsabzeichen für begrenzte Zeit.",
+        "badgeGetAccess": "Kostenloses Abzeichen"
     },
     "AppBar": {
         "home": "Startseite",
@@ -260,9 +271,17 @@
         "getAccess": "Zugang erhalten"
     },
     "WaitList": {
-        "enterEmailMessage": "Gib deine E-Mail ein, um benachrichtigt zu werden, wenn dein Content-Store verfügbar wird",
-        "getAccess": "Zugang erhalten",
-        "registeredEmailWeWillKeepYouInformed": "Registrierte E-Mail. Wir halten dich auf dem Laufenden."
+        "enterEmailMessage": "Dein Verifizierungsabzeichen wird sofort aktiviert. Gib deine E-Mail ein, damit wir dich benachrichtigen können, wenn dein Store bereit ist.",
+        "getAccess": "Mein Abzeichen aktivieren",
+        "registeredEmailWeWillKeepYouInformed": "Fertig! Dein Abzeichen ist aktiv. Wir melden uns per E-Mail, wenn dein Store bereit ist.",
+        "title": "Aktiviere deine kostenlose Verifizierung",
+        "totalUsersOnWaitlist": "Benutzer auf der Warteliste insgesamt",
+        "waitlistGrowth": "Wachstum der Warteliste",
+        "alreadyJoinedTitle": "Dein Abzeichen ist aktiv!",
+        "alreadyJoinedMessage": "Du hast bereits dein Verifizierungsabzeichen. Wir benachrichtigen dich, wenn dein Store startklar ist.",
+        "goHome": "Zur Startseite",
+        "stepBadge": "Verifizierungsabzeichen sofort aktiv",
+        "stepNotify": "E-Mail-Benachrichtigung wenn dein Store bereit ist"
     },
     "Profile": {
         "loading": "Profil wird geladen...",

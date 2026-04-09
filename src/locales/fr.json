@@ -205,7 +205,18 @@
         "termsAndConditions": "Conditions générales",
         "termsAndConditionsHint": "Consultez nos conditions d'utilisation et notre politique de confidentialité",
         "contentGuidelines": "Directives de contenu",
-        "contentGuidelinesHint": "Règles de publication de contenu d'éducation financière"
+        "contentGuidelinesHint": "Règles de publication de contenu d'éducation financière",
+        "badgeSection": "Badge de vérification",
+        "badgeActive": "Votre badge bleu de vérification est actif",
+        "badgeType": "Type de badge",
+        "badgeStatus": "Statut",
+        "badgeActiveStatus": "Actif",
+        "badgeSince": "Actif depuis",
+        "badgeExpires": "Expire",
+        "badgeNoExpiration": "Sans expiration",
+        "badgeNone": "Vous n'avez pas encore de badge de vérification",
+        "badgeNoneHint": "Obtenez un accès anticipé et recevez un badge de vérification gratuit pour une durée limitée.",
+        "badgeGetAccess": "Badge gratuit"
     },
     "AppBar": {
         "home": "Accueil",
@@ -260,9 +271,17 @@
         "getAccess": "Obtenir l'accès"
     },
     "WaitList": {
-        "enterEmailMessage": "Entrez votre e-mail pour être notifié lorsque votre boutique de contenu sera disponible",
-        "getAccess": "Obtenir l'accès",
-        "registeredEmailWeWillKeepYouInformed": "E-mail enregistré. Nous vous tiendrons informé."
+        "enterEmailMessage": "Votre badge sera activé instantanément. Entrez votre e-mail pour être prévenu quand votre boutique sera prête.",
+        "getAccess": "Activer mon badge",
+        "registeredEmailWeWillKeepYouInformed": "C'est fait ! Votre badge est actif. Nous vous préviendrons par e-mail quand votre boutique sera prête.",
+        "title": "Activez votre vérification gratuite",
+        "totalUsersOnWaitlist": "Total d'utilisateurs sur la liste d'attente",
+        "waitlistGrowth": "Croissance de la liste",
+        "alreadyJoinedTitle": "Votre badge est actif !",
+        "alreadyJoinedMessage": "Vous avez déjà votre badge de vérification. Nous vous préviendrons quand votre boutique sera prête.",
+        "goHome": "Aller à l'accueil",
+        "stepBadge": "Badge vérifié activé instantanément",
+        "stepNotify": "Notification par e-mail quand votre boutique sera prête"
     },
     "Profile": {
         "loading": "Chargement du profil...",

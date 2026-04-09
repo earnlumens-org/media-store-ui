@@ -205,7 +205,18 @@
         "termsAndConditions": "Terma dan Syarat",
         "termsAndConditionsHint": "Semak terma perkhidmatan dan dasar privasi kami",
         "contentGuidelines": "Garis Panduan Kandungan",
-        "contentGuidelinesHint": "Peraturan untuk menerbitkan kandungan pendidikan kewangan"
+        "contentGuidelinesHint": "Peraturan untuk menerbitkan kandungan pendidikan kewangan",
+        "badgeSection": "Lencana pengesahan",
+        "badgeActive": "Lencana biru pengesahan anda aktif",
+        "badgeType": "Jenis lencana",
+        "badgeStatus": "Status",
+        "badgeActiveStatus": "Aktif",
+        "badgeSince": "Aktif sejak",
+        "badgeExpires": "Tamat tempoh",
+        "badgeNoExpiration": "Tiada tamat tempoh",
+        "badgeNone": "Anda belum mempunyai lencana pengesahan",
+        "badgeNoneHint": "Dapatkan akses awal dan terima lencana pengesahan percuma untuk masa terhad.",
+        "badgeGetAccess": "Dapatkan lencana percuma"
     },
     "AppBar": {
         "home": "Laman Utama",
@@ -260,9 +271,17 @@
         "getAccess": "Dapatkan akses"
     },
     "WaitList": {
-        "enterEmailMessage": "Masukkan e-mel anda untuk dimaklumkan apabila kedai kandungan anda tersedia",
-        "getAccess": "Dapatkan Akses",
-        "registeredEmailWeWillKeepYouInformed": "E-mel anda telah didaftarkan. Kami akan memberitahu anda tentang perkembangan."
+        "enterEmailMessage": "Lencana pengesahan anda akan diaktifkan serta-merta. Masukkan e-mel untuk kami maklumkan apabila kedai anda sedia.",
+        "getAccess": "Aktifkan lencana saya",
+        "registeredEmailWeWillKeepYouInformed": "Siap! Lencana anda aktif. Kami akan e-mel anda apabila kedai sedia.",
+        "title": "Aktifkan pengesahan percuma anda",
+        "totalUsersOnWaitlist": "Jumlah pengguna dalam senarai menunggu",
+        "waitlistGrowth": "Pertumbuhan senarai menunggu",
+        "alreadyJoinedTitle": "Lencana anda aktif!",
+        "alreadyJoinedMessage": "Anda sudah mempunyai lencana pengesahan. Kami akan memberitahu apabila kedai anda sedia.",
+        "goHome": "Ke halaman utama",
+        "stepBadge": "Lencana pengesahan diaktifkan serta-merta",
+        "stepNotify": "Notifikasi e-mel apabila kedai anda sedia"
     },
     "Profile": {
         "loading": "Memuatkan profil...",

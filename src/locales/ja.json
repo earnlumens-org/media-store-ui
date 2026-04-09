@@ -205,7 +205,18 @@
         "termsAndConditions": "利用規約",
         "termsAndConditionsHint": "利用規約とプライバシーポリシーを確認",
         "contentGuidelines": "コンテンツガイドライン",
-        "contentGuidelinesHint": "金融教育コンテンツの公開に関するルール"
+        "contentGuidelinesHint": "金融教育コンテンツの公開に関するルール",
+        "badgeSection": "認証バッジ",
+        "badgeActive": "ブルー認証バッジが有効です",
+        "badgeType": "バッジタイプ",
+        "badgeStatus": "ステータス",
+        "badgeActiveStatus": "有効",
+        "badgeSince": "有効開始日",
+        "badgeExpires": "有効期限",
+        "badgeNoExpiration": "無期限",
+        "badgeNone": "認証バッジはまだありません",
+        "badgeNoneHint": "早期アクセスと期間限定の無料認証バッジを取得しましょう。",
+        "badgeGetAccess": "無料バッジを取得"
     },
     "AppBar": {
         "home": "ホームページ",
@@ -260,9 +271,17 @@
         "getAccess": "アクセスを取得"
     },
     "WaitList": {
-        "enterEmailMessage": "コンテンツストアが利用可能になったときに通知を受けるにはメールを入力してください",
-        "getAccess": "アクセスを取得",
-        "registeredEmailWeWillKeepYouInformed": "あなたのメールアドレスが登録されました。進捗状況をお知らせします。"
+        "enterEmailMessage": "認証バッジは即時に有効化されます。ストアの準備が整ったらお知らせするため、メールアドレスを入力してください。",
+        "getAccess": "バッジを有効化",
+        "registeredEmailWeWillKeepYouInformed": "完了！認証バッジが有効になりました。ストアの準備が整い次第メールでお知らせします。",
+        "title": "無料認証を有効化",
+        "totalUsersOnWaitlist": "ウェイトリストのユーザー合計",
+        "waitlistGrowth": "ウェイトリストの成長",
+        "alreadyJoinedTitle": "バッジは有効です！",
+        "alreadyJoinedMessage": "認証バッジは既に有効です。コンテンツストアの準備が整い次第お知らせします。",
+        "goHome": "ホームへ",
+        "stepBadge": "認証バッジが即時に有効化",
+        "stepNotify": "ストア準備完了時にメール通知"
     },
     "Profile": {
         "loading": "プロフィールを読み込み中...",
