@@ -356,7 +356,27 @@
 
               <!-- Status chip -->
               <td class="text-center text-no-wrap">
+                <v-tooltip
+                  v-if="item.moderationFeedback && (item.status === 'REJECTED' || item.status === 'SUSPENDED')"
+                  :text="item.moderationFeedback"
+                  location="top"
+                  max-width="320"
+                >
+                  <template #activator="{ props: tooltipProps }">
+                    <v-chip
+                      v-bind="tooltipProps"
+                      :color="getStatusColor(item.status)"
+                      size="small"
+                      variant="tonal"
+                    >
+                      <v-icon size="14" start>{{ getStatusIcon(item.status) }}</v-icon>
+                      {{ getStatusLabel(item.status) }}
+                      <v-icon size="14" end>mdi-information-outline</v-icon>
+                    </v-chip>
+                  </template>
+                </v-tooltip>
                 <v-chip
+                  v-else
                   :color="getStatusColor(item.status)"
                   size="small"
                   variant="tonal"
@@ -432,6 +452,13 @@
                         @click="submitForReview(item._entry)"
                       >
                         <v-list-item-title>{{ t('CreatorStudio.actions.submitReview') }}</v-list-item-title>
+                      </v-list-item>
+                      <v-list-item
+                        v-if="item.status === 'APPROVED'"
+                        prepend-icon="mdi-publish"
+                        @click="publishEntry(item._entry)"
+                      >
+                        <v-list-item-title>{{ t('CreatorStudio.actions.publish') }}</v-list-item-title>
                       </v-list-item>
                       <v-divider />
                       <v-list-item
@@ -559,7 +586,26 @@
                 {{ item.title }}
               </div>
               <div class="d-flex flex-wrap align-center ga-1 mt-1">
+                <v-tooltip
+                  v-if="item.moderationFeedback && (item.status === 'REJECTED' || item.status === 'SUSPENDED')"
+                  :text="item.moderationFeedback"
+                  location="top"
+                  max-width="320"
+                >
+                  <template #activator="{ props: tooltipProps }">
+                    <v-chip
+                      v-bind="tooltipProps"
+                      :color="getStatusColor(item.status)"
+                      size="x-small"
+                      variant="tonal"
+                    >
+                      {{ getStatusLabel(item.status) }}
+                      <v-icon size="12" end>mdi-information-outline</v-icon>
+                    </v-chip>
+                  </template>
+                </v-tooltip>
                 <v-chip
+                  v-else
                   :color="getStatusColor(item.status)"
                   size="x-small"
                   variant="tonal"
@@ -612,6 +658,13 @@
                       @click="submitForReview(item._entry)"
                     >
                       <v-list-item-title>{{ t('CreatorStudio.actions.submitReview') }}</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item
+                      v-if="item.status === 'APPROVED'"
+                      prepend-icon="mdi-publish"
+                      @click="publishEntry(item._entry)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.actions.publish') }}</v-list-item-title>
                     </v-list-item>
                     <v-divider />
                     <v-list-item
@@ -1313,6 +1366,7 @@
             publishedAt: item.publishedAt,
             transcodingStatus: item.transcodingStatus,
             sellerWallet: item.sellerWallet,
+            moderationFeedback: item.moderationFeedback,
           }
         } else {
           si._collection = {
@@ -1436,6 +1490,20 @@
     } catch (error_) {
       console.error('[CreatorStudio] Submit for review failed:', error_)
       showToast(t('Upload.errors.submitForReviewFailed'), 'error')
+    }
+  }
+
+  // ── Publish entry ─────────────────────────────────────────
+
+  async function publishEntry (entry: CreatorEntryModel) {
+    try {
+      await api.upload.updateEntryStatus(entry.id, { status: 'PUBLISHED' })
+      showToast(t('CreatorStudio.actions.publishSuccess'))
+      await fetchEntries()
+      await fetchStats()
+    } catch (error_) {
+      console.error('[CreatorStudio] Publish failed:', error_)
+      showToast(t('CreatorStudio.actions.publishError'), 'error')
     }
   }
 

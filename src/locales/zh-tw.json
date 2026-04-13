@@ -566,7 +566,10 @@
             "edit": "編輯",
             "archive": "封存",
             "unarchive": "取消封存",
-            "submitReview": "提交審核"
+            "submitReview": "提交審核",
+            "publish": "發布",
+            "publishSuccess": "內容發布成功",
+            "publishError": "發布失敗，請重試。"
         },
         "editEntry": "編輯條目",
         "editSuccess": "條目更新成功",

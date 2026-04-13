@@ -566,7 +566,10 @@
             "edit": "수정",
             "archive": "보관",
             "unarchive": "보관 해제",
-            "submitReview": "검토 요청"
+            "submitReview": "검토 요청",
+            "publish": "게시",
+            "publishSuccess": "콘텐츠가 성공적으로 게시되었습니다",
+            "publishError": "게시에 실패했습니다. 다시 시도해 주세요."
         },
         "editEntry": "엔트리 수정",
         "editSuccess": "엔트리가 성공적으로 업데이트되었습니다",

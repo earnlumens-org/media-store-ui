@@ -566,7 +566,10 @@
             "edit": "Modifica",
             "archive": "Archivia",
             "unarchive": "Ripristina",
-            "submitReview": "Invia per revisione"
+            "submitReview": "Invia per revisione",
+            "publish": "Pubblica",
+            "publishSuccess": "Contenuto pubblicato con successo",
+            "publishError": "Pubblicazione non riuscita. Riprova."
         },
         "editEntry": "Modifica voce",
         "editSuccess": "Voce aggiornata con successo",

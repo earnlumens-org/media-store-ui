@@ -566,7 +566,10 @@
             "edit": "Sửa",
             "archive": "Lưu trữ",
             "unarchive": "Bỏ lưu trữ",
-            "submitReview": "Gửi để xét duyệt"
+            "submitReview": "Gửi để xét duyệt",
+            "publish": "Xuất bản",
+            "publishSuccess": "Nội dung đã được xuất bản thành công",
+            "publishError": "Xuất bản thất bại. Vui lòng thử lại."
         },
         "editEntry": "Sửa bài viết",
         "editSuccess": "Cập nhật bài viết thành công",

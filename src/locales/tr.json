@@ -566,7 +566,10 @@
             "edit": "Düzenle",
             "archive": "Arşivle",
             "unarchive": "Arşivden çıkar",
-            "submitReview": "İncelemeye gönder"
+            "submitReview": "İncelemeye gönder",
+            "publish": "Yayınla",
+            "publishSuccess": "İçerik başarıyla yayınlandı",
+            "publishError": "Yayınlama başarısız. Lütfen tekrar deneyin."
         },
         "editEntry": "Girdiyi düzenle",
         "editSuccess": "Girdi başarıyla güncellendi",

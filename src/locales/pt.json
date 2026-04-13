@@ -566,7 +566,10 @@
             "edit": "Editar",
             "archive": "Arquivar",
             "unarchive": "Desarquivar",
-            "submitReview": "Enviar para revisão"
+            "submitReview": "Enviar para revisão",
+            "publish": "Publicar",
+            "publishSuccess": "Entrada publicada com sucesso",
+            "publishError": "Falha ao publicar a entrada. Tente novamente."
         },
         "editEntry": "Editar entrada",
         "editSuccess": "Entrada atualizada com sucesso",

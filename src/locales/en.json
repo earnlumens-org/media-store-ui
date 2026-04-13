@@ -583,7 +583,10 @@
             "edit": "Edit",
             "archive": "Archive",
             "unarchive": "Unarchive",
-            "submitReview": "Submit for review"
+            "submitReview": "Submit for review",
+            "publish": "Publish",
+            "publishSuccess": "Entry published successfully",
+            "publishError": "Failed to publish entry. Please try again."
         },
         "editEntry": "Edit entry",
         "editSuccess": "Entry updated successfully",

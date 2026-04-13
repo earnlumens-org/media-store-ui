@@ -566,7 +566,10 @@
             "edit": "Edytuj",
             "archive": "Archiwizuj",
             "unarchive": "Przywróć z archiwum",
-            "submitReview": "Prześlij do weryfikacji"
+            "submitReview": "Prześlij do weryfikacji",
+            "publish": "Opublikuj",
+            "publishSuccess": "Wpis opublikowany pomyślnie",
+            "publishError": "Nie udało się opublikować. Spróbuj ponownie."
         },
         "editEntry": "Edytuj wpis",
         "editSuccess": "Wpis zaktualizowany pomyślnie",

@@ -566,7 +566,10 @@
             "edit": "Modifier",
             "archive": "Archiver",
             "unarchive": "Désarchiver",
-            "submitReview": "Soumettre pour examen"
+            "submitReview": "Soumettre pour examen",
+            "publish": "Publier",
+            "publishSuccess": "Entrée publiée avec succès",
+            "publishError": "Échec de la publication. Veuillez réessayer."
         },
         "editEntry": "Modifier l'entrée",
         "editSuccess": "Entrée mise à jour avec succès",

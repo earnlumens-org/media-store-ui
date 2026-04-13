@@ -28,6 +28,8 @@ export interface CreatorEntryModel {
   revenue?: number
   /** Active transcoding job status for video entries (PENDING, DISPATCHED, PROCESSING, FAILED, DEAD) */
   transcodingStatus?: string
+  /** Human-readable moderation feedback (rejection/suspension reason). */
+  moderationFeedback?: string
 }
 
 export interface CreatorEntryPageModel {
@@ -99,6 +101,8 @@ export interface StudioItemModel {
   /** Transcoding status — only for video entries */
   transcodingStatus?: string
   sellerWallet?: string
+  /** Human-readable moderation feedback (rejection/suspension reason). */
+  moderationFeedback?: string
 }
 
 export interface StudioPageModel {

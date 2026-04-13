@@ -566,7 +566,10 @@
             "edit": "Sunting",
             "archive": "Arkib",
             "unarchive": "Nyaharkib",
-            "submitReview": "Hantar untuk semakan"
+            "submitReview": "Hantar untuk semakan",
+            "publish": "Terbit",
+            "publishSuccess": "Entri berjaya diterbitkan",
+            "publishError": "Gagal menerbitkan entri. Sila cuba lagi."
         },
         "editEntry": "Sunting entri",
         "editSuccess": "Entri berjaya dikemas kini",

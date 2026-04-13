@@ -566,7 +566,10 @@
             "edit": "تعديل",
             "archive": "أرشفة",
             "unarchive": "إلغاء الأرشفة",
-            "submitReview": "إرسال للمراجعة"
+            "submitReview": "إرسال للمراجعة",
+            "publish": "نشر",
+            "publishSuccess": "تم نشر المحتوى بنجاح",
+            "publishError": "فشل النشر. يرجى المحاولة مرة أخرى."
         },
         "editEntry": "تعديل الإدخال",
         "editSuccess": "تم تحديث الإدخال بنجاح",

@@ -566,7 +566,10 @@
             "edit": "Bearbeiten",
             "archive": "Archivieren",
             "unarchive": "Wiederherstellen",
-            "submitReview": "Zur Prüfung einreichen"
+            "submitReview": "Zur Prüfung einreichen",
+            "publish": "Veröffentlichen",
+            "publishSuccess": "Eintrag erfolgreich veröffentlicht",
+            "publishError": "Veröffentlichung fehlgeschlagen. Bitte versuche es erneut."
         },
         "editEntry": "Eintrag bearbeiten",
         "editSuccess": "Eintrag erfolgreich aktualisiert",

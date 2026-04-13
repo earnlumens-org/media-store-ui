@@ -566,7 +566,10 @@
             "edit": "编辑",
             "archive": "归档",
             "unarchive": "取消归档",
-            "submitReview": "提交审核"
+            "submitReview": "提交审核",
+            "publish": "发布",
+            "publishSuccess": "内容发布成功",
+            "publishError": "发布失败，请重试。"
         },
         "editEntry": "编辑条目",
         "editSuccess": "条目更新成功",

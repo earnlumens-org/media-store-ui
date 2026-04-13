@@ -41,6 +41,7 @@ interface OwnerEntryDto {
   publishedAt?: string
   transcodingStatus?: string
   sellerWallet?: string
+  moderationFeedback?: string
 }
 
 interface OwnerEntryPageDto {
@@ -79,6 +80,7 @@ function dtoToCreatorEntry (dto: OwnerEntryDto): CreatorEntryModel {
     revenue: 0,
     transcodingStatus: dto.transcodingStatus,
     sellerWallet: dto.sellerWallet,
+    moderationFeedback: dto.moderationFeedback,
   }
 }
 
@@ -231,6 +233,7 @@ interface StudioItemDto {
   publishedAt?: string
   transcodingStatus?: string
   sellerWallet?: string
+  moderationFeedback?: string
 }
 
 interface StudioPageDto {
@@ -264,6 +267,7 @@ function studioDtoToModel (dto: StudioItemDto): StudioItemModel {
     publishedAt: dto.publishedAt,
     transcodingStatus: dto.transcodingStatus,
     sellerWallet: dto.sellerWallet,
+    moderationFeedback: dto.moderationFeedback,
   }
 }
 

@@ -566,7 +566,10 @@
             "edit": "編集",
             "archive": "アーカイブ",
             "unarchive": "アーカイブ解除",
-            "submitReview": "審査に提出"
+            "submitReview": "審査に提出",
+            "publish": "公開",
+            "publishSuccess": "コンテンツが正常に公開されました",
+            "publishError": "公開に失敗しました。もう一度お試しください。"
         },
         "editEntry": "エントリーを編集",
         "editSuccess": "エントリーが正常に更新されました",
