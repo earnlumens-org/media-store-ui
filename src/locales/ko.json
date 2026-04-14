@@ -569,7 +569,8 @@
             "submitReview": "검토 요청",
             "publish": "게시",
             "publishSuccess": "콘텐츠가 성공적으로 게시되었습니다",
-            "publishError": "게시에 실패했습니다. 다시 시도해 주세요."
+            "publishError": "게시에 실패했습니다. 다시 시도해 주세요.",
+            "viewFeedback": "거부 사유 보기"
         },
         "editEntry": "엔트리 수정",
         "editSuccess": "엔트리가 성공적으로 업데이트되었습니다",
@@ -605,6 +606,10 @@
                 "title": "컬렉션을 삭제하시겠습니까?",
                 "message": "\"{title}\"을(를) 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다."
             }
+        },
+        "feedbackDialog": {
+            "title": "거부 사유",
+            "hint": "항목을 수정하여 다시 검토 요청할 수 있습니다."
         }
     },
     "SalesHistory": {

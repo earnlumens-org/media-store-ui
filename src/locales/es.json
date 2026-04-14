@@ -585,6 +585,7 @@
             "unarchive": "Desarchivar",
             "submitReview": "Enviar a revisión",
             "publish": "Publicar",
+            "viewFeedback": "Ver motivo de rechazo",
             "publishSuccess": "Entrada publicada correctamente",
             "publishError": "Error al publicar la entrada. Inténtalo de nuevo."
         },
@@ -598,6 +599,10 @@
         "archiveSuccess": "Entrada archivada correctamente",
         "archiveError": "Error al archivar la entrada. Inténtalo de nuevo.",
         "unarchiveSuccess": "Entrada desarchivada y restaurada a su estado anterior",
+        "feedbackDialog": {
+            "title": "Motivo del rechazo",
+            "hint": "Puedes editar la entrada y volver a enviarla a revisión."
+        },
         "unarchiveError": "Error al desarchivar la entrada. Inténtalo de nuevo.",
         "transcoding": {
             "pending": "Transcodificación en cola",

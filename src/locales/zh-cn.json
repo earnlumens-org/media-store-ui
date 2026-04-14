@@ -569,7 +569,8 @@
             "submitReview": "提交审核",
             "publish": "发布",
             "publishSuccess": "内容发布成功",
-            "publishError": "发布失败，请重试。"
+            "publishError": "发布失败，请重试。",
+            "viewFeedback": "查看拒绝原因"
         },
         "editEntry": "编辑条目",
         "editSuccess": "条目更新成功",
@@ -605,6 +606,10 @@
                 "title": "删除合集？",
                 "message": "您确定要删除“{title}”吗？此操作无法撤销。"
             }
+        },
+        "feedbackDialog": {
+            "title": "拒绝原因",
+            "hint": "你可以编辑内容并重新提交审核。"
         }
     },
     "SalesHistory": {

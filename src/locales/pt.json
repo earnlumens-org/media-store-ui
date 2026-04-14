@@ -569,7 +569,8 @@
             "submitReview": "Enviar para revisão",
             "publish": "Publicar",
             "publishSuccess": "Entrada publicada com sucesso",
-            "publishError": "Falha ao publicar a entrada. Tente novamente."
+            "publishError": "Falha ao publicar a entrada. Tente novamente.",
+            "viewFeedback": "Ver motivo da rejeição"
         },
         "editEntry": "Editar entrada",
         "editSuccess": "Entrada atualizada com sucesso",
@@ -605,6 +606,10 @@
                 "title": "Excluir coleção?",
                 "message": "Tem certeza de que deseja excluir \"{title}\"? Esta ação não pode ser desfeita."
             }
+        },
+        "feedbackDialog": {
+            "title": "Motivo da rejeição",
+            "hint": "Pode editar a entrada e submetê-la novamente para revisão."
         }
     },
     "SalesHistory": {

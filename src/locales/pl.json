@@ -569,7 +569,8 @@
             "submitReview": "Prześlij do weryfikacji",
             "publish": "Opublikuj",
             "publishSuccess": "Wpis opublikowany pomyślnie",
-            "publishError": "Nie udało się opublikować. Spróbuj ponownie."
+            "publishError": "Nie udało się opublikować. Spróbuj ponownie.",
+            "viewFeedback": "Zobacz powód odrzucenia"
         },
         "editEntry": "Edytuj wpis",
         "editSuccess": "Wpis zaktualizowany pomyślnie",
@@ -605,6 +606,10 @@
                 "title": "Usunąć kolekcję?",
                 "message": "Czy na pewno chcesz usunąć \"{title}\"? Tej operacji nie można cofnąć."
             }
+        },
+        "feedbackDialog": {
+            "title": "Powód odrzucenia",
+            "hint": "Możesz edytować wpis i ponownie przesłać go do recenzji."
         }
     },
     "SalesHistory": {

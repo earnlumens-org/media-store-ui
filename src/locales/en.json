@@ -585,6 +585,7 @@
             "unarchive": "Unarchive",
             "submitReview": "Submit for review",
             "publish": "Publish",
+            "viewFeedback": "View rejection reason",
             "publishSuccess": "Entry published successfully",
             "publishError": "Failed to publish entry. Please try again."
         },
@@ -598,6 +599,10 @@
         "archiveSuccess": "Entry archived successfully",
         "archiveError": "Failed to archive entry. Please try again.",
         "unarchiveSuccess": "Entry unarchived and restored to its previous status",
+        "feedbackDialog": {
+            "title": "Rejection reason",
+            "hint": "You can edit the entry and resubmit it for review."
+        },
         "unarchiveError": "Failed to unarchive entry. Please try again.",
         "transcoding": {
             "pending": "Transcoding queued",

@@ -569,7 +569,8 @@
             "submitReview": "Zur Prüfung einreichen",
             "publish": "Veröffentlichen",
             "publishSuccess": "Eintrag erfolgreich veröffentlicht",
-            "publishError": "Veröffentlichung fehlgeschlagen. Bitte versuche es erneut."
+            "publishError": "Veröffentlichung fehlgeschlagen. Bitte versuche es erneut.",
+            "viewFeedback": "Ablehnungsgrund anzeigen"
         },
         "editEntry": "Eintrag bearbeiten",
         "editSuccess": "Eintrag erfolgreich aktualisiert",
@@ -605,6 +606,10 @@
                 "title": "Sammlung löschen?",
                 "message": "Sind Sie sicher, dass Sie \"{title}\" löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden."
             }
+        },
+        "feedbackDialog": {
+            "title": "Ablehnungsgrund",
+            "hint": "Du kannst den Eintrag bearbeiten und erneut zur Überprüfung einreichen."
         }
     },
     "SalesHistory": {

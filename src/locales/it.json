@@ -569,7 +569,8 @@
             "submitReview": "Invia per revisione",
             "publish": "Pubblica",
             "publishSuccess": "Contenuto pubblicato con successo",
-            "publishError": "Pubblicazione non riuscita. Riprova."
+            "publishError": "Pubblicazione non riuscita. Riprova.",
+            "viewFeedback": "Visualizza motivo del rifiuto"
         },
         "editEntry": "Modifica voce",
         "editSuccess": "Voce aggiornata con successo",
@@ -605,6 +606,10 @@
                 "title": "Eliminare la raccolta?",
                 "message": "Sei sicuro di voler eliminare \"{title}\"? Questa azione non può essere annullata."
             }
+        },
+        "feedbackDialog": {
+            "title": "Motivo del rifiuto",
+            "hint": "Puoi modificare il contenuto e inviarlo di nuovo per la revisione."
         }
     },
     "SalesHistory": {

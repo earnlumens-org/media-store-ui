@@ -569,7 +569,8 @@
             "submitReview": "Hantar untuk semakan",
             "publish": "Terbit",
             "publishSuccess": "Entri berjaya diterbitkan",
-            "publishError": "Gagal menerbitkan entri. Sila cuba lagi."
+            "publishError": "Gagal menerbitkan entri. Sila cuba lagi.",
+            "viewFeedback": "Lihat sebab penolakan"
         },
         "editEntry": "Sunting entri",
         "editSuccess": "Entri berjaya dikemas kini",
@@ -605,6 +606,10 @@
                 "title": "Padam koleksi?",
                 "message": "Adakah anda pasti mahu memadam \"{title}\"? Tindakan ini tidak boleh dibuat asal."
             }
+        },
+        "feedbackDialog": {
+            "title": "Sebab penolakan",
+            "hint": "Anda boleh mengedit entri dan menghantarnya semula untuk semakan."
         }
     },
     "SalesHistory": {

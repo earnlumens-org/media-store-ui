@@ -569,7 +569,8 @@
             "submitReview": "提交審核",
             "publish": "發布",
             "publishSuccess": "內容發布成功",
-            "publishError": "發布失敗，請重試。"
+            "publishError": "發布失敗，請重試。",
+            "viewFeedback": "查看拒絕原因"
         },
         "editEntry": "編輯條目",
         "editSuccess": "條目更新成功",
@@ -605,6 +606,10 @@
             "publishError": "發布合輯失敗",
             "publishSuccess": "合輯已成功發布",
             "showing": "顯示 {total} 個合輯中的 {count} 個"
+        },
+        "feedbackDialog": {
+            "title": "拒絕原因",
+            "hint": "你可以編輯內容並重新提交審核。"
         }
     },
     "SalesHistory": {

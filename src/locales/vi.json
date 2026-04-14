@@ -569,7 +569,8 @@
             "submitReview": "Gửi để xét duyệt",
             "publish": "Xuất bản",
             "publishSuccess": "Nội dung đã được xuất bản thành công",
-            "publishError": "Xuất bản thất bại. Vui lòng thử lại."
+            "publishError": "Xuất bản thất bại. Vui lòng thử lại.",
+            "viewFeedback": "Xem lý do từ chối"
         },
         "editEntry": "Sửa bài viết",
         "editSuccess": "Cập nhật bài viết thành công",
@@ -605,6 +606,10 @@
                 "title": "Xóa bộ sưu tập?",
                 "message": "Bạn có chắc chắn muốn xóa \"{title}\" không? Hành động này không thể hoàn tác."
             }
+        },
+        "feedbackDialog": {
+            "title": "Lý do từ chối",
+            "hint": "Bạn có thể chỉnh sửa bài viết và gửi lại để xem xét."
         }
     },
     "SalesHistory": {

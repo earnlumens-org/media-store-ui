@@ -569,7 +569,8 @@
             "submitReview": "審査に提出",
             "publish": "公開",
             "publishSuccess": "コンテンツが正常に公開されました",
-            "publishError": "公開に失敗しました。もう一度お試しください。"
+            "publishError": "公開に失敗しました。もう一度お試しください。",
+            "viewFeedback": "却下理由を表示"
         },
         "editEntry": "エントリーを編集",
         "editSuccess": "エントリーが正常に更新されました",
@@ -605,6 +606,10 @@
                 "title": "コレクションを削除しますか？",
                 "message": "「{title}」を削除してもよろしいですか？この操作は元に戻せません。"
             }
+        },
+        "feedbackDialog": {
+            "title": "却下理由",
+            "hint": "エントリーを編集して、再度レビューに提出できます。"
         }
     },
     "SalesHistory": {

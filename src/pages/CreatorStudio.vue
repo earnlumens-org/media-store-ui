@@ -441,6 +441,15 @@
                     <v-list-item prepend-icon="mdi-eye-outline" @click="goToItem(item)">
                       <v-list-item-title>{{ t('CreatorStudio.actions.view') }}</v-list-item-title>
                     </v-list-item>
+                    <!-- Moderation feedback -->
+                    <v-list-item
+                      v-if="item.moderationFeedback && (item.status === 'REJECTED' || item.status === 'SUSPENDED')"
+                      class="text-warning"
+                      prepend-icon="mdi-alert-circle-outline"
+                      @click="openFeedbackDialog(item)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.actions.viewFeedback') }}</v-list-item-title>
+                    </v-list-item>
                     <!-- Entry-specific actions -->
                     <template v-if="item.kind === 'entry' && item._entry">
                       <v-list-item prepend-icon="mdi-pencil-outline" @click="openEditDialog(item._entry)">
@@ -646,6 +655,15 @@
                 <v-list density="compact" min-width="180">
                   <v-list-item prepend-icon="mdi-eye-outline" @click="goToItem(item)">
                     <v-list-item-title>{{ t('CreatorStudio.actions.view') }}</v-list-item-title>
+                  </v-list-item>
+                  <!-- Moderation feedback -->
+                  <v-list-item
+                    v-if="item.moderationFeedback && (item.status === 'REJECTED' || item.status === 'SUSPENDED')"
+                    class="text-warning"
+                    prepend-icon="mdi-alert-circle-outline"
+                    @click="openFeedbackDialog(item)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.actions.viewFeedback') }}</v-list-item-title>
                   </v-list-item>
                   <!-- Entry-specific actions -->
                   <template v-if="item.kind === 'entry' && item._entry">
@@ -916,6 +934,36 @@
         </v-card>
       </v-dialog>
 
+      <!-- ── Moderation Feedback Dialog ─────────────────────── -->
+      <v-dialog v-model="feedbackDialog" max-width="480">
+        <v-card>
+          <v-card-title class="d-flex align-center ga-2">
+            <v-icon :color="feedbackItem?.status === 'SUSPENDED' ? 'warning' : 'error'" size="20">
+              mdi-alert-circle-outline
+            </v-icon>
+            {{ t('CreatorStudio.feedbackDialog.title') }}
+          </v-card-title>
+          <v-card-text>
+            <v-alert
+              :color="feedbackItem?.status === 'SUSPENDED' ? 'warning' : 'error'"
+              density="compact"
+              variant="tonal"
+            >
+              {{ feedbackItem?.moderationFeedback }}
+            </v-alert>
+            <div class="text-body-2 text-medium-emphasis mt-3">
+              {{ t('CreatorStudio.feedbackDialog.hint') }}
+            </div>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer />
+            <v-btn variant="text" @click="feedbackDialog = false">
+              {{ t('Common.close') }}
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
       <!-- ── Archive Confirmation Dialog ──────────────────────── -->
       <v-dialog v-model="archiveDialog" max-width="440">
         <v-card>
@@ -998,6 +1046,15 @@
   // Collection delete dialog state
   const deleteCollDialog = ref(false)
   const collToDelete = ref<CollectionItemModel | null>(null)
+
+  // Moderation feedback dialog state
+  const feedbackDialog = ref(false)
+  const feedbackItem = ref<StudioItem | null>(null)
+
+  function openFeedbackDialog (item: StudioItem) {
+    feedbackItem.value = item
+    feedbackDialog.value = true
+  }
   const isDeletingColl = ref(false)
 
   const stats = reactive<CreatorDashboardStats>({

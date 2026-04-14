@@ -569,7 +569,8 @@
             "submitReview": "Soumettre pour examen",
             "publish": "Publier",
             "publishSuccess": "Entrée publiée avec succès",
-            "publishError": "Échec de la publication. Veuillez réessayer."
+            "publishError": "Échec de la publication. Veuillez réessayer.",
+            "viewFeedback": "Voir le motif du rejet"
         },
         "editEntry": "Modifier l'entrée",
         "editSuccess": "Entrée mise à jour avec succès",
@@ -605,6 +606,10 @@
                 "title": "Supprimer la collection ?",
                 "message": "Êtes-vous sûr de vouloir supprimer \"{title}\" ? Cette action est irréversible."
             }
+        },
+        "feedbackDialog": {
+            "title": "Motif du rejet",
+            "hint": "Vous pouvez modifier le contenu et le soumettre à nouveau pour examen."
         }
     },
     "SalesHistory": {

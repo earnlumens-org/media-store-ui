@@ -569,7 +569,8 @@
             "submitReview": "İncelemeye gönder",
             "publish": "Yayınla",
             "publishSuccess": "İçerik başarıyla yayınlandı",
-            "publishError": "Yayınlama başarısız. Lütfen tekrar deneyin."
+            "publishError": "Yayınlama başarısız. Lütfen tekrar deneyin.",
+            "viewFeedback": "Red sebebini görüntüle"
         },
         "editEntry": "Girdiyi düzenle",
         "editSuccess": "Girdi başarıyla güncellendi",
@@ -605,6 +606,10 @@
                 "title": "Koleksiyon silinsin mi?",
                 "message": "\"{title}\" koleksiyonunu silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
             }
+        },
+        "feedbackDialog": {
+            "title": "Red sebebi",
+            "hint": "İçeriği düzenleyip tekrar incelemeye gönderebilirsiniz."
         }
     },
     "SalesHistory": {
