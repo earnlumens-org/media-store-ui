@@ -601,7 +601,8 @@
         "unarchiveSuccess": "Entrada desarchivada y restaurada a su estado anterior",
         "feedbackDialog": {
             "title": "Motivo del rechazo",
-            "hint": "Puedes editar la entrada y volver a enviarla a revisión."
+            "hint": "Edita la entrada para corregir los problemas y vuelve a enviarla a revisión.",
+            "editAndFix": "Editar y corregir"
         },
         "unarchiveError": "Error al desarchivar la entrada. Inténtalo de nuevo.",
         "transcoding": {

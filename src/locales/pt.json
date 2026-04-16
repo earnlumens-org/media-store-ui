@@ -609,7 +609,8 @@
         },
         "feedbackDialog": {
             "title": "Motivo da rejeição",
-            "hint": "Pode editar a entrada e submetê-la novamente para revisão."
+            "hint": "Edite a entrada para corrigir os problemas e reenvie para revisão.",
+            "editAndFix": "Editar e corrigir"
         }
     },
     "SalesHistory": {

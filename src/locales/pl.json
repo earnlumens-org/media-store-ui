@@ -609,7 +609,8 @@
         },
         "feedbackDialog": {
             "title": "Powód odrzucenia",
-            "hint": "Możesz edytować wpis i ponownie przesłać go do recenzji."
+            "hint": "Edytuj wpis, aby naprawić problemy, a następnie prześlij go ponownie do recenzji.",
+            "editAndFix": "Edytuj i napraw"
         }
     },
     "SalesHistory": {

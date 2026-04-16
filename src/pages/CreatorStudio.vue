@@ -452,7 +452,11 @@
                     </v-list-item>
                     <!-- Entry-specific actions -->
                     <template v-if="item.kind === 'entry' && item._entry">
-                      <v-list-item prepend-icon="mdi-pencil-outline" @click="openEditDialog(item._entry)">
+                      <v-list-item
+                        v-if="item.status !== 'IN_REVIEW'"
+                        prepend-icon="mdi-pencil-outline"
+                        @click="openEditDialog(item._entry)"
+                      >
                         <v-list-item-title>{{ t('CreatorStudio.actions.edit') }}</v-list-item-title>
                       </v-list-item>
                       <v-list-item
@@ -539,6 +543,7 @@
             v-model="currentPage"
             density="compact"
             :length="totalPages"
+            :total-visible="7"
             rounded
             @update:model-value="onPageChange"
           />
@@ -667,7 +672,11 @@
                   </v-list-item>
                   <!-- Entry-specific actions -->
                   <template v-if="item.kind === 'entry' && item._entry">
-                    <v-list-item prepend-icon="mdi-pencil-outline" @click="openEditDialog(item._entry)">
+                    <v-list-item
+                      v-if="item.status !== 'IN_REVIEW'"
+                      prepend-icon="mdi-pencil-outline"
+                      @click="openEditDialog(item._entry)"
+                    >
                       <v-list-item-title>{{ t('CreatorStudio.actions.edit') }}</v-list-item-title>
                     </v-list-item>
                     <v-list-item
@@ -748,6 +757,7 @@
             v-model="currentPage"
             density="compact"
             :length="totalPages"
+            :total-visible="5"
             rounded
             @update:model-value="onPageChange"
           />
@@ -960,6 +970,15 @@
             <v-btn variant="text" @click="feedbackDialog = false">
               {{ t('Common.close') }}
             </v-btn>
+            <v-btn
+              v-if="feedbackItem?.status === 'REJECTED' && feedbackItem?._entry"
+              color="primary"
+              prepend-icon="mdi-pencil-outline"
+              variant="elevated"
+              @click="feedbackDialog = false; openEditDialog(feedbackItem._entry)"
+            >
+              {{ t('CreatorStudio.feedbackDialog.editAndFix') }}
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -1093,6 +1112,7 @@
     priceUsd: null as number | null,
     priceCurrency: 'XLM' as 'XLM' | 'USD',
     contentLanguage: '' as string,
+    _status: '' as string,
   })
   const isSaving = ref(false)
   const isWalletUnfunded = ref(false)
@@ -1492,7 +1512,25 @@
       router.push(`/collection/${item._collection.id}`)
       return
     }
-    if (item._entry) goToEntry(item._entry)
+    if (!item._entry) return
+
+    // Only published entries have a public page
+    if (item.status === 'PUBLISHED') {
+      goToEntry(item._entry)
+      return
+    }
+    // Rejected/suspended with feedback → show moderation feedback
+    if (
+      item.moderationFeedback &&
+      (item.status === 'REJECTED' || item.status === 'SUSPENDED')
+    ) {
+      openFeedbackDialog(item)
+      return
+    }
+    // In review → no action (entry is locked while under review)
+    if (item.status === 'IN_REVIEW') return
+    // Draft / approved / other → open edit dialog
+    openEditDialog(item._entry)
   }
 
   // ── Edit ──────────────────────────────────────────────────
@@ -1506,6 +1544,7 @@
     editForm.priceUsd = entry.priceUsd ?? null
     editForm.priceCurrency = entry.priceCurrency ?? 'XLM'
     editForm.contentLanguage = entry.contentLanguage ?? ''
+    editForm._status = entry.status
     selectedSellerWallet.value = entry.sellerWallet ?? walletStore.activeAddress ?? ''
     savedSellerWallet.value = entry.sellerWallet ?? ''
     editDialog.value = true
@@ -1525,6 +1564,10 @@
         priceCurrency: editForm.isPaid ? editForm.priceCurrency : null,
         sellerWallet: editForm.isPaid ? selectedSellerWallet.value : null,
       })
+      // If entry was rejected, move it back to DRAFT so the user can resubmit
+      if (editForm._status === 'REJECTED') {
+        await api.upload.updateEntryStatus(editForm.id, { status: 'DRAFT' })
+      }
       showToast(t('CreatorStudio.editSuccess'))
       editDialog.value = false
       await fetchEntries()

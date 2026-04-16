@@ -609,7 +609,8 @@
         },
         "feedbackDialog": {
             "title": "Motif du rejet",
-            "hint": "Vous pouvez modifier le contenu et le soumettre à nouveau pour examen."
+            "hint": "Modifiez l'entrée pour corriger les problèmes, puis soumettez-la à nouveau pour révision.",
+            "editAndFix": "Modifier et corriger"
         }
     },
     "SalesHistory": {

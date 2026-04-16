@@ -609,7 +609,8 @@
         },
         "feedbackDialog": {
             "title": "Sebab penolakan",
-            "hint": "Anda boleh mengedit entri dan menghantarnya semula untuk semakan."
+            "hint": "Edit entri untuk membetulkan masalah, kemudian hantar semula untuk semakan.",
+            "editAndFix": "Edit dan betulkan"
         }
     },
     "SalesHistory": {

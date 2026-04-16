@@ -609,7 +609,8 @@
         },
         "feedbackDialog": {
             "title": "Lý do từ chối",
-            "hint": "Bạn có thể chỉnh sửa bài viết và gửi lại để xem xét."
+            "hint": "Chỉnh sửa nội dung để khắc phục các vấn đề, sau đó gửi lại để xem xét.",
+            "editAndFix": "Chỉnh sửa và sửa lỗi"
         }
     },
     "SalesHistory": {

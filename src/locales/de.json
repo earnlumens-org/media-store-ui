@@ -609,7 +609,8 @@
         },
         "feedbackDialog": {
             "title": "Ablehnungsgrund",
-            "hint": "Du kannst den Eintrag bearbeiten und erneut zur Überprüfung einreichen."
+            "hint": "Bearbeite den Eintrag, um die Probleme zu beheben, und reiche ihn erneut zur Überprüfung ein.",
+            "editAndFix": "Bearbeiten und beheben"
         }
     },
     "SalesHistory": {

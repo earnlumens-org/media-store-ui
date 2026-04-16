@@ -609,7 +609,8 @@
         },
         "feedbackDialog": {
             "title": "Motivo del rifiuto",
-            "hint": "Puoi modificare il contenuto e inviarlo di nuovo per la revisione."
+            "hint": "Modifica la voce per correggere i problemi, poi rinviala per la revisione.",
+            "editAndFix": "Modifica e correggi"
         }
     },
     "SalesHistory": {

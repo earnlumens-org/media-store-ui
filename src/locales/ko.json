@@ -609,7 +609,8 @@
         },
         "feedbackDialog": {
             "title": "거부 사유",
-            "hint": "항목을 수정하여 다시 검토 요청할 수 있습니다."
+            "hint": "항목을 수정하여 문제를 해결한 후 다시 검토를 위해 제출하세요.",
+            "editAndFix": "수정하기"
         }
     },
     "SalesHistory": {

@@ -609,7 +609,8 @@
         },
         "feedbackDialog": {
             "title": "拒絕原因",
-            "hint": "你可以編輯內容並重新提交審核。"
+            "hint": "編輯條目以修復問題，然後重新提交審核。",
+            "editAndFix": "編輯並修復"
         }
     },
     "SalesHistory": {

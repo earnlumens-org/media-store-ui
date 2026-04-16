@@ -609,7 +609,8 @@
         },
         "feedbackDialog": {
             "title": "Red sebebi",
-            "hint": "İçeriği düzenleyip tekrar incelemeye gönderebilirsiniz."
+            "hint": "Sorunları düzeltmek için girişi düzenleyin, ardından incelemeye yeniden gönderin.",
+            "editAndFix": "Düzenle ve düzelt"
         }
     },
     "SalesHistory": {
