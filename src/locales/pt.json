@@ -611,7 +611,11 @@
             "title": "Motivo da rejeição",
             "hint": "Edite a entrada para corrigir os problemas e reenvie para revisão.",
             "editAndFix": "Editar e corrigir"
-        }
+        },
+        "editReviewWarningTitle": "Salvar reenviará esta entrada para moderação",
+        "editReviewWarningHint": "Como esta entrada já foi revisada, qualquer alteração a enviará novamente pelo sistema de moderação automática antes de poder ser publicada.",
+        "editResubmittedSuccess": "Alterações salvas — entrada reenviada para revisão",
+        "saveAndResubmit": "Salvar e reenviar"
     },
     "SalesHistory": {
         "title": "Histórico de vendas",

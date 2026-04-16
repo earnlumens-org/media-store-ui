@@ -611,7 +611,11 @@
             "title": "却下理由",
             "hint": "エントリーを編集して問題を修正し、再度審査に提出してください。",
             "editAndFix": "編集して修正"
-        }
+        },
+        "editReviewWarningTitle": "保存するとこのエントリーは再モデレーションに送られます",
+        "editReviewWarningHint": "このエントリーは既に審査済みのため、変更を保存すると自動モデレーションシステムに再送信されます。",
+        "editResubmittedSuccess": "変更を保存しました — エントリーを再審査に提出しました",
+        "saveAndResubmit": "保存して再提出"
     },
     "SalesHistory": {
         "title": "販売履歴",

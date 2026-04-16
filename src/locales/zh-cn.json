@@ -611,7 +611,11 @@
             "title": "拒绝原因",
             "hint": "编辑条目以修复问题，然后重新提交审核。",
             "editAndFix": "编辑并修复"
-        }
+        },
+        "editReviewWarningTitle": "保存将重新提交此内容进行审核",
+        "editReviewWarningHint": "由于此内容已经审核过，任何更改都会将其重新发送到自动审核系统。",
+        "editResubmittedSuccess": "更改已保存 — 内容已重新提交审核",
+        "saveAndResubmit": "保存并重新提交"
     },
     "SalesHistory": {
         "title": "销售记录",

@@ -771,10 +771,36 @@
             <v-toolbar-title class="text-body-1 font-weight-bold">
               {{ t('CreatorStudio.editEntry') }}
             </v-toolbar-title>
+            <v-chip
+              class="ml-2"
+              :color="editStatusColor"
+              label
+              size="x-small"
+              variant="tonal"
+            >
+              {{ editForm._status }}
+            </v-chip>
+            <v-spacer />
             <v-btn icon="mdi-close" @click="editDialog = false" />
           </v-toolbar>
 
           <v-card-text>
+            <!-- Re-moderation warning -->
+            <v-alert
+              v-if="willTriggerReModeration"
+              class="mb-4"
+              color="warning"
+              density="compact"
+              icon="mdi-shield-refresh-outline"
+              variant="tonal"
+            >
+              <div class="text-body-2 font-weight-medium">
+                {{ t('CreatorStudio.editReviewWarningTitle') }}
+              </div>
+              <div class="text-caption mt-1">
+                {{ t('CreatorStudio.editReviewWarningHint') }}
+              </div>
+            </v-alert>
             <v-text-field
               v-model="editForm.title"
               class="mb-3"
@@ -791,10 +817,18 @@
               rows="3"
               variant="outlined"
             />
+            <v-textarea
+              v-if="editForm._type === 'resource'"
+              v-model="editForm.resourceContent"
+              class="mb-3"
+              :label="t('Upload.form.resourceContent')"
+              :placeholder="t('Upload.form.resourceContentPlaceholder')"
+              rows="8"
+              variant="outlined"
+            />
             <v-select
               v-model="editForm.contentLanguage"
               class="mb-3"
-              disabled
               :items="contentLanguageItems"
               :label="t('Upload.form.contentLanguage')"
               prepend-inner-icon="mdi-translate"
@@ -924,6 +958,38 @@
                 </v-btn>
               </v-alert>
             </template>
+
+            <!-- Thumbnail -->
+            <v-divider class="my-4" />
+            <div class="text-subtitle-2 mb-1">
+              {{ t('Upload.assets.thumbnail') }}
+            </div>
+            <div class="text-caption text-medium-emphasis mb-3">
+              {{ t('Upload.assets.thumbnailHint') }}
+            </div>
+            <UploadAssetPicker
+              v-model:file="editThumbnailFile"
+              v-model:progress="editThumbnailProgress"
+              :accept="THUMBNAIL_MIMES"
+              :max-size="MAX_THUMBNAIL_SIZE"
+            />
+
+            <!-- Preview (only for paid content) -->
+            <template v-if="editForm.isPaid">
+              <v-divider class="my-4" />
+              <div class="text-subtitle-2 mb-1">
+                {{ t('Upload.assets.preview') }}
+              </div>
+              <div class="text-caption text-medium-emphasis mb-3">
+                {{ t('Upload.assets.previewHint') }}
+              </div>
+              <UploadAssetPicker
+                v-model:file="editPreviewFile"
+                v-model:progress="editPreviewProgress"
+                :accept="PREVIEW_MIMES"
+                :max-size="MAX_PREVIEW_SIZE"
+              />
+            </template>
           </v-card-text>
 
           <v-card-actions class="pa-4">
@@ -932,13 +998,17 @@
               {{ t('Upload.actions.cancel') }}
             </v-btn>
             <v-btn
-              color="primary"
-              :disabled="!canSaveEdit"
-              :loading="isSaving"
+              :color="willTriggerReModeration ? 'warning' : 'primary'"
+              :disabled="!canSaveEdit || !isEditDirty"
+              :loading="isSaving || isUploading"
+              :prepend-icon="willTriggerReModeration ? 'mdi-shield-refresh-outline' : 'mdi-content-save-outline'"
               variant="elevated"
               @click="saveEdit"
             >
-              {{ t('Common.save') }}
+              {{ willTriggerReModeration
+                ? t('CreatorStudio.saveAndResubmit')
+                : t('Common.save')
+              }}
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -1023,12 +1093,14 @@
 <script setup lang="ts">
   import type { CollectionItemModel } from '@/api/types/collection.types'
   import type { CreatorDashboardStats, CreatorEntryModel, StudioItemModel } from '@/api/types/creator.types'
-  import type { EntryStatus, EntryType } from '@/api/types/upload.types'
+  import type { AssetKind, EntryStatus, EntryType } from '@/api/types/upload.types'
   import { storeToRefs } from 'pinia'
   import { computed, onMounted, reactive, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRouter } from 'vue-router'
   import { api, ApiError } from '@/api/api'
+  import { MAX_PREVIEW_SIZE, MAX_THUMBNAIL_SIZE, PREVIEW_MIMES, THUMBNAIL_MIMES } from '@/api/types/upload.types'
+  import UploadAssetPicker from '@/components/upload/UploadAssetPicker.vue'
   import UploadTypeDialog from '@/components/upload/UploadTypeDialog.vue'
   import { CONTENT_LANGUAGES } from '@/config/contentLanguages'
   import { accountExists } from '@/services/stellar'
@@ -1112,9 +1184,16 @@
     priceUsd: null as number | null,
     priceCurrency: 'XLM' as 'XLM' | 'USD',
     contentLanguage: '' as string,
+    resourceContent: '' as string,
     _status: '' as string,
+    _type: '' as string,
   })
   const isSaving = ref(false)
+  const isUploading = ref(false)
+  const editThumbnailFile = ref<File | null>(null)
+  const editThumbnailProgress = ref<number | null>(null)
+  const editPreviewFile = ref<File | null>(null)
+  const editPreviewProgress = ref<number | null>(null)
   const isWalletUnfunded = ref(false)
   const isCheckingWallet = ref(false)
   const selectedSellerWallet = ref('')
@@ -1177,6 +1256,47 @@
     if (editForm.isPaid && !selectedSellerWallet.value) return false
     if (editForm.isPaid && isWalletUnfunded.value) return false
     return true
+  })
+
+  // Track original form values to detect dirty state
+  const editOriginal = reactive({
+    title: '',
+    description: '',
+    isPaid: false,
+    priceXlm: null as number | null,
+    priceUsd: null as number | null,
+    priceCurrency: 'XLM' as string,
+    contentLanguage: '',
+    resourceContent: '',
+  })
+
+  const isEditDirty = computed(() => {
+    if (editThumbnailFile.value || editPreviewFile.value) return true
+    return editForm.title !== editOriginal.title
+      || editForm.description !== editOriginal.description
+      || editForm.isPaid !== editOriginal.isPaid
+      || editForm.priceXlm !== editOriginal.priceXlm
+      || editForm.priceUsd !== editOriginal.priceUsd
+      || editForm.priceCurrency !== editOriginal.priceCurrency
+      || editForm.contentLanguage !== editOriginal.contentLanguage
+      || editForm.resourceContent !== editOriginal.resourceContent
+  })
+
+  const willTriggerReModeration = computed(() => {
+    const s = editForm._status
+    return s !== 'DRAFT' && s !== 'IN_REVIEW' && s !== 'ARCHIVED'
+  })
+
+  const editStatusColor = computed(() => {
+    switch (editForm._status) {
+      case 'PUBLISHED': return 'success'
+      case 'APPROVED': return 'info'
+      case 'REJECTED': return 'error'
+      case 'SUSPENDED': return 'warning'
+      case 'IN_REVIEW': return 'warning'
+      case 'DRAFT': return 'grey'
+      default: return 'grey'
+    }
   })
 
   // Computed price that maps to the correct field based on currency
@@ -1444,6 +1564,7 @@
             transcodingStatus: item.transcodingStatus,
             sellerWallet: item.sellerWallet,
             moderationFeedback: item.moderationFeedback,
+            resourceContent: item.resourceContent,
           }
         } else {
           si._collection = {
@@ -1544,10 +1665,73 @@
     editForm.priceUsd = entry.priceUsd ?? null
     editForm.priceCurrency = entry.priceCurrency ?? 'XLM'
     editForm.contentLanguage = entry.contentLanguage ?? ''
+    editForm.resourceContent = entry.resourceContent ?? ''
     editForm._status = entry.status
+    editForm._type = typeof entry.type === 'string' ? entry.type.toLowerCase() : ''
     selectedSellerWallet.value = entry.sellerWallet ?? walletStore.activeAddress ?? ''
     savedSellerWallet.value = entry.sellerWallet ?? ''
+    editThumbnailFile.value = null
+    editThumbnailProgress.value = null
+    editPreviewFile.value = null
+    editPreviewProgress.value = null
+
+    // Snapshot for dirty detection
+    editOriginal.title = editForm.title
+    editOriginal.description = editForm.description
+    editOriginal.isPaid = editForm.isPaid
+    editOriginal.priceXlm = editForm.priceXlm
+    editOriginal.priceUsd = editForm.priceUsd
+    editOriginal.priceCurrency = editForm.priceCurrency
+    editOriginal.contentLanguage = editForm.contentLanguage
+    editOriginal.resourceContent = editForm.resourceContent
+
     editDialog.value = true
+  }
+
+  async function uploadEditAsset (entryId: string, file: File, kind: AssetKind, progressRef: typeof editThumbnailProgress) {
+    const initResp = await api.upload.initUpload({
+      entryId,
+      fileName: file.name,
+      contentType: file.type || 'application/octet-stream',
+      kind,
+      fileSizeBytes: file.size,
+    })
+    await api.upload.uploadToR2(initResp.presignedUrl, file, pct => {
+      progressRef.value = pct
+    })
+    const meta = await extractImageMeta(file)
+    await api.upload.finalizeUpload({
+      uploadId: initResp.uploadId,
+      entryId,
+      r2Key: initResp.r2Key,
+      contentType: file.type,
+      fileName: file.name,
+      fileSizeBytes: file.size,
+      kind,
+      widthPx: meta.widthPx,
+      heightPx: meta.heightPx,
+      durationSec: null,
+      bitrateBps: null,
+    })
+  }
+
+  async function extractImageMeta (file: File): Promise<{ widthPx: number | null, heightPx: number | null }> {
+    const mime = file.type || ''
+    if (mime.startsWith('image/')) {
+      try {
+        const url = URL.createObjectURL(file)
+        const img = new Image()
+        await new Promise<void>((resolve, reject) => {
+          img.addEventListener('load', () => resolve())
+          img.addEventListener('error', () => reject(new Error('Failed')))
+          img.src = url
+        })
+        const result = { widthPx: img.naturalWidth, heightPx: img.naturalHeight }
+        URL.revokeObjectURL(url)
+        return result
+      } catch { /* ignore */ }
+    }
+    return { widthPx: null, heightPx: null }
   }
 
   async function saveEdit () {
@@ -1563,12 +1747,25 @@
         priceUsd: editForm.isPaid && editForm.priceCurrency === 'USD' ? editForm.priceUsd : null,
         priceCurrency: editForm.isPaid ? editForm.priceCurrency : null,
         sellerWallet: editForm.isPaid ? selectedSellerWallet.value : null,
+        resourceContent: editForm._type === 'resource' ? (editForm.resourceContent.trim() || null) : undefined,
+        contentLanguage: editForm.contentLanguage || undefined,
       })
-      // If entry was rejected, move it back to DRAFT so the user can resubmit
-      if (editForm._status === 'REJECTED') {
-        await api.upload.updateEntryStatus(editForm.id, { status: 'DRAFT' })
+
+      // Upload new thumbnail / preview if selected
+      if (editThumbnailFile.value || editPreviewFile.value) {
+        isUploading.value = true
+        if (editThumbnailFile.value) {
+          await uploadEditAsset(editForm.id, editThumbnailFile.value, 'THUMBNAIL', editThumbnailProgress)
+        }
+        if (editPreviewFile.value) {
+          await uploadEditAsset(editForm.id, editPreviewFile.value, 'PREVIEW', editPreviewProgress)
+        }
+        isUploading.value = false
       }
-      showToast(t('CreatorStudio.editSuccess'))
+
+      showToast(willTriggerReModeration.value
+        ? t('CreatorStudio.editResubmittedSuccess')
+        : t('CreatorStudio.editSuccess'))
       editDialog.value = false
       await fetchEntries()
     } catch (error_) {

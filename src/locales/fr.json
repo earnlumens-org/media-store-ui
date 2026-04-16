@@ -611,7 +611,11 @@
             "title": "Motif du rejet",
             "hint": "Modifiez l'entrée pour corriger les problèmes, puis soumettez-la à nouveau pour révision.",
             "editAndFix": "Modifier et corriger"
-        }
+        },
+        "editReviewWarningTitle": "Sauvegarder resoumettra cette entrée à la modération",
+        "editReviewWarningHint": "Cette entrée ayant déjà été examinée, toute modification la renverra au système de modération automatique avant qu'elle puisse être publiée.",
+        "editResubmittedSuccess": "Modifications enregistrées — entrée resoumise pour révision",
+        "saveAndResubmit": "Sauvegarder et resoumettre"
     },
     "SalesHistory": {
         "title": "Historique des ventes",

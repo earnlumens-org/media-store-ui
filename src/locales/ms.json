@@ -611,7 +611,11 @@
             "title": "Sebab penolakan",
             "hint": "Edit entri untuk membetulkan masalah, kemudian hantar semula untuk semakan.",
             "editAndFix": "Edit dan betulkan"
-        }
+        },
+        "editReviewWarningTitle": "Menyimpan akan menghantar semula entri ini untuk moderasi",
+        "editReviewWarningHint": "Oleh kerana entri ini telah disemak, sebarang perubahan akan menghantarnya semula ke sistem moderasi automatik.",
+        "editResubmittedSuccess": "Perubahan disimpan — entri dihantar semula untuk semakan",
+        "saveAndResubmit": "Simpan dan hantar semula"
     },
     "SalesHistory": {
         "title": "Sejarah Jualan",

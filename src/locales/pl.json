@@ -611,7 +611,11 @@
             "title": "Powód odrzucenia",
             "hint": "Edytuj wpis, aby naprawić problemy, a następnie prześlij go ponownie do recenzji.",
             "editAndFix": "Edytuj i napraw"
-        }
+        },
+        "editReviewWarningTitle": "Zapisanie ponownie wyśle ten wpis do moderacji",
+        "editReviewWarningHint": "Ponieważ ten wpis został już sprawdzony, wszelkie zmiany wyślą go ponownie do automatycznego systemu moderacji.",
+        "editResubmittedSuccess": "Zmiany zapisane — wpis ponownie wysłany do sprawdzenia",
+        "saveAndResubmit": "Zapisz i wyślij ponownie"
     },
     "SalesHistory": {
         "title": "Historia sprzedaży",

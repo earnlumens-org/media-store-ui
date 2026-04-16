@@ -611,7 +611,11 @@
             "title": "Motivo del rifiuto",
             "hint": "Modifica la voce per correggere i problemi, poi rinviala per la revisione.",
             "editAndFix": "Modifica e correggi"
-        }
+        },
+        "editReviewWarningTitle": "Il salvataggio reinvierà questa voce alla moderazione",
+        "editReviewWarningHint": "Poiché questa voce è già stata esaminata, qualsiasi modifica la reinvierà al sistema di moderazione automatica.",
+        "editResubmittedSuccess": "Modifiche salvate — voce reinviata per la revisione",
+        "saveAndResubmit": "Salva e reinvia"
     },
     "SalesHistory": {
         "title": "Storico vendite",

@@ -611,7 +611,11 @@
             "title": "Lý do từ chối",
             "hint": "Chỉnh sửa nội dung để khắc phục các vấn đề, sau đó gửi lại để xem xét.",
             "editAndFix": "Chỉnh sửa và sửa lỗi"
-        }
+        },
+        "editReviewWarningTitle": "Lưu sẽ gửi lại mục này để kiểm duyệt",
+        "editReviewWarningHint": "Vì mục này đã được kiểm duyệt, mọi thay đổi sẽ gửi lại qua hệ thống kiểm duyệt tự động.",
+        "editResubmittedSuccess": "Đã lưu thay đổi — mục đã được gửi lại để xem xét",
+        "saveAndResubmit": "Lưu và gửi lại"
     },
     "SalesHistory": {
         "title": "Lịch sử bán hàng",

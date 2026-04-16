@@ -611,7 +611,11 @@
             "title": "拒絕原因",
             "hint": "編輯條目以修復問題，然後重新提交審核。",
             "editAndFix": "編輯並修復"
-        }
+        },
+        "editReviewWarningTitle": "儲存將重新提交此內容進行審核",
+        "editReviewWarningHint": "由於此內容已經審核過，任何變更都會將其重新發送到自動審核系統。",
+        "editResubmittedSuccess": "變更已儲存 — 內容已重新提交審核",
+        "saveAndResubmit": "儲存並重新提交"
     },
     "SalesHistory": {
         "title": "銷售紀錄",

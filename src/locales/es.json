@@ -611,7 +611,11 @@
             "processing": "Transcodificando…",
             "failed": "Transcodificación fallida",
             "dead": "Transcodificación fallida"
-        }
+        },
+        "editReviewWarningTitle": "Guardar reenviará esta entrada a moderación",
+        "editReviewWarningHint": "Como esta entrada ya fue revisada, cualquier cambio la enviará nuevamente al sistema de moderación automática antes de poder publicarse.",
+        "editResubmittedSuccess": "Cambios guardados — entrada reenviada a revisión",
+        "saveAndResubmit": "Guardar y reenviar"
     },
     "SalesHistory": {
         "title": "Historial de ventas",

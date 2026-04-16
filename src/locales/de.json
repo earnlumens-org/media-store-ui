@@ -611,7 +611,11 @@
             "title": "Ablehnungsgrund",
             "hint": "Bearbeite den Eintrag, um die Probleme zu beheben, und reiche ihn erneut zur Überprüfung ein.",
             "editAndFix": "Bearbeiten und beheben"
-        }
+        },
+        "editReviewWarningTitle": "Speichern wird diesen Eintrag erneut zur Moderation einreichen",
+        "editReviewWarningHint": "Da dieser Eintrag bereits überprüft wurde, werden Änderungen ihn erneut durch das automatische Moderationssystem senden.",
+        "editResubmittedSuccess": "Änderungen gespeichert — Eintrag erneut zur Überprüfung eingereicht",
+        "saveAndResubmit": "Speichern und erneut einreichen"
     },
     "SalesHistory": {
         "title": "Verkaufshistorie",

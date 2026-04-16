@@ -30,6 +30,8 @@ export interface CreatorEntryModel {
   transcodingStatus?: string
   /** Human-readable moderation feedback (rejection/suspension reason). */
   moderationFeedback?: string
+  /** Resource-type body text (only for resource entries). */
+  resourceContent?: string
 }
 
 export interface CreatorEntryPageModel {
@@ -60,6 +62,7 @@ export interface UpdateEntryMetadataRequest {
   priceCurrency?: 'XLM' | 'USD' | null
   contentLanguage?: string | null
   sellerWallet?: string | null
+  resourceContent?: string | null
 }
 
 // ==================== Filter / sort params ====================
@@ -103,6 +106,8 @@ export interface StudioItemModel {
   sellerWallet?: string
   /** Human-readable moderation feedback (rejection/suspension reason). */
   moderationFeedback?: string
+  /** Resource-type body text (only for resource entries). */
+  resourceContent?: string
 }
 
 export interface StudioPageModel {

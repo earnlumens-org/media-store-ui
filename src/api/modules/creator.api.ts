@@ -234,6 +234,7 @@ interface StudioItemDto {
   transcodingStatus?: string
   sellerWallet?: string
   moderationFeedback?: string
+  resourceContent?: string
 }
 
 interface StudioPageDto {
@@ -268,6 +269,7 @@ function studioDtoToModel (dto: StudioItemDto): StudioItemModel {
     transcodingStatus: dto.transcodingStatus,
     sellerWallet: dto.sellerWallet,
     moderationFeedback: dto.moderationFeedback,
+    resourceContent: dto.resourceContent,
   }
 }
 

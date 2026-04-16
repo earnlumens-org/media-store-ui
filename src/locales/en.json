@@ -611,7 +611,11 @@
             "processing": "Transcoding…",
             "failed": "Transcoding failed",
             "dead": "Transcoding failed"
-        }
+        },
+        "editReviewWarningTitle": "Saving will resubmit this entry for moderation",
+        "editReviewWarningHint": "Since this entry was already reviewed, any changes will send it back through the automated moderation system before it can be published again.",
+        "editResubmittedSuccess": "Changes saved — entry resubmitted for review",
+        "saveAndResubmit": "Save & resubmit"
     },
     "SalesHistory": {
         "title": "Sales History",

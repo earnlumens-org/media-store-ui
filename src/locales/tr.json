@@ -611,7 +611,11 @@
             "title": "Red sebebi",
             "hint": "Sorunları düzeltmek için girişi düzenleyin, ardından incelemeye yeniden gönderin.",
             "editAndFix": "Düzenle ve düzelt"
-        }
+        },
+        "editReviewWarningTitle": "Kaydetme bu içeriği yeniden incelemeye gönderecek",
+        "editReviewWarningHint": "Bu içerik zaten incelendiğinden, yapılan değişiklikler otomatik moderasyon sistemine geri gönderilecektir.",
+        "editResubmittedSuccess": "Değişiklikler kaydedildi — içerik incelemeye yeniden gönderildi",
+        "saveAndResubmit": "Kaydet ve yeniden gönder"
     },
     "SalesHistory": {
         "title": "Satış Geçmişi",

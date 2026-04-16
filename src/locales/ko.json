@@ -611,7 +611,11 @@
             "title": "거부 사유",
             "hint": "항목을 수정하여 문제를 해결한 후 다시 검토를 위해 제출하세요.",
             "editAndFix": "수정하기"
-        }
+        },
+        "editReviewWarningTitle": "저장하면 이 항목이 검토를 위해 다시 제출됩니다",
+        "editReviewWarningHint": "이 항목은 이미 검토되었으므로 변경 사항을 저장하면 자동 검토 시스템으로 다시 전송됩니다.",
+        "editResubmittedSuccess": "변경 사항 저장됨 — 항목이 검토를 위해 다시 제출됨",
+        "saveAndResubmit": "저장 및 재제출"
     },
     "SalesHistory": {
         "title": "판매 내역",
