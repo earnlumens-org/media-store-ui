@@ -116,7 +116,7 @@
             </template>
             {{ isFav ? $t('Common.removeFromFavorites') : $t('Common.saveToFavorites') }}
           </v-list-item>
-          <v-list-item>
+          <v-list-item @click="reportDialog = true">
             <template #prepend>
               <v-icon icon="mdi-flag" size="small" />
             </template>
@@ -125,6 +125,11 @@
         </v-list>
       </v-menu>
     </v-card-text>
+
+    <ReportDialog
+      v-model="reportDialog"
+      :entry-id="entry.id"
+    />
 
     <v-snackbar
       v-model="snackbar"
@@ -142,6 +147,7 @@
   import { useI18n } from 'vue-i18n'
 
   import AvatarFrame from '@/components/media/AvatarFrame.vue'
+  import ReportDialog from '@/components/report/ReportDialog.vue'
 
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useShare } from '@/lib/useShare'
@@ -165,6 +171,7 @@
 
   const snackbar = ref(false)
   const snackbarText = ref('')
+  const reportDialog = ref(false)
 
   // Detección de líneas del título (one-shot + watch para infinite scroll)
   const titleRef = ref<HTMLElement>()

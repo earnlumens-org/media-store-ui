@@ -708,5 +708,37 @@
             "titleRequired": "標題為必填",
             "typeRequired": "合輯類型為必填"
         }
+    },
+    "report": {
+        "title": "檢舉內容",
+        "selectReason": "您為什麼要檢舉此內容？",
+        "severityHigh": "嚴重違規",
+        "severityMedium": "政策違規",
+        "severityLow": "其他問題",
+        "reasons": {
+            "SCAM": "詐騙或欺詐",
+            "PHISHING": "網路釣魚",
+            "MALWARE": "惡意軟體或病毒",
+            "DOXXING": "人肉搜索/洩露個人資訊",
+            "EXTREME_VIOLENCE": "極端暴力",
+            "ILLEGAL": "非法內容",
+            "CSAM": "兒童剝削（CSAM）",
+            "HATE_SPEECH": "仇恨言論",
+            "NSFW": "色情內容（NSFW）",
+            "SPAM": "垃圾訊息",
+            "IMPERSONATION": "冒充他人",
+            "COPYRIGHT": "侵犯版權",
+            "STOLEN_CONTENT": "盜用內容",
+            "DUPLICATE": "重複內容",
+            "OFF_TOPIC": "無關內容",
+            "OTHER": "其他"
+        },
+        "commentLabel": "補充說明（可選）",
+        "commentPlaceholder": "請提供可以幫助我們審核此檢舉的額外資訊...",
+        "submit": "提交檢舉",
+        "successTitle": "檢舉已提交",
+        "successMessage": "感謝您幫助維護社群安全。我們將儘快審核此檢舉。",
+        "alreadyReported": "您已檢舉過此內容。",
+        "dailyLimitReached": "您已達到每日檢舉上限，請明天再試。"
     }
 }

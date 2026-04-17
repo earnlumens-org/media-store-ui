@@ -708,5 +708,37 @@
         "errors": {
             "createFailed": "컬렉션 생성에 실패했습니다. 다시 시도해 주세요."
         }
+    },
+    "report": {
+        "title": "콘텐츠 신고",
+        "selectReason": "이 콘텐츠를 신고하는 이유는?",
+        "severityHigh": "심각한 위반",
+        "severityMedium": "정책 위반",
+        "severityLow": "기타 문제",
+        "reasons": {
+            "SCAM": "사기 또는 기만",
+            "PHISHING": "피싱",
+            "MALWARE": "악성 소프트웨어",
+            "DOXXING": "개인정보 유출",
+            "EXTREME_VIOLENCE": "극단적 폭력",
+            "ILLEGAL": "불법 콘텐츠",
+            "CSAM": "아동 착취 (CSAM)",
+            "HATE_SPEECH": "헐오 발언",
+            "NSFW": "성적 콘텐츠 (NSFW)",
+            "SPAM": "스팸",
+            "IMPERSONATION": "사칭",
+            "COPYRIGHT": "저작권 침해",
+            "STOLEN_CONTENT": "도용된 콘텐츠",
+            "DUPLICATE": "중복 콘텐츠",
+            "OFF_TOPIC": "주제와 무관",
+            "OTHER": "기타"
+        },
+        "commentLabel": "추가 세부정보 (선택사항)",
+        "commentPlaceholder": "이 신고를 검토하는 데 도움이 될 수 있는 추가 정보를 입력해 주세요...",
+        "submit": "신고 제출",
+        "successTitle": "신고가 제출되었습니다",
+        "successMessage": "커뮤니티의 안전을 위해 도움을 주셔서 감사합니다. 이 신고를 곧 검토하겠습니다.",
+        "alreadyReported": "이미 이 콘텐츠를 신고하셨습니다.",
+        "dailyLimitReached": "일일 신고 한도에 도달했습니다. 내일 다시 시도해 주세요."
     }
 }

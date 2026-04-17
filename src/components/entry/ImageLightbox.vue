@@ -88,7 +88,7 @@
                   @click="openDetails"
                 />
                 <v-list-item prepend-icon="mdi-download" :title="$t('Common.download')" />
-                <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
+                <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
               </v-list>
             </v-menu>
           </template>
@@ -306,6 +306,8 @@
       </v-sheet>
     </v-card>
   </v-dialog>
+
+  <ReportDialog v-model="reportDialog" :entry-id="activeEntryId" />
 </template>
 
 <script setup lang="ts">
@@ -315,6 +317,7 @@
   import { useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import ReportDialog from '@/components/report/ReportDialog.vue'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
 
   interface Props {
@@ -349,6 +352,7 @@
   const loading = ref(false)
   const error = ref(false)
   const errorMessage = ref('')
+  const reportDialog = ref(false)
 
   // Mock data (since Entry model may not have these)
   const description = 'A stunning photograph capturing the essence of the moment.'

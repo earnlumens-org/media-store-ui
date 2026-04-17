@@ -708,5 +708,37 @@
         "errors": {
             "createFailed": "Không thể tạo bộ sưu tập. Vui lòng thử lại."
         }
+    },
+    "report": {
+        "title": "Báo cáo nội dung",
+        "selectReason": "Tại sao bạn báo cáo nội dung này?",
+        "severityHigh": "Vi phạm nghiêm trọng",
+        "severityMedium": "Vi phạm chính sách",
+        "severityLow": "Vấn đề khác",
+        "reasons": {
+            "SCAM": "Lừa đảo",
+            "PHISHING": "Lừa đảo trực tuyến",
+            "MALWARE": "Phần mềm độc hại",
+            "DOXXING": "Tiết lộ thông tin cá nhân",
+            "EXTREME_VIOLENCE": "Bạo lực cực đoan",
+            "ILLEGAL": "Nội dung bất hợp pháp",
+            "CSAM": "Bóc lột trẻ em (CSAM)",
+            "HATE_SPEECH": "Ngôn từ kích động thù hận",
+            "NSFW": "Nội dung tình dục (NSFW)",
+            "SPAM": "Spam",
+            "IMPERSONATION": "Mạo danh",
+            "COPYRIGHT": "Vi phạm bản quyền",
+            "STOLEN_CONTENT": "Nội dung bị đánh cắp",
+            "DUPLICATE": "Nội dung trùng lặp",
+            "OFF_TOPIC": "Không liên quan",
+            "OTHER": "Khác"
+        },
+        "commentLabel": "Chi tiết bổ sung (tùy chọn)",
+        "commentPlaceholder": "Cung cấp thêm thông tin để giúp chúng tôi xem xét báo cáo này...",
+        "submit": "Gửi báo cáo",
+        "successTitle": "Báo cáo đã được gửi",
+        "successMessage": "Cảm ơn bạn đã giúp giữ an toàn cho cộng đồng. Chúng tôi sẽ xem xét báo cáo này sớm.",
+        "alreadyReported": "Bạn đã báo cáo nội dung này rồi.",
+        "dailyLimitReached": "Bạn đã đạt giới hạn báo cáo hàng ngày. Vui lòng thử lại vào ngày mai."
     }
 }

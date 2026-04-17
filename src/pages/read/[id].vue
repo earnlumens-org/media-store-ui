@@ -61,7 +61,7 @@
           </template>
           <v-list density="compact">
             <v-list-item prepend-icon="mdi-bookmark-outline" :title="$t('Common.saveToCollection')" />
-            <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
+            <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
           </v-list>
         </v-menu>
       </template>
@@ -232,7 +232,7 @@
                 </template>
                 <v-list density="compact">
                   <v-list-item prepend-icon="mdi-bookmark-outline" :title="$t('Common.saveToCollection')" />
-                  <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
+                  <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
                 </v-list>
               </v-menu>
             </div>
@@ -467,6 +467,8 @@
       </v-row>
     </template>
   </div>
+
+  <ReportDialog v-model="reportDialog" :entry-id="entryId" />
 </template>
 
 <script setup lang="ts">
@@ -478,6 +480,7 @@
   import { api } from '@/api/api'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
+  import ReportDialog from '@/components/report/ReportDialog.vue'
   import { useAppStore } from '@/stores/app'
   import { usePurchasesStore } from '@/stores/purchases'
   import { cdnMediaUrl } from '@/config/env'
@@ -510,6 +513,7 @@
 
   // UI State
   const avatarBroken = ref(false)
+  const reportDialog = ref(false)
 
   /** Avatar URL — cleared when the OAuth provider image fails to load */
   const avatarUrl = computed(() =>

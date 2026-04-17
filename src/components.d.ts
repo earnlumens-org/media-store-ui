@@ -44,6 +44,7 @@ declare module 'vue' {
     Hero: typeof import('./components/home/Hero.vue')['default']
     ImageLightbox: typeof import('./components/entry/ImageLightbox.vue')['default']
     MediaFrame: typeof import('./components/media/MediaFrame.vue')['default']
+    ReportDialog: typeof import('./components/report/ReportDialog.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ShakaVideoPlayer: typeof import('./components/media/ShakaVideoPlayer.vue')['default']

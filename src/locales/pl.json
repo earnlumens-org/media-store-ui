@@ -708,5 +708,37 @@
         "errors": {
             "createFailed": "Nie udało się utworzyć kolekcji. Spróbuj ponownie."
         }
+    },
+    "report": {
+        "title": "Zgłoś treść",
+        "selectReason": "Dlaczego zgłaszasz tę treść?",
+        "severityHigh": "Poważne naruszenia",
+        "severityMedium": "Naruszenia zasad",
+        "severityLow": "Inne problemy",
+        "reasons": {
+            "SCAM": "Oszustwo",
+            "PHISHING": "Phishing",
+            "MALWARE": "Złośliwe oprogramowanie",
+            "DOXXING": "Ujawnienie danych osobowych",
+            "EXTREME_VIOLENCE": "Skrajna przemoc",
+            "ILLEGAL": "Nielegalna treść",
+            "CSAM": "Wykorzystywanie dzieci (CSAM)",
+            "HATE_SPEECH": "Mowa nienawiści",
+            "NSFW": "Treści seksualne (NSFW)",
+            "SPAM": "Spam",
+            "IMPERSONATION": "Podszywanie się",
+            "COPYRIGHT": "Naruszenie praw autorskich",
+            "STOLEN_CONTENT": "Skradziona treść",
+            "DUPLICATE": "Zduplikowana treść",
+            "OFF_TOPIC": "Nie na temat",
+            "OTHER": "Inne"
+        },
+        "commentLabel": "Dodatkowe szczegóły (opcjonalne)",
+        "commentPlaceholder": "Podaj dodatkowy kontekst, który pomoże nam przejrzeć to zgłoszenie...",
+        "submit": "Wyślij zgłoszenie",
+        "successTitle": "Zgłoszenie wysłane",
+        "successMessage": "Dziękujemy za pomoc w utrzymaniu bezpieczeństwa naszej społeczności. Wkrótce przejrzymy to zgłoszenie.",
+        "alreadyReported": "Już zgłosiłeś tę treść.",
+        "dailyLimitReached": "Osiągnąłeś dzienny limit zgłoszeń. Spróbuj ponownie jutro."
     }
 }

@@ -708,5 +708,37 @@
         "errors": {
             "createFailed": "Gagal mencipta koleksi. Sila cuba lagi."
         }
+    },
+    "report": {
+        "title": "Laporkan kandungan",
+        "selectReason": "Mengapa anda melaporkan kandungan ini?",
+        "severityHigh": "Pelanggaran serius",
+        "severityMedium": "Pelanggaran dasar",
+        "severityLow": "Masalah lain",
+        "reasons": {
+            "SCAM": "Penipuan",
+            "PHISHING": "Phishing",
+            "MALWARE": "Perisian hasad atau virus",
+            "DOXXING": "Pendedahan maklumat peribadi",
+            "EXTREME_VIOLENCE": "Keganasan melampau",
+            "ILLEGAL": "Kandungan haram",
+            "CSAM": "Eksploitasi kanak-kanak (CSAM)",
+            "HATE_SPEECH": "Ucapan kebencian",
+            "NSFW": "Kandungan seksual (NSFW)",
+            "SPAM": "Spam",
+            "IMPERSONATION": "Penyamaran identiti",
+            "COPYRIGHT": "Pelanggaran hak cipta",
+            "STOLEN_CONTENT": "Kandungan curi",
+            "DUPLICATE": "Kandungan pendua",
+            "OFF_TOPIC": "Luar topik",
+            "OTHER": "Lain-lain"
+        },
+        "commentLabel": "Butiran tambahan (pilihan)",
+        "commentPlaceholder": "Berikan konteks tambahan yang boleh membantu kami menyemak laporan ini...",
+        "submit": "Hantar laporan",
+        "successTitle": "Laporan dihantar",
+        "successMessage": "Terima kasih kerana membantu menjaga keselamatan komuniti kami. Kami akan menyemak laporan ini tidak lama lagi.",
+        "alreadyReported": "Anda sudah melaporkan kandungan ini.",
+        "dailyLimitReached": "Anda telah mencapai had laporan harian. Sila cuba lagi esok."
     }
 }

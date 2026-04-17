@@ -708,5 +708,37 @@
         "errors": {
             "createFailed": "コレクションの作成に失敗しました。もう一度お試しください。"
         }
+    },
+    "report": {
+        "title": "コンテンツを報告",
+        "selectReason": "このコンテンツを報告する理由は？",
+        "severityHigh": "重大な違反",
+        "severityMedium": "ポリシー違反",
+        "severityLow": "その他の問題",
+        "reasons": {
+            "SCAM": "詐欺",
+            "PHISHING": "フィッシング",
+            "MALWARE": "マルウェア・ウイルス",
+            "DOXXING": "個人情報の暴露",
+            "EXTREME_VIOLENCE": "過激な暴力",
+            "ILLEGAL": "違法コンテンツ",
+            "CSAM": "児童搮取（CSAM）",
+            "HATE_SPEECH": "ヘイトスピーチ",
+            "NSFW": "性的コンテンツ（NSFW）",
+            "SPAM": "スパム",
+            "IMPERSONATION": "なりすまし",
+            "COPYRIGHT": "著作権侵害",
+            "STOLEN_CONTENT": "盗用コンテンツ",
+            "DUPLICATE": "重複コンテンツ",
+            "OFF_TOPIC": "無関係なコンテンツ",
+            "OTHER": "その他"
+        },
+        "commentLabel": "追加の詳細（任意）",
+        "commentPlaceholder": "この報告の確認に役立つ追加情報があればご記入ください...",
+        "submit": "報告を送信",
+        "successTitle": "報告が送信されました",
+        "successMessage": "コミュニティの安全維持にご協力いただきありがとうございます。この報告を速やかに確認いたします。",
+        "alreadyReported": "このコンテンツは既に報告済みです。",
+        "dailyLimitReached": "1日の報告上限に達しました。明日もう一度お試しください。"
     }
 }

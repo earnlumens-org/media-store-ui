@@ -708,5 +708,37 @@
         "errors": {
             "createFailed": "Failed to create collection. Please try again."
         }
+    },
+    "report": {
+        "title": "Report Content",
+        "selectReason": "Why are you reporting this content?",
+        "severityHigh": "Serious violations",
+        "severityMedium": "Policy violations",
+        "severityLow": "Other issues",
+        "reasons": {
+            "SCAM": "Scam or fraud",
+            "PHISHING": "Phishing",
+            "MALWARE": "Malware or virus",
+            "DOXXING": "Doxxing / personal info",
+            "EXTREME_VIOLENCE": "Extreme violence",
+            "ILLEGAL": "Illegal content",
+            "CSAM": "Child exploitation (CSAM)",
+            "HATE_SPEECH": "Hate speech",
+            "NSFW": "Sexual content (NSFW)",
+            "SPAM": "Spam",
+            "IMPERSONATION": "Impersonation",
+            "COPYRIGHT": "Copyright infringement",
+            "STOLEN_CONTENT": "Stolen content",
+            "DUPLICATE": "Duplicate content",
+            "OFF_TOPIC": "Off-topic / irrelevant",
+            "OTHER": "Other"
+        },
+        "commentLabel": "Additional details (optional)",
+        "commentPlaceholder": "Provide any additional context that may help us review this report...",
+        "submit": "Submit Report",
+        "successTitle": "Report Submitted",
+        "successMessage": "Thank you for helping keep our community safe. We'll review this report shortly.",
+        "alreadyReported": "You have already reported this content.",
+        "dailyLimitReached": "You have reached the daily report limit. Please try again tomorrow."
     }
 }

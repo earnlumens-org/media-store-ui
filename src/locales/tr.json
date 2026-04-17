@@ -708,5 +708,37 @@
         "errors": {
             "createFailed": "Koleksiyon oluşturulamadı. Lütfen tekrar deneyin."
         }
+    },
+    "report": {
+        "title": "İçeriği bildir",
+        "selectReason": "Bu içeriği neden bildiriyorsunuz?",
+        "severityHigh": "Ciddi ihlaller",
+        "severityMedium": "Politika ihlalleri",
+        "severityLow": "Diğer sorunlar",
+        "reasons": {
+            "SCAM": "Dolandırıcılık",
+            "PHISHING": "Oltalama",
+            "MALWARE": "Zararlı yazılım veya virüs",
+            "DOXXING": "Kişisel bilgi ifşası",
+            "EXTREME_VIOLENCE": "Aşırı şiddet",
+            "ILLEGAL": "Yasadışı içerik",
+            "CSAM": "Çocuk istismarı (CSAM)",
+            "HATE_SPEECH": "Nefret söylemi",
+            "NSFW": "Cinsel içerik (NSFW)",
+            "SPAM": "Spam",
+            "IMPERSONATION": "Kimliğe bürünme",
+            "COPYRIGHT": "Telif hakkı ihlali",
+            "STOLEN_CONTENT": "Çalıntı içerik",
+            "DUPLICATE": "Yinelenen içerik",
+            "OFF_TOPIC": "Konu dışı",
+            "OTHER": "Diğer"
+        },
+        "commentLabel": "Ek ayrıntılar (isteğe bağlı)",
+        "commentPlaceholder": "Bu bildirimi incelememize yardımcı olabilecek ek bilgi sağlayın...",
+        "submit": "Bildirimi gönder",
+        "successTitle": "Bildirim gönderildi",
+        "successMessage": "Topluluğumuzu güvende tutmamıza yardım ettiğiniz için teşekkürler. Bu bildirimi kısa sürede inceleyeceğiz.",
+        "alreadyReported": "Bu içeriği zaten bildirdiniz.",
+        "dailyLimitReached": "Günlük bildirim sınırına ulaştınız. Lütfen yarın tekrar deneyin."
     }
 }

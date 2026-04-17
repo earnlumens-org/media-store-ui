@@ -708,5 +708,37 @@
         "errors": {
             "createFailed": "创建合集失败，请重试。"
         }
+    },
+    "report": {
+        "title": "举报内容",
+        "selectReason": "您为什么要举报此内容？",
+        "severityHigh": "严重违规",
+        "severityMedium": "政策违规",
+        "severityLow": "其他问题",
+        "reasons": {
+            "SCAM": "诈骗或欺诈",
+            "PHISHING": "网络钓鱼",
+            "MALWARE": "恶意软件或病毒",
+            "DOXXING": "人肉搜索/泄露个人信息",
+            "EXTREME_VIOLENCE": "极端暴力",
+            "ILLEGAL": "非法内容",
+            "CSAM": "儿童剥削（CSAM）",
+            "HATE_SPEECH": "仇恨言论",
+            "NSFW": "色情内容（NSFW）",
+            "SPAM": "垃圾信息",
+            "IMPERSONATION": "冒充他人",
+            "COPYRIGHT": "侵犯版权",
+            "STOLEN_CONTENT": "盗用内容",
+            "DUPLICATE": "重复内容",
+            "OFF_TOPIC": "无关内容",
+            "OTHER": "其他"
+        },
+        "commentLabel": "补充说明（可选）",
+        "commentPlaceholder": "请提供可以帮助我们审核此举报的额外信息...",
+        "submit": "提交举报",
+        "successTitle": "举报已提交",
+        "successMessage": "感谢您帮助维护社区安全。我们将尽快审核此举报。",
+        "alreadyReported": "您已举报过此内容。",
+        "dailyLimitReached": "您已达到每日举报上限，请明天再试。"
     }
 }

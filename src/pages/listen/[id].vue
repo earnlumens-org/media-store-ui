@@ -55,7 +55,7 @@
             />
           </template>
           <v-list density="compact">
-            <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
+            <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
             <v-list-item prepend-icon="mdi-playlist-plus" :title="$t('Common.addToPlaylist')" />
           </v-list>
         </v-menu>
@@ -241,7 +241,7 @@
                   />
                 </template>
                 <v-list density="compact">
-                  <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
+                  <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
                   <v-list-item prepend-icon="mdi-playlist-plus" :title="$t('Common.addToPlaylist')" />
                 </v-list>
               </v-menu>
@@ -496,6 +496,8 @@
       </v-row>
     </template>
   </v-container>
+
+  <ReportDialog v-model="reportDialog" :entry-id="entryId" />
 </template>
 
 <script setup lang="ts">
@@ -507,6 +509,7 @@
   import { api } from '@/api/api'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
+  import ReportDialog from '@/components/report/ReportDialog.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { usePurchasesStore } from '@/stores/purchases'
@@ -543,6 +546,7 @@
   const audioDuration = ref(0)
   const descriptionExpanded = ref(false)
   const avatarBroken = ref(false)
+  const reportDialog = ref(false)
 
   /** Avatar URL — cleared when the OAuth provider image fails to load */
   const avatarUrl = computed(() =>

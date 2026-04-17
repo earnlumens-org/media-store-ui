@@ -56,7 +56,7 @@
           </template>
           <v-list density="compact">
             <v-list-item prepend-icon="mdi-download" :title="$t('Common.download')" />
-            <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
+            <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
           </v-list>
         </v-menu>
       </template>
@@ -283,7 +283,7 @@
                   </template>
                   <v-list density="compact">
                     <v-list-item prepend-icon="mdi-download" :title="$t('Common.download')" />
-                    <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" />
+                    <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
                   </v-list>
                 </v-menu>
               </div>
@@ -423,6 +423,8 @@
       </v-row>
     </template>
   </v-container>
+
+  <ReportDialog v-model="reportDialog" :entry-id="entryId" />
 </template>
 
 <script setup lang="ts">
@@ -434,6 +436,7 @@
   import { api } from '@/api/api'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
+  import ReportDialog from '@/components/report/ReportDialog.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { usePurchasesStore } from '@/stores/purchases'
@@ -462,6 +465,7 @@
   const descriptionExpanded = ref(false)
   const avatarBroken = ref(false)
   const downloading = ref(false)
+  const reportDialog = ref(false)
 
   // Computed
   const imageMaxHeight = computed(() => '70vh')

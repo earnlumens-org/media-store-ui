@@ -708,5 +708,37 @@
         "errors": {
             "createFailed": "Falha ao criar coleção. Tente novamente."
         }
+    },
+    "report": {
+        "title": "Denunciar conteúdo",
+        "selectReason": "Por que está denunciando este conteúdo?",
+        "severityHigh": "Violações graves",
+        "severityMedium": "Violações de políticas",
+        "severityLow": "Outros problemas",
+        "reasons": {
+            "SCAM": "Golpe ou fraude",
+            "PHISHING": "Phishing",
+            "MALWARE": "Malware ou vírus",
+            "DOXXING": "Doxxing / informações pessoais",
+            "EXTREME_VIOLENCE": "Violência extrema",
+            "ILLEGAL": "Conteúdo ilegal",
+            "CSAM": "Exploração infantil (CSAM)",
+            "HATE_SPEECH": "Discurso de ódio",
+            "NSFW": "Conteúdo sexual (NSFW)",
+            "SPAM": "Spam",
+            "IMPERSONATION": "Falsidade ideológica",
+            "COPYRIGHT": "Violação de direitos autorais",
+            "STOLEN_CONTENT": "Conteúdo roubado",
+            "DUPLICATE": "Conteúdo duplicado",
+            "OFF_TOPIC": "Fora do tema",
+            "OTHER": "Outro"
+        },
+        "commentLabel": "Detalhes adicionais (opcional)",
+        "commentPlaceholder": "Forneça contexto adicional que possa nos ajudar a analisar esta denúncia...",
+        "submit": "Enviar denúncia",
+        "successTitle": "Denúncia enviada",
+        "successMessage": "Obrigado por ajudar a manter nossa comunidade segura. Analisaremos esta denúncia em breve.",
+        "alreadyReported": "Você já denunciou este conteúdo.",
+        "dailyLimitReached": "Você atingiu o limite diário de denúncias. Tente novamente amanhã."
     }
 }

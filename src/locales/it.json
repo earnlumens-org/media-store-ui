@@ -708,5 +708,37 @@
         "errors": {
             "createFailed": "Impossibile creare la raccolta. Riprova."
         }
+    },
+    "report": {
+        "title": "Segnala contenuto",
+        "selectReason": "Perché segnali questo contenuto?",
+        "severityHigh": "Violazioni gravi",
+        "severityMedium": "Violazioni delle norme",
+        "severityLow": "Altri problemi",
+        "reasons": {
+            "SCAM": "Truffa o frode",
+            "PHISHING": "Phishing",
+            "MALWARE": "Malware o virus",
+            "DOXXING": "Doxxing / informazioni personali",
+            "EXTREME_VIOLENCE": "Violenza estrema",
+            "ILLEGAL": "Contenuto illegale",
+            "CSAM": "Sfruttamento minorile (CSAM)",
+            "HATE_SPEECH": "Incitamento all'odio",
+            "NSFW": "Contenuto sessuale (NSFW)",
+            "SPAM": "Spam",
+            "IMPERSONATION": "Furto d'identità",
+            "COPYRIGHT": "Violazione del copyright",
+            "STOLEN_CONTENT": "Contenuto rubato",
+            "DUPLICATE": "Contenuto duplicato",
+            "OFF_TOPIC": "Fuori tema",
+            "OTHER": "Altro"
+        },
+        "commentLabel": "Dettagli aggiuntivi (facoltativo)",
+        "commentPlaceholder": "Fornisci ulteriore contesto che possa aiutarci a esaminare questa segnalazione...",
+        "submit": "Invia segnalazione",
+        "successTitle": "Segnalazione inviata",
+        "successMessage": "Grazie per aver contribuito a mantenere sicura la nostra comunità. Esamineremo questa segnalazione a breve.",
+        "alreadyReported": "Hai già segnalato questo contenuto.",
+        "dailyLimitReached": "Hai raggiunto il limite giornaliero di segnalazioni. Riprova domani."
     }
 }

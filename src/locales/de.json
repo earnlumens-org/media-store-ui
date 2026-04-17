@@ -708,5 +708,37 @@
         "errors": {
             "createFailed": "Sammlung konnte nicht erstellt werden. Bitte versuchen Sie es erneut."
         }
+    },
+    "report": {
+        "title": "Inhalt melden",
+        "selectReason": "Warum melden Sie diesen Inhalt?",
+        "severityHigh": "Schwere Verstöße",
+        "severityMedium": "Richtlinienverstöße",
+        "severityLow": "Sonstige Probleme",
+        "reasons": {
+            "SCAM": "Betrug",
+            "PHISHING": "Phishing",
+            "MALWARE": "Schadsoftware oder Virus",
+            "DOXXING": "Doxxing / persönliche Daten",
+            "EXTREME_VIOLENCE": "Extreme Gewalt",
+            "ILLEGAL": "Illegaler Inhalt",
+            "CSAM": "Kindesmissbrauch (CSAM)",
+            "HATE_SPEECH": "Hassrede",
+            "NSFW": "Sexueller Inhalt (NSFW)",
+            "SPAM": "Spam",
+            "IMPERSONATION": "Identitätsbetrug",
+            "COPYRIGHT": "Urheberrechtsverletzung",
+            "STOLEN_CONTENT": "Gestohlener Inhalt",
+            "DUPLICATE": "Doppelter Inhalt",
+            "OFF_TOPIC": "Themenfremder Inhalt",
+            "OTHER": "Sonstiges"
+        },
+        "commentLabel": "Zusätzliche Details (optional)",
+        "commentPlaceholder": "Geben Sie zusätzlichen Kontext an, der uns bei der Überprüfung helfen kann...",
+        "submit": "Meldung absenden",
+        "successTitle": "Meldung gesendet",
+        "successMessage": "Vielen Dank, dass Sie unsere Community sicher halten. Wir werden diese Meldung in Kürze überprüfen.",
+        "alreadyReported": "Sie haben diesen Inhalt bereits gemeldet.",
+        "dailyLimitReached": "Sie haben das tägliche Meldelimit erreicht. Versuchen Sie es morgen erneut."
     }
 }

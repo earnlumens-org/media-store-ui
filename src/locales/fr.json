@@ -708,5 +708,37 @@
         "errors": {
             "createFailed": "Échec de la création de la collection. Veuillez réessayer."
         }
+    },
+    "report": {
+        "title": "Signaler le contenu",
+        "selectReason": "Pourquoi signalez-vous ce contenu ?",
+        "severityHigh": "Violations graves",
+        "severityMedium": "Violations des règles",
+        "severityLow": "Autres problèmes",
+        "reasons": {
+            "SCAM": "Arnaque ou fraude",
+            "PHISHING": "Hameçonnage",
+            "MALWARE": "Logiciel malveillant",
+            "DOXXING": "Doxxing / informations personnelles",
+            "EXTREME_VIOLENCE": "Violence extrême",
+            "ILLEGAL": "Contenu illégal",
+            "CSAM": "Exploitation d'enfants (CSAM)",
+            "HATE_SPEECH": "Discours haineux",
+            "NSFW": "Contenu sexuel (NSFW)",
+            "SPAM": "Spam",
+            "IMPERSONATION": "Usurpation d'identité",
+            "COPYRIGHT": "Violation du droit d'auteur",
+            "STOLEN_CONTENT": "Contenu volé",
+            "DUPLICATE": "Contenu dupliqué",
+            "OFF_TOPIC": "Hors sujet",
+            "OTHER": "Autre"
+        },
+        "commentLabel": "Détails supplémentaires (facultatif)",
+        "commentPlaceholder": "Fournissez tout contexte supplémentaire pour nous aider à examiner ce signalement...",
+        "submit": "Envoyer le signalement",
+        "successTitle": "Signalement envoyé",
+        "successMessage": "Merci de contribuer à la sécurité de notre communauté. Nous examinerons ce signalement rapidement.",
+        "alreadyReported": "Vous avez déjà signalé ce contenu.",
+        "dailyLimitReached": "Vous avez atteint la limite quotidienne de signalements. Réessayez demain."
     }
 }
