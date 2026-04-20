@@ -366,12 +366,7 @@
   const imageMaxHeight = computed(() => 'calc(100vh - 180px)')
 
   // Active entry ID (either from prop or from gallery)
-  const activeEntryId = computed(() => {
-    if (hasGallery.value && props.galleryIds[props.currentIndex]) {
-      return props.galleryIds[props.currentIndex]
-    }
-    return props.entryId
-  })
+  const activeEntryId = computed<string>(() => props.galleryIds[props.currentIndex] ?? props.entryId)
 
   // Fetch entry data
   async function fetchEntry () {
