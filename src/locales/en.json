@@ -268,7 +268,21 @@
         "postCommunity": "Post in the Community Section",
         "featuredCreator": "Featured Creator Placement",
         "storeAnalytics": "Advanced Store Analytics",
-        "getAccess": "Get Access"
+        "getAccess": "Get Access",
+        "claimTitle": "Activate your free verified badge",
+        "claimSubtitle": "One year of community verification, granted instantly to your account.",
+        "claimDuration": "Duration: 1 year from activation",
+        "claimIrreversible": "This action is final. Once activated, your badge cannot be revoked, transferred or restarted before its expiration date.",
+        "claimConfirm": "I understand this action is final and cannot be undone.",
+        "claimButton": "Activate my badge",
+        "claiming": "Activating…",
+        "claimSuccessTitle": "Your badge is active",
+        "claimSuccessMessage": "Welcome to the verified community. Your blue badge will appear on your profile and content within a few seconds.",
+        "alreadyClaimedTitle": "You already have an active badge",
+        "alreadyClaimedMessage": "Only one community verification per account is permitted.",
+        "claimError": "We couldn't activate your badge right now. Please try again in a moment.",
+        "close": "Close",
+        "done": "Done"
     },
     "WaitList": {
         "enterEmailMessage": "Your verified badge will be activated instantly. Enter your email so we can notify you when your content store is ready to launch.",

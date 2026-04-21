@@ -268,7 +268,21 @@
         "postCommunity": "Publicá en la sección de comunidad",
         "featuredCreator": "Posicionamiento como creador destacado",
         "storeAnalytics": "Analíticas avanzadas de tu tienda",
-        "getAccess": "Obtener acceso"
+        "getAccess": "Obtener acceso",
+        "claimTitle": "Activá tu insignia verificada gratuita",
+        "claimSubtitle": "Un año de verificación comunitaria, otorgado al instante a tu cuenta.",
+        "claimDuration": "Duración: 1 año desde la activación",
+        "claimIrreversible": "Esta acción es final. Una vez activada, tu insignia no puede ser revocada, transferida ni reiniciada antes de su fecha de expiración.",
+        "claimConfirm": "Entiendo que esta acción es final y no se puede deshacer.",
+        "claimButton": "Activar mi insignia",
+        "claiming": "Activando…",
+        "claimSuccessTitle": "Tu insignia está activa",
+        "claimSuccessMessage": "Bienvenido a la comunidad verificada. Tu insignia azul aparecerá en tu perfil y contenido en unos segundos.",
+        "alreadyClaimedTitle": "Ya tenés una insignia activa",
+        "alreadyClaimedMessage": "Solo se permite una verificación comunitaria por cuenta.",
+        "claimError": "No pudimos activar tu insignia ahora mismo. Por favor intentá de nuevo en un momento.",
+        "close": "Cerrar",
+        "done": "Listo"
     },
     "WaitList": {
         "enterEmailMessage": "Tu insignia de verificación se activa al instante. Ingresá tu correo para que te avisemos cuando tu tienda de contenido esté lista.",

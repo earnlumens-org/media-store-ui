@@ -268,7 +268,21 @@
         "postCommunity": "コミュニティセクションに投稿",
         "featuredCreator": "注目クリエイターとして掲載",
         "storeAnalytics": "高度なストア分析",
-        "getAccess": "アクセスを取得"
+        "getAccess": "アクセスを取得",
+        "claimTitle": "無料認証バッジを有効化",
+        "claimSubtitle": "1年間のコミュニティ認証を、アカウントに即時付与します。",
+        "claimDuration": "有効期間：有効化から1年間",
+        "claimIrreversible": "この操作は取り消せません。バッジを有効化すると、有効期限まで取り消し・譲渡・再開始はできません。",
+        "claimConfirm": "この操作が最終的で取り消せないことを理解しました。",
+        "claimButton": "バッジを有効化する",
+        "claiming": "有効化中…",
+        "claimSuccessTitle": "バッジが有効になりました",
+        "claimSuccessMessage": "認証コミュニティへようこそ。数秒以内にプロフィールとコンテンツに青いバッジが表示されます。",
+        "alreadyClaimedTitle": "既に有効なバッジがあります",
+        "alreadyClaimedMessage": "コミュニティ認証は1アカウントにつき1回のみ取得可能です。",
+        "claimError": "バッジを有効化できませんでした。しばらくしてから再度お試しください。",
+        "close": "閉じる",
+        "done": "完了"
     },
     "WaitList": {
         "enterEmailMessage": "認証バッジは即時に有効化されます。ストアの準備が整ったらお知らせするため、メールアドレスを入力してください。",

@@ -44,6 +44,18 @@ export const useAuthStore = defineStore('auth', {
       this.isAuthenticated = !!user
     },
 
+    /**
+     * Update only the verified badge on the current user, preserving all other fields.
+     * Called after a successful badge claim so the U1/U2 mark appears immediately
+     * across the app (author cards, public profile, etc.) without a full reload.
+     */
+    setBadge (badge: 'u1' | 'u2' | null) {
+      if (!this.user) {
+        return
+      }
+      this.user = { ...this.user, profileBadge: badge ?? undefined }
+    },
+
     setError (error: string | null) {
       this.error = error
     },

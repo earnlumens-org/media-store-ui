@@ -241,7 +241,7 @@
                 </v-card>
               </div>
 
-              <VerificationDialog v-model="showVerification" />
+              <VerificationDialog v-model="showVerification" @claimed="fetchBadges" />
             </div>
 
             <!-- No user -->
