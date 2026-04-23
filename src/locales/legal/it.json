@@ -12,7 +12,7 @@
         },
         {
           "heading": "2. Descrizione del servizio",
-          "body": "EarnLumens è una piattaforma collaborativa di educazione finanziaria costruita sulla rete Stellar. I creatori possono pubblicare contenuti educativi (video, audio, immagini e risorse) e fissare i prezzi in XLM (Stellar Lumens). Gli utenti possono acquistare, visualizzare e interagire con questi contenuti."
+          "body": "EarnLumens e una piattaforma di contenuti multi-tenant costruita sulla rete Stellar. Il tenant principale e attualmente focalizzato sull'educazione finanziaria, e la piattaforma abilita nuove istanze per altri verticali tramite credenziali di verifica. I creatori possono pubblicare contenuti (video, audio, immagini e risorse) e impostare prezzi in XLM (Stellar Lumens). Gli utenti possono acquistare, visualizzare e interagire con questi contenuti."
         },
         {
           "heading": "3. Registrazione dell'account",

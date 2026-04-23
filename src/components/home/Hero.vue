@@ -70,14 +70,12 @@
 
             <v-btn
               class="px-6 text-none font-weight-medium"
-              href="https://stellar.org/learn/lumens"
-              rel="noopener noreferrer"
+              to="/explore"
               rounded="lg"
               size="x-large"
-              target="_blank"
               variant="outlined"
             >
-              <span class="me-2 d-inline-flex" v-html="stellarSvgIcon" />
+              <v-icon class="me-2" icon="mdi-compass-outline" />
               {{ $t("Home.aboutXLM") }}
             </v-btn>
           </div>
@@ -88,20 +86,13 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue'
+  import { ref } from 'vue'
 
   import fireLogoImg from '@/assets/fire.svg'
-  import stellarSvg from '@/assets/stellar.svg?raw'
   import VerificationDialog from '@/components/home/VerificationDialog.vue'
 
   const fireLogo = ref(fireLogoImg)
   const showVerification = ref(false)
-
-  const stellarSvgIcon = computed(() => {
-    return stellarSvg
-      .replace(/\swidth="[^"]*"/, ' width="18"')
-      .replace(/\sheight="[^"]*"/, ' height="18"')
-  })
 </script>
 
 <style scoped>
