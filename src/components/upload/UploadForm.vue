@@ -82,6 +82,8 @@
           </div>
         </div>
 
+        <GuidelinesReferenceCard />
+
         <v-form ref="formRef" @submit.prevent>
           <v-row>
             <!-- Left column: metadata -->
@@ -420,6 +422,7 @@
     THUMBNAIL_MIMES,
     toEntryType,
   } from '@/api/types/upload.types'
+  import GuidelinesReferenceCard from '@/components/guidelines/GuidelinesReferenceCard.vue'
   import UploadAssetPicker from '@/components/upload/UploadAssetPicker.vue'
   import { CONTENT_LANGUAGES } from '@/config/contentLanguages'
   import { accountExists } from '@/services/stellar'

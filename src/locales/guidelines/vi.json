@@ -1,0 +1,63 @@
+{
+  "Guidelines": {
+    "title": "Hướng dẫn nội dung dành cho nhà sáng tạo",
+    "subtitle": "Những gì bạn có thể đăng trên EarnLumens và những gì chúng tôi tránh",
+    "lastUpdated": "Cập nhật lần cuối: {date}",
+    "intro": "EarnLumens là một nền tảng giáo dục tài chính tập trung vào hệ sinh thái Stellar. Chúng tôi muốn bạn tự do xuất bản: những quy tắc này chỉ tồn tại để ngăn chặn gian lận, nội dung độc hại và spam, chứ không phải để hạn chế sự sáng tạo của bạn. Nếu nội dung của bạn trung thực, có giá trị và không gây hiểu lầm, gần như lúc nào cũng sẽ được phê duyệt.",
+    "forCreators": {
+      "heading": "Dành cho nhà sáng tạo",
+      "sections": [
+        {
+          "heading": "1. Những gì bạn có thể tự do đăng tải",
+          "body": "Phạm vi chủ đề được chấp nhận rất rộng. Bạn không cần xin phép hay tuân theo một định dạng cứng nhắc:",
+          "items": [
+            "Nội dung giáo dục về mạng Stellar (giao thức, SCP, Soroban, SDK, anchors, DEX) và XLM",
+            "Giáo dục tài chính nói chung: tiết kiệm, lập ngân sách, nợ, đầu tư có trách nhiệm, thuế",
+            "Hướng dẫn thực hành, demo mã nguồn, và walkthrough về ví và dApp",
+            "So sánh trung thực giữa các mạng, ví hoặc giao thức, kể cả ngoài Stellar, miễn là mang tính thông tin",
+            "Ý kiến và phân tích cá nhân được ghi rõ là quan điểm cá nhân",
+            "Nội dung bằng bất kỳ ngôn ngữ nào được nền tảng hỗ trợ"
+          ]
+        },
+        {
+          "heading": "2. Những gì chúng tôi luôn từ chối",
+          "body": "Các danh mục này bị từ chối không ngoại lệ vì chúng gây rủi ro cho cộng đồng hoặc là bất hợp pháp:",
+          "items": [
+            "Mô hình Ponzi, đa cấp tài chính, pump and dump, rug pull, hoặc lời hứa lợi nhuận đảm bảo",
+            "Tín hiệu giao dịch trả phí, khuyến nghị mua/bán với số tiền cụ thể, hoặc tư vấn tài chính cá nhân hóa",
+            "Lừa đảo phishing, airdrop giả, yêu cầu private key, seed phrase, hoặc thông tin đăng nhập",
+            "Mạo danh người của công chúng, dự án, hoặc chính EarnLumens / SDF",
+            "Ngôn từ thù hận, quấy rối, phân biệt đối xử, hoặc kích động bạo lực",
+            "Nội dung khiêu dâm rõ ràng, bạo lực đồ họa, hoặc tài liệu liên quan đến trẻ vị thành niên",
+            "Tài liệu rõ ràng được bảo vệ bản quyền mà không có sự cho phép (nhạc, video, sách, phần mềm)",
+            "Dữ liệu cá nhân của bên thứ ba mà không có sự đồng ý của họ",
+            "Spam rõ ràng: tiêu đề vô nghĩa, nội dung sao chép hàng loạt, màn hình trống, hoặc nội dung AI không có con người rà soát"
+          ]
+        },
+        {
+          "heading": "3. Vùng xám: có thể được chuyển sang xem xét thủ công",
+          "body": "Những trường hợp này không bị từ chối tự động, nhưng có thể được một người kiểm duyệt xem xét:",
+          "items": [
+            "Đề cập đến các loại tiền mã hóa hoặc token cụ thể mà không có bối cảnh giáo dục rõ ràng",
+            "Quảng bá sản phẩm hoặc dịch vụ của chính bạn mà không ghi rõ là nội dung tài trợ",
+            "Khẳng định về hiệu suất trong quá khứ mà không có nguồn có thể kiểm chứng",
+            "Nội dung quá ngắn hoặc chất lượng kỹ thuật thấp khiến khó đánh giá giá trị của nó"
+          ]
+        },
+        {
+          "heading": "4. Thực hành tốt nhất (khuyến nghị, không bắt buộc)",
+          "body": "Đây không phải là điều kiện bắt buộc để được phê duyệt, nhưng sẽ giúp nội dung của bạn được đón nhận tốt hơn và giảm ma sát trong khâu kiểm duyệt:",
+          "items": [
+            "Dùng tiêu đề mô tả rõ ràng, không dùng clickbait gây hiểu lầm",
+            "Trích dẫn nguồn khi bạn sử dụng dữ liệu, thống kê hoặc con số",
+            "Làm rõ rằng nội dung mang tính giáo dục và không phải là lời khuyên tài chính cá nhân hóa",
+            "Nêu rõ nếu bạn đang nắm giữ vị thế đáng kể trong tài sản mà bạn đang nói đến",
+            "Gắn nhãn cho nội dung tài trợ hoặc nội dung tiếp thị liên kết",
+            "Đối với ví Stellar, DEX và các công cụ, chúng tôi ưu tiên các lựa chọn được liệt kê tại https://stellar.org/ecosystem như một tham chiếu đáng tin cậy, nhưng bạn vẫn có thể nhắc đến những lựa chọn khác miễn là không quảng bá gian lận"
+          ]
+        }
+      ]
+    },
+    "footer": "Các hướng dẫn này có thể được cập nhật. Mục tiêu là tạo ra một không gian giáo dục an toàn: chúng tôi từ chối nội dung gây hại, chứ không từ chối những ý tưởng khác biệt. Nếu bạn cho rằng một quyết định từ chối là không công bằng, bạn có thể chỉnh sửa nội dung và gửi lại, hoặc yêu cầu nhóm tenant xem xét thủ công."
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "Guidelines": {
+    "title": "Inhaltsrichtlinien für Creator",
+    "subtitle": "Was du auf EarnLumens veröffentlichen kannst und was wir vermeiden",
+    "lastUpdated": "Zuletzt aktualisiert: {date}",
+    "intro": "EarnLumens ist eine Plattform für Finanzbildung mit Fokus auf das Stellar-Ökosystem. Wir möchten, dass du frei veröffentlichst: Diese Regeln dienen nur dazu, Betrug, schädliche Inhalte und Spam zu verhindern, nicht deine Kreativität einzuschränken. Wenn dein Inhalt ehrlich, nützlich und nicht irreführend ist, wird er fast immer genehmigt.",
+    "forCreators": {
+      "heading": "Für Creator",
+      "sections": [
+        {
+          "heading": "1. Was du frei veröffentlichen kannst",
+          "body": "Die Bandbreite zulässiger Themen ist groß. Du brauchst keine Genehmigung und kein starres Format:",
+          "items": [
+            "Bildungsinhalte über das Stellar-Netzwerk (Protokoll, SCP, Soroban, SDKs, Anchors, DEX) und XLM",
+            "Allgemeine Finanzbildung: Sparen, Budgetplanung, Schulden, verantwortungsbewusstes Investieren, Steuern",
+            "Praktische Tutorials, Code-Demos sowie Walkthroughs für Wallets und dApps",
+            "Ehrliche Vergleiche zwischen Netzwerken, Wallets oder Protokollen, auch außerhalb von Stellar, solange der Vergleich informativ ist",
+            "Persönliche Meinungen und Analysen, sofern sie klar als Meinung gekennzeichnet sind",
+            "Inhalte in jeder von der Plattform unterstützten Sprache"
+          ]
+        },
+        {
+          "heading": "2. Was wir immer ablehnen",
+          "body": "Diese Kategorien werden ausnahmslos abgelehnt, weil sie die Community gefährden oder illegal sind:",
+          "items": [
+            "Ponzi- oder Pyramidensysteme, Pump-and-Dump, Rug Pulls oder Versprechen garantierter Renditen",
+            "Bezahlte Trading-Signale, Kauf- oder Verkaufsempfehlungen mit konkreten Beträgen oder personalisierte Finanzberatung",
+            "Phishing, gefälschte Airdrops, Anfragen nach Private Keys, Seed Phrases oder Zugangsdaten",
+            "Identitätsvortäuschung von öffentlichen Personen, Projekten oder EarnLumens / SDF selbst",
+            "Hassrede, Belästigung, Diskriminierung oder Aufruf zu Gewalt",
+            "Explizit sexuelle Inhalte, grafische Gewalt oder Material mit Minderjährigen",
+            "Klar urheberrechtlich geschütztes Material ohne Genehmigung (Musik, Video, Bücher, Software)",
+            "Persönliche Daten Dritter ohne deren Einwilligung",
+            "Offensichtlicher Spam: sinnlose Titel, massenhaft duplizierte Inhalte, leere Bildschirme oder KI-Inhalte ohne menschliche Prüfung"
+          ]
+        },
+        {
+          "heading": "3. Graubereich: kann in die manuelle Prüfung gehen",
+          "body": "Diese Fälle werden nicht automatisch abgelehnt, können aber von einem menschlichen Moderator geprüft werden:",
+          "items": [
+            "Erwähnung bestimmter Kryptowährungen oder Token ohne klaren Bildungskontext",
+            "Bewerbung eigener Produkte oder Dienstleistungen ohne Kennzeichnung als gesponsert",
+            "Behauptungen über vergangene Performance ohne überprüfbare Quelle",
+            "Sehr kurze Inhalte oder geringe technische Qualität, wodurch ihr Wert schwer einzuschätzen ist"
+          ]
+        },
+        {
+          "heading": "4. Best Practices (empfohlen, nicht verpflichtend)",
+          "body": "Das sind keine Voraussetzungen für eine Freigabe, aber sie helfen dabei, dass dein Inhalt besser aufgenommen wird und weniger Reibung in der Moderation entsteht:",
+          "items": [
+            "Verwende einen aussagekräftigen Titel ohne irreführendes Clickbait",
+            "Nenne Quellen, wenn du Daten, Statistiken oder Zahlen verwendest",
+            "Stelle klar, dass der Inhalt Bildungszwecken dient und keine personalisierte Finanzberatung ist",
+            "Erwähne es, wenn du eine wesentliche Position in einem Vermögenswert hältst, über den du sprichst",
+            "Kennzeichne gesponserte Inhalte oder Affiliate-Inhalte",
+            "Für Stellar-Wallets, DEXs und Tools bevorzugen wir die in https://stellar.org/ecosystem gelisteten Angebote als verlässliche Referenz, aber du darfst auch andere erwähnen, solange du keinen Betrug bewirbst"
+          ]
+        }
+      ]
+    },
+    "footer": "Diese Richtlinien können aktualisiert werden. Das Ziel ist ein sicherer Bildungsraum: Wir lehnen schädliche Inhalte ab, nicht andere Ideen. Wenn du glaubst, dass eine Ablehnung unfair war, kannst du den Inhalt überarbeiten und erneut einreichen oder beim Tenant-Team eine manuelle Prüfung anfordern."
+  }
+}

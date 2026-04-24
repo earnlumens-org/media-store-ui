@@ -1,0 +1,63 @@
+{
+  "Guidelines": {
+    "title": "Garis panduan kandungan untuk pencipta",
+    "subtitle": "Perkara yang anda boleh terbitkan di EarnLumens dan perkara yang kami elakkan",
+    "lastUpdated": "Dikemas kini terakhir: {date}",
+    "intro": "EarnLumens ialah platform pendidikan kewangan yang memberi tumpuan kepada ekosistem Stellar. Kami mahu anda menerbitkan kandungan dengan bebas: peraturan ini hanya wujud untuk menghalang penipuan, kandungan berbahaya, dan spam, bukan untuk mengehadkan kreativiti anda. Jika kandungan anda jujur, bernilai, dan tidak mengelirukan, ia hampir sentiasa akan diluluskan.",
+    "forCreators": {
+      "heading": "Untuk pencipta",
+      "sections": [
+        {
+          "heading": "1. Perkara yang anda boleh terbitkan dengan bebas",
+          "body": "Skop topik yang diterima adalah luas. Anda tidak memerlukan kebenaran atau format yang ketat:",
+          "items": [
+            "Kandungan pendidikan tentang rangkaian Stellar (protokol, SCP, Soroban, SDK, anchors, DEX) dan XLM",
+            "Pendidikan kewangan umum: simpanan, belanjawan, hutang, pelaburan bertanggungjawab, cukai",
+            "Tutorial praktikal, demo kod, dan panduan langkah demi langkah untuk dompet serta dApp",
+            "Perbandingan jujur antara rangkaian, dompet, atau protokol, termasuk di luar Stellar, selagi perbandingan itu bersifat informatif",
+            "Pendapat dan analisis peribadi yang dinyatakan dengan jelas sebagai pendapat",
+            "Kandungan dalam mana-mana bahasa yang disokong oleh platform"
+          ]
+        },
+        {
+          "heading": "2. Perkara yang kami sentiasa tolak",
+          "body": "Kategori ini ditolak tanpa pengecualian kerana ia membahayakan komuniti atau menyalahi undang-undang:",
+          "items": [
+            "Skim Ponzi, skim piramid, pump and dump, rug pull, atau janji pulangan terjamin",
+            "Isyarat dagangan berbayar, cadangan beli/jual dengan jumlah tertentu, atau nasihat kewangan peribadi",
+            "Phishing, airdrop palsu, permintaan untuk private key, seed phrase, atau kelayakan log masuk",
+            "Penyamaran sebagai tokoh awam, projek, atau EarnLumens / SDF sendiri",
+            "Ucapan kebencian, gangguan, diskriminasi, atau hasutan kepada keganasan",
+            "Kandungan seksual eksplisit, keganasan grafik, atau bahan yang melibatkan kanak-kanak bawah umur",
+            "Bahan yang jelas dilindungi hak cipta tanpa kebenaran (muzik, video, buku, perisian)",
+            "Data peribadi pihak ketiga tanpa persetujuan mereka",
+            "Spam yang jelas: tajuk tidak masuk akal, kandungan diduplikasi secara besar-besaran, skrin kosong, atau kandungan AI tanpa semakan manusia"
+          ]
+        },
+        {
+          "heading": "3. Kawasan kelabu: mungkin masuk semakan manual",
+          "body": "Kes ini tidak ditolak secara automatik, tetapi mungkin disemak oleh moderator manusia:",
+          "items": [
+            "Menyebut mata wang kripto atau token tertentu tanpa konteks pendidikan yang jelas",
+            "Mempromosikan produk atau perkhidmatan sendiri tanpa melabelkannya sebagai tajaan",
+            "Dakwaan tentang prestasi lampau tanpa sumber yang boleh disahkan",
+            "Kandungan yang terlalu pendek atau berkualiti teknikal rendah sehingga sukar menilai nilainya"
+          ]
+        },
+        {
+          "heading": "4. Amalan terbaik (disyorkan, bukan wajib)",
+          "body": "Ini bukan syarat untuk kelulusan, tetapi ia membantu kandungan anda diterima dengan lebih baik dan mengurangkan geseran semasa moderasi:",
+          "items": [
+            "Gunakan tajuk yang deskriptif tanpa clickbait yang mengelirukan",
+            "Nyatakan sumber apabila anda menggunakan data, statistik, atau angka",
+            "Jelaskan bahawa kandungan ini bersifat pendidikan dan bukan nasihat kewangan peribadi",
+            "Nyatakan jika anda memegang posisi besar dalam aset yang anda bincangkan",
+            "Labelkan kandungan tajaan atau kandungan afiliasi",
+            "Untuk dompet Stellar, DEX, dan alat berkaitan, kami lebih mengutamakan yang disenaraikan di https://stellar.org/ecosystem sebagai rujukan yang dipercayai, tetapi anda boleh menyebut yang lain selagi anda tidak mempromosikan penipuan"
+          ]
+        }
+      ]
+    },
+    "footer": "Garis panduan ini boleh dikemas kini. Matlamatnya ialah mewujudkan ruang pendidikan yang selamat: kami menolak kandungan berbahaya, bukan idea yang berbeza. Jika anda percaya sesuatu penolakan tidak adil, anda boleh membetulkan kandungan dan menghantarnya semula, atau meminta semakan manual daripada pasukan tenant."
+  }
+}

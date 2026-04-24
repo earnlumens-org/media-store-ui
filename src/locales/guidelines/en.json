@@ -1,0 +1,63 @@
+{
+  "Guidelines": {
+    "title": "Content Guidelines for Creators",
+    "subtitle": "What you can publish on EarnLumens and what we avoid",
+    "lastUpdated": "Last updated: {date}",
+    "intro": "EarnLumens is a financial education platform with a focus on the Stellar ecosystem. We want you to publish freely: these rules exist only to prevent fraud, harmful content, and spam, not to limit your creativity. If your content is honest, valuable, and not misleading, it will almost always be approved.",
+    "forCreators": {
+      "heading": "For Creators",
+      "sections": [
+        {
+          "heading": "1. What you can publish freely",
+          "body": "The range of acceptable topics is broad. You do not need permission or a rigid format:",
+          "items": [
+            "Education about the Stellar network (protocol, SCP, Soroban, SDKs, anchors, DEX) and XLM",
+            "General financial education: saving, budgeting, debt, responsible investing, taxes",
+            "Practical tutorials, code demos, wallet and dApp walkthroughs",
+            "Honest comparisons between networks, wallets, or protocols, including ones outside Stellar, as long as the comparison is informative",
+            "Personal opinions and analysis clearly identified as opinion",
+            "Content in any language supported by the platform"
+          ]
+        },
+        {
+          "heading": "2. What we always reject",
+          "body": "These categories are rejected without exception because they put the community at risk or are illegal:",
+          "items": [
+            "Ponzi schemes, pyramid schemes, pump and dump, rug pulls, or guaranteed-return promises",
+            "Paid trading signals, buy/sell recommendations with specific amounts, or personalized financial advice",
+            "Phishing, fake airdrops, requests for private keys, seed phrases, or credentials",
+            "Impersonation of public figures, projects, or EarnLumens / SDF itself",
+            "Hate speech, harassment, discrimination, or incitement to violence",
+            "Explicit sexual content, graphic violence, or material involving minors",
+            "Clearly copyrighted material without authorization (music, video, books, software)",
+            "Personal data of third parties without their consent",
+            "Obvious spam: nonsensical titles, mass-duplicated content, blank screens, AI content without human review"
+          ]
+        },
+        {
+          "heading": "3. Gray area: may go to manual review",
+          "body": "These cases are not automatically rejected, but they may be reviewed by a human moderator:",
+          "items": [
+            "Mentioning specific cryptocurrencies or tokens without clear educational context",
+            "Promotion of your own products or services without labeling them as sponsored",
+            "Claims about past performance without a verifiable source",
+            "Very short content or low technical quality that makes its value hard to assess"
+          ]
+        },
+        {
+          "heading": "4. Best practices (recommended, not required)",
+          "body": "These are not approval requirements, but they help your content be better received and reduce moderation friction:",
+          "items": [
+            "Use a descriptive title without misleading clickbait",
+            "Cite sources when using data, statistics, or figures",
+            "Clarify that the content is educational and not personalized financial advice",
+            "Mention it if you hold a significant position in an asset you discuss",
+            "Label sponsored or affiliate content",
+            "For Stellar wallets, DEXs, and tools, we prefer the ones listed at https://stellar.org/ecosystem as a reliable reference, but you may mention others as long as you are not promoting fraud"
+          ]
+        }
+      ]
+    },
+    "footer": "These guidelines may be updated. The goal is a safe educational space: we reject harmful content, not different ideas. If you believe a rejection was unfair, you can revise and resubmit, or request manual review from the tenant team."
+  }
+}

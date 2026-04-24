@@ -41,6 +41,7 @@ declare module 'vue' {
     EntryMediaVideo: typeof import('./components/entry/media/EntryMediaVideo.vue')['default']
     EntryPreviewContent: typeof import('./components/entry/EntryPreviewContent.vue')['default']
     EntryPreviewDialog: typeof import('./components/entry/EntryPreviewDialog.vue')['default']
+    GuidelinesReferenceCard: typeof import('./components/guidelines/GuidelinesReferenceCard.vue')['default']
     Hero: typeof import('./components/home/Hero.vue')['default']
     ImageLightbox: typeof import('./components/entry/ImageLightbox.vue')['default']
     MediaFrame: typeof import('./components/media/MediaFrame.vue')['default']

@@ -72,7 +72,7 @@
   const { t, tm } = useI18n()
   const { loading, error } = useGuidelinesContent()
 
-  const lastUpdated = '2026-03-08'
+  const lastUpdated = '2026-04-23'
 
   interface GuidelineSection {
     heading: string

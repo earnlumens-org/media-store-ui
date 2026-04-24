@@ -1,46 +1,63 @@
 {
   "Guidelines": {
     "title": "Guía de Contenido para Creadores",
-    "subtitle": "Reglas para publicar contenido de educación financiera en EarnLumens",
+    "subtitle": "Qué puedes publicar en EarnLumens y qué evitamos",
     "lastUpdated": "Última actualización: {date}",
-    "intro": "EarnLumens es una plataforma de educación financiera alineada al ecosistema Stellar. Todo contenido debe aportar valor educativo real. EarnLumens se reserva el derecho de rechazar o retirar publicaciones que no cumplan estas directrices. La única referencia válida para verificar proyectos, billeteras y herramientas es el directorio oficial de la SDF: https://stellar.org/ecosystem",
+    "intro": "EarnLumens es una plataforma de educación financiera con foco en el ecosistema Stellar. Queremos que publiques con libertad: estas reglas existen únicamente para evitar fraudes, contenido dañino y spam, no para limitar tu creatividad. Si tu contenido es honesto, aporta valor y no engaña, casi siempre será aprobado.",
     "forCreators": {
       "heading": "Para Creadores",
       "sections": [
         {
-          "heading": "1. Contenido Permitido",
-          "body": "Se permite contenido educativo sobre la red Stellar (protocolo, SCP, Soroban, SDK), el uso de XLM, y educación financiera general (ahorro, presupuesto, inversión responsable). Si mencionas billeteras, DEXs, protocolos o herramientas específicas, deben figurar en https://stellar.org/ecosystem. También se permiten comparativas objetivas con otras redes y tutoriales prácticos.",
-          "items": []
-        },
-        {
-          "heading": "2. Contenido Prohibido",
-          "body": "Podrá ser rechazado o retirado sin previo aviso:",
+          "heading": "1. Qué puedes publicar libremente",
+          "body": "El catálogo de temas válidos es amplio. No necesitas pedir permiso ni ajustarte a un formato rígido:",
           "items": [
-            "Cualquier proyecto, billetera, exchange o herramienta que NO figure en https://stellar.org/ecosystem",
-            "Esquemas piramidales, Ponzi, pump & dump o promesas de retornos garantizados",
-            "Señales de trading, recomendaciones de inversión en montos específicos o contenido que simule asesoramiento financiero",
-            "Airdrops falsos, phishing o cualquier solicitud de claves privadas",
-            "Spam, contenido duplicado o generado en masa sin revisión humana",
-            "Contenido sin relación con Stellar, XLM o educación financiera",
-            "Desinformación sobre la red Stellar, el precio de XLM o el ecosistema",
-            "Lenguaje de odio, discriminación o acoso"
+            "Educación sobre la red Stellar (protocolo, SCP, Soroban, SDKs, anchors, DEX) y XLM",
+            "Educación financiera general: ahorro, presupuesto, deuda, inversión responsable, impuestos",
+            "Tutoriales prácticos, demos de código, walkthroughs de wallets y dApps",
+            "Comparativas honestas entre redes, billeteras o protocolos — incluso fuera de Stellar, mientras la comparación sea informativa",
+            "Opiniones y análisis personales claramente identificados como opinión",
+            "Contenido en cualquier idioma soportado por la plataforma"
           ]
         },
         {
-          "heading": "3. Calidad y Transparencia",
-          "body": "Requisitos mínimos para que tu contenido sea aprobado:",
+          "heading": "2. Qué siempre rechazamos",
+          "body": "Estas categorías se rechazan sin excepción porque ponen en riesgo a la comunidad o son ilegales:",
           "items": [
-            "Título descriptivo y coherente con el contenido — sin clickbait",
-            "Descripción que explique qué aprenderá el usuario",
-            "Audio/video con calidad aceptable (sin ruido excesivo, imagen legible)",
-            "Datos y estadísticas con fuente citada (blog SDF, exploradores públicos, etc.)",
-            "Disclaimer obligatorio: 'Este contenido es educativo y no constituye asesoramiento financiero'",
-            "Si tienes posiciones en XLM u otros activos, decláralo al inicio",
-            "Si el contenido es patrocinado, indicarlo claramente"
+            "Esquemas Ponzi, piramidales, pump & dump, rug pulls o promesas de retorno garantizado",
+            "Señales de trading pagas, recomendaciones de compra/venta con cifras concretas o asesoramiento financiero personalizado",
+            "Phishing, airdrops falsos, solicitudes de claves privadas, frases semilla o credenciales",
+            "Suplantación de personas públicas, proyectos o de la propia EarnLumens / SDF",
+            "Discurso de odio, acoso, discriminación o incitación a la violencia",
+            "Contenido sexual explícito, violencia gráfica o material que involucre a menores",
+            "Material claramente protegido por copyright sin autorización (música, video, libros, software)",
+            "Datos personales de terceros sin su consentimiento",
+            "Spam evidente: títulos sin sentido, contenido duplicado en masa, pantallas en blanco, IA sin revisión humana"
+          ]
+        },
+        {
+          "heading": "3. Zona gris — puede ir a revisión manual",
+          "body": "Estos casos no se rechazan automáticamente, pero podrían pasar por un moderador humano:",
+          "items": [
+            "Mencionar criptomonedas o tokens específicos sin contexto educativo claro",
+            "Promociones de productos o servicios propios sin etiquetar como patrocinado",
+            "Reclamos sobre rendimientos pasados sin fuente verificable",
+            "Contenido muy corto o de baja calidad técnica que dificulte evaluar su valor"
+          ]
+        },
+        {
+          "heading": "4. Buenas prácticas (recomendadas, no obligatorias)",
+          "body": "No son requisito para aprobación, pero ayudan a que tu contenido tenga mejor recepción y menos fricciones de moderación:",
+          "items": [
+            "Título descriptivo, sin clickbait engañoso",
+            "Citar fuentes cuando uses datos, estadísticas o cifras",
+            "Aclarar que el contenido es educativo y no asesoramiento financiero personalizado",
+            "Si tienes posiciones relevantes en un activo del que hablas, mencionarlo",
+            "Etiquetar contenido patrocinado o afiliados",
+            "Para wallets, DEXs y herramientas Stellar, preferimos las listadas en https://stellar.org/ecosystem como referencia confiable — pero puedes mencionar otras siempre que no promociones fraudes"
           ]
         }
       ]
     },
-    "footer": "Estas directrices pueden actualizarse en cualquier momento. Es responsabilidad del creador revisar periódicamente esta guía. El objetivo es construir un espacio de educación financiera confiable dentro del ecosistema Stellar."
+    "footer": "Estas directrices pueden actualizarse. La meta es un espacio educativo seguro: rechazamos lo dañino, no lo distinto. Si crees que un rechazo fue injusto, puedes corregir y reenviar, o pedir revisión manual al equipo del tenant."
   }
 }

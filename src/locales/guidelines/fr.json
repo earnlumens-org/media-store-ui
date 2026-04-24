@@ -1,0 +1,63 @@
+{
+  "Guidelines": {
+    "title": "Règles de contenu pour les créateurs",
+    "subtitle": "Ce que vous pouvez publier sur EarnLumens et ce que nous évitons",
+    "lastUpdated": "Dernière mise à jour : {date}",
+    "intro": "EarnLumens est une plateforme d'éducation financière axée sur l'écosystème Stellar. Nous voulons que vous publiiez librement : ces règles existent uniquement pour empêcher la fraude, les contenus nuisibles et le spam, pas pour limiter votre créativité. Si votre contenu est honnête, utile et non trompeur, il sera presque toujours approuvé.",
+    "forCreators": {
+      "heading": "Pour les créateurs",
+      "sections": [
+        {
+          "heading": "1. Ce que vous pouvez publier librement",
+          "body": "L'éventail des sujets acceptés est large. Vous n'avez pas besoin d'autorisation ni d'un format rigide :",
+          "items": [
+            "Du contenu éducatif sur le réseau Stellar (protocole, SCP, Soroban, SDK, anchors, DEX) et sur XLM",
+            "De l'éducation financière générale : épargne, budget, dette, investissement responsable, fiscalité",
+            "Des tutoriels pratiques, des démonstrations de code et des guides pas à pas pour les wallets et les dApps",
+            "Des comparaisons honnêtes entre réseaux, wallets ou protocoles, y compris en dehors de Stellar, tant que la comparaison reste informative",
+            "Des opinions et analyses personnelles clairement présentées comme des opinions",
+            "Du contenu dans toute langue prise en charge par la plateforme"
+          ]
+        },
+        {
+          "heading": "2. Ce que nous rejetons toujours",
+          "body": "Ces catégories sont rejetées sans exception, car elles mettent la communauté en danger ou sont illégales :",
+          "items": [
+            "Les systèmes de Ponzi, schémas pyramidaux, pump and dump, rug pulls ou promesses de rendements garantis",
+            "Les signaux de trading payants, les recommandations d'achat ou de vente avec des montants précis, ou les conseils financiers personnalisés",
+            "Le phishing, les faux airdrops, les demandes de clés privées, de phrases de récupération ou d'identifiants",
+            "L'usurpation d'identité de personnalités publiques, de projets, ou d'EarnLumens / SDF elle-même",
+            "Les discours haineux, le harcèlement, la discrimination ou l'incitation à la violence",
+            "Le contenu sexuel explicite, la violence graphique ou tout contenu impliquant des mineurs",
+            "Le matériel clairement protégé par le droit d'auteur sans autorisation (musique, vidéo, livres, logiciels)",
+            "Les données personnelles de tiers sans leur consentement",
+            "Le spam évident : titres absurdes, contenu dupliqué en masse, écrans vides, ou contenu IA sans relecture humaine"
+          ]
+        },
+        {
+          "heading": "3. Zone grise : peut passer en révision manuelle",
+          "body": "Ces cas ne sont pas rejetés automatiquement, mais ils peuvent être examinés par un modérateur humain :",
+          "items": [
+            "La mention de cryptomonnaies ou de tokens spécifiques sans contexte éducatif clair",
+            "La promotion de vos propres produits ou services sans indication qu'ils sont sponsorisés",
+            "Les affirmations sur des performances passées sans source vérifiable",
+            "Un contenu très court ou de faible qualité technique, rendant sa valeur difficile à évaluer"
+          ]
+        },
+        {
+          "heading": "4. Bonnes pratiques (recommandées, non obligatoires)",
+          "body": "Elles ne sont pas requises pour l'approbation, mais elles aident votre contenu à être mieux reçu et réduisent les frictions avec la modération :",
+          "items": [
+            "Utilisez un titre descriptif sans clickbait trompeur",
+            "Citez vos sources lorsque vous utilisez des données, statistiques ou chiffres",
+            "Précisez que le contenu est éducatif et ne constitue pas un conseil financier personnalisé",
+            "Mentionnez-le si vous détenez une position importante dans un actif dont vous parlez",
+            "Indiquez clairement les contenus sponsorisés ou affiliés",
+            "Pour les wallets, DEX et outils Stellar, nous privilégions ceux listés sur https://stellar.org/ecosystem comme référence fiable, mais vous pouvez en mentionner d'autres tant que vous ne faites pas la promotion d'une fraude"
+          ]
+        }
+      ]
+    },
+    "footer": "Ces règles peuvent être mises à jour. L'objectif est de maintenir un espace éducatif sûr : nous rejetons ce qui est nuisible, pas ce qui est différent. Si vous estimez qu'un rejet était injuste, vous pouvez corriger votre contenu et le soumettre à nouveau, ou demander une révision manuelle à l'équipe du tenant."
+  }
+}

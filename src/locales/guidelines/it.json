@@ -1,0 +1,63 @@
+{
+  "Guidelines": {
+    "title": "Linee guida sui contenuti per i creator",
+    "subtitle": "Cosa puoi pubblicare su EarnLumens e cosa evitiamo",
+    "lastUpdated": "Ultimo aggiornamento: {date}",
+    "intro": "EarnLumens è una piattaforma di educazione finanziaria con focus sull'ecosistema Stellar. Vogliamo che tu pubblichi liberamente: queste regole esistono solo per prevenire frodi, contenuti dannosi e spam, non per limitare la tua creatività. Se i tuoi contenuti sono onesti, utili e non fuorvianti, saranno quasi sempre approvati.",
+    "forCreators": {
+      "heading": "Per i creator",
+      "sections": [
+        {
+          "heading": "1. Cosa puoi pubblicare liberamente",
+          "body": "La gamma di argomenti accettati è ampia. Non hai bisogno di permessi né di un formato rigido:",
+          "items": [
+            "Contenuti educativi sulla rete Stellar (protocollo, SCP, Soroban, SDK, anchors, DEX) e su XLM",
+            "Educazione finanziaria generale: risparmio, budget, debito, investimenti responsabili, tasse",
+            "Tutorial pratici, demo di codice e walkthrough di wallet e dApp",
+            "Confronti onesti tra reti, wallet o protocolli, anche al di fuori di Stellar, purché il confronto sia informativo",
+            "Opinioni e analisi personali chiaramente indicate come opinioni",
+            "Contenuti in qualsiasi lingua supportata dalla piattaforma"
+          ]
+        },
+        {
+          "heading": "2. Cosa rifiutiamo sempre",
+          "body": "Queste categorie vengono rifiutate senza eccezioni perché mettono a rischio la comunità o sono illegali:",
+          "items": [
+            "Schemi Ponzi, schemi piramidali, pump and dump, rug pull o promesse di rendimenti garantiti",
+            "Segnali di trading a pagamento, raccomandazioni di acquisto o vendita con importi specifici, o consulenza finanziaria personalizzata",
+            "Phishing, falsi airdrop, richieste di chiavi private, seed phrase o credenziali",
+            "Impersonificazione di figure pubbliche, progetti, o della stessa EarnLumens / SDF",
+            "Incitamento all'odio, molestie, discriminazione o istigazione alla violenza",
+            "Contenuti sessuali espliciti, violenza grafica o materiale che coinvolge minori",
+            "Materiale chiaramente protetto da copyright senza autorizzazione (musica, video, libri, software)",
+            "Dati personali di terzi senza il loro consenso",
+            "Spam evidente: titoli senza senso, contenuti duplicati in massa, schermi vuoti o contenuti IA senza revisione umana"
+          ]
+        },
+        {
+          "heading": "3. Zona grigia: può andare in revisione manuale",
+          "body": "Questi casi non vengono rifiutati automaticamente, ma possono essere esaminati da un moderatore umano:",
+          "items": [
+            "Menzione di criptovalute o token specifici senza un chiaro contesto educativo",
+            "Promozione dei propri prodotti o servizi senza indicare che sono sponsorizzati",
+            "Affermazioni su performance passate senza una fonte verificabile",
+            "Contenuti molto brevi o di bassa qualità tecnica che rendono difficile valutarne il valore"
+          ]
+        },
+        {
+          "heading": "4. Buone pratiche (consigliate, non obbligatorie)",
+          "body": "Non sono requisiti per l'approvazione, ma aiutano i tuoi contenuti a essere ricevuti meglio e riducono gli attriti con la moderazione:",
+          "items": [
+            "Usa un titolo descrittivo senza clickbait fuorviante",
+            "Cita le fonti quando usi dati, statistiche o cifre",
+            "Chiarisci che il contenuto è educativo e non costituisce consulenza finanziaria personalizzata",
+            "Indicalo se detieni una posizione significativa in un asset di cui parli",
+            "Etichetta i contenuti sponsorizzati o affiliati",
+            "Per wallet, DEX e strumenti Stellar, preferiamo quelli elencati su https://stellar.org/ecosystem come riferimento affidabile, ma puoi menzionare anche altri purché non stai promuovendo frodi"
+          ]
+        }
+      ]
+    },
+    "footer": "Queste linee guida possono essere aggiornate. L'obiettivo è creare uno spazio educativo sicuro: rifiutiamo i contenuti dannosi, non le idee diverse. Se ritieni che un rifiuto sia stato ingiusto, puoi correggere il contenuto e inviarlo di nuovo, oppure richiedere una revisione manuale al team del tenant."
+  }
+}

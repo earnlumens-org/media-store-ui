@@ -1,0 +1,63 @@
+{
+  "Guidelines": {
+    "title": "Wytyczne dotyczące treści dla twórców",
+    "subtitle": "Co możesz publikować w EarnLumens, a czego unikamy",
+    "lastUpdated": "Ostatnia aktualizacja: {date}",
+    "intro": "EarnLumens to platforma edukacji finansowej skupiona na ekosystemie Stellar. Chcemy, abyś publikował swobodnie: te zasady istnieją wyłącznie po to, aby zapobiegać oszustwom, szkodliwym treściom i spamowi, a nie ograniczać Twoją kreatywność. Jeśli Twoje treści są uczciwe, wartościowe i nie wprowadzają w błąd, prawie zawsze zostaną zatwierdzone.",
+    "forCreators": {
+      "heading": "Dla twórców",
+      "sections": [
+        {
+          "heading": "1. Co możesz publikować swobodnie",
+          "body": "Zakres akceptowanych tematów jest szeroki. Nie potrzebujesz pozwolenia ani sztywnego formatu:",
+          "items": [
+            "Treści edukacyjne o sieci Stellar (protokół, SCP, Soroban, SDK, anchors, DEX) oraz o XLM",
+            "Ogólna edukacja finansowa: oszczędzanie, budżetowanie, długi, odpowiedzialne inwestowanie, podatki",
+            "Praktyczne poradniki, dema kodu oraz instrukcje dotyczące portfeli i dAppów",
+            "Uczciwe porównania sieci, portfeli lub protokołów, także poza Stellar, o ile mają charakter informacyjny",
+            "Osobiste opinie i analizy, o ile są wyraźnie oznaczone jako opinia",
+            "Treści w dowolnym języku obsługiwanym przez platformę"
+          ]
+        },
+        {
+          "heading": "2. Co zawsze odrzucamy",
+          "body": "Te kategorie są odrzucane bez wyjątku, ponieważ narażają społeczność na ryzyko lub są nielegalne:",
+          "items": [
+            "Schematy Ponziego, piramidy finansowe, pump and dump, rug pulle lub obietnice gwarantowanych zysków",
+            "Płatne sygnały tradingowe, rekomendacje kupna lub sprzedaży z konkretnymi kwotami albo spersonalizowane porady finansowe",
+            "Phishing, fałszywe airdropy, żądania kluczy prywatnych, seed phrase lub danych uwierzytelniających",
+            "Podszywanie się pod osoby publiczne, projekty lub samo EarnLumens / SDF",
+            "Mowa nienawiści, nękanie, dyskryminacja lub nawoływanie do przemocy",
+            "Treści jednoznacznie seksualne, drastyczna przemoc lub materiały z udziałem nieletnich",
+            "Materiały wyraźnie chronione prawem autorskim bez zgody (muzyka, wideo, książki, oprogramowanie)",
+            "Dane osobowe osób trzecich bez ich zgody",
+            "Oczywisty spam: bezsensowne tytuły, masowo duplikowane treści, puste ekrany lub treści AI bez ludzkiej weryfikacji"
+          ]
+        },
+        {
+          "heading": "3. Szara strefa: może trafić do ręcznej weryfikacji",
+          "body": "Te przypadki nie są automatycznie odrzucane, ale mogą zostać sprawdzone przez moderatora:",
+          "items": [
+            "Wspominanie o konkretnych kryptowalutach lub tokenach bez wyraźnego kontekstu edukacyjnego",
+            "Promowanie własnych produktów lub usług bez oznaczenia ich jako sponsorowanych",
+            "Twierdzenia o historycznych wynikach bez weryfikowalnego źródła",
+            "Bardzo krótkie treści lub niska jakość techniczna, które utrudniają ocenę ich wartości"
+          ]
+        },
+        {
+          "heading": "4. Dobre praktyki (zalecane, nieobowiązkowe)",
+          "body": "Nie są wymagane do zatwierdzenia, ale pomagają, aby Twoje treści były lepiej odbierane i powodowały mniej tarć podczas moderacji:",
+          "items": [
+            "Używaj opisowego tytułu bez wprowadzającego w błąd clickbaitu",
+            "Podawaj źródła, gdy korzystasz z danych, statystyk lub liczb",
+            "Wyjaśnij, że treść ma charakter edukacyjny i nie stanowi spersonalizowanej porady finansowej",
+            "Wspomnij o tym, jeśli posiadasz istotną pozycję w aktywie, o którym mówisz",
+            "Oznaczaj treści sponsorowane lub afiliacyjne",
+            "W przypadku portfeli Stellar, DEX-ów i narzędzi preferujemy te wymienione na stronie https://stellar.org/ecosystem jako wiarygodne odniesienie, ale możesz wspominać również o innych, o ile nie promujesz oszustwa"
+          ]
+        }
+      ]
+    },
+    "footer": "Te wytyczne mogą być aktualizowane. Celem jest stworzenie bezpiecznej przestrzeni edukacyjnej: odrzucamy treści szkodliwe, a nie odmienne pomysły. Jeśli uważasz, że odrzucenie było niesprawiedliwe, możesz poprawić treść i przesłać ją ponownie albo poprosić zespół tenantu o ręczną weryfikację."
+  }
+}

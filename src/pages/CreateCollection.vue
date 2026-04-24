@@ -98,6 +98,8 @@
       </div>
     </div>
 
+    <GuidelinesReferenceCard />
+
     <!-- Stepper -->
     <v-stepper v-model="step" flat>
       <v-stepper-header>
@@ -611,6 +613,7 @@
   import { useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import GuidelinesReferenceCard from '@/components/guidelines/GuidelinesReferenceCard.vue'
   import { CONTENT_LANGUAGES } from '@/config/contentLanguages'
   import { accountExists } from '@/services/stellar'
   import { useWalletStore } from '@/stores/wallet'

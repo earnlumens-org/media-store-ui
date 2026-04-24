@@ -1,0 +1,63 @@
+{
+  "Guidelines": {
+    "title": "Diretrizes de conteúdo para criadores",
+    "subtitle": "O que você pode publicar no EarnLumens e o que evitamos",
+    "lastUpdated": "Última atualização: {date}",
+    "intro": "EarnLumens é uma plataforma de educação financeira com foco no ecossistema Stellar. Queremos que você publique com liberdade: estas regras existem apenas para evitar fraudes, conteúdo prejudicial e spam, não para limitar sua criatividade. Se o seu conteúdo for honesto, útil e não enganoso, ele quase sempre será aprovado.",
+    "forCreators": {
+      "heading": "Para criadores",
+      "sections": [
+        {
+          "heading": "1. O que você pode publicar livremente",
+          "body": "A variedade de temas aceitos é ampla. Você não precisa de permissão nem de um formato rígido:",
+          "items": [
+            "Conteúdo educacional sobre a rede Stellar (protocolo, SCP, Soroban, SDKs, anchors, DEX) e sobre XLM",
+            "Educação financeira geral: poupança, orçamento, dívidas, investimento responsável, impostos",
+            "Tutoriais práticos, demonstrações de código e walkthroughs de carteiras e dApps",
+            "Comparações honestas entre redes, carteiras ou protocolos, inclusive fora de Stellar, desde que a comparação seja informativa",
+            "Opiniões e análises pessoais claramente identificadas como opinião",
+            "Conteúdo em qualquer idioma suportado pela plataforma"
+          ]
+        },
+        {
+          "heading": "2. O que sempre rejeitamos",
+          "body": "Estas categorias são rejeitadas sem exceção porque colocam a comunidade em risco ou são ilegais:",
+          "items": [
+            "Esquemas Ponzi, pirâmides financeiras, pump and dump, rug pulls ou promessas de retorno garantido",
+            "Sinais de trading pagos, recomendações de compra ou venda com valores específicos, ou aconselhamento financeiro personalizado",
+            "Phishing, airdrops falsos, pedidos de chaves privadas, seed phrases ou credenciais",
+            "Personificação de figuras públicas, projetos ou da própria EarnLumens / SDF",
+            "Discurso de ódio, assédio, discriminação ou incitação à violência",
+            "Conteúdo sexual explícito, violência gráfica ou material envolvendo menores",
+            "Material claramente protegido por direitos autorais sem autorização (música, vídeo, livros, software)",
+            "Dados pessoais de terceiros sem consentimento",
+            "Spam evidente: títulos sem sentido, conteúdo duplicado em massa, telas em branco ou conteúdo gerado por IA sem revisão humana"
+          ]
+        },
+        {
+          "heading": "3. Zona cinzenta: pode ir para revisão manual",
+          "body": "Estes casos não são rejeitados automaticamente, mas podem ser analisados por um moderador humano:",
+          "items": [
+            "Mencionar criptomoedas ou tokens específicos sem contexto educacional claro",
+            "Promover seus próprios produtos ou serviços sem indicar que são patrocinados",
+            "Afirmações sobre desempenho passado sem fonte verificável",
+            "Conteúdo muito curto ou com baixa qualidade técnica, dificultando a avaliação de seu valor"
+          ]
+        },
+        {
+          "heading": "4. Boas práticas (recomendadas, não obrigatórias)",
+          "body": "Não são requisitos para aprovação, mas ajudam seu conteúdo a ser melhor recebido e reduzem atritos na moderação:",
+          "items": [
+            "Use um título descritivo sem clickbait enganoso",
+            "Cite fontes ao usar dados, estatísticas ou números",
+            "Deixe claro que o conteúdo é educacional e não constitui aconselhamento financeiro personalizado",
+            "Mencione se você possui uma posição relevante em um ativo sobre o qual está falando",
+            "Identifique conteúdo patrocinado ou de afiliados",
+            "Para carteiras, DEXs e ferramentas Stellar, preferimos as listadas em https://stellar.org/ecosystem como referência confiável, mas você pode mencionar outras desde que não esteja promovendo fraude"
+          ]
+        }
+      ]
+    },
+    "footer": "Estas diretrizes podem ser atualizadas. O objetivo é criar um espaço educacional seguro: rejeitamos conteúdo prejudicial, não ideias diferentes. Se você acreditar que uma rejeição foi injusta, pode corrigir o conteúdo e enviá-lo novamente, ou solicitar uma revisão manual à equipe do tenant."
+  }
+}

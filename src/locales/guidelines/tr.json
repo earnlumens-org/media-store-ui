@@ -1,0 +1,63 @@
+{
+  "Guidelines": {
+    "title": "İçerik üreticileri için içerik kuralları",
+    "subtitle": "EarnLumens'ta neler yayınlayabilirsiniz ve nelerden kaçınıyoruz",
+    "lastUpdated": "Son güncelleme: {date}",
+    "intro": "EarnLumens, Stellar ekosistemine odaklanan bir finansal eğitim platformudur. Özgürce yayın yapmanızı istiyoruz: bu kurallar yalnızca dolandırıcılığı, zararlı içeriği ve spam'i önlemek için vardır; yaratıcılığınızı sınırlamak için değil. İçeriğiniz dürüst, faydalı ve yanıltıcı değilse, neredeyse her zaman onaylanacaktır.",
+    "forCreators": {
+      "heading": "İçerik üreticileri için",
+      "sections": [
+        {
+          "heading": "1. Özgürce yayınlayabilecekleriniz",
+          "body": "Kabul edilen konuların kapsamı geniştir. İzin almanız ya da katı bir formata uymanız gerekmez:",
+          "items": [
+            "Stellar ağı (protokol, SCP, Soroban, SDK'ler, anchors, DEX) ve XLM hakkında eğitici içerik",
+            "Genel finans eğitimi: tasarruf, bütçeleme, borç, sorumlu yatırım, vergiler",
+            "Pratik eğitimler, kod demoları ve cüzdanlar ile dApp'ler için adım adım rehberler",
+            "Bilgilendirici olduğu sürece, Stellar dışındakiler dahil ağlar, cüzdanlar veya protokoller arasında dürüst karşılaştırmalar",
+            "Açıkça görüş olarak belirtilmiş kişisel fikirler ve analizler",
+            "Platformun desteklediği herhangi bir dilde içerik"
+          ]
+        },
+        {
+          "heading": "2. Her zaman reddettiklerimiz",
+          "body": "Bu kategoriler, topluluğu riske attıkları veya yasa dışı oldukları için istisnasız reddedilir:",
+          "items": [
+            "Ponzi düzenleri, saadet zincirleri, pump and dump, rug pull veya garantili getiri vaatleri",
+            "Ücretli trading sinyalleri, belirli tutarlarla alım/satım tavsiyeleri veya kişiselleştirilmiş finansal tavsiye",
+            "Oltalama, sahte airdrop'lar, özel anahtar, seed phrase veya kimlik bilgisi talepleri",
+            "Kamuya mal olmuş kişileri, projeleri veya EarnLumens / SDF'yi taklit etme",
+            "Nefret söylemi, taciz, ayrımcılık veya şiddete teşvik",
+            "Açık cinsel içerik, grafik şiddet veya reşit olmayanları içeren materyal",
+            "İzinsiz şekilde yeniden yüklenen, açıkça telif hakkıyla korunan materyaller (müzik, video, kitaplar, yazılım)",
+            "Üçüncü tarafların kişisel verilerini rıza olmadan paylaşmak",
+            "Açık spam: anlamsız başlıklar, toplu şekilde çoğaltılmış içerik, boş ekranlar veya insan incelemesi olmadan üretilmiş yapay zeka içeriği"
+          ]
+        },
+        {
+          "heading": "3. Gri alan: manuel incelemeye gidebilir",
+          "body": "Bu durumlar otomatik olarak reddedilmez, ancak bir insan moderatör tarafından incelenebilir:",
+          "items": [
+            "Açık bir eğitsel bağlam olmadan belirli kripto paralar veya token'lardan bahsetmek",
+            "Kendi ürün veya hizmetlerinizi sponsorlu olduğunu belirtmeden tanıtmak",
+            "Doğrulanabilir bir kaynak olmadan geçmiş performans iddialarında bulunmak",
+            "Değerini değerlendirmeyi zorlaştıracak kadar kısa veya teknik kalitesi düşük içerik"
+          ]
+        },
+        {
+          "heading": "4. En iyi uygulamalar (önerilir, zorunlu değildir)",
+          "body": "Bunlar onay için zorunlu değildir, ancak içeriğinizin daha iyi karşılanmasına yardımcı olur ve moderasyon sürecindeki sürtüşmeyi azaltır:",
+          "items": [
+            "Yanıltıcı clickbait kullanmadan açıklayıcı bir başlık seçin",
+            "Veri, istatistik veya sayılar kullanıyorsanız kaynak belirtin",
+            "İçeriğin eğitsel amaçlı olduğunu ve kişiselleştirilmiş finansal tavsiye olmadığını açıkça belirtin",
+            "Hakkında konuştuğunuz bir varlıkta önemli bir pozisyonunuz varsa bunu açıklayın",
+            "Sponsorlu veya bağlı kuruluş içeriğini etiketleyin",
+            "Stellar cüzdanları, DEX'ler ve araçlar için, güvenilir referans olarak https://stellar.org/ecosystem üzerinde listelenenleri tercih ediyoruz; ancak dolandırıcılığı teşvik etmediğiniz sürece diğerlerinden de bahsedebilirsiniz"
+          ]
+        }
+      ]
+    },
+    "footer": "Bu kurallar güncellenebilir. Amaç güvenli bir eğitim alanı oluşturmaktır: zararlı içeriği reddederiz, farklı fikirleri değil. Bir reddin adil olmadığını düşünüyorsanız, içeriği düzelterek yeniden gönderebilir veya tenant ekibinden manuel inceleme talep edebilirsiniz."
+  }
+}
