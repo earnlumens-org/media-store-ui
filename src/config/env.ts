@@ -6,14 +6,20 @@
  * 2. Runtime hostname detection:
  *    - localhost / 127.0.0.1      -> http://localhost:8080
  *    - app-dev.earnlumens.org     -> https://api-dev.earnlumens.org
- *    - earnlumens.org (prod)      -> https://api.earnlumens.org
+ *    - earnlumens.org / *.earnlumens.org (prod) -> SAME ORIGIN
+ *
+ * Why same-origin in production:
+ *   The tenant edge Worker rewrites *.earnlumens.org/api/* to the backend
+ *   while keeping the original host. Calling the API on the same origin the
+ *   user is browsing means the refresh cookie stays host-only (scoped to
+ *   acme.earnlumens.org, not visible to widget.earnlumens.org) and CORS
+ *   isn't involved. This is the foundation of tenant session isolation.
  */
 
-/** API base URLs per environment */
+/** API base URLs per environment for non-production targets */
 const API_URLS = {
   local: 'http://localhost:8080',
   tunnelDev: 'https://api-dev.earnlumens.org',
-  production: 'https://api.earnlumens.org',
 } as const
 
 /** CDN base URLs per environment */
@@ -45,6 +51,21 @@ function normalizeBaseUrl (value: string): string {
 }
 
 /**
+ * Returns the current origin in both window and Web Worker contexts.
+ * Used as the API base URL in production (same-origin).
+ */
+function currentOrigin (): string {
+  if (typeof globalThis !== 'undefined' && 'location' in globalThis) {
+    return (globalThis as { location: { origin: string } }).location.origin
+  }
+  if (typeof self !== 'undefined' && 'location' in self) {
+    return self.location.origin
+  }
+  // SSR: fall back to apex
+  return 'https://earnlumens.org'
+}
+
+/**
  * Detects the current environment based on the current hostname.
  * Works in both main thread (window) and Web Workers (self).
  */
@@ -69,7 +90,7 @@ function detectEnvironment (): Environment {
     return 'tunnelDev'
   }
 
-  // earnlumens.org or www.earnlumens.org -> production
+  // earnlumens.org or *.earnlumens.org -> production (same-origin)
   if (hostname === 'earnlumens.org' || hostname.endsWith('.earnlumens.org')) {
     return 'production'
   }
@@ -91,7 +112,10 @@ function resolveApiBaseUrl (): string {
 
   // Runtime hostname-based detection
   const env = detectEnvironment()
-  const baseUrl = API_URLS[env]
+  // In production every tenant talks to its own origin; the edge Worker
+  // routes /api/* to the backend behind the scenes. This keeps cookies
+  // host-only and avoids CORS entirely.
+  const baseUrl = env === 'production' ? currentOrigin() : API_URLS[env]
 
   // Dev-only logging to verify correct resolution
   if (import.meta.env.DEV) {
