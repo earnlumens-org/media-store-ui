@@ -1,6 +1,16 @@
 <template>
   <v-app>
-    <router-view />
+    <!--
+      Tenant gate: nothing storefront-related renders until we know whether
+      this hostname maps to a real, active tenant. Otherwise an unknown
+      subdomain (e.g. typo.earnlumens.org) would silently flash the default
+      tenant's content before any 404 could take over.
+    -->
+    <TenantNotFoundPage
+      v-if="tenantStore.isNotFound"
+      :subdomain="tenantStore.subdomain ?? ''"
+    />
+    <router-view v-else-if="tenantStore.isReady" />
 
     <!-- Global rate-limit / notification snackbar -->
     <v-snackbar
@@ -44,10 +54,12 @@
 <script setup lang="ts">
   import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
   import { useTheme } from 'vuetify'
+  import TenantNotFoundPage from '@/components/TenantNotFoundPage.vue'
   import { DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from '@/plugins/vuetify'
   import { globalSnackbar, globalSnackbarColor, globalSnackbarMessage } from '@/services/globalNotification'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
+  import { useTenantStore } from '@/stores/tenant'
 
   const globalSnack = globalSnackbar
   const globalSnackMsg = globalSnackbarMessage
@@ -55,7 +67,12 @@
 
   const app = useAppStore()
   const authStore = useAuthStore()
+  const tenantStore = useTenantStore()
   const theme = useTheme()
+
+  // Resolve the visitor's tenant context as early as possible. Any
+  // template that depends on storefront data is gated on `tenantStore.isReady`.
+  tenantStore.load()
 
   // Login error dialog state
   const loginErrorDialog = ref(false)
