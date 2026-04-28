@@ -22,11 +22,17 @@ const API_URLS = {
   tunnelDev: 'https://api-dev.earnlumens.org',
 } as const
 
-/** CDN base URLs per environment */
+/** CDN base URLs per environment.
+ *  - production / tunnelDev: `${currentOrigin()}/cdn` so requests stay on
+ *    the visitor's tenant origin and the host-only refresh-cookie is sent
+ *    along. The cdn-worker is also bound to `<tenant>/cdn/*` and strips
+ *    the prefix internally, so the existing /media and /public paths keep
+ *    working unchanged.
+ *  - local: still hits the dev CDN host directly because the local SPA
+ *    runs on http://localhost:3000 and there's no edge proxy in front.
+ */
 const CDN_URLS = {
   local: 'https://cdn-dev.earnlumens.org',
-  tunnelDev: 'https://cdn-dev.earnlumens.org',
-  production: 'https://cdn.earnlumens.org',
 } as const
 
 /** Stellar Horizon URLs per environment */
@@ -155,13 +161,24 @@ let cachedCdnBaseUrl: string | null = null
 /**
  * Returns the CDN base URL for the current environment.
  * Supports VITE_CDN_BASE_URL override.
+ *
+ * In production and the dev tunnel the CDN is served from a same-origin
+ * `/cdn` path on the tenant origin (the cdn-worker is bound to
+ * `<tenant>/cdn/*` in addition to its legacy `cdn.<apex>` host). This
+ * keeps cookies, CORS and tenant resolution all aligned with the tenant
+ * subdomain the user is browsing.
  */
 export function getCdnBaseUrl (): string {
   if (cachedCdnBaseUrl === null) {
     const envOverride = import.meta.env.VITE_CDN_BASE_URL
-    cachedCdnBaseUrl = typeof envOverride === 'string' && envOverride.trim() !== ''
-      ? normalizeBaseUrl(envOverride)
-      : CDN_URLS[detectEnvironment()]
+    if (typeof envOverride === 'string' && envOverride.trim() !== '') {
+      cachedCdnBaseUrl = normalizeBaseUrl(envOverride)
+    } else {
+      const env = detectEnvironment()
+      cachedCdnBaseUrl = env === 'local'
+        ? CDN_URLS.local
+        : `${currentOrigin()}/cdn`
+    }
   }
   return cachedCdnBaseUrl
 }
@@ -171,7 +188,7 @@ export function getCdnBaseUrl (): string {
  * The r2Key already includes the "public/" prefix as stored in R2.
  *
  * @example cdnPublicUrl('public/thumbs/abc.jpg')
- *          // => 'https://cdn.earnlumens.org/public/thumbs/abc.jpg'
+ *          // => 'https://earnlumens.org/cdn/public/thumbs/abc.jpg'  (prod)
  */
 export function cdnPublicUrl (r2Key: string): string {
   const key = r2Key.startsWith('/') ? r2Key.slice(1) : r2Key
@@ -183,7 +200,7 @@ export function cdnPublicUrl (r2Key: string): string {
  * Auth is handled via refresh-cookie session by the CDN Worker.
  *
  * @example cdnMediaUrl('entry-uuid-123')
- *          // => 'https://cdn.earnlumens.org/media/entry-uuid-123'
+ *          // => 'https://earnlumens.org/cdn/media/entry-uuid-123'  (prod)
  */
 export function cdnMediaUrl (entryId: string): string {
   return `${getCdnBaseUrl()}/media/${entryId}`
@@ -193,7 +210,7 @@ export function cdnMediaUrl (entryId: string): string {
  * Builds the CDN URL for an entry's HLS master playlist (authenticated).
  *
  * @example cdnHlsUrl('665a1b2c3d4e5f6a7b8c9d0e')
- *          // => 'https://cdn.earnlumens.org/media/665a.../hls/master.m3u8'
+ *          // => 'https://earnlumens.org/cdn/media/665a.../hls/master.m3u8'  (prod)
  */
 export function cdnHlsUrl (entryId: string): string {
   return `${getCdnBaseUrl()}/media/${entryId}/hls/master.m3u8`

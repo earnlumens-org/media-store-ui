@@ -37,10 +37,23 @@ export async function getPublishedEntriesByUser (username: string, params: UserE
 /**
  * Get a single published entry by ID.
  * Returns the authoritative entry data from the database.
- * No authentication required.
+ *
+ * The viewer's access token is forwarded when available so the backend can
+ * keep ARCHIVED entries reachable for the owner and for buyers who already
+ * paid for them (entry- or collection-level entitlement). Anonymous viewers
+ * still receive 404 for archived content.
  */
 export async function getPublishedEntryById (id: string): Promise<PublicEntryModel> {
-  const response = await axiosClient.get<PublicEntryDto>(`${BASE_PATH}/${id}`)
+  const headers: Record<string, string> = {}
+  try {
+    const result = await getToken()
+    if (result?.accessToken) {
+      headers['Authorization'] = `Bearer ${result.accessToken}`
+    }
+  } catch {
+    // continue without token — anonymous viewer
+  }
+  const response = await axiosClient.get<PublicEntryDto>(`${BASE_PATH}/${id}`, { headers })
   return mapPublicEntryDtoToModel(response.data)
 }
 
