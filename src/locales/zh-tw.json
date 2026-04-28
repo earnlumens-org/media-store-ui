@@ -1,4 +1,9 @@
 {
+  "TenantNotFound": {
+    "title": "此租戶不存在",
+    "body": "您嘗試存取的子網域與 EarnLumens 上任何有效的市集都不相符。",
+    "cta": "前往 earnlumens.org"
+  },
   "Common": {
     "wallet": "錢包",
     "connectWallet": "連接錢包",

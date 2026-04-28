@@ -1,4 +1,9 @@
 {
+  "TenantNotFound": {
+    "title": "Tenant này không tồn tại",
+    "body": "Tên miền phụ mà bạn đang cố truy cập không khớp với որևէ marketplace nào đang hoạt động trên EarnLumens.",
+    "cta": "Đi tới earnlumens.org"
+  },
   "Common": {
     "wallet": "Ví",
     "connectWallet": "Kết nối ví",

@@ -1,4 +1,9 @@
 {
+  "TenantNotFound": {
+    "title": "该租户不存在",
+    "body": "您尝试访问的子域名与 EarnLumens 上任何有效的市场都不匹配。",
+    "cta": "前往 earnlumens.org"
+  },
   "Common": {
     "wallet": "钱包",
     "connectWallet": "连接钱包",
