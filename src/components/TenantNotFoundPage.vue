@@ -51,6 +51,15 @@
 </script>
 
 <style scoped>
+/*
+  Colors mirror the default `amoledGray` Vuetify theme used by the storefront
+  so this fallback page stays visually consistent with the main site:
+    background  -> #000000
+    surface     -> #121212
+    on-bg       -> #F7F2EA
+    primary     -> #f09c49
+    accent      -> #FFD08A (hover)
+*/
 .tenant-not-found {
   position: fixed;
   inset: 0;
@@ -58,8 +67,8 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: radial-gradient(ellipse at top, #2a1010 0%, #0b0608 60%, #050203 100%);
-  color: #f4f1ee;
+  background: radial-gradient(ellipse at top, #121212 0%, #050505 60%, #000000 100%);
+  color: #F7F2EA;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   z-index: 9999;
 }
@@ -89,10 +98,10 @@
   margin: 0 0 16px;
   padding: 4px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 100, 60, 0.5);
+  border: 1px solid rgba(240, 156, 73, 0.5);
   font-size: 11px;
   letter-spacing: 0.2em;
-  color: #ff8a5c;
+  color: #f09c49;
 }
 
 .tenant-not-found__title {
@@ -126,8 +135,8 @@
   display: inline-block;
   padding: 12px 24px;
   border-radius: 8px;
-  background: #ff6a3c;
-  color: #1a0a05;
+  background: #f09c49;
+  color: #1a0f04;
   text-decoration: none;
   font-weight: 600;
   font-size: 15px;
@@ -135,6 +144,6 @@
 }
 
 .tenant-not-found__cta:hover {
-  background: #ff8255;
+  background: #FFD08A;
 }
 </style>
