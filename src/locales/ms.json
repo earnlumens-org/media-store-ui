@@ -1,4 +1,9 @@
 {
+  "TenantNotFound": {
+    "title": "Penyewa ini tidak wujud",
+    "body": "Subdomain yang anda cuba akses tidak sepadan dengan mana-mana marketplace aktif di EarnLumens.",
+    "cta": "Pergi ke earnlumens.org"
+  },
   "Common": {
     "wallet": "Wallet",
     "connectWallet": "Sambungkan wallet",

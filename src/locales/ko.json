@@ -1,4 +1,9 @@
 {
+  "TenantNotFound": {
+    "title": "이 테넌트는 존재하지 않습니다",
+    "body": "접속하려는 서브도메인은 EarnLumens의 어떤 활성 마켓플레이스와도 일치하지 않습니다.",
+    "cta": "earnlumens.org로 이동"
+  },
   "Common": {
     "wallet": "지갑",
     "connectWallet": "지갑 연결",

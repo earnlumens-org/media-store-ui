@@ -1,4 +1,9 @@
 {
+  "TenantNotFound": {
+    "title": "Bu tenant mevcut değil",
+    "body": "Erişmeye çalıştığınız alt alan adı, EarnLumens üzerindeki hiçbir aktif pazar yeriyle eşleşmiyor.",
+    "cta": "earnlumens.org'a git"
+  },
   "Common": {
     "wallet": "Cüzdan",
     "connectWallet": "Cüzdanı bağla",
