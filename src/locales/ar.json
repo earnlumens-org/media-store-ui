@@ -1,4 +1,9 @@
 {
+  "TenantNotFound": {
+    "title": "هذا المستأجر غير موجود",
+    "body": "النطاق الفرعي الذي تحاول الوصول إليه لا يطابق أي متجر نشط على EarnLumens.",
+    "cta": "الذهاب إلى earnlumens.org"
+  },
   "Common": {
     "wallet": "محفظة",
     "connectWallet": "ربط المحفظة",

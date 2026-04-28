@@ -1,4 +1,9 @@
 {
+  "TenantNotFound": {
+    "title": "Dieser Tenant existiert nicht",
+    "body": "Die Subdomain, die du aufrufen möchtest, gehört zu keinem aktiven Marktplatz auf EarnLumens.",
+    "cta": "Zu earnlumens.org gehen"
+  },
   "Common": {
     "wallet": "Wallet",
     "connectWallet": "Wallet verbinden",

@@ -1,4 +1,9 @@
 {
+  "TenantNotFound": {
+    "title": "Questo tenant non esiste",
+    "body": "Il sottodominio a cui stai tentando di accedere non corrisponde a nessun marketplace attivo su EarnLumens.",
+    "cta": "Vai a earnlumens.org"
+  },
   "Common": {
     "wallet": "Portafoglio",
     "connectWallet": "Collega portafoglio",

@@ -1,4 +1,9 @@
 {
+  "TenantNotFound": {
+    "title": "このテナントは存在しません",
+    "body": "アクセスしようとしているサブドメインは、EarnLumens 上のいずれの有効なマーケットプレイスにも一致しません。",
+    "cta": "earnlumens.org へ移動"
+  },
   "Common": {
     "wallet": "財布",
     "connectWallet": "ウォレットを接続",
