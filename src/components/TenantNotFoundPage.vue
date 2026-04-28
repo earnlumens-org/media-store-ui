@@ -3,9 +3,9 @@
   that has no active tenant. Replaces the storefront entirely so we never
   leak default-tenant content for an unknown subdomain.
 
-  Bilingual (es/en) hardcoded on purpose: this page must render BEFORE
-  i18n / vuetify routes are involved, and it ships before any tenant data
-  is fetched.
+  Localized via the global vue-i18n instance, which is already initialized
+  in `main.ts` before this component can mount (tenant resolution happens
+  inside App.vue, after `app.mount`).
 -->
 <template>
   <div class="tenant-not-found">
@@ -14,16 +14,16 @@
 
       <p class="tenant-not-found__eyebrow">EARNLUMENS</p>
 
-      <h1 class="tenant-not-found__title">{{ texts.title }}</h1>
+      <h1 class="tenant-not-found__title">{{ t('TenantNotFound.title') }}</h1>
 
       <p class="tenant-not-found__subdomain">
         <code>{{ subdomain }}.earnlumens.org</code>
       </p>
 
-      <p class="tenant-not-found__body">{{ texts.body }}</p>
+      <p class="tenant-not-found__body">{{ t('TenantNotFound.body') }}</p>
 
       <a class="tenant-not-found__cta" :href="apexHref">
-        {{ texts.cta }}
+        {{ t('TenantNotFound.cta') }}
       </a>
     </div>
   </div>
@@ -31,27 +31,14 @@
 
 <script setup lang="ts">
   import { computed } from 'vue'
+  import { useI18n } from 'vue-i18n'
   import logoSvg from '@/assets/logo.svg?raw'
 
   const props = defineProps<{
     subdomain: string
   }>()
 
-  const navigatorLang = typeof navigator === 'undefined' ? 'en' : navigator.language
-  const isSpanish = navigatorLang.toLowerCase().startsWith('es')
-
-  const texts = computed(() => isSpanish
-    ? {
-      title: 'Este tenant no existe',
-      body: 'El subdominio al que estás intentando acceder no corresponde a ningún marketplace activo en EarnLumens.',
-      cta: 'Ir a earnlumens.org',
-    }
-    : {
-      title: 'This tenant doesn’t exist',
-      body: 'The subdomain you are trying to reach does not match any active marketplace on EarnLumens.',
-      cta: 'Go to earnlumens.org',
-    },
-  )
+  const { t } = useI18n()
 
   const apexHref = computed(() => {
     if (typeof window === 'undefined') return 'https://earnlumens.org'
