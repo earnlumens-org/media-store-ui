@@ -639,7 +639,7 @@
         .replace(/[^a-zA-Z0-9_\-\s]/g, '')
         .trim()
         .replace(/\s+/g, '_')
-        .substring(0, 80)
+        .slice(0, 80)
 
       const filename = `${safeTitle}${ext}`
 
@@ -648,12 +648,12 @@
       const a = document.createElement('a')
       a.href = url
       a.download = filename
-      document.body.appendChild(a)
+      document.body.append(a)
       a.click()
-      document.body.removeChild(a)
+      a.remove()
       URL.revokeObjectURL(url)
-    } catch (err) {
-      console.error('[ViewPage] Download failed:', err)
+    } catch (error_) {
+      console.error('[ViewPage] Download failed:', error_)
     } finally {
       downloading.value = false
     }

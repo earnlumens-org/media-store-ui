@@ -2,7 +2,7 @@
   <!-- ═══ Success Screen ═══ -->
   <v-container v-if="uploadPhase === 'success'" class="fill-height" fluid>
     <v-row align="center" justify="center">
-      <v-col cols="12" sm="8" md="6" lg="5">
+      <v-col cols="12" lg="5" md="6" sm="8">
         <v-card class="pa-8 text-center" elevation="2">
           <div class="success-icon-wrapper mb-5">
             <v-icon color="success" size="72">mdi-check-circle</v-icon>
@@ -380,11 +380,11 @@
       <div class="text-h6 mb-1">{{ progressMessage }}</div>
       <v-progress-linear
         v-if="currentUploadPercent != null"
-        :model-value="currentUploadPercent"
-        color="primary"
         class="mt-3"
-        rounded
+        color="primary"
         height="6"
+        :model-value="currentUploadPercent"
+        rounded
       />
     </v-card>
   </v-overlay>
@@ -482,7 +482,7 @@
   // Default to active wallet when wallets change and nothing is selected
   watch(
     () => walletStore.activeAddress,
-    (addr) => {
+    addr => {
       if (addr && !selectedSellerWallet.value) {
         selectedSellerWallet.value = addr
       }
@@ -590,8 +590,8 @@
         const el = document.createElement(mime.startsWith('video/') ? 'video' : 'audio') as HTMLVideoElement | HTMLAudioElement
         await new Promise<void>((resolve, reject) => {
           el.preload = 'metadata'
-          el.onloadedmetadata = () => resolve()
-          el.onerror = () => reject(new Error('Failed to load media metadata'))
+          el.addEventListener('loadedmetadata', () => resolve())
+          el.addEventListener('error', () => reject(new Error('Failed to load media metadata')))
           el.src = url
         })
 
@@ -605,23 +605,23 @@
         }
 
         URL.revokeObjectURL(url)
-      } catch (err) {
-        console.warn('extractMediaMetadata: could not probe file', err)
+      } catch (error) {
+        console.warn('extractMediaMetadata: could not probe file', error)
       }
     } else if (mime.startsWith('image/')) {
       try {
         const url = URL.createObjectURL(file)
         const img = new Image()
         await new Promise<void>((resolve, reject) => {
-          img.onload = () => resolve()
-          img.onerror = () => reject(new Error('Failed to load image'))
+          img.addEventListener('load', () => resolve())
+          img.addEventListener('error', () => reject(new Error('Failed to load image')))
           img.src = url
         })
         result.widthPx = img.naturalWidth
         result.heightPx = img.naturalHeight
         URL.revokeObjectURL(url)
-      } catch (err) {
-        console.warn('extractMediaMetadata: could not probe image', err)
+      } catch (error) {
+        console.warn('extractMediaMetadata: could not probe image', error)
       }
     }
 

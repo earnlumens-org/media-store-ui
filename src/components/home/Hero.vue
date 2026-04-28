@@ -70,9 +70,9 @@
 
             <v-btn
               class="px-6 text-none font-weight-medium"
-              to="/explore"
               rounded="lg"
               size="x-large"
+              to="/explore"
               variant="outlined"
             >
               <v-icon class="me-2" icon="mdi-compass-outline" />

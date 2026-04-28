@@ -197,8 +197,8 @@
 
 <script setup lang="ts">
   import type { PublicFeedItemModel } from '@/api/types/feed.types'
-  import type { Entry } from '@/components/entry/EntryCard.vue'
   import type { Collection } from '@/components/collection/CollectionCard.vue'
+  import type { Entry } from '@/components/entry/EntryCard.vue'
 
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
@@ -403,7 +403,7 @@
     }
   })
 
-  watch(() => authStore.isAuthReady, (ready) => {
+  watch(() => authStore.isAuthReady, ready => {
     if (ready && feedItems.value.length === 0 && loading.value) {
       fetchFeed()
     }

@@ -195,9 +195,9 @@
 
 <script setup lang="ts">
   import type { EntryModel } from '@/api/api'
-  import { getProfileBadgeSrc } from '@/lib/profileBadge'
-
   import { computed, ref } from 'vue'
+
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
 
   interface Props {
     entry: EntryModel | null

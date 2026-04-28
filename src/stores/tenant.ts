@@ -32,7 +32,9 @@ export const useTenantStore = defineStore('tenant', {
 
   actions: {
     async load (): Promise<void> {
-      if (this.status === 'loading' || this.status === 'ready') return
+      if (this.status === 'loading' || this.status === 'ready') {
+        return
+      }
       this.status = 'loading'
       try {
         const ctx = await fetchVisitorContext()

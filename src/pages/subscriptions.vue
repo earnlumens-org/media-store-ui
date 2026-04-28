@@ -181,7 +181,7 @@
     }
   })
 
-  watch(() => auth.isAuthReady, (ready) => {
+  watch(() => auth.isAuthReady, ready => {
     if (ready) {
       fetchSubscriptions()
     }

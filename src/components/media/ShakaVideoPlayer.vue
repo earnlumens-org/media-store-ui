@@ -248,11 +248,12 @@
 
   /** Build a human-readable string with full error info for debugging */
   function formatErrorDetail (error: unknown): string {
-    const lines: string[] = []
-    lines.push(`Timestamp: ${new Date().toISOString()}`)
-    lines.push(`Source: ${props.src}`)
-    lines.push(`User-Agent: ${navigator.userAgent}`)
-    lines.push('')
+    const lines: string[] = [
+      `Timestamp: ${new Date().toISOString()}`,
+      `Source: ${props.src}`,
+      `User-Agent: ${navigator.userAgent}`,
+      '',
+    ]
 
     if (error && typeof error === 'object') {
       const e = error as Record<string, unknown>
@@ -281,7 +282,9 @@
     try {
       await navigator.clipboard.writeText(errorDetail.value)
       copied.value = true
-      setTimeout(() => { copied.value = false }, 2000)
+      setTimeout(() => {
+        copied.value = false
+      }, 2000)
     } catch {
       // Fallback: select text if clipboard API is unavailable
     }

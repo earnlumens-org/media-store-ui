@@ -10,9 +10,6 @@ import { parseUserFromToken } from '@/api/modules/user.api'
 // Plugins
 import { registerPlugins } from '@/plugins'
 
-// Router
-import router from '@/router'
-
 // Auth
 import { broadcastAuthEvent, initAuthBroadcast, onAuthBroadcast } from '@/services/authBroadcast'
 import { clearToken, initTokenWorker, onSessionExpired, refreshToken } from '@/services/tokenWorkerClient'
@@ -21,7 +18,7 @@ import { clearToken, initTokenWorker, onSessionExpired, refreshToken } from '@/s
 import pinia from '@/stores'
 import { useAuthStore } from '@/stores/auth'
 import { useFavoritesStore } from '@/stores/favorites'
-import { usePurchasesStore, PURCHASES_STORAGE_KEY } from '@/stores/purchases'
+import { PURCHASES_STORAGE_KEY, usePurchasesStore } from '@/stores/purchases'
 import { useSubscriptionsStore } from '@/stores/subscriptions'
 import { useWalletStore } from '@/stores/wallet'
 
@@ -133,7 +130,9 @@ async function rehydrateSession (): Promise<void> {
 // Only broadcast if we HAD an active session (not during failed rehydrate)
 onSessionExpired(async () => {
   const authStore = useAuthStore(pinia)
-  if (!authStore.isAuthenticated) return
+  if (!authStore.isAuthenticated) {
+    return
+  }
 
   await clearToken()
   localStorage.removeItem(PURCHASES_STORAGE_KEY)

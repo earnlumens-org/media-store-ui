@@ -478,14 +478,14 @@
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import { formatFileSize } from '@/api/types/upload.types'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
+  import { cdnMediaUrl } from '@/config/env'
+  import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAppStore } from '@/stores/app'
   import { usePurchasesStore } from '@/stores/purchases'
-  import { cdnMediaUrl } from '@/config/env'
-  import { formatFileSize } from '@/api/types/upload.types'
-  import { getProfileBadgeSrc } from '@/lib/profileBadge'
 
   import ReadRecommendationsList from './ReadRecommendationsList.vue'
 

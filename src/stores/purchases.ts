@@ -156,7 +156,9 @@ export const usePurchasesStore = defineStore('purchases', {
 
         while (hasMore) {
           const response = await getPurchases({ page, size: 100 })
-          if (generation !== gen) return
+          if (generation !== gen) {
+            return
+          }
 
           for (const item of response.items) {
             if (!this.purchases.has(item.id)) {

@@ -20,7 +20,7 @@ export interface ApiHttpError {
 /* ── Retry configuration ─────────────────────────────────── */
 
 const MAX_RETRIES = 3
-const BASE_DELAY_MS = 1_000 // 1 s → 2 s → 4 s
+const BASE_DELAY_MS = 1000 // 1 s → 2 s → 4 s
 const RETRYABLE_STATUS_CODES = new Set([408, 502, 503, 504])
 const RETRYABLE_ERROR_CODES = new Set(['ECONNABORTED', 'ERR_NETWORK', 'ETIMEDOUT'])
 
@@ -118,7 +118,7 @@ export function installAxiosInterceptors (client: AxiosInstance): void {
         console.warn('[api] HTTP error', normalized)
       }
 
-      return Promise.reject(normalized)
+      throw normalized
     },
   )
 }

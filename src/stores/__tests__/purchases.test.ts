@@ -134,7 +134,9 @@ describe('purchasesStore.loadPurchaseIds', () => {
     let resolveSecondPage: (v: ReturnType<typeof apiPage>) => void
     getPurchasesMock
       .mockResolvedValueOnce(apiPage([makePurchasedEntry('p1')], 0, 2))
-      .mockImplementationOnce(() => new Promise(resolve => { resolveSecondPage = resolve }))
+      .mockImplementationOnce(() => new Promise(resolve => {
+        resolveSecondPage = resolve
+      }))
 
     const store = usePurchasesStore()
     const loadPromise = store.loadPurchaseIds()

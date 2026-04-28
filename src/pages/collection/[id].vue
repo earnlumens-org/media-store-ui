@@ -575,11 +575,11 @@
   import { onBeforeRouteLeave, useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import CheckoutDialog from '@/components/checkout/CheckoutDialog.vue'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import AudioPlayerDialog from '@/components/entry/AudioPlayerDialog.vue'
   import EntryPreviewDialog from '@/components/entry/EntryPreviewDialog.vue'
   import ImageLightbox from '@/components/entry/ImageLightbox.vue'
-  import CheckoutDialog from '@/components/checkout/CheckoutDialog.vue'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { isPopNavigation } from '@/router'
   import { useAppStore } from '@/stores/app'

@@ -333,27 +333,25 @@
 </template>
 
 <script setup lang="ts">
-  import type { PublicFeedItemModel } from '@/api/types/feed.types'
   import type { UserProfile } from '@/api/modules/user.api'
+  import type { PublicFeedItemModel } from '@/api/types/feed.types'
   import type { Collection } from '@/components/collection/CollectionCard.vue'
   import type { Entry } from '@/components/entry/EntryCard.vue'
 
+  import type { ProfileBadge } from '@/lib/profileBadge'
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
+  import { onBeforeRouteLeave, useRoute } from 'vue-router'
   import { api } from '@/api/api'
   import CollectionCard from '@/components/collection/CollectionCard.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
-  import type { ProfileBadge } from '@/lib/profileBadge'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { isPopNavigation } from '@/router'
-  import { useAuthStore } from '@/stores/auth'
   import { useScrollCacheStore } from '@/stores/scrollCache'
 
   const route = useRoute()
   const { t } = useI18n()
-  const authStore = useAuthStore()
   const scrollCache = useScrollCacheStore()
 
   const user = ref<UserProfile | null>(null)

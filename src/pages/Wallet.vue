@@ -1,178 +1,178 @@
 <template>
   <div class="d-flex flex-column" style="min-height: 100%;">
-  <v-container :class="{ 'fill-height': !walletStore.isConnected }" fluid>
-    <v-row
-      :align="walletStore.isConnected ? 'start' : 'center'"
-      :class="{ 'fill-height': !walletStore.isConnected }"
-      justify="center"
-    >
-      <v-col class="d-flex flex-column align-center" cols="12">
-        <v-btn
-          :append-icon="walletStore.isConnected ? 'mdi-menu-down' : undefined"
-          color="primary"
-          :loading="walletStore.isLoading"
-          :prepend-icon="walletStore.isConnected ? 'mdi-wallet-outline' : 'mdi-wallet-plus-outline'"
-          rounded="xl"
-          size="large"
-          variant="outlined"
-          @click="handleMainButtonClick"
-        >
-          {{ walletStore.isConnected ? walletStore.shortActiveAddress : $t('Common.connectWallet') }}
-        </v-btn>
+    <v-container :class="{ 'fill-height': !walletStore.isConnected }" fluid>
+      <v-row
+        :align="walletStore.isConnected ? 'start' : 'center'"
+        :class="{ 'fill-height': !walletStore.isConnected }"
+        justify="center"
+      >
+        <v-col class="d-flex flex-column align-center" cols="12">
+          <v-btn
+            :append-icon="walletStore.isConnected ? 'mdi-menu-down' : undefined"
+            color="primary"
+            :loading="walletStore.isLoading"
+            :prepend-icon="walletStore.isConnected ? 'mdi-wallet-outline' : 'mdi-wallet-plus-outline'"
+            rounded="xl"
+            size="large"
+            variant="outlined"
+            @click="handleMainButtonClick"
+          >
+            {{ walletStore.isConnected ? walletStore.shortActiveAddress : $t('Common.connectWallet') }}
+          </v-btn>
 
-        <!-- Stellar Wallet branding cuando está conectado -->
-        <div v-if="walletStore.isConnected" class="d-flex justify-center align-center mt-8">
-          <span class="mr-3 d-inline-flex" v-html="stellarLogoSized" />
-          <div>
-            <h1 class="text-center text-h4 text-md-h3">Stellar</h1>
-            <div class="text-body-2 font-weight-light mt-n1">{{ $t('Common.wallet') }}</div>
-          </div>
-        </div>
-
-        <!-- Saldo XLM -->
-        <v-row v-if="walletStore.isConnected" align="center" class="mt-1 mb-4" justify="center">
-          <v-col class="px-0 mr-1" cols="auto">
-            <div v-if="isLoadingBalance" class="d-flex align-center justify-center">
-              <v-progress-circular color="primary" indeterminate size="24" />
+          <!-- Stellar Wallet branding cuando está conectado -->
+          <div v-if="walletStore.isConnected" class="d-flex justify-center align-center mt-8">
+            <span class="mr-3 d-inline-flex" v-html="stellarLogoSized" />
+            <div>
+              <h1 class="text-center text-h4 text-md-h3">Stellar</h1>
+              <div class="text-body-2 font-weight-light mt-n1">{{ $t('Common.wallet') }}</div>
             </div>
-            <div v-else-if="balanceTimedOut" class="d-flex align-center justify-center">
-              <v-btn
-                color="primary"
-                icon="mdi-refresh"
-                size="large"
-                variant="text"
-                @click="fetchBalance"
-              />
-            </div>
-            <h2 v-else class="text-h3 font-weight-bold text-primary text-center mt-3">
-              <NumberAnimation
-                :delay="0"
-                :duration="1.5"
-                easing="easeOutQuad"
-                :format="formatBalance"
-                :from="0"
-                :to="xlmBalance"
-              />
-            </h2>
-          </v-col>
-
-          <v-col class="text-left px-0 pt-0" cols="auto">
-            <h2 v-if="!isLoadingBalance" class="text-left text-body-1 font-weight-bold text-primary">XLM</h2>
-          </v-col>
-        </v-row>
-
-        <!-- Unfunded account banner -->
-        <v-alert
-          v-if="isUnfunded && !isLoadingBalance"
-          border="start"
-          class="mt-2 mx-4"
-          closable
-          color="warning"
-          density="compact"
-          icon="mdi-alert-circle-outline"
-          max-width="480"
-          variant="tonal"
-        >
-          <div class="text-body-2">
-            {{ $t('Wallet.unfundedMessage') }}
-            <a
-              class="text-primary font-weight-medium"
-              href="https://developers.stellar.org/docs/build/guides/transactions/create-account#create-an-account-1"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              {{ $t('Wallet.learnMore') }}
-            </a>
           </div>
-        </v-alert>
-      </v-col>
-    </v-row>
-  </v-container>
 
-  <!-- Tabs: Deposit / History (fuera del container para evitar márgenes) -->
-  <v-card v-if="walletStore.isConnected" class="flex-grow-1 d-flex flex-column">
-    <v-tabs v-model="tab" align-tabs="center" color="primary">
-      <v-tab value="deposit">{{ $t('Wallet.deposit') }}</v-tab>
-      <v-tab value="history">{{ $t('Wallet.history') }}</v-tab>
-    </v-tabs>
-    <v-window v-model="tab" class="flex-grow-1">
-      <v-window-item value="deposit">
-        <CxDeposit />
-      </v-window-item>
+          <!-- Saldo XLM -->
+          <v-row v-if="walletStore.isConnected" align="center" class="mt-1 mb-4" justify="center">
+            <v-col class="px-0 mr-1" cols="auto">
+              <div v-if="isLoadingBalance" class="d-flex align-center justify-center">
+                <v-progress-circular color="primary" indeterminate size="24" />
+              </div>
+              <div v-else-if="balanceTimedOut" class="d-flex align-center justify-center">
+                <v-btn
+                  color="primary"
+                  icon="mdi-refresh"
+                  size="large"
+                  variant="text"
+                  @click="fetchBalance"
+                />
+              </div>
+              <h2 v-else class="text-h3 font-weight-bold text-primary text-center mt-3">
+                <NumberAnimation
+                  :delay="0"
+                  :duration="1.5"
+                  easing="easeOutQuad"
+                  :format="formatBalance"
+                  :from="0"
+                  :to="xlmBalance"
+                />
+              </h2>
+            </v-col>
 
-      <v-window-item value="history">
-        <CxHistory />
-      </v-window-item>
-    </v-window>
-  </v-card>
+            <v-col class="text-left px-0 pt-0" cols="auto">
+              <h2 v-if="!isLoadingBalance" class="text-left text-body-1 font-weight-bold text-primary">XLM</h2>
+            </v-col>
+          </v-row>
 
-  <!-- Bottom Sheet para gestionar wallets -->
-  <v-bottom-sheet v-model="showBottomSheet">
-    <v-card>
-      <v-card-title class="d-flex align-center justify-space-between">
-        <span>{{ $t('Wallet.chooseWallet') }}</span>
-        <v-btn
-          class="text-uppercase"
-          color="primary"
-          variant="text"
-          @click="handleAddWallet"
-        >
-          {{ $t('Wallet.addWallet') }}
-        </v-btn>
-      </v-card-title>
+          <!-- Unfunded account banner -->
+          <v-alert
+            v-if="isUnfunded && !isLoadingBalance"
+            border="start"
+            class="mt-2 mx-4"
+            closable
+            color="warning"
+            density="compact"
+            icon="mdi-alert-circle-outline"
+            max-width="480"
+            variant="tonal"
+          >
+            <div class="text-body-2">
+              {{ $t('Wallet.unfundedMessage') }}
+              <a
+                class="text-primary font-weight-medium"
+                href="https://developers.stellar.org/docs/build/guides/transactions/create-account#create-an-account-1"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {{ $t('Wallet.learnMore') }}
+              </a>
+            </div>
+          </v-alert>
+        </v-col>
+      </v-row>
+    </v-container>
 
-      <v-divider />
+    <!-- Tabs: Deposit / History (fuera del container para evitar márgenes) -->
+    <v-card v-if="walletStore.isConnected" class="flex-grow-1 d-flex flex-column">
+      <v-tabs v-model="tab" align-tabs="center" color="primary">
+        <v-tab value="deposit">{{ $t('Wallet.deposit') }}</v-tab>
+        <v-tab value="history">{{ $t('Wallet.history') }}</v-tab>
+      </v-tabs>
+      <v-window v-model="tab" class="flex-grow-1">
+        <v-window-item value="deposit">
+          <CxDeposit />
+        </v-window-item>
 
-      <v-list>
-        <v-list-item
-          v-for="wallet in walletStore.wallets"
-          :key="wallet.address"
-          :active="wallet.address === walletStore.activeAddress"
-          lines="two"
-          @click="handleSelectWallet(wallet.address)"
-        >
-          <template #prepend>
-            <v-icon color="primary">mdi-wallet-outline</v-icon>
-          </template>
-
-          <v-list-item-title class="d-flex align-center">
-            {{ wallet.providerName }}
-            <v-chip
-              v-if="wallet.address === walletStore.activeAddress"
-              class="ml-2 text-uppercase"
-              color="primary"
-              size="x-small"
-            >
-              {{ $t('Wallet.active') }}
-            </v-chip>
-          </v-list-item-title>
-
-          <v-list-item-subtitle>
-            {{ walletStore.formatAddress(wallet.address) }}
-          </v-list-item-subtitle>
-
-          <template #append>
-            <v-icon v-if="wallet.address === walletStore.activeAddress" color="primary">
-              mdi-check
-            </v-icon>
-          </template>
-        </v-list-item>
-      </v-list>
-
-      <v-divider />
-
-      <v-card-actions class="justify-center">
-        <v-btn
-          class="text-uppercase"
-          color="error"
-          variant="text"
-          @click="handleDisconnectAll"
-        >
-          {{ $t('Wallet.disconnectAll') }}
-        </v-btn>
-      </v-card-actions>
+        <v-window-item value="history">
+          <CxHistory />
+        </v-window-item>
+      </v-window>
     </v-card>
-  </v-bottom-sheet>
+
+    <!-- Bottom Sheet para gestionar wallets -->
+    <v-bottom-sheet v-model="showBottomSheet">
+      <v-card>
+        <v-card-title class="d-flex align-center justify-space-between">
+          <span>{{ $t('Wallet.chooseWallet') }}</span>
+          <v-btn
+            class="text-uppercase"
+            color="primary"
+            variant="text"
+            @click="handleAddWallet"
+          >
+            {{ $t('Wallet.addWallet') }}
+          </v-btn>
+        </v-card-title>
+
+        <v-divider />
+
+        <v-list>
+          <v-list-item
+            v-for="wallet in walletStore.wallets"
+            :key="wallet.address"
+            :active="wallet.address === walletStore.activeAddress"
+            lines="two"
+            @click="handleSelectWallet(wallet.address)"
+          >
+            <template #prepend>
+              <v-icon color="primary">mdi-wallet-outline</v-icon>
+            </template>
+
+            <v-list-item-title class="d-flex align-center">
+              {{ wallet.providerName }}
+              <v-chip
+                v-if="wallet.address === walletStore.activeAddress"
+                class="ml-2 text-uppercase"
+                color="primary"
+                size="x-small"
+              >
+                {{ $t('Wallet.active') }}
+              </v-chip>
+            </v-list-item-title>
+
+            <v-list-item-subtitle>
+              {{ walletStore.formatAddress(wallet.address) }}
+            </v-list-item-subtitle>
+
+            <template #append>
+              <v-icon v-if="wallet.address === walletStore.activeAddress" color="primary">
+                mdi-check
+              </v-icon>
+            </template>
+          </v-list-item>
+        </v-list>
+
+        <v-divider />
+
+        <v-card-actions class="justify-center">
+          <v-btn
+            class="text-uppercase"
+            color="error"
+            variant="text"
+            @click="handleDisconnectAll"
+          >
+            {{ $t('Wallet.disconnectAll') }}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-bottom-sheet>
   </div>
 </template>
 
@@ -273,11 +273,7 @@
       xlmBalance.value = balance
 
       // If balance is 0, check whether the account exists on the ledger
-      if (balance === 0) {
-        isUnfunded.value = !(await accountExists(walletStore.activeAddress))
-      } else {
-        isUnfunded.value = false
-      }
+      isUnfunded.value = balance === 0 ? !(await accountExists(walletStore.activeAddress)) : false
     } catch (error) {
       // Solo actualizar si este request sigue siendo el actual
       if (requestId !== currentRequestId) {

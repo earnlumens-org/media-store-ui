@@ -77,14 +77,14 @@
 </template>
 
 <script setup lang="ts">
-  defineOptions({ inheritAttrs: false })
-
   import { computed, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRouter } from 'vue-router'
 
   import { useAuthStore } from '@/stores/auth'
   import { useSubscriptionsStore } from '@/stores/subscriptions'
+
+  defineOptions({ inheritAttrs: false })
 
   interface Props {
     /** The user ID to subscribe to / unsubscribe from */

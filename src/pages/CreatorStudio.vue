@@ -147,513 +147,293 @@
 
     <!-- ── Content (entries + collections merged) ──────── -->
 
-      <!-- ── Filters + Search Bar ────────────────────────────── -->
-      <v-card class="mb-4 mb-md-6 pa-3 pa-md-4" variant="outlined">
-        <div class="d-flex flex-column flex-md-row align-start align-md-center ga-3">
-          <!-- Search -->
-          <v-text-field
-            v-model="filters.search"
-            class="flex-grow-1 search-field"
-            clearable
+    <!-- ── Filters + Search Bar ────────────────────────────── -->
+    <v-card class="mb-4 mb-md-6 pa-3 pa-md-4" variant="outlined">
+      <div class="d-flex flex-column flex-md-row align-start align-md-center ga-3">
+        <!-- Search -->
+        <v-text-field
+          v-model="filters.search"
+          class="flex-grow-1 search-field"
+          clearable
+          density="compact"
+          hide-details
+          :placeholder="t('CreatorStudio.searchPlaceholder')"
+          prepend-inner-icon="mdi-magnify"
+          variant="outlined"
+          @update:model-value="debouncedFetch"
+        />
+
+        <div class="d-flex flex-wrap ga-2">
+          <!-- Status filter (only on Active tab) -->
+          <v-select
+            v-if="activeTab === 'active'"
+            v-model="filters.status"
             density="compact"
             hide-details
-            :placeholder="t('CreatorStudio.searchPlaceholder')"
-            prepend-inner-icon="mdi-magnify"
+            :items="statusOptions"
+            :label="t('CreatorStudio.filterStatus')"
+            style="min-width: 150px;"
             variant="outlined"
-            @update:model-value="debouncedFetch"
+            @update:model-value="fetchEntries"
           />
 
-          <div class="d-flex flex-wrap ga-2">
-            <!-- Status filter (only on Active tab) -->
-            <v-select
-              v-if="activeTab === 'active'"
-              v-model="filters.status"
-              density="compact"
-              hide-details
-              :items="statusOptions"
-              :label="t('CreatorStudio.filterStatus')"
-              style="min-width: 150px;"
-              variant="outlined"
-              @update:model-value="fetchEntries"
-            />
+          <!-- Type filter -->
+          <v-select
+            v-model="filters.type"
+            density="compact"
+            hide-details
+            :items="typeOptions"
+            :label="t('CreatorStudio.filterType')"
+            style="min-width: 150px;"
+            variant="outlined"
+            @update:model-value="fetchEntries"
+          />
 
-            <!-- Type filter -->
-            <v-select
-              v-model="filters.type"
-              density="compact"
-              hide-details
-              :items="typeOptions"
-              :label="t('CreatorStudio.filterType')"
-              style="min-width: 150px;"
-              variant="outlined"
-              @update:model-value="fetchEntries"
-            />
-
-            <!-- Sort -->
-            <v-select
-              v-model="filters.sort"
-              density="compact"
-              hide-details
-              :items="sortOptions"
-              :label="t('CreatorStudio.sortBy')"
-              style="min-width: 150px;"
-              variant="outlined"
-              @update:model-value="fetchEntries"
-            />
-          </div>
+          <!-- Sort -->
+          <v-select
+            v-model="filters.sort"
+            density="compact"
+            hide-details
+            :items="sortOptions"
+            :label="t('CreatorStudio.sortBy')"
+            style="min-width: 150px;"
+            variant="outlined"
+            @update:model-value="fetchEntries"
+          />
         </div>
-
-        <!-- Active filter chips -->
-        <div v-if="hasActiveFilters" class="d-flex flex-wrap ga-2 mt-3">
-          <v-chip
-            v-if="activeTab === 'active' && filters.status !== 'ALL'"
-            closable
-            color="primary"
-            size="small"
-            @click:close="filters.status = 'ALL'; fetchEntries()"
-          >
-            {{ t('CreatorStudio.filterStatus') }}: {{ getStatusLabel(filters.status) }}
-          </v-chip>
-          <v-chip
-            v-if="filters.type !== 'ALL'"
-            closable
-            color="primary"
-            size="small"
-            @click:close="filters.type = 'ALL'; fetchEntries()"
-          >
-            {{ t('CreatorStudio.filterType') }}: {{ getTypeLabel(filters.type) }}
-          </v-chip>
-          <v-chip
-            v-if="filters.search"
-            closable
-            color="primary"
-            size="small"
-            @click:close="filters.search = ''; fetchEntries()"
-          >
-            {{ t('Common.search') }}: "{{ filters.search }}"
-          </v-chip>
-          <v-btn size="small" variant="text" @click="clearFilters">
-            {{ t('Common.clearFilters') }}
-          </v-btn>
-        </div>
-      </v-card>
-
-      <!-- ── Loading State ───────────────────────────────────── -->
-      <div v-if="loading" class="text-center py-12">
-        <v-progress-circular color="primary" indeterminate size="48" />
-        <p class="mt-4 text-medium-emphasis">{{ t('CreatorStudio.loading') }}</p>
       </div>
 
-      <!-- ── Error State ─────────────────────────────────────── -->
-      <v-alert v-else-if="error" class="mb-4" type="error" variant="tonal">
-        <strong>{{ t('CreatorStudio.errorTitle') }}</strong>
-        <p class="mt-1">{{ error }}</p>
-        <template #append>
-          <v-btn size="small" variant="text" @click="fetchEntries">
-            {{ t('Common.retry') }}
-          </v-btn>
-        </template>
-      </v-alert>
-
-      <!-- ── Empty State ─────────────────────────────────────── -->
-      <v-card v-else-if="studioItems.length === 0 && !loading" class="text-center pa-8 pa-md-12 bg-transparent" variant="flat">
-        <v-icon class="mb-4" color="medium-emphasis" size="80">mdi-movie-open-plus-outline</v-icon>
-        <h3 class="text-h6 mb-2">{{ hasActiveFilters ? t('CreatorStudio.noResults') : t('CreatorStudio.empty') }}</h3>
-        <p class="text-medium-emphasis mb-6">
-          {{ hasActiveFilters ? t('CreatorStudio.noResultsDescription') : t('CreatorStudio.emptyDescription') }}
-        </p>
-        <v-btn
-          v-if="hasActiveFilters"
-          class="mr-2"
-          variant="outlined"
-          @click="clearFilters"
+      <!-- Active filter chips -->
+      <div v-if="hasActiveFilters" class="d-flex flex-wrap ga-2 mt-3">
+        <v-chip
+          v-if="activeTab === 'active' && filters.status !== 'ALL'"
+          closable
+          color="primary"
+          size="small"
+          @click:close="filters.status = 'ALL'; fetchEntries()"
         >
+          {{ t('CreatorStudio.filterStatus') }}: {{ getStatusLabel(filters.status) }}
+        </v-chip>
+        <v-chip
+          v-if="filters.type !== 'ALL'"
+          closable
+          color="primary"
+          size="small"
+          @click:close="filters.type = 'ALL'; fetchEntries()"
+        >
+          {{ t('CreatorStudio.filterType') }}: {{ getTypeLabel(filters.type) }}
+        </v-chip>
+        <v-chip
+          v-if="filters.search"
+          closable
+          color="primary"
+          size="small"
+          @click:close="filters.search = ''; fetchEntries()"
+        >
+          {{ t('Common.search') }}: "{{ filters.search }}"
+        </v-chip>
+        <v-btn size="small" variant="text" @click="clearFilters">
           {{ t('Common.clearFilters') }}
         </v-btn>
-        <v-btn
-          color="primary"
-          prepend-icon="mdi-plus"
-          variant="elevated"
-          @click="showUploadDialog = true"
-        >
-          {{ t('CreatorStudio.uploadFirst') }}
-        </v-btn>
-      </v-card>
+      </div>
+    </v-card>
 
-      <!-- ── Content Table (Desktop md+) ─────────────────────── -->
-      <v-card v-else-if="!mobileView" variant="outlined">
-        <v-table fixed-header hover style="table-layout: fixed; width: 100%;">
-          <colgroup>
-            <col style="width: 40%;">
-            <col style="width: 14%;">
-            <col style="width: 14%;">
-            <col style="width: 14%;">
-            <col style="width: 12%;">
-            <col style="width: 6%;">
-          </colgroup>
-          <thead>
-            <tr>
-              <th class="text-left">{{ t('CreatorStudio.table.content') }}</th>
-              <th class="text-center">{{ t('CreatorStudio.table.status') }}</th>
-              <th class="text-center">{{ t('CreatorStudio.table.type') }}</th>
-              <th class="text-center">{{ t('CreatorStudio.table.date') }}</th>
-              <th class="text-center">{{ t('CreatorStudio.table.price') }}</th>
-              <th class="text-center">{{ t('CreatorStudio.table.actions') }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="item in studioItems"
-              :key="item.id"
-              class="cursor-pointer"
-              @click="goToItem(item)"
-            >
-              <!-- Content cell: thumbnail + title + description -->
-              <td style="max-width: 0;">
-                <div class="d-flex align-center ga-3 py-2">
-                  <v-card
-                    class="flex-shrink-0 overflow-hidden"
-                    flat
-                    rounded="lg"
-                    width="120"
+    <!-- ── Loading State ───────────────────────────────────── -->
+    <div v-if="loading" class="text-center py-12">
+      <v-progress-circular color="primary" indeterminate size="48" />
+      <p class="mt-4 text-medium-emphasis">{{ t('CreatorStudio.loading') }}</p>
+    </div>
+
+    <!-- ── Error State ─────────────────────────────────────── -->
+    <v-alert v-else-if="error" class="mb-4" type="error" variant="tonal">
+      <strong>{{ t('CreatorStudio.errorTitle') }}</strong>
+      <p class="mt-1">{{ error }}</p>
+      <template #append>
+        <v-btn size="small" variant="text" @click="fetchEntries">
+          {{ t('Common.retry') }}
+        </v-btn>
+      </template>
+    </v-alert>
+
+    <!-- ── Empty State ─────────────────────────────────────── -->
+    <v-card v-else-if="studioItems.length === 0 && !loading" class="text-center pa-8 pa-md-12 bg-transparent" variant="flat">
+      <v-icon class="mb-4" color="medium-emphasis" size="80">mdi-movie-open-plus-outline</v-icon>
+      <h3 class="text-h6 mb-2">{{ hasActiveFilters ? t('CreatorStudio.noResults') : t('CreatorStudio.empty') }}</h3>
+      <p class="text-medium-emphasis mb-6">
+        {{ hasActiveFilters ? t('CreatorStudio.noResultsDescription') : t('CreatorStudio.emptyDescription') }}
+      </p>
+      <v-btn
+        v-if="hasActiveFilters"
+        class="mr-2"
+        variant="outlined"
+        @click="clearFilters"
+      >
+        {{ t('Common.clearFilters') }}
+      </v-btn>
+      <v-btn
+        color="primary"
+        prepend-icon="mdi-plus"
+        variant="elevated"
+        @click="showUploadDialog = true"
+      >
+        {{ t('CreatorStudio.uploadFirst') }}
+      </v-btn>
+    </v-card>
+
+    <!-- ── Content Table (Desktop md+) ─────────────────────── -->
+    <v-card v-else-if="!mobileView" variant="outlined">
+      <v-table fixed-header hover style="table-layout: fixed; width: 100%;">
+        <colgroup>
+          <col style="width: 40%;">
+          <col style="width: 14%;">
+          <col style="width: 14%;">
+          <col style="width: 14%;">
+          <col style="width: 12%;">
+          <col style="width: 6%;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="text-left">{{ t('CreatorStudio.table.content') }}</th>
+            <th class="text-center">{{ t('CreatorStudio.table.status') }}</th>
+            <th class="text-center">{{ t('CreatorStudio.table.type') }}</th>
+            <th class="text-center">{{ t('CreatorStudio.table.date') }}</th>
+            <th class="text-center">{{ t('CreatorStudio.table.price') }}</th>
+            <th class="text-center">{{ t('CreatorStudio.table.actions') }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="item in studioItems"
+            :key="item.id"
+            class="cursor-pointer"
+            @click="goToItem(item)"
+          >
+            <!-- Content cell: thumbnail + title + description -->
+            <td style="max-width: 0;">
+              <div class="d-flex align-center ga-3 py-2">
+                <v-card
+                  class="flex-shrink-0 overflow-hidden"
+                  flat
+                  rounded="lg"
+                  width="120"
+                >
+                  <v-img
+                    :alt="item.title"
+                    :aspect-ratio="16 / 9"
+                    cover
+                    :src="item.thumbnailUrl || item.coverUrl"
                   >
-                    <v-img
-                      :alt="item.title"
-                      :aspect-ratio="16 / 9"
-                      cover
-                      :src="item.thumbnailUrl || item.coverUrl"
-                    >
-                      <template #error>
-                        <div class="d-flex align-center justify-center fill-height bg-surface-variant">
-                          <v-icon color="medium-emphasis" size="28">{{ getTypeIcon(item.type) }}</v-icon>
-                        </div>
-                      </template>
-                      <template #placeholder>
-                        <div class="d-flex align-center justify-center fill-height bg-surface-variant">
-                          <v-icon color="medium-emphasis" size="28">{{ getTypeIcon(item.type) }}</v-icon>
-                        </div>
-                      </template>
-                    </v-img>
-                  </v-card>
-                  <div class="overflow-hidden" style="min-width: 0;">
-                    <div
-                      class="text-body-2 font-weight-medium"
-                      :style="{
-                        display: '-webkit-box',
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: 'vertical',
-                        overflow: 'hidden',
-                      }"
-                    >
-                      {{ item.title }}
-                    </div>
-                    <div v-if="item.description" class="text-caption text-medium-emphasis text-truncate">
-                      {{ item.description }}
-                    </div>
+                    <template #error>
+                      <div class="d-flex align-center justify-center fill-height bg-surface-variant">
+                        <v-icon color="medium-emphasis" size="28">{{ getTypeIcon(item.type) }}</v-icon>
+                      </div>
+                    </template>
+                    <template #placeholder>
+                      <div class="d-flex align-center justify-center fill-height bg-surface-variant">
+                        <v-icon color="medium-emphasis" size="28">{{ getTypeIcon(item.type) }}</v-icon>
+                      </div>
+                    </template>
+                  </v-img>
+                </v-card>
+                <div class="overflow-hidden" style="min-width: 0;">
+                  <div
+                    class="text-body-2 font-weight-medium"
+                    :style="{
+                      display: '-webkit-box',
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                    }"
+                  >
+                    {{ item.title }}
+                  </div>
+                  <div v-if="item.description" class="text-caption text-medium-emphasis text-truncate">
+                    {{ item.description }}
                   </div>
                 </div>
-              </td>
+              </div>
+            </td>
 
-              <!-- Status chip -->
-              <td class="text-center text-no-wrap">
-                <v-tooltip
-                  v-if="item.moderationFeedback && (item.status === 'REJECTED' || item.status === 'SUSPENDED')"
-                  :text="item.moderationFeedback"
-                  location="top"
-                  max-width="320"
-                >
-                  <template #activator="{ props: tooltipProps }">
-                    <v-chip
-                      v-bind="tooltipProps"
-                      :color="getStatusColor(item.status)"
-                      size="small"
-                      variant="tonal"
-                    >
-                      <v-icon size="14" start>{{ getStatusIcon(item.status) }}</v-icon>
-                      {{ getStatusLabel(item.status) }}
-                      <v-icon size="14" end>mdi-information-outline</v-icon>
-                    </v-chip>
-                  </template>
-                </v-tooltip>
-                <v-chip
-                  v-else
-                  :color="getStatusColor(item.status)"
-                  size="small"
-                  variant="tonal"
-                >
-                  <v-icon size="14" start>{{ getStatusIcon(item.status) }}</v-icon>
-                  {{ getStatusLabel(item.status) }}
-                </v-chip>
-                <v-chip
-                  v-if="item.transcodingStatus"
-                  class="ml-1"
-                  :color="getTranscodingColor(item.transcodingStatus)"
-                  size="small"
-                  variant="tonal"
-                >
-                  <v-progress-circular
-                    v-if="isTranscodingInProgress(item.transcodingStatus)"
-                    class="mr-1"
-                    :indeterminate="true"
-                    size="12"
-                    width="2"
-                  />
-                  <v-icon v-else size="14" start>{{ getTranscodingIcon(item.transcodingStatus) }}</v-icon>
-                  {{ getTranscodingLabel(item.transcodingStatus) }}
-                </v-chip>
-              </td>
-
-              <!-- Type -->
-              <td class="text-center text-no-wrap">
-                <v-chip size="small" variant="flat">
-                  <v-icon size="14" start>{{ getTypeIcon(item.type) }}</v-icon>
-                  {{ getTypeLabel(item.type) }}
-                </v-chip>
-              </td>
-
-              <!-- Date -->
-              <td class="text-center text-no-wrap">
-                <span class="text-body-2 text-medium-emphasis">{{ formatDate(item.createdAt) }}</span>
-              </td>
-
-              <!-- Price -->
-              <td class="text-center">
-                <span v-if="item.isPaid" class="text-body-2 font-weight-medium">
-                  {{ item.priceCurrency === 'USD' ? `$${item.priceUsd} USD` : `${item.priceXlm} XLM` }}
-                </span>
-                <v-chip v-else color="success" size="x-small" variant="tonal">
-                  {{ t('CreatorStudio.free') }}
-                </v-chip>
-              </td>
-
-              <!-- Actions -->
-              <td class="text-center" @click.stop>
-                <v-menu location="bottom end">
-                  <template #activator="{ props }">
-                    <v-btn
-                      v-bind="props"
-                      icon="mdi-dots-vertical"
-                      size="small"
-                      variant="text"
-                    />
-                  </template>
-                  <v-list density="compact" min-width="180">
-                    <v-list-item prepend-icon="mdi-eye-outline" @click="goToItem(item)">
-                      <v-list-item-title>{{ t('CreatorStudio.actions.view') }}</v-list-item-title>
-                    </v-list-item>
-                    <!-- Moderation feedback -->
-                    <v-list-item
-                      v-if="item.moderationFeedback && (item.status === 'REJECTED' || item.status === 'SUSPENDED')"
-                      class="text-warning"
-                      prepend-icon="mdi-alert-circle-outline"
-                      @click="openFeedbackDialog(item)"
-                    >
-                      <v-list-item-title>{{ t('CreatorStudio.actions.viewFeedback') }}</v-list-item-title>
-                    </v-list-item>
-                    <!-- Entry-specific actions -->
-                    <template v-if="item.kind === 'entry' && item._entry">
-                      <v-list-item
-                        v-if="item.status !== 'IN_REVIEW'"
-                        prepend-icon="mdi-pencil-outline"
-                        @click="openEditDialog(item._entry)"
-                      >
-                        <v-list-item-title>{{ t('CreatorStudio.actions.edit') }}</v-list-item-title>
-                      </v-list-item>
-                      <v-list-item
-                        v-if="item.status === 'DRAFT'"
-                        prepend-icon="mdi-send-outline"
-                        @click="submitForReview(item._entry)"
-                      >
-                        <v-list-item-title>{{ t('CreatorStudio.actions.submitReview') }}</v-list-item-title>
-                      </v-list-item>
-                      <v-list-item
-                        v-if="item.status === 'APPROVED'"
-                        prepend-icon="mdi-publish"
-                        @click="publishEntry(item._entry)"
-                      >
-                        <v-list-item-title>{{ t('CreatorStudio.actions.publish') }}</v-list-item-title>
-                      </v-list-item>
-                      <v-divider />
-                      <v-list-item
-                        v-if="item.status !== 'ARCHIVED'"
-                        prepend-icon="mdi-archive-outline"
-                        @click="confirmArchive(item._entry)"
-                      >
-                        <v-list-item-title>{{ t('CreatorStudio.actions.archive') }}</v-list-item-title>
-                      </v-list-item>
-                      <v-list-item
-                        v-if="item.status === 'ARCHIVED'"
-                        class="text-success"
-                        prepend-icon="mdi-archive-arrow-up-outline"
-                        @click="executeUnarchive(item._entry)"
-                      >
-                        <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
-                      </v-list-item>
-                    </template>
-                    <!-- Collection-specific actions -->
-                    <template v-if="item.kind === 'collection' && item._collection">
-                      <v-list-item
-                        v-if="item.status === 'DRAFT' || item.status === 'ARCHIVED'"
-                        prepend-icon="mdi-publish"
-                        @click="publishColl(item._collection)"
-                      >
-                        <v-list-item-title>{{ t('CreatorStudio.collections.publish') }}</v-list-item-title>
-                      </v-list-item>
-                      <v-divider />
-                      <v-list-item
-                        v-if="item.status !== 'ARCHIVED'"
-                        prepend-icon="mdi-archive-outline"
-                        @click="archiveColl(item._collection)"
-                      >
-                        <v-list-item-title>{{ t('CreatorStudio.actions.archive') }}</v-list-item-title>
-                      </v-list-item>
-                      <v-list-item
-                        v-if="item.status === 'ARCHIVED'"
-                        class="text-success"
-                        prepend-icon="mdi-archive-arrow-up-outline"
-                        @click="unarchiveColl(item._collection)"
-                      >
-                        <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
-                      </v-list-item>
-                      <v-divider />
-                      <v-list-item
-                        v-if="item.status === 'DRAFT'"
-                        class="text-error"
-                        prepend-icon="mdi-delete-outline"
-                        @click="confirmDeleteColl(item._collection)"
-                      >
-                        <v-list-item-title>{{ t('CreatorStudio.collections.delete') }}</v-list-item-title>
-                      </v-list-item>
-                    </template>
-                  </v-list>
-                </v-menu>
-              </td>
-            </tr>
-          </tbody>
-        </v-table>
-
-        <!-- Pagination -->
-        <v-divider />
-        <div class="d-flex align-center justify-space-between pa-3">
-          <span class="text-body-2 text-medium-emphasis">
-            {{ t('CreatorStudio.showingEntries', { count: studioItems.length, total: totalElements }) }}
-          </span>
-          <v-pagination
-            v-if="totalPages > 1"
-            v-model="currentPage"
-            density="compact"
-            :length="totalPages"
-            :total-visible="7"
-            rounded
-            @update:model-value="onPageChange"
-          />
-        </div>
-      </v-card>
-
-      <!-- ── Content Cards (Mobile < md) ─────────────────────── -->
-      <div v-else class="mobile-entries">
-        <v-card
-          v-for="item in studioItems"
-          :key="item.id"
-          class="mb-3"
-          variant="outlined"
-          @click="goToItem(item)"
-        >
-          <div class="d-flex pa-3 ga-3">
-            <!-- Thumbnail -->
-            <v-card
-              class="flex-shrink-0 overflow-hidden"
-              flat
-              rounded="lg"
-              width="100"
-            >
-              <v-img
-                :alt="item.title"
-                :aspect-ratio="16 / 9"
-                cover
-                :src="item.thumbnailUrl || item.coverUrl"
+            <!-- Status chip -->
+            <td class="text-center text-no-wrap">
+              <v-tooltip
+                v-if="item.moderationFeedback && (item.status === 'REJECTED' || item.status === 'SUSPENDED')"
+                location="top"
+                max-width="320"
+                :text="item.moderationFeedback"
               >
-                <template #error>
-                  <div class="d-flex align-center justify-center fill-height bg-surface-variant">
-                    <v-icon color="medium-emphasis" size="24">{{ getTypeIcon(item.type) }}</v-icon>
-                  </div>
+                <template #activator="{ props: tooltipProps }">
+                  <v-chip
+                    v-bind="tooltipProps"
+                    :color="getStatusColor(item.status)"
+                    size="small"
+                    variant="tonal"
+                  >
+                    <v-icon size="14" start>{{ getStatusIcon(item.status) }}</v-icon>
+                    {{ getStatusLabel(item.status) }}
+                    <v-icon end size="14">mdi-information-outline</v-icon>
+                  </v-chip>
                 </template>
-                <template #placeholder>
-                  <div class="d-flex align-center justify-center fill-height bg-surface-variant">
-                    <v-icon color="medium-emphasis" size="24">{{ getTypeIcon(item.type) }}</v-icon>
-                  </div>
-                </template>
-              </v-img>
-            </v-card>
-
-            <!-- Info -->
-            <div class="flex-grow-1 overflow-hidden">
-              <div
-                class="text-body-2 font-weight-medium"
-                :style="{
-                  display: '-webkit-box',
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: 'vertical',
-                  overflow: 'hidden',
-                }"
+              </v-tooltip>
+              <v-chip
+                v-else
+                :color="getStatusColor(item.status)"
+                size="small"
+                variant="tonal"
               >
-                {{ item.title }}
-              </div>
-              <div class="d-flex flex-wrap align-center ga-1 mt-1">
-                <v-tooltip
-                  v-if="item.moderationFeedback && (item.status === 'REJECTED' || item.status === 'SUSPENDED')"
-                  :text="item.moderationFeedback"
-                  location="top"
-                  max-width="320"
-                >
-                  <template #activator="{ props: tooltipProps }">
-                    <v-chip
-                      v-bind="tooltipProps"
-                      :color="getStatusColor(item.status)"
-                      size="x-small"
-                      variant="tonal"
-                    >
-                      {{ getStatusLabel(item.status) }}
-                      <v-icon size="12" end>mdi-information-outline</v-icon>
-                    </v-chip>
-                  </template>
-                </v-tooltip>
-                <v-chip
-                  v-else
-                  :color="getStatusColor(item.status)"
-                  size="x-small"
-                  variant="tonal"
-                >
-                  {{ getStatusLabel(item.status) }}
-                </v-chip>
-                <v-chip
-                  v-if="item.transcodingStatus"
-                  :color="getTranscodingColor(item.transcodingStatus)"
-                  size="x-small"
-                  variant="tonal"
-                >
-                  {{ getTranscodingLabel(item.transcodingStatus) }}
-                </v-chip>
-                <v-chip size="x-small" variant="flat">
-                  {{ getTypeLabel(item.type) }}
-                </v-chip>
-                <span v-if="item.isPaid" class="text-caption font-weight-medium">
-                  {{ item.priceCurrency === 'USD' ? `$${item.priceUsd} USD` : `${item.priceXlm} XLM` }}
-                </span>
-              </div>
-              <div class="text-caption text-medium-emphasis mt-1">
-                {{ formatDate(item.createdAt) }}
-              </div>
-            </div>
+                <v-icon size="14" start>{{ getStatusIcon(item.status) }}</v-icon>
+                {{ getStatusLabel(item.status) }}
+              </v-chip>
+              <v-chip
+                v-if="item.transcodingStatus"
+                class="ml-1"
+                :color="getTranscodingColor(item.transcodingStatus)"
+                size="small"
+                variant="tonal"
+              >
+                <v-progress-circular
+                  v-if="isTranscodingInProgress(item.transcodingStatus)"
+                  class="mr-1"
+                  :indeterminate="true"
+                  size="12"
+                  width="2"
+                />
+                <v-icon v-else size="14" start>{{ getTranscodingIcon(item.transcodingStatus) }}</v-icon>
+                {{ getTranscodingLabel(item.transcodingStatus) }}
+              </v-chip>
+            </td>
 
-            <!-- Actions menu -->
-            <div @click.stop>
+            <!-- Type -->
+            <td class="text-center text-no-wrap">
+              <v-chip size="small" variant="flat">
+                <v-icon size="14" start>{{ getTypeIcon(item.type) }}</v-icon>
+                {{ getTypeLabel(item.type) }}
+              </v-chip>
+            </td>
+
+            <!-- Date -->
+            <td class="text-center text-no-wrap">
+              <span class="text-body-2 text-medium-emphasis">{{ formatDate(item.createdAt) }}</span>
+            </td>
+
+            <!-- Price -->
+            <td class="text-center">
+              <span v-if="item.isPaid" class="text-body-2 font-weight-medium">
+                {{ item.priceCurrency === 'USD' ? `$${item.priceUsd} USD` : `${item.priceXlm} XLM` }}
+              </span>
+              <v-chip v-else color="success" size="x-small" variant="tonal">
+                {{ t('CreatorStudio.free') }}
+              </v-chip>
+            </td>
+
+            <!-- Actions -->
+            <td class="text-center" @click.stop>
               <v-menu location="bottom end">
                 <template #activator="{ props }">
                   <v-btn
                     v-bind="props"
                     icon="mdi-dots-vertical"
-                    size="x-small"
+                    size="small"
                     variant="text"
                   />
                 </template>
@@ -747,335 +527,555 @@
                   </template>
                 </v-list>
               </v-menu>
+            </td>
+          </tr>
+        </tbody>
+      </v-table>
+
+      <!-- Pagination -->
+      <v-divider />
+      <div class="d-flex align-center justify-space-between pa-3">
+        <span class="text-body-2 text-medium-emphasis">
+          {{ t('CreatorStudio.showingEntries', { count: studioItems.length, total: totalElements }) }}
+        </span>
+        <v-pagination
+          v-if="totalPages > 1"
+          v-model="currentPage"
+          density="compact"
+          :length="totalPages"
+          rounded
+          :total-visible="7"
+          @update:model-value="onPageChange"
+        />
+      </div>
+    </v-card>
+
+    <!-- ── Content Cards (Mobile < md) ─────────────────────── -->
+    <div v-else class="mobile-entries">
+      <v-card
+        v-for="item in studioItems"
+        :key="item.id"
+        class="mb-3"
+        variant="outlined"
+        @click="goToItem(item)"
+      >
+        <div class="d-flex pa-3 ga-3">
+          <!-- Thumbnail -->
+          <v-card
+            class="flex-shrink-0 overflow-hidden"
+            flat
+            rounded="lg"
+            width="100"
+          >
+            <v-img
+              :alt="item.title"
+              :aspect-ratio="16 / 9"
+              cover
+              :src="item.thumbnailUrl || item.coverUrl"
+            >
+              <template #error>
+                <div class="d-flex align-center justify-center fill-height bg-surface-variant">
+                  <v-icon color="medium-emphasis" size="24">{{ getTypeIcon(item.type) }}</v-icon>
+                </div>
+              </template>
+              <template #placeholder>
+                <div class="d-flex align-center justify-center fill-height bg-surface-variant">
+                  <v-icon color="medium-emphasis" size="24">{{ getTypeIcon(item.type) }}</v-icon>
+                </div>
+              </template>
+            </v-img>
+          </v-card>
+
+          <!-- Info -->
+          <div class="flex-grow-1 overflow-hidden">
+            <div
+              class="text-body-2 font-weight-medium"
+              :style="{
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+              }"
+            >
+              {{ item.title }}
+            </div>
+            <div class="d-flex flex-wrap align-center ga-1 mt-1">
+              <v-tooltip
+                v-if="item.moderationFeedback && (item.status === 'REJECTED' || item.status === 'SUSPENDED')"
+                location="top"
+                max-width="320"
+                :text="item.moderationFeedback"
+              >
+                <template #activator="{ props: tooltipProps }">
+                  <v-chip
+                    v-bind="tooltipProps"
+                    :color="getStatusColor(item.status)"
+                    size="x-small"
+                    variant="tonal"
+                  >
+                    {{ getStatusLabel(item.status) }}
+                    <v-icon end size="12">mdi-information-outline</v-icon>
+                  </v-chip>
+                </template>
+              </v-tooltip>
+              <v-chip
+                v-else
+                :color="getStatusColor(item.status)"
+                size="x-small"
+                variant="tonal"
+              >
+                {{ getStatusLabel(item.status) }}
+              </v-chip>
+              <v-chip
+                v-if="item.transcodingStatus"
+                :color="getTranscodingColor(item.transcodingStatus)"
+                size="x-small"
+                variant="tonal"
+              >
+                {{ getTranscodingLabel(item.transcodingStatus) }}
+              </v-chip>
+              <v-chip size="x-small" variant="flat">
+                {{ getTypeLabel(item.type) }}
+              </v-chip>
+              <span v-if="item.isPaid" class="text-caption font-weight-medium">
+                {{ item.priceCurrency === 'USD' ? `$${item.priceUsd} USD` : `${item.priceXlm} XLM` }}
+              </span>
+            </div>
+            <div class="text-caption text-medium-emphasis mt-1">
+              {{ formatDate(item.createdAt) }}
             </div>
           </div>
-        </v-card>
 
-        <!-- Pagination mobile -->
-        <div v-if="totalPages > 1" class="d-flex justify-center mt-4">
-          <v-pagination
-            v-model="currentPage"
-            density="compact"
-            :length="totalPages"
-            :total-visible="5"
-            rounded
-            @update:model-value="onPageChange"
-          />
+          <!-- Actions menu -->
+          <div @click.stop>
+            <v-menu location="bottom end">
+              <template #activator="{ props }">
+                <v-btn
+                  v-bind="props"
+                  icon="mdi-dots-vertical"
+                  size="x-small"
+                  variant="text"
+                />
+              </template>
+              <v-list density="compact" min-width="180">
+                <v-list-item prepend-icon="mdi-eye-outline" @click="goToItem(item)">
+                  <v-list-item-title>{{ t('CreatorStudio.actions.view') }}</v-list-item-title>
+                </v-list-item>
+                <!-- Moderation feedback -->
+                <v-list-item
+                  v-if="item.moderationFeedback && (item.status === 'REJECTED' || item.status === 'SUSPENDED')"
+                  class="text-warning"
+                  prepend-icon="mdi-alert-circle-outline"
+                  @click="openFeedbackDialog(item)"
+                >
+                  <v-list-item-title>{{ t('CreatorStudio.actions.viewFeedback') }}</v-list-item-title>
+                </v-list-item>
+                <!-- Entry-specific actions -->
+                <template v-if="item.kind === 'entry' && item._entry">
+                  <v-list-item
+                    v-if="item.status !== 'IN_REVIEW'"
+                    prepend-icon="mdi-pencil-outline"
+                    @click="openEditDialog(item._entry)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.actions.edit') }}</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item
+                    v-if="item.status === 'DRAFT'"
+                    prepend-icon="mdi-send-outline"
+                    @click="submitForReview(item._entry)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.actions.submitReview') }}</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item
+                    v-if="item.status === 'APPROVED'"
+                    prepend-icon="mdi-publish"
+                    @click="publishEntry(item._entry)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.actions.publish') }}</v-list-item-title>
+                  </v-list-item>
+                  <v-divider />
+                  <v-list-item
+                    v-if="item.status !== 'ARCHIVED'"
+                    prepend-icon="mdi-archive-outline"
+                    @click="confirmArchive(item._entry)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.actions.archive') }}</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item
+                    v-if="item.status === 'ARCHIVED'"
+                    class="text-success"
+                    prepend-icon="mdi-archive-arrow-up-outline"
+                    @click="executeUnarchive(item._entry)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
+                  </v-list-item>
+                </template>
+                <!-- Collection-specific actions -->
+                <template v-if="item.kind === 'collection' && item._collection">
+                  <v-list-item
+                    v-if="item.status === 'DRAFT' || item.status === 'ARCHIVED'"
+                    prepend-icon="mdi-publish"
+                    @click="publishColl(item._collection)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.collections.publish') }}</v-list-item-title>
+                  </v-list-item>
+                  <v-divider />
+                  <v-list-item
+                    v-if="item.status !== 'ARCHIVED'"
+                    prepend-icon="mdi-archive-outline"
+                    @click="archiveColl(item._collection)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.actions.archive') }}</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item
+                    v-if="item.status === 'ARCHIVED'"
+                    class="text-success"
+                    prepend-icon="mdi-archive-arrow-up-outline"
+                    @click="unarchiveColl(item._collection)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
+                  </v-list-item>
+                  <v-divider />
+                  <v-list-item
+                    v-if="item.status === 'DRAFT'"
+                    class="text-error"
+                    prepend-icon="mdi-delete-outline"
+                    @click="confirmDeleteColl(item._collection)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.collections.delete') }}</v-list-item-title>
+                  </v-list-item>
+                </template>
+              </v-list>
+            </v-menu>
+          </div>
         </div>
+      </v-card>
+
+      <!-- Pagination mobile -->
+      <div v-if="totalPages > 1" class="d-flex justify-center mt-4">
+        <v-pagination
+          v-model="currentPage"
+          density="compact"
+          :length="totalPages"
+          rounded
+          :total-visible="5"
+          @update:model-value="onPageChange"
+        />
       </div>
+    </div>
 
-      <!-- ── Edit Dialog ─────────────────────────────────────── -->
-      <v-dialog v-model="editDialog" :fullscreen="mobileView" max-width="600" persistent>
-        <v-card>
-          <v-toolbar color="transparent" density="compact">
-            <v-toolbar-title class="text-body-1 font-weight-bold">
-              {{ t('CreatorStudio.editEntry') }}
-            </v-toolbar-title>
-            <v-chip
-              class="ml-2"
-              :color="editStatusColor"
-              label
-              size="x-small"
-              variant="tonal"
-            >
-              {{ editForm._status }}
-            </v-chip>
-            <v-spacer />
-            <v-btn icon="mdi-close" @click="editDialog = false" />
-          </v-toolbar>
+    <!-- ── Edit Dialog ─────────────────────────────────────── -->
+    <v-dialog v-model="editDialog" :fullscreen="mobileView" max-width="600" persistent>
+      <v-card>
+        <v-toolbar color="transparent" density="compact">
+          <v-toolbar-title class="text-body-1 font-weight-bold">
+            {{ t('CreatorStudio.editEntry') }}
+          </v-toolbar-title>
+          <v-chip
+            class="ml-2"
+            :color="editStatusColor"
+            label
+            size="x-small"
+            variant="tonal"
+          >
+            {{ editForm._status }}
+          </v-chip>
+          <v-spacer />
+          <v-btn icon="mdi-close" @click="editDialog = false" />
+        </v-toolbar>
 
-          <v-card-text>
-            <!-- Re-moderation warning -->
+        <v-card-text>
+          <!-- Re-moderation warning -->
+          <v-alert
+            v-if="willTriggerReModeration"
+            class="mb-4"
+            color="warning"
+            density="compact"
+            icon="mdi-shield-refresh-outline"
+            variant="tonal"
+          >
+            <div class="text-body-2 font-weight-medium">
+              {{ t('CreatorStudio.editReviewWarningTitle') }}
+            </div>
+            <div class="text-caption mt-1">
+              {{ t('CreatorStudio.editReviewWarningHint') }}
+            </div>
+          </v-alert>
+          <v-text-field
+            v-model="editForm.title"
+            class="mb-3"
+            counter="200"
+            :label="t('Upload.form.title')"
+            :rules="titleRules"
+            variant="outlined"
+          />
+          <v-textarea
+            v-model="editForm.description"
+            class="mb-3"
+            counter="2000"
+            :label="t('Upload.form.description')"
+            rows="3"
+            variant="outlined"
+          />
+          <v-textarea
+            v-if="editForm._type === 'resource'"
+            v-model="editForm.resourceContent"
+            class="mb-3"
+            :label="t('Upload.form.resourceContent')"
+            :placeholder="t('Upload.form.resourceContentPlaceholder')"
+            rows="8"
+            variant="outlined"
+          />
+          <v-select
+            v-model="editForm.contentLanguage"
+            class="mb-3"
+            :items="contentLanguageItems"
+            :label="t('Upload.form.contentLanguage')"
+            prepend-inner-icon="mdi-translate"
+            variant="outlined"
+          />
+          <v-switch
+            v-model="editForm.isPaid"
+            color="primary"
+            :hint="t('Upload.form.isPaidHint')"
+            :label="t('Upload.form.isPaid')"
+            persistent-hint
+          />
+          <v-text-field
+            v-if="editForm.isPaid"
+            v-model="editPrice"
+            class="mt-3"
+            :label="editForm.priceCurrency === 'USD' ? t('Upload.form.priceUsd') : t('Upload.form.priceXlm')"
+            :prefix="editForm.priceCurrency"
+            step="0.01"
+            type="number"
+            variant="outlined"
+          >
+            <template #append-inner>
+              <v-btn-toggle
+                v-model="editForm.priceCurrency"
+                color="primary"
+                density="compact"
+                mandatory
+                variant="outlined"
+              >
+                <v-btn size="small" value="XLM">XLM</v-btn>
+                <v-btn size="small" value="USD">USD</v-btn>
+              </v-btn-toggle>
+            </template>
+          </v-text-field>
+
+          <!-- Wallet requirement for paid content -->
+          <template v-if="editForm.isPaid">
+            <!-- No wallet available (entry has no wallet and none connected) -->
             <v-alert
-              v-if="willTriggerReModeration"
-              class="mb-4"
+              v-if="!selectedSellerWallet && !walletStore.isConnected"
+              class="mt-3"
+              closable
               color="warning"
-              density="compact"
-              icon="mdi-shield-refresh-outline"
+              icon="mdi-wallet-outline"
               variant="tonal"
             >
               <div class="text-body-2 font-weight-medium">
-                {{ t('CreatorStudio.editReviewWarningTitle') }}
+                {{ t('Upload.wallet.required') }}
               </div>
               <div class="text-caption mt-1">
-                {{ t('CreatorStudio.editReviewWarningHint') }}
+                {{ t('Upload.wallet.requiredHint') }}
               </div>
+              <v-btn
+                class="mt-2"
+                color="warning"
+                size="small"
+                variant="elevated"
+                @click="connectWallet"
+              >
+                <v-icon class="me-1" size="small">mdi-wallet-plus</v-icon>
+                {{ t('Upload.wallet.connect') }}
+              </v-btn>
             </v-alert>
-            <v-text-field
-              v-model="editForm.title"
-              class="mb-3"
-              counter="200"
-              :label="t('Upload.form.title')"
-              :rules="titleRules"
-              variant="outlined"
-            />
-            <v-textarea
-              v-model="editForm.description"
-              class="mb-3"
-              counter="2000"
-              :label="t('Upload.form.description')"
-              rows="3"
-              variant="outlined"
-            />
-            <v-textarea
-              v-if="editForm._type === 'resource'"
-              v-model="editForm.resourceContent"
-              class="mb-3"
-              :label="t('Upload.form.resourceContent')"
-              :placeholder="t('Upload.form.resourceContentPlaceholder')"
-              rows="8"
-              variant="outlined"
-            />
-            <v-select
-              v-model="editForm.contentLanguage"
-              class="mb-3"
-              :items="contentLanguageItems"
-              :label="t('Upload.form.contentLanguage')"
-              prepend-inner-icon="mdi-translate"
-              variant="outlined"
-            />
-            <v-switch
-              v-model="editForm.isPaid"
-              color="primary"
-              :hint="t('Upload.form.isPaidHint')"
-              :label="t('Upload.form.isPaid')"
-              persistent-hint
-            />
-            <v-text-field
-              v-if="editForm.isPaid"
-              v-model="editPrice"
-              class="mt-3"
-              :label="editForm.priceCurrency === 'USD' ? t('Upload.form.priceUsd') : t('Upload.form.priceXlm')"
-              :prefix="editForm.priceCurrency"
-              step="0.01"
-              type="number"
-              variant="outlined"
-            >
-              <template #append-inner>
-                <v-btn-toggle
-                  v-model="editForm.priceCurrency"
-                  color="primary"
-                  density="compact"
-                  mandatory
-                  variant="outlined"
-                >
-                  <v-btn size="small" value="XLM">XLM</v-btn>
-                  <v-btn size="small" value="USD">USD</v-btn>
-                </v-btn-toggle>
-              </template>
-            </v-text-field>
 
-            <!-- Wallet requirement for paid content -->
-            <template v-if="editForm.isPaid">
-              <!-- No wallet available (entry has no wallet and none connected) -->
-              <v-alert
-                v-if="!selectedSellerWallet && !walletStore.isConnected"
-                class="mt-3"
-                closable
-                color="warning"
-                icon="mdi-wallet-outline"
-                variant="tonal"
-              >
-                <div class="text-body-2 font-weight-medium">
-                  {{ t('Upload.wallet.required') }}
-                </div>
-                <div class="text-caption mt-1">
-                  {{ t('Upload.wallet.requiredHint') }}
-                </div>
-                <v-btn
-                  class="mt-2"
-                  color="warning"
-                  size="small"
-                  variant="elevated"
-                  @click="connectWallet"
-                >
-                  <v-icon class="me-1" size="small">mdi-wallet-plus</v-icon>
-                  {{ t('Upload.wallet.connect') }}
-                </v-btn>
-              </v-alert>
-
-              <!-- Wallet connected but unfunded -->
-              <v-alert
-                v-else-if="isWalletUnfunded"
-                class="mt-3"
-                color="warning"
-                icon="mdi-wallet-outline"
-                variant="tonal"
-              >
-                <div class="text-body-2 font-weight-medium">
-                  {{ t('Upload.wallet.unfunded') }}
-                </div>
-                <div class="text-caption mt-1">
-                  {{ t('Upload.wallet.unfundedHint') }}
-                </div>
-                <v-btn
-                  class="mt-2"
-                  color="warning"
-                  size="small"
-                  variant="elevated"
-                  @click="router.push('/wallet')"
-                >
-                  <v-icon class="me-1" size="small">mdi-wallet</v-icon>
-                  {{ t('Upload.wallet.goToWallet') }}
-                </v-btn>
-              </v-alert>
-
-              <!-- Wallet connected and funded -->
-              <v-alert
-                v-else
-                class="mt-3"
-                color="success"
-                icon="mdi-wallet-outline"
-                variant="tonal"
-              >
-                <div class="text-body-2 font-weight-medium">
-                  {{ t('Upload.wallet.connected') }}
-                </div>
-                <v-select
-                  v-model="selectedSellerWallet"
-                  class="mt-2"
-                  density="compact"
-                  hide-details
-                  :items="walletItems"
-                  :label="t('Upload.wallet.sellerWallet')"
-                  variant="outlined"
-                >
-                  <template #prepend-inner>
-                    <v-icon color="success" size="small">mdi-check-circle</v-icon>
-                  </template>
-                </v-select>
-                <div class="text-caption text-medium-emphasis mt-1">
-                  {{ t('Upload.wallet.sellerWalletHint') }}
-                </div>
-                <v-btn
-                  class="mt-2"
-                  size="small"
-                  variant="text"
-                  @click="connectWallet"
-                >
-                  <v-icon class="me-1" size="small">mdi-wallet-plus</v-icon>
-                  {{ t('Upload.wallet.addAnother') }}
-                </v-btn>
-              </v-alert>
-            </template>
-
-            <!-- Thumbnail -->
-            <v-divider class="my-4" />
-            <div class="text-subtitle-2 mb-1">
-              {{ t('Upload.assets.thumbnail') }}
-            </div>
-            <div class="text-caption text-medium-emphasis mb-3">
-              {{ t('Upload.assets.thumbnailHint') }}
-            </div>
-            <UploadAssetPicker
-              v-model:file="editThumbnailFile"
-              v-model:progress="editThumbnailProgress"
-              :accept="THUMBNAIL_MIMES"
-              :max-size="MAX_THUMBNAIL_SIZE"
-            />
-
-            <!-- Preview (only for paid content) -->
-            <template v-if="editForm.isPaid">
-              <v-divider class="my-4" />
-              <div class="text-subtitle-2 mb-1">
-                {{ t('Upload.assets.preview') }}
-              </div>
-              <div class="text-caption text-medium-emphasis mb-3">
-                {{ t('Upload.assets.previewHint') }}
-              </div>
-              <UploadAssetPicker
-                v-model:file="editPreviewFile"
-                v-model:progress="editPreviewProgress"
-                :accept="PREVIEW_MIMES"
-                :max-size="MAX_PREVIEW_SIZE"
-              />
-            </template>
-          </v-card-text>
-
-          <v-card-actions class="pa-4">
-            <v-spacer />
-            <v-btn variant="text" @click="editDialog = false">
-              {{ t('Upload.actions.cancel') }}
-            </v-btn>
-            <v-btn
-              :color="willTriggerReModeration ? 'warning' : 'primary'"
-              :disabled="!canSaveEdit || !isEditDirty"
-              :loading="isSaving || isUploading"
-              :prepend-icon="willTriggerReModeration ? 'mdi-shield-refresh-outline' : 'mdi-content-save-outline'"
-              variant="elevated"
-              @click="saveEdit"
-            >
-              {{ willTriggerReModeration
-                ? t('CreatorStudio.saveAndResubmit')
-                : t('Common.save')
-              }}
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-
-      <!-- ── Moderation Feedback Dialog ─────────────────────── -->
-      <v-dialog v-model="feedbackDialog" max-width="480">
-        <v-card>
-          <v-card-title class="d-flex align-center ga-2">
-            <v-icon :color="feedbackItem?.status === 'SUSPENDED' ? 'warning' : 'error'" size="20">
-              mdi-alert-circle-outline
-            </v-icon>
-            {{ t('CreatorStudio.feedbackDialog.title') }}
-          </v-card-title>
-          <v-card-text>
+            <!-- Wallet connected but unfunded -->
             <v-alert
-              :color="feedbackItem?.status === 'SUSPENDED' ? 'warning' : 'error'"
-              density="compact"
+              v-else-if="isWalletUnfunded"
+              class="mt-3"
+              color="warning"
+              icon="mdi-wallet-outline"
               variant="tonal"
             >
-              {{ feedbackItem?.moderationFeedback }}
+              <div class="text-body-2 font-weight-medium">
+                {{ t('Upload.wallet.unfunded') }}
+              </div>
+              <div class="text-caption mt-1">
+                {{ t('Upload.wallet.unfundedHint') }}
+              </div>
+              <v-btn
+                class="mt-2"
+                color="warning"
+                size="small"
+                variant="elevated"
+                @click="router.push('/wallet')"
+              >
+                <v-icon class="me-1" size="small">mdi-wallet</v-icon>
+                {{ t('Upload.wallet.goToWallet') }}
+              </v-btn>
             </v-alert>
-            <div class="text-body-2 text-medium-emphasis mt-3">
-              {{ t('CreatorStudio.feedbackDialog.hint') }}
-            </div>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer />
-            <v-btn variant="text" @click="feedbackDialog = false">
-              {{ t('Common.close') }}
-            </v-btn>
-            <v-btn
-              v-if="feedbackItem?.status === 'REJECTED' && feedbackItem?._entry"
-              color="primary"
-              prepend-icon="mdi-pencil-outline"
-              variant="elevated"
-              @click="feedbackDialog = false; openEditDialog(feedbackItem._entry)"
-            >
-              {{ t('CreatorStudio.feedbackDialog.editAndFix') }}
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
 
-      <!-- ── Archive Confirmation Dialog ──────────────────────── -->
-      <v-dialog v-model="archiveDialog" max-width="440">
-        <v-card>
-          <v-card-title class="text-h6">{{ t('CreatorStudio.archiveConfirm.title') }}</v-card-title>
-          <v-card-text>
-            {{ t('CreatorStudio.archiveConfirm.message', { title: entryToArchive?.title ?? '' }) }}
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer />
-            <v-btn variant="text" @click="archiveDialog = false">
-              {{ t('Upload.actions.cancel') }}
-            </v-btn>
-            <v-btn
-              color="warning"
-              :loading="isArchiving"
-              variant="elevated"
-              @click="executeArchive"
+            <!-- Wallet connected and funded -->
+            <v-alert
+              v-else
+              class="mt-3"
+              color="success"
+              icon="mdi-wallet-outline"
+              variant="tonal"
             >
-              {{ t('CreatorStudio.actions.archive') }}
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+              <div class="text-body-2 font-weight-medium">
+                {{ t('Upload.wallet.connected') }}
+              </div>
+              <v-select
+                v-model="selectedSellerWallet"
+                class="mt-2"
+                density="compact"
+                hide-details
+                :items="walletItems"
+                :label="t('Upload.wallet.sellerWallet')"
+                variant="outlined"
+              >
+                <template #prepend-inner>
+                  <v-icon color="success" size="small">mdi-check-circle</v-icon>
+                </template>
+              </v-select>
+              <div class="text-caption text-medium-emphasis mt-1">
+                {{ t('Upload.wallet.sellerWalletHint') }}
+              </div>
+              <v-btn
+                class="mt-2"
+                size="small"
+                variant="text"
+                @click="connectWallet"
+              >
+                <v-icon class="me-1" size="small">mdi-wallet-plus</v-icon>
+                {{ t('Upload.wallet.addAnother') }}
+              </v-btn>
+            </v-alert>
+          </template>
+
+          <!-- Thumbnail -->
+          <v-divider class="my-4" />
+          <div class="text-subtitle-2 mb-1">
+            {{ t('Upload.assets.thumbnail') }}
+          </div>
+          <div class="text-caption text-medium-emphasis mb-3">
+            {{ t('Upload.assets.thumbnailHint') }}
+          </div>
+          <UploadAssetPicker
+            v-model:file="editThumbnailFile"
+            v-model:progress="editThumbnailProgress"
+            :accept="THUMBNAIL_MIMES"
+            :max-size="MAX_THUMBNAIL_SIZE"
+          />
+
+          <!-- Preview (only for paid content) -->
+          <template v-if="editForm.isPaid">
+            <v-divider class="my-4" />
+            <div class="text-subtitle-2 mb-1">
+              {{ t('Upload.assets.preview') }}
+            </div>
+            <div class="text-caption text-medium-emphasis mb-3">
+              {{ t('Upload.assets.previewHint') }}
+            </div>
+            <UploadAssetPicker
+              v-model:file="editPreviewFile"
+              v-model:progress="editPreviewProgress"
+              :accept="PREVIEW_MIMES"
+              :max-size="MAX_PREVIEW_SIZE"
+            />
+          </template>
+        </v-card-text>
+
+        <v-card-actions class="pa-4">
+          <v-spacer />
+          <v-btn variant="text" @click="editDialog = false">
+            {{ t('Upload.actions.cancel') }}
+          </v-btn>
+          <v-btn
+            :color="willTriggerReModeration ? 'warning' : 'primary'"
+            :disabled="!canSaveEdit || !isEditDirty"
+            :loading="isSaving || isUploading"
+            :prepend-icon="willTriggerReModeration ? 'mdi-shield-refresh-outline' : 'mdi-content-save-outline'"
+            variant="elevated"
+            @click="saveEdit"
+          >
+            {{ willTriggerReModeration
+              ? t('CreatorStudio.saveAndResubmit')
+              : t('Common.save')
+            }}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <!-- ── Moderation Feedback Dialog ─────────────────────── -->
+    <v-dialog v-model="feedbackDialog" max-width="480">
+      <v-card>
+        <v-card-title class="d-flex align-center ga-2">
+          <v-icon :color="feedbackItem?.status === 'SUSPENDED' ? 'warning' : 'error'" size="20">
+            mdi-alert-circle-outline
+          </v-icon>
+          {{ t('CreatorStudio.feedbackDialog.title') }}
+        </v-card-title>
+        <v-card-text>
+          <v-alert
+            :color="feedbackItem?.status === 'SUSPENDED' ? 'warning' : 'error'"
+            density="compact"
+            variant="tonal"
+          >
+            {{ feedbackItem?.moderationFeedback }}
+          </v-alert>
+          <div class="text-body-2 text-medium-emphasis mt-3">
+            {{ t('CreatorStudio.feedbackDialog.hint') }}
+          </div>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn variant="text" @click="feedbackDialog = false">
+            {{ t('Common.close') }}
+          </v-btn>
+          <v-btn
+            v-if="feedbackItem?.status === 'REJECTED' && feedbackItem?._entry"
+            color="primary"
+            prepend-icon="mdi-pencil-outline"
+            variant="elevated"
+            @click="feedbackDialog = false; openEditDialog(feedbackItem._entry)"
+          >
+            {{ t('CreatorStudio.feedbackDialog.editAndFix') }}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <!-- ── Archive Confirmation Dialog ──────────────────────── -->
+    <v-dialog v-model="archiveDialog" max-width="440">
+      <v-card>
+        <v-card-title class="text-h6">{{ t('CreatorStudio.archiveConfirm.title') }}</v-card-title>
+        <v-card-text>
+          {{ t('CreatorStudio.archiveConfirm.message', { title: entryToArchive?.title ?? '' }) }}
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn variant="text" @click="archiveDialog = false">
+            {{ t('Upload.actions.cancel') }}
+          </v-btn>
+          <v-btn
+            color="warning"
+            :loading="isArchiving"
+            variant="elevated"
+            @click="executeArchive"
+          >
+            {{ t('CreatorStudio.actions.archive') }}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
 
     <!-- ── Upload Type Dialog ──────────────────────────────── -->
     <upload-type-dialog v-model="showUploadDialog" />
@@ -1289,13 +1289,20 @@
 
   const editStatusColor = computed(() => {
     switch (editForm._status) {
-      case 'PUBLISHED': return 'success'
-      case 'APPROVED': return 'info'
-      case 'REJECTED': return 'error'
-      case 'SUSPENDED': return 'warning'
-      case 'IN_REVIEW': return 'warning'
-      case 'DRAFT': return 'grey'
-      default: return 'grey'
+      case 'PUBLISHED': { return 'success'
+      }
+      case 'APPROVED': { return 'info'
+      }
+      case 'REJECTED': { return 'error'
+      }
+      case 'SUSPENDED': { return 'warning'
+      }
+      case 'IN_REVIEW': { return 'warning'
+      }
+      case 'DRAFT': { return 'grey'
+      }
+      default: { return 'grey'
+      }
     }
   })
 
@@ -1642,8 +1649,8 @@
     }
     // Rejected/suspended with feedback → show moderation feedback
     if (
-      item.moderationFeedback &&
-      (item.status === 'REJECTED' || item.status === 'SUSPENDED')
+      item.moderationFeedback
+      && (item.status === 'REJECTED' || item.status === 'SUSPENDED')
     ) {
       openFeedbackDialog(item)
       return
@@ -1849,25 +1856,6 @@
   }
 
   // ── Collections ───────────────────────────────────────────
-
-  function getCollectionStatusColor (status?: string): string {
-    const map: Record<string, string> = { DRAFT: 'warning', PUBLISHED: 'success', ARCHIVED: 'grey' }
-    return map[status ?? ''] ?? 'default'
-  }
-
-  function getCollectionStatusIcon (status?: string): string {
-    const map: Record<string, string> = { DRAFT: 'mdi-pencil-outline', PUBLISHED: 'mdi-check-circle-outline', ARCHIVED: 'mdi-archive-outline' }
-    return map[status ?? ''] ?? 'mdi-help-circle-outline'
-  }
-
-  function getCollectionStatusLabel (status?: string): string {
-    const map: Record<string, string> = {
-      DRAFT: t('Upload.status.draft'),
-      PUBLISHED: t('Upload.status.published'),
-      ARCHIVED: t('Upload.status.archived'),
-    }
-    return map[status ?? ''] ?? (status ?? '')
-  }
 
   async function publishColl (coll: CollectionItemModel) {
     try {

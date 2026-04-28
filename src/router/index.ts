@@ -5,17 +5,23 @@ import { useAuthStore } from '@/stores/auth'
 
 // ── Scroll restoration: detect browser back/forward (popstate) ──────────────
 let _isPopNavigation = false
-window.addEventListener('popstate', () => { _isPopNavigation = true })
+window.addEventListener('popstate', () => {
+  _isPopNavigation = true
+})
 
 /** Returns `true` when the current navigation was triggered by browser back/forward */
-export function isPopNavigation (): boolean { return _isPopNavigation }
+export function isPopNavigation (): boolean {
+  return _isPopNavigation
+}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: setupLayouts(routes),
   scrollBehavior (_to, _from, savedPosition) {
     // Back/forward → components restore scroll after data loads
-    if (savedPosition) return false
+    if (savedPosition) {
+      return false
+    }
     // New navigation → scroll to top
     return { top: 0 }
   },
@@ -23,7 +29,9 @@ const router = createRouter({
 
 // Reset flag after components have mounted (setTimeout ensures onMounted ran first)
 router.afterEach(() => {
-  setTimeout(() => { _isPopNavigation = false }, 0)
+  setTimeout(() => {
+    _isPopNavigation = false
+  }, 0)
 })
 
 // Middleware de autenticación antes de cada ruta

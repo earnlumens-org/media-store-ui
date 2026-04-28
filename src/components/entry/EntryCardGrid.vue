@@ -125,10 +125,10 @@
         <!-- Dimming overlay while switching filters -->
         <v-overlay
           v-model="switching"
+          class="align-center justify-center"
           contained
           persistent
           scrim="background"
-          class="align-center justify-center"
         >
           <v-progress-circular indeterminate size="48" />
         </v-overlay>
@@ -216,10 +216,10 @@
 </template>
 
 <script setup lang="ts">
-  import type { PublicFeedItemModel } from '@/api/types/feed.types'
   import type { EntryModel } from '@/api/types/entryMock.types'
-  import type { Entry } from '@/components/entry/EntryCard.vue'
+  import type { PublicFeedItemModel } from '@/api/types/feed.types'
   import type { Collection } from '@/components/collection/CollectionCard.vue'
+  import type { Entry } from '@/components/entry/EntryCard.vue'
 
   import axios from 'axios'
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
@@ -391,9 +391,9 @@
       cacheFeedEntries(response.items)
       currentPage.value = response.page
       totalPages.value = response.totalPages
-    } catch (err: any) {
-      if (axios.isCancel(err) || err?.code === 'ERR_CANCELED') return
-      console.error('[EntryCardGrid] Failed to fetch feed:', err)
+    } catch (error_: any) {
+      if (axios.isCancel(error_) || error_?.code === 'ERR_CANCELED') return
+      console.error('[EntryCardGrid] Failed to fetch feed:', error_)
       error.value = true
     } finally {
       loading.value = false
@@ -422,9 +422,9 @@
       totalPages.value = response.totalPages
 
       done(hasMorePages.value ? 'ok' : 'empty')
-    } catch (err: any) {
-      if (axios.isCancel(err) || err?.code === 'ERR_CANCELED') return
-      console.error('[EntryCardGrid] Failed to load more:', err)
+    } catch (error_: any) {
+      if (axios.isCancel(error_) || error_?.code === 'ERR_CANCELED') return
+      console.error('[EntryCardGrid] Failed to load more:', error_)
       done('error')
     }
   }

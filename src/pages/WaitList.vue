@@ -1,7 +1,7 @@
 <template>
   <v-container class="waitlist-page" fluid>
     <v-row class="justify-center">
-      <v-col cols="12" md="8" lg="6" xl="5">
+      <v-col cols="12" lg="6" md="8" xl="5">
 
         <!-- Loading state while checking badge -->
         <div v-if="checking" class="text-center mt-16">
@@ -40,7 +40,7 @@
           </div>
 
           <!-- Chart still visible -->
-          <div v-if="showChart && labels.length" class="mt-10 mt-md-14 mb-6">
+          <div v-if="showChart && labels.length > 0" class="mt-10 mt-md-14 mb-6">
             <CxLineChartCard
               dataset-label="users"
               :height="300"
@@ -55,146 +55,146 @@
 
         <!-- Normal sign-up form -->
         <template v-else>
-        <!-- Hero: badge icon + clear title -->
-        <div class="text-center mt-6 mt-md-12 mb-6">
-          <div class="badge-circle mx-auto mb-6">
-            <v-img
-              height="48"
-              :src="blueBadgeSvg"
-              width="48"
+          <!-- Hero: badge icon + clear title -->
+          <div class="text-center mt-6 mt-md-12 mb-6">
+            <div class="badge-circle mx-auto mb-6">
+              <v-img
+                height="48"
+                :src="blueBadgeSvg"
+                width="48"
+              />
+            </div>
+
+            <h1 class="text-h4 text-md-h3 font-weight-bold mb-4">
+              {{ $t('WaitList.title') }}
+            </h1>
+
+            <p class="text-body-1 text-medium-emphasis mx-auto" style="max-width: 500px">
+              {{ $t('WaitList.enterEmailMessage') }}
+            </p>
+          </div>
+
+          <!-- What you get — 2 clear steps -->
+          <div class="mx-auto mb-6" style="max-width: 520px">
+            <div class="d-flex align-start mb-3">
+              <v-icon class="me-3 mt-1 flex-shrink-0" color="success" size="22">mdi-check-circle</v-icon>
+              <span class="text-body-1">{{ $t('WaitList.stepBadge') }}</span>
+            </div>
+            <div class="d-flex align-start">
+              <v-icon class="me-3 mt-1 flex-shrink-0" color="success" size="22">mdi-check-circle</v-icon>
+              <span class="text-body-1">{{ $t('WaitList.stepNotify') }}</span>
+            </div>
+          </div>
+
+          <!-- Form Card -->
+          <v-card class="mx-auto pa-6 pa-md-8" max-width="520" rounded="xl" variant="outlined">
+            <v-text-field
+              v-model="email"
+              class="mb-2"
+              :disabled="isLoading"
+              hide-details="auto"
+              :label="$t('Common.email')"
+              prepend-inner-icon="mdi-email-outline"
+              :rules="emailRules"
+              type="email"
+              variant="outlined"
+            />
+
+            <v-btn
+              v-if="!responseOk"
+              block
+              class="mt-4 text-none font-weight-bold"
+              color="primary"
+              :disabled="!formIsValid || isLoading"
+              :loading="isLoading"
+              rounded="lg"
+              size="x-large"
+              @click="joinClicked"
+            >
+              {{ $t('WaitList.getAccess') }}
+              <v-icon class="ms-2">mdi-check-decagram</v-icon>
+            </v-btn>
+
+            <v-btn
+              v-else
+              block
+              class="mt-4 text-none font-weight-bold"
+              color="success"
+              rounded="lg"
+              size="x-large"
+              @click="closeDialog"
+            >
+              <v-icon class="me-2">mdi-check-circle</v-icon>
+              {{ $t('Common.close') }}
+            </v-btn>
+
+            <!-- Status Messages -->
+            <v-fade-transition>
+              <v-alert
+                v-if="sendingRequest"
+                class="mt-4"
+                color="warning"
+                density="compact"
+                icon="mdi-timer-sand"
+                rounded="lg"
+                variant="tonal"
+              >
+                {{ $t('Common.pleaseWait') }}
+              </v-alert>
+            </v-fade-transition>
+
+            <v-fade-transition>
+              <v-alert
+                v-if="responseOk"
+                class="mt-4"
+                color="success"
+                density="compact"
+                icon="mdi-check-circle"
+                rounded="lg"
+                variant="tonal"
+              >
+                {{ $t('WaitList.registeredEmailWeWillKeepYouInformed') }}
+              </v-alert>
+            </v-fade-transition>
+
+            <v-fade-transition>
+              <v-alert
+                v-if="responseError"
+                class="mt-4"
+                color="error"
+                density="compact"
+                icon="mdi-alert-circle"
+                rounded="lg"
+                variant="tonal"
+              >
+                {{ $t('Common.operationFailedPleaseTryAgain') }}
+              </v-alert>
+            </v-fade-transition>
+
+            <VueHcaptcha
+              ref="captcha69"
+              :sitekey="sitekey"
+              size="invisible"
+              theme="dark"
+              @challenge-expired="onChallengeExpire"
+              @closed="onClosed"
+              @error="onError"
+              @verify="onVerify"
+            />
+          </v-card>
+
+          <!-- Chart Section -->
+          <div v-if="showChart && labels.length > 0" class="mt-10 mt-md-14 mb-6">
+            <CxLineChartCard
+              dataset-label="users"
+              :height="300"
+              :labels="labels"
+              :title="$t('WaitList.waitlistGrowth')"
+              :total="total"
+              :total-label="$t('WaitList.totalUsersOnWaitlist')"
+              :values="values"
             />
           </div>
-
-          <h1 class="text-h4 text-md-h3 font-weight-bold mb-4">
-            {{ $t('WaitList.title') }}
-          </h1>
-
-          <p class="text-body-1 text-medium-emphasis mx-auto" style="max-width: 500px">
-            {{ $t('WaitList.enterEmailMessage') }}
-          </p>
-        </div>
-
-        <!-- What you get — 2 clear steps -->
-        <div class="mx-auto mb-6" style="max-width: 520px">
-          <div class="d-flex align-start mb-3">
-            <v-icon class="me-3 mt-1 flex-shrink-0" color="success" size="22">mdi-check-circle</v-icon>
-            <span class="text-body-1">{{ $t('WaitList.stepBadge') }}</span>
-          </div>
-          <div class="d-flex align-start">
-            <v-icon class="me-3 mt-1 flex-shrink-0" color="success" size="22">mdi-check-circle</v-icon>
-            <span class="text-body-1">{{ $t('WaitList.stepNotify') }}</span>
-          </div>
-        </div>
-
-        <!-- Form Card -->
-        <v-card class="mx-auto pa-6 pa-md-8" max-width="520" rounded="xl" variant="outlined">
-          <v-text-field
-            v-model="email"
-            class="mb-2"
-            :disabled="isLoading"
-            hide-details="auto"
-            :label="$t('Common.email')"
-            prepend-inner-icon="mdi-email-outline"
-            :rules="emailRules"
-            type="email"
-            variant="outlined"
-          />
-
-          <v-btn
-            v-if="!responseOk"
-            block
-            class="mt-4 text-none font-weight-bold"
-            color="primary"
-            :disabled="!formIsValid || isLoading"
-            :loading="isLoading"
-            rounded="lg"
-            size="x-large"
-            @click="joinClicked"
-          >
-            {{ $t('WaitList.getAccess') }}
-            <v-icon class="ms-2">mdi-check-decagram</v-icon>
-          </v-btn>
-
-          <v-btn
-            v-else
-            block
-            class="mt-4 text-none font-weight-bold"
-            color="success"
-            rounded="lg"
-            size="x-large"
-            @click="closeDialog"
-          >
-            <v-icon class="me-2">mdi-check-circle</v-icon>
-            {{ $t('Common.close') }}
-          </v-btn>
-
-          <!-- Status Messages -->
-          <v-fade-transition>
-            <v-alert
-              v-if="sendingRequest"
-              class="mt-4"
-              color="warning"
-              density="compact"
-              icon="mdi-timer-sand"
-              rounded="lg"
-              variant="tonal"
-            >
-              {{ $t('Common.pleaseWait') }}
-            </v-alert>
-          </v-fade-transition>
-
-          <v-fade-transition>
-            <v-alert
-              v-if="responseOk"
-              class="mt-4"
-              color="success"
-              density="compact"
-              icon="mdi-check-circle"
-              rounded="lg"
-              variant="tonal"
-            >
-              {{ $t('WaitList.registeredEmailWeWillKeepYouInformed') }}
-            </v-alert>
-          </v-fade-transition>
-
-          <v-fade-transition>
-            <v-alert
-              v-if="responseError"
-              class="mt-4"
-              color="error"
-              density="compact"
-              icon="mdi-alert-circle"
-              rounded="lg"
-              variant="tonal"
-            >
-              {{ $t('Common.operationFailedPleaseTryAgain') }}
-            </v-alert>
-          </v-fade-transition>
-
-          <VueHcaptcha
-            ref="captcha69"
-            :sitekey="sitekey"
-            size="invisible"
-            theme="dark"
-            @challenge-expired="onChallengeExpire"
-            @closed="onClosed"
-            @error="onError"
-            @verify="onVerify"
-          />
-        </v-card>
-
-        <!-- Chart Section -->
-        <div v-if="showChart && labels.length" class="mt-10 mt-md-14 mb-6">
-          <CxLineChartCard
-            dataset-label="users"
-            :height="300"
-            :labels="labels"
-            :title="$t('WaitList.waitlistGrowth')"
-            :total="total"
-            :total-label="$t('WaitList.totalUsersOnWaitlist')"
-            :values="values"
-          />
-        </div>
 
         </template>
 

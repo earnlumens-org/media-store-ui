@@ -14,8 +14,8 @@ import type {
   CollectionPageModel,
 } from '../types/collection.types'
 
-import { getCdnBaseUrl } from '@/config/env'
 import type { ProfileBadge } from '@/lib/profileBadge'
+import { getCdnBaseUrl } from '@/config/env'
 
 function r2KeyToCdnUrl (r2Key?: string): string | undefined {
   if (!r2Key) {
@@ -25,7 +25,9 @@ function r2KeyToCdnUrl (r2Key?: string): string | undefined {
 }
 
 function mapProfileBadge (badge?: string): ProfileBadge | undefined {
-  if (badge === 'u1' || badge === 'u2') return badge
+  if (badge === 'u1' || badge === 'u2') {
+    return badge
+  }
   return undefined
 }
 

@@ -249,11 +249,7 @@
       dialogOpen.value = false
     } catch (error_) {
       const msg = error_ instanceof Error ? error_.message : ''
-      if (msg === 'WALLET_NOT_ACTIVATED') {
-        error.value = t('Preview.walletNotActivated')
-      } else {
-        error.value = msg || t('Preview.paymentFailed')
-      }
+      error.value = msg === 'WALLET_NOT_ACTIVATED' ? t('Preview.walletNotActivated') : msg || t('Preview.paymentFailed')
     } finally {
       isProcessing.value = false
     }

@@ -61,8 +61,8 @@
   import { useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
-  import { usePurchasesStore } from '@/stores/purchases'
   import { useAppStore } from '@/stores/app'
+  import { usePurchasesStore } from '@/stores/purchases'
 
   import EntryPreviewContent from './EntryPreviewContent.vue'
 

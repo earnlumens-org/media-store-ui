@@ -54,19 +54,19 @@
 
             <v-row>
               <v-col
-                v-for="t in filteredThemes"
-                :key="t.key"
+                v-for="theme in filteredThemes"
+                :key="theme.key"
                 cols="12"
                 lg="3"
                 md="4"
                 sm="6"
               >
                 <ThemeCard
-                  :colors="t.colors"
-                  :description="$t('Themes.themeDescription.' + t.key)"
-                  :name="t.name"
-                  :selected="t.key === appStore.themeName"
-                  :theme-key="t.key"
+                  :colors="theme.colors"
+                  :description="$t('Themes.themeDescription.' + theme.key)"
+                  :name="theme.name"
+                  :selected="theme.key === appStore.themeName"
+                  :theme-key="theme.key"
                   @apply="applyTheme"
                 />
               </v-col>

@@ -17,7 +17,9 @@ import type {
 import { getCdnBaseUrl } from '@/config/env'
 
 function r2KeyToCdnUrl (r2Key?: string): string | undefined {
-  if (!r2Key) return undefined
+  if (!r2Key) {
+    return undefined
+  }
   return `${getCdnBaseUrl()}/${r2Key}`
 }
 
@@ -42,7 +44,7 @@ export function mapPurchasedEntryDtoToModel (dto: PurchasedEntryDto): PurchasedE
 
 export function mapPurchasedEntryPageDtoToModel (dto: PurchasedEntryPageDto): PurchasedEntryPageModel {
   return {
-    items: dto.content.map(mapPurchasedEntryDtoToModel),
+    items: dto.content.map(item => mapPurchasedEntryDtoToModel(item)),
     page: dto.page,
     size: dto.size,
     totalElements: dto.totalElements,
@@ -69,7 +71,7 @@ export function mapPurchasedCollectionDtoToModel (dto: PurchasedCollectionDto): 
 
 export function mapPurchasedCollectionPageDtoToModel (dto: PurchasedCollectionPageDto): PurchasedCollectionPageModel {
   return {
-    items: dto.content.map(mapPurchasedCollectionDtoToModel),
+    items: dto.content.map(item => mapPurchasedCollectionDtoToModel(item)),
     page: dto.page,
     size: dto.size,
     totalElements: dto.totalElements,

@@ -304,7 +304,7 @@
     badgeLoading.value = true
     try {
       const res = await api.badges.me()
-      if (res.activeBadge && res.assignments.length) {
+      if (res.activeBadge && res.assignments.length > 0) {
         const active = res.assignments.find(a => a.status === 'ACTIVE') ?? res.assignments[0]
         activeBadge.value = active ?? null
         activeBadgeSrc.value = getProfileBadgeSrc(res.activeBadge as any)

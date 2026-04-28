@@ -14,13 +14,31 @@
         mandatory
         selected-class="text-primary"
       >
-        <v-chip :disabled="loading" filter size="small" value="all" variant="tonal">
+        <v-chip
+          :disabled="loading"
+          filter
+          size="small"
+          value="all"
+          variant="tonal"
+        >
           {{ $t('Common.all') }}
         </v-chip>
-        <v-chip :disabled="loading" filter size="small" value="free" variant="tonal">
+        <v-chip
+          :disabled="loading"
+          filter
+          size="small"
+          value="free"
+          variant="tonal"
+        >
           {{ $t('Common.free') }}
         </v-chip>
-        <v-chip :disabled="loading" filter size="small" value="premium" variant="tonal">
+        <v-chip
+          :disabled="loading"
+          filter
+          size="small"
+          value="premium"
+          variant="tonal"
+        >
           <v-icon size="14" start>mdi-lock</v-icon>
           {{ $t('Common.premium') }}
         </v-chip>
@@ -138,8 +156,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { FeedPageModel, FeedRequestParams } from '@/api/api'
-  import type { FeedItemModel } from '@/api/api'
+  import type { FeedItemModel, FeedPageModel, FeedRequestParams } from '@/api/api'
 
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { onBeforeRouteLeave, useRoute } from 'vue-router'

@@ -308,7 +308,7 @@ export async function getStudioItems (
   const dto = await apiRequest<StudioPageDto>(`/api/entries/mine/studio?${qs}`)
 
   return {
-    items: dto.content.map(studioDtoToModel),
+    items: dto.content.map(item => studioDtoToModel(item)),
     page: dto.page,
     size: dto.size,
     totalElements: dto.totalElements,
