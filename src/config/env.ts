@@ -4,9 +4,9 @@
  * Priority:
  * 1. VITE_API_BASE_URL env var (if set, overrides everything)
  * 2. Runtime hostname detection:
- *    - localhost / 127.0.0.1      -> http://localhost:8080
- *    - app-dev.earnlumens.org     -> https://api-dev.earnlumens.org
- *    - earnlumens.org / *.earnlumens.org (prod) -> SAME ORIGIN
+ *    - localhost / 127.0.0.1                       -> http://localhost:8080
+ *    - app-dev.earnlumens.org / *.app-dev.earnlumens.org -> https://api-dev.earnlumens.org
+ *    - earnlumens.org / *.earnlumens.org (prod)   -> SAME ORIGIN
  *
  * Why same-origin in production:
  *   The tenant edge Worker rewrites *.earnlumens.org/api/* to the backend
@@ -92,7 +92,14 @@ function detectEnvironment (): Environment {
     return 'local'
   }
 
-  if (hostname === 'app-dev.earnlumens.org') {
+  // Dev tunnel covers both the bare host and any tenant subdomain under it
+  // (e.g. acme.app-dev.earnlumens.org). The wildcard CNAME → cloudflared
+  // tunnel routes every *.app-dev.earnlumens.org request to the local SPA,
+  // so they all share the tunnelDev API + CDN endpoints.
+  if (
+    hostname === 'app-dev.earnlumens.org'
+    || hostname.endsWith('.app-dev.earnlumens.org')
+  ) {
     return 'tunnelDev'
   }
 
@@ -103,6 +110,32 @@ function detectEnvironment (): Environment {
 
   // Fallback for unknown hostnames (e.g., preview deploys) -> production API
   return 'production'
+}
+
+/**
+ * Returns the current hostname in both window and Web Worker contexts.
+ */
+function currentHostname (): string {
+  if (typeof globalThis !== 'undefined' && 'location' in globalThis) {
+    return (globalThis as { location: { hostname: string } }).location.hostname
+  }
+  if (typeof self !== 'undefined' && 'location' in self) {
+    return self.location.hostname
+  }
+  return ''
+}
+
+/**
+ * True when the SPA is running on a tenant subdomain (not the bare apex /
+ * dev host). Used to decide whether to call the API/CDN same-origin.
+ */
+function isOnTenantSubdomain (): boolean {
+  const host = currentHostname().toLowerCase()
+  if (host.endsWith('.app-dev.earnlumens.org') && host !== 'app-dev.earnlumens.org') return true
+  if (host.endsWith('.earnlumens.org')
+      && host !== 'earnlumens.org'
+      && host !== 'app-dev.earnlumens.org') return true
+  return false
 }
 
 /**
@@ -118,17 +151,26 @@ function resolveApiBaseUrl (): string {
 
   // Runtime hostname-based detection
   const env = detectEnvironment()
-  // In production every tenant talks to its own origin; the edge Worker
-  // routes /api/* to the backend behind the scenes. This keeps cookies
-  // host-only and avoids CORS entirely.
-  const baseUrl = env === 'production' ? currentOrigin() : API_URLS[env]
+  // production  : every tenant talks to its own origin; the edge Worker
+  //               routes /api/* to the backend behind the scenes.
+  // tunnelDev   : tenant subdomains (e.g. acme.app-dev.earnlumens.org)
+  //               also call same-origin so cloudflared can route /api/*
+  //               to the local backend with the right X-Forwarded-Host.
+  //               Bare app-dev keeps calling api-dev.earnlumens.org so
+  //               the existing default-tenant flow stays unchanged.
+  // local       : http://localhost:8080.
+  let baseUrl: string
+  if (env === 'production') {
+    baseUrl = currentOrigin()
+  } else if (env === 'tunnelDev' && isOnTenantSubdomain()) {
+    baseUrl = currentOrigin()
+  } else {
+    baseUrl = API_URLS[env]
+  }
 
   // Dev-only logging to verify correct resolution
   if (import.meta.env.DEV) {
-    const hostname = typeof globalThis !== 'undefined' && 'location' in globalThis
-      ? (globalThis as { location: { hostname: string } }).location.hostname
-      : 'unknown'
-    console.info(`[env] API base URL resolved: ${baseUrl} (env: ${env}, hostname: ${hostname})`)
+    console.info(`[env] API base URL resolved: ${baseUrl} (env: ${env}, hostname: ${currentHostname()})`)
   }
 
   return baseUrl

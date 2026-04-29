@@ -23,14 +23,20 @@
    * static, exact-match list of redirect URIs — they do NOT support wildcard
    * subdomains. To keep the registration list short and to avoid registering
    * every tenant subdomain on every provider, the entire OAuth handshake is
-   * funnelled through the apex (earnlumens.org). The originating tenant is
-   * passed as a query parameter; the backend stores it in its session and the
-   * SuccessHandler redirects the browser back to that tenant's
-   * /oauth2/callback once the handshake completes.
+   * funnelled through a single bounce host per environment:
    *
-   * On localhost / app-dev (single-tenant developer envs) we keep the
-   * direct-to-current-origin behaviour so local development doesn't depend on
-   * the production apex.
+   *   prod  -> https://earnlumens.org/oauth2/authorization/x?tenant=<sub>
+   *   dev   -> https://api-dev.earnlumens.org/oauth2/authorization/x?tenant=<sub>
+   *
+   * The originating tenant is passed as a query parameter; the backend
+   * stores it in its session and the SuccessHandler redirects the browser
+   * back to that tenant's /oauth2/callback once the handshake completes
+   * (using `mediastore.tenant.root-domain` to pick the correct apex per
+   * environment).
+   *
+   * On localhost (single-tenant developer envs) we keep the
+   * direct-to-current-origin behaviour so local development doesn't depend
+   * on the cloudflared tunnel.
    */
   function buildOAuthUrl (): string {
     const hostname = globalThis.location.hostname
@@ -43,6 +49,19 @@
     // Single-tenant dev tunnel — bounce the OAuth flow through itself.
     if (hostname === 'app-dev.earnlumens.org') {
       return `${getApiBaseUrl()}/oauth2/authorization/x`
+    }
+
+    // Tenant subdomain on the dev tunnel: bounce through the dev API host
+    // (NOT the prod apex) so we don't burn prod OAuth credentials in local
+    // testing and so the SuccessHandler reads the dev root-domain when
+    // redirecting back to <tenant>.app-dev.earnlumens.org.
+    if (hostname.endsWith('.app-dev.earnlumens.org')) {
+      const sub = hostname.slice(0, -'.app-dev.earnlumens.org'.length)
+      if (sub === '' || sub.includes('.')) {
+        return 'https://api-dev.earnlumens.org/oauth2/authorization/x'
+      }
+      const params = new URLSearchParams({ tenant: sub })
+      return `https://api-dev.earnlumens.org/oauth2/authorization/x?${params.toString()}`
     }
 
     // Production: send everything through the apex. If we're already on
