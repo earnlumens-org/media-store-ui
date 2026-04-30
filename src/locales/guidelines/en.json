@@ -3,7 +3,16 @@
     "title": "Content Guidelines for Creators",
     "subtitle": "What you can publish on EarnLumens and what we avoid",
     "lastUpdated": "Last updated: {date}",
-    "intro": "EarnLumens is a financial education platform with a focus on the Stellar ecosystem. We want you to publish freely: these rules exist only to prevent fraud, harmful content, and spam, not to limit your creativity. If your content is honest, valuable, and not misleading, it will almost always be approved.",
+    "intro": "EarnLumens is a financial education platform with a focus on the Stellar ecosystem. Two layers of rules apply to anything you publish: a non-negotiable platform-wide layer (fraud, harm, illegal content) that is the same on every tenant, and a tenant-specific layer that depends on the marketplace you publish in.",
+    "platformSection": {
+      "heading": "Platform-wide rules",
+      "body": "These rules apply to every tenant on EarnLumens, including this one. They cannot be relaxed by individual marketplaces and exist to keep the community safe."
+    },
+    "tenantSection": {
+      "heading": "Tenant-specific rules",
+      "body": "On top of the platform rules above, each tenant may add its own publishing notes — for example which topics it focuses on, expected tone, or specific formats it accepts.",
+      "placeholder": "This tenant has not added specific publishing notes yet. Only the platform-wide rules above apply here."
+    },
     "forCreators": {
       "heading": "For Creators",
       "sections": [
@@ -25,8 +34,9 @@
           "items": [
             "Ponzi schemes, pyramid schemes, pump and dump, rug pulls, or guaranteed-return promises",
             "Paid trading signals, buy/sell recommendations with specific amounts, or personalized financial advice",
-            "Phishing, fake airdrops, requests for private keys, seed phrases, or credentials",
-            "Impersonation of public figures, projects, or EarnLumens / SDF itself",
+            "Phishing, fake airdrops, requests for private keys, seed phrases, or credentials, wallet drainers, look-alike domains imitating Freighter / xBull / LOBSTR / SDF / exchanges",
+            "Impersonation or deepfakes of public figures, projects, or EarnLumens / SDF — including synthesized audio or video that falsely suggests an endorsement",
+            "Glorification of suicide or self-harm, methods or instructions for self-injury, pro-anorexia or pro-bulimia content (educational and recovery-oriented framing is allowed)",
             "Hate speech, harassment, discrimination, or incitement to violence",
             "Explicit sexual content, graphic violence, or material involving minors",
             "Clearly copyrighted material without authorization (music, video, books, software)",

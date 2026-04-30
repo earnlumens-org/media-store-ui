@@ -742,6 +742,7 @@
       "EXTREME_VIOLENCE": "過激な暴力",
       "ILLEGAL": "違法コンテンツ",
       "CSAM": "児童搮取（CSAM）",
+      "SELF_HARM": "自傷行為や自殺に関するコンテンツ",
       "HATE_SPEECH": "ヘイトスピーチ",
       "NSFW": "性的コンテンツ（NSFW）",
       "SPAM": "スパム",

@@ -3,7 +3,16 @@
     "title": "Guía de Contenido para Creadores",
     "subtitle": "Qué puedes publicar en EarnLumens y qué evitamos",
     "lastUpdated": "Última actualización: {date}",
-    "intro": "EarnLumens es una plataforma de educación financiera con foco en el ecosistema Stellar. Queremos que publiques con libertad: estas reglas existen únicamente para evitar fraudes, contenido dañino y spam, no para limitar tu creatividad. Si tu contenido es honesto, aporta valor y no engaña, casi siempre será aprobado.",
+    "intro": "EarnLumens es una plataforma de educación financiera con foco en el ecosistema Stellar. A todo lo que publiques se le aplican dos capas de reglas: una capa global, no negociable, igual en todos los tenants (fraude, daño, contenido ilegal), y una capa específica de cada tenant que depende del marketplace en el que publicas.",
+    "platformSection": {
+      "heading": "Reglas globales de la plataforma",
+      "body": "Estas reglas se aplican a todos los tenants de EarnLumens, incluido este. No pueden flexibilizarse por marketplace y existen para mantener segura a la comunidad."
+    },
+    "tenantSection": {
+      "heading": "Reglas específicas del tenant",
+      "body": "Además de las reglas globales de arriba, cada tenant puede sumar sus propias notas de publicación — por ejemplo qué temas le interesan, el tono esperado o los formatos específicos que acepta.",
+      "placeholder": "Este tenant todavía no agregó notas específicas. Aquí solo se aplican las reglas globales de arriba."
+    },
     "forCreators": {
       "heading": "Para Creadores",
       "sections": [
@@ -25,8 +34,9 @@
           "items": [
             "Esquemas Ponzi, piramidales, pump & dump, rug pulls o promesas de retorno garantizado",
             "Señales de trading pagas, recomendaciones de compra/venta con cifras concretas o asesoramiento financiero personalizado",
-            "Phishing, airdrops falsos, solicitudes de claves privadas, frases semilla o credenciales",
-            "Suplantación de personas públicas, proyectos o de la propia EarnLumens / SDF",
+            "Phishing, airdrops falsos, solicitudes de claves privadas / frases semilla / credenciales, wallet drainers, dominios que imitan a Freighter / xBull / LOBSTR / SDF / exchanges",
+            "Suplantación o deepfakes de figuras públicas, proyectos o de la propia EarnLumens / SDF — incluido audio o video sintetizado que sugiera falsamente un respaldo",
+            "Apología del suicidio o la autolesión, métodos o instrucciones para hacerse daño, contenido pro-anorexia o pro-bulimia (el enfoque educativo y de recuperación sí está permitido)",
             "Discurso de odio, acoso, discriminación o incitación a la violencia",
             "Contenido sexual explícito, violencia gráfica o material que involucre a menores",
             "Material claramente protegido por copyright sin autorización (música, video, libros, software)",

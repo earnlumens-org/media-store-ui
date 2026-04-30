@@ -18,6 +18,7 @@ export const REPORT_REASONS = [
   { value: 'EXTREME_VIOLENCE', severity: 'HIGH', icon: 'mdi-skull' },
   { value: 'ILLEGAL', severity: 'HIGH', icon: 'mdi-gavel' },
   { value: 'CSAM', severity: 'HIGH', icon: 'mdi-shield-alert' },
+  { value: 'SELF_HARM', severity: 'HIGH', icon: 'mdi-heart-broken' },
   // Medium severity
   { value: 'HATE_SPEECH', severity: 'MEDIUM', icon: 'mdi-message-alert' },
   { value: 'NSFW', severity: 'MEDIUM', icon: 'mdi-eye-off' },
