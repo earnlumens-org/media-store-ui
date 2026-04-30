@@ -49,3 +49,34 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
   }
   return { kind: 'platform' }
 }
+
+export interface TenantGuidelineNotes {
+  tenantId: string
+  /** English-only publishing notes set by the tenant admin. Null when unset. */
+  notes: string | null
+}
+
+/**
+ * Fetches the current tenant's optional publishing notes for the public
+ * /guidelines page. Returns `{ notes: null }` (never throws) on any failure
+ * so the page can still render the platform-wide rules.
+ */
+export async function fetchTenantGuidelineNotes (): Promise<TenantGuidelineNotes> {
+  try {
+    const response = await fetch(apiUrl('/public/guidelines/tenant-notes'), {
+      method: 'GET',
+      credentials: 'omit',
+      headers: { Accept: 'application/json' },
+    })
+    if (!response.ok) {
+      return { tenantId: '', notes: null }
+    }
+    const body = await response.json() as { tenantId?: string, notes?: string | null }
+    return {
+      tenantId: typeof body.tenantId === 'string' ? body.tenantId : '',
+      notes: typeof body.notes === 'string' && body.notes.length > 0 ? body.notes : null,
+    }
+  } catch {
+    return { tenantId: '', notes: null }
+  }
+}

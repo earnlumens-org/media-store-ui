@@ -80,7 +80,18 @@
       </div>
 
       <v-card class="mb-4 pa-5 pa-md-6" elevation="0" variant="outlined">
-        <div class="d-flex align-start ga-3 text-body-2 text-medium-emphasis">
+        <!--
+          Tenant publishing notes are intentionally English-only and rendered
+          verbatim. We accept new lines as paragraph breaks via white-space:
+          pre-wrap so admins can use simple line breaks without needing
+          markdown. No HTML rendering — the field is plain text and we trust
+          tenant admins not to need (or be able to inject) markup.
+        -->
+        <div
+          v-if="tenantNotes"
+          class="text-body-2 tenant-notes-text"
+        >{{ tenantNotes }}</div>
+        <div v-else class="d-flex align-start ga-3 text-body-2 text-medium-emphasis">
           <v-icon class="mt-px" color="medium-emphasis" icon="mdi-information-outline" size="20" />
           <span>{{ tenantPlaceholder }}</span>
         </div>
@@ -102,16 +113,25 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue'
+  import { computed, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useGuidelinesContent } from '@/lib/useGuidelinesContent'
   import { useTenantStore } from '@/stores/tenant'
+  import { fetchTenantGuidelineNotes } from '@/api/modules/tenant.api'
 
   const { t, te, tm } = useI18n()
   const { loading, error } = useGuidelinesContent()
   const tenantStore = useTenantStore()
 
   const lastUpdated = '2026-04-30'
+
+  // Tenant-specific publishing notes (English-only, set by the tenant admin
+  // in the admin panel). When null, the page falls back to the placeholder.
+  // We intentionally do NOT block render on this fetch — the platform-wide
+  // rules above are always shown immediately; the tenant card just swaps
+  // from placeholder to notes when the response arrives.
+  const tenantNotes = ref<string | null>(null)
+  fetchTenantGuidelineNotes().then(r => { tenantNotes.value = r.notes })
 
   interface GuidelineSection {
     heading: string
@@ -166,6 +186,15 @@
 
   const creatorSections = computed(() => resolveSections('Guidelines.forCreators.sections'))
 </script>
+
+<style scoped>
+  .tenant-notes-text {
+    /* Preserve the line breaks the tenant admin typed in the textarea
+       without requiring markdown rendering. */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+</style>
 
 <route lang="json">
 {
