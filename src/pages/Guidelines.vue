@@ -120,8 +120,9 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue'
+  import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
+  import { useRoute } from 'vue-router'
   import { useGuidelinesContent } from '@/lib/useGuidelinesContent'
   import { useTenantStore } from '@/stores/tenant'
   import { fetchTenantGuidelineNotes } from '@/api/modules/tenant.api'
@@ -129,6 +130,7 @@
   const { t, te, tm } = useI18n()
   const { loading, error } = useGuidelinesContent()
   const tenantStore = useTenantStore()
+  const route = useRoute()
 
   const lastUpdated = '2026-04-30'
 
@@ -139,6 +141,25 @@
   // from placeholder to notes when the response arrives.
   const tenantNotes = ref<string | null>(null)
   fetchTenantGuidelineNotes().then(r => { tenantNotes.value = r.notes })
+
+  // Hash deep-linking (e.g. /guidelines#tenant-specific-rules from the admin
+  // panel preview button). The router's scrollBehavior already does an
+  // initial 300ms-delayed scroll, but the tenant section depends on two
+  // async signals (i18n loading + tenant notes fetch) so we re-scroll once
+  // both settle. Without this the user lands on top of the page on first
+  // navigation and only sees the anchor after a manual reload.
+  function scrollToHash () {
+    if (!route.hash) return
+    nextTick(() => {
+      const el = document.querySelector(route.hash)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    })
+  }
+
+  onMounted(scrollToHash)
+  watch([loading, tenantNotes], scrollToHash)
 
   interface GuidelineSection {
     heading: string

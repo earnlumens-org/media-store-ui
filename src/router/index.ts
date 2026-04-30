@@ -17,10 +17,22 @@ export function isPopNavigation (): boolean {
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: setupLayouts(routes),
-  scrollBehavior (_to, _from, savedPosition) {
+  scrollBehavior (to, _from, savedPosition) {
     // Back/forward → components restore scroll after data loads
     if (savedPosition) {
       return false
+    }
+    // Hash navigation (e.g. /guidelines#tenant-specific-rules) → scroll to
+    // the element. We delay 300ms so async page content (i18n, public API
+    // fetches, etc.) has a chance to render before we look up the element;
+    // pages with longer fetches additionally re-scroll themselves once
+    // their data resolves (see Guidelines.vue).
+    if (to.hash) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve({ el: to.hash, behavior: 'smooth', top: 80 })
+        }, 300)
+      })
     }
     // New navigation → scroll to top
     return { top: 0 }
