@@ -67,7 +67,14 @@
       <!-- =============================== -->
       <!-- Layer 2: tenant-specific rules  -->
       <!-- =============================== -->
-      <div class="d-flex align-center ga-3 mt-8 mb-3">
+      <!--
+        id="tenant-specific-rules" is the deep-link target used by the admin
+        UI's "Tenant Publishing Notes" editor (admin-ui/src/pages/
+        moderation-settings.vue). When the tenant owner clicks "Preview on
+        storefront" we land them right here. Do not rename without updating
+        the admin link.
+      -->
+      <div id="tenant-specific-rules" class="d-flex align-center ga-3 mt-8 mb-3">
         <v-icon color="secondary" icon="mdi-store-cog" size="28" />
         <div>
           <h2 class="text-h5 font-weight-bold mb-0">
