@@ -3,10 +3,9 @@
     v-model="dialog"
     :fullscreen="appStore.mobileView"
     :max-width="appStore.mobileView ? undefined : 480"
-    persistent
     scrollable
   >
-    <v-card class="verification-card mx-auto" rounded="xl">
+    <v-card class="verification-card mx-auto" rounded="lg">
       <!-- Glow accent -->
       <div class="card-glow" />
 
