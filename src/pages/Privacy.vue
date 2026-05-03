@@ -16,7 +16,7 @@
     <template v-else>
       <v-card class="pa-6 pa-md-8" elevation="1">
         <h1 class="text-h4 font-weight-bold mb-2">
-          {{ $t('Legal.termsTitle') }}
+          {{ $t('Legal.privacyTitle') }}
         </h1>
 
         <p class="text-caption text-medium-emphasis mb-6">
@@ -24,10 +24,10 @@
         </p>
 
         <p class="text-body-1 mb-6">
-          {{ $t('Legal.terms.intro') }}
+          {{ $t('Legal.privacy.intro') }}
         </p>
 
-        <template v-for="(section, idx) in termsSections" :key="idx">
+        <template v-for="(section, idx) in privacySections" :key="idx">
           <h2 class="text-h6 font-weight-bold mt-6 mb-2">
             {{ section.heading }}
           </h2>
@@ -37,13 +37,13 @@
         </template>
       </v-card>
 
-      <!-- Cross-link to Privacy + back -->
+      <!-- Cross-link to Terms + back -->
       <div class="d-flex flex-wrap justify-space-between align-center mt-8 ga-2">
         <v-btn color="primary" prepend-icon="mdi-arrow-left" variant="text" @click="$router.back()">
           {{ $t('Common.goBack') }}
         </v-btn>
-        <v-btn append-icon="mdi-shield-lock-outline" color="primary" to="/privacy" variant="text">
-          {{ $t('Common.privacy') }}
+        <v-btn append-icon="mdi-file-document-outline" color="primary" to="/terms" variant="text">
+          {{ $t('Common.terms') }}
         </v-btn>
       </div>
     </template>
@@ -65,8 +65,8 @@
     body: string
   }
 
-  const termsSections = computed<LegalSection[]>(() => {
-    const raw = tm('Legal.terms.sections')
+  const privacySections = computed<LegalSection[]>(() => {
+    const raw = tm('Legal.privacy.sections')
     if (!Array.isArray(raw)) return []
     return raw.map((s: Record<string, unknown>) => ({
       heading: t(String(s.heading ?? '')),
@@ -77,7 +77,7 @@
 
 <route lang="json">
 {
-  "path": "/terms",
+  "path": "/privacy",
   "meta": {
     "requiresAuth": false
   }

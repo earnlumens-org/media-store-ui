@@ -41,10 +41,26 @@
 
         <v-card-text class="text-center">
           <p class="text-disabled text-caption">
-            This site is under development. To be notified when it's ready, join the
-            <span class="text-primary text-decoration-none cursor-pointer" style="cursor: pointer;" @click="goToWaitlist">
-              waitlist
-            </span>
+            <i18n-t keypath="Common.loginAcceptTerms" scope="global" tag="span">
+              <template #terms>
+                <router-link
+                  class="text-primary text-decoration-none"
+                  to="/terms"
+                  @click="closeDialog"
+                >
+                  {{ $t('Common.terms') }}
+                </router-link>
+              </template>
+              <template #privacy>
+                <router-link
+                  class="text-primary text-decoration-none"
+                  to="/privacy"
+                  @click="closeDialog"
+                >
+                  {{ $t('Common.privacy') }}
+                </router-link>
+              </template>
+            </i18n-t>
           </p>
         </v-card-text>
       </v-card>
@@ -55,11 +71,9 @@
 <script setup lang="ts">
   import { storeToRefs } from 'pinia'
   import { ref, watch } from 'vue'
-  import { useRouter } from 'vue-router'
   import CxXButton from '@/components/login/CxXButton.vue'
   import { useAppStore } from '@/stores/app'
 
-  const router = useRouter()
   const appStore = useAppStore()
   const { mobileView } = storeToRefs(appStore)
 
@@ -75,11 +89,6 @@
 
   function closeDialog () {
     dialog.value = false
-  }
-
-  function goToWaitlist () {
-    dialog.value = false
-    router.push('/waitlist')
   }
 
   function showDialog () {

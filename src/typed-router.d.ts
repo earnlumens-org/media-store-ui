@@ -39,6 +39,7 @@ declare module 'vue-router/auto-routes' {
     '/listen/AudioRecommendationsList': RouteRecordInfo<'/listen/AudioRecommendationsList', '/listen/AudioRecommendationsList', Record<never, never>, Record<never, never>>,
     'AuthXCallback': RouteRecordInfo<'AuthXCallback', '/oauth2/callback', Record<never, never>, Record<never, never>>,
     '/preview/[id]': RouteRecordInfo<'/preview/[id]', '/preview/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    '/Privacy': RouteRecordInfo<'/Privacy', '/privacy', Record<never, never>, Record<never, never>>,
     '/Purchased': RouteRecordInfo<'/Purchased', '/purchased', Record<never, never>, Record<never, never>>,
     '/read/[id]': RouteRecordInfo<'/read/[id]', '/read/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/read/ReadRecommendationsList': RouteRecordInfo<'/read/ReadRecommendationsList', '/read/ReadRecommendationsList', Record<never, never>, Record<never, never>>,
@@ -149,6 +150,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/preview/[id].vue': {
       routes: '/preview/[id]'
+      views: never
+    }
+    'src/pages/Privacy.vue': {
+      routes: '/Privacy'
       views: never
     }
     'src/pages/Purchased.vue': {
