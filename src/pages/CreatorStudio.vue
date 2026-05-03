@@ -401,6 +401,14 @@
                 <v-icon v-else size="14" start>{{ getTranscodingIcon(item.transcodingStatus) }}</v-icon>
                 {{ getTranscodingLabel(item.transcodingStatus) }}
               </v-chip>
+              <!-- Approved-but-not-published hint: clarifies that moderation passed
+                   but the entry is still hidden from the public catalog. -->
+              <div
+                v-if="item.status === 'APPROVED' && !isItemTranscoding(item)"
+                class="text-caption text-medium-emphasis mt-1"
+              >
+                {{ t('CreatorStudio.approvedHint') }}
+              </div>
             </td>
 
             <!-- Type -->
@@ -454,21 +462,28 @@
                   <template v-if="item.kind === 'entry' && item._entry">
                     <v-list-item
                       v-if="item.status !== 'IN_REVIEW'"
+                      :disabled="isItemTranscoding(item)"
                       prepend-icon="mdi-pencil-outline"
+                      :title="isItemTranscoding(item) ? t('CreatorStudio.actions.transcodingDisabled') : ''"
                       @click="openEditDialog(item._entry)"
                     >
                       <v-list-item-title>{{ t('CreatorStudio.actions.edit') }}</v-list-item-title>
                     </v-list-item>
                     <v-list-item
                       v-if="item.status === 'DRAFT'"
+                      :disabled="isItemTranscoding(item)"
                       prepend-icon="mdi-send-outline"
+                      :title="isItemTranscoding(item) ? t('CreatorStudio.actions.transcodingDisabled') : ''"
                       @click="submitForReview(item._entry)"
                     >
                       <v-list-item-title>{{ t('CreatorStudio.actions.submitReview') }}</v-list-item-title>
                     </v-list-item>
                     <v-list-item
                       v-if="item.status === 'APPROVED'"
+                      :disabled="isItemTranscoding(item)"
                       prepend-icon="mdi-publish"
+                      :subtitle="t('CreatorStudio.actions.publishSubtitle')"
+                      :title="isItemTranscoding(item) ? t('CreatorStudio.actions.transcodingDisabled') : ''"
                       @click="publishEntry(item._entry)"
                     >
                       <v-list-item-title>{{ t('CreatorStudio.actions.publish') }}</v-list-item-title>
@@ -641,6 +656,12 @@
                 {{ item.priceCurrency === 'USD' ? `$${item.priceUsd} USD` : `${item.priceXlm} XLM` }}
               </span>
             </div>
+            <div
+              v-if="item.status === 'APPROVED' && !isItemTranscoding(item)"
+              class="text-caption text-medium-emphasis mt-1"
+            >
+              {{ t('CreatorStudio.approvedHint') }}
+            </div>
             <div class="text-caption text-medium-emphasis mt-1">
               {{ formatDate(item.createdAt) }}
             </div>
@@ -674,21 +695,28 @@
                 <template v-if="item.kind === 'entry' && item._entry">
                   <v-list-item
                     v-if="item.status !== 'IN_REVIEW'"
+                    :disabled="isItemTranscoding(item)"
                     prepend-icon="mdi-pencil-outline"
+                    :title="isItemTranscoding(item) ? t('CreatorStudio.actions.transcodingDisabled') : ''"
                     @click="openEditDialog(item._entry)"
                   >
                     <v-list-item-title>{{ t('CreatorStudio.actions.edit') }}</v-list-item-title>
                   </v-list-item>
                   <v-list-item
                     v-if="item.status === 'DRAFT'"
+                    :disabled="isItemTranscoding(item)"
                     prepend-icon="mdi-send-outline"
+                    :title="isItemTranscoding(item) ? t('CreatorStudio.actions.transcodingDisabled') : ''"
                     @click="submitForReview(item._entry)"
                   >
                     <v-list-item-title>{{ t('CreatorStudio.actions.submitReview') }}</v-list-item-title>
                   </v-list-item>
                   <v-list-item
                     v-if="item.status === 'APPROVED'"
+                    :disabled="isItemTranscoding(item)"
                     prepend-icon="mdi-publish"
+                    :subtitle="t('CreatorStudio.actions.publishSubtitle')"
+                    :title="isItemTranscoding(item) ? t('CreatorStudio.actions.transcodingDisabled') : ''"
                     @click="publishEntry(item._entry)"
                   >
                     <v-list-item-title>{{ t('CreatorStudio.actions.publish') }}</v-list-item-title>
@@ -1445,6 +1473,16 @@
     return status === 'PENDING' || status === 'DISPATCHED' || status === 'PROCESSING'
   }
 
+  /**
+   * True when the entry is a video whose latest transcoding job is still
+   * pending/dispatched/processing. Used to disable Edit / Submit-for-review
+   * / Publish actions, mirroring the backend gate that returns HTTP 409
+   * for those operations on a transcoding entry.
+   */
+  function isItemTranscoding (item: StudioItem): boolean {
+    return !!item.transcodingStatus && isTranscodingInProgress(item.transcodingStatus)
+  }
+
   function getTypeIcon (type: string): string {
     const normalized = type?.toUpperCase() ?? ''
     const map: Record<string, string> = {
@@ -1777,6 +1815,10 @@
       await fetchEntries()
     } catch (error_) {
       console.error('[CreatorStudio] Edit failed:', error_)
+      if (error_ instanceof ApiError && error_.status === 409) {
+        showToast(t('CreatorStudio.actions.transcodingError'), 'warning')
+        return
+      }
       showToast(t('CreatorStudio.editError'), 'error')
     } finally {
       isSaving.value = false
@@ -1793,6 +1835,10 @@
       await fetchStats()
     } catch (error_) {
       console.error('[CreatorStudio] Submit for review failed:', error_)
+      if (error_ instanceof ApiError && error_.status === 409) {
+        showToast(t('CreatorStudio.actions.transcodingError'), 'warning')
+        return
+      }
       showToast(t('Upload.errors.submitForReviewFailed'), 'error')
     }
   }
@@ -1807,6 +1853,10 @@
       await fetchStats()
     } catch (error_) {
       console.error('[CreatorStudio] Publish failed:', error_)
+      if (error_ instanceof ApiError && error_.status === 409) {
+        showToast(t('CreatorStudio.actions.transcodingError'), 'warning')
+        return
+      }
       showToast(t('CreatorStudio.actions.publishError'), 'error')
     }
   }
