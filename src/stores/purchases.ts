@@ -19,7 +19,22 @@ import { defineStore } from 'pinia'
 
 import { getPurchases } from '@/api/modules/purchase.api'
 
+/**
+ * Per-tenant storage key. The hostname uniquely identifies the tenant
+ * (subdomain-based routing) so storing the cache under a tenant-prefixed
+ * key prevents one tenant from reading another tenant's cached unlock
+ * state when the same browser visits multiple tenants.
+ *
+ * The constant export is kept for API compatibility (tests / migrations).
+ */
 export const PURCHASES_STORAGE_KEY = 'earnlumens_purchases'
+
+function tenantStorageKey (): string {
+  if (typeof window === 'undefined' || !window.location?.hostname) {
+    return PURCHASES_STORAGE_KEY
+  }
+  return `${PURCHASES_STORAGE_KEY}::${window.location.hostname}`
+}
 
 let generation = 0
 
@@ -44,7 +59,7 @@ interface PurchasesState {
  */
 function loadFromStorage (): Map<string, PurchaseRecord> {
   try {
-    const stored = localStorage.getItem(PURCHASES_STORAGE_KEY)
+    const stored = localStorage.getItem(tenantStorageKey())
     if (stored) {
       const data = JSON.parse(stored) as PurchaseRecord[]
       return new Map(data.map(p => [p.id, p]))
@@ -61,7 +76,7 @@ function loadFromStorage (): Map<string, PurchaseRecord> {
 function saveToStorage (purchases: Map<string, PurchaseRecord>): void {
   try {
     const data = Array.from(purchases.values())
-    localStorage.setItem(PURCHASES_STORAGE_KEY, JSON.stringify(data))
+    localStorage.setItem(tenantStorageKey(), JSON.stringify(data))
   } catch (error) {
     console.error('[PurchasesStore] Failed to save to storage:', error)
   }
@@ -138,7 +153,7 @@ export const usePurchasesStore = defineStore('purchases', {
     clearAll () {
       generation++
       this.$patch({ purchases: new Map() })
-      localStorage.removeItem(PURCHASES_STORAGE_KEY)
+      localStorage.removeItem(tenantStorageKey())
     },
 
     /**
