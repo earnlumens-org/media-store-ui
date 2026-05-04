@@ -60,7 +60,6 @@ export interface UpdateEntryMetadataRequest {
   priceXlm?: number | null
   priceUsd?: number | null
   priceCurrency?: 'XLM' | 'USD' | null
-  contentLanguage?: string | null
   sellerWallet?: string | null
   resourceContent?: string | null
 }

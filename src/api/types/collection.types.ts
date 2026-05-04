@@ -169,7 +169,6 @@ export interface UpdateCollectionRequest {
   priceUsd?: number
   priceCurrency?: string
   sellerWallet?: string
-  contentLanguage?: string
 }
 
 export interface InitCoverUploadResponse {

@@ -854,14 +854,6 @@
             rows="8"
             variant="outlined"
           />
-          <v-select
-            v-model="editForm.contentLanguage"
-            class="mb-3"
-            :items="contentLanguageItems"
-            :label="t('Upload.form.contentLanguage')"
-            prepend-inner-icon="mdi-translate"
-            variant="outlined"
-          />
           <v-switch
             v-model="editForm.isPaid"
             color="primary"
@@ -1130,7 +1122,6 @@
   import { MAX_PREVIEW_SIZE, MAX_THUMBNAIL_SIZE, PREVIEW_MIMES, THUMBNAIL_MIMES } from '@/api/types/upload.types'
   import UploadAssetPicker from '@/components/upload/UploadAssetPicker.vue'
   import UploadTypeDialog from '@/components/upload/UploadTypeDialog.vue'
-  import { CONTENT_LANGUAGES } from '@/config/contentLanguages'
   import { accountExists } from '@/services/stellar'
   import { useAppStore } from '@/stores/app'
   import { useWalletStore } from '@/stores/wallet'
@@ -1140,8 +1131,6 @@
   const appStore = useAppStore()
   const { mobileView } = storeToRefs(appStore)
   const walletStore = useWalletStore()
-
-  const contentLanguageItems = CONTENT_LANGUAGES.map(l => ({ value: l.value, title: l.title }))
 
   // ── StudioItem — backed by the unified server response ────
 
@@ -1211,7 +1200,6 @@
     priceXlm: null as number | null,
     priceUsd: null as number | null,
     priceCurrency: 'XLM' as 'XLM' | 'USD',
-    contentLanguage: '' as string,
     resourceContent: '' as string,
     _status: '' as string,
     _type: '' as string,
@@ -1294,7 +1282,6 @@
     priceXlm: null as number | null,
     priceUsd: null as number | null,
     priceCurrency: 'XLM' as string,
-    contentLanguage: '',
     resourceContent: '',
   })
 
@@ -1306,7 +1293,6 @@
       || editForm.priceXlm !== editOriginal.priceXlm
       || editForm.priceUsd !== editOriginal.priceUsd
       || editForm.priceCurrency !== editOriginal.priceCurrency
-      || editForm.contentLanguage !== editOriginal.contentLanguage
       || editForm.resourceContent !== editOriginal.resourceContent
   })
 
@@ -1709,7 +1695,6 @@
     editForm.priceXlm = entry.priceXlm ?? null
     editForm.priceUsd = entry.priceUsd ?? null
     editForm.priceCurrency = entry.priceCurrency ?? 'XLM'
-    editForm.contentLanguage = entry.contentLanguage ?? ''
     editForm.resourceContent = entry.resourceContent ?? ''
     editForm._status = entry.status
     editForm._type = typeof entry.type === 'string' ? entry.type.toLowerCase() : ''
@@ -1727,7 +1712,6 @@
     editOriginal.priceXlm = editForm.priceXlm
     editOriginal.priceUsd = editForm.priceUsd
     editOriginal.priceCurrency = editForm.priceCurrency
-    editOriginal.contentLanguage = editForm.contentLanguage
     editOriginal.resourceContent = editForm.resourceContent
 
     editDialog.value = true
@@ -1793,7 +1777,6 @@
         priceCurrency: editForm.isPaid ? editForm.priceCurrency : null,
         sellerWallet: editForm.isPaid ? selectedSellerWallet.value : null,
         resourceContent: editForm._type === 'resource' ? (editForm.resourceContent.trim() || null) : undefined,
-        contentLanguage: editForm.contentLanguage || undefined,
       })
 
       // Upload new thumbnail / preview if selected

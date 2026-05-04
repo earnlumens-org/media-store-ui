@@ -1,9 +1,13 @@
 /**
  * Supported content languages for entries.
  * ISO 639-1 codes mapped to their native + English name.
- * Used in upload and edit forms.
+ * The special value "multi" represents content with no single dominant
+ * language (instrumental music, images, mixed-language collections).
+ * Used in upload and create-collection forms only — edits are disabled;
+ * the moderation pipeline is the source of truth for the final value.
  */
 export const CONTENT_LANGUAGES = [
+  { value: 'multi', title: '🌐 Multi-language / Universal' },
   { value: 'en', title: 'English' },
   { value: 'es', title: 'Español — Spanish' },
   { value: 'zh-cn', title: '简体中文 — Chinese (Simplified)' },
