@@ -2,7 +2,18 @@
  * User API module - authenticated user endpoints
  */
 
-import { apiRequest } from '@/api/apiRequest'
+import { api, apiRequest } from '@/api/apiRequest'
+
+/**
+ * Consumer-side content-language preferences (Phase 4).
+ * Returned by GET /api/user/me and updated via PATCH
+ * /api/user/me/preferences/content-languages.
+ */
+export interface ContentLanguagePreferences {
+  contentLanguages: string[]
+  includeMulti: boolean
+  showAllLanguages: boolean
+}
 
 export interface UserProfile {
   id?: string
@@ -12,6 +23,7 @@ export interface UserProfile {
   followersCount: number
   oauthProvider?: string
   profileBadge?: string
+  contentLanguagePreferences?: ContentLanguagePreferences
 }
 
 /**
@@ -65,4 +77,15 @@ export async function checkUsernameExists (username: string): Promise<{ username
     `/api/user/exists/${encodeURIComponent(username)}`,
     { skipAuth: true },
   )
+}
+
+/**
+ * Update consumer-side content-language preferences. Partial update:
+ * only fields present in {@code body} are changed server-side. Returns
+ * the persisted preferences with safe defaults applied.
+ */
+export async function updateContentLanguagePreferences (
+  body: Partial<ContentLanguagePreferences>,
+): Promise<ContentLanguagePreferences> {
+  return api.patch<ContentLanguagePreferences>('/api/user/me/preferences/content-languages', body)
 }

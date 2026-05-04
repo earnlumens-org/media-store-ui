@@ -8,6 +8,7 @@
 
     <div style="display: flex; flex: 1; justify-content: flex-end; align-items: center;">
       <cx-search-dialog v-if="isAuthReady" />
+      <content-language-dialog v-if="isAuthReady && loggedIn" />
       <cx-language-dialog v-if="isAuthReady" />
       <template v-if="!isAuthReady">
         <v-skeleton-loader type="avatar" />

@@ -169,7 +169,7 @@ export { getSellerSales } from './modules/sales.api'
 export { checkSubscription, getMySubscriberCount, getMySubscribers, getMySubscriptions, getPublicSubscriberCount, subscribe, unsubscribe } from './modules/subscription.api'
 export { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
 
-export { checkUsernameExists, getCurrentUser, getUserByUsername, parseUserFromToken } from './modules/user.api'
+export { checkUsernameExists, getCurrentUser, getUserByUsername, parseUserFromToken, updateContentLanguagePreferences } from './modules/user.api'
 
 export { getWaitlistStats } from './modules/waitlist.api'
 

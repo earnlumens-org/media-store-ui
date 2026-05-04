@@ -19,6 +19,7 @@ declare module 'vue' {
     CollectionCard: typeof import('./components/collection/CollectionCard.vue')['default']
     CollectionFooter: typeof import('./components/collection/CollectionFooter.vue')['default']
     CollectionMedia: typeof import('./components/collection/media/CollectionMedia.vue')['default']
+    ContentLanguageDialog: typeof import('./components/ContentLanguageDialog.vue')['default']
     CxDarkLightMode: typeof import('./components/CxDarkLightMode.vue')['default']
     CxDeposit: typeof import('./components/wallet/CxDeposit.vue')['default']
     CxFavoriteButton: typeof import('./components/CxFavoriteButton.vue')['default']

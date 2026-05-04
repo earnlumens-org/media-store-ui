@@ -1,13 +1,15 @@
 /**
- * Supported content languages for entries.
+ * Supported content languages for entries (user-selectable list).
  * ISO 639-1 codes mapped to their native + English name.
- * The special value "multi" represents content with no single dominant
- * language (instrumental music, images, mixed-language collections).
- * Used in upload and create-collection forms only — edits are disabled;
+ *
+ * NOTE: The special value "multi" (language-free content like instrumental
+ * music, images, mixed-language) is intentionally NOT in this list — it is
+ * reserved for the AI moderation pipeline. Users always pick a real
+ * language; if the content is genuinely language-free, moderation will
+ * overwrite it to "multi" automatically. Edits are disabled post-creation;
  * the moderation pipeline is the source of truth for the final value.
  */
 export const CONTENT_LANGUAGES = [
-  { value: 'multi', title: '🌐 Multi-language / Universal' },
   { value: 'en', title: 'English' },
   { value: 'es', title: 'Español — Spanish' },
   { value: 'zh-cn', title: '简体中文 — Chinese (Simplified)' },

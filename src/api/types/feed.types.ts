@@ -83,4 +83,10 @@ export interface FeedRequestParams {
   sort?: 'newest' | 'oldest' | 'title_asc' | 'title_desc'
   page?: number
   size?: number
+  /**
+   * Per-request language filter override. Send {@code 'all'} to disable
+   * the persisted user content-language preferences for one request
+   * ("Show all languages" toggle). Omit to use the user's stored prefs.
+   */
+  lang?: 'all'
 }

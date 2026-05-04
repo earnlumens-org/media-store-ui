@@ -4,6 +4,22 @@
     "body": "El subdominio al que estás intentando acceder no corresponde a ningún marketplace activo en EarnLumens.",
     "cta": "Ir a earnlumens.org"
   },
+  "ContentLanguagePreferences": {
+    "title": "Idiomas del contenido",
+    "subtitle": "Elige los idiomas que quieres ver en tu feed. El sistema de moderación etiqueta cada publicación con su idioma real.",
+    "chipTooltip": "Filtrar feed por idioma del contenido",
+    "chipAll": "Todos",
+    "chipMultiOnly": "Multi",
+    "chipNone": "Ninguno",
+    "showAll": "Mostrar todos los idiomas",
+    "showAllHint": "Modo descubrimiento — tu feed muestra contenido en todos los idiomas. Desactívalo para aplicar tus preferencias.",
+    "yourLanguages": "Tus idiomas",
+    "yourLanguagesHint": "Elige los idiomas que entiendes. Tu feed solo mostrará contenido en estos idiomas.",
+    "pickerPlaceholder": "Añadir un idioma",
+    "includeMulti": "Incluir contenido sin idioma",
+    "includeMultiHint": "Música sin letra, imágenes y otro contenido que no tiene un idioma específico. Recomendado.",
+    "warnEmpty": "Sin idiomas seleccionados y sin contenido sin idioma tu feed estaría vacío. Elige al menos un idioma o activa contenido sin idioma."
+  },
   "Common": {
     "wallet": "Billetera",
     "connectWallet": "Conectar billetera",
