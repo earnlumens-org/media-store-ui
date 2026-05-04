@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="dialog" max-width="500" scrollable>
-    <template #activator="{ props: activatorProps }">
+    <template v-if="!hideActivator" #activator="{ props: activatorProps }">
       <v-btn
         v-if="mobileView"
         v-bind="activatorProps"
@@ -9,7 +9,6 @@
         size="small"
         :title="$t('ContentLanguagePreferences.chipTooltip')"
         variant="text"
-        @click="onOpen"
       />
 
       <v-btn
@@ -19,7 +18,6 @@
         :prepend-icon="iconName"
         :title="$t('ContentLanguagePreferences.chipTooltip')"
         variant="text"
-        @click="onOpen"
       >
         {{ chipLabel }}
       </v-btn>
@@ -27,7 +25,7 @@
 
     <v-card>
       <v-card-title class="d-flex align-center">
-        <v-icon class="mr-2" icon="mdi-earth" />
+        <v-icon class="mr-2" icon="mdi-web" />
         {{ $t("ContentLanguagePreferences.title") }}
       </v-card-title>
       <v-card-subtitle class="text-wrap pb-2">
@@ -141,7 +139,7 @@
 
 <script setup lang="ts">
   import { storeToRefs } from 'pinia'
-  import { computed, reactive, ref, watch } from 'vue'
+  import { computed, reactive, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { CONTENT_LANGUAGES } from '@/config/contentLanguages'
   import { useAppStore } from '@/stores/app'
@@ -152,7 +150,8 @@
   const { mobileView } = storeToRefs(appStore)
   const prefsStore = useContentLanguagePreferencesStore()
 
-  const dialog = ref(false)
+  defineProps<{ hideActivator?: boolean }>()
+  const dialog = defineModel<boolean>({ default: false })
 
   // Local working copy of the form so the user can cancel without persisting.
   const form = reactive({
@@ -164,8 +163,8 @@
   const languageItems = CONTENT_LANGUAGES // already excludes "multi" (reserved)
 
   const iconName = computed(() => prefsStore.showAllLanguages
-    ? 'mdi-earth'
-    : 'mdi-earth-arrow-right')
+    ? 'mdi-web'
+    : 'mdi-web')
 
   const chipLabel = computed(() => {
     if (prefsStore.showAllLanguages) {
@@ -210,6 +209,14 @@
       syncFormFromStore()
     }
   }, { immediate: true })
+
+  // Trigger the open routine for both activator-driven and externally
+  // controlled (v-model) opening.
+  watch(dialog, open => {
+    if (open) {
+      void onOpen()
+    }
+  })
 
   async function onOpen () {
     await prefsStore.loadIfNeeded()

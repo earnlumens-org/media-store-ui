@@ -4,6 +4,27 @@
     "body": "Subdomena, do której próbujesz uzyskać dostęp, nie odpowiada żadnemu aktywnemu marketplace'owi w EarnLumens.",
     "cta": "Przejdź do earnlumens.org"
   },
+  "ContentLanguagePreferences": {
+    "title": "Języki treści",
+    "subtitle": "Wybierz języki, które chcesz widzieć w swoim feedzie. System moderacji oznacza każdy upload jego prawdziwym językiem.",
+    "chipTooltip": "Filtruj feed według języka treści",
+    "chipAll": "Wszystkie",
+    "chipMultiOnly": "Multi",
+    "chipNone": "Żaden",
+    "showAll": "Pokaż wszystkie języki",
+    "showAllHint": "Tryb odkrywania — twój feed pokazuje treści w każdym języku. Wyłącz, aby zastosować preferencje poniżej.",
+    "yourLanguages": "Twoje języki",
+    "yourLanguagesHint": "Wybierz języki, które rozumiesz. Twój feed pokaże tylko treści w tych językach.",
+    "pickerPlaceholder": "Dodaj język",
+    "includeMulti": "Uwzględnij treści bez języka",
+    "includeMultiHint": "Treści bez dominującego języka: muzyka instrumentalna, abstrakcyjne obrazy/sztuka lub materiały mieszające kilka języków w podobnych proporcjach. Zalecane.",
+    "warnEmpty": "Bez wybranych języków i wyłączonych treści bez języka twój feed byłby pusty. Wybierz przynajmniej jeden język lub włącz treści bez języka.",
+    "gridChipMany": "{n} języków",
+    "gridChipTooltip": "Ten widok jest filtrowany po języku treści. Kliknij, aby zmienić.",
+    "emptyByLanguageTitle": "Brak treści w twoich językach",
+    "emptyByLanguageText": "Ten widok jest filtrowany według twoich preferencji językowych. Spróbuj dodać więcej języków lub włącz „Pokaż wszystkie języki”.",
+    "changeLanguages": "Zmień języki"
+  },
   "Common": {
     "wallet": "Portfel",
     "connectWallet": "Połącz portfel",

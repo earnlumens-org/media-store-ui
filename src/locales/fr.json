@@ -4,6 +4,27 @@
     "body": "Le sous-domaine que vous essayez d’atteindre ne correspond à aucune marketplace active sur EarnLumens.",
     "cta": "Aller sur earnlumens.org"
   },
+  "ContentLanguagePreferences": {
+    "title": "Langues du contenu",
+    "subtitle": "Choisis les langues que tu veux voir dans ton fil. Le système de modération étiquette chaque publication avec sa langue réelle.",
+    "chipTooltip": "Filtrer le fil par langue du contenu",
+    "chipAll": "Toutes",
+    "chipMultiOnly": "Multi",
+    "chipNone": "Aucune",
+    "showAll": "Afficher toutes les langues",
+    "showAllHint": "Mode découverte — ton fil affiche du contenu dans toutes les langues. Désactive pour appliquer tes préférences ci-dessous.",
+    "yourLanguages": "Tes langues",
+    "yourLanguagesHint": "Choisis les langues que tu comprends. Ton fil n’affichera que du contenu dans ces langues.",
+    "pickerPlaceholder": "Ajouter une langue",
+    "includeMulti": "Inclure le contenu sans langue",
+    "includeMultiHint": "Contenu sans langue dominante : musique instrumentale, images/art abstrait, ou contenu mélangeant plusieurs langues à parts égales. Recommandé.",
+    "warnEmpty": "Sans aucune langue sélectionnée et avec le contenu sans langue désactivé, ton fil serait vide. Choisis au moins une langue ou active le contenu sans langue.",
+    "gridChipMany": "{n} langues",
+    "gridChipTooltip": "Cette grille est filtrée par langue du contenu. Clique pour changer.",
+    "emptyByLanguageTitle": "Aucun contenu dans tes langues",
+    "emptyByLanguageText": "Cette grille est filtrée selon tes préférences de langue de contenu. Ajoute d'autres langues ou active « Afficher toutes les langues ».",
+    "changeLanguages": "Changer les langues"
+  },
   "Common": {
     "wallet": "Portefeuille",
     "connectWallet": "Connecter le portefeuille",

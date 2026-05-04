@@ -4,6 +4,27 @@
     "body": "您嘗試存取的子網域與 EarnLumens 上任何有效的市集都不相符。",
     "cta": "前往 earnlumens.org"
   },
+  "ContentLanguagePreferences": {
+    "title": "內容語言",
+    "subtitle": "選擇您希望在動態中看到的語言。審核系統會為每個上傳內容標記其真實語言。",
+    "chipTooltip": "依內容語言篩選動態",
+    "chipAll": "全部",
+    "chipMultiOnly": "多語言",
+    "chipNone": "無",
+    "showAll": "顯示所有語言",
+    "showAllHint": "探索模式 — 您的動態會顯示所有語言的內容。關閉後將套用下方的偏好設定。",
+    "yourLanguages": "您的語言",
+    "yourLanguagesHint": "選擇您能理解的語言。您的動態將僅顯示這些語言的內容。",
+    "pickerPlaceholder": "新增語言",
+    "includeMulti": "包含無語言內容",
+    "includeMultiHint": "沒有主導語言的內容：器樂、抽象圖像/藝術，或多種語言大致均勻混合的素材。建議。",
+    "warnEmpty": "未選擇任何語言且停用無語言內容時，您的動態將為空。請至少選擇一種語言或啟用無語言內容。",
+    "gridChipMany": "{n} 種語言",
+    "gridChipTooltip": "此網格按內容語言篩選。點擊更改。",
+    "emptyByLanguageTitle": "沒有您語言的內容",
+    "emptyByLanguageText": "此網格按您的內容語言偏好篩選。請新增更多語言或啟用「顯示所有語言」。",
+    "changeLanguages": "更改語言"
+  },
   "Common": {
     "wallet": "錢包",
     "connectWallet": "連接錢包",

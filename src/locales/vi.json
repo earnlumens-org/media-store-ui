@@ -4,6 +4,27 @@
     "body": "Tên miền phụ mà bạn đang cố truy cập không khớp với որևէ marketplace nào đang hoạt động trên EarnLumens.",
     "cta": "Đi tới earnlumens.org"
   },
+  "ContentLanguagePreferences": {
+    "title": "Ngôn ngữ nội dung",
+    "subtitle": "Chọn các ngôn ngữ bạn muốn xem trong nguồn cấp. Hệ thống kiểm duyệt sẽ gắn nhãn mỗi nội dung tải lên với ngôn ngữ thực của nó.",
+    "chipTooltip": "Lọc nguồn cấp theo ngôn ngữ nội dung",
+    "chipAll": "Tất cả",
+    "chipMultiOnly": "Đa ngôn ngữ",
+    "chipNone": "Không có",
+    "showAll": "Hiển thị tất cả ngôn ngữ",
+    "showAllHint": "Chế độ khám phá — nguồn cấp của bạn hiển thị nội dung bằng mọi ngôn ngữ. Tắt để áp dụng tùy chọn bên dưới.",
+    "yourLanguages": "Ngôn ngữ của bạn",
+    "yourLanguagesHint": "Chọn các ngôn ngữ bạn hiểu. Nguồn cấp chỉ hiển thị nội dung bằng các ngôn ngữ này.",
+    "pickerPlaceholder": "Thêm ngôn ngữ",
+    "includeMulti": "Bao gồm nội dung không có ngôn ngữ",
+    "includeMultiHint": "Nội dung không có ngôn ngữ chủ đạo: nhạc không lời, hình ảnh/nghệ thuật trừu tượng hoặc tài liệu pha trộn nhiều ngôn ngữ với tỷ lệ tương đương. Được khuyến nghị.",
+    "warnEmpty": "Khi không chọn ngôn ngữ nào và tắt nội dung không có ngôn ngữ, nguồn cấp của bạn sẽ trống. Hãy chọn ít nhất một ngôn ngữ hoặc bật nội dung không có ngôn ngữ.",
+    "gridChipMany": "{n} ngôn ngữ",
+    "gridChipTooltip": "Lưới này được lọc theo ngôn ngữ nội dung. Nhấp để thay đổi.",
+    "emptyByLanguageTitle": "Không có nội dung bằng ngôn ngữ của bạn",
+    "emptyByLanguageText": "Lưới này được lọc theo tùy chọn ngôn ngữ nội dung của bạn. Hãy thêm ngôn ngữ khác hoặc bật ‘Hiển thị tất cả ngôn ngữ’.",
+    "changeLanguages": "Đổi ngôn ngữ"
+  },
   "Common": {
     "wallet": "Ví",
     "connectWallet": "Kết nối ví",

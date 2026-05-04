@@ -4,6 +4,27 @@
     "body": "Erişmeye çalıştığınız alt alan adı, EarnLumens üzerindeki hiçbir aktif pazar yeriyle eşleşmiyor.",
     "cta": "earnlumens.org'a git"
   },
+  "ContentLanguagePreferences": {
+    "title": "İçerik dilleri",
+    "subtitle": "Akışında görmek istediğin dilleri seç. Moderasyon sistemi her yüklemeyi gerçek diliyle etiketler.",
+    "chipTooltip": "Akışı içerik diline göre filtrele",
+    "chipAll": "Tümü",
+    "chipMultiOnly": "Çoklu",
+    "chipNone": "Hiçbiri",
+    "showAll": "Tüm dilleri göster",
+    "showAllHint": "Keşif modu — akışın her dilde içerik gösterir. Aşağıdaki tercihlerini uygulamak için kapat.",
+    "yourLanguages": "Dillerin",
+    "yourLanguagesHint": "Anladığın dilleri seç. Akışın yalnızca bu dillerdeki içerikleri gösterecek.",
+    "pickerPlaceholder": "Dil ekle",
+    "includeMulti": "Dilsiz içerikleri dahil et",
+    "includeMultiHint": "Baskın dili olmayan içerik: enstrümantal müzik, soyut görseller/sanat veya birkaç dili yaklaşık eşit oranda harmanlayan materyaller. Önerilir.",
+    "warnEmpty": "Hiçbir dil seçilmediğinde ve dilsiz içerikler devre dışıyken akışın boş olur. En az bir dil seç veya dilsiz içerikleri etkinleştir.",
+    "gridChipMany": "{n} dil",
+    "gridChipTooltip": "Bu ızgara içerik diline göre filtrelendi. Değiştirmek için tıkla.",
+    "emptyByLanguageTitle": "Dillerinde içerik yok",
+    "emptyByLanguageText": "Bu ızgara içerik dili tercihlerine göre filtrelendi. Daha fazla dil eklemeyi dene veya ‘Tüm dilleri göster’i aç.",
+    "changeLanguages": "Dilleri değiştir"
+  },
   "Common": {
     "wallet": "Cüzdan",
     "connectWallet": "Cüzdanı bağla",

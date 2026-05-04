@@ -4,6 +4,27 @@
     "body": "アクセスしようとしているサブドメインは、EarnLumens 上のいずれの有効なマーケットプレイスにも一致しません。",
     "cta": "earnlumens.org へ移動"
   },
+  "ContentLanguagePreferences": {
+    "title": "コンテンツの言語",
+    "subtitle": "フィードに表示したい言語を選択してください。モデレーションシステムは、すべてのアップロードに実際の言語のタグを付けます。",
+    "chipTooltip": "コンテンツの言語でフィードを絞り込む",
+    "chipAll": "すべて",
+    "chipMultiOnly": "Multi",
+    "chipNone": "なし",
+    "showAll": "すべての言語を表示",
+    "showAllHint": "ディスカバリーモード — フィードはあらゆる言語のコンテンツを表示します。オフにすると下記の設定が適用されます。",
+    "yourLanguages": "あなたの言語",
+    "yourLanguagesHint": "理解できる言語を選択してください。フィードにはこれらの言語のコンテンツのみが表示されます。",
+    "pickerPlaceholder": "言語を追加",
+    "includeMulti": "言語のないコンテンツを含める",
+    "includeMultiHint": "主要な言語がないコンテンツ：インストゥルメンタル音楽、抽象的な画像/アート、または複数の言語をほぼ均等に混在させた素材。推奨。",
+    "warnEmpty": "言語を選択せず、言語のないコンテンツも無効にした場合、フィードは空になります。少なくとも1つの言語を選択するか、言語のないコンテンツを有効にしてください。",
+    "gridChipMany": "{n} 言語",
+    "gridChipTooltip": "このグリッドはコンテンツ言語でフィルタされています。クリックして変更。",
+    "emptyByLanguageTitle": "あなたの言語のコンテンツがありません",
+    "emptyByLanguageText": "このグリッドはコンテンツ言語の設定でフィルタされています。言語を追加するか「すべての言語を表示」を有効にしてください。",
+    "changeLanguages": "言語を変更"
+  },
   "Common": {
     "wallet": "財布",
     "connectWallet": "ウォレットを接続",

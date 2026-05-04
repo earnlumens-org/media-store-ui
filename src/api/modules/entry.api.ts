@@ -77,9 +77,20 @@ export async function getProfileFeed (username: string, params: FeedRequestParam
 
 /**
  * Get a unified explore feed (ALL published entries + collections merged server-side).
- * No authentication required. Locked/unlocked resolved client-side.
+ * No authentication required, but the viewer's access token is forwarded when
+ * available so the backend can apply the user's content-language preferences
+ * (Phase 4). Anonymous viewers see all languages.
  */
 export async function getExploreFeed (params: FeedRequestParams = {}, signal?: AbortSignal): Promise<PublicFeedPageModel> {
-  const response = await axiosClient.get<PublicFeedPageDto>(`${BASE_PATH}/feed`, { params, signal })
+  const headers: Record<string, string> = {}
+  try {
+    const result = await getToken()
+    if (result?.accessToken) {
+      headers['Authorization'] = `Bearer ${result.accessToken}`
+    }
+  } catch {
+    // continue without token — anonymous viewer
+  }
+  const response = await axiosClient.get<PublicFeedPageDto>(`${BASE_PATH}/feed`, { params, signal, headers })
   return mapFeedPageDtoToModel(response.data)
 }

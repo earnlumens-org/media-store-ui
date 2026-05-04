@@ -49,6 +49,17 @@
         </v-radio-group>
       </v-card-text>
 
+      <template v-if="loggedIn">
+        <v-divider />
+        <v-list class="py-0" density="compact" nav>
+          <v-list-item
+            prepend-icon="mdi-web"
+            :title="$t('ContentLanguagePreferences.title')"
+            @click="openContentLanguages"
+          />
+        </v-list>
+      </template>
+
       <v-divider />
 
       <v-card-actions>
@@ -68,20 +79,27 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
+
+  <ContentLanguageDialog v-if="loggedIn" v-model="contentLangOpen" hide-activator />
 </template>
 
 <script setup lang="ts">
   import { storeToRefs } from 'pinia'
   import { onMounted, ref } from 'vue'
+  import ContentLanguageDialog from '@/components/ContentLanguageDialog.vue'
   import { determineLanguageCode, loadLanguage } from '@/main'
   import { useAppStore } from '@/stores/app'
+  import { useAuthStore } from '@/stores/auth'
 
   const dialog = ref(false)
+  const contentLangOpen = ref(false)
   const selectedLanguage = ref('')
 
   // PINIA store
   const appStore = useAppStore()
   const { mobileView } = storeToRefs(appStore)
+  const authStore = useAuthStore()
+  const { isAuthenticated: loggedIn } = storeToRefs(authStore)
 
   onMounted(() => {
     const browser = navigator.language || 'en'
@@ -93,5 +111,14 @@
     dialog.value = false
     localStorage.setItem('selectedLanguage', selectedLanguage.value)
     loadLanguage(selectedLanguage.value)
+  }
+
+  function openContentLanguages () {
+    dialog.value = false
+    // Defer so the language dialog finishes its close transition before the
+    // content-language dialog opens — avoids overlay z-index/focus glitches.
+    setTimeout(() => {
+      contentLangOpen.value = true
+    }, 150)
   }
 </script>

@@ -4,6 +4,27 @@
     "body": "Subdomain yang anda cuba akses tidak sepadan dengan mana-mana marketplace aktif di EarnLumens.",
     "cta": "Pergi ke earnlumens.org"
   },
+  "ContentLanguagePreferences": {
+    "title": "Bahasa kandungan",
+    "subtitle": "Pilih bahasa yang anda mahu lihat dalam suapan anda. Sistem moderasi menanda setiap muat naik dengan bahasa sebenarnya.",
+    "chipTooltip": "Tapis suapan mengikut bahasa kandungan",
+    "chipAll": "Semua",
+    "chipMultiOnly": "Berbilang",
+    "chipNone": "Tiada",
+    "showAll": "Tunjukkan semua bahasa",
+    "showAllHint": "Mod penemuan — suapan anda menunjukkan kandungan dalam semua bahasa. Matikan untuk menggunakan pilihan anda di bawah.",
+    "yourLanguages": "Bahasa anda",
+    "yourLanguagesHint": "Pilih bahasa yang anda fahami. Suapan anda hanya akan menunjukkan kandungan dalam bahasa ini.",
+    "pickerPlaceholder": "Tambah bahasa",
+    "includeMulti": "Sertakan kandungan tanpa bahasa",
+    "includeMultiHint": "Kandungan tanpa bahasa dominan: muzik instrumental, imej/seni abstrak, atau bahan yang menggabungkan beberapa bahasa secara sama rata. Disyorkan.",
+    "warnEmpty": "Tanpa bahasa dipilih dan kandungan tanpa bahasa dilumpuhkan, suapan anda akan kosong. Pilih sekurang-kurangnya satu bahasa atau aktifkan kandungan tanpa bahasa.",
+    "gridChipMany": "{n} bahasa",
+    "gridChipTooltip": "Grid ini ditapis mengikut bahasa kandungan. Klik untuk menukar.",
+    "emptyByLanguageTitle": "Tiada kandungan dalam bahasa anda",
+    "emptyByLanguageText": "Grid ini ditapis mengikut keutamaan bahasa kandungan anda. Cuba tambah lebih banyak bahasa atau aktifkan ‘Tunjuk semua bahasa’.",
+    "changeLanguages": "Tukar bahasa"
+  },
   "Common": {
     "wallet": "Wallet",
     "connectWallet": "Sambungkan wallet",

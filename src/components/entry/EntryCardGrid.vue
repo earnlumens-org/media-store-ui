@@ -40,25 +40,41 @@
         </v-tab>
       </v-tabs>
 
-      <!-- Pricing Filter Chips -->
-      <v-chip-group
-        v-model="pricingFilter"
-        class="mt-4"
-        :disabled="loading && feedItems.length === 0"
-        mandatory
-        selected-class="text-primary"
-      >
-        <v-chip filter size="small" value="all" variant="tonal">
-          {{ $t('Common.all') }}
+      <!-- Pricing Filter Chips + Content Language indicator -->
+      <div class="d-flex align-center flex-wrap mt-4 ga-2">
+        <v-chip-group
+          v-model="pricingFilter"
+          :disabled="loading && feedItems.length === 0"
+          mandatory
+          selected-class="text-primary"
+        >
+          <v-chip filter size="small" value="all" variant="tonal">
+            {{ $t('Common.all') }}
+          </v-chip>
+          <v-chip filter size="small" value="free" variant="tonal">
+            {{ $t('Common.free') }}
+          </v-chip>
+          <v-chip filter size="small" value="premium" variant="tonal">
+            <v-icon size="14" start>mdi-lock</v-icon>
+            {{ $t('Common.premium') }}
+          </v-chip>
+        </v-chip-group>
+
+        <v-spacer />
+
+        <v-chip
+          v-if="authStore.isAuthenticated"
+          class="mr-1"
+          :color="languageChip.active ? 'primary' : undefined"
+          prepend-icon="mdi-web"
+          size="small"
+          :title="$t('ContentLanguagePreferences.gridChipTooltip')"
+          :variant="languageChip.active ? 'tonal' : 'outlined'"
+          @click="langDialogOpen = true"
+        >
+          {{ languageChip.label }}
         </v-chip>
-        <v-chip filter size="small" value="free" variant="tonal">
-          {{ $t('Common.free') }}
-        </v-chip>
-        <v-chip filter size="small" value="premium" variant="tonal">
-          <v-icon size="14" start>mdi-lock</v-icon>
-          {{ $t('Common.premium') }}
-        </v-chip>
-      </v-chip-group>
+      </div>
 
       <!-- Loading state (initial load only) -->
       <v-row v-if="loading && feedItems.length === 0" class="mt-4" dense>
@@ -95,6 +111,28 @@
       <v-row v-else-if="feedItems.length === 0" class="mt-4" dense>
         <v-col cols="12">
           <v-alert
+            v-if="languageChip.active"
+            class="ma-4"
+            prominent
+            :text="$t('ContentLanguagePreferences.emptyByLanguageText')"
+            :title="$t('ContentLanguagePreferences.emptyByLanguageTitle')"
+            type="info"
+          >
+            <template #append>
+              <v-btn
+                v-if="authStore.isAuthenticated"
+                color="primary"
+                prepend-icon="mdi-web"
+                size="small"
+                variant="tonal"
+                @click="langDialogOpen = true"
+              >
+                {{ $t('ContentLanguagePreferences.changeLanguages') }}
+              </v-btn>
+            </template>
+          </v-alert>
+          <v-alert
+            v-else
             class="ma-4"
             text="No published content yet. Be the first to upload!"
             title="Nothing here yet"
@@ -213,6 +251,12 @@
       </v-container>
     </template>
   </v-infinite-scroll>
+
+  <ContentLanguageDialog
+    v-if="authStore.isAuthenticated"
+    v-model="langDialogOpen"
+    hide-activator
+  />
 </template>
 
 <script setup lang="ts">
@@ -223,13 +267,16 @@
 
   import axios from 'axios'
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
+  import { useI18n } from 'vue-i18n'
   import { onBeforeRouteLeave, useRoute } from 'vue-router'
 
   import { api } from '@/api/api'
   import CollectionCard from '@/components/collection/CollectionCard.vue'
+  import ContentLanguageDialog from '@/components/ContentLanguageDialog.vue'
   import { isPopNavigation } from '@/router'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
+  import { useContentLanguagePreferencesStore } from '@/stores/contentLanguagePreferences'
   import { useFeedCacheStore } from '@/stores/feedCache'
   import { usePurchasesStore } from '@/stores/purchases'
   import { useScrollCacheStore } from '@/stores/scrollCache'
@@ -248,8 +295,47 @@
   const purchasesStore = usePurchasesStore()
   const authStore = useAuthStore()
   const appStore = useAppStore()
+  const contentLangPrefs = useContentLanguagePreferencesStore()
   const route = useRoute()
   const scrollCache = useScrollCacheStore()
+  const { t } = useI18n()
+
+  const langDialogOpen = ref(false)
+
+  /**
+   * Visible language indicator for the grid.
+   * - active=false → user is in "show all" mode; chip is a subtle hint.
+   * - 1 lang → "EN"
+   * - 2 langs → "EN/ES"
+   * - >2 langs → "5 langs" (i18n)
+   */
+  const languageChip = computed(() => {
+    if (contentLangPrefs.showAllLanguages) {
+      return {
+        active: false,
+        label: t('ContentLanguagePreferences.chipAll'),
+      }
+    }
+    const langs = contentLangPrefs.contentLanguages
+    if (langs.length === 0) {
+      return {
+        active: true,
+        label: contentLangPrefs.includeMulti
+          ? t('ContentLanguagePreferences.chipMultiOnly')
+          : t('ContentLanguagePreferences.chipNone'),
+      }
+    }
+    if (langs.length === 1) {
+      return { active: true, label: langs[0]!.toUpperCase() }
+    }
+    if (langs.length === 2) {
+      return { active: true, label: langs.map(l => l.toUpperCase()).join('/') }
+    }
+    return {
+      active: true,
+      label: t('ContentLanguagePreferences.gridChipMany', { n: langs.length }),
+    }
+  })
 
   const feedItems = ref<PublicFeedItemModel[]>([])
   const loading = ref(true)
@@ -465,4 +551,18 @@
     window.scrollTo(0, 0)
     fetchFeed()
   })
+
+  // Refetch when the user updates their content-language preferences so
+  // the explore feed reflects the new filter without a manual reload.
+  watch(
+    () => [
+      contentLangPrefs.showAllLanguages,
+      contentLangPrefs.includeMulti,
+      contentLangPrefs.contentLanguages.join(','),
+    ],
+    () => {
+      window.scrollTo(0, 0)
+      fetchFeed()
+    },
+  )
 </script>

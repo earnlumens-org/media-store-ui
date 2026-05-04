@@ -130,7 +130,7 @@
                   v-model="form.contentLanguage"
                   :items="contentLanguageItems"
                   :label="t('Upload.form.contentLanguage')"
-                  prepend-inner-icon="mdi-translate"
+                  prepend-inner-icon="mdi-web"
                   variant="outlined"
                 />
 

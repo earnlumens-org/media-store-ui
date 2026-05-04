@@ -4,6 +4,27 @@
     "body": "Die Subdomain, die du aufrufen möchtest, gehört zu keinem aktiven Marktplatz auf EarnLumens.",
     "cta": "Zu earnlumens.org gehen"
   },
+  "ContentLanguagePreferences": {
+    "title": "Inhaltssprachen",
+    "subtitle": "Wähle, welche Sprachen du in deinem Feed sehen möchtest. Das Moderationssystem markiert jeden Upload mit seiner tatsächlichen Sprache.",
+    "chipTooltip": "Feed nach Inhaltssprache filtern",
+    "chipAll": "Alle",
+    "chipMultiOnly": "Multi",
+    "chipNone": "Keine",
+    "showAll": "Alle Sprachen anzeigen",
+    "showAllHint": "Entdeckungsmodus — dein Feed zeigt Inhalte in allen Sprachen. Deaktivieren, um deine Einstellungen unten anzuwenden.",
+    "yourLanguages": "Deine Sprachen",
+    "yourLanguagesHint": "Wähle die Sprachen, die du verstehst. Dein Feed zeigt nur Inhalte in diesen Sprachen.",
+    "pickerPlaceholder": "Sprache hinzufügen",
+    "includeMulti": "Sprachfreie Inhalte einschließen",
+    "includeMultiHint": "Inhalte ohne dominante Sprache: Instrumentalmusik, abstrakte Bilder/Kunst oder Material, das mehrere Sprachen ungefähr gleichmäßig mischt. Empfohlen.",
+    "warnEmpty": "Ohne ausgewählte Sprachen und deaktivierte sprachfreie Inhalte wäre dein Feed leer. Wähle mindestens eine Sprache oder aktiviere sprachfreie Inhalte.",
+    "gridChipMany": "{n} Sprachen",
+    "gridChipTooltip": "Dieses Raster ist nach Inhaltssprache gefiltert. Klicke, um zu ändern.",
+    "emptyByLanguageTitle": "Keine Inhalte in deinen Sprachen",
+    "emptyByLanguageText": "Dieses Raster ist nach deinen Inhaltssprache-Einstellungen gefiltert. Füge weitere Sprachen hinzu oder aktiviere „Alle Sprachen anzeigen“.",
+    "changeLanguages": "Sprachen ändern"
+  },
   "Common": {
     "wallet": "Wallet",
     "connectWallet": "Wallet verbinden",

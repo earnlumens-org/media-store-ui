@@ -17,8 +17,13 @@
     "yourLanguagesHint": "Pick the languages you understand. Your feed will only show content in these languages.",
     "pickerPlaceholder": "Add a language",
     "includeMulti": "Include language-free content",
-    "includeMultiHint": "Music without lyrics, images, and other content that has no specific language. Recommended.",
-    "warnEmpty": "With no languages selected and language-free content disabled your feed would be empty. Pick at least one language or enable language-free content."
+    "includeMultiHint": "Content with no dominant language: instrumental music, abstract images/art, or material that mixes several languages roughly evenly. Recommended.",
+    "warnEmpty": "With no languages selected and language-free content disabled your feed would be empty. Pick at least one language or enable language-free content.",
+    "gridChipMany": "{n} langs",
+    "gridChipTooltip": "This grid is filtered by content language. Click to change.",
+    "emptyByLanguageTitle": "No content in your languages",
+    "emptyByLanguageText": "This grid is filtered by your content-language preferences. Try adding more languages or enable “Show all languages”.",
+    "changeLanguages": "Change languages"
   },
   "Common": {
     "wallet": "Wallet",

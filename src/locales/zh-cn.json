@@ -4,6 +4,27 @@
     "body": "您尝试访问的子域名与 EarnLumens 上任何有效的市场都不匹配。",
     "cta": "前往 earnlumens.org"
   },
+  "ContentLanguagePreferences": {
+    "title": "内容语言",
+    "subtitle": "选择您希望在动态中看到的语言。审核系统会为每个上传内容标记其真实语言。",
+    "chipTooltip": "按内容语言筛选动态",
+    "chipAll": "全部",
+    "chipMultiOnly": "多语言",
+    "chipNone": "无",
+    "showAll": "显示所有语言",
+    "showAllHint": "发现模式 — 您的动态会显示所有语言的内容。关闭后将应用下方的偏好设置。",
+    "yourLanguages": "您的语言",
+    "yourLanguagesHint": "选择您能理解的语言。您的动态将仅显示这些语言的内容。",
+    "pickerPlaceholder": "添加语言",
+    "includeMulti": "包含无语言内容",
+    "includeMultiHint": "没有主导语言的内容：器乐、抽象图像/艺术，或多种语言大致均匀混合的素材。推荐。",
+    "warnEmpty": "未选择任何语言且禁用无语言内容时，您的动态将为空。请至少选择一种语言或启用无语言内容。",
+    "gridChipMany": "{n} 种语言",
+    "gridChipTooltip": "此网格按内容语言过滤。点击更改。",
+    "emptyByLanguageTitle": "没有您语言的内容",
+    "emptyByLanguageText": "此网格按您的内容语言偏好过滤。请添加更多语言或启用「显示所有语言」。",
+    "changeLanguages": "更改语言"
+  },
   "Common": {
     "wallet": "钱包",
     "connectWallet": "连接钱包",

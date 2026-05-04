@@ -17,8 +17,13 @@
     "yourLanguagesHint": "Elige los idiomas que entiendes. Tu feed solo mostrará contenido en estos idiomas.",
     "pickerPlaceholder": "Añadir un idioma",
     "includeMulti": "Incluir contenido sin idioma",
-    "includeMultiHint": "Música sin letra, imágenes y otro contenido que no tiene un idioma específico. Recomendado.",
-    "warnEmpty": "Sin idiomas seleccionados y sin contenido sin idioma tu feed estaría vacío. Elige al menos un idioma o activa contenido sin idioma."
+    "includeMultiHint": "Contenido sin un idioma dominante: música instrumental, imágenes/arte abstracto o material que mezcla varios idiomas en partes parejas. Recomendado.",
+    "warnEmpty": "Sin idiomas seleccionados y sin contenido sin idioma tu feed estaría vacío. Elige al menos un idioma o activa contenido sin idioma.",
+    "gridChipMany": "{n} idiomas",
+    "gridChipTooltip": "Este grid está filtrado por idioma del contenido. Haz clic para cambiar.",
+    "emptyByLanguageTitle": "No hay contenido en tus idiomas",
+    "emptyByLanguageText": "Este grid está filtrado por tus preferencias de idioma. Prueba a añadir más idiomas o activa «Mostrar todos los idiomas».",
+    "changeLanguages": "Cambiar idiomas"
   },
   "Common": {
     "wallet": "Billetera",

@@ -4,6 +4,27 @@
     "body": "O subdomínio que você está tentando acessar não corresponde a nenhum marketplace ativo na EarnLumens.",
     "cta": "Ir para earnlumens.org"
   },
+  "ContentLanguagePreferences": {
+    "title": "Idiomas do conteúdo",
+    "subtitle": "Escolha quais idiomas você quer ver no seu feed. O sistema de moderação rotula cada upload com seu idioma real.",
+    "chipTooltip": "Filtrar feed por idioma do conteúdo",
+    "chipAll": "Todos",
+    "chipMultiOnly": "Multi",
+    "chipNone": "Nenhum",
+    "showAll": "Mostrar todos os idiomas",
+    "showAllHint": "Modo descoberta — seu feed mostra conteúdo em todos os idiomas. Desative para aplicar suas preferências abaixo.",
+    "yourLanguages": "Seus idiomas",
+    "yourLanguagesHint": "Escolha os idiomas que você entende. Seu feed mostrará apenas conteúdo nesses idiomas.",
+    "pickerPlaceholder": "Adicionar um idioma",
+    "includeMulti": "Incluir conteúdo sem idioma",
+    "includeMultiHint": "Conteúdo sem idioma dominante: música instrumental, imagens/arte abstrata ou material que mistura vários idiomas em partes iguais. Recomendado.",
+    "warnEmpty": "Sem idiomas selecionados e com conteúdo sem idioma desativado, seu feed ficaria vazio. Escolha pelo menos um idioma ou ative o conteúdo sem idioma.",
+    "gridChipMany": "{n} idiomas",
+    "gridChipTooltip": "Esta grade está filtrada por idioma do conteúdo. Clique para alterar.",
+    "emptyByLanguageTitle": "Nenhum conteúdo nos seus idiomas",
+    "emptyByLanguageText": "Esta grade está filtrada de acordo com suas preferências de idioma. Tente adicionar mais idiomas ou ative ‘Mostrar todos os idiomas’.",
+    "changeLanguages": "Alterar idiomas"
+  },
   "Common": {
     "wallet": "Carteira",
     "connectWallet": "Conectar carteira",

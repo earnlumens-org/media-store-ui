@@ -76,14 +76,20 @@ function defaultPrefs (): ContentLanguagePreferences {
 }
 
 export const useContentLanguagePreferencesStore = defineStore('contentLanguagePreferences', {
-  state: (): State => ({
-    contentLanguages: [],
-    includeMulti: true,
-    showAllLanguages: false,
-    loaded: false,
-    saving: false,
-    error: null,
-  }),
+  state: (): State => {
+    // Seed from navigator.languages so the chip + modal show a sensible
+    // value on first paint, BEFORE loadIfNeeded() resolves. Once loaded,
+    // server/localStorage values overwrite this.
+    const seed = defaultPrefs()
+    return {
+      contentLanguages: seed.contentLanguages,
+      includeMulti: seed.includeMulti,
+      showAllLanguages: seed.showAllLanguages,
+      loaded: false,
+      saving: false,
+      error: null,
+    }
+  },
 
   getters: {
     /** Human-readable summary for the picker chip (e.g. "ES, EN +1" or "All"). */
@@ -182,11 +188,12 @@ export const useContentLanguagePreferencesStore = defineStore('contentLanguagePr
       }
     },
 
-    /** Wipe in-memory state (called on logout). */
+    /** Wipe in-memory state (called on logout). Re-seeds from navigator. */
     reset (): void {
-      this.contentLanguages = []
-      this.includeMulti = true
-      this.showAllLanguages = false
+      const seed = defaultPrefs()
+      this.contentLanguages = seed.contentLanguages
+      this.includeMulti = seed.includeMulti
+      this.showAllLanguages = seed.showAllLanguages
       this.loaded = false
       this.saving = false
       this.error = null

@@ -3,8 +3,27 @@
     "title": "이 테넌트는 존재하지 않습니다",
     "body": "접속하려는 서브도메인은 EarnLumens의 어떤 활성 마켓플레이스와도 일치하지 않습니다.",
     "cta": "earnlumens.org로 이동"
-  },
-  "Common": {
+  },  "ContentLanguagePreferences": {
+    "title": "콘텐츠 언어",
+    "subtitle": "피드에 표시할 언어를 선택하세요. 검수 시스템은 모든 업로드에 실제 언어 태그를 지정합니다.",
+    "chipTooltip": "콘텐츠 언어로 피드 필터링",
+    "chipAll": "전체",
+    "chipMultiOnly": "Multi",
+    "chipNone": "없음",
+    "showAll": "모든 언어 표시",
+    "showAllHint": "탐색 모드 — 피드에 모든 언어의 콘텐츠가 표시됩니다. 끄면 아래 설정이 적용됩니다.",
+    "yourLanguages": "내 언어",
+    "yourLanguagesHint": "이해할 수 있는 언어를 선택하세요. 피드에는 해당 언어의 콘텐츠만 표시됩니다.",
+    "pickerPlaceholder": "언어 추가",
+    "includeMulti": "언어 없는 콘텐츠 포함",
+    "includeMultiHint": "지배적 언어가 없는 콘텐츠: 가사 없는 음악, 추상적인 이미지/예술 또는 여러 언어가 비슷한 비율로 섞인 콘텐츠. 권장.",
+    "warnEmpty": "선택된 언어가 없고 언어 없는 콘텐츠도 비활성화된 경우 피드가 비어 있게 됩니다. 최소 하나의 언어를 선택하거나 언어 없는 콘텐츠를 활성화하세요.",
+    "gridChipMany": "{n}개 언어",
+    "gridChipTooltip": "이 그리드는 콘텐츠 언어로 필터링되어 있습니다. 변경하려면 클릭하세요.",
+    "emptyByLanguageTitle": "선택한 언어의 콘텐츠가 없습니다",
+    "emptyByLanguageText": "이 그리드는 콘텐츠 언어 환경설정으로 필터링되어 있습니다. 언어를 추가하거나 ‘모든 언어 표시’를 켜보세요.",
+    "changeLanguages": "언어 변경"
+  },  "Common": {
     "wallet": "지갑",
     "connectWallet": "지갑 연결",
     "login": "로그인",
