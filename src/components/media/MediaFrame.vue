@@ -7,7 +7,9 @@
         :class="[roundedClass, grayscale ? 'grayscale opacity-60' : '']"
         cover
         height="100%"
+        :sizes="srcset ? sizes : undefined"
         :src="src"
+        :srcset="srcset"
         width="100%"
       >
         <template #placeholder>
@@ -56,6 +58,22 @@
 <script setup lang="ts">
   interface Props {
     src?: string
+    /**
+     * Optional `<img srcset>` string built from the server-supplied
+     * variants prefix. When set, the browser picks the best WebP
+     * variant for the current display width using the {@link sizes}
+     * hint. Falls back to {@link src} when the worker has not (yet)
+     * generated variants for this asset.
+     */
+    srcset?: string
+    /**
+     * Sizes attribute paired with {@link srcset}. Should describe the
+     * rendered width of the image at each breakpoint so the browser
+     * can pick the smallest variant that still looks crisp. Ignored
+     * when {@link srcset} is empty. Defaults to {@code 100vw} which is
+     * always safe but never the smallest possible variant.
+     */
+    sizes?: string
     aspectRatio?: number
     roundedClass?: string
     grayscale?: boolean
@@ -67,6 +85,7 @@
 
   withDefaults(defineProps<Props>(), {
     aspectRatio: 16 / 9,
+    sizes: '100vw',
     roundedClass: 'rounded-lg',
     grayscale: false,
     fallbackColor: 'grey-lighten-3',

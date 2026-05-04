@@ -201,7 +201,9 @@
                 <v-img
                   aspect-ratio="16/9"
                   cover
+                  sizes="100vw"
                   :src="content.previewUrl"
+                  :srcset="content.previewSrcset"
                 >
                   <template #placeholder>
                     <v-sheet class="h-100 w-100 d-flex align-center justify-center" color="grey-darken-4">
@@ -259,7 +261,7 @@
                   rounded="lg"
                   size="200"
                 >
-                  <v-img cover :src="content.thumbnailUrl">
+                  <v-img cover sizes="200px" :src="content.thumbnailUrl" :srcset="content.thumbnailSrcset">
                     <v-overlay
                       class="d-flex align-center justify-center"
                       :close-on-back="false"
@@ -334,7 +336,9 @@
                   aspect-ratio="4/3"
                   class="blur-preview"
                   cover
+                  sizes="100vw"
                   :src="content.thumbnailUrl"
+                  :srcset="content.thumbnailSrcset"
                 >
                   <template #placeholder>
                     <v-sheet class="h-100 w-100 d-flex align-center justify-center" color="grey-darken-4">
@@ -382,7 +386,9 @@
                 class="blur-preview-light"
                 cover
                 height="200"
+                sizes="100vw"
                 :src="content.thumbnailUrl"
+                :srcset="content.thumbnailSrcset"
               >
                 <v-overlay
                   :close-on-back="false"
@@ -437,7 +443,9 @@
                 class="blur-preview-light"
                 cover
                 height="200"
+                sizes="100vw"
                 :src="collectionData.coverUrl"
+                :srcset="collectionData.coverSrcset"
               >
                 <v-overlay
                   class="d-flex align-center justify-center"
@@ -861,7 +869,9 @@
         profileBadge: data.profileBadge,
         publishedAt: data.publishedAt,
         thumbnailUrl: data.thumbnailUrl,
+        thumbnailSrcset: data.thumbnailSrcset,
         previewUrl: data.previewUrl,
+        previewSrcset: data.previewSrcset,
         durationSec: data.durationSec,
         locked: data.isPaid,
       }
@@ -932,6 +942,7 @@
               profileBadge: collDetail.profileBadge,
               publishedAt: collDetail.publishedAt,
               coverUrl: collDetail.coverUrl,
+              coverSrcset: collDetail.coverSrcset,
               itemsCount: collDetail.itemCount,
               locked: collDetail.locked,
             }

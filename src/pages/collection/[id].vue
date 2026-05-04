@@ -147,7 +147,9 @@
           v-if="collection.coverUrl"
           class="position-absolute w-100 h-100"
           cover
+          sizes="100vw"
           :src="collection.coverUrl"
+          :srcset="collection.coverSrcset"
         >
           <template #placeholder>
             <v-sheet class="h-100 w-100" color="grey-darken-3" />

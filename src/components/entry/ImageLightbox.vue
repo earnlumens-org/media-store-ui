@@ -143,7 +143,9 @@
               v-if="entry.thumbnailUrl"
               class="position-absolute w-100 h-100"
               cover
+              sizes="100vw"
               :src="entry.thumbnailUrl"
+              :srcset="entry.thumbnailSrcset"
               style="top: 0; left: 0; filter: blur(20px); opacity: 0.3;"
             />
 
@@ -209,7 +211,9 @@
             contain
             :max-height="imageMaxHeight"
             max-width="100%"
+            sizes="100vw"
             :src="entry.thumbnailUrl"
+            :srcset="entry.thumbnailSrcset"
           >
             <template #placeholder>
               <v-sheet

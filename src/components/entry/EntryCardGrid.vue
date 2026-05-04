@@ -407,6 +407,7 @@
       profileBadge: item.profileBadge,
       publishedAt: item.publishedAt,
       thumbnailUrl: item.thumbnailUrl,
+      thumbnailSrcset: item.thumbnailSrcset,
       durationSec: item.durationSec,
       locked: item.isPaid && !isUnlocked,
       unlocked: isUnlocked,
@@ -426,6 +427,7 @@
       profileBadge: item.profileBadge,
       publishedAt: item.publishedAt,
       coverUrl: item.coverUrl,
+      coverSrcset: item.coverSrcset,
       itemsCount: item.itemCount,
       locked: item.isPaid && !isUnlocked,
       unlocked: isUnlocked,
@@ -443,6 +445,7 @@
         authorAvatarUrl: item.authorAvatarUrl,
         publishedAt: item.publishedAt,
         thumbnailUrl: item.thumbnailUrl,
+        thumbnailSrcset: item.thumbnailSrcset,
         durationSec: item.durationSec,
         locked: item.isPaid,
       }

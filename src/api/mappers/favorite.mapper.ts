@@ -11,7 +11,7 @@ import type {
 } from '../types/favorite.types'
 
 import type { ProfileBadge } from '@/lib/profileBadge'
-import { getCdnBaseUrl } from '@/config/env'
+import { getCdnBaseUrl, r2VariantsPrefixToSrcset } from '@/config/env'
 
 function r2KeyToCdnUrl (r2Key?: string): string | undefined {
   if (!r2Key) {
@@ -40,6 +40,8 @@ export function mapFavoriteItemDtoToModel (dto: FavoriteItemDto): FavoriteItemMo
     publishedAt: dto.publishedAt ?? '',
     thumbnailUrl: r2KeyToCdnUrl(dto.thumbnailUrl),
     coverUrl: r2KeyToCdnUrl(dto.coverUrl),
+    thumbnailSrcset: r2VariantsPrefixToSrcset(dto.thumbnailVariantsPrefix),
+    coverSrcset: r2VariantsPrefixToSrcset(dto.coverVariantsPrefix),
     durationSec: dto.durationSec,
     collectionType: dto.collectionType,
     itemsCount: dto.itemsCount,

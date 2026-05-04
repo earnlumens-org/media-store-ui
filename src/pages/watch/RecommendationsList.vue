@@ -79,7 +79,9 @@
             v-if="item.thumbnailUrl"
             class="h-100"
             cover
+            sizes="168px"
             :src="item.thumbnailUrl"
+            :srcset="item.thumbnailSrcset"
           >
             <template #placeholder>
               <v-sheet

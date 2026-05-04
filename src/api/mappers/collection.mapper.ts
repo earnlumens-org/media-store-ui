@@ -15,7 +15,7 @@ import type {
 } from '../types/collection.types'
 
 import type { ProfileBadge } from '@/lib/profileBadge'
-import { getCdnBaseUrl } from '@/config/env'
+import { getCdnBaseUrl, r2VariantsPrefixToSrcset } from '@/config/env'
 
 function r2KeyToCdnUrl (r2Key?: string): string | undefined {
   if (!r2Key) {
@@ -73,6 +73,7 @@ export function mapCollectionEntryItemDtoToModel (dto: CollectionEntryItemDto): 
     description: dto.description,
     authorName: dto.authorUsername,
     thumbnailUrl: r2KeyToCdnUrl(dto.thumbnailR2Key),
+    thumbnailSrcset: r2VariantsPrefixToSrcset(dto.thumbnailVariantsPrefix),
     durationSec: dto.durationSec,
     isPaid: dto.isPaid,
     priceXlm: dto.priceXlm,
@@ -88,6 +89,7 @@ export function mapCollectionDetailDtoToModel (dto: CollectionDetailDto): Collec
     description: dto.description,
     collectionType: dto.collectionType,
     coverUrl: r2KeyToCdnUrl(dto.coverR2Key),
+    coverSrcset: r2VariantsPrefixToSrcset(dto.coverVariantsPrefix),
     status: dto.status,
     visibility: dto.visibility,
     authorName: dto.authorUsername,

@@ -15,6 +15,10 @@ export interface PurchasedEntryDto {
   publishedAt?: string
   thumbnailR2Key?: string
   previewR2Key?: string
+  /** R2 prefix for thumbnail WebP variants. */
+  thumbnailVariantsPrefix?: string
+  /** R2 prefix for preview-image WebP variants. */
+  previewVariantsPrefix?: string
   durationSec?: number
   isPaid: boolean
   priceXlm?: number
@@ -42,6 +46,10 @@ export interface PurchasedEntryModel {
   publishedAt: string
   thumbnailUrl?: string
   previewUrl?: string
+  /** Pre-built `<img srcset>` for the thumbnail. */
+  thumbnailSrcset?: string
+  /** Pre-built `<img srcset>` for the preview image. */
+  previewSrcset?: string
   durationSec?: number
   isPaid: boolean
   priceXlm?: number
@@ -65,6 +73,8 @@ export interface PurchasedCollectionDto {
   description?: string
   collectionType?: string
   coverR2Key?: string
+  /** R2 prefix for cover WebP variants. */
+  coverVariantsPrefix?: string
   authorUsername?: string
   authorAvatarUrl?: string
   publishedAt?: string
@@ -88,6 +98,8 @@ export interface PurchasedCollectionModel {
   description?: string
   collectionType?: string
   coverUrl?: string
+  /** Pre-built `<img srcset>` for the cover. */
+  coverSrcset?: string
   authorName?: string
   authorAvatarUrl?: string
   publishedAt: string

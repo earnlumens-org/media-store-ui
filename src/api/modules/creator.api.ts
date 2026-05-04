@@ -17,7 +17,7 @@ import type {
   StudioPageModel,
   UpdateEntryMetadataRequest,
 } from '../types/creator.types'
-import { getCdnBaseUrl } from '@/config/env'
+import { getCdnBaseUrl, r2VariantsPrefixToSrcset } from '@/config/env'
 import { apiRequest } from '../apiRequest'
 
 /** Raw DTO from GET /api/entries/mine */
@@ -29,6 +29,10 @@ interface OwnerEntryDto {
   status: string
   thumbnailR2Key?: string
   previewR2Key?: string
+  /** R2 prefix for thumbnail WebP variants. */
+  thumbnailVariantsPrefix?: string
+  /** R2 prefix for preview-image WebP variants. */
+  previewVariantsPrefix?: string
   isPaid: boolean
   priceXlm?: number
   priceUsd?: number
@@ -67,6 +71,7 @@ function dtoToCreatorEntry (dto: OwnerEntryDto): CreatorEntryModel {
     description: dto.description,
     status: dto.status as CreatorEntryModel['status'],
     thumbnailUrl: r2KeyToCdnUrl(dto.thumbnailR2Key),
+    thumbnailSrcset: r2VariantsPrefixToSrcset(dto.thumbnailVariantsPrefix),
     isPaid: dto.isPaid,
     priceXlm: dto.priceXlm,
     priceUsd: dto.priceUsd,
@@ -220,6 +225,12 @@ interface StudioItemDto {
   status: string
   thumbnailR2Key?: string
   coverR2Key?: string
+  /** R2 prefix for thumbnail WebP variants (entries). */
+  thumbnailVariantsPrefix?: string
+  /** R2 prefix for preview-image WebP variants (entries). */
+  previewVariantsPrefix?: string
+  /** R2 prefix for cover WebP variants (collections). */
+  coverVariantsPrefix?: string
   isPaid: boolean
   priceXlm?: number
   priceUsd?: number
@@ -255,6 +266,8 @@ function studioDtoToModel (dto: StudioItemDto): StudioItemModel {
     status: dto.status,
     thumbnailUrl: r2KeyToCdnUrl(dto.thumbnailR2Key),
     coverUrl: r2KeyToCdnUrl(dto.coverR2Key),
+    thumbnailSrcset: r2VariantsPrefixToSrcset(dto.thumbnailVariantsPrefix),
+    coverSrcset: r2VariantsPrefixToSrcset(dto.coverVariantsPrefix),
     isPaid: dto.isPaid,
     priceXlm: dto.priceXlm,
     priceUsd: dto.priceUsd,

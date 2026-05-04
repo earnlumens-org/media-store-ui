@@ -13,6 +13,8 @@ export interface CreatorEntryModel {
   description?: string
   status: EntryStatus
   thumbnailUrl?: string
+  /** Pre-built `<img srcset>` for the thumbnail. */
+  thumbnailSrcset?: string
   isPaid: boolean
   priceXlm?: number
   priceUsd?: number
@@ -88,6 +90,10 @@ export interface StudioItemModel {
   status: string
   thumbnailUrl?: string
   coverUrl?: string
+  /** Pre-built `<img srcset>` for the entry thumbnail. */
+  thumbnailSrcset?: string
+  /** Pre-built `<img srcset>` for the collection cover. */
+  coverSrcset?: string
   isPaid: boolean
   priceXlm?: number
   priceUsd?: number

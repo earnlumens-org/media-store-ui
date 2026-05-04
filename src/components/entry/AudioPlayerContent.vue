@@ -77,7 +77,9 @@
           v-if="entry.thumbnailUrl"
           class="w-100 h-100 position-absolute opacity-40"
           cover
+          sizes="100vw"
           :src="entry.thumbnailUrl"
+          :srcset="entry.thumbnailSrcset"
         />
         <v-icon color="grey-darken-2" size="80">mdi-lock</v-icon>
       </v-sheet>
@@ -146,7 +148,9 @@
           v-if="entry.thumbnailUrl"
           class="h-100"
           cover
+          sizes="200px"
           :src="entry.thumbnailUrl"
+          :srcset="entry.thumbnailSrcset"
         >
           <template #placeholder>
             <v-sheet

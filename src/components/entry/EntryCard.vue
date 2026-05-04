@@ -36,6 +36,8 @@
     profileBadge?: ProfileBadge
     publishedAt: string | Date
     thumbnailUrl?: string
+    /** Pre-built `<img srcset>` for the thumbnail (WebP variants). */
+    thumbnailSrcset?: string
     durationSec?: number
     locked?: boolean
     unlocked?: boolean

@@ -5,7 +5,9 @@
       :fallback-icon="typeIcon"
       fallback-icon-color="grey-darken-4"
       :grayscale="Boolean(collection.locked)"
+      sizes="(max-width: 600px) 50vw, (max-width: 960px) 33vw, 25vw"
       :src="collection.coverUrl"
+      :srcset="collection.coverSrcset"
     >
       <template #overlay>
         <v-chip

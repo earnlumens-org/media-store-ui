@@ -26,6 +26,8 @@ export interface CollectionDto {
   profileBadge?: string
   publishedAt: string
   coverUrl?: string
+  /** Pre-built `<img srcset>` for the cover (WebP variants). */
+  coverSrcset?: string
   itemsCount?: number
   totalDurationSec?: number
   locked?: boolean
@@ -52,7 +54,11 @@ export interface EntryModel {
   profileBadge?: ProfileBadge
   publishedAt: string | Date
   thumbnailUrl?: string
+  /** Pre-built `<img srcset>` for the thumbnail (WebP variants). */
+  thumbnailSrcset?: string
   previewUrl?: string
+  /** Pre-built `<img srcset>` for the preview image (WebP variants). */
+  previewSrcset?: string
   durationSec?: number
   locked?: boolean
   resourceContent?: string
@@ -67,6 +73,8 @@ export interface CollectionModel {
   profileBadge?: ProfileBadge
   publishedAt: string | Date
   coverUrl?: string
+  /** Pre-built `<img srcset>` for the cover (WebP variants). */
+  coverSrcset?: string
   itemsCount?: number
   totalDurationSec?: number
   locked?: boolean

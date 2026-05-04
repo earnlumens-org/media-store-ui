@@ -48,6 +48,8 @@
     profileBadge?: ProfileBadge
     publishedAt: string | Date
     coverUrl?: string
+    /** Pre-built `<img srcset>` for the cover (WebP variants). */
+    coverSrcset?: string
     itemsCount?: number
     totalDurationSec?: number
     locked?: boolean

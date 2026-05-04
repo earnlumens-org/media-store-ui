@@ -14,7 +14,7 @@ import type {
   PurchasedEntryPageModel,
 } from '../types/purchase.types'
 
-import { getCdnBaseUrl } from '@/config/env'
+import { getCdnBaseUrl, r2VariantsPrefixToSrcset } from '@/config/env'
 
 function r2KeyToCdnUrl (r2Key?: string): string | undefined {
   if (!r2Key) {
@@ -34,6 +34,8 @@ export function mapPurchasedEntryDtoToModel (dto: PurchasedEntryDto): PurchasedE
     publishedAt: dto.publishedAt ?? '',
     thumbnailUrl: r2KeyToCdnUrl(dto.thumbnailR2Key),
     previewUrl: r2KeyToCdnUrl(dto.previewR2Key),
+    thumbnailSrcset: r2VariantsPrefixToSrcset(dto.thumbnailVariantsPrefix),
+    previewSrcset: r2VariantsPrefixToSrcset(dto.previewVariantsPrefix),
     durationSec: dto.durationSec,
     isPaid: dto.isPaid,
     priceXlm: dto.priceXlm,
@@ -59,6 +61,7 @@ export function mapPurchasedCollectionDtoToModel (dto: PurchasedCollectionDto): 
     description: dto.description,
     collectionType: dto.collectionType,
     coverUrl: r2KeyToCdnUrl(dto.coverR2Key),
+    coverSrcset: r2VariantsPrefixToSrcset(dto.coverVariantsPrefix),
     authorName: dto.authorUsername,
     authorAvatarUrl: dto.authorAvatarUrl,
     publishedAt: dto.publishedAt ?? '',

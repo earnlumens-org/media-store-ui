@@ -6,7 +6,7 @@
 import type { PublicFeedItemDto, PublicFeedItemModel, PublicFeedPageDto, PublicFeedPageModel } from '../types/feed.types'
 
 import type { ProfileBadge } from '@/lib/profileBadge'
-import { getCdnBaseUrl } from '@/config/env'
+import { getCdnBaseUrl, r2VariantsPrefixToSrcset } from '@/config/env'
 
 function r2KeyToCdnUrl (r2Key?: string): string | undefined {
   if (!r2Key) {
@@ -36,6 +36,8 @@ export function mapFeedItemDtoToModel (dto: PublicFeedItemDto): PublicFeedItemMo
     publishedAt: dto.publishedAt ?? '',
     thumbnailUrl: r2KeyToCdnUrl(dto.thumbnailR2Key),
     coverUrl: r2KeyToCdnUrl(dto.coverR2Key),
+    thumbnailSrcset: r2VariantsPrefixToSrcset(dto.thumbnailVariantsPrefix),
+    coverSrcset: r2VariantsPrefixToSrcset(dto.coverVariantsPrefix),
     durationSec: dto.durationSec,
     viewCount: dto.viewCount ?? 0,
     isPaid: dto.isPaid,

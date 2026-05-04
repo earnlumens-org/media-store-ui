@@ -20,6 +20,10 @@ export interface PublicEntryDto {
   publishedAt?: string
   thumbnailR2Key?: string
   previewR2Key?: string
+  /** R2 prefix for thumbnail WebP variants (320/640/1280). */
+  thumbnailVariantsPrefix?: string
+  /** R2 prefix for preview-image WebP variants (320/640/1280). */
+  previewVariantsPrefix?: string
   durationSec?: number
   isPaid: boolean
   priceXlm?: number
@@ -59,6 +63,10 @@ export interface PublicEntryModel {
   publishedAt: string
   thumbnailUrl?: string
   previewUrl?: string
+  /** Pre-built `<img srcset>` for the thumbnail (WebP variants). */
+  thumbnailSrcset?: string
+  /** Pre-built `<img srcset>` for the preview image (WebP variants). */
+  previewSrcset?: string
   durationSec?: number
   viewCount?: number
   isPaid: boolean

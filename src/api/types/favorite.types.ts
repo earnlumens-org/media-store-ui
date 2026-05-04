@@ -19,6 +19,10 @@ export interface FavoriteItemDto {
   publishedAt?: string
   thumbnailUrl?: string
   coverUrl?: string
+  /** R2 prefix for thumbnail WebP variants (entries). */
+  thumbnailVariantsPrefix?: string
+  /** R2 prefix for cover WebP variants (collections). */
+  coverVariantsPrefix?: string
   durationSec?: number
   collectionType?: string
   itemsCount?: number
@@ -61,6 +65,10 @@ export interface FavoriteItemModel {
   publishedAt: string
   thumbnailUrl?: string
   coverUrl?: string
+  /** Pre-built `<img srcset>` for the thumbnail (entries). */
+  thumbnailSrcset?: string
+  /** Pre-built `<img srcset>` for the cover (collections). */
+  coverSrcset?: string
   durationSec?: number
   collectionType?: string
   itemsCount?: number

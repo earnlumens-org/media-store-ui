@@ -6,7 +6,7 @@
 import type { PublicEntryDto, PublicEntryModel, PublicEntryPageDto, PublicEntryPageModel } from '../types/entry.types'
 
 import type { ProfileBadge } from '@/lib/profileBadge'
-import { getCdnBaseUrl } from '@/config/env'
+import { getCdnBaseUrl, r2VariantsPrefixToSrcset } from '@/config/env'
 
 function r2KeyToCdnUrl (r2Key?: string): string | undefined {
   if (!r2Key) {
@@ -37,6 +37,8 @@ export function mapPublicEntryDtoToModel (dto: PublicEntryDto): PublicEntryModel
     publishedAt: dto.publishedAt ?? '',
     thumbnailUrl: r2KeyToCdnUrl(dto.thumbnailR2Key),
     previewUrl: r2KeyToCdnUrl(dto.previewR2Key),
+    thumbnailSrcset: r2VariantsPrefixToSrcset(dto.thumbnailVariantsPrefix),
+    previewSrcset: r2VariantsPrefixToSrcset(dto.previewVariantsPrefix),
     durationSec: dto.durationSec,
     viewCount: dto.viewCount ?? 0,
     isPaid: dto.isPaid,

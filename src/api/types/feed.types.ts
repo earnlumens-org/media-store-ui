@@ -21,6 +21,12 @@ export interface PublicFeedItemDto {
   publishedAt?: string
   thumbnailR2Key?: string
   coverR2Key?: string
+  /** R2 prefix for thumbnail WebP variants (entries). */
+  thumbnailVariantsPrefix?: string
+  /** R2 prefix for preview-image WebP variants (entries). */
+  previewVariantsPrefix?: string
+  /** R2 prefix for cover WebP variants (collections). */
+  coverVariantsPrefix?: string
   durationSec?: number
   viewCount: number
   isPaid: boolean
@@ -55,6 +61,10 @@ export interface PublicFeedItemModel {
   publishedAt: string
   thumbnailUrl?: string
   coverUrl?: string
+  /** Pre-built `<img srcset>` for the entry thumbnail. */
+  thumbnailSrcset?: string
+  /** Pre-built `<img srcset>` for the collection cover. */
+  coverSrcset?: string
   durationSec?: number
   viewCount: number
   isPaid: boolean

@@ -13,6 +13,8 @@ export interface CollectionDto {
   description?: string
   collectionType?: string
   coverR2Key?: string
+  /** R2 prefix for cover WebP variants (320/640/1280). */
+  coverVariantsPrefix?: string
   status?: string
   visibility?: string
   authorUsername?: string
@@ -44,6 +46,8 @@ export interface CollectionEntryItemDto {
   description?: string
   authorUsername?: string
   thumbnailR2Key?: string
+  /** R2 prefix for thumbnail WebP variants. */
+  thumbnailVariantsPrefix?: string
   durationSec?: number
   isPaid: boolean
   priceXlm?: number
@@ -57,6 +61,8 @@ export interface CollectionDetailDto {
   description?: string
   collectionType?: string
   coverR2Key?: string
+  /** R2 prefix for cover WebP variants. */
+  coverVariantsPrefix?: string
   status?: string
   visibility?: string
   authorUsername?: string
@@ -114,6 +120,8 @@ export interface CollectionEntryItemModel {
   description?: string
   authorName?: string
   thumbnailUrl?: string
+  /** Pre-built `<img srcset>` for the thumbnail (WebP variants). */
+  thumbnailSrcset?: string
   durationSec?: number
   isPaid: boolean
   priceXlm?: number
@@ -127,6 +135,8 @@ export interface CollectionDetailModel {
   description?: string
   collectionType?: string
   coverUrl?: string
+  /** Pre-built `<img srcset>` for the cover (WebP variants). */
+  coverSrcset?: string
   status?: string
   visibility?: string
   authorName?: string

@@ -288,7 +288,9 @@
               class="rounded-lg mb-6"
               cover
               :height="isMobile ? 200 : 350"
+              sizes="(max-width: 600px) 100vw, 800px"
               :src="entry.thumbnailUrl"
+              :srcset="entry.thumbnailSrcset"
             >
               <template #placeholder>
                 <v-sheet

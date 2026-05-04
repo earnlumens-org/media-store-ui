@@ -138,7 +138,9 @@
         class="rounded-lg mt-4"
         cover
         height="200"
+        sizes="(max-width: 600px) 100vw, 800px"
         :src="entry.thumbnailUrl"
+        :srcset="entry.thumbnailSrcset"
       />
 
       <v-divider class="my-4" />

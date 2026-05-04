@@ -238,6 +238,38 @@ export function cdnPublicUrl (r2Key: string): string {
 }
 
 /**
+ * Widths (in CSS pixels) of the WebP variants emitted by the
+ * thumbnail-worker for every approved entry/collection cover.
+ * Keep in sync with `thumbnail-worker/src/index.mjs` (TARGET_WIDTHS).
+ */
+export const THUMBNAIL_VARIANT_WIDTHS = [320, 640, 1280] as const
+
+/**
+ * Builds an `<img srcset>` string from a server-supplied R2 prefix
+ * containing the pre-generated WebP variants ({@code 320.webp},
+ * {@code 640.webp}, {@code 1280.webp}).
+ *
+ * Returns {@code undefined} when the prefix is empty/missing — callers
+ * must always fall back to the legacy {@code thumbnailR2Key} as the
+ * single {@code src}, so older entries (worker has not run, was
+ * skipped, or failed) keep rendering.
+ *
+ * @example
+ *   r2VariantsPrefixToSrcset('public/entries/abc123/thumb-variants')
+ *   // => 'https://earnlumens.org/cdn/public/entries/abc123/thumb-variants/320.webp 320w, ...'
+ */
+export function r2VariantsPrefixToSrcset (prefix?: string): string | undefined {
+  if (!prefix) {
+    return undefined
+  }
+  const cleanPrefix = prefix.replace(/^\/+|\/+$/g, '')
+  const base = `${getCdnBaseUrl()}/${cleanPrefix}`
+  return THUMBNAIL_VARIANT_WIDTHS
+    .map(w => `${base}/${w}.webp ${w}w`)
+    .join(', ')
+}
+
+/**
  * Builds a CDN URL for a PRIVATE media entry.
  * Auth is handled via refresh-cookie session by the CDN Worker.
  *

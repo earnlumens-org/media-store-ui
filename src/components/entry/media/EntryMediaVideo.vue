@@ -5,7 +5,9 @@
       fallback-icon="mdi-video-outline"
       fallback-icon-color="grey-darken-4"
       :grayscale="Boolean(entry.locked)"
+      sizes="(max-width: 600px) 50vw, (max-width: 960px) 33vw, 25vw"
       :src="entry.thumbnailUrl"
+      :srcset="entry.thumbnailSrcset"
     >
       <template #overlay>
         <v-avatar

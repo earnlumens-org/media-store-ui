@@ -274,7 +274,9 @@
                   v-if="entry.thumbnailUrl"
                   class="h-100"
                   cover
+                  sizes="240px"
                   :src="entry.thumbnailUrl"
+                  :srcset="entry.thumbnailSrcset"
                 >
                   <template #placeholder>
                     <v-sheet
