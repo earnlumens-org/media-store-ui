@@ -23,11 +23,13 @@
     <v-container>
       <v-row>
         <v-col
+          :class="mobileView ? 'position-sticky' : ''"
           cols="12"
           :md="mobileView ? 12 : 3"
           :sm="mobileView ? 12 : 3"
+          :style="mobileView ? 'top: 64px; z-index: 2;' : ''"
         >
-          <v-sheet :class="mobileView ? 'pa-1' : 'pa-4'">
+          <v-sheet :class="mobileView ? 'pa-0' : 'pa-4'">
             <CategoryList
               v-model="selectedCategoryKey"
               :categories="categories"
