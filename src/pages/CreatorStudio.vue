@@ -124,7 +124,6 @@
         {{ t('CreatorStudio.tabs.deleted') }}
         <v-badge
           v-if="stats.deleted > 0"
-          color="error"
           :content="stats.deleted"
           inline
         />
