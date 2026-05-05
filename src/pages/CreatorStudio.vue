@@ -1171,6 +1171,54 @@
       </v-card>
     </v-dialog>
 
+    <!-- ── Soft-Delete Entry Confirmation Dialog ──────────── -->
+    <v-dialog v-model="deleteEntryDialog" max-width="440">
+      <v-card>
+        <v-card-title class="text-h6">{{ t('CreatorStudio.deleteEntryConfirm.title') }}</v-card-title>
+        <v-card-text>
+          {{ t('CreatorStudio.deleteEntryConfirm.message', { title: entryToDelete?.title ?? '' }) }}
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn variant="text" @click="deleteEntryDialog = false">
+            {{ t('Upload.actions.cancel') }}
+          </v-btn>
+          <v-btn
+            color="error"
+            :loading="isDeletingEntry"
+            variant="elevated"
+            @click="executeDeleteEntry"
+          >
+            {{ t('CreatorStudio.actions.delete') }}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
+    <!-- ── Soft-Delete Collection Confirmation Dialog ─────── -->
+    <v-dialog v-model="deleteCollSoftDialog" max-width="440">
+      <v-card>
+        <v-card-title class="text-h6">{{ t('CreatorStudio.deleteCollectionConfirm.title') }}</v-card-title>
+        <v-card-text>
+          {{ t('CreatorStudio.deleteCollectionConfirm.message', { title: collToSoftDelete?.title ?? '' }) }}
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn variant="text" @click="deleteCollSoftDialog = false">
+            {{ t('Upload.actions.cancel') }}
+          </v-btn>
+          <v-btn
+            color="error"
+            :loading="isSoftDeletingColl"
+            variant="elevated"
+            @click="executeSoftDeleteColl"
+          >
+            {{ t('CreatorStudio.actions.delete') }}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+
     <!-- ── Upload Type Dialog ──────────────────────────────── -->
     <upload-type-dialog v-model="showUploadDialog" />
 
