@@ -14,3 +14,18 @@
 .stellar-wallets-kit {
   z-index: 100000 !important;
 }
+
+/**
+ * Soft anti-save protection for paid (locked) image media.
+ *
+ * Disables native drag and right-click context menu on the underlying
+ * <img>. Combined with @contextmenu.prevent / @dragstart.prevent on
+ * the wrapping element this prevents casual users from "Save image
+ * as…" the high-quality WebP variant of a locked image entry. Not a
+ * real DRM — only the API/CDN entitlement check is authoritative.
+ */
+.protected-img img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}

@@ -1,6 +1,11 @@
 <template>
   <v-responsive :aspect-ratio="aspectRatio">
-    <div class="position-absolute top-0 left-0 w-100 h-100">
+    <div
+      class="position-absolute top-0 left-0 w-100 h-100"
+      :class="{ 'media-frame--protected': protect }"
+      @contextmenu="onContextMenu"
+      @dragstart="onDragStart"
+    >
       <v-img
         v-if="src"
         class="w-100 h-100"
@@ -77,27 +82,57 @@
     aspectRatio?: number
     roundedClass?: string
     grayscale?: boolean
+    /**
+     * When true, blocks the right-click context menu and native drag
+     * on the underlying `<img>`. This is a soft deterrent meant for
+     * locked paid media (mainly image entries) so casual users can't
+     * “Save image as…” the high-quality `1280.webp` variant from a
+     * card or recommendation. It does not prevent determined users
+     * from extracting the asset — only the real entitlement check on
+     * the API/CDN does.
+     */
+    protect?: boolean
     fallbackColor?: string
     fallbackIcon?: string
     fallbackIconColor?: string
     fallbackIconSize?: number | string
   }
 
-  withDefaults(defineProps<Props>(), {
+  const props = withDefaults(defineProps<Props>(), {
     aspectRatio: 16 / 9,
     sizes: '100vw',
     roundedClass: 'rounded-lg',
     grayscale: false,
+    protect: false,
     fallbackColor: 'grey-lighten-3',
     fallbackIcon: 'mdi-image-outline',
     fallbackIconColor: 'grey',
     fallbackIconSize: 64,
   })
+
+  function onContextMenu (event: MouseEvent) {
+    if (props.protect) event.preventDefault()
+  }
+
+  function onDragStart (event: DragEvent) {
+    if (props.protect) event.preventDefault()
+  }
 </script>
 
 <style scoped>
   .skeleton-pulse {
     animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  /*
+   * Soft right-click / drag protection. Disabling pointer-events on
+   * the actual <img> makes the contextmenu/dragstart events fire on
+   * the wrapper div instead, where preventDefault() blocks them.
+   */
+  .media-frame--protected :deep(img) {
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none;
   }
 
   @keyframes pulse {

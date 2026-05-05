@@ -334,11 +334,13 @@
               <template v-if="content.thumbnailUrl">
                 <v-img
                   aspect-ratio="4/3"
-                  class="blur-preview"
+                  class="blur-preview protected-img"
                   cover
                   sizes="100vw"
                   :src="content.thumbnailUrl"
                   :srcset="content.thumbnailSrcset"
+                  @contextmenu.prevent
+                  @dragstart.prevent
                 >
                   <template #placeholder>
                     <v-sheet class="h-100 w-100 d-flex align-center justify-center" color="grey-darken-4">

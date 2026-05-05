@@ -77,10 +77,13 @@
           <v-img
             v-if="item.thumbnailUrl"
             class="h-100"
+            :class="{ 'protected-img': item.locked }"
             cover
             sizes="168px"
             :src="item.thumbnailUrl"
             :srcset="item.thumbnailSrcset"
+            @contextmenu="item.locked && $event.preventDefault()"
+            @dragstart="item.locked && $event.preventDefault()"
           >
             <template #placeholder>
               <v-sheet
