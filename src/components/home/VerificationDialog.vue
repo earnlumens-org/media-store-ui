@@ -9,6 +9,16 @@
       <!-- Glow accent -->
       <div class="card-glow" />
 
+      <!-- Close (X) — always available so the dialog isn't blocking on mobile fullscreen -->
+      <v-btn
+        :disabled="claiming"
+        icon="mdi-close"
+        size="small"
+        style="position: absolute; right: 8px; top: 8px; z-index: 1;"
+        variant="text"
+        @click="close"
+      />
+
       <v-card-text class="pa-6 pa-sm-8">
         <!-- ─────────── INTRO STATE ─────────── -->
         <template v-if="step === 'intro'">
