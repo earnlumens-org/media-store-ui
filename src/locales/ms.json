@@ -435,7 +435,8 @@
       "rejected": "Ditolak",
       "suspended": "Digantung",
       "unlisted": "Tidak tersenarai",
-      "archived": "Diarkibkan"
+      "archived": "Diarkibkan",
+      "deleted": "Dipadam"
     },
     "progress": {
       "initializingUpload": "Memulakan muat naik...",
@@ -588,6 +589,7 @@
     "tabs": {
       "active": "Aktif",
       "archived": "Diarkibkan",
+      "deleted": "Dipadam",
       "collections": "Koleksi"
     },
     "sort": {
@@ -609,6 +611,8 @@
       "edit": "Sunting",
       "archive": "Arkib",
       "unarchive": "Nyaharkib",
+      "delete": "Padam",
+      "restoreDeleted": "Pulihkan",
       "submitReview": "Hantar untuk semakan",
       "publish": "Terbit",
       "publishSubtitle": "Jadikan ia kelihatan pada profil anda",
@@ -626,6 +630,18 @@
       "title": "Arkibkan entri?",
       "message": "Adakah anda pasti mahu mengarkibkan \"{title}\"? Ia akan disembunyikan daripada katalog awam tetapi pembeli sedia ada akan mengekalkan akses."
     },
+    "deleteEntryConfirm": {
+      "title": "Padam entri?",
+      "message": "Adakah anda pasti mahu memadam \"{title}\"? Ia akan disembunyikan daripada katalog awam dan profil anda, tetapi pembeli sedia ada akan kekal mempunyai akses. Anda boleh memulihkannya kemudian dari tab Dipadam."
+    },
+    "deleteCollectionConfirm": {
+      "title": "Padam koleksi?",
+      "message": "Adakah anda pasti mahu memadam \"{title}\"? Ia akan disembunyikan daripada katalog awam dan profil anda, tetapi pembeli sedia ada akan kekal mempunyai akses. Anda boleh memulihkannya kemudian dari tab Dipadam."
+    },
+    "deleteSuccess": "Dialihkan ke Dipadam",
+    "deleteError": "Gagal memadam. Sila cuba lagi.",
+    "restoreDeletedSuccess": "Dipulihkan daripada Dipadam",
+    "restoreDeletedError": "Gagal memulihkan. Sila cuba lagi.",
     "archiveSuccess": "Entri berjaya diarkibkan",
     "archiveError": "Gagal mengarkibkan entri. Sila cuba lagi.",
     "unarchiveSuccess": "Entri dinyaharkib dan dipulihkan ke status sebelumnya",

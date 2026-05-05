@@ -51,6 +51,7 @@ export interface CreatorDashboardStats {
   inReview: number
   rejected: number
   archived: number
+  deleted: number
   totalViews: number
   totalSales: number
 }

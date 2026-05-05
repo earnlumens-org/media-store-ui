@@ -435,7 +435,8 @@
       "rejected": "却下",
       "suspended": "停止中",
       "unlisted": "限定公開",
-      "archived": "アーカイブ済み"
+      "archived": "アーカイブ済み",
+      "deleted": "削除済み"
     },
     "progress": {
       "initializingUpload": "アップロードを初期化中...",
@@ -588,6 +589,7 @@
     "tabs": {
       "active": "アクティブ",
       "archived": "アーカイブ済み",
+      "deleted": "削除済み",
       "collections": "コレクション"
     },
     "sort": {
@@ -609,6 +611,8 @@
       "edit": "編集",
       "archive": "アーカイブ",
       "unarchive": "アーカイブ解除",
+      "delete": "削除",
+      "restoreDeleted": "復元",
       "submitReview": "審査に提出",
       "publish": "公開",
       "publishSubtitle": "プロフィールに表示する",
@@ -626,6 +630,18 @@
       "title": "エントリーをアーカイブしますか？",
       "message": "「{title}」をアーカイブしてもよろしいですか？公開カタログからは非表示になりますが、既存の購入者は引き続きアクセスできます。"
     },
+    "deleteEntryConfirm": {
+      "title": "エントリーを削除しますか？",
+      "message": "本当に「{title}」を削除しますか？公開カタログとプロフィールから非表示になりますが、既存の購入者はアクセスを維持できます。後で「削除済み」タブから復元できます。"
+    },
+    "deleteCollectionConfirm": {
+      "title": "コレクションを削除しますか？",
+      "message": "本当に「{title}」を削除しますか？公開カタログとプロフィールから非表示になりますが、既存の購入者はアクセスを維持できます。後で「削除済み」タブから復元できます。"
+    },
+    "deleteSuccess": "削除済みに移動しました",
+    "deleteError": "削除に失敗しました。もう一度お試しください。",
+    "restoreDeletedSuccess": "削除済みから復元しました",
+    "restoreDeletedError": "復元に失敗しました。もう一度お試しください。",
     "archiveSuccess": "エントリーが正常にアーカイブされました",
     "archiveError": "エントリーのアーカイブに失敗しました。もう一度お試しください。",
     "unarchiveSuccess": "エントリーのアーカイブが解除され、以前のステータスに復元されました",

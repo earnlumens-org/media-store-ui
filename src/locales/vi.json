@@ -435,7 +435,8 @@
       "rejected": "Bị từ chối",
       "suspended": "Bị đình chỉ",
       "unlisted": "Không công khai",
-      "archived": "Đã lưu trữ"
+      "archived": "Đã lưu trữ",
+      "deleted": "Đã xóa"
     },
     "progress": {
       "initializingUpload": "Đang khởi tạo tải lên...",
@@ -588,6 +589,7 @@
     "tabs": {
       "active": "Đang hoạt động",
       "archived": "Đã lưu trữ",
+      "deleted": "Đã xóa",
       "collections": "Bộ sưu tập"
     },
     "sort": {
@@ -609,6 +611,8 @@
       "edit": "Sửa",
       "archive": "Lưu trữ",
       "unarchive": "Bỏ lưu trữ",
+      "delete": "Xóa",
+      "restoreDeleted": "Khôi phục",
       "submitReview": "Gửi để xét duyệt",
       "publish": "Xuất bản",
       "publishSubtitle": "Hiển thị trên hồ sơ của bạn",
@@ -626,6 +630,18 @@
       "title": "Lưu trữ bài viết?",
       "message": "Bạn có chắc chắn muốn lưu trữ \"{title}\" không? Nó sẽ bị ẩn khỏi danh mục công khai nhưng người mua hiện tại vẫn có thể truy cập."
     },
+    "deleteEntryConfirm": {
+      "title": "Xóa mục này?",
+      "message": "Bạn có chắc muốn xóa \"{title}\"? Mục này sẽ bị ẩn khỏi danh mục công khai và hồ sơ của bạn, nhưng những người đã mua vẫn giữ được quyền truy cập. Bạn có thể khôi phục sau từ tab Đã xóa."
+    },
+    "deleteCollectionConfirm": {
+      "title": "Xóa bộ sưu tập?",
+      "message": "Bạn có chắc muốn xóa \"{title}\"? Bộ sưu tập sẽ bị ẩn khỏi danh mục công khai và hồ sơ của bạn, nhưng những người đã mua vẫn giữ được quyền truy cập. Bạn có thể khôi phục sau từ tab Đã xóa."
+    },
+    "deleteSuccess": "Đã chuyển vào Đã xóa",
+    "deleteError": "Xóa thất bại. Vui lòng thử lại.",
+    "restoreDeletedSuccess": "Đã khôi phục từ Đã xóa",
+    "restoreDeletedError": "Khôi phục thất bại. Vui lòng thử lại.",
     "archiveSuccess": "Lưu trữ bài viết thành công",
     "archiveError": "Không thể lưu trữ bài viết. Vui lòng thử lại.",
     "unarchiveSuccess": "Bài viết đã được bỏ lưu trữ và khôi phục trạng thái trước đó",

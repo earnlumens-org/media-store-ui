@@ -435,7 +435,8 @@
       "rejected": "已拒絕",
       "suspended": "已暫停",
       "unlisted": "未列出",
-      "archived": "已封存"
+      "archived": "已封存",
+      "deleted": "已刪除"
     },
     "progress": {
       "initializingUpload": "正在初始化上傳...",
@@ -588,6 +589,7 @@
     "tabs": {
       "active": "已啟用",
       "archived": "已封存",
+      "deleted": "已刪除",
       "collections": "合輯"
     },
     "sort": {
@@ -609,6 +611,8 @@
       "edit": "編輯",
       "archive": "封存",
       "unarchive": "取消封存",
+      "delete": "刪除",
+      "restoreDeleted": "還原",
       "submitReview": "提交審核",
       "publish": "發布",
       "publishSubtitle": "在您的個人資料上顯示",
@@ -626,6 +630,18 @@
       "title": "封存條目？",
       "message": "您確定要封存「{title}」嗎？它將從公開目錄中隱藏，但現有購買者仍可存取。"
     },
+    "deleteEntryConfirm": {
+      "title": "刪除此項目？",
+      "message": "確定要刪除「{title}」嗎？它將從公開目錄和您的個人檔案中隱藏，但現有買家仍可存取。您可以稍後在「已刪除」分頁中還原。"
+    },
+    "deleteCollectionConfirm": {
+      "title": "刪除此合集？",
+      "message": "確定要刪除「{title}」嗎？它將從公開目錄和您的個人檔案中隱藏，但現有買家仍可存取。您可以稍後在「已刪除」分頁中還原。"
+    },
+    "deleteSuccess": "已移至已刪除",
+    "deleteError": "刪除失敗，請重試。",
+    "restoreDeletedSuccess": "已從「已刪除」中還原",
+    "restoreDeletedError": "還原失敗，請重試。",
     "archiveSuccess": "條目封存成功",
     "archiveError": "封存條目失敗。請重試。",
     "unarchiveSuccess": "條目已取消封存並恢復為先前狀態",

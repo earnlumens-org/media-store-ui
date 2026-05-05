@@ -435,7 +435,8 @@
       "rejected": "Rejeitado",
       "suspended": "Suspenso",
       "unlisted": "Não listado",
-      "archived": "Arquivado"
+      "archived": "Arquivado",
+      "deleted": "Excluído"
     },
     "progress": {
       "initializingUpload": "Inicializando upload...",
@@ -588,6 +589,7 @@
     "tabs": {
       "active": "Ativos",
       "archived": "Arquivados",
+      "deleted": "Excluídos",
       "collections": "Coleções"
     },
     "sort": {
@@ -609,6 +611,8 @@
       "edit": "Editar",
       "archive": "Arquivar",
       "unarchive": "Desarquivar",
+      "delete": "Excluir",
+      "restoreDeleted": "Restaurar",
       "submitReview": "Enviar para revisão",
       "publish": "Publicar",
       "publishSubtitle": "Torne-o visível no seu perfil",
@@ -626,6 +630,18 @@
       "title": "Arquivar entrada?",
       "message": "Tem certeza de que deseja arquivar \"{title}\"? Será ocultada do catálogo público, mas os compradores existentes manterão o acesso."
     },
+    "deleteEntryConfirm": {
+      "title": "Excluir entrada?",
+      "message": "Tem certeza de que deseja excluir \"{title}\"? Ela será ocultada do catálogo público e do seu perfil, mas os compradores existentes manterão o acesso. Você pode restaurá-la mais tarde na aba Excluídos."
+    },
+    "deleteCollectionConfirm": {
+      "title": "Excluir coleção?",
+      "message": "Tem certeza de que deseja excluir \"{title}\"? Ela será ocultada do catálogo público e do seu perfil, mas os compradores existentes manterão o acesso. Você pode restaurá-la mais tarde na aba Excluídos."
+    },
+    "deleteSuccess": "Movido para Excluídos",
+    "deleteError": "Falha ao excluir. Tente novamente.",
+    "restoreDeletedSuccess": "Restaurado de Excluídos",
+    "restoreDeletedError": "Falha ao restaurar. Tente novamente.",
     "archiveSuccess": "Entrada arquivada com sucesso",
     "archiveError": "Falha ao arquivar a entrada. Por favor, tente novamente.",
     "unarchiveSuccess": "Entrada desarquivada e restaurada ao status anterior",

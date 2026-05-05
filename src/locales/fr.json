@@ -435,7 +435,8 @@
       "rejected": "Rejeté",
       "suspended": "Suspendu",
       "unlisted": "Non répertorié",
-      "archived": "Archivé"
+      "archived": "Archivé",
+      "deleted": "Supprimé"
     },
     "progress": {
       "initializingUpload": "Initialisation du téléversement...",
@@ -588,6 +589,7 @@
     "tabs": {
       "active": "Actifs",
       "archived": "Archivés",
+      "deleted": "Supprimés",
       "collections": "Collections"
     },
     "sort": {
@@ -609,6 +611,8 @@
       "edit": "Modifier",
       "archive": "Archiver",
       "unarchive": "Désarchiver",
+      "delete": "Supprimer",
+      "restoreDeleted": "Restaurer",
       "submitReview": "Soumettre pour examen",
       "publish": "Publier",
       "publishSubtitle": "Rendez-le visible sur votre profil",
@@ -626,6 +630,18 @@
       "title": "Archiver l'entrée ?",
       "message": "Êtes-vous sûr de vouloir archiver \"{title}\" ? Elle sera masquée du catalogue public mais les acheteurs existants conserveront leur accès."
     },
+    "deleteEntryConfirm": {
+      "title": "Supprimer l'entrée ?",
+      "message": "Voulez-vous vraiment supprimer \"{title}\" ? Elle sera masquée du catalogue public et de votre profil, mais les acheteurs existants conserveront l'accès. Vous pourrez la restaurer plus tard depuis l'onglet Supprimés."
+    },
+    "deleteCollectionConfirm": {
+      "title": "Supprimer la collection ?",
+      "message": "Voulez-vous vraiment supprimer \"{title}\" ? Elle sera masquée du catalogue public et de votre profil, mais les acheteurs existants conserveront l'accès. Vous pourrez la restaurer plus tard depuis l'onglet Supprimés."
+    },
+    "deleteSuccess": "Déplacé vers Supprimés",
+    "deleteError": "Échec de la suppression. Veuillez réessayer.",
+    "restoreDeletedSuccess": "Restauré depuis Supprimés",
+    "restoreDeletedError": "Échec de la restauration. Veuillez réessayer.",
     "archiveSuccess": "Entrée archivée avec succès",
     "archiveError": "Impossible d'archiver l'entrée. Veuillez réessayer.",
     "unarchiveSuccess": "Entrée désarchivée et restaurée à son état précédent",

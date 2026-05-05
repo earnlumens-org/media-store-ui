@@ -13,10 +13,12 @@ import {
   publishCollection,
   removeItem,
   reorderItems,
+  restoreDeletedCollection as restoreDeletedCollectionFn,
+  softDeleteCollection as softDeleteCollectionFn,
   unarchiveCollection as unarchiveCollectionFn,
   updateCollection,
 } from './modules/collection.api'
-import { archiveEntry, getCreatorDashboardStats, getCreatorEntries, getStudioItems, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
+import { archiveEntry, deleteEntry, getCreatorDashboardStats, getCreatorEntries, getStudioItems, restoreDeletedEntry, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
 import { getExploreFeed, getProfileFeed, getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
 import {
   getMockCollectionById,
@@ -70,6 +72,8 @@ export const api = {
     updateMetadata: updateEntryMetadata,
     archiveEntry,
     unarchiveEntry,
+    deleteEntry,
+    restoreDeletedEntry,
     getSales: getSellerSales,
   },
   upload: {
@@ -96,6 +100,8 @@ export const api = {
     publish: publishCollection,
     archive: archiveCollectionFn,
     unarchive: unarchiveCollectionFn,
+    softDelete: softDeleteCollectionFn,
+    restoreDeleted: restoreDeletedCollectionFn,
     delete: deleteCollection,
     getMine: getMyCollections,
     addItem,
@@ -150,7 +156,7 @@ export {
   unarchiveCollection as unarchiveCollectionFn,
   updateCollection,
 } from './modules/collection.api'
-export { archiveEntry, getCreatorDashboardStats, getCreatorEntries, getStudioItems, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
+export { archiveEntry, deleteEntry, getCreatorDashboardStats, getCreatorEntries, getStudioItems, restoreDeletedEntry, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
 export { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
 export {
   getMockCollectionById,

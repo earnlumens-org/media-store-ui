@@ -119,6 +119,16 @@
           inline
         />
       </v-tab>
+      <v-tab value="deleted">
+        <v-icon class="mr-2" size="18">mdi-trash-can-outline</v-icon>
+        {{ t('CreatorStudio.tabs.deleted') }}
+        <v-badge
+          v-if="stats.deleted > 0"
+          color="error"
+          :content="stats.deleted"
+          inline
+        />
+      </v-tab>
     </v-tabs>
 
     <!-- ── Delete Collection Confirmation ──────────────── -->
@@ -490,7 +500,7 @@
                     </v-list-item>
                     <v-divider />
                     <v-list-item
-                      v-if="item.status !== 'ARCHIVED'"
+                      v-if="item.status !== 'ARCHIVED' && item.status !== 'DELETED'"
                       prepend-icon="mdi-archive-outline"
                       @click="confirmArchive(item._entry)"
                     >
@@ -504,11 +514,27 @@
                     >
                       <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
                     </v-list-item>
+                    <v-list-item
+                      v-if="item.status !== 'ARCHIVED' && item.status !== 'DELETED'"
+                      class="text-error"
+                      prepend-icon="mdi-trash-can-outline"
+                      @click="confirmDeleteEntry(item._entry)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.actions.delete') }}</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item
+                      v-if="item.status === 'DELETED'"
+                      class="text-success"
+                      prepend-icon="mdi-restore"
+                      @click="executeRestoreDeleted(item._entry)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.actions.restoreDeleted') }}</v-list-item-title>
+                    </v-list-item>
                   </template>
                   <!-- Collection-specific actions -->
                   <template v-if="item.kind === 'collection' && item._collection">
                     <v-list-item
-                      v-if="item.status === 'DRAFT' || item.status === 'ARCHIVED'"
+                      v-if="item.status === 'DRAFT' || item.status === 'ARCHIVED' || item.status === 'DELETED'"
                       prepend-icon="mdi-publish"
                       @click="publishColl(item._collection)"
                     >
@@ -516,7 +542,7 @@
                     </v-list-item>
                     <v-divider />
                     <v-list-item
-                      v-if="item.status !== 'ARCHIVED'"
+                      v-if="item.status !== 'ARCHIVED' && item.status !== 'DELETED'"
                       prepend-icon="mdi-archive-outline"
                       @click="archiveColl(item._collection)"
                     >
@@ -530,11 +556,27 @@
                     >
                       <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
                     </v-list-item>
+                    <v-list-item
+                      v-if="item.status !== 'ARCHIVED' && item.status !== 'DELETED'"
+                      class="text-error"
+                      prepend-icon="mdi-trash-can-outline"
+                      @click="confirmSoftDeleteColl(item._collection)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.actions.delete') }}</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item
+                      v-if="item.status === 'DELETED'"
+                      class="text-success"
+                      prepend-icon="mdi-restore"
+                      @click="restoreDeletedColl(item._collection)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.actions.restoreDeleted') }}</v-list-item-title>
+                    </v-list-item>
                     <v-divider />
                     <v-list-item
                       v-if="item.status === 'DRAFT'"
                       class="text-error"
-                      prepend-icon="mdi-delete-outline"
+                      prepend-icon="mdi-delete-forever-outline"
                       @click="confirmDeleteColl(item._collection)"
                     >
                       <v-list-item-title>{{ t('CreatorStudio.collections.delete') }}</v-list-item-title>
@@ -723,7 +765,7 @@
                   </v-list-item>
                   <v-divider />
                   <v-list-item
-                    v-if="item.status !== 'ARCHIVED'"
+                    v-if="item.status !== 'ARCHIVED' && item.status !== 'DELETED'"
                     prepend-icon="mdi-archive-outline"
                     @click="confirmArchive(item._entry)"
                   >
@@ -737,11 +779,27 @@
                   >
                     <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
                   </v-list-item>
+                  <v-list-item
+                    v-if="item.status !== 'ARCHIVED' && item.status !== 'DELETED'"
+                    class="text-error"
+                    prepend-icon="mdi-trash-can-outline"
+                    @click="confirmDeleteEntry(item._entry)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.actions.delete') }}</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item
+                    v-if="item.status === 'DELETED'"
+                    class="text-success"
+                    prepend-icon="mdi-restore"
+                    @click="executeRestoreDeleted(item._entry)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.actions.restoreDeleted') }}</v-list-item-title>
+                  </v-list-item>
                 </template>
                 <!-- Collection-specific actions -->
                 <template v-if="item.kind === 'collection' && item._collection">
                   <v-list-item
-                    v-if="item.status === 'DRAFT' || item.status === 'ARCHIVED'"
+                    v-if="item.status === 'DRAFT' || item.status === 'ARCHIVED' || item.status === 'DELETED'"
                     prepend-icon="mdi-publish"
                     @click="publishColl(item._collection)"
                   >
@@ -749,7 +807,7 @@
                   </v-list-item>
                   <v-divider />
                   <v-list-item
-                    v-if="item.status !== 'ARCHIVED'"
+                    v-if="item.status !== 'ARCHIVED' && item.status !== 'DELETED'"
                     prepend-icon="mdi-archive-outline"
                     @click="archiveColl(item._collection)"
                   >
@@ -763,11 +821,27 @@
                   >
                     <v-list-item-title>{{ t('CreatorStudio.actions.unarchive') }}</v-list-item-title>
                   </v-list-item>
+                  <v-list-item
+                    v-if="item.status !== 'ARCHIVED' && item.status !== 'DELETED'"
+                    class="text-error"
+                    prepend-icon="mdi-trash-can-outline"
+                    @click="confirmSoftDeleteColl(item._collection)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.actions.delete') }}</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item
+                    v-if="item.status === 'DELETED'"
+                    class="text-success"
+                    prepend-icon="mdi-restore"
+                    @click="restoreDeletedColl(item._collection)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.actions.restoreDeleted') }}</v-list-item-title>
+                  </v-list-item>
                   <v-divider />
                   <v-list-item
                     v-if="item.status === 'DRAFT'"
                     class="text-error"
-                    prepend-icon="mdi-delete-outline"
+                    prepend-icon="mdi-delete-forever-outline"
                     @click="confirmDeleteColl(item._collection)"
                   >
                     <v-list-item-title>{{ t('CreatorStudio.collections.delete') }}</v-list-item-title>
@@ -1173,6 +1247,7 @@
     rejected: 0,
     totalViews: 0,
     archived: 0,
+    deleted: 0,
     totalSales: 0,
   })
 
@@ -1337,6 +1412,22 @@
   const entryToArchive = ref<CreatorEntryModel | null>(null)
   const isArchiving = ref(false)
 
+  // Soft-delete state (entries)
+  const deleteEntryDialog = ref(false)
+  const entryToDelete = ref<CreatorEntryModel | null>(null)
+  const isDeletingEntry = ref(false)
+
+  // Soft-delete state (collections)
+  const deleteCollSoftDialog = ref(false)
+  const collToSoftDelete = ref<CollectionItemModel | null>(null)
+  const isSoftDeletingColl = ref(false)
+  const deleteEntryDialog = ref(false)
+  const entryToDelete = ref<CreatorEntryModel | null>(null)
+  const isDeletingEntry = ref(false)
+  const deleteCollSoftDialog = ref(false)
+  const collToSoftDelete = ref<CollectionItemModel | null>(null)
+  const isSoftDeletingColl = ref(false)
+
   // Snackbar
   const snackbar = reactive({
     show: false,
@@ -1394,6 +1485,7 @@
       PUBLISHED: 'success',
       REJECTED: 'error',
       ARCHIVED: 'grey',
+      DELETED: 'error',
     }
     return map[status] ?? 'default'
   }
@@ -1406,6 +1498,7 @@
       PUBLISHED: 'mdi-check-circle-outline',
       REJECTED: 'mdi-close-circle-outline',
       ARCHIVED: 'mdi-archive-outline',
+      DELETED: 'mdi-trash-can-outline',
     }
     return map[status] ?? 'mdi-help-circle-outline'
   }
@@ -1419,6 +1512,7 @@
       PUBLISHED: t('Upload.status.published'),
       REJECTED: t('Upload.status.rejected'),
       ARCHIVED: t('Upload.status.archived'),
+      DELETED: t('Upload.status.deleted'),
     }
     return map[status] ?? status
   }
@@ -1547,8 +1641,8 @@
 
   function onTabChange () {
     currentPage.value = 1
-    // Reset status filter when switching to archived tab
-    if (activeTab.value === 'archived') {
+    // Reset status filter when switching to non-active tabs
+    if (activeTab.value === 'archived' || activeTab.value === 'deleted') {
       filters.status = 'ALL'
     }
     fetchEntries()
@@ -1562,11 +1656,18 @@
 
     try {
       const isArchivedTab = activeTab.value === 'archived'
+      const isDeletedTab = activeTab.value === 'deleted'
+      let statusParam: string | undefined
+      if (isArchivedTab) {
+        statusParam = 'ARCHIVED'
+      } else if (isDeletedTab) {
+        statusParam = 'DELETED'
+      } else {
+        statusParam = filters.status === 'ALL' ? undefined : filters.status
+      }
 
       const result = await api.creator.getStudioItems({
-        status: isArchivedTab
-          ? 'ARCHIVED'
-          : (filters.status === 'ALL' ? undefined : filters.status),
+        status: statusParam,
         type: filters.type === 'ALL' ? undefined : filters.type,
         search: filters.search || undefined,
         sort: filters.sort,
@@ -1884,6 +1985,44 @@
     }
   }
 
+  // ── Soft-Delete / Restore (entry) ─────────────────────
+
+  function confirmDeleteEntry (entry: CreatorEntryModel) {
+    entryToDelete.value = entry
+    deleteEntryDialog.value = true
+  }
+
+  async function executeDeleteEntry () {
+    if (!entryToDelete.value) return
+
+    isDeletingEntry.value = true
+    try {
+      await api.creator.deleteEntry(entryToDelete.value.id)
+      showToast(t('CreatorStudio.deleteSuccess'))
+      deleteEntryDialog.value = false
+      entryToDelete.value = null
+      await fetchEntries()
+      await fetchStats()
+    } catch (error_) {
+      console.error('[CreatorStudio] Soft-delete failed:', error_)
+      showToast(t('CreatorStudio.deleteError'), 'error')
+    } finally {
+      isDeletingEntry.value = false
+    }
+  }
+
+  async function executeRestoreDeleted (entry: CreatorEntryModel) {
+    try {
+      await api.creator.restoreDeletedEntry(entry.id)
+      showToast(t('CreatorStudio.restoreDeletedSuccess'))
+      await fetchEntries()
+      await fetchStats()
+    } catch (error_) {
+      console.error('[CreatorStudio] Restore deleted failed:', error_)
+      showToast(t('CreatorStudio.restoreDeletedError'), 'error')
+    }
+  }
+
   // ── Pagination ────────────────────────────────────────────
 
   function onPageChange () {
@@ -1923,6 +2062,41 @@
     } catch (error_) {
       console.error('[CreatorStudio] Unarchive collection failed:', error_)
       showToast(t('CreatorStudio.unarchiveError'), 'error')
+    }
+  }
+
+  function confirmSoftDeleteColl (coll: CollectionItemModel) {
+    collToSoftDelete.value = coll
+    deleteCollSoftDialog.value = true
+  }
+
+  async function executeSoftDeleteColl () {
+    if (!collToSoftDelete.value) return
+    isSoftDeletingColl.value = true
+    try {
+      await api.collections.softDelete(collToSoftDelete.value.id)
+      showToast(t('CreatorStudio.deleteSuccess'))
+      deleteCollSoftDialog.value = false
+      collToSoftDelete.value = null
+      await fetchEntries()
+      await fetchStats()
+    } catch (error_) {
+      console.error('[CreatorStudio] Soft-delete collection failed:', error_)
+      showToast(t('CreatorStudio.deleteError'), 'error')
+    } finally {
+      isSoftDeletingColl.value = false
+    }
+  }
+
+  async function restoreDeletedColl (coll: CollectionItemModel) {
+    try {
+      await api.collections.restoreDeleted(coll.id)
+      showToast(t('CreatorStudio.restoreDeletedSuccess'))
+      await fetchEntries()
+      await fetchStats()
+    } catch (error_) {
+      console.error('[CreatorStudio] Restore deleted collection failed:', error_)
+      showToast(t('CreatorStudio.restoreDeletedError'), 'error')
     }
   }
 

@@ -435,7 +435,8 @@
       "rejected": "Abgelehnt",
       "suspended": "Gesperrt",
       "unlisted": "Nicht gelistet",
-      "archived": "Archiviert"
+      "archived": "Archiviert",
+      "deleted": "Gelöscht"
     },
     "progress": {
       "initializingUpload": "Upload wird initialisiert...",
@@ -588,6 +589,7 @@
     "tabs": {
       "active": "Aktiv",
       "archived": "Archiviert",
+      "deleted": "Gelöscht",
       "collections": "Sammlungen"
     },
     "sort": {
@@ -609,6 +611,8 @@
       "edit": "Bearbeiten",
       "archive": "Archivieren",
       "unarchive": "Wiederherstellen",
+      "delete": "Löschen",
+      "restoreDeleted": "Wiederherstellen",
       "submitReview": "Zur Prüfung einreichen",
       "publish": "Veröffentlichen",
       "publishSubtitle": "Mach es auf deinem Profil sichtbar",
@@ -626,6 +630,18 @@
       "title": "Eintrag archivieren?",
       "message": "Bist du sicher, dass du \"{title}\" archivieren möchtest? Er wird aus dem öffentlichen Katalog ausgeblendet, aber bestehende Käufer behalten ihren Zugang."
     },
+    "deleteEntryConfirm": {
+      "title": "Eintrag löschen?",
+      "message": "Möchtest du \"{title}\" wirklich löschen? Er wird im öffentlichen Katalog und in deinem Profil ausgeblendet, aber bestehende Käufer behalten den Zugriff. Du kannst ihn später im Tab Gelöscht wiederherstellen."
+    },
+    "deleteCollectionConfirm": {
+      "title": "Sammlung löschen?",
+      "message": "Möchtest du \"{title}\" wirklich löschen? Sie wird im öffentlichen Katalog und in deinem Profil ausgeblendet, aber bestehende Käufer behalten den Zugriff. Du kannst sie später im Tab Gelöscht wiederherstellen."
+    },
+    "deleteSuccess": "Nach Gelöscht verschoben",
+    "deleteError": "Löschen fehlgeschlagen. Bitte erneut versuchen.",
+    "restoreDeletedSuccess": "Aus Gelöscht wiederhergestellt",
+    "restoreDeletedError": "Wiederherstellen fehlgeschlagen. Bitte erneut versuchen.",
     "archiveSuccess": "Eintrag erfolgreich archiviert",
     "archiveError": "Eintrag konnte nicht archiviert werden. Bitte versuche es erneut.",
     "unarchiveSuccess": "Eintrag wiederhergestellt und in den vorherigen Status zurückversetzt",

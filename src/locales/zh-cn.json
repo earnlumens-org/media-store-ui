@@ -435,7 +435,8 @@
       "rejected": "已拒绝",
       "suspended": "已暂停",
       "unlisted": "未列出",
-      "archived": "已归档"
+      "archived": "已归档",
+      "deleted": "已删除"
     },
     "progress": {
       "initializingUpload": "正在初始化上传...",
@@ -588,6 +589,7 @@
     "tabs": {
       "active": "已启用",
       "archived": "已归档",
+      "deleted": "已删除",
       "collections": "合集"
     },
     "sort": {
@@ -609,6 +611,8 @@
       "edit": "编辑",
       "archive": "归档",
       "unarchive": "取消归档",
+      "delete": "删除",
+      "restoreDeleted": "恢复",
       "submitReview": "提交审核",
       "publish": "发布",
       "publishSubtitle": "在您的个人资料上显示",
@@ -626,6 +630,18 @@
       "title": "归档条目？",
       "message": "您确定要归档「{title}」吗？它将从公开目录中隐藏，但现有购买者仍可访问。"
     },
+    "deleteEntryConfirm": {
+      "title": "删除该条目？",
+      "message": "确定要删除“{title}”吗？它将从公共目录和您的个人资料中隐藏，但现有买家仍可访问。您可以稍后在“已删除”标签页中恢复。"
+    },
+    "deleteCollectionConfirm": {
+      "title": "删除该合集？",
+      "message": "确定要删除“{title}”吗？它将从公共目录和您的个人资料中隐藏，但现有买家仍可访问。您可以稍后在“已删除”标签页中恢复。"
+    },
+    "deleteSuccess": "已移至已删除",
+    "deleteError": "删除失败，请重试。",
+    "restoreDeletedSuccess": "已从“已删除”中恢复",
+    "restoreDeletedError": "恢复失败，请重试。",
     "archiveSuccess": "条目归档成功",
     "archiveError": "归档条目失败。请重试。",
     "unarchiveSuccess": "条目已取消归档并恢复为先前状态",

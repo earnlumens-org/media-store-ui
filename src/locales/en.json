@@ -446,7 +446,8 @@
       "rejected": "Rejected",
       "suspended": "Suspended",
       "unlisted": "Unlisted",
-      "archived": "Archived"
+      "archived": "Archived",
+      "deleted": "Deleted"
     },
     "progress": {
       "initializingUpload": "Initializing upload...",
@@ -588,6 +589,7 @@
     "tabs": {
       "active": "Active",
       "archived": "Archived",
+      "deleted": "Deleted",
       "collections": "Collections"
     },
     "collections": {
@@ -626,6 +628,8 @@
       "edit": "Edit",
       "archive": "Archive",
       "unarchive": "Unarchive",
+      "delete": "Delete",
+      "restoreDeleted": "Restore",
       "submitReview": "Submit for review",
       "publish": "Publish",
       "publishSubtitle": "Make it visible on your profile",
@@ -643,6 +647,18 @@
       "title": "Archive entry?",
       "message": "Are you sure you want to archive \"{title}\"? It will be hidden from the public catalog but existing buyers will keep access."
     },
+    "deleteEntryConfirm": {
+      "title": "Delete entry?",
+      "message": "Are you sure you want to delete \"{title}\"? It will be hidden from the public catalog and your profile, but existing buyers will keep access. You can restore it later from the Deleted tab."
+    },
+    "deleteCollectionConfirm": {
+      "title": "Delete collection?",
+      "message": "Are you sure you want to delete \"{title}\"? It will be hidden from the public catalog and your profile, but existing buyers will keep access. You can restore it later from the Deleted tab."
+    },
+    "deleteSuccess": "Moved to Deleted",
+    "deleteError": "Failed to delete. Please try again.",
+    "restoreDeletedSuccess": "Restored from Deleted",
+    "restoreDeletedError": "Failed to restore. Please try again.",
     "archiveSuccess": "Entry archived successfully",
     "archiveError": "Failed to archive entry. Please try again.",
     "unarchiveSuccess": "Entry unarchived and restored to its previous status",

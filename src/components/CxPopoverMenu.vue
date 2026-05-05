@@ -59,6 +59,18 @@
             />
           </div>
 
+          <!-- Creator Studio -->
+          <div class="d-flex align-center px-2">
+            <v-btn
+              class="text-none justify-start"
+              prepend-icon="mdi-movie-open-edit-outline"
+              variant="text"
+              @click="goToCreatorStudio"
+            >
+              {{ $t('Account.creatorStudio') }}
+            </v-btn>
+          </div>
+
           <!-- Botón subir (resaltado) -->
           <div class="d-flex align-center px-2">
             <v-btn
@@ -164,6 +176,11 @@
   function goToThemes () {
     menu.value = false
     router.push('/themes')
+  }
+
+  function goToCreatorStudio () {
+    menu.value = false
+    router.push('/creator-studio')
   }
 
   function openUploadDialog () {

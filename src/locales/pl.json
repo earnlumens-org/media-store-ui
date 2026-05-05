@@ -435,7 +435,8 @@
       "rejected": "Odrzucone",
       "suspended": "Zawieszone",
       "unlisted": "Niewidoczne",
-      "archived": "Zarchiwizowane"
+      "archived": "Zarchiwizowane",
+      "deleted": "Usunięte"
     },
     "progress": {
       "initializingUpload": "Inicjowanie przesyłania...",
@@ -588,6 +589,7 @@
     "tabs": {
       "active": "Aktywne",
       "archived": "Zarchiwizowane",
+      "deleted": "Usunięte",
       "collections": "Kolekcje"
     },
     "sort": {
@@ -609,6 +611,8 @@
       "edit": "Edytuj",
       "archive": "Archiwizuj",
       "unarchive": "Przywróć z archiwum",
+      "delete": "Usuń",
+      "restoreDeleted": "Przywróć",
       "submitReview": "Prześlij do weryfikacji",
       "publish": "Opublikuj",
       "publishSubtitle": "Uczyń widocznym na swoim profilu",
@@ -626,6 +630,18 @@
       "title": "Zarchiwizować wpis?",
       "message": "Czy na pewno chcesz zarchiwizować \"{title}\"? Zostanie ukryty z publicznego katalogu, ale dotychczasowi nabywcy zachowają dostęp."
     },
+    "deleteEntryConfirm": {
+      "title": "Usunąć wpis?",
+      "message": "Czy na pewno chcesz usunąć \"{title}\"? Zostanie ukryty w katalogu publicznym i w Twoim profilu, ale dotychczasowi nabywcy zachowają dostęp. Możesz go później przywrócić z karty Usunięte."
+    },
+    "deleteCollectionConfirm": {
+      "title": "Usunąć kolekcję?",
+      "message": "Czy na pewno chcesz usunąć \"{title}\"? Zostanie ukryta w katalogu publicznym i w Twoim profilu, ale dotychczasowi nabywcy zachowają dostęp. Możesz ją później przywrócić z karty Usunięte."
+    },
+    "deleteSuccess": "Przeniesiono do Usuniętych",
+    "deleteError": "Nie udało się usunąć. Spróbuj ponownie.",
+    "restoreDeletedSuccess": "Przywrócono z Usuniętych",
+    "restoreDeletedError": "Nie udało się przywrócić. Spróbuj ponownie.",
     "archiveSuccess": "Wpis zarchiwizowany pomyślnie",
     "archiveError": "Nie udało się zarchiwizować wpisu. Spróbuj ponownie.",
     "unarchiveSuccess": "Wpis przywrócony z archiwum do poprzedniego statusu",

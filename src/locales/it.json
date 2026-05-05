@@ -435,7 +435,8 @@
       "rejected": "Rifiutato",
       "suspended": "Sospeso",
       "unlisted": "Non elencato",
-      "archived": "Archiviato"
+      "archived": "Archiviato",
+      "deleted": "Eliminato"
     },
     "progress": {
       "initializingUpload": "Inizializzazione caricamento...",
@@ -588,6 +589,7 @@
     "tabs": {
       "active": "Attivi",
       "archived": "Archiviati",
+      "deleted": "Eliminati",
       "collections": "Raccolte"
     },
     "sort": {
@@ -609,6 +611,8 @@
       "edit": "Modifica",
       "archive": "Archivia",
       "unarchive": "Ripristina",
+      "delete": "Elimina",
+      "restoreDeleted": "Ripristina",
       "submitReview": "Invia per revisione",
       "publish": "Pubblica",
       "publishSubtitle": "Rendilo visibile sul tuo profilo",
@@ -626,6 +630,18 @@
       "title": "Archiviare la voce?",
       "message": "Sei sicuro di voler archiviare \"{title}\"? Sarà nascosta dal catalogo pubblico ma gli acquirenti esistenti manterranno l'accesso."
     },
+    "deleteEntryConfirm": {
+      "title": "Eliminare la voce?",
+      "message": "Vuoi davvero eliminare \"{title}\"? Sarà nascosta dal catalogo pubblico e dal tuo profilo, ma gli acquirenti esistenti manterranno l'accesso. Potrai ripristinarla più tardi dalla scheda Eliminati."
+    },
+    "deleteCollectionConfirm": {
+      "title": "Eliminare la raccolta?",
+      "message": "Vuoi davvero eliminare \"{title}\"? Sarà nascosta dal catalogo pubblico e dal tuo profilo, ma gli acquirenti esistenti manterranno l'accesso. Potrai ripristinarla più tardi dalla scheda Eliminati."
+    },
+    "deleteSuccess": "Spostato in Eliminati",
+    "deleteError": "Eliminazione non riuscita. Riprova.",
+    "restoreDeletedSuccess": "Ripristinato da Eliminati",
+    "restoreDeletedError": "Ripristino non riuscito. Riprova.",
     "archiveSuccess": "Voce archiviata con successo",
     "archiveError": "Impossibile archiviare la voce. Riprova.",
     "unarchiveSuccess": "Voce ripristinata al suo stato precedente",

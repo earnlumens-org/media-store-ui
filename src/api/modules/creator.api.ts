@@ -158,6 +158,7 @@ interface OwnerStatsDto {
   inReview: number
   rejected: number
   archived: number
+  deleted: number
   totalViews: number
   totalSales: number
 }
@@ -176,6 +177,7 @@ export async function getCreatorDashboardStats (): Promise<CreatorDashboardStats
     inReview: stats.inReview ?? 0,
     rejected: stats.rejected ?? 0,
     archived: stats.archived ?? 0,
+    deleted: stats.deleted ?? 0,
     totalViews: stats.totalViews ?? 0,
     totalSales: stats.totalSales ?? 0,
   }
@@ -209,6 +211,26 @@ export async function archiveEntry (entryId: string): Promise<void> {
  */
 export async function unarchiveEntry (entryId: string): Promise<void> {
   return apiRequest<void>(`/api/entries/${entryId}/unarchive`, {
+    method: 'PATCH',
+  })
+}
+
+/**
+ * Soft-delete an entry via PATCH /api/entries/:id/status.
+ * Behaves like archive (prior buyers keep access) but tracked separately.
+ */
+export async function deleteEntry (entryId: string): Promise<void> {
+  return apiRequest<void>(`/api/entries/${entryId}/status`, {
+    method: 'PATCH',
+    body: JSON.stringify({ status: 'DELETED' }),
+  })
+}
+
+/**
+ * Restore a soft-deleted entry to its previous status.
+ */
+export async function restoreDeletedEntry (entryId: string): Promise<void> {
+  return apiRequest<void>(`/api/entries/${entryId}/restore-deleted`, {
     method: 'PATCH',
   })
 }

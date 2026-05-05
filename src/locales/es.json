@@ -435,7 +435,8 @@
       "rejected": "Rechazado",
       "suspended": "Suspendido",
       "unlisted": "No listado",
-      "archived": "Archivado"
+      "archived": "Archivado",
+      "deleted": "Eliminado"
     },
     "progress": {
       "initializingUpload": "Inicializando subida...",
@@ -588,6 +589,7 @@
     "tabs": {
       "active": "Activos",
       "archived": "Archivados",
+      "deleted": "Eliminados",
       "collections": "Colecciones"
     },
     "collections": {
@@ -626,6 +628,8 @@
       "edit": "Editar",
       "archive": "Archivar",
       "unarchive": "Desarchivar",
+      "delete": "Eliminar",
+      "restoreDeleted": "Restaurar",
       "submitReview": "Enviar a revisión",
       "publish": "Publicar",
       "publishSubtitle": "Hacerla visible en tu perfil",
@@ -643,6 +647,18 @@
       "title": "¿Archivar entrada?",
       "message": "¿Estás seguro de que deseas archivar \"{title}\"? Se ocultará del catálogo público pero los compradores existentes mantendrán acceso."
     },
+    "deleteEntryConfirm": {
+      "title": "¿Eliminar entrada?",
+      "message": "¿Seguro que quieres eliminar \"{title}\"? Se ocultará del catálogo público y de tu perfil, pero los compradores existentes mantendrán el acceso. Podrás restaurarla más tarde desde la pestaña Eliminados."
+    },
+    "deleteCollectionConfirm": {
+      "title": "¿Eliminar colección?",
+      "message": "¿Seguro que quieres eliminar \"{title}\"? Se ocultará del catálogo público y de tu perfil, pero los compradores existentes mantendrán el acceso. Podrás restaurarla más tarde desde la pestaña Eliminados."
+    },
+    "deleteSuccess": "Movido a Eliminados",
+    "deleteError": "No se pudo eliminar. Inténtalo de nuevo.",
+    "restoreDeletedSuccess": "Restaurado desde Eliminados",
+    "restoreDeletedError": "No se pudo restaurar. Inténtalo de nuevo.",
     "archiveSuccess": "Entrada archivada correctamente",
     "archiveError": "Error al archivar la entrada. Inténtalo de nuevo.",
     "unarchiveSuccess": "Entrada desarchivada y restaurada a su estado anterior",

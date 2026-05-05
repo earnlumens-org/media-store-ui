@@ -435,7 +435,8 @@
       "rejected": "Reddedildi",
       "suspended": "Askıya alındı",
       "unlisted": "Listelenmemiş",
-      "archived": "Arşivlendi"
+      "archived": "Arşivlendi",
+      "deleted": "Silindi"
     },
     "progress": {
       "initializingUpload": "Yükleme başlatılıyor...",
@@ -588,6 +589,7 @@
     "tabs": {
       "active": "Aktif",
       "archived": "Arşivlenen",
+      "deleted": "Silinenler",
       "collections": "Koleksiyonlar"
     },
     "sort": {
@@ -609,6 +611,8 @@
       "edit": "Düzenle",
       "archive": "Arşivle",
       "unarchive": "Arşivden çıkar",
+      "delete": "Sil",
+      "restoreDeleted": "Geri Yükle",
       "submitReview": "İncelemeye gönder",
       "publish": "Yayınla",
       "publishSubtitle": "Profilinizde görünür yapın",
@@ -626,6 +630,18 @@
       "title": "Girdi arşivlensin mi?",
       "message": "\"{title}\" girdisini arşivlemek istediğinizden emin misiniz? Genel katalogdan gizlenecek ancak mevcut alıcılar erişimlerini koruyacaktır."
     },
+    "deleteEntryConfirm": {
+      "title": "İçerik silinsin mi?",
+      "message": "\"{title}\" öğesini silmek istediğinizden emin misiniz? Genel katalogdan ve profilinizden gizlenecek, ancak mevcut alıcılar erişimi koruyacak. Daha sonra Silinenler sekmesinden geri yükleyebilirsiniz."
+    },
+    "deleteCollectionConfirm": {
+      "title": "Koleksiyon silinsin mi?",
+      "message": "\"{title}\" koleksiyonunu silmek istediğinizden emin misiniz? Genel katalogdan ve profilinizden gizlenecek, ancak mevcut alıcılar erişimi koruyacak. Daha sonra Silinenler sekmesinden geri yükleyebilirsiniz."
+    },
+    "deleteSuccess": "Silinenlere taşındı",
+    "deleteError": "Silinemedi. Lütfen tekrar deneyin.",
+    "restoreDeletedSuccess": "Silinenlerden geri yüklendi",
+    "restoreDeletedError": "Geri yüklenemedi. Lütfen tekrar deneyin.",
     "archiveSuccess": "Girdi başarıyla arşivlendi",
     "archiveError": "Girdi arşivlenemedi. Lütfen tekrar deneyin.",
     "unarchiveSuccess": "Girdi arşivden çıkarıldı ve önceki durumuna geri yüklendi",

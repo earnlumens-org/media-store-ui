@@ -82,6 +82,14 @@ export async function unarchiveCollection (id: string): Promise<void> {
   await apiRequest(`${API_PATH}/${id}/unarchive`, { method: 'PATCH' })
 }
 
+export async function softDeleteCollection (id: string): Promise<void> {
+  await apiRequest(`${API_PATH}/${id}/soft-delete`, { method: 'PATCH' })
+}
+
+export async function restoreDeletedCollection (id: string): Promise<void> {
+  await apiRequest(`${API_PATH}/${id}/restore-deleted`, { method: 'PATCH' })
+}
+
 export async function deleteCollection (id: string): Promise<void> {
   await apiRequest(`${API_PATH}/${id}`, { method: 'DELETE' })
 }
