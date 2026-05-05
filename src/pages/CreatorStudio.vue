@@ -1421,12 +1421,6 @@
   const deleteCollSoftDialog = ref(false)
   const collToSoftDelete = ref<CollectionItemModel | null>(null)
   const isSoftDeletingColl = ref(false)
-  const deleteEntryDialog = ref(false)
-  const entryToDelete = ref<CreatorEntryModel | null>(null)
-  const isDeletingEntry = ref(false)
-  const deleteCollSoftDialog = ref(false)
-  const collToSoftDelete = ref<CollectionItemModel | null>(null)
-  const isSoftDeletingColl = ref(false)
 
   // Snackbar
   const snackbar = reactive({
