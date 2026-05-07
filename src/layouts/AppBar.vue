@@ -259,7 +259,12 @@
     if (s.systemSpace && s.key === 'explore') {
       return t('AppBar.explore')
     }
-    return s.translations?.[locale.value] || s.baseName || s.key
+    const raw = s.translations?.[locale.value] || s.baseName || s.key
+    // Sidebar consistency: every entry is rendered Title-Cased on its
+    // first character regardless of how the admin entered the baseName
+    // or how the AI translated it (e.g. "comunidad" → "Comunidad").
+    if (!raw) return raw
+    return raw.charAt(0).toLocaleUpperCase(locale.value) + raw.slice(1)
   }
 
   // Computed
