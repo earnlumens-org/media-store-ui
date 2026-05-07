@@ -1270,7 +1270,7 @@
   const totalPages = ref(0)
   const currentPage = ref(1)
   const showUploadDialog = ref(false)
-  const activeTab = ref<'active' | 'archived'>('active')
+  const activeTab = ref<'active' | 'archived' | 'deleted'>('active')
 
   // Collection delete dialog state
   const deleteCollDialog = ref(false)

@@ -23,17 +23,14 @@ declare module 'vue-router/auto-routes' {
     '/[username]': RouteRecordInfo<'/[username]', '/:username', { username: ParamValue<true> }, { username: ParamValue<false> }>,
     '/Account': RouteRecordInfo<'/Account', '/account', Record<never, never>, Record<never, never>>,
     '/collection/[id]': RouteRecordInfo<'/collection/[id]', '/collection/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
-    '/Community': RouteRecordInfo<'/Community', '/community', Record<never, never>, Record<never, never>>,
     '/CreateCollection': RouteRecordInfo<'/CreateCollection', '/create-collection', Record<never, never>, Record<never, never>>,
     '/CreatorStudio': RouteRecordInfo<'/CreatorStudio', '/creator-studio', Record<never, never>, Record<never, never>>,
     '/SalesHistory': RouteRecordInfo<'/SalesHistory', '/creator-studio/sales', Record<never, never>, Record<never, never>>,
     '/SubscribersList': RouteRecordInfo<'/SubscribersList', '/creator-studio/subscribers', Record<never, never>, Record<never, never>>,
-    '/Ecosystem': RouteRecordInfo<'/Ecosystem', '/ecosystem', Record<never, never>, Record<never, never>>,
     '/Explore': RouteRecordInfo<'/Explore', '/explore', Record<never, never>, Record<never, never>>,
     '/Favorites': RouteRecordInfo<'/Favorites', '/favorites', Record<never, never>, Record<never, never>>,
     '/Featured': RouteRecordInfo<'/Featured', '/featured', Record<never, never>, Record<never, never>>,
     '/feed/[...path]': RouteRecordInfo<'/feed/[...path]', '/feed/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
-    '/FirstSteps': RouteRecordInfo<'/FirstSteps', '/firststeps', Record<never, never>, Record<never, never>>,
     '/Guidelines': RouteRecordInfo<'/Guidelines', '/guidelines', Record<never, never>, Record<never, never>>,
     '/listen/[id]': RouteRecordInfo<'/listen/[id]', '/listen/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/listen/AudioRecommendationsList': RouteRecordInfo<'/listen/AudioRecommendationsList', '/listen/AudioRecommendationsList', Record<never, never>, Record<never, never>>,
@@ -44,6 +41,7 @@ declare module 'vue-router/auto-routes' {
     '/read/[id]': RouteRecordInfo<'/read/[id]', '/read/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/read/ReadRecommendationsList': RouteRecordInfo<'/read/ReadRecommendationsList', '/read/ReadRecommendationsList', Record<never, never>, Record<never, never>>,
     '/section/[...path]': RouteRecordInfo<'/section/[...path]', '/section/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
+    '/spaces/[spaceId]': RouteRecordInfo<'/spaces/[spaceId]', '/spaces/:spaceId', { spaceId: ParamValue<true> }, { spaceId: ParamValue<false> }>,
     '/subscriptions': RouteRecordInfo<'/subscriptions', '/subscriptions', Record<never, never>, Record<never, never>>,
     '/Terms': RouteRecordInfo<'/Terms', '/terms', Record<never, never>, Record<never, never>>,
     '/themes': RouteRecordInfo<'/themes', '/themes', Record<never, never>, Record<never, never>>,
@@ -88,10 +86,6 @@ declare module 'vue-router/auto-routes' {
       routes: '/collection/[id]'
       views: never
     }
-    'src/pages/Community.vue': {
-      routes: '/Community'
-      views: never
-    }
     'src/pages/CreateCollection.vue': {
       routes: '/CreateCollection'
       views: never
@@ -108,10 +102,6 @@ declare module 'vue-router/auto-routes' {
       routes: '/SubscribersList'
       views: never
     }
-    'src/pages/Ecosystem.vue': {
-      routes: '/Ecosystem'
-      views: never
-    }
     'src/pages/Explore.vue': {
       routes: '/Explore'
       views: never
@@ -126,10 +116,6 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/feed/[...path].vue': {
       routes: '/feed/[...path]'
-      views: never
-    }
-    'src/pages/FirstSteps.vue': {
-      routes: '/FirstSteps'
       views: never
     }
     'src/pages/Guidelines.vue': {
@@ -170,6 +156,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/section/[...path].vue': {
       routes: '/section/[...path]'
+      views: never
+    }
+    'src/pages/spaces/[spaceId].vue': {
+      routes: '/spaces/[spaceId]'
       views: never
     }
     'src/pages/subscriptions.vue': {

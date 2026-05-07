@@ -43,23 +43,6 @@
         </template>
       </v-tooltip>
 
-      <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
-      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.firststeps')">
-        <template #activator="{ props }">
-          <v-list-item
-            v-bind="props"
-            exact
-            prepend-icon="mdi-sprout-outline"
-            :title="$t('AppBar.firststeps')"
-            to="/firststeps"
-            value="firststeps"
-            @click="onNavClick('/firststeps')"
-          />
-        </template>
-      </v-tooltip>
-
-      <v-divider />
-
       <v-skeleton-loader v-if="!isAuthReady" class="hidden-sm-and-down" type="list-item" />
       <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.wallet')">
         <template #activator="{ props }">
@@ -127,32 +110,28 @@
 
       <v-divider />
 
-      <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
-      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.ecosystem')">
+      <!--
+        Tenant-managed Spaces. The list is fetched once on mount from
+        /public/spaces and is keyed by space id. The system Explore space
+        is filtered out of this loop because it has its own static link
+        below pointing to /explore (kept for backwards-compatible deep
+        links and the homepage CTA).
+      -->
+      <v-tooltip
+        v-for="space in dynamicSpaces"
+        :key="space.id"
+        :disabled="!rail || mobileView"
+        :text="resolveSpaceTitle(space)"
+      >
         <template #activator="{ props }">
           <v-list-item
             v-bind="props"
             exact
-            prepend-icon="mdi-creation"
-            :title="$t('AppBar.ecosystem')"
-            to="/ecosystem"
-            value="ecosystem"
-            @click="onNavClick('/ecosystem')"
-          />
-        </template>
-      </v-tooltip>
-
-      <v-skeleton-loader v-if="!isAuthReady" type="list-item" />
-      <v-tooltip v-else :disabled="!rail || mobileView" :text="$t('AppBar.community')">
-        <template #activator="{ props }">
-          <v-list-item
-            v-bind="props"
-            exact
-            prepend-icon="mdi-handshake-outline"
-            :title="$t('AppBar.community')"
-            to="/community"
-            value="community"
-            @click="onNavClick('/community')"
+            :prepend-icon="space.icon || 'mdi-folder-outline'"
+            :title="resolveSpaceTitle(space)"
+            :to="`/spaces/${space.id}`"
+            :value="`space-${space.id}`"
+            @click="onNavClick(`/spaces/${space.id}`)"
           />
         </template>
       </v-tooltip>
@@ -235,7 +214,10 @@
 <script setup lang="ts">
   import { storeToRefs } from 'pinia'
   import { computed, onMounted, ref, watch } from 'vue'
+  import { useI18n } from 'vue-i18n'
   import { useRoute } from 'vue-router'
+  import { api } from '@/api/api'
+  import type { SpaceSummaryDto } from '@/api/modules/spaces.api'
   import logo from '@/assets/logo.svg?raw'
   import CxDarkLightMode from '@/components/CxDarkLightMode.vue'
   import CxLanguageDialog from '@/components/CxLanguageDialog.vue'
@@ -261,6 +243,24 @@
   const rail = ref(true)
   const drawerLocation = ref<'left' | 'right' | 'top' | 'bottom'>('right')
   const permanent = ref(false)
+
+  // Tenant-managed sidebar spaces. Loaded once on mount; refreshing on
+  // every route change would thrash the public endpoint without value.
+  // The system Explore space is filtered out so the static /explore link
+  // below stays the canonical entry point for it.
+  const sidebarSpaces = ref<SpaceSummaryDto[]>([])
+  const { locale, t } = useI18n()
+
+  const dynamicSpaces = computed(() =>
+    sidebarSpaces.value.filter(s => !(s.systemSpace && s.key === 'explore'))
+  )
+
+  function resolveSpaceTitle (s: SpaceSummaryDto): string {
+    if (s.systemSpace && s.key === 'explore') {
+      return t('AppBar.explore')
+    }
+    return s.translations?.[locale.value] || s.baseName || s.key
+  }
 
   // Computed
   const chevronIcon = computed(() => {
@@ -309,6 +309,14 @@
   // Lifecycle
   onMounted(() => {
     handleResize()
+    // Best-effort fetch — the sidebar still works (statics only) if the
+    // backend is unreachable, so a thrown promise here is intentionally
+    // swallowed.
+    api.spaces.listSidebar()
+      .then(list => {
+        sidebarSpaces.value = list
+      })
+      .catch(() => { /* keep static-only sidebar */ })
   })
 
 </script>

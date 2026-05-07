@@ -23,17 +23,15 @@ import { getExploreFeed, getProfileFeed, getPublishedEntries, getPublishedEntrie
 import {
   getMockCollectionById,
   getMockCollections,
-  getMockCommunityFeed,
-  getMockEcosystemFeed,
   getMockEntries,
   getMockEntryById,
   getMockFeed,
-  getMockFirstStepsFeed,
 } from './modules/entryMock.api'
 import { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
 import { preparePayment, submitPayment } from './modules/payment.api'
 import { getPurchaseCollections, getPurchasedFeed, getPurchases } from './modules/purchase.api'
 import { getSellerSales } from './modules/sales.api'
+import { getSpaceFeed, listSidebarSpaces } from './modules/spaces.api'
 import { checkSubscription, getMySubscriberCount, getMySubscribers, getMySubscriptions, getPublicSubscriberCount, subscribe, unsubscribe } from './modules/subscription.api'
 import { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
 import { checkUsernameExists, getCurrentUser, getUserByUsername } from './modules/user.api'
@@ -125,12 +123,17 @@ export const api = {
     mySubscriberCount: getMySubscriberCount,
     publicCount: getPublicSubscriberCount,
   },
-  /** Mock API - TODO: Remove when real endpoints are available */
+  /**
+   * Tenant-managed publishing destinations. Drives the storefront sidebar
+   * and per-space content pages.
+   */
+  spaces: {
+    listSidebar: listSidebarSpaces,
+    getFeed: getSpaceFeed,
+  },
+  /** Mock API — still used by the entry/collection lightboxes. */
   mock: {
     getFeed: getMockFeed,
-    getCommunityFeed: getMockCommunityFeed,
-    getEcosystemFeed: getMockEcosystemFeed,
-    getFirstStepsFeed: getMockFirstStepsFeed,
     getEntries: getMockEntries,
     getCollections: getMockCollections,
     getEntryById: getMockEntryById,
@@ -161,12 +164,9 @@ export { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById }
 export {
   getMockCollectionById,
   getMockCollections,
-  getMockCommunityFeed,
-  getMockEcosystemFeed,
   getMockEntries,
   getMockEntryById,
   getMockFeed,
-  getMockFirstStepsFeed,
 } from './modules/entryMock.api'
 export { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
 export { preparePayment, submitPayment } from './modules/payment.api'
