@@ -63,7 +63,7 @@
         <v-spacer />
 
         <v-chip
-          v-if="authStore.isAuthenticated"
+          v-if="authStore.isAuthenticated && contentLangPrefs.loaded"
           class="mr-1"
           :color="languageChip.active ? 'primary' : undefined"
           prepend-icon="mdi-web"
@@ -110,7 +110,7 @@
       <!-- Empty state (no items from API) -->
       <v-row v-else-if="feedItems.length === 0" class="mt-4" dense>
         <v-col cols="12">
-          <div v-if="languageChip.active" class="ma-4">
+          <div v-if="contentLangPrefs.loaded && languageChip.active" class="ma-4">
             <div
               v-if="authStore.isAuthenticated"
               class="d-flex justify-end mb-2"
@@ -533,6 +533,13 @@
   })
 
   onMounted(() => {
+    // Ensure the language chip + empty-state alert reflect the user's
+    // actual stored preferences (server for logged-in, localStorage for
+    // guests) instead of the navigator-derived seed. Without this the
+    // chip can show e.g. "ES" while the feed is actually filtered by
+    // "ZH-CN", until the user opens the language dialog.
+    contentLangPrefs.loadIfNeeded().catch(() => { /* handled in store */ })
+
     const cached = scrollCache.get(route.path)
     if (cached && isPopNavigation()) {
       feedItems.value = cached.items as PublicFeedItemModel[]
