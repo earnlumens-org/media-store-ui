@@ -110,18 +110,13 @@
       <!-- Empty state (no items from API) -->
       <v-row v-else-if="feedItems.length === 0" class="mt-4" dense>
         <v-col cols="12">
-          <v-alert
-            v-if="languageChip.active"
-            class="ma-4"
-            prominent
-            :text="$t('ContentLanguagePreferences.emptyByLanguageText')"
-            :title="$t('ContentLanguagePreferences.emptyByLanguageTitle')"
-            type="info"
-          >
-            <template #append>
+          <div v-if="languageChip.active" class="ma-4">
+            <div
+              v-if="authStore.isAuthenticated"
+              class="d-flex justify-end mb-2"
+            >
               <v-btn
-                v-if="authStore.isAuthenticated"
-                color="primary"
+                color="info"
                 prepend-icon="mdi-web"
                 size="small"
                 variant="tonal"
@@ -129,8 +124,14 @@
               >
                 {{ $t('ContentLanguagePreferences.changeLanguages') }}
               </v-btn>
-            </template>
-          </v-alert>
+            </div>
+            <v-alert
+              prominent
+              :text="$t('ContentLanguagePreferences.emptyByLanguageText')"
+              :title="$t('ContentLanguagePreferences.emptyByLanguageTitle')"
+              type="info"
+            />
+          </div>
           <v-alert
             v-else
             class="ma-4"
