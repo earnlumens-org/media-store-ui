@@ -4,6 +4,49 @@
     "body": "您尝试访问的子域名与 EarnLumens 上任何有效的市场都不匹配。",
     "cta": "前往 earnlumens.org"
   },
+  "Sanctions": {
+    "intro": "EarnLumens 采用受最大视频平台启发的三振系统。每一次违规都会在被记录为一次违规计分之前，由人工审核员审核。",
+    "severeNote": "严重违规（欺诈、伤害未成年人、深度伪造、人肉搜索）将跳过此阶梯并立即导致永久封禁。",
+    "steps": {
+      "warning": {
+        "title": "警告",
+        "body": "首次轻微违规。内容会被移除但你的账号不会被封禁。你仍处于登录状态。"
+      },
+      "strike1": {
+        "title": "第一次违规计分 — 7 天封禁",
+        "body": "登录被封禁 7 天。计时器到期后账号会自动解封；违规记录保留在档。"
+      },
+      "strike2": {
+        "title": "第二次违规计分 — 30 天封禁",
+        "body": "同一档案中的第二次计分会将封禁延长到 30 天。"
+      },
+      "strike3": {
+        "title": "第三次违规计分 — 永久封禁",
+        "body": "第三次违规计分将永久封禁账号。永久封禁只能在申诉后由审核员解除。"
+      }
+    },
+    "yourStanding": {
+      "warningTitle": "你的档案中有 {count} 条有效违规记录。",
+      "warningBody": "你的下一次违规将{next}。违规计分不会自动到期 — 它们会一直保留在档，直到审核员清除。",
+      "nextWillBlock7": "将你的账号封禁 7 天",
+      "nextWillBlock30": "将你的账号封禁 30 天",
+      "nextWillBan": "永久封禁你的账号"
+    }
+  },
+  "Banned": {
+    "title": "你的账号当前被封禁",
+    "subtitle": "由于审核员对你的账号采取了操作，登录被封禁。",
+    "statusPermanent": "永久封禁",
+    "statusTemporary": "临时封禁",
+    "statusGeneric": "账号被封禁",
+    "reasonLabel": "给出的原因",
+    "expiresLabel": "封禁解除时间",
+    "issuedAt": "签发于 {date}",
+    "howItWorksHeading": "EarnLumens 处罚机制",
+    "appealBody": "如果你认为这个决定是错误的，可以通过《内容准则》中列出的联系方式向租户审核团队申请人工复审。",
+    "viewGuidelines": "查看内容准则",
+    "backHome": "返回首页"
+  },
   "ContentLanguagePreferences": {
     "title": "内容语言",
     "subtitle": "选择您希望在动态中看到的语言。审核系统会为每个上传内容标记其真实语言。",

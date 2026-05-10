@@ -4,6 +4,49 @@
     "body": "Erişmeye çalıştığınız alt alan adı, EarnLumens üzerindeki hiçbir aktif pazar yeriyle eşleşmiyor.",
     "cta": "earnlumens.org'a git"
   },
+  "Sanctions": {
+    "intro": "EarnLumens, en büyük video platformlarından esinlenen 3 ihlal sistemini kullanır. Bir ihlal kaydedilmeden önce her ihlal bir insan moderatör tarafından incelenir.",
+    "severeNote": "Ağır ihlaller (dolandırıcılık, küçüklere zarar, deepfake, doxxing) bu basamağı atlar ve doğrudan kalıcı yasakla sonuçlanır.",
+    "steps": {
+      "warning": {
+        "title": "Uyarı",
+        "body": "İlk hafif ihlal. İçerik kaldırılır ancak hesabın engellenmez. Oturumun açık kalır."
+      },
+      "strike1": {
+        "title": "Birinci ihlal — 7 günlük engel",
+        "body": "Giriş 7 gün boyunca engellenir. Süre dolduğunda hesap otomatik olarak açılır; ihlal sicilinde kalır."
+      },
+      "strike2": {
+        "title": "İkinci ihlal — 30 günlük engel",
+        "body": "Aynı sicildeki ikinci bir ihlal engeli 30 güne uzatır."
+      },
+      "strike3": {
+        "title": "Üçüncü ihlal — kalıcı yasak",
+        "body": "Üçüncü ihlal hesabı kalıcı olarak yasaklar. Kalıcı yasaklar yalnızca itiraz sonrası bir moderatör tarafından kaldırılabilir."
+      }
+    },
+    "yourStanding": {
+      "warningTitle": "Sicilinde {count} aktif ihlal var.",
+      "warningBody": "Bir sonraki ihlalin {next}. İhlaller otomatik olarak silinmez — bir moderatör temizleyene kadar sicilinde kalır.",
+      "nextWillBlock7": "hesabını 7 gün boyunca engelleyecek",
+      "nextWillBlock30": "hesabını 30 gün boyunca engelleyecek",
+      "nextWillBan": "hesabını kalıcı olarak yasaklayacak"
+    }
+  },
+  "Banned": {
+    "title": "Hesabın şu anda yasaklı",
+    "subtitle": "Hesabına yönelik bir moderatör işlemi nedeniyle giriş engellendi.",
+    "statusPermanent": "Kalıcı yasak",
+    "statusTemporary": "Geçici yasak",
+    "statusGeneric": "Hesap engellendi",
+    "reasonLabel": "Belirtilen sebep",
+    "expiresLabel": "Engel şu tarihte kalkar",
+    "issuedAt": "{date} tarihinde verildi",
+    "howItWorksHeading": "EarnLumens yaptırımları nasıl işler",
+    "appealBody": "Bu kararın yanlış olduğuna inanıyorsan, İçerik Kurallarında listelenen iletişim kanalları üzerinden tenant moderasyon ekibinden manuel inceleme talep edebilirsin.",
+    "viewGuidelines": "İçerik Kurallarını görüntüle",
+    "backHome": "Ana sayfaya dön"
+  },
   "ContentLanguagePreferences": {
     "title": "İçerik dilleri",
     "subtitle": "Akışında görmek istediğin dilleri seç. Moderasyon sistemi her yüklemeyi gerçek diliyle etiketler.",

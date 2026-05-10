@@ -4,6 +4,19 @@
     "subtitle": "Những gì bạn có thể đăng trên EarnLumens và những gì chúng tôi tránh",
     "lastUpdated": "Cập nhật lần cuối: {date}",
     "intro": "EarnLumens là một nền tảng giáo dục tài chính tập trung vào hệ sinh thái Stellar. Chúng tôi muốn bạn tự do xuất bản: những quy tắc này chỉ tồn tại để ngăn chặn gian lận, nội dung độc hại và spam, chứ không phải để hạn chế sự sáng tạo của bạn. Nếu nội dung của bạn trung thực, có giá trị và không gây hiểu lầm, gần như lúc nào cũng sẽ được phê duyệt.",
+    "platformSection": {
+      "heading": "Quy tắc áp dụng cho toàn nền tảng",
+      "body": "Các quy tắc này áp dụng cho mọi tenant trên EarnLumens, bao gồm tenant này. Chúng không thể được nới lỏng bởi từng marketplace riêng lẻ và tồn tại để giữ an toàn cho cộng đồng."
+    },
+    "tenantSection": {
+      "heading": "Quy tắc riêng của tenant",
+      "body": "Ngoài các quy tắc nền tảng ở trên, mỗi tenant có thể thêm ghi chú xuất bản riêng — ví dụ tập trung vào chủ đề nào, giọng điệu mong đợi, hoặc các định dạng cụ thể mà tenant chấp nhận.",
+      "placeholder": "Tenant này chưa thêm ghi chú xuất bản cụ thể. Ở đây chỉ áp dụng các quy tắc toàn nền tảng ở trên."
+    },
+    "sanctionsSection": {
+      "heading": "Các chế tài hoạt động ra sao",
+      "body": "Nếu bạn vi phạm các quy tắc trên, đây chính xác là điều sẽ xảy ra. Cùng một thang được áp dụng cho mọi tenant — không có hình phạt ẩn nào."
+    },
     "forCreators": {
       "heading": "Dành cho nhà sáng tạo",
       "sections": [

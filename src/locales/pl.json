@@ -4,6 +4,49 @@
     "body": "Subdomena, do której próbujesz uzyskać dostęp, nie odpowiada żadnemu aktywnemu marketplace'owi w EarnLumens.",
     "cta": "Przejdź do earnlumens.org"
   },
+  "Sanctions": {
+    "intro": "EarnLumens stosuje system 3 ostrzeżeń wzorowany na największych platformach wideo. Każde naruszenie jest sprawdzane przez moderatora przed zarejestrowaniem ostrzeżenia.",
+    "severeNote": "Poważne naruszenia (oszustwa, krzywdzenie nieletnich, deepfake, doxxing) pomijają tę drabinę i skutkują natychmiastowym permanentnym banem.",
+    "steps": {
+      "warning": {
+        "title": "Ostrzeżenie",
+        "body": "Pierwsze drobne naruszenie. Treść jest usuwana, ale Twoje konto nie jest blokowane. Pozostajesz zalogowany."
+      },
+      "strike1": {
+        "title": "Pierwsze ostrzeżenie — blokada 7 dni",
+        "body": "Logowanie jest zablokowane przez 7 dni. Konto odblokowuje się automatycznie po upływie czasu; ostrzeżenie pozostaje w aktach."
+      },
+      "strike2": {
+        "title": "Drugie ostrzeżenie — blokada 30 dni",
+        "body": "Drugie ostrzeżenie w tym samym rekordzie wydłuża blokadę do 30 dni."
+      },
+      "strike3": {
+        "title": "Trzecie ostrzeżenie — ban permanentny",
+        "body": "Trzecie ostrzeżenie permanentnie banuje konto. Bany permanentne mogą zostać zdjęte tylko przez moderatora po odwołaniu."
+      }
+    },
+    "yourStanding": {
+      "warningTitle": "Masz {count} aktywne ostrzeżenie w aktach. | Masz {count} aktywne ostrzeżenia w aktach. | Masz {count} aktywnych ostrzeżeń w aktach.",
+      "warningBody": "Twoje następne naruszenie {next}. Ostrzeżenia nie wygasają automatycznie — pozostają w aktach do momentu, gdy moderator je usunie.",
+      "nextWillBlock7": "zablokuje Twoje konto na 7 dni",
+      "nextWillBlock30": "zablokuje Twoje konto na 30 dni",
+      "nextWillBan": "permanentnie zbanuje Twoje konto"
+    }
+  },
+  "Banned": {
+    "title": "Twoje konto jest obecnie zbanowane",
+    "subtitle": "Logowanie jest zablokowane z powodu działania moderatora na Twoim koncie.",
+    "statusPermanent": "Ban permanentny",
+    "statusTemporary": "Ban tymczasowy",
+    "statusGeneric": "Konto zablokowane",
+    "reasonLabel": "Podany powód",
+    "expiresLabel": "Blokada zostanie zdjęta",
+    "issuedAt": "Wydane {date}",
+    "howItWorksHeading": "Jak działają sankcje w EarnLumens",
+    "appealBody": "Jeśli uważasz, że ta decyzja była błędna, możesz poprosić zespół moderacji tenanta o ręczną rewizję za pośrednictwem kanałów kontaktu wymienionych w Wytycznych dotyczących treści.",
+    "viewGuidelines": "Zobacz Wytyczne dotyczące treści",
+    "backHome": "Powrót na stronę główną"
+  },
   "ContentLanguagePreferences": {
     "title": "Języki treści",
     "subtitle": "Wybierz języki, które chcesz widzieć w swoim feedzie. System moderacji oznacza każdy upload jego prawdziwym językiem.",

@@ -17,6 +17,33 @@ export interface AuthError {
 }
 
 /**
+ * Payload returned by the backend (with HTTP 403) when the authenticated
+ * identity belongs to an account that is currently banned. Surfaced as a
+ * typed Error so the caller can route to the dedicated /banned screen
+ * instead of showing a generic "login failed" message.
+ */
+export interface AccountBannedPayload {
+  error: 'ACCOUNT_BANNED'
+  banType?: string
+  reason?: string
+  expiresAt?: string
+  issuedAt?: string
+}
+
+export class AccountBannedError extends Error {
+  readonly payload: AccountBannedPayload
+  constructor (payload: AccountBannedPayload) {
+    super('ACCOUNT_BANNED')
+    this.name = 'AccountBannedError'
+    this.payload = payload
+  }
+}
+
+function isAccountBannedPayload (data: unknown): data is AccountBannedPayload {
+  return !!data && typeof data === 'object' && (data as { error?: unknown }).error === 'ACCOUNT_BANNED'
+}
+
+/**
  * Create a new session by exchanging the temp UUID for tokens
  * Refresh token is set as HttpOnly cookie by backend
  */
@@ -32,6 +59,9 @@ export async function createSession (uuid: string): Promise<CreateSessionRespons
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({ error: 'Unknown error' }))
+    if (response.status === 403 && isAccountBannedPayload(errorData)) {
+      throw new AccountBannedError(errorData)
+    }
     throw new Error(errorData.error || `HTTP ${response.status}`)
   }
 
@@ -52,6 +82,9 @@ export async function refreshAccessToken (): Promise<RefreshResponse> {
 
   if (!response.ok) {
     const errorData = await response.json().catch(() => ({ error: 'Unauthorized' }))
+    if (response.status === 403 && isAccountBannedPayload(errorData)) {
+      throw new AccountBannedError(errorData)
+    }
     throw new Error(errorData.error || `HTTP ${response.status}`)
   }
 

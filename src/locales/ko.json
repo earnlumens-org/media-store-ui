@@ -4,6 +4,49 @@
     "body": "접속하려는 서브도메인은 EarnLumens의 어떤 활성 마켓플레이스와도 일치하지 않습니다.",
     "cta": "earnlumens.org로 이동"
   },
+  "Sanctions": {
+    "intro": "EarnLumens는 대형 영상 플랫폼에서 영감을 받은 3-스트라이크 시스템을 사용합니다. 스트라이크가 기록되기 전에 모든 위반은 사람 모더레이터의 검토를 거칩니다.",
+    "severeNote": "심각한 위반(사기, 미성년자 가해, 딥페이크, 신상 공개)은 이 사다리를 건너뛰고 즉시 영구 차단됩니다.",
+    "steps": {
+      "warning": {
+        "title": "경고",
+        "body": "첫 번째 경미한 위반. 콘텐츠는 삭제되지만 계정은 차단되지 않습니다. 로그인 상태는 유지됩니다."
+      },
+      "strike1": {
+        "title": "1차 스트라이크 — 7일 차단",
+        "body": "로그인이 7일 동안 차단됩니다. 시간이 만료되면 계정은 자동으로 해제되며, 스트라이크는 기록에 남습니다."
+      },
+      "strike2": {
+        "title": "2차 스트라이크 — 30일 차단",
+        "body": "동일 기록에서 두 번째 스트라이크가 발생하면 차단이 30일로 연장됩니다."
+      },
+      "strike3": {
+        "title": "3차 스트라이크 — 영구 차단",
+        "body": "세 번째 스트라이크로 계정이 영구 차단됩니다. 영구 차단은 이의 제기 후 모더레이터만 해제할 수 있습니다."
+      }
+    },
+    "yourStanding": {
+      "warningTitle": "기록에 활성 스트라이크가 {count}개 있습니다.",
+      "warningBody": "다음 위반은 {next}. 스트라이크는 자동으로 소멸되지 않으며, 모더레이터가 삭제할 때까지 기록에 남습니다.",
+      "nextWillBlock7": "계정을 7일 동안 차단합니다",
+      "nextWillBlock30": "계정을 30일 동안 차단합니다",
+      "nextWillBan": "계정을 영구 차단합니다"
+    }
+  },
+  "Banned": {
+    "title": "계정이 현재 차단되어 있습니다",
+    "subtitle": "계정에 대한 모더레이터 조치로 인해 로그인이 차단되어 있습니다.",
+    "statusPermanent": "영구 차단",
+    "statusTemporary": "임시 차단",
+    "statusGeneric": "계정 차단됨",
+    "reasonLabel": "제시된 사유",
+    "expiresLabel": "차단 해제일",
+    "issuedAt": "{date}에 발행",
+    "howItWorksHeading": "EarnLumens 제재 동작 방식",
+    "appealBody": "이 결정이 잘못되었다고 생각하시면 콘텐츠 가이드라인에 안내된 연락 채널을 통해 테넌트 모더레이션 팀에 수동 검토를 요청할 수 있습니다.",
+    "viewGuidelines": "콘텐츠 가이드라인 보기",
+    "backHome": "홈으로 돌아가기"
+  },
   "ContentLanguagePreferences": {
     "title": "콘텐츠 언어",
     "subtitle": "피드에 표시할 언어를 선택하세요. 검수 시스템은 모든 업로드에 실제 언어 태그를 지정합니다.",

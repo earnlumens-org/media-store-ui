@@ -142,7 +142,8 @@ export const api = {
 } as const
 
 export { ApiError, apiRequest } from './apiRequest'
-export { createSession, logout, refreshAccessToken } from './modules/auth.api'
+export { AccountBannedError, createSession, logout, refreshAccessToken } from './modules/auth.api'
+export type { AccountBannedPayload } from './modules/auth.api'
 export {
   addItem,
   archiveCollection as archiveCollectionFn,

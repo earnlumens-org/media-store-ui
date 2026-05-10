@@ -4,6 +4,19 @@
     "subtitle": "EarnLumens'ta neler yayınlayabilirsiniz ve nelerden kaçınıyoruz",
     "lastUpdated": "Son güncelleme: {date}",
     "intro": "EarnLumens, Stellar ekosistemine odaklanan bir finansal eğitim platformudur. Özgürce yayın yapmanızı istiyoruz: bu kurallar yalnızca dolandırıcılığı, zararlı içeriği ve spam'i önlemek için vardır; yaratıcılığınızı sınırlamak için değil. İçeriğiniz dürüst, faydalı ve yanıltıcı değilse, neredeyse her zaman onaylanacaktır.",
+    "platformSection": {
+      "heading": "Platform genelindeki kurallar",
+      "body": "Bu kurallar, bu tenant da dahil olmak üzere EarnLumens üzerindeki her tenant için geçerlidir. Bireysel pazaryerleri tarafından gevşetilemez ve topluluğu güvende tutmak için vardır."
+    },
+    "tenantSection": {
+      "heading": "Tenant'a özel kurallar",
+      "body": "Yukarıdaki platform kurallarına ek olarak, her tenant kendi yayın notlarını ekleyebilir — örneğin hangi konulara odaklandığı, beklenen ton veya kabul ettiği belirli biçimler.",
+      "placeholder": "Bu tenant henüz özel yayın notları eklemedi. Burada yalnızca yukarıdaki platform genelindeki kurallar geçerlidir."
+    },
+    "sanctionsSection": {
+      "heading": "Yaptırımlar nasıl işler",
+      "body": "Yukarıdaki kuralları çiğnersen, tam olarak şu olur. Aynı basamak her tenant için geçerlidir — gizli ceza yoktur."
+    },
     "forCreators": {
       "heading": "İçerik üreticileri için",
       "sections": [

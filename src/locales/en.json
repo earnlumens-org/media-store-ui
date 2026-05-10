@@ -4,6 +4,49 @@
     "body": "The subdomain you are trying to reach does not match any active marketplace on EarnLumens.",
     "cta": "Go to earnlumens.org"
   },
+  "Sanctions": {
+    "intro": "EarnLumens uses a 3-strike system inspired by the largest video platforms. Every infraction is reviewed by a human moderator before a strike is recorded.",
+    "severeNote": "Severe violations (fraud, harm to minors, deepfakes, doxxing) skip the ladder and result in an immediate permanent ban.",
+    "steps": {
+      "warning": {
+        "title": "Warning",
+        "body": "First minor infraction. The content is removed but your account is not blocked. You stay logged in."
+      },
+      "strike1": {
+        "title": "First strike — 7-day block",
+        "body": "Login is blocked for 7 days. The account auto-unbans when the timer expires; the strike stays on record."
+      },
+      "strike2": {
+        "title": "Second strike — 30-day block",
+        "body": "A second strike within the same record extends the block to 30 days."
+      },
+      "strike3": {
+        "title": "Third strike — permanent ban",
+        "body": "A third strike permanently bans the account. Permanent bans can only be lifted by a moderator after appeal."
+      }
+    },
+    "yourStanding": {
+      "warningTitle": "You have {count} active strike on file. | You have {count} active strikes on file.",
+      "warningBody": "Your next infraction will {next}. Strikes do not expire automatically — they stay on your record until a moderator clears them.",
+      "nextWillBlock7": "block your account for 7 days",
+      "nextWillBlock30": "block your account for 30 days",
+      "nextWillBan": "permanently ban your account"
+    }
+  },
+  "Banned": {
+    "title": "Your account is currently banned",
+    "subtitle": "Sign-in is blocked because of a moderator action on your account.",
+    "statusPermanent": "Permanent ban",
+    "statusTemporary": "Temporary ban",
+    "statusGeneric": "Account blocked",
+    "reasonLabel": "Reason given",
+    "expiresLabel": "Block lifts on",
+    "issuedAt": "Issued on {date}",
+    "howItWorksHeading": "How EarnLumens sanctions work",
+    "appealBody": "If you believe this decision was wrong, you can request a manual review from the tenant moderation team via the contact channels listed in the Content Guidelines.",
+    "viewGuidelines": "View Content Guidelines",
+    "backHome": "Back to home"
+  },
   "ContentLanguagePreferences": {
     "title": "Content languages",
     "subtitle": "Choose which languages you want to see in your feed. The moderation system tags every upload with its real language.",

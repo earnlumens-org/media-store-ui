@@ -4,6 +4,49 @@
     "body": "Le sous-domaine que vous essayez d’atteindre ne correspond à aucune marketplace active sur EarnLumens.",
     "cta": "Aller sur earnlumens.org"
   },
+  "Sanctions": {
+    "intro": "EarnLumens utilise un système à 3 avertissements inspiré des plus grandes plateformes vidéo. Chaque infraction est examinée par un modérateur humain avant qu'un avertissement ne soit enregistré.",
+    "severeNote": "Les violations graves (fraude, préjudice aux mineurs, deepfakes, doxxing) sautent l'échelle et entraînent un bannissement permanent immédiat.",
+    "steps": {
+      "warning": {
+        "title": "Avertissement",
+        "body": "Première infraction mineure. Le contenu est supprimé mais ton compte n'est pas bloqué. Tu restes connecté."
+      },
+      "strike1": {
+        "title": "Premier avertissement — blocage de 7 jours",
+        "body": "La connexion est bloquée pendant 7 jours. Le compte est automatiquement débloqué à l'expiration du délai ; l'avertissement reste au dossier."
+      },
+      "strike2": {
+        "title": "Deuxième avertissement — blocage de 30 jours",
+        "body": "Un deuxième avertissement dans le même dossier porte le blocage à 30 jours."
+      },
+      "strike3": {
+        "title": "Troisième avertissement — bannissement permanent",
+        "body": "Un troisième avertissement bannit définitivement le compte. Les bannissements permanents ne peuvent être levés que par un modérateur après recours."
+      }
+    },
+    "yourStanding": {
+      "warningTitle": "Tu as {count} avertissement actif à ton dossier. | Tu as {count} avertissements actifs à ton dossier.",
+      "warningBody": "Ta prochaine infraction va {next}. Les avertissements n'expirent pas automatiquement — ils restent à ton dossier jusqu'à ce qu'un modérateur les efface.",
+      "nextWillBlock7": "bloquer ton compte pendant 7 jours",
+      "nextWillBlock30": "bloquer ton compte pendant 30 jours",
+      "nextWillBan": "bannir ton compte de manière permanente"
+    }
+  },
+  "Banned": {
+    "title": "Ton compte est actuellement banni",
+    "subtitle": "La connexion est bloquée en raison d'une action de modération sur ton compte.",
+    "statusPermanent": "Bannissement permanent",
+    "statusTemporary": "Bannissement temporaire",
+    "statusGeneric": "Compte bloqué",
+    "reasonLabel": "Motif indiqué",
+    "expiresLabel": "Le blocage est levé le",
+    "issuedAt": "Émis le {date}",
+    "howItWorksHeading": "Comment fonctionnent les sanctions EarnLumens",
+    "appealBody": "Si tu estimes que cette décision est erronée, tu peux demander un examen manuel à l'équipe de modération du tenant via les canaux de contact indiqués dans les Directives de Contenu.",
+    "viewGuidelines": "Voir les Directives de Contenu",
+    "backHome": "Retour à l'accueil"
+  },
   "ContentLanguagePreferences": {
     "title": "Langues du contenu",
     "subtitle": "Choisis les langues que tu veux voir dans ton fil. Le système de modération étiquette chaque publication avec sa langue réelle.",

@@ -22,6 +22,7 @@ declare module 'vue-router/auto-routes' {
     '/[...catchAll]': RouteRecordInfo<'/[...catchAll]', '/:catchAll(.*)', { catchAll: ParamValue<true> }, { catchAll: ParamValue<false> }>,
     '/[username]': RouteRecordInfo<'/[username]', '/:username', { username: ParamValue<true> }, { username: ParamValue<false> }>,
     '/Account': RouteRecordInfo<'/Account', '/account', Record<never, never>, Record<never, never>>,
+    '/Banned': RouteRecordInfo<'/Banned', '/banned', Record<never, never>, Record<never, never>>,
     '/collection/[id]': RouteRecordInfo<'/collection/[id]', '/collection/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/CreateCollection': RouteRecordInfo<'/CreateCollection', '/create-collection', Record<never, never>, Record<never, never>>,
     '/CreatorStudio': RouteRecordInfo<'/CreatorStudio', '/creator-studio', Record<never, never>, Record<never, never>>,
@@ -80,6 +81,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/Account.vue': {
       routes: '/Account'
+      views: never
+    }
+    'src/pages/Banned.vue': {
+      routes: '/Banned'
       views: never
     }
     'src/pages/collection/[id].vue': {

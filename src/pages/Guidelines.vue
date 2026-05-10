@@ -104,6 +104,31 @@
         </div>
       </v-card>
 
+      <!-- ============================ -->
+      <!-- Layer 3: how sanctions work  -->
+      <!-- ============================ -->
+      <!--
+        End-user-facing explainer of the 3-strike model. The same ladder is
+        documented for moderators in admin-ui and is the single source of
+        truth implemented by admin-api's UserSanctionService. Keep wording
+        in sync if the model ever changes.
+      -->
+      <div id="how-sanctions-work" class="d-flex align-center ga-3 mt-8 mb-3">
+        <v-icon color="warning" icon="mdi-gavel" size="28" />
+        <div>
+          <h2 class="text-h5 font-weight-bold mb-0">
+            {{ sanctionsHeading }}
+          </h2>
+          <p class="text-body-2 text-medium-emphasis mb-0">
+            {{ sanctionsBody }}
+          </p>
+        </div>
+      </div>
+
+      <v-card class="mb-4 pa-5 pa-md-6" elevation="1">
+        <SanctionLadderExplainer />
+      </v-card>
+
       <!-- Footer note -->
       <v-alert class="mt-6 mb-4" color="warning" icon="mdi-alert-outline" variant="tonal">
         {{ $t('Guidelines.footer') }}
@@ -123,6 +148,7 @@
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRoute } from 'vue-router'
+  import SanctionLadderExplainer from '@/components/sanctions/SanctionLadderExplainer.vue'
   import { useGuidelinesContent } from '@/lib/useGuidelinesContent'
   import { useTenantStore } from '@/stores/tenant'
   import { fetchTenantGuidelineNotes } from '@/api/modules/tenant.api'
@@ -210,6 +236,20 @@
     te('Guidelines.tenantSection.placeholder')
       ? t('Guidelines.tenantSection.placeholder')
       : 'This tenant has not added specific publishing notes yet. Only the platform-wide rules above apply here.'
+  )
+
+  // Sanctions section copy uses the same fallback pattern as the platform/
+  // tenant headings: if a non-English guidelines locale hasn't translated the
+  // new keys yet, we fall back to English text rather than show raw keys.
+  const sanctionsHeading = computed(() =>
+    te('Guidelines.sanctionsSection.heading')
+      ? t('Guidelines.sanctionsSection.heading')
+      : 'How sanctions work'
+  )
+  const sanctionsBody = computed(() =>
+    te('Guidelines.sanctionsSection.body')
+      ? t('Guidelines.sanctionsSection.body')
+      : 'If you break the rules above, this is exactly what happens. The same ladder applies on every tenant — there are no hidden penalties.'
   )
 
   const creatorSections = computed(() => resolveSections('Guidelines.forCreators.sections'))

@@ -4,6 +4,19 @@
     "subtitle": "Cosa puoi pubblicare su EarnLumens e cosa evitiamo",
     "lastUpdated": "Ultimo aggiornamento: {date}",
     "intro": "EarnLumens è una piattaforma di educazione finanziaria con focus sull'ecosistema Stellar. Vogliamo che tu pubblichi liberamente: queste regole esistono solo per prevenire frodi, contenuti dannosi e spam, non per limitare la tua creatività. Se i tuoi contenuti sono onesti, utili e non fuorvianti, saranno quasi sempre approvati.",
+    "platformSection": {
+      "heading": "Regole valide su tutta la piattaforma",
+      "body": "Queste regole si applicano a ogni tenant di EarnLumens, incluso questo. Non possono essere allentate da singoli marketplace ed esistono per mantenere la community al sicuro."
+    },
+    "tenantSection": {
+      "heading": "Regole specifiche del tenant",
+      "body": "Oltre alle regole della piattaforma qui sopra, ogni tenant può aggiungere le proprie note di pubblicazione — per esempio quali argomenti predilige, il tono previsto o i formati specifici che accetta.",
+      "placeholder": "Questo tenant non ha ancora aggiunto note di pubblicazione specifiche. Qui si applicano solo le regole della piattaforma qui sopra."
+    },
+    "sanctionsSection": {
+      "heading": "Come funzionano le sanzioni",
+      "body": "Se infrangi le regole qui sopra, ecco esattamente cosa succede. La stessa scala si applica a ogni tenant — non ci sono sanzioni nascoste."
+    },
     "forCreators": {
       "heading": "Per i creator",
       "sections": [

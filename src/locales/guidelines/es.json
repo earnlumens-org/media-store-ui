@@ -13,6 +13,10 @@
       "body": "Además de las reglas globales de arriba, cada tenant puede sumar sus propias notas de publicación — por ejemplo qué temas le interesan, el tono esperado o los formatos específicos que acepta.",
       "placeholder": "Este tenant todavía no agregó notas específicas. Aquí solo se aplican las reglas globales de arriba."
     },
+    "sanctionsSection": {
+      "heading": "Cómo funcionan las sanciones",
+      "body": "Si rompes las reglas anteriores, esto es exactamente lo que ocurre. La misma escalera aplica en cada tenant — no hay penalizaciones ocultas."
+    },
     "forCreators": {
       "heading": "Para Creadores",
       "sections": [

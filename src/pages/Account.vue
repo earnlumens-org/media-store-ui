@@ -68,6 +68,59 @@
                 </div>
               </div>
 
+              <!-- ============================================== -->
+              <!-- Sanction status banner (3-strike disclosure)   -->
+              <!-- ============================================== -->
+              <!--
+                Backend (media-store-api UserController#me) only includes
+                `sanctionStatus` when the user is currently blocked or has
+                at least one strike on record. We never assume it exists for
+                a clean account, so the v-if guards keep this completely
+                invisible for the vast majority of users.
+              -->
+              <template v-if="user.sanctionStatus">
+                <v-alert
+                  v-if="user.sanctionStatus.blocked"
+                  class="mb-4"
+                  type="error"
+                  variant="tonal"
+                >
+                  <div class="text-subtitle-2 mb-1">
+                    {{ user.sanctionStatus.expiresAt ? $t('Banned.statusTemporary') : $t('Banned.statusPermanent') }}
+                  </div>
+                  <div v-if="user.sanctionStatus.reason" class="text-body-2">
+                    <b>{{ $t('Banned.reasonLabel') }}:</b> {{ user.sanctionStatus.reason }}
+                  </div>
+                  <div v-if="user.sanctionStatus.expiresAt" class="text-body-2">
+                    <b>{{ $t('Banned.expiresLabel') }}:</b> {{ formatDate(user.sanctionStatus.expiresAt) }}
+                  </div>
+                </v-alert>
+                <v-alert
+                  v-else-if="(user.sanctionStatus.strikeCount ?? 0) > 0"
+                  class="mb-4"
+                  type="warning"
+                  variant="tonal"
+                >
+                  <div class="text-subtitle-2 mb-1">
+                    {{ $t('Sanctions.yourStanding.warningTitle', { count: user.sanctionStatus.strikeCount }, user.sanctionStatus.strikeCount ?? 0) }}
+                  </div>
+                  <div class="text-body-2">
+                    {{ $t('Sanctions.yourStanding.warningBody', { next: nextStrikeConsequence }) }}
+                  </div>
+                  <div class="mt-2">
+                    <v-btn
+                      density="comfortable"
+                      prepend-icon="mdi-book-open-page-variant-outline"
+                      size="small"
+                      to="/guidelines#how-sanctions-work"
+                      variant="text"
+                    >
+                      {{ $t('Banned.howItWorksHeading') }}
+                    </v-btn>
+                  </div>
+                </v-alert>
+              </template>
+
               <div class="d-flex align-center mb-4">
                 <v-list class="flex-grow-1 pa-0" density="compact">
                   <v-list-item>
@@ -262,7 +315,7 @@
 <script setup lang="ts">
   import type { BadgeAssignment } from '@/api/modules/badge.api'
   import type { UserProfile } from '@/api/modules/user.api'
-  import { onMounted, ref, watch } from 'vue'
+  import { computed, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { api, ApiError } from '@/api/api'
   import { logout } from '@/api/modules/auth.api'
@@ -299,6 +352,17 @@
       return iso.slice(0, 10)
     }
   }
+
+  // Preview text for the next infraction's consequence based on the user's
+  // current strike count. Mirrors the ladder enforced by
+  // admin-api/UserSanctionService so users can plan accordingly. Strikes do
+  // NOT auto-expire — the count is whatever the moderator left on record.
+  const nextStrikeConsequence = computed(() => {
+    const next = (user.value?.sanctionStatus?.strikeCount ?? 0) + 1
+    if (next === 1) return t('Sanctions.yourStanding.nextWillBlock7')
+    if (next === 2) return t('Sanctions.yourStanding.nextWillBlock30')
+    return t('Sanctions.yourStanding.nextWillBan')
+  })
 
   async function fetchBadges () {
     badgeLoading.value = true

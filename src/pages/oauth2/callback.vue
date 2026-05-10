@@ -13,7 +13,7 @@
 <script setup lang="ts">
   import { useRouter } from 'vue-router'
 
-  import { createSession } from '@/api/modules/auth.api'
+  import { AccountBannedError, createSession } from '@/api/modules/auth.api'
   import { parseUserFromToken } from '@/api/modules/user.api'
   import { initTokenWorker, setToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
@@ -85,6 +85,23 @@
         purchasesStore.loadPurchaseIds(),
       ].map(p => p.catch(() => {})))
     } catch (error) {
+      // ACCOUNT_BANNED is a deliberate, well-defined backend response (HTTP
+      // 403 with a structured payload) — show the dedicated /banned screen
+      // instead of a generic "login_failed" toast. We persist the payload to
+      // sessionStorage because we cannot pass it through router.replace
+      // without leaking ban metadata into URL/history.
+      if (error instanceof AccountBannedError) {
+        try {
+          sessionStorage.setItem('accountBannedPayload', JSON.stringify(error.payload))
+        } catch {
+          // sessionStorage may be unavailable (private mode); the /banned
+          // page will fall back to a generic message.
+        }
+        // Drop any pre-login redirect — a banned user must land on /banned.
+        localStorage.removeItem('preLoginUrl')
+        await router.replace('/banned')
+        return
+      }
       console.error('Session creation failed:', error)
       authStore.setError(error instanceof Error ? error.message : 'login_failed')
     }

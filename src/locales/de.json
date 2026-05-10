@@ -4,6 +4,49 @@
     "body": "Die Subdomain, die du aufrufen möchtest, gehört zu keinem aktiven Marktplatz auf EarnLumens.",
     "cta": "Zu earnlumens.org gehen"
   },
+  "Sanctions": {
+    "intro": "EarnLumens nutzt ein Drei-Verwarnungen-System nach dem Vorbild der größten Videoplattformen. Jeder Verstoß wird von einem menschlichen Moderator geprüft, bevor eine Verwarnung erfasst wird.",
+    "severeNote": "Schwere Verstöße (Betrug, Schaden für Minderjährige, Deepfakes, Doxxing) überspringen die Stufenleiter und führen zu einer sofortigen dauerhaften Sperre.",
+    "steps": {
+      "warning": {
+        "title": "Verwarnung",
+        "body": "Erster leichter Verstoß. Der Inhalt wird entfernt, dein Konto wird jedoch nicht gesperrt. Du bleibst angemeldet."
+      },
+      "strike1": {
+        "title": "Erste Verwarnung — 7-Tage-Sperre",
+        "body": "Die Anmeldung ist 7 Tage lang gesperrt. Das Konto wird nach Ablauf der Frist automatisch entsperrt; die Verwarnung bleibt aktenkundig."
+      },
+      "strike2": {
+        "title": "Zweite Verwarnung — 30-Tage-Sperre",
+        "body": "Eine zweite Verwarnung im selben Datensatz verlängert die Sperre auf 30 Tage."
+      },
+      "strike3": {
+        "title": "Dritte Verwarnung — dauerhafte Sperre",
+        "body": "Eine dritte Verwarnung sperrt das Konto dauerhaft. Dauerhafte Sperren können nur nach einer Beschwerde durch einen Moderator aufgehoben werden."
+      }
+    },
+    "yourStanding": {
+      "warningTitle": "Du hast {count} aktive Verwarnung in deinem Datensatz. | Du hast {count} aktive Verwarnungen in deinem Datensatz.",
+      "warningBody": "Dein nächster Verstoß wird {next}. Verwarnungen laufen nicht automatisch ab — sie bleiben in deinem Datensatz, bis ein Moderator sie löscht.",
+      "nextWillBlock7": "dein Konto für 7 Tage sperren",
+      "nextWillBlock30": "dein Konto für 30 Tage sperren",
+      "nextWillBan": "dein Konto dauerhaft sperren"
+    }
+  },
+  "Banned": {
+    "title": "Dein Konto ist derzeit gesperrt",
+    "subtitle": "Die Anmeldung ist aufgrund einer Moderator-Maßnahme an deinem Konto blockiert.",
+    "statusPermanent": "Dauerhafte Sperre",
+    "statusTemporary": "Temporäre Sperre",
+    "statusGeneric": "Konto gesperrt",
+    "reasonLabel": "Angegebener Grund",
+    "expiresLabel": "Sperre endet am",
+    "issuedAt": "Ausgestellt am {date}",
+    "howItWorksHeading": "Wie EarnLumens-Sanktionen funktionieren",
+    "appealBody": "Wenn du der Meinung bist, dass diese Entscheidung falsch war, kannst du über die in den Inhaltsrichtlinien angegebenen Kontaktkanäle eine manuelle Überprüfung durch das Moderationsteam des Tenants beantragen.",
+    "viewGuidelines": "Inhaltsrichtlinien ansehen",
+    "backHome": "Zurück zur Startseite"
+  },
   "ContentLanguagePreferences": {
     "title": "Inhaltssprachen",
     "subtitle": "Wähle, welche Sprachen du in deinem Feed sehen möchtest. Das Moderationssystem markiert jeden Upload mit seiner tatsächlichen Sprache.",

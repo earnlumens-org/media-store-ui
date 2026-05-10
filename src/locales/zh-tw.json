@@ -4,6 +4,49 @@
     "body": "您嘗試存取的子網域與 EarnLumens 上任何有效的市集都不相符。",
     "cta": "前往 earnlumens.org"
   },
+  "Sanctions": {
+    "intro": "EarnLumens 採用受最大影音平台啟發的三振系統。每一次違規都會在被記錄為一次違規計分之前，由人工審核員審核。",
+    "severeNote": "嚴重違規（詐欺、傷害未成年人、深度偽造、人肉搜尋）將跳過此階梯並立即導致永久封禁。",
+    "steps": {
+      "warning": {
+        "title": "警告",
+        "body": "首次輕微違規。內容會被移除但你的帳號不會被封鎖。你仍處於登入狀態。"
+      },
+      "strike1": {
+        "title": "第一次違規計分 — 7 天封鎖",
+        "body": "登入被封鎖 7 天。計時器到期後帳號會自動解除封鎖；違規記錄保留在檔。"
+      },
+      "strike2": {
+        "title": "第二次違規計分 — 30 天封鎖",
+        "body": "同一檔案中的第二次計分會將封鎖延長至 30 天。"
+      },
+      "strike3": {
+        "title": "第三次違規計分 — 永久封禁",
+        "body": "第三次違規計分將永久封禁帳號。永久封禁只能在申訴後由審核員解除。"
+      }
+    },
+    "yourStanding": {
+      "warningTitle": "你的檔案中有 {count} 條有效違規記錄。",
+      "warningBody": "你的下一次違規將{next}。違規計分不會自動到期 — 它們會一直保留在檔，直到審核員清除。",
+      "nextWillBlock7": "將你的帳號封鎖 7 天",
+      "nextWillBlock30": "將你的帳號封鎖 30 天",
+      "nextWillBan": "永久封禁你的帳號"
+    }
+  },
+  "Banned": {
+    "title": "你的帳號目前被封禁",
+    "subtitle": "由於審核員對你的帳號採取了操作，登入被封鎖。",
+    "statusPermanent": "永久封禁",
+    "statusTemporary": "臨時封禁",
+    "statusGeneric": "帳號被封鎖",
+    "reasonLabel": "給出的原因",
+    "expiresLabel": "封鎖解除時間",
+    "issuedAt": "簽發於 {date}",
+    "howItWorksHeading": "EarnLumens 處罰機制",
+    "appealBody": "如果你認為這個決定是錯誤的，可以透過《內容準則》中列出的聯絡方式向租戶審核團隊申請人工複審。",
+    "viewGuidelines": "檢視內容準則",
+    "backHome": "返回首頁"
+  },
   "ContentLanguagePreferences": {
     "title": "內容語言",
     "subtitle": "選擇您希望在動態中看到的語言。審核系統會為每個上傳內容標記其真實語言。",

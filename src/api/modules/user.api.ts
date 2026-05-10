@@ -15,6 +15,26 @@ export interface ContentLanguagePreferences {
   showAllLanguages: boolean
 }
 
+/**
+ * Self-disclosure of the user's current sanction state. Returned by
+ * GET /api/user/me only when the user is currently blocked or has at least
+ * one strike on file. Used by Account.vue to show an explanatory banner so
+ * users always know their standing. The moderator's identity is
+ * intentionally NOT exposed here.
+ */
+export interface UserSanctionStatus {
+  blocked?: boolean
+  banType?: string
+  /** Reason text (visible to the user). Omitted on clean accounts. */
+  reason?: string
+  /** ISO timestamp when the temporary ban auto-lifts. Absent for permanent bans. */
+  expiresAt?: string | null
+  /** ISO timestamp when the current ban window started. */
+  issuedAt?: string | null
+  strikeCount?: number
+  lastStrikeAt?: string | null
+}
+
 export interface UserProfile {
   id?: string
   username: string
@@ -24,6 +44,7 @@ export interface UserProfile {
   oauthProvider?: string
   profileBadge?: string
   contentLanguagePreferences?: ContentLanguagePreferences
+  sanctionStatus?: UserSanctionStatus
 }
 
 /**

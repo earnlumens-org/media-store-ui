@@ -4,6 +4,49 @@
     "body": "Tên miền phụ mà bạn đang cố truy cập không khớp với որևէ marketplace nào đang hoạt động trên EarnLumens.",
     "cta": "Đi tới earnlumens.org"
   },
+  "Sanctions": {
+    "intro": "EarnLumens sử dụng hệ thống 3 strike lấy cảm hứng từ các nền tảng video lớn nhất. Mọi vi phạm đều được một quản trị viên là con người xem xét trước khi một strike được ghi nhận.",
+    "severeNote": "Các vi phạm nghiêm trọng (gian lận, gây hại cho trẻ vị thành niên, deepfake, doxxing) bỏ qua thang này và dẫn đến cấm vĩnh viễn ngay lập tức.",
+    "steps": {
+      "warning": {
+        "title": "Cảnh báo",
+        "body": "Vi phạm nhẹ đầu tiên. Nội dung bị xoá nhưng tài khoản của bạn không bị chặn. Bạn vẫn đăng nhập."
+      },
+      "strike1": {
+        "title": "Strike đầu tiên — chặn 7 ngày",
+        "body": "Đăng nhập bị chặn trong 7 ngày. Tài khoản tự động được gỡ chặn khi hết hạn; strike vẫn lưu trong hồ sơ."
+      },
+      "strike2": {
+        "title": "Strike thứ hai — chặn 30 ngày",
+        "body": "Strike thứ hai trong cùng một hồ sơ sẽ gia hạn chặn lên 30 ngày."
+      },
+      "strike3": {
+        "title": "Strike thứ ba — cấm vĩnh viễn",
+        "body": "Strike thứ ba cấm tài khoản vĩnh viễn. Lệnh cấm vĩnh viễn chỉ có thể được gỡ bởi quản trị viên sau khi kháng cáo."
+      }
+    },
+    "yourStanding": {
+      "warningTitle": "Bạn có {count} strike đang hoạt động trong hồ sơ.",
+      "warningBody": "Vi phạm tiếp theo của bạn sẽ {next}. Các strike không tự động hết hạn — chúng vẫn ở trong hồ sơ cho đến khi quản trị viên xoá.",
+      "nextWillBlock7": "chặn tài khoản của bạn trong 7 ngày",
+      "nextWillBlock30": "chặn tài khoản của bạn trong 30 ngày",
+      "nextWillBan": "cấm vĩnh viễn tài khoản của bạn"
+    }
+  },
+  "Banned": {
+    "title": "Tài khoản của bạn hiện đang bị cấm",
+    "subtitle": "Đăng nhập bị chặn do hành động của quản trị viên với tài khoản của bạn.",
+    "statusPermanent": "Cấm vĩnh viễn",
+    "statusTemporary": "Cấm tạm thời",
+    "statusGeneric": "Tài khoản bị chặn",
+    "reasonLabel": "Lý do được nêu",
+    "expiresLabel": "Lệnh chặn hết hạn vào",
+    "issuedAt": "Phát hành ngày {date}",
+    "howItWorksHeading": "Các chế tài EarnLumens hoạt động ra sao",
+    "appealBody": "Nếu bạn cho rằng quyết định này là sai, bạn có thể yêu cầu xem xét thủ công từ đội ngũ kiểm duyệt tenant qua các kênh liên hệ được liệt kê trong Nguyên tắc Nội dung.",
+    "viewGuidelines": "Xem Nguyên tắc Nội dung",
+    "backHome": "Về trang chủ"
+  },
   "ContentLanguagePreferences": {
     "title": "Ngôn ngữ nội dung",
     "subtitle": "Chọn các ngôn ngữ bạn muốn xem trong nguồn cấp. Hệ thống kiểm duyệt sẽ gắn nhãn mỗi nội dung tải lên với ngôn ngữ thực của nó.",

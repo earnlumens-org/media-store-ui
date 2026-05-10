@@ -4,6 +4,49 @@
     "body": "O subdomínio que você está tentando acessar não corresponde a nenhum marketplace ativo na EarnLumens.",
     "cta": "Ir para earnlumens.org"
   },
+  "Sanctions": {
+    "intro": "A EarnLumens usa um sistema de 3 strikes inspirado nas maiores plataformas de vídeo. Cada infração é revista por um moderador humano antes de um strike ser registado.",
+    "severeNote": "Violações graves (fraude, dano a menores, deepfakes, doxxing) saltam a escada e resultam em banimento permanente imediato.",
+    "steps": {
+      "warning": {
+        "title": "Aviso",
+        "body": "Primeira infração leve. O conteúdo é removido, mas a sua conta não é bloqueada. Mantém-se com sessão iniciada."
+      },
+      "strike1": {
+        "title": "Primeiro strike — bloqueio de 7 dias",
+        "body": "O início de sessão fica bloqueado durante 7 dias. A conta é desbloqueada automaticamente quando o prazo termina; o strike permanece no histórico."
+      },
+      "strike2": {
+        "title": "Segundo strike — bloqueio de 30 dias",
+        "body": "Um segundo strike no mesmo histórico estende o bloqueio para 30 dias."
+      },
+      "strike3": {
+        "title": "Terceiro strike — banimento permanente",
+        "body": "Um terceiro strike bane a conta permanentemente. Banimentos permanentes só podem ser revertidos por um moderador após recurso."
+      }
+    },
+    "yourStanding": {
+      "warningTitle": "Tens {count} strike ativo no histórico. | Tens {count} strikes ativos no histórico.",
+      "warningBody": "A tua próxima infração {next}. Os strikes não expiram automaticamente — permanecem no teu histórico até um moderador os remover.",
+      "nextWillBlock7": "irá bloquear a tua conta durante 7 dias",
+      "nextWillBlock30": "irá bloquear a tua conta durante 30 dias",
+      "nextWillBan": "irá banir a tua conta permanentemente"
+    }
+  },
+  "Banned": {
+    "title": "A tua conta está atualmente banida",
+    "subtitle": "O início de sessão está bloqueado devido a uma ação de moderação na tua conta.",
+    "statusPermanent": "Banimento permanente",
+    "statusTemporary": "Banimento temporário",
+    "statusGeneric": "Conta bloqueada",
+    "reasonLabel": "Motivo indicado",
+    "expiresLabel": "O bloqueio termina em",
+    "issuedAt": "Emitido em {date}",
+    "howItWorksHeading": "Como funcionam as sanções da EarnLumens",
+    "appealBody": "Se achas que esta decisão foi incorreta, podes solicitar uma revisão manual à equipa de moderação do tenant através dos canais de contacto listados nas Diretrizes de Conteúdo.",
+    "viewGuidelines": "Ver Diretrizes de Conteúdo",
+    "backHome": "Voltar ao início"
+  },
   "ContentLanguagePreferences": {
     "title": "Idiomas do conteúdo",
     "subtitle": "Escolha quais idiomas você quer ver no seu feed. O sistema de moderação rotula cada upload com seu idioma real.",

@@ -4,6 +4,49 @@
     "body": "El subdominio al que estás intentando acceder no corresponde a ningún marketplace activo en EarnLumens.",
     "cta": "Ir a earnlumens.org"
   },
+  "Sanctions": {
+    "intro": "EarnLumens usa un sistema de 3 strikes inspirado en las plataformas de video más grandes. Cada infracción es revisada por un moderador humano antes de que se registre un strike.",
+    "severeNote": "Las infracciones graves (fraude, daño a menores, deepfakes, doxxing) saltan la escalera y resultan en una expulsión permanente inmediata.",
+    "steps": {
+      "warning": {
+        "title": "Advertencia",
+        "body": "Primera infracción menor. El contenido se elimina pero tu cuenta no queda bloqueada. Sigues con la sesión iniciada."
+      },
+      "strike1": {
+        "title": "Primer strike — bloqueo de 7 días",
+        "body": "El inicio de sesión queda bloqueado durante 7 días. La cuenta se desbloquea automáticamente al vencer el plazo; el strike permanece en el historial."
+      },
+      "strike2": {
+        "title": "Segundo strike — bloqueo de 30 días",
+        "body": "Un segundo strike en el mismo historial extiende el bloqueo a 30 días."
+      },
+      "strike3": {
+        "title": "Tercer strike — expulsión permanente",
+        "body": "Un tercer strike expulsa la cuenta de forma permanente. Las expulsiones permanentes solo pueden ser revocadas por un moderador tras una apelación."
+      }
+    },
+    "yourStanding": {
+      "warningTitle": "Tienes {count} strike activo en tu historial. | Tienes {count} strikes activos en tu historial.",
+      "warningBody": "Tu próxima infracción {next}. Los strikes no expiran automáticamente — permanecen en tu historial hasta que un moderador los elimine.",
+      "nextWillBlock7": "bloqueará tu cuenta durante 7 días",
+      "nextWillBlock30": "bloqueará tu cuenta durante 30 días",
+      "nextWillBan": "expulsará tu cuenta de forma permanente"
+    }
+  },
+  "Banned": {
+    "title": "Tu cuenta está actualmente expulsada",
+    "subtitle": "El inicio de sesión está bloqueado debido a una acción de moderación sobre tu cuenta.",
+    "statusPermanent": "Expulsión permanente",
+    "statusTemporary": "Expulsión temporal",
+    "statusGeneric": "Cuenta bloqueada",
+    "reasonLabel": "Motivo indicado",
+    "expiresLabel": "El bloqueo se levanta el",
+    "issuedAt": "Emitida el {date}",
+    "howItWorksHeading": "Cómo funcionan las sanciones de EarnLumens",
+    "appealBody": "Si crees que esta decisión fue incorrecta, puedes solicitar una revisión manual al equipo de moderación del tenant a través de los canales de contacto indicados en las Directrices de Contenido.",
+    "viewGuidelines": "Ver Directrices de Contenido",
+    "backHome": "Volver al inicio"
+  },
   "ContentLanguagePreferences": {
     "title": "Idiomas del contenido",
     "subtitle": "Elige los idiomas que quieres ver en tu feed. El sistema de moderación etiqueta cada publicación con su idioma real.",

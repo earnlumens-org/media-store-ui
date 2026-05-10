@@ -49,6 +49,7 @@ declare module 'vue' {
     ReportDialog: typeof import('./components/report/ReportDialog.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SanctionLadderExplainer: typeof import('./components/sanctions/SanctionLadderExplainer.vue')['default']
     ShakaVideoPlayer: typeof import('./components/media/ShakaVideoPlayer.vue')['default']
     TenantNotFoundPage: typeof import('./components/TenantNotFoundPage.vue')['default']
     Theme: typeof import('./components/themes/Theme.vue')['default']

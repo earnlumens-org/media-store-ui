@@ -13,6 +13,10 @@
       "body": "On top of the platform rules above, each tenant may add its own publishing notes — for example which topics it focuses on, expected tone, or specific formats it accepts.",
       "placeholder": "This tenant has not added specific publishing notes yet. Only the platform-wide rules above apply here."
     },
+    "sanctionsSection": {
+      "heading": "How sanctions work",
+      "body": "If you break the rules above, this is exactly what happens. The same ladder applies on every tenant — there are no hidden penalties."
+    },
     "forCreators": {
       "heading": "For Creators",
       "sections": [

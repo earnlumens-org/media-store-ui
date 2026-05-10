@@ -4,6 +4,19 @@
     "subtitle": "Perkara yang anda boleh terbitkan di EarnLumens dan perkara yang kami elakkan",
     "lastUpdated": "Dikemas kini terakhir: {date}",
     "intro": "EarnLumens ialah platform pendidikan kewangan yang memberi tumpuan kepada ekosistem Stellar. Kami mahu anda menerbitkan kandungan dengan bebas: peraturan ini hanya wujud untuk menghalang penipuan, kandungan berbahaya, dan spam, bukan untuk mengehadkan kreativiti anda. Jika kandungan anda jujur, bernilai, dan tidak mengelirukan, ia hampir sentiasa akan diluluskan.",
+    "platformSection": {
+      "heading": "Peraturan seluruh platform",
+      "body": "Peraturan ini terpakai kepada setiap tenant di EarnLumens, termasuk yang ini. Ia tidak boleh dilonggarkan oleh marketplace individu dan wujud untuk memastikan komuniti selamat."
+    },
+    "tenantSection": {
+      "heading": "Peraturan khusus tenant",
+      "body": "Selain peraturan platform di atas, setiap tenant boleh menambah nota penerbitan sendiri — contohnya topik yang difokuskan, nada yang diharapkan, atau format khusus yang diterima.",
+      "placeholder": "Tenant ini belum menambah nota penerbitan khusus. Di sini hanya peraturan seluruh platform di atas yang terpakai."
+    },
+    "sanctionsSection": {
+      "heading": "Cara sanksi berfungsi",
+      "body": "Jika anda melanggar peraturan di atas, inilah yang akan berlaku. Tangga yang sama dikenakan pada setiap tenant — tiada penalti tersembunyi."
+    },
     "forCreators": {
       "heading": "Untuk pencipta",
       "sections": [

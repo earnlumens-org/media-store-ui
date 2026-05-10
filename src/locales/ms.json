@@ -4,6 +4,49 @@
     "body": "Subdomain yang anda cuba akses tidak sepadan dengan mana-mana marketplace aktif di EarnLumens.",
     "cta": "Pergi ke earnlumens.org"
   },
+  "Sanctions": {
+    "intro": "EarnLumens menggunakan sistem 3 strike yang diilhamkan oleh platform video terbesar. Setiap pelanggaran disemak oleh moderator manusia sebelum strike direkodkan.",
+    "severeNote": "Pelanggaran serius (penipuan, bahaya terhadap kanak-kanak bawah umur, deepfake, doxxing) melangkau tangga ini dan terus mengakibatkan larangan kekal serta-merta.",
+    "steps": {
+      "warning": {
+        "title": "Amaran",
+        "body": "Pelanggaran ringan pertama. Kandungan dialih keluar tetapi akaun anda tidak disekat. Anda kekal log masuk."
+      },
+      "strike1": {
+        "title": "Strike pertama — sekatan 7 hari",
+        "body": "Log masuk disekat selama 7 hari. Akaun dibuka semula secara automatik apabila pemasa tamat; strike kekal dalam rekod."
+      },
+      "strike2": {
+        "title": "Strike kedua — sekatan 30 hari",
+        "body": "Strike kedua dalam rekod yang sama melanjutkan sekatan kepada 30 hari."
+      },
+      "strike3": {
+        "title": "Strike ketiga — larangan kekal",
+        "body": "Strike ketiga melarang akaun secara kekal. Larangan kekal hanya boleh dibuka oleh moderator selepas rayuan."
+      }
+    },
+    "yourStanding": {
+      "warningTitle": "Anda mempunyai {count} strike aktif dalam rekod.",
+      "warningBody": "Pelanggaran seterusnya akan {next}. Strike tidak tamat tempoh secara automatik — ia kekal dalam rekod anda sehingga moderator membuangnya.",
+      "nextWillBlock7": "menyekat akaun anda selama 7 hari",
+      "nextWillBlock30": "menyekat akaun anda selama 30 hari",
+      "nextWillBan": "melarang akaun anda secara kekal"
+    }
+  },
+  "Banned": {
+    "title": "Akaun anda kini dilarang",
+    "subtitle": "Log masuk disekat kerana tindakan moderator ke atas akaun anda.",
+    "statusPermanent": "Larangan kekal",
+    "statusTemporary": "Larangan sementara",
+    "statusGeneric": "Akaun disekat",
+    "reasonLabel": "Sebab diberikan",
+    "expiresLabel": "Sekatan tamat pada",
+    "issuedAt": "Dikeluarkan pada {date}",
+    "howItWorksHeading": "Cara sanksi EarnLumens berfungsi",
+    "appealBody": "Jika anda percaya keputusan ini salah, anda boleh meminta semakan manual daripada pasukan moderasi tenant melalui saluran hubungan yang disenaraikan dalam Garis Panduan Kandungan.",
+    "viewGuidelines": "Lihat Garis Panduan Kandungan",
+    "backHome": "Kembali ke laman utama"
+  },
   "ContentLanguagePreferences": {
     "title": "Bahasa kandungan",
     "subtitle": "Pilih bahasa yang anda mahu lihat dalam suapan anda. Sistem moderasi menanda setiap muat naik dengan bahasa sebenarnya.",
