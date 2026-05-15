@@ -16,6 +16,8 @@ interface State {
   status: VisitorStatus
   kind: VisitorKind | null
   subdomain: string | null
+  /** Optional storefront app-bar label. Null means "use the hardcoded default". */
+  brandText: string | null
 }
 
 export const useTenantStore = defineStore('tenant', {
@@ -23,6 +25,7 @@ export const useTenantStore = defineStore('tenant', {
     status: 'idle',
     kind: null,
     subdomain: null,
+    brandText: null,
   }),
 
   getters: {
@@ -40,6 +43,7 @@ export const useTenantStore = defineStore('tenant', {
         const ctx = await fetchVisitorContext()
         this.kind = ctx.kind
         this.subdomain = ctx.subdomain ?? null
+        this.brandText = ctx.brandText ?? null
         this.status = 'ready'
       } catch (error) {
         // Probe failed (network, 5xx). Treat as platform so the SPA still
@@ -48,6 +52,7 @@ export const useTenantStore = defineStore('tenant', {
         console.warn('[tenantStore] visitor probe failed, falling back to platform', error)
         this.kind = 'platform'
         this.subdomain = null
+        this.brandText = null
         this.status = 'ready'
       }
     },

@@ -22,6 +22,8 @@ export interface VisitorContext {
   kind: VisitorKind
   /** Present when `kind === 'tenant'` or `kind === 'notFound'`. */
   subdomain?: string
+  /** Optional storefront app-bar label override. Null/undefined means "use the hardcoded default". */
+  brandText?: string | null
 }
 
 export async function fetchVisitorContext (): Promise<VisitorContext> {
@@ -43,11 +45,12 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
     throw new Error(`visitor probe failed: HTTP ${response.status}`)
   }
 
-  const body = await response.json() as { kind?: string, subdomain?: string }
+  const body = await response.json() as { kind?: string, subdomain?: string, brandText?: string | null }
+  const brandText = typeof body.brandText === 'string' && body.brandText.length > 0 ? body.brandText : null
   if (body.kind === 'tenant' && typeof body.subdomain === 'string') {
-    return { kind: 'tenant', subdomain: body.subdomain }
+    return { kind: 'tenant', subdomain: body.subdomain, brandText }
   }
-  return { kind: 'platform' }
+  return { kind: 'platform', brandText }
 }
 
 export interface TenantGuidelineNotes {

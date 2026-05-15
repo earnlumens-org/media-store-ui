@@ -2,8 +2,8 @@
   <v-app-bar>
     <v-btn class="hidden-sm-and-down" icon="mdi-menu" @click="rail = !rail" />
     <div style="display: flex; flex: 1; align-items: center;">
-      <span aria-label="EARNLUMENS" class="ml-3 app-logo" role="img" v-html="logoSvg" />
-      <v-toolbar-title><b class="pl-1 font-weight-bold text-button">EARNLUMENS</b></v-toolbar-title>
+      <span :aria-label="brandLabel" class="ml-3 app-logo" role="img" v-html="logoSvg" />
+      <v-toolbar-title><b class="pl-1 font-weight-bold text-button">{{ brandLabel }}</b></v-toolbar-title>
     </div>
 
     <div style="display: flex; flex: 1; justify-content: flex-end; align-items: center;">
@@ -226,6 +226,7 @@
   import CxSearchDialog from '@/components/CxSearchDialog.vue'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
+  import { useTenantStore } from '@/stores/tenant'
 
   const logoSvg = logo
 
@@ -235,8 +236,17 @@
   // Store
   const appStore = useAppStore()
   const authStore = useAuthStore()
+  const tenantStore = useTenantStore()
   const { mobileView, windowWidth } = storeToRefs(appStore)
   const { isAuthenticated: loggedIn, isAuthReady } = storeToRefs(authStore)
+  const { brandText } = storeToRefs(tenantStore)
+
+  /**
+   * Storefront brand label rendered next to the logo. Falls back to the
+   * hardcoded EARNLUMENS so the UI never goes blank if the tenant probe
+   * has not resolved yet (or returned no override for the platform root).
+   */
+  const brandLabel = computed(() => brandText.value ?? 'EARNLUMENS')
 
   // State
   const drawer = ref(false)
