@@ -24,8 +24,12 @@ export interface VisitorContext {
   subdomain?: string
   /** Optional storefront app-bar label override. Null/undefined means "use the hardcoded default". */
   brandText?: string | null
+  /** When true the storefront renders no text label next to the logo (logo-only mode). */
+  brandTextHidden?: boolean
   /** Optional R2 object key for the storefront logo. Null/undefined means "use the hardcoded SVG". */
   logoR2Key?: string | null
+  /** Optional dark-theme logo R2 key. Falls back to logoR2Key when null. */
+  logoR2KeyDark?: string | null
 }
 
 export async function fetchVisitorContext (): Promise<VisitorContext> {
@@ -47,13 +51,27 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
     throw new Error(`visitor probe failed: HTTP ${response.status}`)
   }
 
-  const body = await response.json() as { kind?: string, subdomain?: string, brandText?: string | null, logoR2Key?: string | null }
-  const brandText = typeof body.brandText === 'string' && body.brandText.length > 0 ? body.brandText : null
-  const logoR2Key = typeof body.logoR2Key === 'string' && body.logoR2Key.length > 0 ? body.logoR2Key : null
-  if (body.kind === 'tenant' && typeof body.subdomain === 'string') {
-    return { kind: 'tenant', subdomain: body.subdomain, brandText, logoR2Key }
+  const body = await response.json() as {
+    kind?: string,
+    subdomain?: string,
+    brandText?: string | null,
+    brandTextHidden?: boolean,
+    logoR2Key?: string | null,
+    logoR2KeyDark?: string | null,
   }
-  return { kind: 'platform', brandText, logoR2Key }
+  // When brandTextHidden is true the server intentionally sends an empty
+  // string — keep it as-is (don't coerce to null) so the AppBar can render
+  // the logo-only layout instead of falling back to the hardcoded brand.
+  const brandTextHidden = body.brandTextHidden === true
+  const brandText = brandTextHidden
+    ? ''
+    : (typeof body.brandText === 'string' && body.brandText.length > 0 ? body.brandText : null)
+  const logoR2Key = typeof body.logoR2Key === 'string' && body.logoR2Key.length > 0 ? body.logoR2Key : null
+  const logoR2KeyDark = typeof body.logoR2KeyDark === 'string' && body.logoR2KeyDark.length > 0 ? body.logoR2KeyDark : null
+  if (body.kind === 'tenant' && typeof body.subdomain === 'string') {
+    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark }
+  }
+  return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark }
 }
 
 export interface TenantGuidelineNotes {

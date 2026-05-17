@@ -15,7 +15,7 @@
         role="img"
         v-html="logoSvg"
       />
-      <v-toolbar-title><b class="pl-1 font-weight-bold text-button">{{ brandLabel }}</b></v-toolbar-title>
+      <v-toolbar-title v-if="showBrandText"><b class="pl-1 font-weight-bold text-button">{{ brandLabel }}</b></v-toolbar-title>
     </div>
 
     <div style="display: flex; flex: 1; justify-content: flex-end; align-items: center;">
@@ -228,6 +228,7 @@
   import { computed, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRoute } from 'vue-router'
+  import { useTheme } from 'vuetify'
   import { api } from '@/api/api'
   import type { SpaceSummaryDto } from '@/api/modules/spaces.api'
   import logo from '@/assets/logo.svg?raw'
@@ -249,10 +250,11 @@
   const appStore = useAppStore()
   const authStore = useAuthStore()
   const tenantStore = useTenantStore()
+  const theme = useTheme()
   const { mobileView, windowWidth } = storeToRefs(appStore)
   const { isAuthenticated: loggedIn, isAuthReady } = storeToRefs(authStore)
-  const { brandText } = storeToRefs(tenantStore)
-  const { logoUrl: customLogoUrl } = storeToRefs(tenantStore)
+  const { brandText, brandTextHidden } = storeToRefs(tenantStore)
+  const { logoUrl: lightLogoUrl, logoUrlDark: darkLogoUrl } = storeToRefs(tenantStore)
 
   /**
    * Storefront brand label rendered next to the logo. Falls back to the
@@ -260,6 +262,21 @@
    * has not resolved yet (or returned no override for the platform root).
    */
   const brandLabel = computed(() => brandText.value ?? 'EARNLUMENS')
+  /**
+   * When the tenant has flipped on logo-only mode the AppBar hides the
+   * text entirely. brandTextHidden is read from the visitor probe so the
+   * decision is consistent with every other route the SPA serves.
+   */
+  const showBrandText = computed(() => !brandTextHidden.value)
+  /**
+   * Theme-aware logo URL. Uses the dark-variant key when Vuetify resolves
+   * the active theme to a dark surface; otherwise the light variant.
+   * Both getters already fall back across variants so the AppBar always
+   * has the best available image without extra branching.
+   */
+  const customLogoUrl = computed(() => (
+    theme.global.current.value.dark ? darkLogoUrl.value : lightLogoUrl.value
+  ))
 
   // State
   const drawer = ref(false)
