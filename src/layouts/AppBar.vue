@@ -2,7 +2,19 @@
   <v-app-bar>
     <v-btn class="hidden-sm-and-down" icon="mdi-menu" @click="rail = !rail" />
     <div style="display: flex; flex: 1; align-items: center;">
-      <span :aria-label="brandLabel" class="ml-3 app-logo" role="img" v-html="logoSvg" />
+      <img
+        v-if="customLogoUrl"
+        :alt="brandLabel"
+        class="ml-3 app-logo app-logo--img"
+        :src="customLogoUrl"
+      >
+      <span
+        v-else
+        :aria-label="brandLabel"
+        class="ml-3 app-logo"
+        role="img"
+        v-html="logoSvg"
+      />
       <v-toolbar-title><b class="pl-1 font-weight-bold text-button">{{ brandLabel }}</b></v-toolbar-title>
     </div>
 
@@ -240,6 +252,7 @@
   const { mobileView, windowWidth } = storeToRefs(appStore)
   const { isAuthenticated: loggedIn, isAuthReady } = storeToRefs(authStore)
   const { brandText } = storeToRefs(tenantStore)
+  const { logoUrl: customLogoUrl } = storeToRefs(tenantStore)
 
   /**
    * Storefront brand label rendered next to the logo. Falls back to the
@@ -347,5 +360,18 @@
   width: 100%;
   height: 100%;
   display: block;
+}
+
+/*
+ * Uploaded raster logos (PNG/WebP). Height is fixed to match the SVG so the
+ * AppBar layout never shifts; width is auto + capped at 160px so even a
+ * ratio-validation bypass cannot stretch the bar. object-fit:contain keeps
+ * the logo from being squashed inside that envelope.
+ */
+.app-logo--img {
+  width: auto;
+  height: 24px;
+  max-width: 160px;
+  object-fit: contain;
 }
 </style>

@@ -24,6 +24,8 @@ export interface VisitorContext {
   subdomain?: string
   /** Optional storefront app-bar label override. Null/undefined means "use the hardcoded default". */
   brandText?: string | null
+  /** Optional R2 object key for the storefront logo. Null/undefined means "use the hardcoded SVG". */
+  logoR2Key?: string | null
 }
 
 export async function fetchVisitorContext (): Promise<VisitorContext> {
@@ -45,12 +47,13 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
     throw new Error(`visitor probe failed: HTTP ${response.status}`)
   }
 
-  const body = await response.json() as { kind?: string, subdomain?: string, brandText?: string | null }
+  const body = await response.json() as { kind?: string, subdomain?: string, brandText?: string | null, logoR2Key?: string | null }
   const brandText = typeof body.brandText === 'string' && body.brandText.length > 0 ? body.brandText : null
+  const logoR2Key = typeof body.logoR2Key === 'string' && body.logoR2Key.length > 0 ? body.logoR2Key : null
   if (body.kind === 'tenant' && typeof body.subdomain === 'string') {
-    return { kind: 'tenant', subdomain: body.subdomain, brandText }
+    return { kind: 'tenant', subdomain: body.subdomain, brandText, logoR2Key }
   }
-  return { kind: 'platform', brandText }
+  return { kind: 'platform', brandText, logoR2Key }
 }
 
 export interface TenantGuidelineNotes {
