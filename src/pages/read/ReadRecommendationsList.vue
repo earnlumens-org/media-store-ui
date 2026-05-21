@@ -113,12 +113,11 @@
       <template v-if="item.locked" #append>
         <v-chip
           color="white"
-          density="compact"
-          label
-          prepend-icon="mdi-lock"
-          size="x-small"
+          rounded="pill"
+          size="small"
           variant="elevated"
         >
+          <v-icon class="me-1" size="14">mdi-lock</v-icon>
           {{ $t('Common.blocked') }}
         </v-chip>
       </template>
