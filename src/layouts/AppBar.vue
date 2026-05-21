@@ -2,12 +2,31 @@
   <v-app-bar>
     <v-btn class="hidden-sm-and-down" icon="mdi-menu" @click="rail = !rail" />
     <div style="display: flex; flex: 1; align-items: center;">
-      <img
-        v-if="customLogoUrl"
-        :alt="brandLabel"
-        class="ml-3 app-logo app-logo--img"
-        :src="customLogoUrl"
-      >
+      <!--
+        Tenant custom logos. Both light and dark variants are rendered
+        in the DOM and toggled with v-show so the browser fetches and
+        caches both on first paint. Switching theme then becomes an
+        instant CSS visibility swap with no network round-trip and no
+        window where the wrong-theme logo is on screen.
+      -->
+      <template v-if="hasCustomLogo">
+        <img
+          v-show="!isDarkTheme"
+          :alt="brandLabel"
+          class="ml-3 app-logo app-logo--img"
+          decoding="async"
+          fetchpriority="high"
+          :src="lightLogoUrl ?? ''"
+        >
+        <img
+          v-show="isDarkTheme"
+          :alt="brandLabel"
+          class="ml-3 app-logo app-logo--img"
+          decoding="async"
+          fetchpriority="high"
+          :src="darkLogoUrl ?? ''"
+        >
+      </template>
       <span
         v-else
         :aria-label="brandLabel"
@@ -269,14 +288,18 @@
    */
   const showBrandText = computed(() => !brandTextHidden.value)
   /**
-   * Theme-aware logo URL. Uses the dark-variant key when Vuetify resolves
-   * the active theme to a dark surface; otherwise the light variant.
-   * Both getters already fall back across variants so the AppBar always
-   * has the best available image without extra branching.
+   * Whether the active Vuetify theme resolves to a dark surface. Used to
+   * pick which of the two pre-rendered <img> tags is visible — both are
+   * mounted at all times so swapping themes is an instant CSS toggle.
    */
-  const customLogoUrl = computed(() => (
-    theme.global.current.value.dark ? darkLogoUrl.value : lightLogoUrl.value
-  ))
+  const isDarkTheme = computed(() => theme.global.current.value.dark)
+  /**
+   * True when the tenant has any custom logo configured. logoUrlDark in
+   * the store already falls back to the light key when the dark variant
+   * is missing, so a single light URL is enough to enter custom-logo
+   * rendering mode (the same image will be shown in both themes).
+   */
+  const hasCustomLogo = computed(() => Boolean(lightLogoUrl.value || darkLogoUrl.value))
 
   // State
   const drawer = ref(false)
