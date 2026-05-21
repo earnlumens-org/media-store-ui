@@ -18,6 +18,23 @@ import { apiUrl } from '@/config/env'
 
 export type VisitorKind = 'platform' | 'tenant' | 'notFound'
 
+/**
+ * Optional per-tenant hero banner block. Only emitted by the server when
+ * the owner has flipped the master switch on in admin-ui, so the SPA can
+ * treat `banner === undefined` as "do not render". The fields are plain
+ * strings today; automatic per-locale translations will land later.
+ */
+export interface TenantBanner {
+  enabled: true
+  imageR2Key?: string | null
+  eyebrow?: string | null
+  headline?: string | null
+  subheadline?: string | null
+  ctaLabel?: string | null
+  ctaUrl?: string | null
+  imageAlt?: string | null
+}
+
 export interface VisitorContext {
   kind: VisitorKind
   /** Present when `kind === 'tenant'` or `kind === 'notFound'`. */
@@ -30,6 +47,8 @@ export interface VisitorContext {
   logoR2Key?: string | null
   /** Optional dark-theme logo R2 key. Falls back to logoR2Key when null. */
   logoR2KeyDark?: string | null
+  /** Optional hero banner. Absent when the owner has not enabled it. */
+  banner?: TenantBanner | null
 }
 
 export async function fetchVisitorContext (): Promise<VisitorContext> {
@@ -52,12 +71,13 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
   }
 
   const body = await response.json() as {
-    kind?: string,
-    subdomain?: string,
-    brandText?: string | null,
-    brandTextHidden?: boolean,
-    logoR2Key?: string | null,
-    logoR2KeyDark?: string | null,
+    kind?: string
+    subdomain?: string
+    brandText?: string | null
+    brandTextHidden?: boolean
+    logoR2Key?: string | null
+    logoR2KeyDark?: string | null
+    banner?: Record<string, unknown> | null
   }
   // When brandTextHidden is true the server intentionally sends an empty
   // string — keep it as-is (don't coerce to null) so the AppBar can render
@@ -68,10 +88,31 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
     : (typeof body.brandText === 'string' && body.brandText.length > 0 ? body.brandText : null)
   const logoR2Key = typeof body.logoR2Key === 'string' && body.logoR2Key.length > 0 ? body.logoR2Key : null
   const logoR2KeyDark = typeof body.logoR2KeyDark === 'string' && body.logoR2KeyDark.length > 0 ? body.logoR2KeyDark : null
+  const banner = parseBanner(body.banner)
   if (body.kind === 'tenant' && typeof body.subdomain === 'string') {
-    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark }
+    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark, banner }
   }
-  return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark }
+  return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark, banner }
+}
+
+function parseBanner (raw: Record<string, unknown> | null | undefined): TenantBanner | null {
+  if (!raw || raw.enabled !== true) {
+    return null
+  }
+  const pickString = (key: string): string | null => {
+    const v = raw[key]
+    return typeof v === 'string' && v.length > 0 ? v : null
+  }
+  return {
+    enabled: true,
+    imageR2Key: pickString('imageR2Key'),
+    eyebrow: pickString('eyebrow'),
+    headline: pickString('headline'),
+    subheadline: pickString('subheadline'),
+    ctaLabel: pickString('ctaLabel'),
+    ctaUrl: pickString('ctaUrl'),
+    imageAlt: pickString('imageAlt'),
+  }
 }
 
 export interface TenantGuidelineNotes {

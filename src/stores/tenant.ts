@@ -8,7 +8,7 @@
  */
 import { defineStore } from 'pinia'
 
-import { fetchVisitorContext, type VisitorKind } from '@/api/modules/tenant.api'
+import { fetchVisitorContext, type TenantBanner, type VisitorKind } from '@/api/modules/tenant.api'
 import { getCdnBaseUrl } from '@/config/env'
 
 export type VisitorStatus = 'idle' | 'loading' | 'ready' | 'error'
@@ -25,6 +25,8 @@ interface State {
   logoR2Key: string | null
   /** Optional dark-theme logo R2 key. Falls back to logoR2Key when null. */
   logoR2KeyDark: string | null
+  /** Optional per-tenant hero banner block. Null means "do not render". */
+  banner: TenantBanner | null
 }
 
 export const useTenantStore = defineStore('tenant', {
@@ -36,6 +38,7 @@ export const useTenantStore = defineStore('tenant', {
     brandTextHidden: false,
     logoR2Key: null,
     logoR2KeyDark: null,
+    banner: null,
   }),
 
   getters: {
@@ -49,7 +52,9 @@ export const useTenantStore = defineStore('tenant', {
      * template.
      */
     logoUrl: (state): string | null => {
-      if (!state.logoR2Key) return null
+      if (!state.logoR2Key) {
+        return null
+      }
       return `${getCdnBaseUrl()}/${state.logoR2Key}`
     },
     /**
@@ -59,8 +64,21 @@ export const useTenantStore = defineStore('tenant', {
      */
     logoUrlDark (state): string | null {
       const darkKey = state.logoR2KeyDark ?? state.logoR2Key
-      if (!darkKey) return null
+      if (!darkKey) {
+        return null
+      }
       return `${getCdnBaseUrl()}/${darkKey}`
+    },
+    /**
+     * Public CDN URL for the hero banner image. Composed from the env-aware
+     * CDN base. Null when no banner is configured or it has no image, so
+     * callers can fall back to a gradient-only banner.
+     */
+    bannerImageUrl (state): string | null {
+      if (!state.banner || !state.banner.imageR2Key) {
+        return null
+      }
+      return `${getCdnBaseUrl()}/${state.banner.imageR2Key}`
     },
   },
 
@@ -78,6 +96,7 @@ export const useTenantStore = defineStore('tenant', {
         this.brandTextHidden = ctx.brandTextHidden ?? false
         this.logoR2Key = ctx.logoR2Key ?? null
         this.logoR2KeyDark = ctx.logoR2KeyDark ?? null
+        this.banner = ctx.banner ?? null
         this.status = 'ready'
       } catch (error) {
         // Probe failed (network, 5xx). Treat as platform so the SPA still
@@ -90,6 +109,7 @@ export const useTenantStore = defineStore('tenant', {
         this.brandTextHidden = false
         this.logoR2Key = null
         this.logoR2KeyDark = null
+        this.banner = null
         this.status = 'ready'
       }
     },
