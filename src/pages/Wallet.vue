@@ -1,23 +1,35 @@
 <template>
   <div class="d-flex flex-column" style="min-height: 100%;">
-    <v-container :class="{ 'fill-height': !walletStore.isConnected }" fluid>
+    <v-container
+      :class="!walletStore.isConnected ? 'flex-grow-1 d-flex align-center justify-center' : ''"
+      fluid
+    >
       <v-row
         :align="walletStore.isConnected ? 'start' : 'center'"
-        :class="{ 'fill-height': !walletStore.isConnected }"
+        class="w-100"
         justify="center"
+        no-gutters
       >
         <v-col class="d-flex flex-column align-center" cols="12">
           <v-btn
-            :append-icon="walletStore.isConnected ? 'mdi-menu-down' : undefined"
+            class="px-8 text-none font-weight-bold"
             color="primary"
+            elevation="2"
             :loading="walletStore.isLoading"
-            :prepend-icon="walletStore.isConnected ? 'mdi-wallet-outline' : 'mdi-wallet-plus-outline'"
-            rounded="xl"
-            size="large"
-            variant="outlined"
+            rounded="lg"
+            size="x-large"
             @click="handleMainButtonClick"
           >
+            <v-icon
+              class="me-2"
+              :icon="walletStore.isConnected ? 'mdi-wallet-outline' : 'mdi-wallet-plus-outline'"
+            />
             {{ walletStore.isConnected ? walletStore.shortActiveAddress : $t('Common.connectWallet') }}
+            <v-icon
+              v-if="walletStore.isConnected"
+              class="ms-2"
+              icon="mdi-menu-down"
+            />
           </v-btn>
 
           <!-- Stellar Wallet branding cuando está conectado -->
