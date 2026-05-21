@@ -106,10 +106,19 @@
             <v-sheet
               v-if="item.locked"
               class="position-absolute d-flex align-center justify-center"
-              color="rgba(0, 0, 0, 0.5)"
+              color="rgba(0, 0, 0, 0.55)"
               style="top: 0; left: 0; right: 0; bottom: 0;"
             >
-              <v-icon color="white" size="24">mdi-lock</v-icon>
+              <v-chip
+                color="white"
+                density="compact"
+                label
+                prepend-icon="mdi-lock"
+                size="x-small"
+                variant="elevated"
+              >
+                {{ $t('Common.blocked') }}
+              </v-chip>
             </v-sheet>
           </v-img>
           <v-sheet

@@ -77,6 +77,7 @@
           <v-img
             v-if="item.thumbnailUrl"
             class="h-100"
+            :class="{ 'rec-thumb--locked': item.locked }"
             cover
             sizes="64px"
             :src="item.thumbnailUrl"
@@ -100,15 +101,13 @@
           </v-sheet>
 
           <!-- Locked indicator -->
-          <v-avatar
+          <div
             v-if="item.locked"
-            class="position-absolute"
-            color="rgba(0,0,0,0.6)"
-            size="24"
-            :style="{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }"
+            class="position-absolute d-flex align-center justify-center"
+            style="top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.55);"
           >
-            <v-icon color="white" size="14">mdi-lock</v-icon>
-          </v-avatar>
+            <v-icon color="white" size="22">mdi-lock</v-icon>
+          </div>
         </v-sheet>
       </template>
 
@@ -210,3 +209,9 @@
     fetchRecommendations()
   })
 </script>
+
+<style scoped>
+.rec-thumb--locked {
+  filter: grayscale(0.6);
+}
+</style>

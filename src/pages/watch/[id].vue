@@ -404,7 +404,7 @@
           xl="3"
         >
           <v-container class="pa-4 pt-md-6" fluid>
-            <h2 class="text-subtitle-1 font-weight-bold mb-3">Up next</h2>
+            <h2 class="text-subtitle-1 font-weight-bold mb-3">{{ $t('Common.upNext') }}</h2>
             <RecommendationsList :author-name="entry.authorName" :current-id="entryId" />
           </v-container>
         </v-col>

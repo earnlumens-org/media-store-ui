@@ -72,12 +72,13 @@
       <template #prepend>
         <v-responsive
           :aspect-ratio="16 / 9"
-          class="rounded-lg overflow-hidden me-3 flex-shrink-0"
+          class="rounded-lg overflow-hidden me-3 flex-shrink-0 position-relative"
           width="168"
         >
           <v-img
             v-if="item.thumbnailUrl"
             class="h-100"
+            :class="{ 'rec-thumb--locked': item.locked }"
             cover
             sizes="168px"
             :src="item.thumbnailUrl"
@@ -113,15 +114,23 @@
             {{ formatDuration(item.durationSec) }}
           </v-chip>
 
-          <!-- Locked indicator -->
-          <v-avatar
+          <!-- Locked badge -->
+          <div
             v-if="item.locked"
-            class="position-absolute top-50 left-50"
-            color="rgba(0,0,0,0.6)"
-            size="32"
+            class="position-absolute d-flex align-center justify-center"
+            style="top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.55);"
           >
-            <v-icon color="white" size="18">mdi-lock</v-icon>
-          </v-avatar>
+            <v-chip
+              color="white"
+              density="compact"
+              label
+              prepend-icon="mdi-lock"
+              size="x-small"
+              variant="elevated"
+            >
+              {{ $t('Common.blocked') }}
+            </v-chip>
+          </div>
         </v-responsive>
       </template>
 
@@ -250,3 +259,9 @@
     fetchRecommendations()
   })
 </script>
+
+<style scoped>
+.rec-thumb--locked {
+  filter: grayscale(0.6);
+}
+</style>

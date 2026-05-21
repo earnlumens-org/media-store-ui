@@ -70,14 +70,24 @@
       :to="`/read/${item.id}`"
     >
       <template #prepend>
-        <v-avatar
-          class="me-3 rounded-lg"
-          color="grey-lighten-3"
-          :image="item.thumbnailUrl"
-          size="64"
-        >
-          <v-icon v-if="!item.thumbnailUrl" color="grey">mdi-file-document-outline</v-icon>
-        </v-avatar>
+        <div class="position-relative me-3">
+          <v-avatar
+            class="rounded-lg"
+            :class="{ 'rec-thumb--locked': item.locked }"
+            color="grey-lighten-3"
+            :image="item.thumbnailUrl"
+            size="64"
+          >
+            <v-icon v-if="!item.thumbnailUrl" color="grey">mdi-file-document-outline</v-icon>
+          </v-avatar>
+          <div
+            v-if="item.locked"
+            class="position-absolute d-flex align-center justify-center rounded-lg"
+            style="top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.55);"
+          >
+            <v-icon color="white" size="22">mdi-lock</v-icon>
+          </div>
+        </div>
       </template>
 
       <v-list-item-title class="text-body-2 font-weight-medium">
@@ -99,9 +109,18 @@
         · {{ formatDate(item.publishedAt) }}
       </v-list-item-subtitle>
 
-      <!-- Locked indicator -->
+      <!-- Locked badge -->
       <template v-if="item.locked" #append>
-        <v-icon color="warning" size="18">mdi-lock</v-icon>
+        <v-chip
+          color="white"
+          density="compact"
+          label
+          prepend-icon="mdi-lock"
+          size="x-small"
+          variant="elevated"
+        >
+          {{ $t('Common.blocked') }}
+        </v-chip>
       </template>
     </v-list-item>
   </v-list>
@@ -192,3 +211,9 @@
     fetchRecommendations()
   })
 </script>
+
+<style scoped>
+.rec-thumb--locked {
+  filter: grayscale(0.6);
+}
+</style>

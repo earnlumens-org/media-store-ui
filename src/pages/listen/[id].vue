@@ -476,7 +476,7 @@
 
             <!-- Mobile: Recommendations Section -->
             <div class="d-md-none mt-6">
-              <h2 class="text-subtitle-1 font-weight-bold mb-3">More audio</h2>
+              <h2 class="text-subtitle-1 font-weight-bold mb-3">{{ $t('Common.upNext') }}</h2>
               <AudioRecommendationsList :author-name="entry.authorName" :current-id="entryId" />
             </div>
           </v-container>
@@ -491,7 +491,7 @@
           xl="3"
         >
           <v-container class="pa-4 pt-md-6" fluid>
-            <h2 class="text-subtitle-1 font-weight-bold mb-3">More audio</h2>
+            <h2 class="text-subtitle-1 font-weight-bold mb-3">{{ $t('Common.upNext') }}</h2>
             <AudioRecommendationsList :author-name="entry.authorName" :current-id="entryId" />
           </v-container>
         </v-col>
