@@ -136,6 +136,21 @@
     applyTheme()
   })
 
+  // Once the visitor probe completes, honour the tenant's default theme for
+  // the current mode (light/dark) — but only when the visitor has no saved
+  // preference yet. A returning visitor who explicitly picked a theme keeps
+  // it; a new visitor sees the storefront in the colors the owner curated.
+  watch(() => tenantStore.isReady, ready => {
+    if (!ready) return
+    if (localStorage.getItem('themeName')) return
+    const isDarkMode = theme.global.current.value.dark
+    const tenantPick = isDarkMode ? tenantStore.defaultDarkTheme : tenantStore.defaultLightTheme
+    if (tenantPick) {
+      app.setThemeName(tenantPick)
+      applyTheme()
+    }
+  }, { immediate: true })
+
   onBeforeUnmount(() => {
     window.removeEventListener('resize', updateWindowWidth)
   })

@@ -27,6 +27,14 @@ interface State {
   logoR2KeyDark: string | null
   /** Optional per-tenant hero banner block. Null means "do not render". */
   banner: TenantBanner | null
+  /**
+   * Per-tenant default Vuetify theme keys. Null means "use the platform
+   * defaults from vuetify.ts". App.vue consumes these on boot when the
+   * visitor has no localStorage preference yet, and CxDarkLightMode uses
+   * them when toggling so the tenant's pick wins over the platform default.
+   */
+  defaultLightTheme: string | null
+  defaultDarkTheme: string | null
 }
 
 export const useTenantStore = defineStore('tenant', {
@@ -39,6 +47,8 @@ export const useTenantStore = defineStore('tenant', {
     logoR2Key: null,
     logoR2KeyDark: null,
     banner: null,
+    defaultLightTheme: null,
+    defaultDarkTheme: null,
   }),
 
   getters: {
@@ -97,6 +107,8 @@ export const useTenantStore = defineStore('tenant', {
         this.logoR2Key = ctx.logoR2Key ?? null
         this.logoR2KeyDark = ctx.logoR2KeyDark ?? null
         this.banner = ctx.banner ?? null
+        this.defaultLightTheme = ctx.defaultLightTheme ?? null
+        this.defaultDarkTheme = ctx.defaultDarkTheme ?? null
         this.status = 'ready'
       } catch (error) {
         // Probe failed (network, 5xx). Treat as platform so the SPA still
@@ -110,6 +122,8 @@ export const useTenantStore = defineStore('tenant', {
         this.logoR2Key = null
         this.logoR2KeyDark = null
         this.banner = null
+        this.defaultLightTheme = null
+        this.defaultDarkTheme = null
         this.status = 'ready'
       }
     },

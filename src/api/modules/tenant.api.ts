@@ -49,6 +49,14 @@ export interface VisitorContext {
   logoR2KeyDark?: string | null
   /** Optional hero banner. Absent when the owner has not enabled it. */
   banner?: TenantBanner | null
+  /**
+   * Per-tenant default Vuetify theme key for visitors who land in light mode.
+   * Null/undefined means "use the platform DEFAULT_LIGHT_THEME baked into
+   * vuetify.ts". Always a key whose theme has {@code dark: false}.
+   */
+  defaultLightTheme?: string | null
+  /** Same as {@link defaultLightTheme} but for dark mode. Always a {@code dark: true} key. */
+  defaultDarkTheme?: string | null
 }
 
 export async function fetchVisitorContext (): Promise<VisitorContext> {
@@ -78,6 +86,8 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
     logoR2Key?: string | null
     logoR2KeyDark?: string | null
     banner?: Record<string, unknown> | null
+    defaultLightTheme?: string | null
+    defaultDarkTheme?: string | null
   }
   // When brandTextHidden is true the server intentionally sends an empty
   // string — keep it as-is (don't coerce to null) so the AppBar can render
@@ -89,10 +99,12 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
   const logoR2Key = typeof body.logoR2Key === 'string' && body.logoR2Key.length > 0 ? body.logoR2Key : null
   const logoR2KeyDark = typeof body.logoR2KeyDark === 'string' && body.logoR2KeyDark.length > 0 ? body.logoR2KeyDark : null
   const banner = parseBanner(body.banner)
+  const defaultLightTheme = typeof body.defaultLightTheme === 'string' && body.defaultLightTheme.length > 0 ? body.defaultLightTheme : null
+  const defaultDarkTheme = typeof body.defaultDarkTheme === 'string' && body.defaultDarkTheme.length > 0 ? body.defaultDarkTheme : null
   if (body.kind === 'tenant' && typeof body.subdomain === 'string') {
-    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark, banner }
+    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark, banner, defaultLightTheme, defaultDarkTheme }
   }
-  return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark, banner }
+  return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark, banner, defaultLightTheme, defaultDarkTheme }
 }
 
 function parseBanner (raw: Record<string, unknown> | null | undefined): TenantBanner | null {

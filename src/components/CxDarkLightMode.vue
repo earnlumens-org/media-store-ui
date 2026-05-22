@@ -22,8 +22,10 @@
   import { useTheme } from 'vuetify'
   import { DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from '@/plugins/vuetify'
   import { useAppStore } from '@/stores/app'
+  import { useTenantStore } from '@/stores/tenant'
 
   const app = useAppStore()
+  const tenantStore = useTenantStore()
   const theme = useTheme()
 
   const { mobileView } = storeToRefs(app)
@@ -40,7 +42,11 @@
 
   function toggleTheme () {
     const isCurrentlyDark = theme.global.current.value.dark
-    const nextThemeName = isCurrentlyDark ? DEFAULT_LIGHT_THEME : DEFAULT_DARK_THEME
+    // Prefer the tenant owner's curated default for the target mode; fall
+    // back to the platform-wide default when no override is configured.
+    const nextThemeName = isCurrentlyDark
+      ? (tenantStore.defaultLightTheme || DEFAULT_LIGHT_THEME)
+      : (tenantStore.defaultDarkTheme || DEFAULT_DARK_THEME)
     app.setThemeName(nextThemeName)
     localStorage.setItem('themeName', nextThemeName)
     setTheme(nextThemeName)
