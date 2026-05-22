@@ -16,8 +16,8 @@ import '@fontsource/roboto/700.css'
 import 'vuetify/styles'
 
 // Default theme names for toggle
-export const DEFAULT_LIGHT_THEME = 'neoBrutalArt'
-export const DEFAULT_DARK_THEME = 'amoledGray'
+export const DEFAULT_LIGHT_THEME = 'nord'
+export const DEFAULT_DARK_THEME = 'tokyoNight'
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
