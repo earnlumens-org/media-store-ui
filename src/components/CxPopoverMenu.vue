@@ -145,6 +145,7 @@
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
   import { PURCHASES_STORAGE_KEY } from '@/stores/purchases'
+  import { useTenantStore } from '@/stores/tenant'
 
   const menu = ref(false)
   const showUploadDialog = ref(false)
@@ -152,6 +153,7 @@
   const router = useRouter()
   const appStore = useAppStore()
   const authStore = useAuthStore()
+  const tenantStore = useTenantStore()
   const theme = useTheme()
 
   // Computed: true if current theme is dark
@@ -167,7 +169,13 @@
   }
 
   function toggleTheme () {
-    const nextThemeName = isDarkMode.value ? DEFAULT_LIGHT_THEME : DEFAULT_DARK_THEME
+    // Mirror CxDarkLightMode: prefer the tenant owner's curated default for
+    // the target mode so the storefront switches into the configured palette
+    // instead of the hardcoded platform fallback. Only fall back to the
+    // built-in defaults when the owner has not picked a per-tenant theme.
+    const nextThemeName = isDarkMode.value
+      ? (tenantStore.defaultLightTheme || DEFAULT_LIGHT_THEME)
+      : (tenantStore.defaultDarkTheme || DEFAULT_DARK_THEME)
     appStore.setThemeName(nextThemeName)
     localStorage.setItem('themeName', nextThemeName)
     setTheme(nextThemeName)
