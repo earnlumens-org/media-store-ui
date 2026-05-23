@@ -152,16 +152,22 @@
   }, { immediate: true })
 
   // Per-tenant browser favicon: swap the in-document <link rel="icon"> href
-  // at runtime so each tenant can ship its own tab icon. Restores the
-  // baked-in /favicon.ico when the tenant has none, so the platform
-  // origin (and tenants that cleared theirs) keep the default branding.
+  // at runtime so each tenant can ship its own tab icon. Gated on
+  // tenantStore.isReady so we don't briefly flash the platform default
+  // /favicon.ico on every refresh before the visitor probe resolves
+  // (index.html ships with a blank data: icon for the same reason).
   const DEFAULT_FAVICON_HREF = '/favicon.ico'
-  watch(() => tenantStore.faviconUrl, url => {
-    if (typeof document === 'undefined') return
-    const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]')
-    if (!link) return
-    link.setAttribute('href', url ?? DEFAULT_FAVICON_HREF)
-  }, { immediate: true })
+  watch(
+    () => [tenantStore.isReady, tenantStore.faviconUrl] as const,
+    ([ready, url]) => {
+      if (typeof document === 'undefined') return
+      if (!ready) return
+      const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]')
+      if (!link) return
+      link.setAttribute('href', url ?? DEFAULT_FAVICON_HREF)
+    },
+    { immediate: true },
+  )
 
   // Per-tenant browser-tab title. Mirrors the AppBar's fallback chain so
   // the tab text and the AppBar label stay in sync: explicit override →
