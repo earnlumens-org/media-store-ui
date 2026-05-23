@@ -6,7 +6,10 @@
     @load="onInfiniteLoad"
   >
     <v-container class="py-4 px-1 px-sm-4" fluid>
-      <!-- Content tabs -->
+      <!-- Content tabs. The tenant's per-type allowlist drives which tabs
+           render; turning a type off in admin /settings/content-types hides
+           its tab here. 'all' is always shown so visitors keep a way back
+           to the full feed. -->
       <v-tabs
         v-model="activeTab"
         centered
@@ -18,23 +21,23 @@
           <v-icon start>mdi-view-grid</v-icon>
           {{ $t('Profile.tabs.all') }}
         </v-tab>
-        <v-tab value="collections">
+        <v-tab v-if="tenantStore.isEntryTypeAllowed('COLLECTION')" value="collections">
           <v-icon start>mdi-folder-multiple</v-icon>
           {{ $t('Profile.tabs.collections') }}
         </v-tab>
-        <v-tab value="video">
+        <v-tab v-if="tenantStore.isEntryTypeAllowed('VIDEO')" value="video">
           <v-icon start>mdi-video</v-icon>
           {{ $t('Profile.tabs.video') }}
         </v-tab>
-        <v-tab value="audio">
+        <v-tab v-if="tenantStore.isEntryTypeAllowed('AUDIO')" value="audio">
           <v-icon start>mdi-music</v-icon>
           {{ $t('Profile.tabs.audio') }}
         </v-tab>
-        <v-tab value="image">
+        <v-tab v-if="tenantStore.isEntryTypeAllowed('IMAGE')" value="image">
           <v-icon start>mdi-image</v-icon>
           {{ $t('Profile.tabs.image') }}
         </v-tab>
-        <v-tab value="resource">
+        <v-tab v-if="tenantStore.isEntryTypeAllowed('RESOURCE')" value="resource">
           <v-icon start>mdi-text-box</v-icon>
           {{ $t('Profile.tabs.resource') }}
         </v-tab>
@@ -281,6 +284,7 @@
   import { useFeedCacheStore } from '@/stores/feedCache'
   import { usePurchasesStore } from '@/stores/purchases'
   import { useScrollCacheStore } from '@/stores/scrollCache'
+  import { useTenantStore } from '@/stores/tenant'
 
   interface Props {
     showAuthor?: boolean
@@ -299,6 +303,7 @@
   const contentLangPrefs = useContentLanguagePreferencesStore()
   const route = useRoute()
   const scrollCache = useScrollCacheStore()
+  const tenantStore = useTenantStore()
   const { t } = useI18n()
 
   const langDialogOpen = ref(false)
@@ -383,6 +388,21 @@
     suppressFilterWatch = false
     refetchFeed()
   })
+
+  // If the tenant owner restricts the content-type allowlist and the
+  // currently selected tab becomes disallowed (or the user lands on a
+  // direct link to a tab the tenant has turned off), fall back to "all"
+  // so the grid keeps rendering something instead of staying blank.
+  function tabIsAllowed (tab: string): boolean {
+    if (tab === 'all') return true
+    if (tab === 'collections') return tenantStore.isEntryTypeAllowed('COLLECTION')
+    return tenantStore.isEntryTypeAllowed(tab)
+  }
+  watch(() => tenantStore.allowedEntryTypes, () => {
+    if (!tabIsAllowed(activeTab.value)) {
+      activeTab.value = 'all'
+    }
+  }, { immediate: true })
 
   watch(pricingFilter, () => {
     if (suppressFilterWatch) return

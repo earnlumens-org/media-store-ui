@@ -1523,7 +1523,7 @@
     { title: t('Upload.type.image'), value: 'IMAGE' },
     { title: t('Upload.type.resource'), value: 'RESOURCE' },
     { title: t('Upload.type.collection'), value: 'COLLECTION' },
-  ])
+  ].filter(o => o.value === 'ALL' || tenantStore.isEntryTypeAllowed(o.value)))
 
   const sortOptions = computed(() => [
     { title: t('CreatorStudio.sort.newest'), value: 'newest' },

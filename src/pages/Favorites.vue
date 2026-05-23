@@ -24,23 +24,23 @@
           <v-icon start>mdi-view-grid</v-icon>
           {{ $t('Profile.tabs.all') }}
         </v-tab>
-        <v-tab value="collections">
+        <v-tab v-if="tenantStore.isEntryTypeAllowed('COLLECTION')" value="collections">
           <v-icon start>mdi-folder-multiple</v-icon>
           {{ $t('Profile.tabs.collections') }}
         </v-tab>
-        <v-tab value="video">
+        <v-tab v-if="tenantStore.isEntryTypeAllowed('VIDEO')" value="video">
           <v-icon start>mdi-video</v-icon>
           {{ $t('Profile.tabs.video') }}
         </v-tab>
-        <v-tab value="audio">
+        <v-tab v-if="tenantStore.isEntryTypeAllowed('AUDIO')" value="audio">
           <v-icon start>mdi-music</v-icon>
           {{ $t('Profile.tabs.audio') }}
         </v-tab>
-        <v-tab value="image">
+        <v-tab v-if="tenantStore.isEntryTypeAllowed('IMAGE')" value="image">
           <v-icon start>mdi-image</v-icon>
           {{ $t('Profile.tabs.image') }}
         </v-tab>
-        <v-tab value="resource">
+        <v-tab v-if="tenantStore.isEntryTypeAllowed('RESOURCE')" value="resource">
           <v-icon start>mdi-text-box</v-icon>
           {{ $t('Profile.tabs.resource') }}
         </v-tab>
@@ -234,11 +234,13 @@
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
   import { useScrollCacheStore } from '@/stores/scrollCache'
+  import { useTenantStore } from '@/stores/tenant'
 
   const auth = useAuthStore()
   const appStore = useAppStore()
   const route = useRoute()
   const scrollCache = useScrollCacheStore()
+  const tenantStore = useTenantStore()
 
   const favorites = ref<FavoriteItemModel[]>([])
   const loading = ref(true)
@@ -306,6 +308,17 @@
     searchQuery.value = ''
     sortBy.value = 'recent'
   })
+
+  // Tenant restricted the type allowlist → fall back to "all" so the
+  // grid keeps rendering instead of staying empty on a hidden tab.
+  function tabIsAllowed (tab: string): boolean {
+    if (tab === 'all') return true
+    if (tab === 'collections') return tenantStore.isEntryTypeAllowed('COLLECTION')
+    return tenantStore.isEntryTypeAllowed(tab)
+  }
+  watch(() => tenantStore.allowedEntryTypes, () => {
+    if (!tabIsAllowed(activeTab.value)) activeTab.value = 'all'
+  }, { immediate: true })
 
   async function fetchFavorites () {
     if (!auth.isAuthenticated) {

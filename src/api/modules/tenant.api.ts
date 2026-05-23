@@ -68,6 +68,15 @@ export interface VisitorContext {
    * points before the user even attempts to call /api/uploads/init.
    */
   uploadsEnabled?: boolean | null
+  /**
+   * Optional per-tenant allowlist of entry types. Each entry is an
+   * uppercase enum name from the backend (VIDEO / AUDIO / IMAGE /
+   * RESOURCE / COLLECTION). Null/undefined or empty array means
+   * "no restriction" so legacy tenants and the platform/root keep
+   * accepting every type. The storefront uses this list to filter
+   * upload entry points and visible browsing tabs.
+   */
+  allowedEntryTypes?: string[] | null
 }
 
 export async function fetchVisitorContext (): Promise<VisitorContext> {
@@ -102,6 +111,7 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
     defaultLightTheme?: string | null
     defaultDarkTheme?: string | null
     uploadsEnabled?: boolean | null
+    allowedEntryTypes?: unknown
   }
   // When brandTextHidden is true the server intentionally sends an empty
   // string — keep it as-is (don't coerce to null) so the AppBar can render
@@ -121,10 +131,20 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
   // the storefront opens up by default; the server only emits this field
   // when the owner has explicitly flipped the kill switch off.
   const uploadsEnabled = body.uploadsEnabled === false ? false : true
+  // Per-tenant content-type allowlist. The server only emits the field
+  // when the owner has restricted it (see PublicTenantController), so a
+  // missing/undefined or non-array value collapses to null = "no
+  // restriction" — the storefront then shows every tab and upload type.
+  const allowedEntryTypes = Array.isArray(body.allowedEntryTypes)
+    ? (body.allowedEntryTypes as unknown[])
+      .filter((v): v is string => typeof v === 'string' && v.length > 0)
+      .map(v => v.toUpperCase())
+    : null
+  const allowedEntryTypesFinal = allowedEntryTypes && allowedEntryTypes.length > 0 ? allowedEntryTypes : null
   if (body.kind === 'tenant' && typeof body.subdomain === 'string') {
-    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark, faviconR2Key, browserTitle, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled }
+    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark, faviconR2Key, browserTitle, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled, allowedEntryTypes: allowedEntryTypesFinal }
   }
-  return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark, faviconR2Key, browserTitle, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled }
+  return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark, faviconR2Key, browserTitle, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled, allowedEntryTypes: allowedEntryTypesFinal }
 }
 
 function parseBanner (raw: Record<string, unknown> | null | undefined): TenantBanner | null {

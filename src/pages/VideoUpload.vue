@@ -66,23 +66,29 @@
 
   import { UPLOAD_CONTENT_TYPES } from '@/api/types/upload.types'
   import UploadForm from '@/components/upload/UploadForm.vue'
+  import { useTenantStore } from '@/stores/tenant'
 
   const route = useRoute()
   const router = useRouter()
   const { t } = useI18n()
+  const tenantStore = useTenantStore()
 
   const hoveredType = ref<string | null>(null)
 
-  const contentTypes: { value: UploadContentType, icon: string }[] = [
+  const allContentTypes: { value: UploadContentType, icon: string }[] = [
     { value: 'video', icon: 'mdi-video-outline' },
     { value: 'audio', icon: 'mdi-music-note' },
     { value: 'image', icon: 'mdi-image-outline' },
     { value: 'resource', icon: 'mdi-text-box-outline' },
   ]
 
+  // Only surface upload tiles for content types the tenant owner has
+  // turned on. Empty/null allowlist means "all types" (back-compat).
+  const contentTypes = computed(() => allContentTypes.filter(o => tenantStore.isEntryTypeAllowed(o.value)))
+
   const resolvedType = computed<UploadContentType | null>(() => {
     const raw = route.query.type as string | undefined
-    if (raw && UPLOAD_CONTENT_TYPES.includes(raw as UploadContentType)) {
+    if (raw && UPLOAD_CONTENT_TYPES.includes(raw as UploadContentType) && tenantStore.isEntryTypeAllowed(raw)) {
       return raw as UploadContentType
     }
     return null

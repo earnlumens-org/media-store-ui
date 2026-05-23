@@ -47,6 +47,14 @@ interface State {
    * user even attempts /api/uploads/init.
    */
   uploadsEnabled: boolean
+  /**
+   * Per-tenant content-type allowlist. {@code null} = no restriction
+   * (every type allowed). Values are uppercase enum names from the
+   * backend (VIDEO / AUDIO / IMAGE / RESOURCE / COLLECTION). The
+   * storefront uses this to hide upload entry points and browsing tabs
+   * for types the tenant has opted out of.
+   */
+  allowedEntryTypes: string[] | null
 }
 
 export const useTenantStore = defineStore('tenant', {
@@ -64,6 +72,7 @@ export const useTenantStore = defineStore('tenant', {
     defaultLightTheme: null,
     defaultDarkTheme: null,
     uploadsEnabled: true,
+    allowedEntryTypes: null,
   }),
 
   getters: {
@@ -116,6 +125,27 @@ export const useTenantStore = defineStore('tenant', {
       }
       return `${getCdnBaseUrl()}/${state.faviconR2Key}`
     },
+    /**
+     * Lowercase variant of {@link allowedEntryTypes} convenient for UI
+     * code that compares against tab values like {@code 'video'}. Null
+     * means "no restriction" — the caller should treat every type as
+     * allowed in that case.
+     */
+    allowedEntryTypesLower (state): string[] | null {
+      if (!state.allowedEntryTypes || state.allowedEntryTypes.length === 0) return null
+      return state.allowedEntryTypes.map(s => s.toLowerCase())
+    },
+    /**
+     * Predicate the storefront uses to decide whether an upload type /
+     * browsing tab should be visible. {@code type} can be passed in any
+     * case; a null/empty allowlist returns true for every input so
+     * legacy tenants stay unrestricted.
+     */
+    isEntryTypeAllowed: state => (type: string): boolean => {
+      if (!state.allowedEntryTypes || state.allowedEntryTypes.length === 0) return true
+      if (!type) return false
+      return state.allowedEntryTypes.includes(type.toUpperCase())
+    },
   },
 
   actions: {
@@ -138,6 +168,7 @@ export const useTenantStore = defineStore('tenant', {
         this.defaultLightTheme = ctx.defaultLightTheme ?? null
         this.defaultDarkTheme = ctx.defaultDarkTheme ?? null
         this.uploadsEnabled = ctx.uploadsEnabled ?? true
+        this.allowedEntryTypes = ctx.allowedEntryTypes ?? null
         this.status = 'ready'
       } catch (error) {
         // Probe failed (network, 5xx). Treat as platform so the SPA still
@@ -156,6 +187,7 @@ export const useTenantStore = defineStore('tenant', {
         this.defaultLightTheme = null
         this.defaultDarkTheme = null
         this.uploadsEnabled = true
+        this.allowedEntryTypes = null
         this.status = 'ready'
       }
     },

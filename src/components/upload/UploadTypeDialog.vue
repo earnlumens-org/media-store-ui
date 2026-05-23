@@ -64,27 +64,35 @@
 
 <script setup lang="ts">
   import type { UploadContentType } from '@/api/types/upload.types'
-  import { ref } from 'vue'
+  import { computed, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRouter } from 'vue-router'
   import { useDisplay } from 'vuetify'
+  import { useTenantStore } from '@/stores/tenant'
 
   const model = defineModel<boolean>({ default: false })
   const router = useRouter()
   const { t } = useI18n()
   const { smAndDown } = useDisplay()
+  const tenantStore = useTenantStore()
 
   const hoveredType = ref<string | null>(null)
 
   type ContentOption = { value: UploadContentType | 'collection', icon: string }
 
-  const contentTypes: ContentOption[] = [
+  const allContentTypes: ContentOption[] = [
     { value: 'video', icon: 'mdi-video-outline' },
     { value: 'audio', icon: 'mdi-music-note' },
     { value: 'image', icon: 'mdi-image-outline' },
     { value: 'resource', icon: 'mdi-text-box-outline' },
     { value: 'collection', icon: 'mdi-folder-multiple-outline' },
   ]
+
+  // Per-tenant content-type allowlist. A null/empty allowlist means
+  // "no restriction" so every option stays visible (legacy behaviour).
+  const contentTypes = computed<ContentOption[]>(() =>
+    allContentTypes.filter(o => tenantStore.isEntryTypeAllowed(o.value)),
+  )
 
   function selectType (type: UploadContentType | 'collection') {
     model.value = false
