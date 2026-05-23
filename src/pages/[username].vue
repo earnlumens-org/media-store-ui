@@ -125,6 +125,7 @@
     <v-row class="mt-8" justify="center">
       <v-col cols="12">
         <v-tabs
+          v-if="showTabs"
           v-model="activeTab"
           centered
           color="primary"
@@ -134,23 +135,23 @@
             <v-icon start>mdi-view-grid</v-icon>
             {{ $t('Profile.tabs.all') }}
           </v-tab>
-          <v-tab value="collections">
+          <v-tab v-if="tenantStore.isEntryTypeAllowed('COLLECTION')" value="collections">
             <v-icon start>mdi-folder-multiple</v-icon>
             {{ $t('Profile.tabs.collections') }}
           </v-tab>
-          <v-tab value="video">
+          <v-tab v-if="tenantStore.isEntryTypeAllowed('VIDEO')" value="video">
             <v-icon start>mdi-video</v-icon>
             {{ $t('Profile.tabs.video') }}
           </v-tab>
-          <v-tab value="audio">
+          <v-tab v-if="tenantStore.isEntryTypeAllowed('AUDIO')" value="audio">
             <v-icon start>mdi-music</v-icon>
             {{ $t('Profile.tabs.audio') }}
           </v-tab>
-          <v-tab value="image">
+          <v-tab v-if="tenantStore.isEntryTypeAllowed('IMAGE')" value="image">
             <v-icon start>mdi-image</v-icon>
             {{ $t('Profile.tabs.image') }}
           </v-tab>
-          <v-tab value="resource">
+          <v-tab v-if="tenantStore.isEntryTypeAllowed('RESOURCE')" value="resource">
             <v-icon start>mdi-text-box</v-icon>
             {{ $t('Profile.tabs.resource') }}
           </v-tab>
@@ -349,10 +350,12 @@
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { isPopNavigation } from '@/router'
   import { useScrollCacheStore } from '@/stores/scrollCache'
+  import { useTenantStore } from '@/stores/tenant'
 
   const route = useRoute()
   const { t } = useI18n()
   const scrollCache = useScrollCacheStore()
+  const tenantStore = useTenantStore()
 
   const user = ref<UserProfile | null>(null)
   const userBadgeSrc = computed(() =>
@@ -539,6 +542,27 @@
     searchQuery.value = ''
     sortBy.value = 'recent'
   })
+
+  // Mirror the tenant allowlist on this profile view: snap back to
+  // "all" if the active tab disappears, and hide the tab bar entirely
+  // when only "all" + a single type would be visible (redundant).
+  function tabIsAllowed (tab: string): boolean {
+    if (tab === 'all') return true
+    if (tab === 'collections') return tenantStore.isEntryTypeAllowed('COLLECTION')
+    return tenantStore.isEntryTypeAllowed(tab)
+  }
+  watch(() => tenantStore.allowedEntryTypes, () => {
+    if (!tabIsAllowed(activeTab.value)) activeTab.value = 'all'
+  }, { immediate: true })
+  const visibleNonAllTabs = computed(() => {
+    let n = 0
+    if (tenantStore.isEntryTypeAllowed('COLLECTION')) n++
+    for (const ty of ['VIDEO', 'AUDIO', 'IMAGE', 'RESOURCE']) {
+      if (tenantStore.isEntryTypeAllowed(ty)) n++
+    }
+    return n
+  })
+  const showTabs = computed(() => visibleNonAllTabs.value >= 2)
 
   // Fetch user and feed when username changes
   watch(requestedUsername, () => {

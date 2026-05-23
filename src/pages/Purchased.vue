@@ -21,6 +21,7 @@
     <template v-else>
       <!-- Content tabs -->
       <v-tabs
+        v-if="showTabs"
         v-model="activeTab"
         centered
         color="primary"
@@ -384,6 +385,18 @@
   watch(() => tenantStore.allowedEntryTypes, () => {
     if (!tabIsAllowed(activeTab.value)) activeTab.value = 'all'
   }, { immediate: true })
+
+  // Hide the tab bar entirely when only "all" + a single type tab
+  // would be visible — both would render the same feed.
+  const visibleNonAllTabs = computed(() => {
+    let n = 0
+    if (tenantStore.isEntryTypeAllowed('COLLECTION')) n++
+    for (const ty of ['VIDEO', 'AUDIO', 'IMAGE', 'RESOURCE']) {
+      if (tenantStore.isEntryTypeAllowed(ty)) n++
+    }
+    return n
+  })
+  const showTabs = computed(() => visibleNonAllTabs.value >= 2)
 
   onBeforeRouteLeave(() => {
     if (feedItems.value.length > 0) {

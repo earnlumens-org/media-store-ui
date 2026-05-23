@@ -616,11 +616,13 @@
   import GuidelinesReferenceCard from '@/components/guidelines/GuidelinesReferenceCard.vue'
   import { CONTENT_LANGUAGES } from '@/config/contentLanguages'
   import { accountExists } from '@/services/stellar'
+  import { useTenantStore } from '@/stores/tenant'
   import { useWalletStore } from '@/stores/wallet'
 
   const router = useRouter()
   const { t, locale } = useI18n()
   const walletStore = useWalletStore()
+  const tenantStore = useTenantStore()
 
   // ── Content language items ──────────────────────────────────
 
@@ -968,6 +970,14 @@
   // ── Init ────────────────────────────────────────────────────
 
   onMounted(() => {
+    // Tenant owners can turn COLLECTION off in /settings/content-types.
+    // If a creator lands here via a bookmarked URL while collections are
+    // disabled, bounce back to the storefront instead of letting them
+    // fill out a form the API will refuse with 403 ENTRY_TYPE_NOT_ALLOWED.
+    if (!tenantStore.isEntryTypeAllowed('COLLECTION')) {
+      router.replace('/')
+      return
+    }
     // Pre-populate wallet if available
     if (walletStore.activeAddress) {
       selectedSellerWallet.value = walletStore.activeAddress

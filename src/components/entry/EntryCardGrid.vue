@@ -11,6 +11,7 @@
            its tab here. 'all' is always shown so visitors keep a way back
            to the full feed. -->
       <v-tabs
+        v-if="showTabs"
         v-model="activeTab"
         centered
         color="primary"
@@ -403,6 +404,20 @@
       activeTab.value = 'all'
     }
   }, { immediate: true })
+
+  // When the tenant only exposes a single non-"all" tab (e.g. only
+  // VIDEO is allowed and collections are off), "All" and "Videos"
+  // would show the exact same feed — hide the whole tab bar so the
+  // UI doesn't ask visitors to pick between two identical views.
+  const visibleNonAllTabs = computed(() => {
+    let n = 0
+    if (tenantStore.isEntryTypeAllowed('COLLECTION')) n++
+    for (const t of ['VIDEO', 'AUDIO', 'IMAGE', 'RESOURCE']) {
+      if (tenantStore.isEntryTypeAllowed(t)) n++
+    }
+    return n
+  })
+  const showTabs = computed(() => visibleNonAllTabs.value >= 2)
 
   watch(pricingFilter, () => {
     if (suppressFilterWatch) return

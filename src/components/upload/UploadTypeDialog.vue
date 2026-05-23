@@ -2,7 +2,8 @@
   <v-dialog
     v-model="model"
     :fullscreen="smAndDown"
-    max-width="600"
+    :max-width="dialogMaxWidth"
+    width="auto"
   >
     <v-card>
       <v-card-title class="d-flex align-center pa-4">
@@ -22,7 +23,10 @@
       </v-card-subtitle>
 
       <v-card-text class="pa-4 pt-0">
-        <div class="type-grid">
+        <div
+          class="type-grid"
+          :style="{ gridTemplateColumns: gridColumns }"
+        >
           <v-card
             v-for="option in contentTypes"
             :key="option.value"
@@ -94,6 +98,25 @@
     allContentTypes.filter(o => tenantStore.isEntryTypeAllowed(o.value)),
   )
 
+  // Layout adapts to the number of visible options so the dialog never
+  // shows empty whitespace: 1 col for 1 item, 2 cols for 2 or 4 items,
+  // 3 cols for 3 or 5 items (5 wraps as 3 + 2).
+  const gridColumns = computed(() => {
+    const n = contentTypes.value.length
+    if (n <= 1) return '1fr'
+    if (n === 2 || n === 4) return 'repeat(2, minmax(220px, 1fr))'
+    return 'repeat(3, minmax(200px, 1fr))'
+  })
+
+  // Cap dialog width to match the column count so a single-option
+  // tenant doesn't get a 600px-wide card with one tile in it.
+  const dialogMaxWidth = computed(() => {
+    const n = contentTypes.value.length
+    if (n <= 1) return 360
+    if (n === 2 || n === 4) return 520
+    return 680
+  })
+
   function selectType (type: UploadContentType | 'collection') {
     model.value = false
     if (type === 'collection') {
@@ -107,18 +130,8 @@
 <style scoped>
   .type-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
     gap: 10px;
   }
-
-  /* First 3 items: each spans 2 of 6 cols → fills row of 3 */
-  .type-card:nth-child(1) { grid-column: 1 / 3; }
-  .type-card:nth-child(2) { grid-column: 3 / 5; }
-  .type-card:nth-child(3) { grid-column: 5 / 7; }
-
-  /* Last 2 items: offset by 1 col each side → centered pair */
-  .type-card:nth-child(4) { grid-column: 1 / 4; }
-  .type-card:nth-child(5) { grid-column: 4 / 7; }
 
   .type-card {
     width: 100%;
@@ -136,11 +149,6 @@
   }
 
   @media (max-width: 599.98px) {
-    .type-grid {
-      grid-template-columns: repeat(6, 1fr);
-      gap: 10px;
-    }
-
     .type-card {
       min-height: 100px;
       flex-direction: column;
@@ -166,11 +174,7 @@
 
   @media (max-width: 359.98px) {
     .type-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .type-card:nth-child(n) {
-      grid-column: auto;
+      grid-template-columns: 1fr !important;
     }
 
     .type-card {
