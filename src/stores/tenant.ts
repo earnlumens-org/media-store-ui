@@ -27,6 +27,8 @@ interface State {
   logoR2KeyDark: string | null
   /** Optional R2 object key for the per-tenant browser favicon. Null means "use the baked-in /favicon.ico". */
   faviconR2Key: string | null
+  /** Optional browser-tab title. Null means "use tenant title or hardcoded EARNLUMENS". */
+  browserTitle: string | null
   /** Optional per-tenant hero banner block. Null means "do not render". */
   banner: TenantBanner | null
   /**
@@ -57,6 +59,7 @@ export const useTenantStore = defineStore('tenant', {
     logoR2Key: null,
     logoR2KeyDark: null,
     faviconR2Key: null,
+    browserTitle: null,
     banner: null,
     defaultLightTheme: null,
     defaultDarkTheme: null,
@@ -130,6 +133,7 @@ export const useTenantStore = defineStore('tenant', {
         this.logoR2Key = ctx.logoR2Key ?? null
         this.logoR2KeyDark = ctx.logoR2KeyDark ?? null
         this.faviconR2Key = ctx.faviconR2Key ?? null
+        this.browserTitle = ctx.browserTitle ?? null
         this.banner = ctx.banner ?? null
         this.defaultLightTheme = ctx.defaultLightTheme ?? null
         this.defaultDarkTheme = ctx.defaultDarkTheme ?? null
@@ -147,6 +151,7 @@ export const useTenantStore = defineStore('tenant', {
         this.logoR2Key = null
         this.logoR2KeyDark = null
         this.faviconR2Key = null
+        this.browserTitle = null
         this.banner = null
         this.defaultLightTheme = null
         this.defaultDarkTheme = null

@@ -163,6 +163,26 @@
     link.setAttribute('href', url ?? DEFAULT_FAVICON_HREF)
   }, { immediate: true })
 
+  // Per-tenant browser-tab title. Mirrors the AppBar's fallback chain so
+  // the tab text and the AppBar label stay in sync: explicit override →
+  // tenant title → hardcoded EARNLUMENS. Skipped while the visitor probe
+  // is in flight so we don't flash an empty title on slow networks.
+  const DEFAULT_BROWSER_TITLE = 'EARNLUMENS'
+  watch(
+    () => [tenantStore.isReady, tenantStore.browserTitle, tenantStore.brandText, tenantStore.subdomain] as const,
+    ([ready, browserTitle]) => {
+      if (typeof document === 'undefined') return
+      if (!ready) return
+      const next = (browserTitle && browserTitle.trim())
+        || (tenantStore.brandText && tenantStore.brandText.trim())
+        || DEFAULT_BROWSER_TITLE
+      if (document.title !== next) {
+        document.title = next
+      }
+    },
+    { immediate: true },
+  )
+
   onBeforeUnmount(() => {
     window.removeEventListener('resize', updateWindowWidth)
   })
