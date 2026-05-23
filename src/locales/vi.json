@@ -494,7 +494,9 @@
       "entryCreationFailed": "Không thể tạo bài viết. Vui lòng thử lại.",
       "submitForReviewFailed": "Không thể gửi để xét duyệt. Vui lòng thử lại.",
       "noFullAsset": "Vui lòng tải lên tệp nội dung đầy đủ trước khi gửi.",
-      "unexpectedError": "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại."
+      "unexpectedError": "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại.",
+      "uploadsDisabled": "Tải lên đã bị tắt",
+      "uploadsDisabledHelp": "Chủ tenant đã tạm thời tắt tải lên mới. Vui lòng thử lại sau."
     },
     "success": {
       "entryCreated": "Bài viết đã được tạo dưới dạng bản nháp",
@@ -721,7 +723,10 @@
     "editReviewWarningTitle": "Lưu sẽ gửi lại mục này để kiểm duyệt",
     "editReviewWarningHint": "Vì mục này đã được kiểm duyệt, mọi thay đổi sẽ gửi lại qua hệ thống kiểm duyệt tự động.",
     "editResubmittedSuccess": "Đã lưu thay đổi — mục đã được gửi lại để xem xét",
-    "saveAndResubmit": "Lưu và gửi lại"
+    "saveAndResubmit": "Lưu và gửi lại",
+    "uploadsDisabledTitle": "Tải lên hiện đang bị tắt",
+    "uploadsDisabledMessage": "Chủ tenant đã tạm thời tắt tải lên mới. Nội dung hiện có vẫn khả dụng.",
+    "uploadsDisabledTooltip": "Tải lên bị tắt cho tenant này."
   },
   "SalesHistory": {
     "title": "Lịch sử bán hàng",

@@ -494,7 +494,9 @@
       "entryCreationFailed": "Impossible de créer l’entrée. Veuillez réessayer.",
       "submitForReviewFailed": "Impossible de soumettre pour examen. Veuillez réessayer.",
       "noFullAsset": "Veuillez téléverser le fichier de contenu complet avant de soumettre.",
-      "unexpectedError": "Une erreur inattendue s’est produite. Veuillez réessayer."
+      "unexpectedError": "Une erreur inattendue s’est produite. Veuillez réessayer.",
+      "uploadsDisabled": "Les téléversements sont désactivés",
+      "uploadsDisabledHelp": "Le propriétaire du tenant a temporairement désactivé les nouveaux téléversements. Veuillez réessayer plus tard."
     },
     "success": {
       "entryCreated": "Entrée créée en brouillon",
@@ -721,7 +723,10 @@
     "editReviewWarningTitle": "Sauvegarder resoumettra cette entrée à la modération",
     "editReviewWarningHint": "Cette entrée ayant déjà été examinée, toute modification la renverra au système de modération automatique avant qu'elle puisse être publiée.",
     "editResubmittedSuccess": "Modifications enregistrées — entrée resoumise pour révision",
-    "saveAndResubmit": "Sauvegarder et resoumettre"
+    "saveAndResubmit": "Sauvegarder et resoumettre",
+    "uploadsDisabledTitle": "Les téléversements sont actuellement désactivés",
+    "uploadsDisabledMessage": "Le propriétaire du tenant a temporairement désactivé les nouveaux téléversements. Le contenu existant reste accessible.",
+    "uploadsDisabledTooltip": "Les téléversements sont désactivés pour ce tenant."
   },
   "SalesHistory": {
     "title": "Historique des ventes",

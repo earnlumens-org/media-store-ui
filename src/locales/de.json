@@ -494,7 +494,9 @@
       "entryCreationFailed": "Eintrag konnte nicht erstellt werden. Bitte versuche es erneut.",
       "submitForReviewFailed": "Einreichen zur Prüfung fehlgeschlagen. Bitte versuche es erneut.",
       "noFullAsset": "Bitte lade die vollständige Inhaltsdatei hoch, bevor du einreichst.",
-      "unexpectedError": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut."
+      "unexpectedError": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.",
+      "uploadsDisabled": "Uploads sind deaktiviert",
+      "uploadsDisabledHelp": "Der Tenant-Inhaber hat neue Uploads vorübergehend deaktiviert. Bitte versuchen Sie es später erneut."
     },
     "success": {
       "entryCreated": "Eintrag als Entwurf erstellt",
@@ -721,7 +723,10 @@
     "editReviewWarningTitle": "Speichern wird diesen Eintrag erneut zur Moderation einreichen",
     "editReviewWarningHint": "Da dieser Eintrag bereits überprüft wurde, werden Änderungen ihn erneut durch das automatische Moderationssystem senden.",
     "editResubmittedSuccess": "Änderungen gespeichert — Eintrag erneut zur Überprüfung eingereicht",
-    "saveAndResubmit": "Speichern und erneut einreichen"
+    "saveAndResubmit": "Speichern und erneut einreichen",
+    "uploadsDisabledTitle": "Uploads sind derzeit deaktiviert",
+    "uploadsDisabledMessage": "Der Tenant-Inhaber hat neue Uploads vorübergehend deaktiviert. Vorhandene Inhalte bleiben verfügbar.",
+    "uploadsDisabledTooltip": "Uploads sind für diesen Tenant deaktiviert."
   },
   "SalesHistory": {
     "title": "Verkaufshistorie",

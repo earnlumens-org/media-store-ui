@@ -494,7 +494,9 @@
       "entryCreationFailed": "No se pudo crear la entrada. Por favor, inténtalo de nuevo.",
       "submitForReviewFailed": "No se pudo enviar para revisión. Por favor, inténtalo de nuevo.",
       "noFullAsset": "Por favor, sube el archivo de contenido completo antes de enviar.",
-      "unexpectedError": "Ocurrió un error inesperado. Por favor, inténtalo de nuevo."
+      "unexpectedError": "Ocurrió un error inesperado. Por favor, inténtalo de nuevo.",
+      "uploadsDisabled": "Las cargas están deshabilitadas",
+      "uploadsDisabledHelp": "El propietario del tenant ha desactivado temporalmente las nuevas cargas. Inténtalo de nuevo más tarde."
     },
     "success": {
       "entryCreated": "Entrada creada como borrador",
@@ -721,7 +723,10 @@
     "editReviewWarningTitle": "Guardar reenviará esta entrada a moderación",
     "editReviewWarningHint": "Como esta entrada ya fue revisada, cualquier cambio la enviará nuevamente al sistema de moderación automática antes de poder publicarse.",
     "editResubmittedSuccess": "Cambios guardados — entrada reenviada a revisión",
-    "saveAndResubmit": "Guardar y reenviar"
+    "saveAndResubmit": "Guardar y reenviar",
+    "uploadsDisabledTitle": "Las cargas están deshabilitadas",
+    "uploadsDisabledMessage": "El propietario del tenant ha desactivado temporalmente las nuevas cargas. El contenido existente sigue disponible.",
+    "uploadsDisabledTooltip": "Las cargas están deshabilitadas para este tenant."
   },
   "SalesHistory": {
     "title": "Historial de ventas",

@@ -84,6 +84,22 @@
 
         <GuidelinesReferenceCard />
 
+        <!--
+          Tenant-wide kill switch banner. Rendered above the form so the
+          user understands why both action buttons are disabled even before
+          they fill out any field.
+        -->
+        <v-alert
+          v-if="!tenantStore.uploadsEnabled"
+          class="mb-4"
+          color="warning"
+          density="comfortable"
+          icon="mdi-cloud-off-outline"
+          :text="t('Upload.errors.uploadsDisabledHelp')"
+          :title="t('Upload.errors.uploadsDisabled')"
+          variant="tonal"
+        />
+
         <v-form ref="formRef" @submit.prevent>
           <v-row>
             <!-- Left column: metadata -->
@@ -413,6 +429,7 @@
   import { useI18n } from 'vue-i18n'
   import { useRouter } from 'vue-router'
   import { api } from '@/api/api'
+  import { isUploadsDisabledError } from '@/api/modules/upload.api'
   import {
     ACCEPTED_MIMES,
     MAX_FILE_SIZES,
@@ -426,6 +443,7 @@
   import UploadAssetPicker from '@/components/upload/UploadAssetPicker.vue'
   import { CONTENT_LANGUAGES } from '@/config/contentLanguages'
   import { accountExists } from '@/services/stellar'
+  import { useTenantStore } from '@/stores/tenant'
   import { useWalletStore } from '@/stores/wallet'
 
   const props = defineProps<{
@@ -435,6 +453,7 @@
   const router = useRouter()
   const { t, locale } = useI18n()
   const formRef = ref()
+  const tenantStore = useTenantStore()
   const walletStore = useWalletStore()
 
   const contentLanguageItems = CONTENT_LANGUAGES.map(l => ({ value: l.value, title: l.title }))
@@ -515,6 +534,9 @@
   )
 
   const canUpload = computed(() => {
+    // Tenant-wide kill switch — wins over every other validation so the
+    // user cannot even attempt to call /api/uploads/init.
+    if (!tenantStore.uploadsEnabled) return false
     if (!form.title.trim()) return false
     // Paid content requires a connected AND funded wallet
     if (form.isPaid && !walletStore.isConnected) return false
@@ -707,7 +729,11 @@
       uploadPhase.value = 'success'
     } catch (error) {
       console.error('Upload failed:', error)
-      showSnackbar(t('Upload.errors.uploadFailed'), 'error')
+      if (isUploadsDisabledError(error)) {
+        showSnackbar(t('Upload.errors.uploadsDisabled'), 'warning')
+      } else {
+        showSnackbar(t('Upload.errors.uploadFailed'), 'error')
+      }
     } finally {
       isUploading.value = false
       showProgressOverlay.value = false

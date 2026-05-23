@@ -494,7 +494,9 @@
       "entryCreationFailed": "Falha ao criar a entrada. Por favor, tente novamente.",
       "submitForReviewFailed": "Falha ao enviar para revisão. Por favor, tente novamente.",
       "noFullAsset": "Por favor, carregue o arquivo de conteúdo completo antes de enviar.",
-      "unexpectedError": "Ocorreu um erro inesperado. Por favor, tente novamente."
+      "unexpectedError": "Ocorreu um erro inesperado. Por favor, tente novamente.",
+      "uploadsDisabled": "Os envios estão desativados",
+      "uploadsDisabledHelp": "O proprietário do tenant desativou temporariamente novos envios. Tente novamente mais tarde."
     },
     "success": {
       "entryCreated": "Entrada criada como rascunho",
@@ -721,7 +723,10 @@
     "editReviewWarningTitle": "Salvar reenviará esta entrada para moderação",
     "editReviewWarningHint": "Como esta entrada já foi revisada, qualquer alteração a enviará novamente pelo sistema de moderação automática antes de poder ser publicada.",
     "editResubmittedSuccess": "Alterações salvas — entrada reenviada para revisão",
-    "saveAndResubmit": "Salvar e reenviar"
+    "saveAndResubmit": "Salvar e reenviar",
+    "uploadsDisabledTitle": "Os envios estão desativados no momento",
+    "uploadsDisabledMessage": "O proprietário do tenant desativou temporariamente novos envios. O conteúdo existente continua disponível.",
+    "uploadsDisabledTooltip": "Os envios estão desativados para este tenant."
   },
   "SalesHistory": {
     "title": "Histórico de vendas",

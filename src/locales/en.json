@@ -505,7 +505,9 @@
       "entryCreationFailed": "Failed to create entry. Please try again.",
       "submitForReviewFailed": "Failed to submit for review. Please try again.",
       "noFullAsset": "Please upload the full content file before submitting.",
-      "unexpectedError": "An unexpected error occurred. Please try again."
+      "unexpectedError": "An unexpected error occurred. Please try again.",
+      "uploadsDisabled": "Uploads are currently disabled",
+      "uploadsDisabledHelp": "The tenant owner has temporarily turned off new uploads. Please try again later."
     },
     "success": {
       "entryCreated": "Entry created as draft",
@@ -721,7 +723,10 @@
     "editReviewWarningTitle": "Saving will resubmit this entry for moderation",
     "editReviewWarningHint": "Since this entry was already reviewed, any changes will send it back through the automated moderation system before it can be published again.",
     "editResubmittedSuccess": "Changes saved — entry resubmitted for review",
-    "saveAndResubmit": "Save & resubmit"
+    "saveAndResubmit": "Save & resubmit",
+    "uploadsDisabledTitle": "Uploads are currently disabled",
+    "uploadsDisabledMessage": "The tenant owner has temporarily turned off new uploads. Existing content remains available.",
+    "uploadsDisabledTooltip": "Uploads are currently disabled for this tenant."
   },
   "SalesHistory": {
     "title": "Sales History",

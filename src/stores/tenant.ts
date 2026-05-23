@@ -35,6 +35,14 @@ interface State {
    */
   defaultLightTheme: string | null
   defaultDarkTheme: string | null
+  /**
+   * Per-tenant uploads master switch. Defaults to {@code true} so the
+   * storefront is open by default; flipped to {@code false} only when
+   * the admin UI sets the kill switch. Consumed by upload entry points
+   * (CreatorStudio, UploadForm) to hide/disable the button before the
+   * user even attempts /api/uploads/init.
+   */
+  uploadsEnabled: boolean
 }
 
 export const useTenantStore = defineStore('tenant', {
@@ -49,6 +57,7 @@ export const useTenantStore = defineStore('tenant', {
     banner: null,
     defaultLightTheme: null,
     defaultDarkTheme: null,
+    uploadsEnabled: true,
   }),
 
   getters: {
@@ -109,6 +118,7 @@ export const useTenantStore = defineStore('tenant', {
         this.banner = ctx.banner ?? null
         this.defaultLightTheme = ctx.defaultLightTheme ?? null
         this.defaultDarkTheme = ctx.defaultDarkTheme ?? null
+        this.uploadsEnabled = ctx.uploadsEnabled ?? true
         this.status = 'ready'
       } catch (error) {
         // Probe failed (network, 5xx). Treat as platform so the SPA still
@@ -124,6 +134,7 @@ export const useTenantStore = defineStore('tenant', {
         this.banner = null
         this.defaultLightTheme = null
         this.defaultDarkTheme = null
+        this.uploadsEnabled = true
         this.status = 'ready'
       }
     },

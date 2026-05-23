@@ -19,7 +19,9 @@
         </div>
       </div>
       <v-btn
+        v-tooltip:bottom="uploadsEnabled ? undefined : t('CreatorStudio.uploadsDisabledTooltip')"
         color="primary"
+        :disabled="!uploadsEnabled"
         prepend-icon="mdi-plus"
         variant="elevated"
         @click="showUploadDialog = true"
@@ -27,6 +29,22 @@
         {{ t('CreatorStudio.createNew') }}
       </v-btn>
     </div>
+
+    <!--
+      Tenant-wide kill switch notice. Rendered just below the page header so
+      the creator immediately understands why the primary CTA is greyed out,
+      instead of clicking it and getting a generic error from the server.
+    -->
+    <v-alert
+      v-if="!uploadsEnabled"
+      class="mb-4"
+      color="warning"
+      density="compact"
+      icon="mdi-cloud-off-outline"
+      :text="t('CreatorStudio.uploadsDisabledMessage')"
+      :title="t('CreatorStudio.uploadsDisabledTitle')"
+      variant="tonal"
+    />
 
     <!-- ── Dashboard Stats Cards ───────────────────────────── -->
     <v-row class="mb-4 mb-md-6" dense>
@@ -280,7 +298,9 @@
         {{ t('Common.clearFilters') }}
       </v-btn>
       <v-btn
+        v-tooltip:bottom="uploadsEnabled ? undefined : t('CreatorStudio.uploadsDisabledTooltip')"
         color="primary"
+        :disabled="!uploadsEnabled"
         prepend-icon="mdi-plus"
         variant="elevated"
         @click="showUploadDialog = true"
@@ -1245,12 +1265,15 @@
   import UploadTypeDialog from '@/components/upload/UploadTypeDialog.vue'
   import { accountExists } from '@/services/stellar'
   import { useAppStore } from '@/stores/app'
+  import { useTenantStore } from '@/stores/tenant'
   import { useWalletStore } from '@/stores/wallet'
 
   const router = useRouter()
   const { t } = useI18n()
   const appStore = useAppStore()
   const { mobileView } = storeToRefs(appStore)
+  const tenantStore = useTenantStore()
+  const { uploadsEnabled } = storeToRefs(tenantStore)
   const walletStore = useWalletStore()
 
   // ── StudioItem — backed by the unified server response ────

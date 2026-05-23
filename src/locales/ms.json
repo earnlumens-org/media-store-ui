@@ -494,7 +494,9 @@
       "entryCreationFailed": "Gagal mencipta entri. Sila cuba lagi.",
       "submitForReviewFailed": "Gagal menghantar untuk semakan. Sila cuba lagi.",
       "noFullAsset": "Sila muat naik fail kandungan penuh sebelum menghantar.",
-      "unexpectedError": "Ralat tidak dijangka berlaku. Sila cuba lagi."
+      "unexpectedError": "Ralat tidak dijangka berlaku. Sila cuba lagi.",
+      "uploadsDisabled": "Muat naik dilumpuhkan",
+      "uploadsDisabledHelp": "Pemilik tenant telah mematikan muat naik baharu buat sementara. Sila cuba lagi nanti."
     },
     "success": {
       "entryCreated": "Entri dicipta sebagai draf",
@@ -721,7 +723,10 @@
     "editReviewWarningTitle": "Menyimpan akan menghantar semula entri ini untuk moderasi",
     "editReviewWarningHint": "Oleh kerana entri ini telah disemak, sebarang perubahan akan menghantarnya semula ke sistem moderasi automatik.",
     "editResubmittedSuccess": "Perubahan disimpan — entri dihantar semula untuk semakan",
-    "saveAndResubmit": "Simpan dan hantar semula"
+    "saveAndResubmit": "Simpan dan hantar semula",
+    "uploadsDisabledTitle": "Muat naik buat masa ini dilumpuhkan",
+    "uploadsDisabledMessage": "Pemilik tenant telah mematikan muat naik baharu buat sementara. Kandungan sedia ada kekal tersedia.",
+    "uploadsDisabledTooltip": "Muat naik dilumpuhkan untuk tenant ini."
   },
   "SalesHistory": {
     "title": "Sejarah Jualan",

@@ -18,7 +18,27 @@ import type {
   InitUploadResponse,
   UpdateEntryStatusRequest,
 } from '../types/upload.types'
-import { apiRequest } from '../apiRequest'
+import { ApiError, apiRequest } from '../apiRequest'
+
+/**
+ * Error code returned by /api/uploads/init and /api/uploads/finalize
+ * (HTTP 403) when the tenant owner has flipped the uploads kill switch
+ * off. Callers should catch this and surface a friendly snackbar /
+ * banner instead of the generic "request failed" message.
+ */
+export const UPLOADS_DISABLED_ERROR = 'UPLOADS_DISABLED'
+
+/**
+ * Type guard: returns true when the given error is a 403 raised by the
+ * uploads kill switch. Centralized so UI code does not have to know the
+ * exact wire shape.
+ */
+export function isUploadsDisabledError (error: unknown): boolean {
+  return error instanceof ApiError
+    && error.status === 403
+    && (error.message === UPLOADS_DISABLED_ERROR
+      || (error.data as { error?: string } | undefined)?.error === UPLOADS_DISABLED_ERROR)
+}
 
 /**
  * Create a new entry in DRAFT status.

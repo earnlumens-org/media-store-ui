@@ -494,7 +494,9 @@
       "entryCreationFailed": "Impossibile creare la voce. Riprova.",
       "submitForReviewFailed": "Impossibile inviare per revisione. Riprova.",
       "noFullAsset": "Carica il file del contenuto completo prima di inviare.",
-      "unexpectedError": "Si è verificato un errore imprevisto. Riprova."
+      "unexpectedError": "Si è verificato un errore imprevisto. Riprova.",
+      "uploadsDisabled": "I caricamenti sono disabilitati",
+      "uploadsDisabledHelp": "Il proprietario del tenant ha temporaneamente disattivato i nuovi caricamenti. Riprova più tardi."
     },
     "success": {
       "entryCreated": "Voce creata come bozza",
@@ -721,7 +723,10 @@
     "editReviewWarningTitle": "Il salvataggio reinvierà questa voce alla moderazione",
     "editReviewWarningHint": "Poiché questa voce è già stata esaminata, qualsiasi modifica la reinvierà al sistema di moderazione automatica.",
     "editResubmittedSuccess": "Modifiche salvate — voce reinviata per la revisione",
-    "saveAndResubmit": "Salva e reinvia"
+    "saveAndResubmit": "Salva e reinvia",
+    "uploadsDisabledTitle": "I caricamenti sono attualmente disabilitati",
+    "uploadsDisabledMessage": "Il proprietario del tenant ha temporaneamente disattivato i nuovi caricamenti. I contenuti esistenti restano disponibili.",
+    "uploadsDisabledTooltip": "I caricamenti sono disabilitati per questo tenant."
   },
   "SalesHistory": {
     "title": "Storico vendite",

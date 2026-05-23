@@ -494,7 +494,9 @@
       "entryCreationFailed": "创建条目失败。请重试。",
       "submitForReviewFailed": "提交审核失败。请重试。",
       "noFullAsset": "提交前请先上传完整内容文件。",
-      "unexpectedError": "发生意外错误。请重试。"
+      "unexpectedError": "发生意外错误。请重试。",
+      "uploadsDisabled": "上传已禁用",
+      "uploadsDisabledHelp": "租户所有者已临时关闭新的上传。请稍后再试。"
     },
     "success": {
       "entryCreated": "条目已创建为草稿",
@@ -721,7 +723,10 @@
     "editReviewWarningTitle": "保存将重新提交此内容进行审核",
     "editReviewWarningHint": "由于此内容已经审核过，任何更改都会将其重新发送到自动审核系统。",
     "editResubmittedSuccess": "更改已保存 — 内容已重新提交审核",
-    "saveAndResubmit": "保存并重新提交"
+    "saveAndResubmit": "保存并重新提交",
+    "uploadsDisabledTitle": "上传当前已禁用",
+    "uploadsDisabledMessage": "租户所有者已临时关闭新的上传。现有内容仍然可用。",
+    "uploadsDisabledTooltip": "此租户的上传已禁用。"
   },
   "SalesHistory": {
     "title": "销售记录",

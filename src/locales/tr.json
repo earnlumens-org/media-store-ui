@@ -494,7 +494,9 @@
       "entryCreationFailed": "Girdi oluşturulamadı. Lütfen tekrar deneyin.",
       "submitForReviewFailed": "İncelemeye gönderilemedi. Lütfen tekrar deneyin.",
       "noFullAsset": "Göndermeden önce lütfen tam içerik dosyasını yükleyin.",
-      "unexpectedError": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin."
+      "unexpectedError": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.",
+      "uploadsDisabled": "Yüklemeler devre dışı",
+      "uploadsDisabledHelp": "Tenant sahibi yeni yüklemeleri geçici olarak devre dışı bıraktı. Lütfen daha sonra tekrar deneyin."
     },
     "success": {
       "entryCreated": "Girdi taslak olarak oluşturuldu",
@@ -721,7 +723,10 @@
     "editReviewWarningTitle": "Kaydetme bu içeriği yeniden incelemeye gönderecek",
     "editReviewWarningHint": "Bu içerik zaten incelendiğinden, yapılan değişiklikler otomatik moderasyon sistemine geri gönderilecektir.",
     "editResubmittedSuccess": "Değişiklikler kaydedildi — içerik incelemeye yeniden gönderildi",
-    "saveAndResubmit": "Kaydet ve yeniden gönder"
+    "saveAndResubmit": "Kaydet ve yeniden gönder",
+    "uploadsDisabledTitle": "Yüklemeler şu anda devre dışı",
+    "uploadsDisabledMessage": "Tenant sahibi yeni yüklemeleri geçici olarak devre dışı bıraktı. Mevcut içerik kullanılabilir durumda.",
+    "uploadsDisabledTooltip": "Yüklemeler bu tenant için devre dışı."
   },
   "SalesHistory": {
     "title": "Satış Geçmişi",

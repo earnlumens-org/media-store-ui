@@ -57,6 +57,13 @@ export interface VisitorContext {
   defaultLightTheme?: string | null
   /** Same as {@link defaultLightTheme} but for dark mode. Always a {@code dark: true} key. */
   defaultDarkTheme?: string | null
+  /**
+   * Per-tenant uploads master switch. The server only emits this field
+   * when it has been explicitly disabled — a missing/undefined value
+   * means "uploads are on". Used by the storefront to hide upload entry
+   * points before the user even attempts to call /api/uploads/init.
+   */
+  uploadsEnabled?: boolean | null
 }
 
 export async function fetchVisitorContext (): Promise<VisitorContext> {
@@ -88,6 +95,7 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
     banner?: Record<string, unknown> | null
     defaultLightTheme?: string | null
     defaultDarkTheme?: string | null
+    uploadsEnabled?: boolean | null
   }
   // When brandTextHidden is true the server intentionally sends an empty
   // string — keep it as-is (don't coerce to null) so the AppBar can render
@@ -101,10 +109,14 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
   const banner = parseBanner(body.banner)
   const defaultLightTheme = typeof body.defaultLightTheme === 'string' && body.defaultLightTheme.length > 0 ? body.defaultLightTheme : null
   const defaultDarkTheme = typeof body.defaultDarkTheme === 'string' && body.defaultDarkTheme.length > 0 ? body.defaultDarkTheme : null
+  // Treat any non-false value (including undefined) as "uploads enabled" so
+  // the storefront opens up by default; the server only emits this field
+  // when the owner has explicitly flipped the kill switch off.
+  const uploadsEnabled = body.uploadsEnabled === false ? false : true
   if (body.kind === 'tenant' && typeof body.subdomain === 'string') {
-    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark, banner, defaultLightTheme, defaultDarkTheme }
+    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled }
   }
-  return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark, banner, defaultLightTheme, defaultDarkTheme }
+  return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled }
 }
 
 function parseBanner (raw: Record<string, unknown> | null | undefined): TenantBanner | null {
