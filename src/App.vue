@@ -151,6 +151,18 @@
     }
   }, { immediate: true })
 
+  // Per-tenant browser favicon: swap the in-document <link rel="icon"> href
+  // at runtime so each tenant can ship its own tab icon. Restores the
+  // baked-in /favicon.ico when the tenant has none, so the platform
+  // origin (and tenants that cleared theirs) keep the default branding.
+  const DEFAULT_FAVICON_HREF = '/favicon.ico'
+  watch(() => tenantStore.faviconUrl, url => {
+    if (typeof document === 'undefined') return
+    const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]')
+    if (!link) return
+    link.setAttribute('href', url ?? DEFAULT_FAVICON_HREF)
+  }, { immediate: true })
+
   onBeforeUnmount(() => {
     window.removeEventListener('resize', updateWindowWidth)
   })

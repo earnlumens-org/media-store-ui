@@ -47,6 +47,8 @@ export interface VisitorContext {
   logoR2Key?: string | null
   /** Optional dark-theme logo R2 key. Falls back to logoR2Key when null. */
   logoR2KeyDark?: string | null
+  /** Optional R2 object key for the per-tenant browser favicon. Null/undefined means "use the baked-in /favicon.ico". */
+  faviconR2Key?: string | null
   /** Optional hero banner. Absent when the owner has not enabled it. */
   banner?: TenantBanner | null
   /**
@@ -92,6 +94,7 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
     brandTextHidden?: boolean
     logoR2Key?: string | null
     logoR2KeyDark?: string | null
+    faviconR2Key?: string | null
     banner?: Record<string, unknown> | null
     defaultLightTheme?: string | null
     defaultDarkTheme?: string | null
@@ -106,6 +109,7 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
     : (typeof body.brandText === 'string' && body.brandText.length > 0 ? body.brandText : null)
   const logoR2Key = typeof body.logoR2Key === 'string' && body.logoR2Key.length > 0 ? body.logoR2Key : null
   const logoR2KeyDark = typeof body.logoR2KeyDark === 'string' && body.logoR2KeyDark.length > 0 ? body.logoR2KeyDark : null
+  const faviconR2Key = typeof body.faviconR2Key === 'string' && body.faviconR2Key.length > 0 ? body.faviconR2Key : null
   const banner = parseBanner(body.banner)
   const defaultLightTheme = typeof body.defaultLightTheme === 'string' && body.defaultLightTheme.length > 0 ? body.defaultLightTheme : null
   const defaultDarkTheme = typeof body.defaultDarkTheme === 'string' && body.defaultDarkTheme.length > 0 ? body.defaultDarkTheme : null
@@ -114,9 +118,9 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
   // when the owner has explicitly flipped the kill switch off.
   const uploadsEnabled = body.uploadsEnabled === false ? false : true
   if (body.kind === 'tenant' && typeof body.subdomain === 'string') {
-    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled }
+    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark, faviconR2Key, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled }
   }
-  return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled }
+  return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark, faviconR2Key, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled }
 }
 
 function parseBanner (raw: Record<string, unknown> | null | undefined): TenantBanner | null {

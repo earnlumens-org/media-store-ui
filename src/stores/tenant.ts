@@ -25,6 +25,8 @@ interface State {
   logoR2Key: string | null
   /** Optional dark-theme logo R2 key. Falls back to logoR2Key when null. */
   logoR2KeyDark: string | null
+  /** Optional R2 object key for the per-tenant browser favicon. Null means "use the baked-in /favicon.ico". */
+  faviconR2Key: string | null
   /** Optional per-tenant hero banner block. Null means "do not render". */
   banner: TenantBanner | null
   /**
@@ -54,6 +56,7 @@ export const useTenantStore = defineStore('tenant', {
     brandTextHidden: false,
     logoR2Key: null,
     logoR2KeyDark: null,
+    faviconR2Key: null,
     banner: null,
     defaultLightTheme: null,
     defaultDarkTheme: null,
@@ -99,6 +102,17 @@ export const useTenantStore = defineStore('tenant', {
       }
       return `${getCdnBaseUrl()}/${state.banner.imageR2Key}`
     },
+    /**
+     * Public CDN URL for the per-tenant browser favicon. Null when no
+     * custom favicon is set so App.vue can restore the baked-in
+     * /favicon.ico.
+     */
+    faviconUrl (state): string | null {
+      if (!state.faviconR2Key) {
+        return null
+      }
+      return `${getCdnBaseUrl()}/${state.faviconR2Key}`
+    },
   },
 
   actions: {
@@ -115,6 +129,7 @@ export const useTenantStore = defineStore('tenant', {
         this.brandTextHidden = ctx.brandTextHidden ?? false
         this.logoR2Key = ctx.logoR2Key ?? null
         this.logoR2KeyDark = ctx.logoR2KeyDark ?? null
+        this.faviconR2Key = ctx.faviconR2Key ?? null
         this.banner = ctx.banner ?? null
         this.defaultLightTheme = ctx.defaultLightTheme ?? null
         this.defaultDarkTheme = ctx.defaultDarkTheme ?? null
@@ -131,6 +146,7 @@ export const useTenantStore = defineStore('tenant', {
         this.brandTextHidden = false
         this.logoR2Key = null
         this.logoR2KeyDark = null
+        this.faviconR2Key = null
         this.banner = null
         this.defaultLightTheme = null
         this.defaultDarkTheme = null
