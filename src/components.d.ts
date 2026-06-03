@@ -51,6 +51,7 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SanctionLadderExplainer: typeof import('./components/sanctions/SanctionLadderExplainer.vue')['default']
     ShakaVideoPlayer: typeof import('./components/media/ShakaVideoPlayer.vue')['default']
+    TenantBanner: typeof import('./components/home/TenantBanner.vue')['default']
     TenantNotFoundPage: typeof import('./components/TenantNotFoundPage.vue')['default']
     Theme: typeof import('./components/themes/Theme.vue')['default']
     ThemeCard: typeof import('./components/themes/ThemeCard.vue')['default']
