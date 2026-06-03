@@ -33,4 +33,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'id', title: 'Bahasa Indonesia — Indonesian' },
   { value: 'pa', title: 'ਪੰਜਾਬੀ — Punjabi' },
   { value: 'fa', title: 'فارسی — Persian' },
+  { value: 'mr', title: 'मराठी — Marathi' },
 ] as const
