@@ -32,4 +32,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'bn', title: 'বাংলা — Bengali' },
   { value: 'id', title: 'Bahasa Indonesia — Indonesian' },
   { value: 'pa', title: 'ਪੰਜਾਬੀ — Punjabi' },
+  { value: 'fa', title: 'فارسی — Persian' },
 ] as const

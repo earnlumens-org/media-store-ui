@@ -49,6 +49,7 @@
           <v-radio :label="`বাংলা (${$t('Language.bengali')})`" value="bn" />
           <v-radio :label="`Bahasa Indonesia (${$t('Language.indonesian')})`" value="id" />
           <v-radio :label="`ਪੰਜਾਬੀ (${$t('Language.punjabi')})`" value="pa" />
+          <v-radio :label="`فارسی (${$t('Language.persian')})`" value="fa" />
         </v-radio-group>
       </v-card-text>
 

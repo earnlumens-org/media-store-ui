@@ -325,7 +325,8 @@
     "urdu": "ウルドゥー語",
     "bengali": "ベンガル語",
     "indonesian": "インドネシア語",
-    "punjabi": "パンジャブ語"
+    "punjabi": "パンジャブ語",
+    "persian": "ペルシア語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "メールが有効である必要があります",

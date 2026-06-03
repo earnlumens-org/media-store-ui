@@ -325,7 +325,8 @@
     "urdu": "الأردية",
     "bengali": "البنغالية",
     "indonesian": "الإندونيسية",
-    "punjabi": "البنجابية"
+    "punjabi": "البنجابية",
+    "persian": "الفارسية"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "يجب أن يكون البريد الإلكتروني صالحًا",

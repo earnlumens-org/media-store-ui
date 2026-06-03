@@ -325,7 +325,8 @@
     "urdu": "乌尔都语",
     "bengali": "孟加拉语",
     "indonesian": "印尼语",
-    "punjabi": "旁遮普语"
+    "punjabi": "旁遮普语",
+    "persian": "波斯语"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "电子邮件必须有效",

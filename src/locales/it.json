@@ -325,7 +325,8 @@
     "urdu": "Urdu",
     "bengali": "Bengali",
     "indonesian": "Indonesiano",
-    "punjabi": "Punjabi"
+    "punjabi": "Punjabi",
+    "persian": "Persiano"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "L'email deve essere valida",

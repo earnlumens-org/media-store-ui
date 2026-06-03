@@ -325,7 +325,8 @@
     "urdu": "Урду",
     "bengali": "Бенгальська",
     "indonesian": "Індонезійська",
-    "punjabi": "Панджабі"
+    "punjabi": "Панджабі",
+    "persian": "Перська"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Електронна пошта повинна бути дійсною",

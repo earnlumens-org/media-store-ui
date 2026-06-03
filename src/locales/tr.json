@@ -325,7 +325,8 @@
     "urdu": "Urduca",
     "bengali": "Bengalce",
     "indonesian": "Endonezce",
-    "punjabi": "Pencapça"
+    "punjabi": "Pencapça",
+    "persian": "Farsça"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-posta geçerli olmalıdır",
