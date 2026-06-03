@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Pedoman Konten untuk Kreator",
+    "subtitle": "Apa yang dapat Anda publikasikan di EarnLumens dan apa yang kami hindari",
+    "lastUpdated": "Terakhir diperbarui: {date}",
+    "intro": "EarnLumens adalah platform edukasi keuangan dengan fokus pada ekosistem Stellar. Dua lapisan aturan berlaku untuk apa pun yang Anda publikasikan: lapisan tingkat platform yang tidak dapat dinegosiasikan (penipuan, bahaya, konten ilegal) yang sama di setiap tenant, dan lapisan khusus tenant yang bergantung pada marketplace tempat Anda mempublikasikan.",
+    "platformSection": {
+      "heading": "Aturan tingkat platform",
+      "body": "Aturan ini berlaku untuk setiap tenant di EarnLumens, termasuk yang ini. Aturan tidak dapat dilonggarkan oleh marketplace individual dan ada untuk menjaga komunitas tetap aman."
+    },
+    "tenantSection": {
+      "heading": "Aturan khusus tenant",
+      "body": "Di atas aturan platform di atas, setiap tenant dapat menambahkan catatan publikasinya sendiri — misalnya topik yang difokuskan, nada yang diharapkan, atau format spesifik yang diterimanya.",
+      "placeholder": "Tenant ini belum menambahkan catatan publikasi spesifik. Hanya aturan tingkat platform di atas yang berlaku di sini."
+    },
+    "sanctionsSection": {
+      "heading": "Cara kerja sanksi",
+      "body": "Jika Anda melanggar aturan di atas, inilah yang persis terjadi. Tangga yang sama berlaku di setiap tenant — tidak ada hukuman tersembunyi."
+    },
+    "forCreators": {
+      "heading": "Untuk Kreator",
+      "sections": [
+        {
+          "heading": "1. Apa yang dapat Anda publikasikan dengan bebas",
+          "body": "Rentang topik yang dapat diterima luas. Anda tidak memerlukan izin atau format yang kaku:",
+          "items": [
+            "Edukasi tentang jaringan Stellar (protokol, SCP, Soroban, SDKs, anchors, DEX) dan XLM",
+            "Edukasi keuangan umum: menabung, anggaran, hutang, investasi yang bertanggung jawab, pajak",
+            "Tutorial praktis, demo kode, panduan dompet dan dApp",
+            "Perbandingan yang jujur antara jaringan, dompet, atau protokol, termasuk yang di luar Stellar, selama perbandingannya informatif",
+            "Pendapat dan analisis pribadi yang diidentifikasi dengan jelas sebagai pendapat",
+            "Konten dalam bahasa apa pun yang didukung oleh platform"
+          ]
+        },
+        {
+          "heading": "2. Apa yang selalu kami tolak",
+          "body": "Kategori ini ditolak tanpa pengecualian karena membahayakan komunitas atau ilegal:",
+          "items": [
+            "Skema Ponzi, skema piramida, pump and dump, rug pull, atau janji pengembalian yang dijamin",
+            "Sinyal trading berbayar, rekomendasi beli/jual dengan jumlah spesifik, atau saran keuangan yang dipersonalisasi",
+            "Phishing, airdrop palsu, permintaan kunci pribadi, frasa seed, atau kredensial, wallet drainer, domain mirip yang meniru Freighter / xBull / LOBSTR / SDF / bursa",
+            "Penyamaran atau deepfake tokoh publik, proyek, atau EarnLumens / SDF — termasuk audio atau video sintetis yang secara salah menyiratkan dukungan",
+            "Glorifikasi bunuh diri atau menyakiti diri sendiri, metode atau instruksi untuk melukai diri sendiri, konten pro-anoreksia atau pro-bulimia (framing edukasional dan berorientasi pemulihan diizinkan)",
+            "Ujaran kebencian, pelecehan, diskriminasi, atau hasutan untuk kekerasan",
+            "Konten seksual eksplisit, kekerasan grafis, atau materi yang melibatkan anak di bawah umur",
+            "Materi berhak cipta yang jelas tanpa otorisasi (musik, video, buku, perangkat lunak)",
+            "Data pribadi pihak ketiga tanpa persetujuan mereka",
+            "Spam yang jelas: judul tidak masuk akal, konten yang diduplikasi massal, layar kosong, konten AI tanpa peninjauan manusia"
+          ]
+        },
+        {
+          "heading": "3. Area abu-abu: dapat masuk ke peninjauan manual",
+          "body": "Kasus-kasus ini tidak ditolak secara otomatis, tetapi dapat ditinjau oleh moderator manusia:",
+          "items": [
+            "Menyebutkan cryptocurrency atau token spesifik tanpa konteks edukasional yang jelas",
+            "Promosi produk atau layanan Anda sendiri tanpa melabelinya sebagai disponsori",
+            "Klaim tentang kinerja masa lalu tanpa sumber yang dapat diverifikasi",
+            "Konten yang sangat pendek atau kualitas teknis yang rendah yang membuat nilainya sulit dinilai"
+          ]
+        },
+        {
+          "heading": "4. Praktik terbaik (direkomendasikan, tidak diwajibkan)",
+          "body": "Ini bukan persyaratan persetujuan, tetapi membantu konten Anda diterima dengan lebih baik dan mengurangi friksi moderasi:",
+          "items": [
+            "Gunakan judul deskriptif tanpa clickbait yang menyesatkan",
+            "Kutip sumber saat menggunakan data, statistik, atau angka",
+            "Klarifikasi bahwa konten bersifat edukasional dan bukan saran keuangan yang dipersonalisasi",
+            "Sebutkan jika Anda memegang posisi signifikan dalam aset yang Anda bahas",
+            "Beri label konten sponsor atau afiliasi",
+            "Untuk dompet Stellar, DEX, dan alat, kami lebih memilih yang tercantum di https://stellar.org/ecosystem sebagai referensi yang andal, tetapi Anda dapat menyebutkan yang lain selama Anda tidak mempromosikan penipuan"
+          ]
+        }
+      ]
+    },
+    "footer": "Pedoman ini dapat diperbarui. Tujuannya adalah ruang edukasi yang aman: kami menolak konten yang berbahaya, bukan ide yang berbeda. Jika Anda yakin penolakan tidak adil, Anda dapat merevisi dan mengirim ulang, atau meminta peninjauan manual dari tim tenant."
+  }
+}

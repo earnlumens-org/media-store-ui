@@ -30,4 +30,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'tr', title: 'Türkçe — Turkish' },
   { value: 'ur', title: 'اردو — Urdu' },
   { value: 'bn', title: 'বাংলা — Bengali' },
+  { value: 'id', title: 'Bahasa Indonesia — Indonesian' },
 ] as const

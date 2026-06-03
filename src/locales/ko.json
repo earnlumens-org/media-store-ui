@@ -323,7 +323,8 @@
     "vietnamese": "베트남어",
     "turkish": "터키어",
     "urdu": "우르두어",
-    "bengali": "벵골어"
+    "bengali": "벵골어",
+    "indonesian": "인도네시아어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

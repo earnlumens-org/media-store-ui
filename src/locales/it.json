@@ -323,7 +323,8 @@
     "vietnamese": "Vietnamita",
     "turkish": "Turco",
     "urdu": "Urdu",
-    "bengali": "Bengali"
+    "bengali": "Bengali",
+    "indonesian": "Indonesiano"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "L'email deve essere valida",

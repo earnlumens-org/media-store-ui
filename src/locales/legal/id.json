@@ -1,0 +1,81 @@
+{
+    "Legal": {
+        "termsTitle": "Syarat dan Ketentuan",
+        "privacyTitle": "Kebijakan Privasi",
+        "lastUpdated": "Terakhir diperbarui: {date}",
+        "terms": {
+            "intro": "Selamat datang di EarnLumens. Dengan mengakses atau menggunakan platform kami, Anda setuju untuk terikat oleh syarat dan ketentuan ini.",
+            "sections": [
+                {
+                    "heading": "1. Penerimaan Ketentuan",
+                    "body": "Dengan membuat akun atau menggunakan bagian apa pun dari platform EarnLumens, Anda mengakui bahwa Anda telah membaca, memahami, dan setuju untuk terikat oleh syarat dan ketentuan ini serta Kebijakan Privasi kami. Jika Anda tidak setuju, Anda tidak boleh menggunakan platform."
+                },
+                {
+                    "heading": "2. Deskripsi Layanan",
+                    "body": "EarnLumens adalah platform konten multi-tenant yang dibangun di atas jaringan Stellar. Tenant utama saat ini berfokus pada edukasi keuangan, dan platform ini memungkinkan instance baru untuk vertikal lain melalui kredensial verifikasi. Kreator dapat mempublikasikan konten (video, audio, gambar, dan sumber daya) serta menetapkan harga dalam XLM (Stellar Lumens). Pengguna dapat membeli, melihat, dan berinteraksi dengan konten ini."
+                },
+                {
+                    "heading": "3. Pendaftaran Akun",
+                    "body": "Anda harus memberikan informasi yang akurat dan lengkap saat membuat akun. Anda bertanggung jawab atas kerahasiaan kredensial Anda dan semua aktivitas yang terjadi di bawah akun Anda. Anda harus segera memberi tahu kami tentang penggunaan yang tidak sah."
+                },
+                {
+                    "heading": "4. Konten dan Kekayaan Intelektual",
+                    "body": "Kreator mempertahankan kepemilikan konten yang dipublikasikan di EarnLumens. Dengan mempublikasikan, kreator memberikan EarnLumens lisensi non-eksklusif, di seluruh dunia untuk menampilkan, mendistribusikan, dan mempromosikan konten di platform. Pengguna tidak boleh memproduksi ulang, mendistribusikan ulang, atau menjual kembali konten yang dibeli tanpa izin tegas dari kreator."
+                },
+                {
+                    "heading": "5. Pembayaran dan Transaksi",
+                    "body": "Pembayaran yang dilakukan melalui EarnLumens merupakan transaksi langsung, eksklusif, dan terpisah antara pembeli dan kreator, yang dijalankan menggunakan XLM di jaringan Stellar. EarnLumens bertindak semata-mata sebagai platform teknis untuk publikasi dan mediasi teknis, dan tidak ikut campur dalam transaksi apa pun antara pengguna sebagai penjual, pembeli, agen, kustodian, agen penagih, fidusia, atau penjamin. Harga ditetapkan secara eksklusif oleh kreator, dan EarnLumens dapat menerapkan biaya platform yang berlaku. Kecuali ditentukan lain secara tegas oleh hukum yang berlaku, semua penjualan bersifat final, tidak dapat dibatalkan, dan tidak dapat dikembalikan. Jika EarnLumens mendeteksi, menerima laporan, atau memiliki kecurigaan wajar tentang penipuan, penyalahgunaan, pelanggaran, atau perilaku ilegal lainnya atau perilaku yang bertentangan dengan ketentuan ini, EarnLumens dapat menangguhkan, membatasi, atau membatalkan akun kreator yang terlibat secara sementara atau permanen dan mengambil tindakan internal apa pun yang dianggap wajar. Terlepas dari hal di atas, EarnLumens tidak menerima kewajiban untuk ikut campur dalam perselisihan antara pengguna dan dalam keadaan apa pun tidak menjamin pembalikan transaksi, pemulihan aset, atau pemulihan, pengembalian, atau penggantian dana yang ditransfer. Pengguna secara tegas mengakui dan menerima risiko yang melekat pada transaksi blockchain, termasuk sifatnya yang berpotensi tidak dapat diubah, serta tanggung jawab tunggal atas biaya jaringan, kesalahan alamat, jumlah yang dikirim, atau keputusan pembelian."
+                },
+                {
+                    "heading": "6. Perilaku yang Dilarang",
+                    "body": "Anda setuju untuk tidak: (a) mengunggah konten yang berbahaya, ilegal, atau melanggar; (b) menyamar sebagai orang lain; (c) mencoba mengeksploitasi atau mengganggu platform; (d) menggunakan alat otomatis untuk meng-scrape atau mengakses platform tanpa izin; (e) terlibat dalam aktivitas apa pun yang melanggar hukum atau peraturan yang berlaku."
+                },
+                {
+                    "heading": "7. Penghentian",
+                    "body": "Kami berhak untuk menangguhkan atau menutup akun Anda kapan saja jika Anda melanggar ketentuan ini. Setelah penghentian, hak Anda untuk menggunakan platform segera berakhir, meskipun ketentuan yang menurut sifatnya harus tetap berlaku akan tetap berlaku."
+                },
+                {
+                    "heading": "8. Penafian",
+                    "body": "Platform disediakan \"sebagaimana adanya\" dan \"sebagaimana tersedia\" tanpa jaminan apa pun. EarnLumens tidak menjamin keakuratan, kelengkapan, atau kegunaan konten apa pun yang dipublikasikan oleh kreator. Kami tidak bertanggung jawab atas kerugian apa pun yang timbul dari transaksi jaringan Stellar."
+                },
+                {
+                    "heading": "9. Batasan Tanggung Jawab",
+                    "body": "Sejauh diizinkan oleh hukum yang berlaku, EarnLumens, afiliasinya, direktur, karyawan, kontraktor, dan perwakilan tidak akan bertanggung jawab atas kerugian langsung, tidak langsung, insidental, khusus, konsekuensial, contoh, hukuman, atau jenis lainnya yang timbul dari penggunaan atau ketidakmampuan untuk menggunakan platform, transaksi antara pengguna, konten yang dipublikasikan oleh kreator, perilaku penipuan atau ilegal oleh pihak ketiga, ekspektasi bisnis yang tidak terpenuhi, kehilangan data, kehilangan peluang, keuntungan, reputasi, kehilangan klien, atau kerugian yang timbul dari transaksi blockchain, termasuk yang tidak dapat dibalik. Secara khusus, EarnLumens tidak akan bertanggung jawab atas kegagalan mengirimkan konten, atau atas kualitas, legalitas, keaslian, keakuratan, atau kegunaan konten yang ditawarkan oleh kreator, atau atas pengembalian dana, chargeback yang tidak mungkin, klaim antara pengguna, atau kehilangan dana. Dalam kasus apa pun di mana, terlepas dari hal di atas, suatu kewajiban EarnLumens secara hukum ditetapkan, kewajiban tersebut akan terbatas pada jumlah yang benar-benar diterima oleh EarnLumens sebagai biaya platform pada transaksi spesifik yang menimbulkan klaim."
+                },
+                {
+                    "heading": "10. Perubahan Ketentuan",
+                    "body": "Kami dapat memperbarui ketentuan ini kapan saja. Kami akan berusaha memberi tahu pengguna tentang perubahan signifikan melalui platform, tetapi adalah tanggung jawab Anda untuk meninjau ketentuan secara berkala. Penggunaan berkelanjutan Anda setelah perubahan merupakan penerimaan atas ketentuan yang direvisi."
+                },
+                {
+                    "heading": "11. Kontak",
+                    "body": "Untuk pertanyaan tentang ketentuan ini, silakan hubungi kami di legal{'@'}earnlumens.org."
+                }
+            ]
+        },
+        "privacy": {
+            "intro": "Kebijakan Privasi ini menjelaskan bagaimana EarnLumens mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda.",
+            "sections": [
+                {
+                    "heading": "1. Informasi yang Kami Kumpulkan",
+                    "body": "Kami mengumpulkan informasi yang Anda berikan secara langsung (detail akun, informasi profil) dan informasi yang dihasilkan melalui penggunaan platform Anda (riwayat transaksi, aktivitas tampilan, informasi perangkat)."
+                },
+                {
+                    "heading": "2. Bagaimana Kami Menggunakan Informasi Anda",
+                    "body": "Kami menggunakan informasi Anda untuk: menyediakan dan meningkatkan layanan kami, memproses transaksi, berkomunikasi dengan Anda, memastikan keamanan platform, dan mematuhi kewajiban hukum."
+                },
+                {
+                    "heading": "3. Berbagi Data",
+                    "body": "Kami tidak menjual informasi pribadi Anda. Kami dapat membagikan data dengan penyedia layanan yang membantu kami menjalankan platform atau ketika diwajibkan oleh hukum."
+                },
+                {
+                    "heading": "4. Keamanan Data",
+                    "body": "Kami menerapkan langkah-langkah keamanan yang wajar secara komersial untuk melindungi data Anda. Namun, tidak ada metode transmisi melalui internet yang 100% aman, dan kami tidak dapat menjamin keamanan mutlak."
+                },
+                {
+                    "heading": "5. Hak Anda",
+                    "body": "Anda dapat meminta akses, koreksi, atau penghapusan data pribadi Anda dengan menghubungi kami. Kami akan melakukan upaya yang wajar untuk menangani permintaan Anda dalam jangka waktu yang wajar."
+                }
+            ]
+        }
+    }
+}
