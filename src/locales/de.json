@@ -322,7 +322,8 @@
     "polish": "Polnisch",
     "vietnamese": "Vietnamesisch",
     "turkish": "Türkisch",
-    "urdu": "Urdu"
+    "urdu": "Urdu",
+    "bengali": "Bengalisch"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-Mail muss gültig sein",

@@ -322,7 +322,8 @@
     "polish": "ポーランド語",
     "vietnamese": "ベトナム語",
     "turkish": "トルコ語",
-    "urdu": "ウルドゥー語"
+    "urdu": "ウルドゥー語",
+    "bengali": "ベンガル語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "メールが有効である必要があります",

@@ -46,6 +46,7 @@
           <v-radio :label="`Tiếng Việt (${$t('Language.vietnamese')})`" value="vi" />
           <v-radio :label="`Türkçe (${$t('Language.turkish')})`" value="tr" />
           <v-radio :label="`اردو (${$t('Language.urdu')})`" value="ur" />
+          <v-radio :label="`বাংলা (${$t('Language.bengali')})`" value="bn" />
         </v-radio-group>
       </v-card-text>
 

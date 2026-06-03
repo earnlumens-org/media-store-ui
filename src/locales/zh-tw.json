@@ -322,7 +322,8 @@
     "polish": "波蘭語",
     "vietnamese": "越南語",
     "turkish": "土耳其語",
-    "urdu": "烏爾都語"
+    "urdu": "烏爾都語",
+    "bengali": "孟加拉語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "電子郵件必須有效",

@@ -29,4 +29,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'vi', title: 'Tiếng Việt — Vietnamese' },
   { value: 'tr', title: 'Türkçe — Turkish' },
   { value: 'ur', title: 'اردو — Urdu' },
+  { value: 'bn', title: 'বাংলা — Bengali' },
 ] as const
