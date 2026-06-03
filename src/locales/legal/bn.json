@@ -1,79 +1,79 @@
 {
     "Legal": {
-        "termsTitle": "Terms and Conditions",
-        "privacyTitle": "Privacy Policy",
-        "lastUpdated": "Last updated: {date}",
+        "termsTitle": "শর্তাবলী",
+        "privacyTitle": "গোপনীয়তা নীতি",
+        "lastUpdated": "সর্বশেষ আপডেট: {date}",
         "terms": {
-            "intro": "Welcome to EarnLumens. By accessing or using our platform, you agree to be bound by these Terms and Conditions.",
+            "intro": "EarnLumens-এ স্বাগতম। আমাদের প্ল্যাটফর্ম অ্যাক্সেস বা ব্যবহার করে, আপনি এই শর্তাবলী মেনে চলতে সম্মত হন।",
             "sections": [
                 {
-                    "heading": "1. Acceptance of Terms",
-                    "body": "By creating an account or using any part of the EarnLumens platform, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions, as well as our Privacy Policy. If you do not agree, you must not use the platform."
+                    "heading": "১. শর্তাবলী গ্রহণ",
+                    "body": "একটি অ্যাকাউন্ট তৈরি করে বা EarnLumens প্ল্যাটফর্মের যেকোনো অংশ ব্যবহার করে, আপনি স্বীকার করেন যে আপনি এই শর্তাবলী এবং আমাদের গোপনীয়তা নীতি পড়েছেন, বুঝেছেন এবং মেনে চলতে সম্মত হয়েছেন। যদি আপনি সম্মত না হন, আপনাকে অবশ্যই প্ল্যাটফর্মটি ব্যবহার করতে হবে না।"
                 },
                 {
-                    "heading": "2. Description of Service",
-                    "body": "EarnLumens is a multi-tenant content platform built on the Stellar network. The main tenant is currently focused on financial education, and the platform enables new instances for other verticals through verification credentials. Creators can publish content (videos, audio, images, and resources) and set prices in XLM (Stellar Lumens). Users can purchase, view, and interact with this content."
+                    "heading": "২. পরিষেবার বিবরণ",
+                    "body": "EarnLumens হলো Stellar নেটওয়ার্কে নির্মিত একটি বহু-টেন্যান্ট কন্টেন্ট প্ল্যাটফর্ম। মূল টেন্যান্টটি বর্তমানে আর্থিক শিক্ষার উপর কেন্দ্রীভূত, এবং প্ল্যাটফর্মটি যাচাইকরণ ক্রেডেনশিয়ালের মাধ্যমে অন্যান্য ভার্টিক্যালের জন্য নতুন ইন্সট্যান্স সক্ষম করে। নির্মাতারা কন্টেন্ট (ভিডিও, অডিও, ছবি এবং রিসোর্স) প্রকাশ করতে এবং XLM (Stellar Lumens)-এ মূল্য নির্ধারণ করতে পারেন। ব্যবহারকারীরা এই কন্টেন্ট কিনতে, দেখতে এবং এর সাথে ইন্টারঅ্যাক্ট করতে পারেন।"
                 },
                 {
-                    "heading": "3. Account Registration",
-                    "body": "You must provide accurate and complete information when creating an account. You are responsible for maintaining the confidentiality of your credentials and for all activities that occur under your account. You must notify us immediately of any unauthorized use."
+                    "heading": "৩. অ্যাকাউন্ট নিবন্ধন",
+                    "body": "একটি অ্যাকাউন্ট তৈরির সময় আপনাকে অবশ্যই সঠিক এবং সম্পূর্ণ তথ্য প্রদান করতে হবে। আপনার ক্রেডেনশিয়ালের গোপনীয়তা এবং আপনার অ্যাকাউন্টের অধীনে ঘটে যাওয়া সমস্ত কার্যকলাপের জন্য আপনি দায়ী। যেকোনো অননুমোদিত ব্যবহার সম্পর্কে আমাদের অবিলম্বে অবহিত করতে হবে।"
                 },
                 {
-                    "heading": "4. Content and Intellectual Property",
-                    "body": "Creators retain ownership of the content they publish on EarnLumens. By publishing, creators grant EarnLumens a non-exclusive, worldwide license to display, distribute, and promote the content on the platform. Users may not reproduce, redistribute, or resell purchased content without the creator's explicit permission."
+                    "heading": "৪. কন্টেন্ট এবং বৌদ্ধিক সম্পত্তি",
+                    "body": "নির্মাতারা EarnLumens-এ প্রকাশিত কন্টেন্টের মালিকানা ধরে রাখেন। প্রকাশ করে, নির্মাতারা EarnLumens-কে প্ল্যাটফর্মে কন্টেন্ট প্রদর্শন, বিতরণ এবং প্রচারের একটি অ-একচেটিয়া, বিশ্বব্যাপী লাইসেন্স প্রদান করেন। ব্যবহারকারীরা নির্মাতার সুস্পষ্ট অনুমতি ছাড়া ক্রয় করা কন্টেন্ট পুনরুৎপাদন, পুনঃবিতরণ বা পুনঃবিক্রয় করতে পারেন না।"
                 },
                 {
-                    "heading": "5. Payments and Transactions",
-                    "body": "Payments made through EarnLumens constitute direct, exclusive, and independent transactions between the buyer and the creator, conducted using XLM on the Stellar network. EarnLumens acts solely as a technological platform for publication and technical intermediation, and does not intervene as a seller, buyer, agent, custodian, collection agent, fiduciary, or guarantor of any transaction between users. Prices are set exclusively by creators, and EarnLumens may apply applicable platform fees. Unless applicable law expressly provides otherwise, all sales are final, irrevocable, and non-refundable. If EarnLumens detects, receives reports of, or reasonably suspects fraud, abuse, breach, or any other unlawful conduct or conduct contrary to these Terms, it may temporarily or permanently suspend, restrict, or cancel the account of the creator involved and adopt any internal measures it deems reasonable. Notwithstanding the foregoing, EarnLumens assumes no obligation to intervene in disputes between users and does not guarantee, under any circumstances, the reversal of transactions, the recovery of assets, or the restitution, return, or refund of transferred funds. The user expressly acknowledges and accepts the inherent risks of blockchain transactions, including their potentially irreversible nature, as well as sole responsibility for network fees, address errors, amounts sent, or purchase decisions."
+                    "heading": "৫. পেমেন্ট এবং লেনদেন",
+                    "body": "EarnLumens-এর মাধ্যমে করা পেমেন্ট ক্রেতা এবং নির্মাতার মধ্যে সরাসরি, একচেটিয়া এবং স্বতন্ত্র লেনদেন গঠন করে, যা Stellar নেটওয়ার্কে XLM ব্যবহার করে পরিচালিত হয়। EarnLumens প্রকাশ এবং প্রযুক্তিগত মধ্যস্থতার জন্য কেবলমাত্র একটি প্রযুক্তিগত প্ল্যাটফর্ম হিসাবে কাজ করে, এবং ব্যবহারকারীদের মধ্যে যেকোনো লেনদেনে বিক্রেতা, ক্রেতা, এজেন্ট, হেফাজতকারী, সংগ্রহ এজেন্ট, বিশ্বস্ত বা গ্যারান্টর হিসাবে হস্তক্ষেপ করে না। মূল্য একচেটিয়াভাবে নির্মাতাদের দ্বারা নির্ধারিত হয়, এবং EarnLumens প্রযোজ্য প্ল্যাটফর্ম ফি প্রয়োগ করতে পারে। প্রযোজ্য আইন স্পষ্টভাবে অন্যথা প্রদান না করলে, সমস্ত বিক্রয় চূড়ান্ত, অপরিবর্তনীয় এবং অ-ফেরতযোগ্য। যদি EarnLumens জালিয়াতি, অপব্যবহার, লঙ্ঘন বা অন্য কোনো বেআইনি আচরণ বা এই শর্তাবলীর বিপরীত আচরণ সনাক্ত করে, রিপোর্ট পায় বা যুক্তিসঙ্গতভাবে সন্দেহ করে, এটি জড়িত নির্মাতার অ্যাকাউন্ট সাময়িক বা স্থায়ীভাবে স্থগিত, সীমাবদ্ধ বা বাতিল করতে পারে এবং যুক্তিসঙ্গত মনে করে এমন কোনো অভ্যন্তরীণ ব্যবস্থা গ্রহণ করতে পারে। উপরোক্ত সত্ত্বেও, EarnLumens ব্যবহারকারীদের মধ্যে বিরোধে হস্তক্ষেপ করার কোনো বাধ্যবাধকতা গ্রহণ করে না এবং কোনো পরিস্থিতিতে লেনদেনের বিপরীতকরণ, সম্পদের পুনরুদ্ধার, বা স্থানান্তরিত তহবিলের পুনঃস্থাপন, প্রত্যাবর্তন বা ফেরত প্রদানের গ্যারান্টি দেয় না। ব্যবহারকারী সুস্পষ্টভাবে ব্লকচেইন লেনদেনের অন্তর্নিহিত ঝুঁকি স্বীকার করেন এবং গ্রহণ করেন, যার মধ্যে তাদের সম্ভাব্য অপরিবর্তনীয় প্রকৃতি, পাশাপাশি নেটওয়ার্ক ফি, ঠিকানা ত্রুটি, প্রেরিত পরিমাণ বা ক্রয়ের সিদ্ধান্তের জন্য একমাত্র দায়িত্ব অন্তর্ভুক্ত।"
                 },
                 {
-                    "heading": "6. Prohibited Conduct",
-                    "body": "You agree not to: (a) upload harmful, illegal, or infringing content; (b) impersonate others; (c) attempt to exploit or disrupt the platform; (d) use automated tools to scrape or access the platform without authorization; (e) engage in any activity that violates applicable laws or regulations."
+                    "heading": "৬. নিষিদ্ধ আচরণ",
+                    "body": "আপনি সম্মত হন না: (ক) ক্ষতিকারক, অবৈধ বা লঙ্ঘনকারী কন্টেন্ট আপলোড করতে; (খ) অন্যদের ছদ্মবেশ ধারণ করতে; (গ) প্ল্যাটফর্মকে শোষণ বা ব্যাহত করার চেষ্টা করতে; (ঘ) অনুমোদন ছাড়া প্ল্যাটফর্ম স্ক্র্যাপ বা অ্যাক্সেস করার জন্য স্বয়ংক্রিয় সরঞ্জাম ব্যবহার করতে; (ঙ) প্রযোজ্য আইন বা প্রবিধান লঙ্ঘন করে এমন কোনো কার্যকলাপে জড়িত হতে।"
                 },
                 {
-                    "heading": "7. Termination",
-                    "body": "We reserve the right to suspend or terminate your account at any time if you violate these Terms. Upon termination, your right to use the platform ceases immediately, though provisions that by their nature should survive will remain in effect."
+                    "heading": "৭. সমাপ্তি",
+                    "body": "আপনি এই শর্তাবলী লঙ্ঘন করলে যেকোনো সময় আপনার অ্যাকাউন্ট স্থগিত বা বন্ধ করার অধিকার আমাদের রয়েছে। সমাপ্তির পরে, প্ল্যাটফর্ম ব্যবহার করার আপনার অধিকার অবিলম্বে বন্ধ হয়ে যায়, যদিও যে বিধানগুলি তাদের প্রকৃতির দ্বারা টিকে থাকা উচিত সেগুলি কার্যকর থাকবে।"
                 },
                 {
-                    "heading": "8. Disclaimers",
-                    "body": "The platform is provided \"as is\" and \"as available\" without warranties of any kind. EarnLumens does not guarantee the accuracy, completeness, or usefulness of any content published by creators. We are not responsible for any losses resulting from Stellar network transactions."
+                    "heading": "৮. দাবিত্যাগ",
+                    "body": "প্ল্যাটফর্মটি \"যেমন আছে\" এবং \"যেমন উপলব্ধ\" ভিত্তিতে কোনো ধরনের ওয়ারেন্টি ছাড়াই সরবরাহ করা হয়। EarnLumens নির্মাতাদের দ্বারা প্রকাশিত কোনো কন্টেন্টের নির্ভুলতা, সম্পূর্ণতা বা উপযোগিতার গ্যারান্টি দেয় না। Stellar নেটওয়ার্ক লেনদেন থেকে উদ্ভূত কোনো ক্ষতির জন্য আমরা দায়ী নই।"
                 },
                 {
-                    "heading": "9. Limitation of Liability",
-                    "body": "To the maximum extent permitted by applicable law, EarnLumens, its affiliates, directors, employees, contractors, and representatives shall not be liable for any direct, indirect, incidental, special, consequential, exemplary, punitive, or any other damages arising from or related to the use or inability to use the platform, transactions between users, content published by creators, fraudulent or unlawful conduct of third parties, unmet commercial expectations, loss of data, loss of opportunity, lost profits, reputation, clientele, or for losses or damages arising from blockchain transactions, including those that are irreversible. In particular, EarnLumens shall not be liable for failure to deliver content, or for the quality, legality, authenticity, accuracy, or usefulness of content offered by creators, nor for returns, impossible chargebacks, claims between users, or loss of funds. In any event where, despite the foregoing, any liability of EarnLumens is legally determined, such liability shall be limited to the amount actually received by EarnLumens as a platform fee in the specific transaction that gave rise to the claim."
+                    "heading": "৯. দায়বদ্ধতার সীমাবদ্ধতা",
+                    "body": "প্রযোজ্য আইন দ্বারা সর্বাধিক অনুমোদিত পরিমাণে, EarnLumens, এর সহযোগী, পরিচালক, কর্মচারী, ঠিকাদার এবং প্রতিনিধিরা প্ল্যাটফর্মের ব্যবহার বা ব্যবহার করতে অক্ষমতা, ব্যবহারকারীদের মধ্যে লেনদেন, নির্মাতাদের দ্বারা প্রকাশিত কন্টেন্ট, তৃতীয় পক্ষের জালিয়াতিপূর্ণ বা বেআইনি আচরণ, অপূর্ণ বাণিজ্যিক প্রত্যাশা, ডেটা ক্ষতি, সুযোগ ক্ষতি, মুনাফা, খ্যাতি, ক্লায়েন্টেল ক্ষতি, বা ব্লকচেইন লেনদেন থেকে উদ্ভূত ক্ষতি বা ক্ষতির জন্য, অপরিবর্তনীয়গুলি সহ, কোনো প্রত্যক্ষ, পরোক্ষ, আনুষঙ্গিক, বিশেষ, পরিণতিগত, দৃষ্টান্তমূলক, শাস্তিমূলক বা অন্য কোনো ক্ষতির জন্য দায়ী থাকবেন না। বিশেষ করে, EarnLumens কন্টেন্ট সরবরাহে ব্যর্থতা, বা নির্মাতাদের দ্বারা প্রস্তাবিত কন্টেন্টের মান, বৈধতা, সত্যতা, নির্ভুলতা বা উপযোগিতার জন্য, বা ফেরত, অসম্ভব চার্জব্যাক, ব্যবহারকারীদের মধ্যে দাবি, বা তহবিলের ক্ষতির জন্য দায়ী থাকবে না। যেকোনো ক্ষেত্রে যেখানে, উপরোক্ত সত্ত্বেও, EarnLumens-এর কোনো দায় আইনত নির্ধারিত হয়, এই ধরনের দায় দাবির জন্ম দেওয়া নির্দিষ্ট লেনদেনে প্ল্যাটফর্ম ফি হিসাবে EarnLumens দ্বারা প্রকৃতপক্ষে প্রাপ্ত পরিমাণে সীমাবদ্ধ থাকবে।"
                 },
                 {
-                    "heading": "10. Changes to Terms",
-                    "body": "We may update these Terms at any time. We will endeavor to inform users of material changes through the platform, but it is your responsibility to review the Terms periodically. Your continued use after changes constitutes acceptance of the revised Terms."
+                    "heading": "১০. শর্তাবলীর পরিবর্তন",
+                    "body": "আমরা যেকোনো সময় এই শর্তাবলী আপডেট করতে পারি। আমরা প্ল্যাটফর্মের মাধ্যমে উল্লেখযোগ্য পরিবর্তন সম্পর্কে ব্যবহারকারীদের জানানোর চেষ্টা করব, তবে শর্তাবলী পর্যায়ক্রমে পর্যালোচনা করা আপনার দায়িত্ব। পরিবর্তনের পরে আপনার অব্যাহত ব্যবহার সংশোধিত শর্তাবলী গ্রহণ গঠন করে।"
                 },
                 {
-                    "heading": "11. Contact",
-                    "body": "For questions about these Terms, please contact us at legal{'@'}earnlumens.org."
+                    "heading": "১১. যোগাযোগ",
+                    "body": "এই শর্তাবলী সম্পর্কে প্রশ্নের জন্য, অনুগ্রহ করে legal{'@'}earnlumens.org-এ আমাদের সাথে যোগাযোগ করুন।"
                 }
             ]
         },
         "privacy": {
-            "intro": "This Privacy Policy describes how EarnLumens collects, uses, and protects your personal information.",
+            "intro": "এই গোপনীয়তা নীতি বর্ণনা করে কীভাবে EarnLumens আপনার ব্যক্তিগত তথ্য সংগ্রহ, ব্যবহার এবং সুরক্ষা করে।",
             "sections": [
                 {
-                    "heading": "1. Information We Collect",
-                    "body": "We collect information you provide directly (account details, profile information) and information generated through your use of the platform (transaction history, viewing activity, device information)."
+                    "heading": "১. আমরা যে তথ্য সংগ্রহ করি",
+                    "body": "আমরা আপনার সরাসরি প্রদত্ত তথ্য (অ্যাকাউন্টের বিবরণ, প্রোফাইল তথ্য) এবং প্ল্যাটফর্মের আপনার ব্যবহারের মাধ্যমে উৎপন্ন তথ্য (লেনদেনের ইতিহাস, দেখার কার্যকলাপ, ডিভাইসের তথ্য) সংগ্রহ করি।"
                 },
                 {
-                    "heading": "2. How We Use Your Information",
-                    "body": "We use your information to: provide and improve our services, process transactions, communicate with you, ensure platform security, and comply with legal obligations."
+                    "heading": "২. আমরা কীভাবে আপনার তথ্য ব্যবহার করি",
+                    "body": "আমরা আপনার তথ্য ব্যবহার করি: আমাদের পরিষেবা প্রদান এবং উন্নত করতে, লেনদেন প্রক্রিয়া করতে, আপনার সাথে যোগাযোগ করতে, প্ল্যাটফর্মের নিরাপত্তা নিশ্চিত করতে এবং আইনি বাধ্যবাধকতা মেনে চলতে।"
                 },
                 {
-                    "heading": "3. Data Sharing",
-                    "body": "We do not sell your personal information. We may share data with service providers who assist in operating the platform, or when required by law."
+                    "heading": "৩. ডেটা ভাগাভাগি",
+                    "body": "আমরা আপনার ব্যক্তিগত তথ্য বিক্রি করি না। আমরা প্ল্যাটফর্ম পরিচালনায় সহায়তা করে এমন পরিষেবা প্রদানকারীদের সাথে বা আইন দ্বারা প্রয়োজন হলে ডেটা ভাগ করতে পারি।"
                 },
                 {
-                    "heading": "4. Data Security",
-                    "body": "We implement commercially reasonable security measures to protect your data. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security."
+                    "heading": "৪. ডেটা নিরাপত্তা",
+                    "body": "আপনার ডেটা সুরক্ষার জন্য আমরা বাণিজ্যিকভাবে যুক্তিসঙ্গত নিরাপত্তা ব্যবস্থা বাস্তবায়ন করি। তবে, ইন্টারনেটে কোনো প্রেরণের পদ্ধতি ১০০% নিরাপদ নয়, এবং আমরা পরম নিরাপত্তার গ্যারান্টি দিতে পারি না।"
                 },
                 {
-                    "heading": "5. Your Rights",
-                    "body": "You may access, correct, or request deletion of your personal data by contacting us. We will make reasonable efforts to address your request within a reasonable timeframe."
+                    "heading": "৫. আপনার অধিকার",
+                    "body": "আপনি আমাদের সাথে যোগাযোগ করে আপনার ব্যক্তিগত ডেটা অ্যাক্সেস, সংশোধন বা মুছে ফেলার অনুরোধ করতে পারেন। আমরা যুক্তিসঙ্গত সময়সীমার মধ্যে আপনার অনুরোধটি সম্বোধন করার জন্য যুক্তিসঙ্গত প্রচেষ্টা করব।"
                 }
             ]
         }

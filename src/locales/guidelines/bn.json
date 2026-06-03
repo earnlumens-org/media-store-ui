@@ -1,77 +1,77 @@
 {
   "Guidelines": {
-    "title": "Content Guidelines for Creators",
-    "subtitle": "What you can publish on EarnLumens and what we avoid",
-    "lastUpdated": "Last updated: {date}",
-    "intro": "EarnLumens is a financial education platform with a focus on the Stellar ecosystem. Two layers of rules apply to anything you publish: a non-negotiable platform-wide layer (fraud, harm, illegal content) that is the same on every tenant, and a tenant-specific layer that depends on the marketplace you publish in.",
+    "title": "নির্মাতাদের জন্য কন্টেন্ট নির্দেশিকা",
+    "subtitle": "EarnLumens-এ আপনি কী প্রকাশ করতে পারেন এবং আমরা কী এড়িয়ে চলি",
+    "lastUpdated": "সর্বশেষ আপডেট: {date}",
+    "intro": "EarnLumens হলো একটি আর্থিক শিক্ষা প্ল্যাটফর্ম যা Stellar ইকোসিস্টেমের উপর কেন্দ্রীভূত। আপনি যা প্রকাশ করেন তার উপর দুটি স্তরের নিয়ম প্রযোজ্য: একটি অ-আলোচনাযোগ্য প্ল্যাটফর্ম-ব্যাপী স্তর (জালিয়াতি, ক্ষতি, অবৈধ কন্টেন্ট) যা প্রতিটি টেন্যান্টে একই, এবং একটি টেন্যান্ট-নির্দিষ্ট স্তর যা আপনি যে মার্কেটপ্লেসে প্রকাশ করেন তার উপর নির্ভর করে।",
     "platformSection": {
-      "heading": "Platform-wide rules",
-      "body": "These rules apply to every tenant on EarnLumens, including this one. They cannot be relaxed by individual marketplaces and exist to keep the community safe."
+      "heading": "প্ল্যাটফর্ম-ব্যাপী নিয়ম",
+      "body": "এই নিয়মগুলি EarnLumens-এর প্রতিটি টেন্যান্টের জন্য প্রযোজ্য, এটি সহ। এগুলি পৃথক মার্কেটপ্লেস দ্বারা শিথিল করা যাবে না এবং কমিউনিটিকে নিরাপদ রাখতে বিদ্যমান।"
     },
     "tenantSection": {
-      "heading": "Tenant-specific rules",
-      "body": "On top of the platform rules above, each tenant may add its own publishing notes — for example which topics it focuses on, expected tone, or specific formats it accepts.",
-      "placeholder": "This tenant has not added specific publishing notes yet. Only the platform-wide rules above apply here."
+      "heading": "টেন্যান্ট-নির্দিষ্ট নিয়ম",
+      "body": "উপরের প্ল্যাটফর্ম নিয়মগুলির উপরে, প্রতিটি টেন্যান্ট তার নিজস্ব প্রকাশনার নোট যোগ করতে পারে — উদাহরণস্বরূপ এটি কোন বিষয়ে কেন্দ্রীভূত, প্রত্যাশিত সুর, বা এটি গ্রহণ করে এমন নির্দিষ্ট ফরম্যাট।",
+      "placeholder": "এই টেন্যান্টটি এখনও নির্দিষ্ট প্রকাশনার নোট যোগ করেনি। এখানে শুধুমাত্র উপরের প্ল্যাটফর্ম-ব্যাপী নিয়মগুলি প্রযোজ্য।"
     },
     "sanctionsSection": {
-      "heading": "How sanctions work",
-      "body": "If you break the rules above, this is exactly what happens. The same ladder applies on every tenant — there are no hidden penalties."
+      "heading": "নিষেধাজ্ঞা কীভাবে কাজ করে",
+      "body": "আপনি যদি উপরের নিয়মগুলি ভঙ্গ করেন, ঠিক এটিই ঘটে। একই সিঁড়ি প্রতিটি টেন্যান্টে প্রযোজ্য — কোন গোপন জরিমানা নেই।"
     },
     "forCreators": {
-      "heading": "For Creators",
+      "heading": "নির্মাতাদের জন্য",
       "sections": [
         {
-          "heading": "1. What you can publish freely",
-          "body": "The range of acceptable topics is broad. You do not need permission or a rigid format:",
+          "heading": "১. আপনি স্বাধীনভাবে কী প্রকাশ করতে পারেন",
+          "body": "গ্রহণযোগ্য বিষয়গুলির পরিসর বিস্তৃত। আপনার অনুমতি বা একটি কঠোর ফরম্যাটের প্রয়োজন নেই:",
           "items": [
-            "Education about the Stellar network (protocol, SCP, Soroban, SDKs, anchors, DEX) and XLM",
-            "General financial education: saving, budgeting, debt, responsible investing, taxes",
-            "Practical tutorials, code demos, wallet and dApp walkthroughs",
-            "Honest comparisons between networks, wallets, or protocols, including ones outside Stellar, as long as the comparison is informative",
-            "Personal opinions and analysis clearly identified as opinion",
-            "Content in any language supported by the platform"
+            "Stellar নেটওয়ার্ক (প্রোটোকল, SCP, Soroban, SDKs, anchors, DEX) এবং XLM সম্পর্কে শিক্ষা",
+            "সাধারণ আর্থিক শিক্ষা: সঞ্চয়, বাজেট, ঋণ, দায়িত্বশীল বিনিয়োগ, কর",
+            "ব্যবহারিক টিউটোরিয়াল, কোড ডেমো, ওয়ালেট এবং dApp ওয়াকথ্রু",
+            "নেটওয়ার্ক, ওয়ালেট বা প্রোটোকলগুলির মধ্যে সৎ তুলনা, Stellar-এর বাইরে যেগুলি সহ, যতক্ষণ তুলনাটি তথ্যপূর্ণ",
+            "ব্যক্তিগত মতামত এবং বিশ্লেষণ স্পষ্টভাবে মতামত হিসাবে চিহ্নিত",
+            "প্ল্যাটফর্ম দ্বারা সমর্থিত যেকোনো ভাষায় কন্টেন্ট"
           ]
         },
         {
-          "heading": "2. What we always reject",
-          "body": "These categories are rejected without exception because they put the community at risk or are illegal:",
+          "heading": "২. আমরা সর্বদা যা প্রত্যাখ্যান করি",
+          "body": "এই বিভাগগুলি ব্যতিক্রম ছাড়াই প্রত্যাখ্যান করা হয় কারণ তারা কমিউনিটিকে ঝুঁকিতে ফেলে বা অবৈধ:",
           "items": [
-            "Ponzi schemes, pyramid schemes, pump and dump, rug pulls, or guaranteed-return promises",
-            "Paid trading signals, buy/sell recommendations with specific amounts, or personalized financial advice",
-            "Phishing, fake airdrops, requests for private keys, seed phrases, or credentials, wallet drainers, look-alike domains imitating Freighter / xBull / LOBSTR / SDF / exchanges",
-            "Impersonation or deepfakes of public figures, projects, or EarnLumens / SDF — including synthesized audio or video that falsely suggests an endorsement",
-            "Glorification of suicide or self-harm, methods or instructions for self-injury, pro-anorexia or pro-bulimia content (educational and recovery-oriented framing is allowed)",
-            "Hate speech, harassment, discrimination, or incitement to violence",
-            "Explicit sexual content, graphic violence, or material involving minors",
-            "Clearly copyrighted material without authorization (music, video, books, software)",
-            "Personal data of third parties without their consent",
-            "Obvious spam: nonsensical titles, mass-duplicated content, blank screens, AI content without human review"
+            "পনজি স্কিম, পিরামিড স্কিম, পাম্প অ্যান্ড ডাম্প, রাগ পুল, বা গ্যারান্টিযুক্ত-রিটার্ন প্রতিশ্রুতি",
+            "অর্থপ্রদানকৃত ট্রেডিং সংকেত, নির্দিষ্ট পরিমাণ সহ ক্রয়/বিক্রয় সুপারিশ, বা ব্যক্তিগতকৃত আর্থিক পরামর্শ",
+            "ফিশিং, ভুয়া এয়ারড্রপ, প্রাইভেট কী, সিড ফ্রেজ বা ক্রেডেনশিয়ালের জন্য অনুরোধ, ওয়ালেট ড্রেনার, Freighter / xBull / LOBSTR / SDF / এক্সচেঞ্জগুলির অনুকরণ করা সদৃশ ডোমেইন",
+            "জনসাধারণের ব্যক্তিত্ব, প্রকল্প, বা EarnLumens / SDF-এর ছদ্মবেশ ধারণ বা ডিপফেক — সংশ্লেষিত অডিও বা ভিডিও সহ যা মিথ্যাভাবে অনুমোদনের পরামর্শ দেয়",
+            "আত্মহত্যা বা স্ব-ক্ষতির গৌরব, স্ব-আঘাতের পদ্ধতি বা নির্দেশাবলী, প্রো-অ্যানোরেক্সিয়া বা প্রো-বুলিমিয়া কন্টেন্ট (শিক্ষামূলক এবং পুনরুদ্ধার-ভিত্তিক ফ্রেমিং অনুমোদিত)",
+            "ঘৃণাত্মক বক্তব্য, হয়রানি, বৈষম্য বা সহিংসতার প্ররোচনা",
+            "স্পষ্ট যৌন কন্টেন্ট, গ্রাফিক সহিংসতা, বা নাবালকদের জড়িত উপাদান",
+            "অনুমোদন ছাড়া স্পষ্টভাবে কপিরাইটযুক্ত উপাদান (সঙ্গীত, ভিডিও, বই, সফ্টওয়্যার)",
+            "তৃতীয় পক্ষের সম্মতি ছাড়া তাদের ব্যক্তিগত ডেটা",
+            "সুস্পষ্ট স্প্যাম: অর্থহীন শিরোনাম, ব্যাপকভাবে নকল করা কন্টেন্ট, ফাঁকা স্ক্রিন, মানব পর্যালোচনা ছাড়া AI কন্টেন্ট"
           ]
         },
         {
-          "heading": "3. Gray area: may go to manual review",
-          "body": "These cases are not automatically rejected, but they may be reviewed by a human moderator:",
+          "heading": "৩. ধূসর এলাকা: ম্যানুয়াল পর্যালোচনায় যেতে পারে",
+          "body": "এই ক্ষেত্রেগুলি স্বয়ংক্রিয়ভাবে প্রত্যাখ্যান করা হয় না, তবে একজন মানব মডারেটর দ্বারা পর্যালোচনা করা যেতে পারে:",
           "items": [
-            "Mentioning specific cryptocurrencies or tokens without clear educational context",
-            "Promotion of your own products or services without labeling them as sponsored",
-            "Claims about past performance without a verifiable source",
-            "Very short content or low technical quality that makes its value hard to assess"
+            "স্পষ্ট শিক্ষামূলক প্রসঙ্গ ছাড়া নির্দিষ্ট ক্রিপ্টোকারেন্সি বা টোকেন উল্লেখ করা",
+            "স্পনসর্ড হিসাবে লেবেল না করে আপনার নিজের পণ্য বা পরিষেবার প্রচার",
+            "যাচাইযোগ্য উৎস ছাড়া অতীত পারফরম্যান্স সম্পর্কে দাবি",
+            "খুব ছোট কন্টেন্ট বা নিম্ন প্রযুক্তিগত মানের যা এর মূল্য মূল্যায়ন করা কঠিন করে তোলে"
           ]
         },
         {
-          "heading": "4. Best practices (recommended, not required)",
-          "body": "These are not approval requirements, but they help your content be better received and reduce moderation friction:",
+          "heading": "৪. সর্বোত্তম অনুশীলন (প্রস্তাবিত, প্রয়োজনীয় নয়)",
+          "body": "এগুলি অনুমোদনের প্রয়োজনীয়তা নয়, তবে এগুলি আপনার কন্টেন্টকে আরও ভালভাবে গ্রহণ করতে এবং মডারেশন ঘর্ষণ কমাতে সাহায্য করে:",
           "items": [
-            "Use a descriptive title without misleading clickbait",
-            "Cite sources when using data, statistics, or figures",
-            "Clarify that the content is educational and not personalized financial advice",
-            "Mention it if you hold a significant position in an asset you discuss",
-            "Label sponsored or affiliate content",
-            "For Stellar wallets, DEXs, and tools, we prefer the ones listed at https://stellar.org/ecosystem as a reliable reference, but you may mention others as long as you are not promoting fraud"
+            "বিভ্রান্তিকর ক্লিকবেট ছাড়া একটি বর্ণনামূলক শিরোনাম ব্যবহার করুন",
+            "ডেটা, পরিসংখ্যান, বা পরিসংখ্যান ব্যবহার করার সময় উৎস উদ্ধৃত করুন",
+            "স্পষ্ট করুন যে কন্টেন্টটি শিক্ষামূলক এবং ব্যক্তিগতকৃত আর্থিক পরামর্শ নয়",
+            "আপনি আলোচনা করছেন এমন কোনো সম্পদে আপনার একটি উল্লেখযোগ্য অবস্থান থাকলে তা উল্লেখ করুন",
+            "স্পনসর্ড বা অ্যাফিলিয়েট কন্টেন্ট লেবেল করুন",
+            "Stellar ওয়ালেট, DEX এবং সরঞ্জামগুলির জন্য, আমরা একটি নির্ভরযোগ্য রেফারেন্স হিসাবে https://stellar.org/ecosystem-এ তালিকাভুক্ত সেগুলি পছন্দ করি, তবে আপনি অন্যগুলি উল্লেখ করতে পারেন যতক্ষণ আপনি জালিয়াতির প্রচার করছেন না"
           ]
         }
       ]
     },
-    "footer": "These guidelines may be updated. The goal is a safe educational space: we reject harmful content, not different ideas. If you believe a rejection was unfair, you can revise and resubmit, or request manual review from the tenant team."
+    "footer": "এই নির্দেশিকাগুলি আপডেট করা যেতে পারে। লক্ষ্য হলো একটি নিরাপদ শিক্ষামূলক স্থান: আমরা ক্ষতিকারক কন্টেন্ট প্রত্যাখ্যান করি, ভিন্ন ধারণা নয়। আপনি যদি বিশ্বাস করেন যে একটি প্রত্যাখ্যান অন্যায্য ছিল, আপনি সংশোধন এবং পুনরায় জমা দিতে পারেন, বা টেন্যান্ট দলের কাছ থেকে ম্যানুয়াল পর্যালোচনার অনুরোধ করতে পারেন।"
   }
 }
