@@ -52,6 +52,7 @@
           <v-radio :label="`فارسی (${$t('Language.persian')})`" value="fa" />
           <v-radio :label="`मराठी (${$t('Language.marathi')})`" value="mr" />
           <v-radio :label="`తెలుగు (${$t('Language.telugu')})`" value="te" />
+          <v-radio :label="`Tagalog (${$t('Language.tagalog')})`" value="tl" />
         </v-radio-group>
       </v-card-text>
 

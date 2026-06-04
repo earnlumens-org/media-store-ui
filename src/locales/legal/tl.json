@@ -1,0 +1,81 @@
+{
+    "Legal": {
+        "termsTitle": "Mga Tuntunin at Kondisyon",
+        "privacyTitle": "Patakaran sa Privacy",
+        "lastUpdated": "Huling na-update: {date}",
+        "terms": {
+            "intro": "Maligayang pagdating sa EarnLumens. Sa pamamagitan ng pag-access o paggamit ng aming platform, sumasang-ayon kang sumunod sa mga tuntunin at kondisyong ito.",
+            "sections": [
+                {
+                    "heading": "1. Pagtanggap sa mga Tuntunin",
+                    "body": "Sa pamamagitan ng paglikha ng account o paggamit ng anumang bahagi ng EarnLumens platform, kinukumpirma mo na nabasa mo, naintindihan mo, at sumasang-ayon kang sumunod sa mga tuntunin at kondisyong ito at sa aming Patakaran sa Privacy. Kung hindi ka sumasang-ayon, hindi mo dapat gamitin ang platform."
+                },
+                {
+                    "heading": "2. Paglalarawan ng Serbisyo",
+                    "body": "Ang EarnLumens ay isang multi-tenant na content platform na itinayo sa Stellar network. Ang pangunahing tenant ay nakatuon sa kasalukuyan sa edukasyong pampinansyal, at ang platform ay nagbibigay-daan sa mga bagong instance para sa iba pang mga vertical sa pamamagitan ng mga verification credential. Maaaring mag-publish ang mga creator ng nilalaman (mga video, audio, larawan, at resource) at magtakda ng presyo nito sa XLM (Stellar Lumens). Maaaring bilhin, panoorin, at makipag-ugnayan ng mga user sa nilalamang ito."
+                },
+                {
+                    "heading": "3. Pagpaparehistro ng Account",
+                    "body": "Dapat kang magbigay ng tumpak at kumpletong impormasyon kapag gumagawa ng account. Responsable ka sa pagpapanatili ng pagiging kumpidensyal ng iyong mga credential at sa lahat ng aktibidad na nangyayari sa ilalim ng iyong account. Dapat mong abisuhan kami kaagad ng anumang hindi awtorisadong paggamit."
+                },
+                {
+                    "heading": "4. Nilalaman at Intelektwal na Ari-arian",
+                    "body": "Pinapanatili ng mga creator ang pagmamay-ari ng nilalamang inilathala nila sa EarnLumens. Sa pamamagitan ng paglalathala, nagbibigay ang mga creator sa EarnLumens ng isang hindi eksklusibo, pandaigdigang lisensya para ipakita, ipamahagi, at i-promote ang nilalaman sa platform. Hindi maaaring kopyahin, ipamahagi muli, o ibenta muli ng mga user ang nilalamang binili nang walang malinaw na pahintulot ng creator."
+                },
+                {
+                    "heading": "5. Mga Bayad at Transaksyon",
+                    "body": "Ang mga bayad na ginawa sa pamamagitan ng EarnLumens ay bumubuo ng direkta, eksklusibo, at independiyenteng mga transaksyon sa pagitan ng bumibili at creator, na isinasagawa sa Stellar network gamit ang XLM. Ang EarnLumens ay kumikilos lamang bilang isang teknikal na platform para sa paglalathala at teknikal na pamamagitan, at hindi nakikialam bilang nagbebenta, bumibili, ahente, custodian, ahente ng pangongolekta, trustee, o guarantor sa anumang transaksyon sa pagitan ng mga user. Itinatakda lamang ng mga creator ang mga presyo, at maaaring ilapat ng EarnLumens ang mga naaangkop na bayarin ng platform. Maliban kung malinaw na ibinibigay ng naaangkop na batas ang iba, lahat ng benta ay pinal, hindi mababawi, at hindi mapapalitan. Kung ang EarnLumens ay nakakita, nakatanggap ng mga ulat, o makatuwirang naghinala ng pandaraya, pang-aabuso, paglabag, o anumang iba pang ilegal na pag-uugali o pag-uugali na salungat sa mga tuntuning ito, maaari nitong pansamantala o permanenteng i-suspend, limitahan, o kanselahin ang account ng involved na creator at gumawa ng anumang panloob na aksyon na itinuturing nitong angkop. Sa kabila ng nasa itaas, ang EarnLumens ay hindi tumatanggap ng anumang obligasyong mamagitan sa mga hindi pagkakaunawaan sa pagitan ng mga user at sa anumang pagkakataon ay hindi ginagarantiya ang pagbabalik ng transaksyon, pagbawi ng mga ari-arian, o pagpapanumbalik, pagbabayad muli, o kompensasyon ng mga inilipat na pondo. Tahasang tinatanggap ng user ang mga likas na panganib ng mga blockchain transaction, kasama ang kanilang potensyal na hindi mababawi na kalikasan kasama ang mga network fee, mga error sa address, mga ipinadalang halaga, o pagiging tanging responsable sa mga desisyon sa pagbili."
+                },
+                {
+                    "heading": "6. Ipinagbabawal na Pag-uugali",
+                    "body": "Sumasang-ayon ka na hindi: (a) mag-upload ng nakakapinsala, ilegal, o lumalabag na nilalaman; (b) magpanggap bilang iba; (c) abusuhin o subukang abalahin ang platform; (d) gumamit ng mga automated tool para mag-scrape o mag-access sa platform nang walang pahintulot; (e) makibahagi sa anumang aktibidad na lumalabag sa mga naaangkop na batas o regulasyon."
+                },
+                {
+                    "heading": "7. Pagwawakas",
+                    "body": "Inilalaan namin ang karapatang i-suspend o wakasan ang iyong account anumang oras kung lumalabag ka sa mga tuntuning ito. Sa pagwawakas, ang iyong karapatang gamitin ang platform ay agad na nagtatapos, bagamat mananatiling may bisa ang mga probisyon na dapat manatili ayon sa kanilang kalikasan."
+                },
+                {
+                    "heading": "8. Disclaimer",
+                    "body": "Ang platform ay ibinibigay sa basehan ng \"kung anong meron\" at \"kung ano ang available\" nang walang anumang uri ng warranty. Hindi ginagarantiya ng EarnLumens ang katumpakan, kumpletong impormasyon, o kapakinabangan ng anumang nilalamang inilathala ng mga creator. Hindi kami mananagot sa anumang pagkawala dahil sa Stellar network transactions."
+                },
+                {
+                    "heading": "9. Limitasyon ng Pananagutan",
+                    "body": "Hanggang sa pinakamataas na pinapayagan ng naaangkop na batas, ang EarnLumens, mga kasama nito, mga direktor, mga empleyado, mga kontratista, at mga kinatawan ay hindi mananagot para sa anumang direkta, hindi direkta, hindi inaasahang, espesyal, sumusunod, ehemplaryong, o mapaminsala, o anumang iba pang uri ng pinsala, kasama ang mga hindi mababawi, na nagmumula sa paggamit o kawalang-kakayahang gumamit ng platform, mga transaksyon sa pagitan ng mga user, nilalamang inilathala ng mga creator, pandaraya o ilegal na pag-uugali mula sa mga ikatlong partido, hindi natupad na mga inaasahan sa negosyo, pagkawala ng data, oportunidad, mga kita, goodwill, mga subscription, o mga pagkawala dahil sa mga blockchain transaction. Sa partikular, hindi mananagot ang EarnLumens para sa pagkabigong maihatid ang nilalaman, o para sa kalidad, legalidad, pagiging tunay, katumpakan, o kapakinabangan ng nilalamang inaalok ng mga creator, o para sa mga refund, hindi posibleng chargebacks, mga claim sa pagitan ng mga user, o pagkawala ng pondo. Sa kabila ng nasa itaas, sa anumang pagkakataon kung saan natutukoy ang anumang pananagutan ng EarnLumens nang legal, ang gayong pananagutan ay limitado sa mga halagang aktwal na natanggap ng EarnLumens bilang mga bayarin ng platform sa partikular na transaksyon na nagbigay-daan sa claim."
+                },
+                {
+                    "heading": "10. Mga Pagbabago sa Tuntunin",
+                    "body": "Maaari naming i-update ang mga tuntuning ito anumang oras. Susubukan naming ipaalam sa mga user ang tungkol sa makabuluhang pagbabago sa pamamagitan ng platform, ngunit responsibilidad mong suriin ang mga tuntunin paminsan-minsan. Ang patuloy mong paggamit pagkatapos ng mga pagbabago ay bumubuo ng pagtanggap sa binagong mga tuntunin."
+                },
+                {
+                    "heading": "11. Pakikipag-ugnayan",
+                    "body": "Para sa mga tanong tungkol sa mga tuntuning ito, mangyaring makipag-ugnayan sa amin sa legal{'@'}earnlumens.org."
+                }
+            ]
+        },
+        "privacy": {
+            "intro": "Ipinapaliwanag ng patakaran sa privacy na ito kung paano kinokolekta, ginagamit, at pinoprotektahan ng EarnLumens ang iyong personal na impormasyon.",
+            "sections": [
+                {
+                    "heading": "1. Impormasyon na Kinokolekta Namin",
+                    "body": "Kinokolekta namin ang impormasyon na ibinibigay mo nang direkta (mga detalye ng account, impormasyon ng profile) at impormasyon na nabuo mula sa iyong paggamit ng platform (kasaysayan ng transaksyon, aktibidad sa panonood, impormasyon ng device)."
+                },
+                {
+                    "heading": "2. Paano Namin Ginagamit ang Iyong Impormasyon",
+                    "body": "Ginagamit namin ang iyong impormasyon para: ibigay at pagbutihin ang aming mga serbisyo, iproseso ang mga transaksyon, makipag-ugnayan sa iyo, tiyakin ang seguridad ng platform, at sumunod sa mga legal na obligasyon."
+                },
+                {
+                    "heading": "3. Pagbabahagi ng Data",
+                    "body": "Hindi namin ibinebenta ang iyong personal na impormasyon. Maaari kaming magbahagi ng data sa mga service provider na tumutulong sa amin na patakbuhin ang platform o kung kinakailangan ng batas."
+                },
+                {
+                    "heading": "4. Seguridad ng Data",
+                    "body": "Nagpapatupad kami ng mga komersyal na makatuwirang hakbang sa seguridad upang protektahan ang iyong data. Gayunpaman, walang paraan ng transmisyon sa internet na 100% ligtas, at hindi namin magagarantiya ang ganap na seguridad."
+                },
+                {
+                    "heading": "5. Iyong mga Karapatan",
+                    "body": "Maaari kang humiling ng access, pagwawasto, o pagtanggal ng iyong personal na data sa pamamagitan ng pakikipag-ugnayan sa amin. Gagawa kami ng makatuwirang pagsisikap na tugunan ang iyong kahilingan sa loob ng makatuwirang takdang oras."
+                }
+            ]
+        }
+    }
+}

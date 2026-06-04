@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Mga Gabay sa Nilalaman para sa mga Creator",
+    "subtitle": "Ano ang maaari mong ilathala sa EarnLumens at ano ang ating tinatanggihan",
+    "lastUpdated": "Huling na-update: {date}",
+    "intro": "Ang EarnLumens ay isang platform ng edukasyong pampinansyal na nakatuon sa Stellar ecosystem. Dalawang antas ng patakaran ang umiiral sa anumang inilalathala mo: isang hindi mababawasang antas na pandaigdigan sa platform (pandaraya, pinsala, ilegal na nilalaman) na pareho sa bawat tenant, at isang antas na partikular sa tenant na nakasalalay sa marketplace kung saan ka naglalathala.",
+    "platformSection": {
+      "heading": "Mga Patakaran na Pandaigdigan sa Platform",
+      "body": "Ang mga patakarang ito ay umiiral sa bawat tenant sa EarnLumens, kasama ang tenant na ito. Hindi sila maaaring iluwag ng mga indibidwal na marketplace at umiiral upang panatilihing ligtas ang komunidad."
+    },
+    "tenantSection": {
+      "heading": "Mga Patakaran na Partikular sa Tenant",
+      "body": "Sa ibabaw ng mga patakaran ng platform sa itaas, maaaring magdagdag ang bawat tenant ng sarili nitong mga tala sa publikasyon — halimbawa kung anong mga paksa ang kanilang pinagtutuunan, ang inaasahang tono, o ang mga partikular na format na kanilang tinatanggap.",
+      "placeholder": "Hindi pa nagdagdag ang tenant na ito ng mga partikular na tala sa publikasyon. Tanging ang mga patakaran na pandaigdigan sa platform sa itaas ang umiiral dito."
+    },
+    "sanctionsSection": {
+      "heading": "Paano Gumagana ang mga Sanction",
+      "body": "Kung lumabag ka sa mga patakaran sa itaas, narito kung ano ang eksaktong mangyayari. Ang parehong hagdan ay umiiral sa bawat tenant — walang nakatagong parusa."
+    },
+    "forCreators": {
+      "heading": "Para sa mga Creator",
+      "sections": [
+        {
+          "heading": "1. Ano ang Maaari Mong Ilathala nang Malaya",
+          "body": "Malawak ang saklaw ng katanggap-tanggap na mga paksa. Hindi mo kailangan ng pahintulot o mahigpit na format:",
+          "items": [
+            "Edukasyon tungkol sa Stellar network (protocol, SCP, Soroban, SDKs, anchors, DEX) at XLM",
+            "Pangkalahatang edukasyong pampinansyal: pag-iimpok, pagbabadyet, utang, responsableng pag-iinvest, mga buwis",
+            "Mga praktikal na tutorial, code demo, walkthrough ng wallet at dApp",
+            "Mga makatuwirang paghahambing sa pagitan ng mga network, wallet, o protocol, kabilang ang mga nasa labas ng Stellar, hangga't ang paghahambing ay nagbibigay-impormasyon",
+            "Mga personal na opinyon at pagsusuri na malinaw na ipinapakita bilang opinyon",
+            "Nilalaman sa anumang wikang sinusuportahan ng platform"
+          ]
+        },
+        {
+          "heading": "2. Ano ang Lagi Naming Tinatanggihan",
+          "body": "Ang mga kategoryang ito ay tinatanggihan nang walang pagbubukod dahil naglalagay sila ng komunidad sa panganib o ilegal:",
+          "items": [
+            "Ponzi scheme, pyramid scheme, pump and dump, rug pull, o ginagarantiyang pangakong kita",
+            "Bayad na trading signal, mga rekomendasyon sa pagbili/pagbenta na may partikular na halaga, o personalized na payo sa pananalapi",
+            "Phishing, pekeng airdrop, mga kahilingan para sa mga private key, seed phrase, o mga credential, mga wallet drainer, mga magkatulad na domain na ginagaya ang Freighter / xBull / LOBSTR / SDF / mga exchange",
+            "Pagpapanggap o deepfake ng mga pampublikong pigura, proyekto, o EarnLumens / SDF — kabilang ang synthetic audio o video na nagmumungkahi ng pekeng endorsement",
+            "Pagluluwalhati sa pagpapakamatay o pananakit sa sarili, mga pamamaraan o tagubilin para sa pananakit sa sarili, pro-anorexia o pro-bulimia na nilalaman (pinapayagan ang edukasyonal at nakatuon sa pagbawi na pag-frame)",
+            "Hate speech, harassment, diskriminasyon, o panghihimok sa karahasan",
+            "Tahasang sekswal na nilalaman, graphic na karahasan, o nilalaman na may kinalaman sa mga menor de edad",
+            "Nilalamang malinaw na may copyright nang walang pahintulot (musika, video, libro, software)",
+            "Personal na data ng mga ikatlong partido nang walang kanilang pahintulot",
+            "Tahasang spam: mga walang katuturang pamagat, mass duplicate content, mga blangkong screen, AI content nang walang human review"
+          ]
+        },
+        {
+          "heading": "3. Mga Gray Area: Maaaring Magpunta sa Manual Review",
+          "body": "Ang mga kasong ito ay hindi awtomatikong tinatanggihan, ngunit maaaring suriin ng isang human moderator:",
+          "items": [
+            "Pagbanggit sa mga partikular na cryptocurrency o token nang walang malinaw na pang-edukasyon na konteksto",
+            "Pagpo-promote ng iyong sariling mga produkto o serbisyo nang hindi naka-label bilang sponsored",
+            "Mga claim tungkol sa nakaraang performance nang walang na-verify na pinagmulan",
+            "Napakaikling nilalaman o mababang teknikal na kalidad na nagpapahirap sa pagtatasa ng halaga nito"
+          ]
+        },
+        {
+          "heading": "4. Mga Pinakamahusay na Kasanayan (inirerekomenda, hindi obligado)",
+          "body": "Hindi ito mga kinakailangan para sa sanction, ngunit nakakatulong silang mas mahusay na matanggap ang iyong nilalaman at mabawasan ang friction sa moderasyon:",
+          "items": [
+            "Gumamit ng deskriptibong pamagat nang walang nakaliligaw na clickbait",
+            "Banggitin ang mga pinagmulan kapag gumagamit ng data, statistics, o mga numero",
+            "Linawin na ang nilalaman ay pang-edukasyon at hindi personal na payo sa pananalapi",
+            "Banggitin kung mayroon kang makabuluhang posisyon sa asset na iyong tinatalakay",
+            "Lagyan ng label ang sponsored o affiliate na nilalaman",
+            "Para sa mga Stellar wallet, DEX, at tool, mas gusto namin bilang pinagkakatiwalaang sanggunian ang mga nakalista sa https://stellar.org/ecosystem, ngunit maaari kang bumanggit ng iba hangga't hindi mo pino-promote ang pandaraya"
+          ]
+        }
+      ]
+    },
+    "footer": "Maaaring i-update ang mga gabay na ito. Ang layunin ay isang ligtas na pang-edukasyong espasyo: tinatanggihan namin ang nakakapinsalang nilalaman, hindi ang magkakaibang opinyon. Kung sa palagay mo ay hindi makatarungan ang isang pagtanggi, maaari kang mag-edit at magsumite muli, o humiling ng manu-manong pagsusuri mula sa tenant team."
+  }
+}

@@ -328,7 +328,8 @@
     "punjabi": "Панджабі",
     "persian": "Перська",
     "marathi": "Маратхі",
-    "telugu": "Телугу"
+    "telugu": "Телугу",
+    "tagalog": "Тагальська"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Електронна пошта повинна бути дійсною",

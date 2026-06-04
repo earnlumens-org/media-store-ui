@@ -328,7 +328,8 @@
     "punjabi": "Tiếng Punjab",
     "persian": "Tiếng Ba Tư",
     "marathi": "Tiếng Marathi",
-    "telugu": "Tiếng Telugu"
+    "telugu": "Tiếng Telugu",
+    "tagalog": "Tiếng Tagalog"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email phải hợp lệ",

@@ -328,7 +328,8 @@
     "punjabi": "펀자브어",
     "persian": "페르시아어",
     "marathi": "마라티어",
-    "telugu": "텔루구어"
+    "telugu": "텔루구어",
+    "tagalog": "타갈로그어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

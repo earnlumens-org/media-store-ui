@@ -328,7 +328,8 @@
     "punjabi": "Panjabi",
     "persian": "Persa",
     "marathi": "Marata",
-    "telugu": "Telugo"
+    "telugu": "Telugo",
+    "tagalog": "Tagalo"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "O e-mail deve ser válido",
