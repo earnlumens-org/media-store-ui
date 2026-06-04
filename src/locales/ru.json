@@ -327,7 +327,8 @@
     "indonesian": "Индонезийский",
     "punjabi": "Панджаби",
     "persian": "Персидский",
-    "marathi": "Маратхи"
+    "marathi": "Маратхи",
+    "telugu": "Телугу"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Электронная почта должна быть действительной",

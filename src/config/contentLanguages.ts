@@ -34,4 +34,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'pa', title: 'ਪੰਜਾਬੀ — Punjabi' },
   { value: 'fa', title: 'فارسی — Persian' },
   { value: 'mr', title: 'मराठी — Marathi' },
+  { value: 'te', title: 'తెలుగు — Telugu' },
 ] as const

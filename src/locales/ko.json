@@ -327,7 +327,8 @@
     "indonesian": "인도네시아어",
     "punjabi": "펀자브어",
     "persian": "페르시아어",
-    "marathi": "마라티어"
+    "marathi": "마라티어",
+    "telugu": "텔루구어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

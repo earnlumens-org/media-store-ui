@@ -327,7 +327,8 @@
     "indonesian": "Indonesian",
     "punjabi": "Punjabi",
     "persian": "Persian",
-    "marathi": "Marathi"
+    "marathi": "Marathi",
+    "telugu": "Telugu"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email must be valid",
