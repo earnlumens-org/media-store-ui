@@ -330,7 +330,8 @@
     "marathi": "マラーティー語",
     "telugu": "テルグ語",
     "tagalog": "タガログ語",
-    "tamil": "タミル語"
+    "tamil": "タミル語",
+    "tibetan": "チベット語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "メールが有効である必要があります",

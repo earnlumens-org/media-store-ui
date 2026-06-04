@@ -37,4 +37,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'te', title: 'తెలుగు — Telugu' },
   { value: 'tl', title: 'Tagalog' },
   { value: 'ta', title: 'தமிழ் — Tamil' },
+  { value: 'bo', title: 'བོད་སྐད་ — Tibetan' },
 ] as const
