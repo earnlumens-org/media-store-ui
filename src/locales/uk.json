@@ -331,7 +331,8 @@
     "telugu": "Телугу",
     "tagalog": "Тагальська",
     "tamil": "Тамільська",
-    "tibetan": "Тибетська"
+    "tibetan": "Тибетська",
+    "thai": "Тайська"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Електронна пошта повинна бути дійсною",

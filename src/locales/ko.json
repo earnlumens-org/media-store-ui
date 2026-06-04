@@ -331,7 +331,8 @@
     "telugu": "텔루구어",
     "tagalog": "타갈로그어",
     "tamil": "타밀어",
-    "tibetan": "티베트어"
+    "tibetan": "티베트어",
+    "thai": "태국어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

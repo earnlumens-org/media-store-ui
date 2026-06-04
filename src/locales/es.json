@@ -331,7 +331,8 @@
     "telugu": "Telugu",
     "tagalog": "Tagalo",
     "tamil": "Tamil",
-    "tibetan": "Tibetano"
+    "tibetan": "Tibetano",
+    "thai": "Tailandés"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El correo electrónico debe ser válido",
