@@ -332,7 +332,8 @@
     "tagalog": "Tagalogca",
     "tamil": "Tamilce",
     "tibetan": "Tibetçe",
-    "thai": "Tayca"
+    "thai": "Tayca",
+    "kannada": "Kannada"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-posta geçerli olmalıdır",

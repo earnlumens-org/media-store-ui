@@ -332,7 +332,8 @@
     "tagalog": "Tiếng Tagalog",
     "tamil": "Tiếng Tamil",
     "tibetan": "Tiếng Tây Tạng",
-    "thai": "Tiếng Thái"
+    "thai": "Tiếng Thái",
+    "kannada": "Tiếng Kannada"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email phải hợp lệ",

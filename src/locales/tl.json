@@ -332,7 +332,8 @@
     "tagalog": "Tagalog",
     "tamil": "Tamil",
     "tibetan": "Tibetano",
-    "thai": "Thai"
+    "thai": "Thai",
+    "kannada": "Kannada"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Ang email ay dapat na wasto",

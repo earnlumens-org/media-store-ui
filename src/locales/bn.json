@@ -332,7 +332,8 @@
     "tagalog": "তাগালোগ",
     "tamil": "তামিল",
     "tibetan": "তিব্বতি",
-    "thai": "থাই"
+    "thai": "থাই",
+    "kannada": "কন্নড়"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ইমেইল বৈধ হতে হবে",
