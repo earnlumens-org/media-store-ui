@@ -9,6 +9,7 @@ import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 
 import Layouts from 'vite-plugin-vue-layouts-next'
+import { VitePWA } from 'vite-plugin-pwa'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 // https://vitejs.dev/config/
@@ -18,6 +19,41 @@ export default defineConfig({
       dts: 'src/typed-router.d.ts',
     }),
     Layouts(),
+    // PWA: installable app for Android / iOS / desktop. The OAuth callback
+    // (/oauth2/callback?UUID=…) re-enters this same origin so it stays inside
+    // the PWA scope and completes the token exchange in the PWA's storage jar.
+    // Manifest name/icons are platform-generic for now (single static
+    // manifest); per-tenant branding would require a dynamic edge-served
+    // manifest (see DEPLOY notes).
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.ico', 'pwa/apple-touch-icon.png'],
+      // Don't precache large media; only the app shell. Navigation falls back
+      // to index.html so deep links (incl. /oauth2/callback) work offline-first.
+      workbox: {
+        navigateFallback: '/index.html',
+        // Never let the SW intercept the OAuth handshake / API calls.
+        navigateFallbackDenylist: [/^\/oauth2\//, /^\/api\//, /^\/login\//],
+        globPatterns: ['**/*.{js,css,html,woff2}'],
+        cleanupOutdatedCaches: true,
+      },
+      manifest: {
+        name: 'EarnLumens',
+        short_name: 'EarnLumens',
+        description: 'A collaborative financial education platform on the Stellar network',
+        theme_color: '#10131A',
+        background_color: '#10131A',
+        display: 'standalone',
+        orientation: 'portrait',
+        scope: '/',
+        start_url: '/?source=pwa',
+        icons: [
+          { src: '/pwa/pwa-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+          { src: '/pwa/pwa-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+          { src: '/pwa/pwa-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+        ],
+      },
+    }),
     AutoImport({
       imports: [
         'vue',

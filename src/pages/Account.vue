@@ -303,6 +303,11 @@
             </div>
           </v-card-text>
         </v-card>
+
+        <!-- ── Install app (PWA) ─────────────────────── -->
+        <div class="mt-6">
+          <InstallAppButton />
+        </div>
       </v-col>
     </v-row>
 
@@ -320,6 +325,7 @@
   import { api, ApiError } from '@/api/api'
   import { logout } from '@/api/modules/auth.api'
   import VerificationDialog from '@/components/home/VerificationDialog.vue'
+  import InstallAppButton from '@/components/pwa/InstallAppButton.vue'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { broadcastAuthEvent } from '@/services/authBroadcast'
   import { clearToken } from '@/services/tokenWorkerClient'

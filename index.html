@@ -19,6 +19,13 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <!-- PWA: theme color for the standalone status bar and the iOS
+       "Add to Home Screen" icon (apple-touch-icon). The web app manifest
+       itself is injected by vite-plugin-pwa at build time. -->
+  <meta name="theme-color" content="#10131A" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="apple-touch-icon" href="/pwa/apple-touch-icon.png" />
   <!--
     Title and favicon are intentionally left blank/transparent so we
     don't flash the platform defaults on every refresh before the

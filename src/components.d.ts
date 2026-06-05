@@ -45,6 +45,7 @@ declare module 'vue' {
     GuidelinesReferenceCard: typeof import('./components/guidelines/GuidelinesReferenceCard.vue')['default']
     Hero: typeof import('./components/home/Hero.vue')['default']
     ImageLightbox: typeof import('./components/entry/ImageLightbox.vue')['default']
+    InstallAppButton: typeof import('./components/pwa/InstallAppButton.vue')['default']
     MediaFrame: typeof import('./components/media/MediaFrame.vue')['default']
     ReportDialog: typeof import('./components/report/ReportDialog.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

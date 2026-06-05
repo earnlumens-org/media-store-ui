@@ -7,6 +7,10 @@ import { createI18n } from 'vue-i18n'
 // API
 import { parseUserFromToken } from '@/api/modules/user.api'
 
+// PWA install detection — side-effect import so the `beforeinstallprompt`
+// listener is registered before the browser fires the event.
+import '@/lib/pwaInstall'
+
 // Plugins
 import { registerPlugins } from '@/plugins'
 
