@@ -12,6 +12,20 @@
     />
     <router-view v-else-if="tenantStore.isReady" />
 
+    <!--
+      Bootstrap loader: shown after Vue mounts but while the tenant probe is
+      still resolving (isReady === false, isNotFound === false). Without it the
+      v-app would render empty and the screen would go black on cold starts /
+      PWA resume. Centred both axes over the themed background.
+    -->
+    <div
+      v-else
+      class="d-flex align-center justify-center"
+      style="position: fixed; inset: 0;"
+    >
+      <v-progress-circular color="primary" indeterminate size="64" />
+    </div>
+
     <!-- Global rate-limit / notification snackbar -->
     <v-snackbar
       v-model="globalSnack"
