@@ -38,8 +38,8 @@ export default defineConfig({
         cleanupOutdatedCaches: true,
       },
       manifest: {
-        name: 'EarnLumens',
-        short_name: 'EarnLumens',
+        name: 'Earn Lumens',
+        short_name: 'Earn Lumens',
         description: 'A collaborative financial education platform on the Stellar network',
         theme_color: '#10131A',
         background_color: '#10131A',
