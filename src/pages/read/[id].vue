@@ -334,6 +334,13 @@
                     <span class="mx-1">&middot;</span>
                     {{ friendlyContentType(entry.asset.contentType) }}
                   </div>
+                  <div
+                    v-if="scannedOnLabel"
+                    class="text-caption text-success d-flex align-center mt-1"
+                  >
+                    <v-icon class="me-1" size="14">mdi-shield-check</v-icon>
+                    {{ scannedOnLabel }}
+                  </div>
                 </div>
                 <v-btn
                   class="ms-3 flex-shrink-0"
@@ -346,6 +353,11 @@
                 >
                   {{ $t('Common.download') }}
                 </v-btn>
+              </div>
+              <v-divider />
+              <div class="d-flex align-start px-4 py-2 text-caption text-medium-emphasis">
+                <v-icon class="me-2 mt-1 flex-shrink-0" size="14">mdi-information-outline</v-icon>
+                <span>{{ $t('Common.downloadSafetyNote') }}</span>
               </div>
             </v-card>
 
@@ -477,6 +489,7 @@
   import type { PublicEntryModel } from '@/api/types/entry.types'
 
   import { computed, onMounted, ref, watch } from 'vue'
+  import { useI18n } from 'vue-i18n'
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
@@ -495,6 +508,7 @@
   const router = useRouter()
   const purchasesStore = usePurchasesStore()
   const appStore = useAppStore()
+  const { t, locale } = useI18n()
 
   // Responsive check
   const isMobile = computed(() => appStore.mobileView)
@@ -546,6 +560,20 @@
   const downloadUrl = computed(() => {
     if (!entry.value) return ''
     return cdnMediaUrl(entry.value.id)
+  })
+
+  // "Scanned for malware {date}" label, shown when the file passed AV scanning
+  const scannedOnLabel = computed(() => {
+    const scannedAt = entry.value?.asset?.scannedAt
+    if (!scannedAt) return ''
+    const d = new Date(scannedAt)
+    if (Number.isNaN(d.getTime())) return ''
+    const date = d.toLocaleDateString(locale.value, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+    return t('Common.fileVerifiedOn', { date })
   })
 
   // File icon based on content type

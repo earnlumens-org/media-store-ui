@@ -36,6 +36,7 @@ export interface PublicEntryDto {
     fileName: string
     fileSizeBytes: number
     contentType: string
+    scannedAt?: string
   }
   hlsReady?: boolean
 }
@@ -79,6 +80,7 @@ export interface PublicEntryModel {
     fileName: string
     fileSizeBytes: number
     contentType: string
+    scannedAt?: string
   }
   hlsReady: boolean
 }
