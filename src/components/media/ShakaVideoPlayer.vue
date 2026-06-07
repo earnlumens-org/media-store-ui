@@ -78,7 +78,7 @@
       @loadeddata="isBuffering = false"
       @pause="$emit('pause')"
       @play="$emit('play')"
-      @playing="isBuffering = false"
+      @playing="onPlaying"
       @timeupdate="onTimeUpdate"
     />
   </div>
@@ -399,13 +399,46 @@
     document.body.append(host)
     host.append(video)
 
+    let cleaned = false
     const cleanup = async () => {
+      if (cleaned) return
+      cleaned = true
       video.removeEventListener('leavepictureinpicture', cleanup)
+      // Make sure the PiP window is actually closed (it may still be open when
+      // cleanup is triggered programmatically rather than by the user).
+      try {
+        if (document.pictureInPictureElement === video) {
+          await document.exitPictureInPicture()
+        } else if ((video as { webkitPresentationMode?: string }).webkitPresentationMode === 'picture-in-picture') {
+          (video as { webkitSetPresentationMode?: (mode: string) => void }).webkitSetPresentationMode?.('inline')
+        }
+      } catch { /* PiP already closed */ }
       await destroyPlayer()
       host.remove()
     }
+    // Expose cleanup so a freshly-mounted player can close this orphan when it
+    // starts playing.
+    ;(host as { _pipCleanup?: () => Promise<void> })._pipCleanup = cleanup
     video.addEventListener('leavepictureinpicture', cleanup)
     return true
+  }
+
+  /**
+   * Close any Picture-in-Picture window that survived a previous navigation
+   * (an orphaned <video> parked in <body>). Called when a fresh player starts
+   * playing so the old PiP doesn't keep running alongside the new video.
+   */
+  async function closeOrphanedPipPlayers () {
+    const hosts = document.querySelectorAll('[data-pip-orphan="true"]')
+    for (const host of hosts) {
+      await (host as { _pipCleanup?: () => Promise<void> })._pipCleanup?.()
+    }
+  }
+
+  /** Video started playing — clear the spinner and close any orphaned PiP */
+  function onPlaying () {
+    isBuffering.value = false
+    void closeOrphanedPipPlayers()
   }
 
   onBeforeUnmount(async () => {
