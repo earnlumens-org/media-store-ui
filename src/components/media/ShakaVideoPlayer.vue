@@ -17,7 +17,7 @@
   <div
     ref="containerRef"
     class="shaka-player-container bg-black position-relative"
-    :class="containerClass"
+    :class="[containerClass, { 'shaka-is-buffering': isBuffering }]"
   >
     <!-- Player error overlay -->
     <div
@@ -73,9 +73,12 @@
       :crossorigin="crossorigin"
       playsinline
       :poster="poster"
+      @canplay="isBuffering = false"
       @ended="$emit('ended')"
+      @loadeddata="isBuffering = false"
       @pause="$emit('pause')"
       @play="$emit('play')"
+      @playing="isBuffering = false"
       @timeupdate="onTimeUpdate"
     />
   </div>
@@ -120,6 +123,13 @@
   const errorDetail = ref<string>('')
   const showErrorDetail = ref(false)
   const copied = ref(false)
+  /**
+   * True while the player is loading the source or buffering during playback.
+   * Used to hide Shaka's big centered play button while the spinner is visible
+   * (otherwise both overlap — most noticeable on mobile where autoplay is
+   * blocked and the video stays paused after load).
+   */
+  const isBuffering = ref(false)
 
   /*
    * Shaka Player types are declared globally via `declare namespace shaka { ... }`
@@ -142,6 +152,7 @@
   /** Initialize Shaka Player and attach to video element */
   async function initPlayer () {
     playerError.value = null
+    isBuffering.value = true
 
     try {
       const lib = await loadShaka()
@@ -214,6 +225,8 @@
 
       // Error listener
       player.addEventListener('error', onPlayerError)
+      // Buffering listener — keep the play button hidden while the spinner shows
+      player.addEventListener('buffering', onBuffering)
 
       // Load the media source
       await player.load(props.src)
@@ -244,6 +257,11 @@
     errorDetail.value = formatErrorDetail(detail)
     emit('error', message)
     console.error('[ShakaVideoPlayer] Shaka error:', detail)
+  }
+
+  /** Track Shaka buffering state to hide the centered play button while loading */
+  function onBuffering (event: Event) {
+    isBuffering.value = !!(event as Event & { buffering?: boolean }).buffering
   }
 
   /** Build a human-readable string with full error info for debugging */
@@ -310,6 +328,7 @@
     }
     if (player) {
       player.removeEventListener('error', onPlayerError)
+      player.removeEventListener('buffering', onBuffering)
       await player.destroy()
       player = null
     }
@@ -348,7 +367,51 @@
     initPlayer()
   })
 
+  /** True when this player's <video> is the active Picture-in-Picture element */
+  function isInPictureInPicture (): boolean {
+    const video = videoRef.value
+    if (!video) return false
+    if (document.pictureInPictureElement === video) return true
+    // Safari/iOS uses a non-standard presentation mode flag
+    return (video as { webkitPresentationMode?: string }).webkitPresentationMode === 'picture-in-picture'
+  }
+
+  /**
+   * Keep a Picture-in-Picture video playing across SPA navigation.
+   *
+   * When the user navigates away while PiP is open, Vue would unmount this
+   * component and remove the <video> from the DOM, which closes the PiP window.
+   * To avoid that, we move the <video> into a hidden, persistent host appended
+   * to <body> *before* Vue tears the component down. Vue unmounts nested
+   * children without removing them individually, so once the node is reparented
+   * it survives and the PiP keeps playing. We keep the Shaka player alive and
+   * tear everything down only when the user finally closes PiP.
+   *
+   * @returns true if the video was handed off (caller must skip destroyPlayer).
+   */
+  function handoffToPictureInPicture (): boolean {
+    const video = videoRef.value
+    if (!video || !isInPictureInPicture()) return false
+
+    const host = document.createElement('div')
+    host.dataset.pipOrphan = 'true'
+    host.style.cssText = 'position:fixed;left:-99999px;top:0;width:1px;height:1px;overflow:hidden;'
+    document.body.append(host)
+    host.append(video)
+
+    const cleanup = async () => {
+      video.removeEventListener('leavepictureinpicture', cleanup)
+      await destroyPlayer()
+      host.remove()
+    }
+    video.addEventListener('leavepictureinpicture', cleanup)
+    return true
+  }
+
   onBeforeUnmount(async () => {
+    // If the video is in Picture-in-Picture, keep it alive across navigation
+    // instead of destroying it.
+    if (handoffToPictureInPicture()) return
     await destroyPlayer()
   })
 </script>
@@ -376,5 +439,17 @@
   .shaka-player-container .shaka-controls-container {
     /* Ensure controls sit above poster/overlays */
     z-index: 2;
+  }
+
+  /*
+   * While loading/buffering, Shaka shows its spinner. Hide the big centered
+   * play button during that window so it doesn't overlap the spinner. Most
+   * visible on mobile (iOS/Android), where autoplay is blocked and the video
+   * stays paused after load — once buffering ends the play button reappears
+   * so the user can tap to start.
+   */
+  .shaka-player-container.shaka-is-buffering .shaka-play-button-container,
+  .shaka-player-container.shaka-is-buffering .shaka-play-button {
+    display: none !important;
   }
 </style>
