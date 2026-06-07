@@ -438,6 +438,11 @@
   /** Video started playing — clear the spinner and close any orphaned PiP */
   function onPlaying () {
     isBuffering.value = false
+    // A handed-off (orphaned) <video> keeps Vue's leftover @playing listener
+    // attached even after unmount, because we keep the node alive in <body>.
+    // Guard against it: only a live, in-page player should close previous
+    // orphans — otherwise the orphan would close (and stop) itself.
+    if (videoRef.value?.closest('[data-pip-orphan="true"]')) return
     void closeOrphanedPipPlayers()
   }
 
