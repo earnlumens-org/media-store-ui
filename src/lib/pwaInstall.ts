@@ -33,6 +33,8 @@ interface BeforeInstallPromptEvent extends Event {
 
 const installState = ref<PwaInstallState>('unsupported')
 const platform = ref<PwaPlatform>('other')
+/** True when the app is running in standalone display-mode (installed PWA). */
+const isStandalone = ref(false)
 /** iOS version as `major.minor` (e.g. 16.4), or null when not iOS / unknown. */
 const iosVersion = ref<number | null>(null)
 /** True when the iOS version is >= 16.4 (or unknown — assume capable). */
@@ -87,6 +89,7 @@ function init (): void {
   initialised = true
 
   platform.value = detectPlatform()
+  isStandalone.value = detectStandalone()
 
   if (platform.value === 'ios') {
     iosVersion.value = detectIosVersion()
@@ -130,6 +133,7 @@ export function usePwaInstall () {
   return {
     installState: readonly(installState),
     platform: readonly(platform),
+    isStandalone: readonly(isStandalone),
     iosVersion: readonly(iosVersion),
     iosSupported: readonly(iosSupported),
     promptInstall,

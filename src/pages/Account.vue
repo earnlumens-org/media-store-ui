@@ -308,6 +308,22 @@
         <div class="mt-6">
           <InstallAppButton />
         </div>
+
+        <!-- ── Test: open tenant 750 (PWA standalone only) ── -->
+        <div v-if="isStandalone" class="mt-3">
+          <v-btn
+            block
+            class="text-none"
+            color="secondary"
+            prepend-icon="mdi-storefront-outline"
+            rounded="lg"
+            size="large"
+            variant="tonal"
+            @click="openTenant750"
+          >
+            Open tenant 750 (test)
+          </v-btn>
+        </div>
       </v-col>
     </v-row>
 
@@ -327,12 +343,23 @@
   import VerificationDialog from '@/components/home/VerificationDialog.vue'
   import InstallAppButton from '@/components/pwa/InstallAppButton.vue'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { usePwaInstall } from '@/lib/pwaInstall'
   import { broadcastAuthEvent } from '@/services/authBroadcast'
   import { clearToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
   import { PURCHASES_STORAGE_KEY } from '@/stores/purchases'
 
   const appStore = useAppStore()
+
+  const { isStandalone } = usePwaInstall()
+
+  // Test helper (Solution A): open tenant 750 in a Custom Tab / browser tab.
+  // Visible only when running as an installed PWA (standalone display-mode).
+  function openTenant750 () {
+    const host = window.location.hostname
+    const rootDomain = host.split('.').slice(-2).join('.') || 'earnlumens.org'
+    window.open(`https://750.${rootDomain}/`, '_blank', 'noopener')
+  }
 
   const { t, locale } = useI18n()
 
