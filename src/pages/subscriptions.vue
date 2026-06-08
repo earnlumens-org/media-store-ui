@@ -16,7 +16,7 @@
             <v-sheet class="rounded-circle" color="surface-variant" height="72" width="72" />
             <v-sheet class="rounded" color="surface-variant" height="14" width="70%" />
             <v-sheet class="rounded" color="surface-variant" height="12" width="50%" />
-            <v-sheet class="rounded-pill mt-1" color="surface-variant" height="30" width="100" />
+            <v-sheet class="rounded-pill mt-1" color="surface-variant" height="30" width="100%" />
           </v-card-text>
         </v-card>
       </v-col>
@@ -90,10 +90,10 @@
               </div>
             </div>
             <CxSubscribeButton
-              class="mt-1"
+              class="mt-1 subscribe-btn"
               size="small"
               :target-user-id="item.userId"
-              variant="pill"
+              variant="block"
               @click.prevent
             />
           </v-card-text>
@@ -192,3 +192,22 @@
     fetchSubscriptions()
   })
 </script>
+
+<style scoped>
+  /* Let the subscribe button label wrap on narrow cards / long-locale labels
+     (e.g. Tamil, Odia) instead of overflowing the pill. The button height
+     grows with its content and the card adapts via the flex column. */
+  .subscribe-btn {
+    height: auto !important;
+    min-height: 28px;
+    max-width: 100%;
+  }
+
+  .subscribe-btn :deep(.v-btn__content) {
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.2;
+    padding-block: 4px;
+  }
+</style>
+
