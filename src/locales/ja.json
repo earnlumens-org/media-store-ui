@@ -888,5 +888,25 @@
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
     "error": "Something went wrong. Please try again."
+  },
+  "Search": {
+    "placeholder": "Search",
+    "startTyping": "Start typing to search",
+    "recentSearches": "Recent searches",
+    "clearHistory": "Clear all",
+    "channels": "Channels",
+    "viewChannel": "View",
+    "contentCount": "{n} items",
+    "noResults": "No results found",
+    "noResultsHint": "We couldn't find anything for “{query}”.",
+    "error": "Search failed. Please try again.",
+    "loginRequiredTitle": "Sign in to keep searching",
+    "loginRequiredText": "You've reached the search limit. Sign in to keep exploring channels and content.",
+    "sort": {
+      "relevance": "Relevance",
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "views": "Most viewed"
+    }
   }
 }

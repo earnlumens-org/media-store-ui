@@ -888,5 +888,25 @@
     "dailyLimit": "Alcanzaste el límite diario de valoraciones. Inténtalo de nuevo mañana.",
     "ownContent": "No puedes valorar tu propio contenido.",
     "error": "Algo salió mal. Inténtalo de nuevo."
+  },
+  "Search": {
+    "placeholder": "Buscar",
+    "startTyping": "Empieza a escribir para buscar",
+    "recentSearches": "Búsquedas recientes",
+    "clearHistory": "Borrar todo",
+    "channels": "Canales",
+    "viewChannel": "Ver",
+    "contentCount": "{n} contenidos",
+    "noResults": "Sin resultados",
+    "noResultsHint": "No encontramos nada para «{query}».",
+    "error": "La búsqueda falló. Inténtalo de nuevo.",
+    "loginRequiredTitle": "Inicia sesión para seguir buscando",
+    "loginRequiredText": "Alcanzaste el límite de búsquedas. Inicia sesión para seguir explorando canales y contenido.",
+    "sort": {
+      "relevance": "Relevancia",
+      "newest": "Más recientes",
+      "oldest": "Más antiguos",
+      "views": "Más vistos"
+    }
   }
 }

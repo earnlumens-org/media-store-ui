@@ -32,6 +32,7 @@ import { preparePayment, submitPayment } from './modules/payment.api'
 import { getPurchaseCollections, getPurchasedFeed, getPurchases } from './modules/purchase.api'
 import { deleteRating, getMyRating, getRatings, getRatingSummary, submitRating } from './modules/rating.api'
 import { getSellerSales } from './modules/sales.api'
+import { getSuggestions, search } from './modules/search.api'
 import { getSpaceFeed, listSidebarSpaces } from './modules/spaces.api'
 import { checkSubscription, getMySubscriberCount, getMySubscribers, getMySubscriptions, getPublicSubscriberCount, subscribe, unsubscribe } from './modules/subscription.api'
 import { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
@@ -138,6 +139,11 @@ export const api = {
   spaces: {
     listSidebar: listSidebarSpaces,
     getFeed: getSpaceFeed,
+  },
+  /** Unified search: creator channels + content for the resolved tenant. */
+  search: {
+    query: search,
+    suggestions: getSuggestions,
   },
   /** Mock API — still used by the entry/collection lightboxes. */
   mock: {
