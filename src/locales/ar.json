@@ -341,7 +341,8 @@
     "amharic": "الأمهرية",
     "pashto": "البشتوية",
     "burmese": "البورمية",
-    "odia": "الأودية"
+    "odia": "الأودية",
+    "dutch": "الهولندية"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "يجب أن يكون البريد الإلكتروني صالحًا",

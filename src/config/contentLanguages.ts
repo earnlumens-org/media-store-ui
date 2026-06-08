@@ -45,4 +45,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'ps', title: 'پښتو — Pashto' },
   { value: 'my', title: 'မြန်မာ — Burmese' },
   { value: 'or', title: 'ଓଡ଼ିଆ — Odia' },
+  { value: 'nl', title: 'Nederlands — Dutch' },
 ] as const

@@ -341,7 +341,8 @@
     "amharic": "আমহারিক",
     "pashto": "পশতু",
     "burmese": "বার্মিজ",
-    "odia": "ওড়িয়া"
+    "odia": "ওড়িয়া",
+    "dutch": "ডাচ"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ইমেইল বৈধ হতে হবে",

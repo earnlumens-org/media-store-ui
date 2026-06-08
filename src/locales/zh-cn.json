@@ -341,7 +341,8 @@
     "amharic": "阿姆哈拉语",
     "pashto": "普什图语",
     "burmese": "缅甸语",
-    "odia": "奥迪亚语"
+    "odia": "奥迪亚语",
+    "dutch": "荷兰语"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "电子邮件必须有效",

@@ -1,0 +1,81 @@
+{
+    "Legal": {
+        "termsTitle": "Algemene voorwaarden",
+        "privacyTitle": "Privacybeleid",
+        "lastUpdated": "Laatst bijgewerkt: {date}",
+        "terms": {
+            "intro": "Welkom bij EarnLumens. Door ons platform te bezoeken of te gebruiken, gaat u ermee akkoord gebonden te zijn aan deze Algemene voorwaarden.",
+            "sections": [
+                {
+                    "heading": "1. Acceptatie van voorwaarden",
+                    "body": "Door een account aan te maken of enig onderdeel van het EarnLumens-platform te gebruiken, erkent u dat u deze Algemene voorwaarden en ons Privacybeleid hebt gelezen, begrepen en ermee akkoord gaat gebonden te zijn. Als u het er niet mee eens bent, mag u het platform niet gebruiken."
+                },
+                {
+                    "heading": "2. Beschrijving van de dienst",
+                    "body": "EarnLumens is een multi-tenant contentplatform gebouwd op het Stellar-netwerk. De hoofdtenant richt zich momenteel op financiële educatie en het platform maakt nieuwe instanties voor andere branches mogelijk via verificatiecredentials. Creators kunnen content (video's, audio, afbeeldingen en bronnen) publiceren en prijzen instellen in XLM (Stellar Lumens). Gebruikers kunnen deze content kopen, bekijken en ermee communiceren."
+                },
+                {
+                    "heading": "3. Accountregistratie",
+                    "body": "Bij het aanmaken van een account moet u nauwkeurige en volledige informatie verstrekken. U bent verantwoordelijk voor het vertrouwelijk houden van uw credentials en voor alle activiteiten die plaatsvinden onder uw account. Bij ongeoorloofd gebruik dient u ons onmiddellijk op de hoogte te stellen."
+                },
+                {
+                    "heading": "4. Content en intellectueel eigendom",
+                    "body": "Makers blijven eigenaar van de content die ze op EarnLumens publiceren. Door te publiceren verlenen makers EarnLumens een niet-exclusieve, wereldwijde licentie om de content op het platform weer te geven, te distribueren en te promoten. Gebruikers mogen gekochte content niet reproduceren, herdistribueren of doorverkopen zonder de uitdrukkelijke toestemming van de maker."
+                },
+                {
+                    "heading": "5. Betalingen en transacties",
+                    "body": "Betalingen via EarnLumens vormen directe, exclusieve en onafhankelijke transacties tussen de koper en de maker, uitgevoerd met behulp van XLM op het Stellar-netwerk. EarnLumens fungeert uitsluitend als technologisch platform voor publicatie en technische bemiddeling, en komt niet tussenbeide als verkoper, koper, agent, bewaarder, incassobureau, fiduciair of garant voor enige transactie tussen gebruikers. Prijzen worden exclusief bepaald door makers en EarnLumens kan toepasselijke platformkosten in rekening brengen. Tenzij de toepasselijke wetgeving uitdrukkelijk anders bepaalt, zijn alle verkopen definitief, onherroepelijk en niet-restitueerbaar. Als EarnLumens fraude, misbruik, inbreuk of ander onwettig gedrag of gedrag dat in strijd is met deze Voorwaarden detecteert, meldingen ontvangt of redelijkerwijs vermoedt, kan het het account van de betrokken maker tijdelijk of permanent opschorten, beperken of annuleren en alle interne maatregelen nemen die het redelijk acht. Niettegenstaande het voorgaande aanvaardt EarnLumens geen verplichting om tussenbeide te komen in geschillen tussen gebruikers en garandeert het onder geen enkele omstandigheid de ongedaanmaking van transacties, het terugvorderen van activa, of de restitutie, teruggave of terugbetaling van overgedragen gelden. De gebruiker erkent en aanvaardt uitdrukkelijk de inherente risico's van blockchain-transacties, inclusief hun potentieel onomkeerbare aard, evenals de exclusieve verantwoordelijkheid voor netwerkkosten, adresfouten, verzonden bedragen of aankoopbeslissingen."
+                },
+                {
+                    "heading": "6. Verboden gedrag",
+                    "body": "U stemt ermee in om: (a) geen schadelijke, illegale of inbreukmakende content te uploaden; (b) zich voordoen als anderen; (c) proberen het platform te exploiteren of te verstoren; (d) geautomatiseerde tools gebruiken om zonder toestemming het platform te scrapen of er toegang toe te krijgen; (e) deelnemen aan activiteiten die in strijd zijn met toepasselijke wet- of regelgeving."
+                },
+                {
+                    "heading": "7. Beëindiging",
+                    "body": "Wij behouden ons het recht voor om uw account op elk moment op te schorten of te beëindigen als u deze Voorwaarden schendt. Bij beëindiging eindigt uw recht om het platform te gebruiken onmiddellijk, hoewel bepalingen die naar hun aard zouden moeten blijven bestaan, van kracht blijven."
+                },
+                {
+                    "heading": "8. Disclaimers",
+                    "body": "Het platform wordt geleverd \"zoals het is\" en \"zoals beschikbaar\" zonder enige vorm van garantie. EarnLumens garandeert niet de nauwkeurigheid, volledigheid of bruikbaarheid van enige content die door makers wordt gepubliceerd. Wij zijn niet verantwoordelijk voor eventuele verliezen die voortvloeien uit Stellar-netwerktransacties."
+                },
+                {
+                    "heading": "9. Beperking van aansprakelijkheid",
+                    "body": "Voor zover maximaal toegestaan door de toepasselijke wetgeving, zijn EarnLumens, haar dochterondernemingen, directeuren, werknemers, contractanten en vertegenwoordigers niet aansprakelijk voor enige directe, indirecte, incidentele, speciale, gevolg-, voorbeeld-, punitieve of andere schade die voortvloeit uit of verband houdt met het gebruik of de onmogelijkheid om het platform te gebruiken, transacties tussen gebruikers, content gepubliceerd door makers, frauduleus of onwettig gedrag van derden, onvervulde commerciële verwachtingen, verlies van gegevens, verlies van kansen, gederfde winst, reputatie, klantenkring, of voor verliezen of schade voortvloeiend uit blockchain-transacties, inclusief transacties die onomkeerbaar zijn. EarnLumens is in het bijzonder niet aansprakelijk voor het niet leveren van content, of voor de kwaliteit, wettigheid, authenticiteit, nauwkeurigheid of bruikbaarheid van content die door makers wordt aangeboden, noch voor retourzendingen, onmogelijke terugboekingen, claims tussen gebruikers of verlies van geld. In ieder geval waarin, ondanks het voorgaande, enige aansprakelijkheid van EarnLumens wettelijk wordt vastgesteld, zal deze aansprakelijkheid beperkt zijn tot het bedrag dat daadwerkelijk door EarnLumens is ontvangen als platformvergoeding in de specifieke transactie die aanleiding gaf tot de claim."
+                },
+                {
+                    "heading": "10. Wijzigingen in de voorwaarden",
+                    "body": "Wij kunnen deze Voorwaarden op elk moment bijwerken. We zullen ons best doen om gebruikers via het platform op de hoogte te stellen van materiële wijzigingen, maar het is uw verantwoordelijkheid om de Voorwaarden regelmatig te herzien. Als u het gebruik na wijzigingen voortzet, betekent dit dat u akkoord gaat met de herziene Voorwaarden."
+                },
+                {
+                    "heading": "11. Contactpersoon",
+                    "body": "Voor vragen over deze Voorwaarden kunt u contact met ons opnemen via legal{'@'}earnlumens.org."
+                }
+            ]
+        },
+        "privacy": {
+            "intro": "Dit privacybeleid beschrijft hoe EarnLumens uw persoonlijke gegevens verzamelt, gebruikt en beschermt.",
+            "sections": [
+                {
+                    "heading": "1. Informatie die we verzamelen",
+                    "body": "We verzamelen informatie die u rechtstreeks verstrekt (accountgegevens, profielinformatie) en informatie die wordt gegenereerd door uw gebruik van het platform (transactiegeschiedenis, kijkactiviteit, apparaatinformatie)."
+                },
+                {
+                    "heading": "2. Hoe wij uw gegevens gebruiken",
+                    "body": "Wij gebruiken uw gegevens om: onze diensten aan te bieden en te verbeteren, transacties te verwerken, met u te communiceren, de veiligheid van het platform te garanderen en te voldoen aan wettelijke verplichtingen."
+                },
+                {
+                    "heading": "3. Gegevens delen",
+                    "body": "Wij verkopen uw persoonlijke gegevens niet. We kunnen gegevens delen met dienstverleners die helpen bij het exploiteren van het platform, of wanneer dit wettelijk vereist is."
+                },
+                {
+                    "heading": "4. Gegevensbeveiliging",
+                    "body": "Wij implementeren commercieel redelijke veiligheidsmaatregelen om uw gegevens te beschermen. Geen enkele transmissiemethode via internet is echter 100% veilig en we kunnen geen absolute veiligheid garanderen."
+                },
+                {
+                    "heading": "5. Uw rechten",
+                    "body": "U kunt uw persoonlijke gegevens inzien, corrigeren of verzoeken om verwijdering door contact met ons op te nemen. Wij zullen redelijke inspanningen leveren om uw verzoek binnen een redelijke termijn te behandelen."
+                }
+            ]
+        }
+    }
+}

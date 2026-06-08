@@ -341,7 +341,8 @@
     "amharic": "ภาษาอัมฮารา",
     "pashto": "ภาษาพาชโต",
     "burmese": "ภาษาพม่า",
-    "odia": "โอเดีย"
+    "odia": "โอเดีย",
+    "dutch": "ดัตช์"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "อีเมลต้องถูกต้อง",

@@ -341,7 +341,8 @@
     "amharic": "amarico",
     "pashto": "pashtu",
     "burmese": "birmano",
-    "odia": "Odia"
+    "odia": "Odia",
+    "dutch": "Olandese"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "L'email deve essere valida",

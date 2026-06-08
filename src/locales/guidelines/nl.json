@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Contentrichtlijnen voor makers",
+    "subtitle": "Wat u op EarnLumens kunt publiceren en wat wij vermijden",
+    "lastUpdated": "Laatst bijgewerkt: {date}",
+    "intro": "EarnLumens is een financieel educatieplatform met een focus op het Stellar-ecosysteem. Er zijn twee regelslagen van toepassing op alles wat u publiceert: een niet-onderhandelbare platformbrede laag (fraude, schade, illegale content) die voor elke tenant hetzelfde is, en een tenantspecifieke laag die afhankelijk is van de marketplace waarop u publiceert.",
+    "platformSection": {
+      "heading": "Platformbrede regels",
+      "body": "Deze regels gelden voor iedere tenant op EarnLumens, ook deze. Ze kunnen niet door individuele marketplaces worden versoepeld en zijn er om de gemeenschap veilig te houden."
+    },
+    "tenantSection": {
+      "heading": "Tenantspecifieke regels",
+      "body": "Bovenop de bovenstaande platformregels kan elke tenant zijn eigen publicatienotities toevoegen, bijvoorbeeld op welke onderwerpen hij zich richt, de verwachte toon of specifieke formaten die hij accepteert.",
+      "placeholder": "Deze tenant heeft nog geen specifieke publicatieopmerkingen toegevoegd. Alleen de bovenstaande platformbrede regels zijn hier van toepassing."
+    },
+    "sanctionsSection": {
+      "heading": "Hoe sancties werken",
+      "body": "Als u de bovenstaande regels overtreedt, is dit precies wat er gebeurt. Voor elke tenant geldt dezelfde ladder: er zijn geen verborgen boetes."
+    },
+    "forCreators": {
+      "heading": "Voor makers",
+      "sections": [
+        {
+          "heading": "1. Wat je vrij kunt publiceren",
+          "body": "Het bereik van aanvaardbare onderwerpen is breed. Je hebt geen toestemming of een rigide format nodig:",
+          "items": [
+            "Educatie over het Stellar-netwerk (protocol, SCP, Soroban, SDK's, anchors, DEX) en XLM",
+            "Algemene financiële educatie: sparen, budgetteren, schulden, verantwoord beleggen, belastingen",
+            "Praktische tutorials, codedemo's, wallet en dApp walkthroughs",
+            "Eerlijke vergelijkingen tussen netwerken, wallets of protocollen, ook buiten Stellar, zolang de vergelijking informatief is",
+            "Persoonlijke meningen en analyses duidelijk geïdentificeerd als mening",
+            "Content in elke taal die door het platform wordt ondersteund"
+          ]
+        },
+        {
+          "heading": "2. Wat we altijd afwijzen",
+          "body": "Deze categorieën wijzen we zonder uitzondering af omdat ze de gemeenschap in gevaar brengen of illegaal zijn:",
+          "items": [
+            "Ponzi-schema's, piramidespelen, pump-and-dump, rug pulls of beloften met gegarandeerd rendement",
+            "Betaalde handelssignalen, koop-/verkoopaanbevelingen met specifieke bedragen of gepersonaliseerd financieel advies",
+            "Phishing, nep-airdrops, verzoeken om privésleutels, seedphrases of credentials, wallet drainers, gelijksoortige domeinen die Freighter / xBull / LOBSTR / SDF / exchanges imiteren",
+            "Nabootsing van of deepfakes van publieke figuren, projecten of EarnLumens / SDF – inclusief gesynthetiseerde audio of video die ten onrechte een goedkeuring suggereert",
+            "Verheerlijking van zelfmoord of zelfbeschadiging, methoden of instructies voor zelfverwonding, pro-anorexia of pro-boulimia-content (educatieve en herstelgerichte framing is toegestaan)",
+            "Aanzetten tot haat, intimidatie, discriminatie of het aanzetten tot geweld",
+            "Expliciete seksuele content, expliciet geweld of materiaal waarbij minderjarigen betrokken zijn",
+            "Duidelijk auteursrechtelijk beschermd materiaal zonder toestemming (muziek, video, boeken, software)",
+            "Persoonsgegevens van derden zonder hun toestemming",
+            "Duidelijke spam: onzinnige titels, massaal gedupliceerde content, lege schermen, AI-content zonder menselijke beoordeling"
+          ]
+        },
+        {
+          "heading": "3. Grijs gebied: mogelijk gaat het om handmatige beoordeling",
+          "body": "Deze cases worden niet automatisch afgewezen, maar kunnen worden beoordeeld door een menselijke moderator:",
+          "items": [
+            "Het vermelden van specifieke cryptocurrencies of tokens zonder duidelijke educatieve context",
+            "Promotie van uw eigen producten of diensten zonder deze als gesponsord te bestempelen",
+            "Beweringen over prestaties uit het verleden zonder verifieerbare bron",
+            "Zeer korte content of lage technische kwaliteit waardoor de waarde ervan moeilijk te beoordelen is"
+          ]
+        },
+        {
+          "heading": "4. Best practices (aanbevolen, niet verplicht)",
+          "body": "Dit zijn geen goedkeuringsvereisten, maar ze zorgen ervoor dat uw content beter wordt ontvangen en dat er minder moderatieproblemen optreden:",
+          "items": [
+            "Gebruik een beschrijvende titel zonder misleidende clickbait",
+            "Vermeld bronnen bij het gebruik van data, statistieken of cijfers",
+            "Maak duidelijk dat de content educatief is en geen gepersonaliseerd financieel advies",
+            "Vermeld dit als u een belangrijke positie inneemt in een actief dat u bespreekt",
+            "Label gesponsorde of partnercontent",
+            "Voor Stellar-portefeuilles, DEX's en tools geven wij de voorkeur aan de versies die bij https://stellar.org/ecosystem worden vermeld als betrouwbare referentie, maar u mag anderen vermelden zolang u geen fraude promoot"
+          ]
+        }
+      ]
+    },
+    "footer": "Deze richtlijnen kunnen worden bijgewerkt. Het doel is een veilige onderwijsruimte: we wijzen schadelijke content af, geen andere ideeën. Als u van mening bent dat een afwijzing oneerlijk was, kunt u de aanvraag herzien en opnieuw indienen, of een handmatige beoordeling aanvragen bij het tenantsteam."
+  }
+}
