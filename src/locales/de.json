@@ -336,7 +336,8 @@
     "tamil": "Tamil",
     "tibetan": "Tibetisch",
     "thai": "Thailändisch",
-    "kannada": "Kannada"
+    "kannada": "Kannada",
+    "gujarati": "Gujarati"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-Mail muss gültig sein",

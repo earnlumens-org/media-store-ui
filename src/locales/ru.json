@@ -336,7 +336,8 @@
     "tamil": "Тамильский",
     "tibetan": "Тибетский",
     "thai": "Тайский",
-    "kannada": "Каннада"
+    "kannada": "Каннада",
+    "gujarati": "гуджарати"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Электронная почта должна быть действительной",

@@ -336,7 +336,8 @@
     "tamil": "तमिळ",
     "tibetan": "तिबेटी",
     "thai": "थाई",
-    "kannada": "कन्नड"
+    "kannada": "कन्नड",
+    "gujarati": "गुजराती"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ईमेल वैध असणे आवश्यक आहे",

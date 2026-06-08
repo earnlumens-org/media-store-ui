@@ -336,7 +336,8 @@
     "tamil": "泰米尔语",
     "tibetan": "藏语",
     "thai": "泰语",
-    "kannada": "卡纳达语"
+    "kannada": "卡纳达语",
+    "gujarati": "古吉拉特语"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "电子邮件必须有效",
