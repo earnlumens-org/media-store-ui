@@ -339,7 +339,8 @@
     "kannada": "Tiếng Kannada",
     "gujarati": "tiếng Gujarat",
     "amharic": "tiếng Amhara",
-    "pashto": "tiếng Pashto"
+    "pashto": "tiếng Pashto",
+    "burmese": "tiếng Miến Điện"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email phải hợp lệ",

@@ -339,7 +339,8 @@
     "kannada": "कन्नड",
     "gujarati": "गुजराती",
     "amharic": "अम्हारिक",
-    "pashto": "पश्तो"
+    "pashto": "पश्तो",
+    "burmese": "बर्मी"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ईमेल वैध असणे आवश्यक आहे",

@@ -339,7 +339,8 @@
     "kannada": "Kannada",
     "gujarati": "Gujarati",
     "amharic": "Amharisch",
-    "pashto": "Paschtu"
+    "pashto": "Paschtu",
+    "burmese": "Birmanisch"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-Mail muss gültig sein",

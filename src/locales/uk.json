@@ -339,7 +339,8 @@
     "kannada": "Каннада",
     "gujarati": "гуджараті",
     "amharic": "амхарська",
-    "pashto": "пушту"
+    "pashto": "пушту",
+    "burmese": "бірманська"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Електронна пошта повинна бути дійсною",

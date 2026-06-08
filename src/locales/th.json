@@ -339,7 +339,8 @@
     "kannada": "ภาษากันนาดา",
     "gujarati": "คุชราตี",
     "amharic": "ภาษาอัมฮารา",
-    "pashto": "ภาษาพาชโต"
+    "pashto": "ภาษาพาชโต",
+    "burmese": "ภาษาพม่า"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "อีเมลต้องถูกต้อง",

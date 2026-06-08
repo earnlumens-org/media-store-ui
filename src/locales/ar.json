@@ -339,7 +339,8 @@
     "kannada": "الكانادية",
     "gujarati": "الغوجاراتية",
     "amharic": "الأمهرية",
-    "pashto": "البشتوية"
+    "pashto": "البشتوية",
+    "burmese": "البورمية"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "يجب أن يكون البريد الإلكتروني صالحًا",

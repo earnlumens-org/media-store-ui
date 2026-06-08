@@ -339,7 +339,8 @@
     "kannada": "কন্নড়",
     "gujarati": "গুজরাটি",
     "amharic": "আমহারিক",
-    "pashto": "পশতু"
+    "pashto": "পশতু",
+    "burmese": "বার্মিজ"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ইমেইল বৈধ হতে হবে",

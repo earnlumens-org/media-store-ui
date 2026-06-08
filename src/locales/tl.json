@@ -339,7 +339,8 @@
     "kannada": "Kannada",
     "gujarati": "Gujarati",
     "amharic": "Amharic",
-    "pashto": "Pashto"
+    "pashto": "Pashto",
+    "burmese": "Burmese"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Ang email ay dapat na wasto",

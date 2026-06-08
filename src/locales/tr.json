@@ -339,7 +339,8 @@
     "kannada": "Kannada",
     "gujarati": "Guceratça",
     "amharic": "Amharca",
-    "pashto": "Peştuca"
+    "pashto": "Peştuca",
+    "burmese": "Birmanca"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-posta geçerli olmalıdır",

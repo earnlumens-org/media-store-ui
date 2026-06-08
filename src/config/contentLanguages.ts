@@ -43,4 +43,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'gu', title: 'ગુજરાતી — Gujarati' },
   { value: 'am', title: 'አማርኛ — Amharic' },
   { value: 'ps', title: 'پښتو — Pashto' },
+  { value: 'my', title: 'မြန်မာ — Burmese' },
 ] as const
