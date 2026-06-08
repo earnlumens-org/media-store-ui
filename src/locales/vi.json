@@ -337,7 +337,8 @@
     "tibetan": "Tiếng Tây Tạng",
     "thai": "Tiếng Thái",
     "kannada": "Tiếng Kannada",
-    "gujarati": "tiếng Gujarat"
+    "gujarati": "tiếng Gujarat",
+    "amharic": "tiếng Amhara"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email phải hợp lệ",

@@ -41,4 +41,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'th', title: 'ไทย — Thai' },
   { value: 'kn', title: 'ಕನ್ನಡ — Kannada' },
   { value: 'gu', title: 'ગુજરાતી — Gujarati' },
+  { value: 'am', title: 'አማርኛ — Amharic' },
 ] as const

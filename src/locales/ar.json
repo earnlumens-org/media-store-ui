@@ -337,7 +337,8 @@
     "tibetan": "التبتية",
     "thai": "التايلاندية",
     "kannada": "الكانادية",
-    "gujarati": "الغوجاراتية"
+    "gujarati": "الغوجاراتية",
+    "amharic": "الأمهرية"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "يجب أن يكون البريد الإلكتروني صالحًا",

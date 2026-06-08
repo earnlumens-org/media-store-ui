@@ -337,7 +337,8 @@
     "tibetan": "チベット語",
     "thai": "タイ語",
     "kannada": "カンナダ語",
-    "gujarati": "グジャラート語"
+    "gujarati": "グジャラート語",
+    "amharic": "アムハラ語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "メールが有効である必要があります",

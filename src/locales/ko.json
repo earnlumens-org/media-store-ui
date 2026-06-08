@@ -337,7 +337,8 @@
     "tibetan": "티베트어",
     "thai": "태국어",
     "kannada": "칸나다어",
-    "gujarati": "구자라트어"
+    "gujarati": "구자라트어",
+    "amharic": "암하라어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

@@ -337,7 +337,8 @@
     "tibetan": "Tibetano",
     "thai": "Tailandês",
     "kannada": "Canará",
-    "gujarati": "guzerate"
+    "gujarati": "guzerate",
+    "amharic": "amárico"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "O e-mail deve ser válido",

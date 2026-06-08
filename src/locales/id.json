@@ -337,7 +337,8 @@
     "tibetan": "Bahasa Tibet",
     "thai": "Thai",
     "kannada": "Kannada",
-    "gujarati": "Gujarati"
+    "gujarati": "Gujarati",
+    "amharic": "Amharik"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email harus valid",
