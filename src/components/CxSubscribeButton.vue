@@ -29,6 +29,7 @@
     v-bind="$attrs"
     :aria-label="t('Common.edit')"
     :block="variant === 'block'"
+    class="cx-sub-label-btn"
     color="primary"
     prepend-icon="mdi-pencil-outline"
     rounded="pill"
@@ -57,6 +58,7 @@
     v-bind="$attrs"
     :aria-label="ariaLabel"
     :block="variant === 'block'"
+    class="cx-sub-label-btn"
     :color="isSub ? undefined : 'primary'"
     :loading="toggling"
     :prepend-icon="isSub ? 'mdi-bell-check' : 'mdi-bell-plus-outline'"
@@ -152,3 +154,23 @@
     }
   }
 </script>
+
+<style scoped>
+  /* Let the label wrap instead of overflowing the button — handles long-locale
+     labels (Tamil, Odia, Burmese, …) and scripts without spaces. The button
+     grows in height with its content and never exceeds its container width. */
+  .cx-sub-label-btn {
+    height: auto;
+    min-height: var(--v-btn-height);
+    max-width: 100%;
+  }
+
+  .cx-sub-label-btn :deep(.v-btn__content) {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.2;
+    padding-block: 4px;
+  }
+</style>
+

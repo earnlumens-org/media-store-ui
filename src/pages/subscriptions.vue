@@ -90,7 +90,7 @@
               </div>
             </div>
             <CxSubscribeButton
-              class="mt-1 subscribe-btn"
+              class="mt-1"
               size="small"
               :target-user-id="item.userId"
               variant="block"
@@ -192,22 +192,4 @@
     fetchSubscriptions()
   })
 </script>
-
-<style scoped>
-  /* Let the subscribe button label wrap on narrow cards / long-locale labels
-     (e.g. Tamil, Odia) instead of overflowing the pill. The button height
-     grows with its content and the card adapts via the flex column. */
-  .subscribe-btn {
-    height: auto !important;
-    min-height: 28px;
-    max-width: 100%;
-  }
-
-  .subscribe-btn :deep(.v-btn__content) {
-    white-space: normal;
-    word-break: break-word;
-    line-height: 1.2;
-    padding-block: 4px;
-  }
-</style>
 
