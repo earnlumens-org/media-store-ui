@@ -338,7 +338,8 @@
     "thai": "ไทย",
     "kannada": "ภาษากันนาดา",
     "gujarati": "คุชราตี",
-    "amharic": "ภาษาอัมฮารา"
+    "amharic": "ภาษาอัมฮารา",
+    "pashto": "ภาษาพาชโต"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "อีเมลต้องถูกต้อง",

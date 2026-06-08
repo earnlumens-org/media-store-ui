@@ -42,4 +42,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'kn', title: 'ಕನ್ನಡ — Kannada' },
   { value: 'gu', title: 'ગુજરાતી — Gujarati' },
   { value: 'am', title: 'አማርኛ — Amharic' },
+  { value: 'ps', title: 'پښتو — Pashto' },
 ] as const

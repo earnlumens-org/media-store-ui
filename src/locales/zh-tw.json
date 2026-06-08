@@ -338,7 +338,8 @@
     "thai": "泰語",
     "kannada": "坎那達語",
     "gujarati": "古吉拉特語",
-    "amharic": "阿姆哈拉語"
+    "amharic": "阿姆哈拉語",
+    "pashto": "普什圖語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "電子郵件必須有效",

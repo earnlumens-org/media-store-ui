@@ -338,7 +338,8 @@
     "thai": "Thai",
     "kannada": "Kannada",
     "gujarati": "Gujarati",
-    "amharic": "Amharik"
+    "amharic": "Amharik",
+    "pashto": "Pashto"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email harus valid",
