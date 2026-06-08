@@ -340,7 +340,8 @@
     "gujarati": "gujarati",
     "amharic": "amarico",
     "pashto": "pashtu",
-    "burmese": "birmano"
+    "burmese": "birmano",
+    "odia": "Odia"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "L'email deve essere valida",

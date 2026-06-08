@@ -340,7 +340,8 @@
     "gujarati": "구자라트어",
     "amharic": "암하라어",
     "pashto": "파슈토어",
-    "burmese": "버마어"
+    "burmese": "버마어",
+    "odia": "오디아어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

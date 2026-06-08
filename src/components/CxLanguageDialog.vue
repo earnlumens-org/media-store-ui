@@ -61,6 +61,7 @@
           <v-radio :label="`አማርኛ (${$t('Language.amharic')})`" value="am" />
           <v-radio :label="`پښتو (${$t('Language.pashto')})`" value="ps" />
           <v-radio :label="`မြန်မာ (${$t('Language.burmese')})`" value="my" />
+          <v-radio :label="`ଓଡ଼ିଆ (${$t('Language.odia')})`" value="or" />
         </v-radio-group>
       </v-card-text>
 

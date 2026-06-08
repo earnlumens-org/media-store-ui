@@ -340,7 +340,8 @@
     "gujarati": "คุชราตี",
     "amharic": "ภาษาอัมฮารา",
     "pashto": "ภาษาพาชโต",
-    "burmese": "ภาษาพม่า"
+    "burmese": "ภาษาพม่า",
+    "odia": "โอเดีย"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "อีเมลต้องถูกต้อง",

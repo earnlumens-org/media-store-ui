@@ -340,7 +340,8 @@
     "gujarati": "গুজরাটি",
     "amharic": "আমহারিক",
     "pashto": "পশতু",
-    "burmese": "বার্মিজ"
+    "burmese": "বার্মিজ",
+    "odia": "ওড়িয়া"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ইমেইল বৈধ হতে হবে",

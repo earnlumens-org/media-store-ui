@@ -44,4 +44,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'am', title: 'አማርኛ — Amharic' },
   { value: 'ps', title: 'پښتو — Pashto' },
   { value: 'my', title: 'မြန်မာ — Burmese' },
+  { value: 'or', title: 'ଓଡ଼ିଆ — Odia' },
 ] as const

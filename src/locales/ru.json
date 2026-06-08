@@ -340,7 +340,8 @@
     "gujarati": "гуджарати",
     "amharic": "амхарский",
     "pashto": "пушту",
-    "burmese": "бирманский"
+    "burmese": "бирманский",
+    "odia": "Одиа"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Электронная почта должна быть действительной",
