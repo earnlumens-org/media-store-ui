@@ -535,6 +535,13 @@
                     </v-list-item>
                   </v-list>
                 </v-card>
+
+                <!-- Ratings & Reviews -->
+                <RatingSection
+                  :can-rate="canRateCollection"
+                  :target-id="collectionId"
+                  target-type="collection"
+                />
               </v-col>
             </v-row>
           </v-container>
@@ -582,6 +589,7 @@
   import AudioPlayerDialog from '@/components/entry/AudioPlayerDialog.vue'
   import EntryPreviewDialog from '@/components/entry/EntryPreviewDialog.vue'
   import ImageLightbox from '@/components/entry/ImageLightbox.vue'
+  import RatingSection from '@/components/rating/RatingSection.vue'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { isPopNavigation } from '@/router'
   import { useAppStore } from '@/stores/app'
@@ -651,6 +659,17 @@
   // Derive items + description from collection detail
   const items = computed<CollectionEntryItemModel[]>(() => collection.value?.items ?? [])
   const collectionDescription = computed(() => collection.value?.description || '')
+
+  /**
+   * Whether the current user may rate this collection. Mirrors the backend
+   * gate: authenticated, not the owner, and either free or already unlocked.
+   */
+  const canRateCollection = computed(() => {
+    const c = collection.value
+    if (!authStore.isAuthenticated || !c) return false
+    if (c.isOwner) return false
+    return !c.isPaid || !!c.unlocked
+  })
   const totalDurationSec = computed(() =>
     items.value.reduce((sum, item) => sum + (item.durationSec || 0), 0) || undefined,
   )

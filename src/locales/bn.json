@@ -866,5 +866,27 @@
     "successMessage": "আমাদের সম্প্রদায়কে নিরাপদ রাখতে সাহায্য করার জন্য ধন্যবাদ। আমরা শীঘ্রই এই রিপোর্ট পর্যালোচনা করব।",
     "alreadyReported": "আপনি ইতিমধ্যে এই কন্টেন্ট রিপোর্ট করেছেন।",
     "dailyLimitReached": "আপনি দৈনিক রিপোর্ট সীমাতে পৌঁছেছেন। আগামীকাল আবার চেষ্টা করুন।"
+  },
+  "rating": {
+    "yourRating": "Your rating",
+    "rateThis": "Rate this",
+    "starsValue": "{count} star | {count} stars",
+    "basedOn": "{count} rating | {count} ratings",
+    "verifiedAverage": "{value} from {count} verified",
+    "commentLabel": "Add a review (optional)",
+    "commentPlaceholder": "Share your experience to help others...",
+    "remove": "Remove",
+    "update": "Update",
+    "submit": "Submit",
+    "reviews": "Reviews",
+    "anonymous": "Anonymous",
+    "verifiedPurchase": "Verified purchase",
+    "loadMore": "Load more",
+    "saved": "Your rating was saved.",
+    "removed": "Your rating was removed.",
+    "purchaseRequired": "Purchase this content to rate it.",
+    "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
+    "ownContent": "You can't rate your own content.",
+    "error": "Something went wrong. Please try again."
   }
 }

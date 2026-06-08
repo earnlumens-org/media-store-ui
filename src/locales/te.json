@@ -866,5 +866,27 @@
     "successMessage": "మా సమాజాన్ని సురక్షితంగా ఉంచడంలో సహాయపడినందుకు ధన్యవాదాలు. మేము ఈ రిపోర్ట్‌ను త్వరలో సమీక్షిస్తాము.",
     "alreadyReported": "మీరు ఇప్పటికే ఈ కంటెంట్‌ను రిపోర్ట్ చేశారు.",
     "dailyLimitReached": "మీరు రోజువారీ రిపోర్ట్ పరిమితిని చేరుకున్నారు. దయచేసి రేపు మళ్ళీ ప్రయత్నించండి."
+  },
+  "rating": {
+    "yourRating": "Your rating",
+    "rateThis": "Rate this",
+    "starsValue": "{count} star | {count} stars",
+    "basedOn": "{count} rating | {count} ratings",
+    "verifiedAverage": "{value} from {count} verified",
+    "commentLabel": "Add a review (optional)",
+    "commentPlaceholder": "Share your experience to help others...",
+    "remove": "Remove",
+    "update": "Update",
+    "submit": "Submit",
+    "reviews": "Reviews",
+    "anonymous": "Anonymous",
+    "verifiedPurchase": "Verified purchase",
+    "loadMore": "Load more",
+    "saved": "Your rating was saved.",
+    "removed": "Your rating was removed.",
+    "purchaseRequired": "Purchase this content to rate it.",
+    "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
+    "ownContent": "You can't rate your own content.",
+    "error": "Something went wrong. Please try again."
   }
 }

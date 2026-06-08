@@ -386,6 +386,13 @@
                 </v-chip>
               </div>
 
+              <!-- Ratings & Reviews -->
+              <RatingSection
+                :can-rate="canRate"
+                :target-id="entryId"
+                target-type="entry"
+              />
+
               <!-- Mobile: Recommendations Section -->
               <div class="d-md-none mt-6">
                 <h2 class="text-subtitle-1 font-weight-bold mb-3">{{ $t('Common.upNext') }}</h2>
@@ -425,9 +432,11 @@
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import ShakaVideoPlayer from '@/components/media/ShakaVideoPlayer.vue'
+  import RatingSection from '@/components/rating/RatingSection.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
   import { cdnHlsUrl, cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { useAuthStore } from '@/stores/auth'
   import { usePurchasesStore } from '@/stores/purchases'
 
   // Lazy-load recommendations component (internal to this page)
@@ -438,6 +447,7 @@
   const route = useRoute()
   const router = useRouter()
   const purchasesStore = usePurchasesStore()
+  const authStore = useAuthStore()
 
   // Route param - cast to handle typed router union
   const entryId = computed(() => {
@@ -468,6 +478,17 @@
   // Real data from entry
   const description = computed(() => entry.value?.description ?? '')
   const tags = computed(() => entry.value?.tags ?? [])
+
+  /**
+   * Whether the current user may rate this entry. Mirrors the backend gate:
+   * authenticated, not the creator, and either the content is free or already
+   * unlocked/purchased. Ineligible users still see the aggregate + reviews.
+   */
+  const canRate = computed(() => {
+    if (!authStore.isAuthenticated || !entry.value) return false
+    if (entry.value.authorId && entry.value.authorId === authStore.user?.id) return false
+    return !entry.value.isPaid || purchasesStore.isUnlocked(entryId.value)
+  })
 
   // CDN URL for actual media content — HLS when transcoded, raw file fallback
   const mediaUrl = computed(() => {

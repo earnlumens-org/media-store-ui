@@ -866,5 +866,27 @@
     "successMessage": "Vielen Dank, dass Sie unsere Community sicher halten. Wir werden diese Meldung in Kürze überprüfen.",
     "alreadyReported": "Sie haben diesen Inhalt bereits gemeldet.",
     "dailyLimitReached": "Sie haben das tägliche Meldelimit erreicht. Versuchen Sie es morgen erneut."
+  },
+  "rating": {
+    "yourRating": "Your rating",
+    "rateThis": "Rate this",
+    "starsValue": "{count} star | {count} stars",
+    "basedOn": "{count} rating | {count} ratings",
+    "verifiedAverage": "{value} from {count} verified",
+    "commentLabel": "Add a review (optional)",
+    "commentPlaceholder": "Share your experience to help others...",
+    "remove": "Remove",
+    "update": "Update",
+    "submit": "Submit",
+    "reviews": "Reviews",
+    "anonymous": "Anonymous",
+    "verifiedPurchase": "Verified purchase",
+    "loadMore": "Load more",
+    "saved": "Your rating was saved.",
+    "removed": "Your rating was removed.",
+    "purchaseRequired": "Purchase this content to rate it.",
+    "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
+    "ownContent": "You can't rate your own content.",
+    "error": "Something went wrong. Please try again."
   }
 }

@@ -415,6 +415,13 @@
               </v-btn>
             </div>
 
+            <!-- Ratings & Reviews -->
+            <RatingSection
+              :can-rate="canRate"
+              :target-id="entryId"
+              target-type="entry"
+            />
+
             <!-- Mobile: Related Entries -->
             <div class="d-lg-none">
               <h2 class="text-subtitle-1 font-weight-bold mb-4">
@@ -496,10 +503,12 @@
   import { formatFileSize } from '@/api/types/upload.types'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
+  import RatingSection from '@/components/rating/RatingSection.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAppStore } from '@/stores/app'
+  import { useAuthStore } from '@/stores/auth'
   import { usePurchasesStore } from '@/stores/purchases'
 
   import ReadRecommendationsList from './ReadRecommendationsList.vue'
@@ -507,6 +516,7 @@
   const route = useRoute()
   const router = useRouter()
   const purchasesStore = usePurchasesStore()
+  const authStore = useAuthStore()
   const appStore = useAppStore()
   const { t, locale } = useI18n()
 
@@ -538,6 +548,13 @@
 
   // Real data from entry
   const tags = computed(() => entry.value?.tags ?? [])
+
+  /** Eligibility to rate — mirrors the backend gate (see watch page). */
+  const canRate = computed(() => {
+    if (!authStore.isAuthenticated || !entry.value) return false
+    if (entry.value.authorId && entry.value.authorId === authStore.user?.id) return false
+    return !entry.value.isPaid || purchasesStore.isUnlocked(entryId.value)
+  })
 
   // Whether the entry has article text content
   const hasResourceContent = computed(() => {

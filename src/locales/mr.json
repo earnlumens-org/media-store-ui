@@ -866,5 +866,27 @@
     "successMessage": "आमचा समुदाय सुरक्षित ठेवण्यात मदत केल्याबद्दल धन्यवाद. आम्ही या अहवालाचे लवकरच पुनरावलोकन करू.",
     "alreadyReported": "तुम्ही आधीच या सामग्रीचा अहवाल दिला आहे.",
     "dailyLimitReached": "तुम्ही दैनिक अहवाल मर्यादेपर्यंत पोहोचला आहात. कृपया उद्या पुन्हा प्रयत्न करा."
+  },
+  "rating": {
+    "yourRating": "Your rating",
+    "rateThis": "Rate this",
+    "starsValue": "{count} star | {count} stars",
+    "basedOn": "{count} rating | {count} ratings",
+    "verifiedAverage": "{value} from {count} verified",
+    "commentLabel": "Add a review (optional)",
+    "commentPlaceholder": "Share your experience to help others...",
+    "remove": "Remove",
+    "update": "Update",
+    "submit": "Submit",
+    "reviews": "Reviews",
+    "anonymous": "Anonymous",
+    "verifiedPurchase": "Verified purchase",
+    "loadMore": "Load more",
+    "saved": "Your rating was saved.",
+    "removed": "Your rating was removed.",
+    "purchaseRequired": "Purchase this content to rate it.",
+    "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
+    "ownContent": "You can't rate your own content.",
+    "error": "Something went wrong. Please try again."
   }
 }

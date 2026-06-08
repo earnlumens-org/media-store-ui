@@ -30,6 +30,7 @@ import {
 import { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
 import { preparePayment, submitPayment } from './modules/payment.api'
 import { getPurchaseCollections, getPurchasedFeed, getPurchases } from './modules/purchase.api'
+import { deleteRating, getMyRating, getRatings, getRatingSummary, submitRating } from './modules/rating.api'
 import { getSellerSales } from './modules/sales.api'
 import { getSpaceFeed, listSidebarSpaces } from './modules/spaces.api'
 import { checkSubscription, getMySubscriberCount, getMySubscribers, getMySubscriptions, getPublicSubscriberCount, subscribe, unsubscribe } from './modules/subscription.api'
@@ -89,6 +90,13 @@ export const api = {
     list: getPurchases,
     collections: getPurchaseCollections,
     feed: getPurchasedFeed,
+  },
+  ratings: {
+    get: getRatings,
+    summary: getRatingSummary,
+    submit: submitRating,
+    remove: deleteRating,
+    mine: getMyRating,
   },
   collections: {
     getPublished: getPublishedCollections,

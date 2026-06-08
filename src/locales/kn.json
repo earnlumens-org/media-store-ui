@@ -866,5 +866,27 @@
     "successMessage": "ನಮ್ಮ ಸಮುದಾಯವನ್ನು ಸುರಕ್ಷಿತವಾಗಿರಿಸಲು ಸಹಾಯ ಮಾಡಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು. ನಾವು ಈ ವರದಿಯನ್ನು ಶೀಘ್ರದಲ್ಲಿ ಪರಿಶೀಲಿಸುತ್ತೇವೆ.",
     "alreadyReported": "ನೀವು ಈಗಾಗಲೇ ಈ ವಿಷಯವನ್ನು ವರದಿ ಮಾಡಿದ್ದೀರಿ.",
     "dailyLimitReached": "ನೀವು ದೈನಂದಿನ ವರದಿ ಮಿತಿಯನ್ನು ತಲುಪಿದ್ದೀರಿ. ದಯವಿಟ್ಟು ನಾಳೆ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+  },
+  "rating": {
+    "yourRating": "Your rating",
+    "rateThis": "Rate this",
+    "starsValue": "{count} star | {count} stars",
+    "basedOn": "{count} rating | {count} ratings",
+    "verifiedAverage": "{value} from {count} verified",
+    "commentLabel": "Add a review (optional)",
+    "commentPlaceholder": "Share your experience to help others...",
+    "remove": "Remove",
+    "update": "Update",
+    "submit": "Submit",
+    "reviews": "Reviews",
+    "anonymous": "Anonymous",
+    "verifiedPurchase": "Verified purchase",
+    "loadMore": "Load more",
+    "saved": "Your rating was saved.",
+    "removed": "Your rating was removed.",
+    "purchaseRequired": "Purchase this content to rate it.",
+    "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
+    "ownContent": "You can't rate your own content.",
+    "error": "Something went wrong. Please try again."
   }
 }

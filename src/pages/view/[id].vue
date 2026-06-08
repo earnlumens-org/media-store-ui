@@ -394,6 +394,13 @@
                 </v-chip>
               </div>
 
+              <!-- Ratings & Reviews -->
+              <RatingSection
+                :can-rate="canRate"
+                :target-id="entryId"
+                target-type="entry"
+              />
+
               <!-- Mobile: Recommendations Section -->
               <div class="d-md-none mt-6">
                 <h2 class="text-subtitle-1 font-weight-bold mb-4">
@@ -436,9 +443,11 @@
   import { api } from '@/api/api'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
+  import RatingSection from '@/components/rating/RatingSection.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { useAuthStore } from '@/stores/auth'
   import { usePurchasesStore } from '@/stores/purchases'
 
   import ImageRecommendationsList from './ImageRecommendationsList.vue'
@@ -446,6 +455,7 @@
   const route = useRoute()
   const router = useRouter()
   const purchasesStore = usePurchasesStore()
+  const authStore = useAuthStore()
 
   // Route param
   const entryId = computed(() => {
@@ -487,6 +497,13 @@
 
   /** Description from the real entry data */
   const description = computed(() => entry.value?.description ?? '')
+
+  /** Eligibility to rate — mirrors the backend gate (see watch page). */
+  const canRate = computed(() => {
+    if (!authStore.isAuthenticated || !entry.value) return false
+    if (entry.value.authorId && entry.value.authorId === authStore.user?.id) return false
+    return !entry.value.isPaid || purchasesStore.isUnlocked(entryId.value)
+  })
 
   /** Tags from the real entry data */
   const tags = computed(() => entry.value?.tags ?? [])
