@@ -27,6 +27,7 @@
   import xIcon from '@/assets/twitterx.svg?raw'
 
   import { useAppStore } from '@/stores/app'
+  import { useFranchiseStore } from '@/stores/franchise'
   import { usePurchasesStore } from '@/stores/purchases'
   import { useWalletStore } from '@/stores/wallet'
 
@@ -64,6 +65,7 @@
   const emit = defineEmits<Emits>()
 
   const appStore = useAppStore()
+  const franchiseStore = useFranchiseStore()
   const purchasesStore = usePurchasesStore()
   const walletStore = useWalletStore()
 
@@ -211,10 +213,11 @@
 
       // 2. Prepare — backend builds unsigned Stellar tx
       const isCollection = props.item.type === 'collection'
-      const prepared = await api.payment.prepare(buyerWallet, isCollection
-        ? { collectionId: props.item.id }
-        : { entryId: props.item.id },
-      )
+      const franchiseSlug = franchiseStore.slug ?? undefined
+      const prepared = await api.payment.prepare(buyerWallet, {
+        ...(isCollection ? { collectionId: props.item.id } : { entryId: props.item.id }),
+        ...(franchiseSlug ? { franchiseSlug } : {}),
+      })
 
       // Store the resolved XLM amount (backend computed for USD entries)
       resolvedXlmAmount.value = prepared.totalXlm

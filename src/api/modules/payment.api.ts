@@ -29,12 +29,13 @@ const BASE_PATH = '/api/payments'
  */
 export async function preparePayment (
   buyerWallet: string,
-  options: { entryId?: string, collectionId?: string },
+  options: { entryId?: string, collectionId?: string, franchiseSlug?: string },
 ): Promise<PreparePaymentModel> {
   const body: PreparePaymentRequestDto = {
     entryId: options.entryId,
     collectionId: options.collectionId,
     buyerWallet,
+    ...(options.franchiseSlug ? { franchiseSlug: options.franchiseSlug } : {}),
   }
   const d = await apiRequest<PreparePaymentResponseDto>(
     `${BASE_PATH}/prepare`,

@@ -161,6 +161,25 @@
                     </template>
                   </v-list-item>
 
+                  <template v-if="showFranchiseLink">
+                    <v-divider class="my-2" />
+
+                    <v-list-item
+                      prepend-icon="mdi-handshake-outline"
+                      to="/my-franchise"
+                    >
+                      <v-list-item-title class="font-weight-medium">
+                        {{ $t('Account.myFranchise') }}
+                      </v-list-item-title>
+                      <v-list-item-subtitle>
+                        {{ $t('Account.myFranchiseHint') }}
+                      </v-list-item-subtitle>
+                      <template #append>
+                        <v-icon size="small">mdi-chevron-right</v-icon>
+                      </template>
+                    </v-list-item>
+                  </template>
+
                   <v-divider class="my-2" />
 
                   <v-list-item
@@ -374,6 +393,11 @@
   const activeBadge = ref<BadgeAssignment | null>(null)
   const activeBadgeSrc = ref<string | undefined>(undefined)
 
+  // Franchise self-service entry point — only surfaced when the current
+  // storefront has the franchise model enabled (so it is hidden for the vast
+  // majority of tenants). The link target gates everything else server-side.
+  const showFranchiseLink = ref(false)
+
   function formatDate (iso: string): string {
     try {
       return new Date(iso).toLocaleDateString(locale.value, {
@@ -463,15 +487,27 @@
     }
   }
 
+  async function fetchFranchiseEligibility () {
+    try {
+      const cfg = await api.franchises.config()
+      showFranchiseLink.value = cfg.franchisesEnabled
+    } catch {
+      // Not eligible / not logged in — keep the entry hidden.
+      showFranchiseLink.value = false
+    }
+  }
+
   onMounted(() => {
     fetchUser()
     fetchBadges()
+    fetchFranchiseEligibility()
   })
 
   watch(() => appStore.refreshKey, () => {
     window.scrollTo(0, 0)
     fetchUser()
     fetchBadges()
+    fetchFranchiseEligibility()
   })
 </script>
 

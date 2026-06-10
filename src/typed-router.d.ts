@@ -29,18 +29,21 @@ declare module 'vue-router/auto-routes' {
     '/SalesHistory': RouteRecordInfo<'/SalesHistory', '/creator-studio/sales', Record<never, never>, Record<never, never>>,
     '/SubscribersList': RouteRecordInfo<'/SubscribersList', '/creator-studio/subscribers', Record<never, never>, Record<never, never>>,
     '/Explore': RouteRecordInfo<'/Explore', '/explore', Record<never, never>, Record<never, never>>,
+    '/f/[slug]': RouteRecordInfo<'/f/[slug]', '/f/:slug', { slug: ParamValue<true> }, { slug: ParamValue<false> }>,
     '/Favorites': RouteRecordInfo<'/Favorites', '/favorites', Record<never, never>, Record<never, never>>,
     '/Featured': RouteRecordInfo<'/Featured', '/featured', Record<never, never>, Record<never, never>>,
     '/feed/[...path]': RouteRecordInfo<'/feed/[...path]', '/feed/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
     '/Guidelines': RouteRecordInfo<'/Guidelines', '/guidelines', Record<never, never>, Record<never, never>>,
     '/listen/[id]': RouteRecordInfo<'/listen/[id]', '/listen/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/listen/AudioRecommendationsList': RouteRecordInfo<'/listen/AudioRecommendationsList', '/listen/AudioRecommendationsList', Record<never, never>, Record<never, never>>,
+    '/MyFranchise': RouteRecordInfo<'/MyFranchise', '/my-franchise', Record<never, never>, Record<never, never>>,
     'AuthXCallback': RouteRecordInfo<'AuthXCallback', '/oauth2/callback', Record<never, never>, Record<never, never>>,
     '/preview/[id]': RouteRecordInfo<'/preview/[id]', '/preview/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/Privacy': RouteRecordInfo<'/Privacy', '/privacy', Record<never, never>, Record<never, never>>,
     '/Purchased': RouteRecordInfo<'/Purchased', '/purchased', Record<never, never>, Record<never, never>>,
     '/read/[id]': RouteRecordInfo<'/read/[id]', '/read/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
     '/read/ReadRecommendationsList': RouteRecordInfo<'/read/ReadRecommendationsList', '/read/ReadRecommendationsList', Record<never, never>, Record<never, never>>,
+    '/Results': RouteRecordInfo<'/Results', '/results', Record<never, never>, Record<never, never>>,
     '/section/[...path]': RouteRecordInfo<'/section/[...path]', '/section/:path(.*)', { path: ParamValue<true> }, { path: ParamValue<false> }>,
     '/spaces/[spaceId]': RouteRecordInfo<'/spaces/[spaceId]', '/spaces/:spaceId', { spaceId: ParamValue<true> }, { spaceId: ParamValue<false> }>,
     '/subscriptions': RouteRecordInfo<'/subscriptions', '/subscriptions', Record<never, never>, Record<never, never>>,
@@ -111,6 +114,10 @@ declare module 'vue-router/auto-routes' {
       routes: '/Explore'
       views: never
     }
+    'src/pages/f/[slug].vue': {
+      routes: '/f/[slug]'
+      views: never
+    }
     'src/pages/Favorites.vue': {
       routes: '/Favorites'
       views: never
@@ -135,6 +142,10 @@ declare module 'vue-router/auto-routes' {
       routes: '/listen/AudioRecommendationsList'
       views: never
     }
+    'src/pages/MyFranchise.vue': {
+      routes: '/MyFranchise'
+      views: never
+    }
     'src/pages/oauth2/callback.vue': {
       routes: 'AuthXCallback'
       views: never
@@ -157,6 +168,10 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/read/ReadRecommendationsList.vue': {
       routes: '/read/ReadRecommendationsList'
+      views: never
+    }
+    'src/pages/Results.vue': {
+      routes: '/Results'
       views: never
     }
     'src/pages/section/[...path].vue': {

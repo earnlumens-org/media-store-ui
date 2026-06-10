@@ -10,6 +10,8 @@
 export interface PreparePaymentRequestDto {
   entryId?: string
   collectionId?: string
+  /** Slug of the franchise storefront the sale happened on, when on /f/:slug. */
+  franchiseSlug?: string
   buyerWallet: string
 }
 

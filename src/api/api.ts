@@ -20,6 +20,15 @@ import {
 } from './modules/collection.api'
 import { archiveEntry, deleteEntry, getCreatorDashboardStats, getCreatorEntries, getStudioItems, restoreDeletedEntry, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
 import { getExploreFeed, getProfileFeed, getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
+import { getPublicFranchise, listPublicFranchises } from './modules/franchise.api'
+import {
+  createFranchise,
+  getFranchiseConfig,
+  listMyFranchises,
+  presignFranchiseImage,
+  updateMyFranchise,
+  uploadFranchiseImage,
+} from './modules/franchise.api'
 import {
   getMockCollectionById,
   getMockCollections,
@@ -145,6 +154,18 @@ export const api = {
     query: search,
     suggestions: getSuggestions,
   },
+  /** Public franchise storefronts under the resolved tenant. */
+  franchises: {
+    list: listPublicFranchises,
+    getBySlug: getPublicFranchise,
+    // Authenticated franchisee self-service.
+    config: getFranchiseConfig,
+    mine: listMyFranchises,
+    create: createFranchise,
+    updateMine: updateMyFranchise,
+    presignImage: presignFranchiseImage,
+    uploadImage: uploadFranchiseImage,
+  },
   /** Mock API — still used by the entry/collection lightboxes. */
   mock: {
     getFeed: getMockFeed,
@@ -176,6 +197,8 @@ export {
 } from './modules/collection.api'
 export { archiveEntry, deleteEntry, getCreatorDashboardStats, getCreatorEntries, getStudioItems, restoreDeletedEntry, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
 export { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
+export { createFranchise, getFranchiseConfig, getPublicFranchise, listMyFranchises, listPublicFranchises, presignFranchiseImage, updateMyFranchise, uploadFranchiseImage } from './modules/franchise.api'
+export type { CreateFranchisePayload, FranchiseConfigDto, FranchiseImageSlot, FranchiseImageUploadInit, ManagedFranchiseDto, PublicFranchiseDto, UpdateFranchisePayload } from './modules/franchise.api'
 export {
   getMockCollectionById,
   getMockCollections,

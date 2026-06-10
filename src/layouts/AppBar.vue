@@ -35,6 +35,16 @@
         v-html="logoSvg"
       />
       <v-toolbar-title v-if="showBrandText"><b class="pl-1 font-weight-bold text-button">{{ brandLabel }}</b></v-toolbar-title>
+      <v-chip
+        v-if="franchiseActive"
+        class="ml-2 hidden-sm-and-down"
+        color="primary"
+        prepend-icon="mdi-check-decagram"
+        size="small"
+        variant="tonal"
+      >
+        {{ $t('Franchise.officialOf', { tenant: franchiseTenantName }) }}
+      </v-chip>
     </div>
 
     <div style="display: flex; flex: 1; justify-content: flex-end; align-items: center;">
@@ -258,6 +268,7 @@
   import CxSearchDialog from '@/components/CxSearchDialog.vue'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
+  import { useFranchiseStore } from '@/stores/franchise'
   import { useTenantStore } from '@/stores/tenant'
 
   const logoSvg = logo
@@ -269,18 +280,38 @@
   const appStore = useAppStore()
   const authStore = useAuthStore()
   const tenantStore = useTenantStore()
+  const franchiseStore = useFranchiseStore()
   const theme = useTheme()
   const { mobileView, windowWidth } = storeToRefs(appStore)
   const { isAuthenticated: loggedIn, isAuthReady } = storeToRefs(authStore)
   const { brandText, brandTextHidden } = storeToRefs(tenantStore)
-  const { logoUrl: lightLogoUrl, logoUrlDark: darkLogoUrl } = storeToRefs(tenantStore)
+  const { logoUrl: tenantLightLogo, logoUrlDark: tenantDarkLogo } = storeToRefs(tenantStore)
+  const {
+    isActive: franchiseActive,
+    brandText: franchiseBrand,
+    logoUrl: franchiseLogo,
+  } = storeToRefs(franchiseStore)
+
+  // When a franchise sub-storefront is active its branding overrides the
+  // tenant's; otherwise the plain tenant logos are used. The franchise ships
+  // a single logo used in both light and dark modes.
+  const lightLogoUrl = computed(() =>
+    franchiseActive.value && franchiseLogo.value ? franchiseLogo.value : tenantLightLogo.value,
+  )
+  const darkLogoUrl = computed(() =>
+    franchiseActive.value && franchiseLogo.value ? franchiseLogo.value : tenantDarkLogo.value,
+  )
 
   /**
-   * Storefront brand label rendered next to the logo. Falls back to the
-   * hardcoded EARNLUMENS so the UI never goes blank if the tenant probe
-   * has not resolved yet (or returned no override for the platform root).
+   * Storefront brand label rendered next to the logo. An active franchise
+   * title wins, then the tenant override, then the hardcoded EARNLUMENS so
+   * the UI never goes blank if the tenant probe has not resolved yet.
    */
-  const brandLabel = computed(() => brandText.value ?? 'EARNLUMENS')
+  const brandLabel = computed(
+    () => (franchiseActive.value && franchiseBrand.value) || brandText.value || 'EARNLUMENS',
+  )
+  /** Name of the franchisor tenant, shown in the "official franchise of" badge. */
+  const franchiseTenantName = computed(() => brandText.value ?? 'EarnLumens')
   /**
    * When the tenant has flipped on logo-only mode the AppBar hides the
    * text entirely. brandTextHidden is read from the visitor probe so the

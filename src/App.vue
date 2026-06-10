@@ -73,6 +73,7 @@
   import { globalSnackbar, globalSnackbarColor, globalSnackbarMessage } from '@/services/globalNotification'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
+  import { useFranchiseStore } from '@/stores/franchise'
   import { useTenantStore } from '@/stores/tenant'
 
   const globalSnack = globalSnackbar
@@ -82,6 +83,7 @@
   const app = useAppStore()
   const authStore = useAuthStore()
   const tenantStore = useTenantStore()
+  const franchiseStore = useFranchiseStore()
   const theme = useTheme()
 
   // Resolve the visitor's tenant context as early as possible. Any
@@ -206,4 +208,28 @@
   onBeforeUnmount(() => {
     window.removeEventListener('resize', updateWindowWidth)
   })
+
+  // Franchise accent-colour override. While a franchise sub-storefront is the
+  // active context (route /f/:slug) the franchise's accent colour replaces the
+  // active Vuetify theme's `primary` so buttons, links and the brand badge
+  // match the franchise. The original colour is captured per theme and
+  // restored the moment the franchise context is cleared.
+  const originalPrimary = new Map<string, string>()
+  watch(
+    () => [franchiseStore.isActive, franchiseStore.accentColor, theme.global.name.value] as const,
+    ([active, accent, themeName]) => {
+      const themeDef = theme.themes.value[themeName]
+      if (!themeDef) return
+      if (active && accent) {
+        if (!originalPrimary.has(themeName)) {
+          originalPrimary.set(themeName, themeDef.colors.primary)
+        }
+        themeDef.colors.primary = accent
+      } else if (originalPrimary.has(themeName)) {
+        themeDef.colors.primary = originalPrimary.get(themeName)!
+        originalPrimary.delete(themeName)
+      }
+    },
+    { immediate: true },
+  )
 </script>
