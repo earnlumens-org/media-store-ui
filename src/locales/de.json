@@ -487,6 +487,7 @@
       "submitting": "Wird eingereicht...",
       "saveDraft": "Entwurf speichern",
       "cancel": "Abbrechen",
+      "cancelUpload": "Upload abbrechen",
       "goToStudio": "Zum Creator Studio",
       "uploadAnother": "Weiteren Inhalt hochladen"
     },
@@ -507,7 +508,8 @@
       "finalizingUpload": "Upload wird abgeschlossen...",
       "uploadComplete": "Upload abgeschlossen!",
       "creatingEntry": "Eintrag wird erstellt...",
-      "submittingForReview": "Wird zur Prüfung eingereicht..."
+      "submittingForReview": "Wird zur Prüfung eingereicht...",
+      "retrying": "Verbindungsproblem — neuer Versuch (Versuch {attempt})..."
     },
     "errors": {
       "uploadFailed": "Upload fehlgeschlagen. Bitte versuche es erneut.",
@@ -516,8 +518,14 @@
       "noFullAsset": "Bitte lade die vollständige Inhaltsdatei hoch, bevor du einreichst.",
       "unexpectedError": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.",
       "uploadsDisabled": "Uploads sind deaktiviert",
-      "uploadsDisabledHelp": "Der Tenant-Inhaber hat neue Uploads vorübergehend deaktiviert. Bitte versuchen Sie es später erneut."
+      "uploadsDisabledHelp": "Der Tenant-Inhaber hat neue Uploads vorübergehend deaktiviert. Bitte versuchen Sie es später erneut.",
+      "networkError": "Verbindungsproblem während des Uploads. Prüfe deine Internetverbindung und versuche es erneut — fertige Dateien bleiben erhalten.",
+      "fileTooLargeServer": "Diese Datei überschreitet die maximal zulässige Größe.",
+      "unsupportedFileType": "Dieser Dateityp wird nicht unterstützt.",
+      "rateLimited": "Zu viele Anfragen. Bitte warte einen Moment und versuche es erneut.",
+      "uploadCancelled": "Upload abgebrochen."
     },
+    "leaveWarning": "Ein Upload läuft. Wenn du jetzt gehst, wird er abgebrochen. Trotzdem verlassen?",
     "success": {
       "entryCreated": "Eintrag als Entwurf erstellt",
       "uploadComplete": "Datei erfolgreich hochgeladen",

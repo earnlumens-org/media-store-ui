@@ -487,6 +487,7 @@
       "submitting": "Sedang menghantar...",
       "saveDraft": "Simpan draf",
       "cancel": "Batal",
+      "cancelUpload": "Batalkan muat naik",
       "goToStudio": "Pergi ke Studio Pencipta",
       "uploadAnother": "Muat Naik Lagi"
     },
@@ -507,7 +508,8 @@
       "finalizingUpload": "Menyelesaikan muat naik...",
       "uploadComplete": "Muat naik selesai!",
       "creatingEntry": "Mencipta entri...",
-      "submittingForReview": "Sedang menghantar untuk semakan..."
+      "submittingForReview": "Sedang menghantar untuk semakan...",
+      "retrying": "Masalah sambungan — mencuba semula (percubaan {attempt})..."
     },
     "errors": {
       "uploadFailed": "Muat naik gagal. Sila cuba lagi.",
@@ -516,8 +518,14 @@
       "noFullAsset": "Sila muat naik fail kandungan penuh sebelum menghantar.",
       "unexpectedError": "Ralat tidak dijangka berlaku. Sila cuba lagi.",
       "uploadsDisabled": "Muat naik dilumpuhkan",
-      "uploadsDisabledHelp": "Pemilik tenant telah mematikan muat naik baharu buat sementara. Sila cuba lagi nanti."
+      "uploadsDisabledHelp": "Pemilik tenant telah mematikan muat naik baharu buat sementara. Sila cuba lagi nanti.",
+      "networkError": "Masalah sambungan semasa muat naik. Semak sambungan internet anda dan cuba lagi — fail yang selesai dikekalkan.",
+      "fileTooLargeServer": "Fail ini melebihi saiz maksimum yang dibenarkan.",
+      "unsupportedFileType": "Jenis fail ini tidak disokong.",
+      "rateLimited": "Terlalu banyak permintaan. Sila tunggu sebentar dan cuba lagi.",
+      "uploadCancelled": "Muat naik dibatalkan."
     },
+    "leaveWarning": "Muat naik sedang berjalan. Jika anda keluar sekarang ia akan dibatalkan. Keluar juga?",
     "success": {
       "entryCreated": "Entri dicipta sebagai draf",
       "uploadComplete": "Fail berjaya dimuat naik",

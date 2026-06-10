@@ -65,9 +65,9 @@
 </template>
 
 <script lang="ts" setup>
+  import type { AccountBannedPayload } from '@/api/modules/auth.api'
   import { computed, onMounted, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import type { AccountBannedPayload } from '@/api/modules/auth.api'
   import SanctionLadderExplainer from '@/components/sanctions/SanctionLadderExplainer.vue'
 
   const { t, locale } = useI18n()

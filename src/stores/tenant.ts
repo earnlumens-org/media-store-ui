@@ -132,7 +132,9 @@ export const useTenantStore = defineStore('tenant', {
      * allowed in that case.
      */
     allowedEntryTypesLower (state): string[] | null {
-      if (!state.allowedEntryTypes || state.allowedEntryTypes.length === 0) return null
+      if (!state.allowedEntryTypes || state.allowedEntryTypes.length === 0) {
+        return null
+      }
       return state.allowedEntryTypes.map(s => s.toLowerCase())
     },
     /**
@@ -142,8 +144,12 @@ export const useTenantStore = defineStore('tenant', {
      * legacy tenants stay unrestricted.
      */
     isEntryTypeAllowed: state => (type: string): boolean => {
-      if (!state.allowedEntryTypes || state.allowedEntryTypes.length === 0) return true
-      if (!type) return false
+      if (!state.allowedEntryTypes || state.allowedEntryTypes.length === 0) {
+        return true
+      }
+      if (!type) {
+        return false
+      }
       return state.allowedEntryTypes.includes(type.toUpperCase())
     },
   },

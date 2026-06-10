@@ -498,6 +498,7 @@
       "submitting": "በማስገባት ላይ...",
       "saveDraft": "እንደ ረቂቅ አስቀምጥ",
       "cancel": "ሰርዝ",
+      "cancelUpload": "ሰቀላውን ሰርዝ",
       "goToStudio": "ወደ Creator Studio ሂድ",
       "uploadAnother": "ሌላ ጫን"
     },
@@ -518,7 +519,8 @@
       "finalizingUpload": "ጭነትን በማጠናቀቅ ላይ...",
       "uploadComplete": "ጭነት ተጠናቋል!",
       "creatingEntry": "ግቤት በመፍጠር ላይ...",
-      "submittingForReview": "ለግምገማ በማስገባት ላይ..."
+      "submittingForReview": "ለግምገማ በማስገባት ላይ...",
+      "retrying": "የግንኙነት ችግር — እንደገና በመሞከር ላይ (ሙከራ {attempt})..."
     },
     "errors": {
       "uploadFailed": "ጭነት አልተሳካም። እባክዎ እንደገና ይሞክሩ።",
@@ -527,8 +529,14 @@
       "noFullAsset": "ከማስገባትዎ በፊት የሙሉ ይዘት ፋይሉን ይጫኑ።",
       "unexpectedError": "ያልተጠበቀ ስህተት ተፈጥሯል። እባክዎ እንደገና ይሞክሩ።",
       "uploadsDisabled": "ጭነቶች በአሁኑ ጊዜ ተሰናክለዋል",
-      "uploadsDisabledHelp": "የተከራዩ ባለቤት አዲስ ጭነቶችን ጊዜያዊ አጥፍቷል። እባክዎ በኋላ እንደገና ይሞክሩ።"
+      "uploadsDisabledHelp": "የተከራዩ ባለቤት አዲስ ጭነቶችን ጊዜያዊ አጥፍቷል። እባክዎ በኋላ እንደገና ይሞክሩ።",
+      "networkError": "በሰቀላ ጊዜ የግንኙነት ችግር ተፈጥሯል። የበይነመረብ ግንኙነትዎን ያረጋግጡና እንደገና ይሞክሩ — የተጠናቀቁ ፋይሎች ይቀመጣሉ።",
+      "fileTooLargeServer": "ይህ ፋይል ከሚፈቀደው ከፍተኛ መጠን ይበልጣል።",
+      "unsupportedFileType": "ይህ የፋይል አይነት አይደገፍም።",
+      "rateLimited": "በጣም ብዙ ጥያቄዎች። እባክዎ ትንሽ ይጠብቁና እንደገና ይሞክሩ።",
+      "uploadCancelled": "ሰቀላው ተሰርዟል።"
     },
+    "leaveWarning": "ሰቀላ በሂደት ላይ ነው። አሁን ከወጡ ይሰረዛል። ቢሆንም መውጣት ይፈልጋሉ?",
     "success": {
       "entryCreated": "ግቤት እንደ ረቂቅ ተፈጥሯል",
       "uploadComplete": "ፋይል በተሳካ ሁኔታ ተጭኗል",

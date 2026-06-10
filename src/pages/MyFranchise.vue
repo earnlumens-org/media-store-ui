@@ -51,7 +51,13 @@
               <v-avatar v-if="previewLogoUrl" class="fp-hero__logo" rounded="lg" size="56">
                 <v-img :alt="previewTitle" cover :src="previewLogoUrl" />
               </v-avatar>
-              <v-avatar v-else class="fp-hero__logo" color="surface-variant" rounded="lg" size="56">
+              <v-avatar
+                v-else
+                class="fp-hero__logo"
+                color="surface-variant"
+                rounded="lg"
+                size="56"
+              >
                 <v-icon>mdi-storefront-outline</v-icon>
               </v-avatar>
               <div>
@@ -382,7 +388,7 @@
   const ACCENT_RE = /^#([0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/
 
   // Branding image constraints — must mirror the backend allow-list & ceilings.
-  const IMAGE_TYPES = ['image/png', 'image/jpeg', 'image/webp']
+  const IMAGE_TYPES = new Set(['image/png', 'image/jpeg', 'image/webp'])
   const IMAGE_MAX_BYTES: Record<FranchiseImageSlot, number> = {
     logo: 2 * 1024 * 1024,
     cover: 6 * 1024 * 1024,
@@ -600,7 +606,7 @@
     input.value = '' // allow re-selecting the same file later
     if (!file || !mine.value) return
 
-    if (!IMAGE_TYPES.includes(file.type)) {
+    if (!IMAGE_TYPES.has(file.type)) {
       notify(t('MyFranchise.errors.image_type'), 'error')
       return
     }
@@ -614,7 +620,7 @@
     try {
       const r2Key = await api.franchises.uploadImage(mine.value.id, slot, file)
       const updated = await api.franchises.updateMine(mine.value.id,
-        slot === 'logo' ? { logoR2Key: r2Key } : { coverR2Key: r2Key })
+                                                      slot === 'logo' ? { logoR2Key: r2Key } : { coverR2Key: r2Key })
       mine.value = updated
       notify(t('MyFranchise.savedOk'))
     } catch (error_) {
@@ -631,7 +637,7 @@
     busy.value = true
     try {
       const updated = await api.franchises.updateMine(mine.value.id,
-        slot === 'logo' ? { logoR2Key: '' } : { coverR2Key: '' })
+                                                      slot === 'logo' ? { logoR2Key: '' } : { coverR2Key: '' })
       mine.value = updated
       notify(t('MyFranchise.savedOk'))
     } catch (error_) {
@@ -687,4 +693,3 @@
   border: 1px dashed rgba(var(--v-border-color), var(--v-border-opacity));
 }
 </style>
-

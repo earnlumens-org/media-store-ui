@@ -487,6 +487,7 @@
       "submitting": "Invio in corso...",
       "saveDraft": "Salva bozza",
       "cancel": "Annulla",
+      "cancelUpload": "Annulla caricamento",
       "goToStudio": "Vai al Creator Studio",
       "uploadAnother": "Carica un altro"
     },
@@ -507,7 +508,8 @@
       "finalizingUpload": "Finalizzazione caricamento...",
       "uploadComplete": "Caricamento completato!",
       "creatingEntry": "Creazione voce...",
-      "submittingForReview": "Invio per revisione..."
+      "submittingForReview": "Invio per revisione...",
+      "retrying": "Problema di connessione — nuovo tentativo (tentativo {attempt})..."
     },
     "errors": {
       "uploadFailed": "Caricamento non riuscito. Riprova.",
@@ -516,8 +518,14 @@
       "noFullAsset": "Carica il file del contenuto completo prima di inviare.",
       "unexpectedError": "Si è verificato un errore imprevisto. Riprova.",
       "uploadsDisabled": "I caricamenti sono disabilitati",
-      "uploadsDisabledHelp": "Il proprietario del tenant ha temporaneamente disattivato i nuovi caricamenti. Riprova più tardi."
+      "uploadsDisabledHelp": "Il proprietario del tenant ha temporaneamente disattivato i nuovi caricamenti. Riprova più tardi.",
+      "networkError": "Problema di connessione durante il caricamento. Controlla la tua connessione internet e riprova — i file completati vengono conservati.",
+      "fileTooLargeServer": "Questo file supera la dimensione massima consentita.",
+      "unsupportedFileType": "Questo tipo di file non è supportato.",
+      "rateLimited": "Troppe richieste. Attendi un momento e riprova.",
+      "uploadCancelled": "Caricamento annullato."
     },
+    "leaveWarning": "È in corso un caricamento. Se esci ora verrà annullato. Uscire comunque?",
     "success": {
       "entryCreated": "Voce creata come bozza",
       "uploadComplete": "File caricato correttamente",

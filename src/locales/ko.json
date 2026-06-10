@@ -487,6 +487,7 @@
       "submitting": "제출 중...",
       "saveDraft": "초안 저장",
       "cancel": "취소",
+      "cancelUpload": "업로드 취소",
       "goToStudio": "크리에이터 스튜디오로 이동",
       "uploadAnother": "다른 파일 업로드"
     },
@@ -507,7 +508,8 @@
       "finalizingUpload": "업로드 마무리 중...",
       "uploadComplete": "업로드 완료!",
       "creatingEntry": "엔트리 생성 중...",
-      "submittingForReview": "검토 요청 제출 중..."
+      "submittingForReview": "검토 요청 제출 중...",
+      "retrying": "연결 문제 — 다시 시도 중 (시도 {attempt})..."
     },
     "errors": {
       "uploadFailed": "업로드에 실패했습니다. 다시 시도해주세요.",
@@ -516,8 +518,14 @@
       "noFullAsset": "제출하기 전에 전체 콘텐츠 파일을 업로드해주세요.",
       "unexpectedError": "예기치 않은 오류가 발생했습니다. 다시 시도해주세요.",
       "uploadsDisabled": "업로드가 비활성화되어 있습니다",
-      "uploadsDisabledHelp": "테넌트 소유자가 새 업로드를 일시적으로 비활성화했습니다. 나중에 다시 시도해 주세요."
+      "uploadsDisabledHelp": "테넌트 소유자가 새 업로드를 일시적으로 비활성화했습니다. 나중에 다시 시도해 주세요.",
+      "networkError": "업로드 중 연결 문제가 발생했습니다. 인터넷 연결을 확인한 후 다시 시도하세요 — 완료된 파일은 유지됩니다.",
+      "fileTooLargeServer": "이 파일은 허용된 최대 크기를 초과합니다.",
+      "unsupportedFileType": "지원되지 않는 파일 형식입니다.",
+      "rateLimited": "요청이 너무 많습니다. 잠시 기다린 후 다시 시도하세요.",
+      "uploadCancelled": "업로드가 취소되었습니다."
     },
+    "leaveWarning": "업로드가 진행 중입니다. 지금 나가면 취소됩니다. 그래도 나가시겠습니까?",
     "success": {
       "entryCreated": "엔트리가 초안으로 생성되었습니다",
       "uploadComplete": "파일이 성공적으로 업로드되었습니다",

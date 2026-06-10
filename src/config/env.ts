@@ -131,10 +131,14 @@ function currentHostname (): string {
  */
 function isOnTenantSubdomain (): boolean {
   const host = currentHostname().toLowerCase()
-  if (host.endsWith('.app-dev.earnlumens.org') && host !== 'app-dev.earnlumens.org') return true
+  if (host.endsWith('.app-dev.earnlumens.org') && host !== 'app-dev.earnlumens.org') {
+    return true
+  }
   if (host.endsWith('.earnlumens.org')
-      && host !== 'earnlumens.org'
-      && host !== 'app-dev.earnlumens.org') return true
+    && host !== 'earnlumens.org'
+    && host !== 'app-dev.earnlumens.org') {
+    return true
+  }
   return false
 }
 

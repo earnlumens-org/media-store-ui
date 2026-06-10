@@ -498,6 +498,7 @@
       "submitting": "Ipinapasa...",
       "saveDraft": "I-save bilang draft",
       "cancel": "Kanselahin",
+      "cancelUpload": "Kanselahin ang pag-upload",
       "goToStudio": "Pumunta sa Creator Studio",
       "uploadAnother": "Mag-upload ng isa pa"
     },
@@ -518,7 +519,8 @@
       "finalizingUpload": "Tinatapos ang upload...",
       "uploadComplete": "Tapos na ang upload!",
       "creatingEntry": "Lumilikha ng entry...",
-      "submittingForReview": "Ipinapasa para sa pagsusuri..."
+      "submittingForReview": "Ipinapasa para sa pagsusuri...",
+      "retrying": "Problema sa koneksyon — sinusubukang muli (pagsubok {attempt})..."
     },
     "errors": {
       "uploadFailed": "Nabigo ang upload. Pakisubukan muli.",
@@ -527,8 +529,14 @@
       "noFullAsset": "Bago magpasa, mangyaring mag-upload ng full content file.",
       "unexpectedError": "May naganap na hindi inaasahang error. Pakisubukan muli.",
       "uploadsDisabled": "Hindi pinapagana ang mga upload sa kasalukuyan",
-      "uploadsDisabledHelp": "Pansamantalang isinara ng may-ari ng tenant ang mga bagong upload. Pakisubukan muli mamaya."
+      "uploadsDisabledHelp": "Pansamantalang isinara ng may-ari ng tenant ang mga bagong upload. Pakisubukan muli mamaya.",
+      "networkError": "Nagkaproblema sa koneksyon habang nag-a-upload. Suriin ang iyong internet at subukang muli — mananatili ang mga natapos na file.",
+      "fileTooLargeServer": "Lumampas ang file na ito sa pinakamalaking pinapayagang sukat.",
+      "unsupportedFileType": "Hindi suportado ang uri ng file na ito.",
+      "rateLimited": "Masyadong maraming kahilingan. Maghintay sandali at subukang muli.",
+      "uploadCancelled": "Kinansela ang pag-upload."
     },
+    "leaveWarning": "May kasalukuyang pag-upload. Kapag umalis ka ngayon, makakansela ito. Aalis pa rin?",
     "success": {
       "entryCreated": "Nilikha ang entry bilang draft",
       "uploadComplete": "Matagumpay na na-upload ang file",

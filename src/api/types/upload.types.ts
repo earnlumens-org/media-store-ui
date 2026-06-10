@@ -49,8 +49,24 @@ export interface InitUploadRequest {
 
 export interface InitUploadResponse {
   uploadId: string
-  presignedUrl: string
+  /** Single-PUT presigned URL (null when multipart = true). */
+  presignedUrl: string | null
   r2Key: string
+  /** True when the file must be uploaded in parts (large files). */
+  multipart?: boolean
+  /** Uniform part size in bytes (multipart only). */
+  partSizeBytes?: number | null
+  /** Presigned URLs for each part, in order (multipart only). */
+  partUrls?: string[] | null
+}
+
+/** Server-side upload limits returned by GET /api/uploads/config. */
+export interface UploadConfigResponse {
+  maxFullBytes: Record<string, number>
+  maxThumbnailBytes: number
+  maxPreviewBytes: number
+  multipartThresholdBytes: number
+  partSizeBytes: number
 }
 
 export interface FinalizeUploadRequest {
@@ -104,7 +120,34 @@ export const ACCEPTED_MIMES: Record<UploadContentType, string> = {
   video: 'video/mp4,video/webm,video/quicktime',
   audio: 'audio/mpeg,audio/wav,audio/ogg,audio/flac,audio/mp4',
   image: 'image/jpeg,image/png,image/webp,image/gif',
-  resource: '*/*',
+  // Mirrors the backend allowlist (media + text + documents/ebooks/archives).
+  // Executables/scripts are blocked server-side regardless.
+  resource: [
+    'image/*',
+    'video/*',
+    'audio/*',
+    'text/*',
+    'application/pdf',
+    'application/msword',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'application/vnd.ms-excel',
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    'application/vnd.ms-powerpoint',
+    'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    'application/vnd.oasis.opendocument.text',
+    'application/vnd.oasis.opendocument.spreadsheet',
+    'application/vnd.oasis.opendocument.presentation',
+    'application/rtf',
+    'application/epub+zip',
+    'application/json',
+    'application/xml',
+    'application/zip',
+    'application/x-zip-compressed',
+    'application/x-tar',
+    'application/gzip',
+    'application/x-7z-compressed',
+    'application/vnd.rar',
+  ].join(','),
 }
 
 /** Accepted MIME types for thumbnails */

@@ -7,27 +7,27 @@ import { createI18n } from 'vue-i18n'
 // API
 import { parseUserFromToken } from '@/api/modules/user.api'
 
-// PWA install detection — side-effect import so the `beforeinstallprompt`
-// listener is registered before the browser fires the event.
-import '@/lib/pwaInstall'
-
 // Plugins
 import { registerPlugins } from '@/plugins'
 
 // Auth
 import { broadcastAuthEvent, initAuthBroadcast, onAuthBroadcast } from '@/services/authBroadcast'
-import { clearToken, initTokenWorker, onSessionExpired, refreshToken } from '@/services/tokenWorkerClient'
 
+import { clearToken, initTokenWorker, onSessionExpired, refreshToken } from '@/services/tokenWorkerClient'
 // Stores
 import pinia from '@/stores'
+
 import { useAuthStore } from '@/stores/auth'
 import { useFavoritesStore } from '@/stores/favorites'
 import { PURCHASES_STORAGE_KEY, usePurchasesStore } from '@/stores/purchases'
 import { useSubscriptionsStore } from '@/stores/subscriptions'
 import { useWalletStore } from '@/stores/wallet'
-
 // Components
 import App from './App.vue'
+
+// PWA install detection — side-effect import so the `beforeinstallprompt`
+// listener is registered before the browser fires the event.
+import '@/lib/pwaInstall'
 
 // Styles
 import '@/styles/global.css'

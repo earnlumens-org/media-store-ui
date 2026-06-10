@@ -563,6 +563,7 @@
       "submitting": "Submitting...",
       "saveDraft": "Save as Draft",
       "cancel": "Cancel",
+      "cancelUpload": "Cancel upload",
       "goToStudio": "Go to Creator Studio",
       "uploadAnother": "Upload Another"
     },
@@ -583,7 +584,8 @@
       "finalizingUpload": "Finalizing upload...",
       "uploadComplete": "Upload complete!",
       "creatingEntry": "Creating entry...",
-      "submittingForReview": "Submitting for review..."
+      "submittingForReview": "Submitting for review...",
+      "retrying": "Connection issue — retrying (attempt {attempt})..."
     },
     "errors": {
       "uploadFailed": "Upload failed. Please try again.",
@@ -592,8 +594,14 @@
       "noFullAsset": "Please upload the full content file before submitting.",
       "unexpectedError": "An unexpected error occurred. Please try again.",
       "uploadsDisabled": "Uploads are currently disabled",
-      "uploadsDisabledHelp": "The tenant owner has temporarily turned off new uploads. Please try again later."
+      "uploadsDisabledHelp": "The tenant owner has temporarily turned off new uploads. Please try again later.",
+      "networkError": "Connection problem during the upload. Check your internet connection and try again — completed files are kept.",
+      "fileTooLargeServer": "This file exceeds the maximum allowed size.",
+      "unsupportedFileType": "This file type is not supported.",
+      "rateLimited": "Too many requests. Please wait a moment and try again.",
+      "uploadCancelled": "Upload cancelled."
     },
+    "leaveWarning": "An upload is in progress. If you leave now it will be cancelled. Leave anyway?",
     "success": {
       "entryCreated": "Entry created as draft",
       "uploadComplete": "File uploaded successfully",

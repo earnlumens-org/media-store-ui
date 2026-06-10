@@ -30,12 +30,12 @@
 </template>
 
 <script lang="ts" setup>
+  import type { FeedPageModel, FeedRequestParams } from '@/api/api'
+  import type { SpaceSummaryDto } from '@/api/modules/spaces.api'
   import { computed, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRoute } from 'vue-router'
   import { api } from '@/api/api'
-  import type { FeedPageModel, FeedRequestParams } from '@/api/api'
-  import type { SpaceSummaryDto } from '@/api/modules/spaces.api'
   import EntryCardMockGrid from '@/components/entry/EntryCardMockGrid.vue'
 
   const route = useRoute()

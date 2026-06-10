@@ -20,15 +20,6 @@ import {
 } from './modules/collection.api'
 import { archiveEntry, deleteEntry, getCreatorDashboardStats, getCreatorEntries, getStudioItems, restoreDeletedEntry, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
 import { getExploreFeed, getProfileFeed, getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
-import { getPublicFranchise, listPublicFranchises } from './modules/franchise.api'
-import {
-  createFranchise,
-  getFranchiseConfig,
-  listMyFranchises,
-  presignFranchiseImage,
-  updateMyFranchise,
-  uploadFranchiseImage,
-} from './modules/franchise.api'
 import {
   getMockCollectionById,
   getMockCollections,
@@ -37,6 +28,13 @@ import {
   getMockFeed,
 } from './modules/entryMock.api'
 import { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
+import { createFranchise, getFranchiseConfig,
+  getPublicFranchise,
+  listMyFranchises,
+  listPublicFranchises,
+  presignFranchiseImage,
+  updateMyFranchise,
+  uploadFranchiseImage } from './modules/franchise.api'
 import { preparePayment, submitPayment } from './modules/payment.api'
 import { getPurchaseCollections, getPurchasedFeed, getPurchases } from './modules/purchase.api'
 import { deleteRating, getMyRating, getRatings, getRatingSummary, submitRating } from './modules/rating.api'
@@ -44,7 +42,7 @@ import { getSellerSales } from './modules/sales.api'
 import { getSuggestions, search } from './modules/search.api'
 import { getSpaceFeed, listSidebarSpaces } from './modules/spaces.api'
 import { checkSubscription, getMySubscriberCount, getMySubscribers, getMySubscriptions, getPublicSubscriberCount, subscribe, unsubscribe } from './modules/subscription.api'
-import { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
+import { abortUpload, completeMultipartUpload, createEntry, finalizeUpload, getUploadConfig, getUploadPartUrl, initUpload, updateEntryStatus, uploadFileToR2, uploadToR2 } from './modules/upload.api'
 import { checkUsernameExists, getCurrentUser, getUserByUsername } from './modules/user.api'
 import { getWaitlistStats, subscribeWaitlist } from './modules/waitlist.api'
 
@@ -89,6 +87,11 @@ export const api = {
     createEntry,
     initUpload,
     uploadToR2,
+    uploadFileToR2,
+    completeMultipartUpload,
+    getUploadPartUrl,
+    abortUpload,
+    getUploadConfig,
     finalizeUpload,
     updateEntryStatus,
   },
@@ -197,8 +200,6 @@ export {
 } from './modules/collection.api'
 export { archiveEntry, deleteEntry, getCreatorDashboardStats, getCreatorEntries, getStudioItems, restoreDeletedEntry, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
 export { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
-export { createFranchise, getFranchiseConfig, getPublicFranchise, listMyFranchises, listPublicFranchises, presignFranchiseImage, updateMyFranchise, uploadFranchiseImage } from './modules/franchise.api'
-export type { CreateFranchisePayload, FranchiseConfigDto, FranchiseImageSlot, FranchiseImageUploadInit, ManagedFranchiseDto, PublicFranchiseDto, UpdateFranchisePayload } from './modules/franchise.api'
 export {
   getMockCollectionById,
   getMockCollections,
@@ -207,11 +208,13 @@ export {
   getMockFeed,
 } from './modules/entryMock.api'
 export { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
+export { createFranchise, getFranchiseConfig, getPublicFranchise, listMyFranchises, listPublicFranchises, presignFranchiseImage, updateMyFranchise, uploadFranchiseImage } from './modules/franchise.api'
+export type { CreateFranchisePayload, FranchiseConfigDto, FranchiseImageSlot, FranchiseImageUploadInit, ManagedFranchiseDto, PublicFranchiseDto, UpdateFranchisePayload } from './modules/franchise.api'
 export { preparePayment, submitPayment } from './modules/payment.api'
 export { getPurchaseCollections, getPurchases } from './modules/purchase.api'
 export { getSellerSales } from './modules/sales.api'
 export { checkSubscription, getMySubscriberCount, getMySubscribers, getMySubscriptions, getPublicSubscriberCount, subscribe, unsubscribe } from './modules/subscription.api'
-export { createEntry, finalizeUpload, initUpload, updateEntryStatus, uploadToR2 } from './modules/upload.api'
+export { abortUpload, completeMultipartUpload, createEntry, finalizeUpload, getUploadConfig, getUploadPartUrl, initUpload, isUploadAborted, R2UploadError, updateEntryStatus, uploadFileToR2, uploadToR2 } from './modules/upload.api'
 
 export { checkUsernameExists, getCurrentUser, getUserByUsername, parseUserFromToken, updateContentLanguagePreferences } from './modules/user.api'
 

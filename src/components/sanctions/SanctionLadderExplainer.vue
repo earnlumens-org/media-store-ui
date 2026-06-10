@@ -40,14 +40,14 @@
     tr(
       'Sanctions.intro',
       'EarnLumens uses a 3-strike system inspired by the largest video platforms. Every infraction is reviewed by a human moderator before a strike is recorded.',
-    )
+    ),
   )
 
   const severeNote = computed(() =>
     tr(
       'Sanctions.severeNote',
       'Severe violations (fraud, harm to minors, deepfakes, doxxing) skip the ladder and result in an immediate permanent ban.',
-    )
+    ),
   )
 
   const steps = computed(() => [

@@ -394,6 +394,7 @@
         </span>
       </v-progress-circular>
       <div class="text-h6 mb-1">{{ progressMessage }}</div>
+      <div v-if="retryNotice" class="text-caption text-warning mb-1">{{ retryNotice }}</div>
       <v-progress-linear
         v-if="currentUploadPercent != null"
         class="mt-3"
@@ -402,6 +403,15 @@
         :model-value="currentUploadPercent"
         rounded
       />
+      <v-btn
+        class="mt-4"
+        color="error"
+        :disabled="cancelRequested"
+        variant="text"
+        @click="cancelUpload"
+      >
+        {{ t('Upload.actions.cancelUpload') }}
+      </v-btn>
     </v-card>
   </v-overlay>
 
@@ -425,11 +435,12 @@
 
 <script setup lang="ts">
   import type { AssetKind, UploadContentType } from '@/api/types/upload.types'
-  import { computed, reactive, ref, watch } from 'vue'
+  import { computed, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useRouter } from 'vue-router'
+  import { onBeforeRouteLeave, useRouter } from 'vue-router'
   import { api } from '@/api/api'
-  import { isUploadsDisabledError } from '@/api/modules/upload.api'
+  import { ApiError } from '@/api/apiRequest'
+  import { isUploadAborted, isUploadsDisabledError, R2UploadError } from '@/api/modules/upload.api'
   import {
     ACCEPTED_MIMES,
     MAX_FILE_SIZES,
@@ -575,8 +586,40 @@
   const isUploading = ref(false)
   const showProgressOverlay = ref(false)
   const progressMessage = ref('')
+  const retryNotice = ref('')
   const currentUploadPercent = ref<number | null>(null)
   const createdEntryId = ref<string | null>(null)
+  /** Kinds already uploaded + finalized — skipped when the user retries. */
+  const uploadedKinds = ref<Set<AssetKind>>(new Set())
+  const uploadController = ref<AbortController | null>(null)
+  const currentUploadId = ref<string | null>(null)
+  const cancelRequested = ref(false)
+
+  function cancelUpload () {
+    cancelRequested.value = true
+    uploadController.value?.abort()
+    if (currentUploadId.value) {
+      // Best-effort server-side cleanup of the in-flight upload session
+      api.upload.abortUpload(currentUploadId.value)
+    }
+  }
+
+  // ── Leave guards while an upload is running ───────────────
+
+  function onBeforeUnload (e: BeforeUnloadEvent) {
+    if (isUploading.value) {
+      e.preventDefault()
+    }
+  }
+  onMounted(() => window.addEventListener('beforeunload', onBeforeUnload))
+  onBeforeUnmount(() => window.removeEventListener('beforeunload', onBeforeUnload))
+
+  onBeforeRouteLeave(() => {
+    if (!isUploading.value) return true
+    const leave = window.confirm(t('Upload.leaveWarning'))
+    if (leave) cancelUpload()
+    return leave
+  })
 
   const snackbar = reactive({
     show: false,
@@ -688,90 +731,160 @@
     savedAsDraft.value = !submitForReview
     isUploading.value = true
     showProgressOverlay.value = true
+    cancelRequested.value = false
+    retryNotice.value = ''
+    uploadController.value = new AbortController()
 
     try {
-      // 1. Create entry
-      progressMessage.value = t('Upload.progress.creatingEntry')
-      const entry = await api.upload.createEntry({
-        title: form.title.trim(),
-        description: form.description.trim() || undefined,
-        resourceContent: props.contentType === 'resource' && form.resourceContent.trim()
-          ? form.resourceContent.trim()
-          : undefined,
-        type: toEntryType(props.contentType),
-        isPaid: form.isPaid,
-        priceXlm: form.isPaid && form.priceCurrency === 'XLM' && form.price ? form.price : null,
-        priceUsd: form.isPaid && form.priceCurrency === 'USD' && form.price ? form.price : null,
-        priceCurrency: form.isPaid ? form.priceCurrency : null,
-        sellerWallet: form.isPaid ? selectedSellerWallet.value : null,
-        contentLanguage: form.contentLanguage || null,
-      })
+      // 1. Create entry (reuse the draft from a previous failed attempt so
+      //    retries do not create duplicates or burn the daily entry limit)
+      let entryId = createdEntryId.value
+      if (!entryId) {
+        progressMessage.value = t('Upload.progress.creatingEntry')
+        const entry = await api.upload.createEntry({
+          title: form.title.trim(),
+          description: form.description.trim() || undefined,
+          resourceContent: props.contentType === 'resource' && form.resourceContent.trim()
+            ? form.resourceContent.trim()
+            : undefined,
+          type: toEntryType(props.contentType),
+          isPaid: form.isPaid,
+          priceXlm: form.isPaid && form.priceCurrency === 'XLM' && form.price ? form.price : null,
+          priceUsd: form.isPaid && form.priceCurrency === 'USD' && form.price ? form.price : null,
+          priceCurrency: form.isPaid ? form.priceCurrency : null,
+          sellerWallet: form.isPaid ? selectedSellerWallet.value : null,
+          contentLanguage: form.contentLanguage || null,
+        })
+        entryId = entry.id
+        createdEntryId.value = entry.id
+      }
 
-      createdEntryId.value = entry.id
-
-      // 2. Upload assets (full, thumbnail, preview)
+      // 2. Upload assets (full, thumbnail, preview) — skip ones that
+      //    already completed on a previous attempt
       const uploadTasks: Array<{ file: File, kind: AssetKind }> = []
       if (assets.full) uploadTasks.push({ file: assets.full, kind: 'FULL' })
       if (assets.thumbnail) uploadTasks.push({ file: assets.thumbnail, kind: 'THUMBNAIL' })
       if (assets.preview) uploadTasks.push({ file: assets.preview, kind: 'PREVIEW' })
 
       for (const task of uploadTasks) {
-        await uploadAsset(entry.id, task.file, task.kind)
+        if (uploadedKinds.value.has(task.kind)) continue
+        await uploadAsset(entryId, task.file, task.kind)
+        uploadedKinds.value.add(task.kind)
       }
 
       // 3. Submit for review if requested
       if (submitForReview) {
         progressMessage.value = t('Upload.progress.submittingForReview')
-        await api.upload.updateEntryStatus(entry.id, { status: 'IN_REVIEW' })
+        await api.upload.updateEntryStatus(entryId, { status: 'IN_REVIEW' })
       }
 
       // 4. Transition to success screen
       uploadPhase.value = 'success'
     } catch (error) {
       console.error('Upload failed:', error)
-      if (isUploadsDisabledError(error)) {
-        showSnackbar(t('Upload.errors.uploadsDisabled'), 'warning')
-      } else {
-        showSnackbar(t('Upload.errors.uploadFailed'), 'error')
-      }
+      showUploadError(error)
     } finally {
       isUploading.value = false
       showProgressOverlay.value = false
+      retryNotice.value = ''
+      currentUploadId.value = null
+      uploadController.value = null
     }
+  }
+
+  /** Map an upload failure to the most helpful message we can give. */
+  function showUploadError (error: unknown) {
+    if (isUploadAborted(error) || cancelRequested.value) {
+      showSnackbar(t('Upload.errors.uploadCancelled'), 'info')
+      return
+    }
+    if (isUploadsDisabledError(error)) {
+      showSnackbar(t('Upload.errors.uploadsDisabled'), 'warning')
+      return
+    }
+    if (error instanceof R2UploadError) {
+      showSnackbar(t('Upload.errors.networkError'), 'error')
+      return
+    }
+    if (error instanceof ApiError) {
+      if (error.status === 429) {
+        showSnackbar(t('Upload.errors.rateLimited'), 'error')
+        return
+      }
+      if (error.message === 'FILE_TOO_LARGE' || error.message === 'INVALID_FILE_SIZE') {
+        showSnackbar(t('Upload.errors.fileTooLargeServer'), 'error')
+        return
+      }
+      if (error.message === 'DANGEROUS_FILE_TYPE' || error.message === 'UNSUPPORTED_FILE_TYPE') {
+        showSnackbar(t('Upload.errors.unsupportedFileType'), 'error')
+        return
+      }
+      if (error.status === 0 || error.status >= 500) {
+        showSnackbar(t('Upload.errors.networkError'), 'error')
+        return
+      }
+    }
+    if (error instanceof TypeError) {
+      // fetch() network failure (API unreachable)
+      showSnackbar(t('Upload.errors.networkError'), 'error')
+      return
+    }
+    showSnackbar(t('Upload.errors.uploadFailed'), 'error')
   }
 
   async function uploadAsset (entryId: string, file: File, kind: AssetKind) {
     const progressKey = kind === 'FULL' ? 'full' : (kind === 'THUMBNAIL' ? 'thumbnail' : 'preview')
 
+    // Extract media metadata BEFORE the (potentially long) upload, with a
+    // hard timeout so a codec the browser cannot probe never blocks the flow.
+    const meta = await Promise.race([
+      extractMediaMetadata(file),
+      new Promise<{ widthPx: null, heightPx: null, durationSec: null, bitrateBps: null }>(resolve =>
+        setTimeout(() => resolve({ widthPx: null, heightPx: null, durationSec: null, bitrateBps: null }), 10_000),
+      ),
+    ])
+
     // Init upload
     progressMessage.value = t('Upload.progress.initializingUpload')
-    const initResp = await api.upload.initUpload({
+    const initRequest = {
       entryId,
       fileName: file.name,
       contentType: file.type || 'application/octet-stream',
       kind,
       fileSizeBytes: file.size,
-    })
+    }
+    const initResp = await api.upload.initUpload(initRequest)
+    currentUploadId.value = initResp.uploadId
 
-    // Upload to R2
+    // Upload to R2 (handles retries, stalls, multipart and URL refresh)
     progressMessage.value = t('Upload.progress.uploadingFile', { name: file.name })
     currentUploadPercent.value = 0
-    await api.upload.uploadToR2(initResp.presignedUrl, file, percent => {
-      progress[progressKey] = percent
-      currentUploadPercent.value = percent
+    const usedInit = await api.upload.uploadFileToR2(initResp, file, {
+      signal: uploadController.value?.signal,
+      onProgress: percent => {
+        retryNotice.value = ''
+        progress[progressKey] = percent
+        currentUploadPercent.value = percent
+      },
+      onRetry: attempt => {
+        retryNotice.value = t('Upload.progress.retrying', { attempt })
+      },
+      refresh: async () => {
+        const fresh = await api.upload.initUpload(initRequest)
+        currentUploadId.value = fresh.uploadId
+        return fresh
+      },
     })
     currentUploadPercent.value = null
+    retryNotice.value = ''
 
     // Finalize
     progressMessage.value = t('Upload.progress.finalizingUpload')
 
-    // Extract media metadata from the browser (best-effort, runs client-side)
-    const meta = await extractMediaMetadata(file)
-
     await api.upload.finalizeUpload({
-      uploadId: initResp.uploadId,
+      uploadId: usedInit.uploadId,
       entryId,
-      r2Key: initResp.r2Key,
+      r2Key: usedInit.r2Key,
       contentType: file.type || 'application/octet-stream',
       fileName: file.name,
       fileSizeBytes: file.size,
@@ -782,6 +895,7 @@
       bitrateBps: meta.bitrateBps,
     })
 
+    currentUploadId.value = null
     progress[progressKey] = 100
     showSnackbar(t('Upload.success.uploadComplete'))
   }

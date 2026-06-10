@@ -7,13 +7,13 @@
  * returns the published entries that belong to a given space.
  */
 
+import type { PublicEntryModel, PublicEntryPageDto } from '../types/entry.types'
 import type {
   EntryModel,
   FeedItemModel,
   FeedPageModel,
   FeedRequestParams,
 } from '../types/entryMock.types'
-import type { PublicEntryPageDto, PublicEntryModel } from '../types/entry.types'
 
 import axiosClient from '../axios/axiosClient'
 import { mapPublicEntryPageDtoToModel } from '../mappers/entry.mapper'

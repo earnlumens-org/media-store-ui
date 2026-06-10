@@ -487,6 +487,7 @@
       "submitting": "提出中...",
       "saveDraft": "下書きを保存",
       "cancel": "キャンセル",
+      "cancelUpload": "アップロードをキャンセル",
       "goToStudio": "クリエイタースタジオへ移動",
       "uploadAnother": "別のファイルをアップロード"
     },
@@ -507,7 +508,8 @@
       "finalizingUpload": "アップロードを完了処理中...",
       "uploadComplete": "アップロード完了！",
       "creatingEntry": "エントリーを作成中...",
-      "submittingForReview": "審査に提出中..."
+      "submittingForReview": "審査に提出中...",
+      "retrying": "接続に問題があります — 再試行中（{attempt}回目）..."
     },
     "errors": {
       "uploadFailed": "アップロードに失敗しました。もう一度お試しください。",
@@ -516,8 +518,14 @@
       "noFullAsset": "提出する前に本編ファイルをアップロードしてください。",
       "unexpectedError": "予期しないエラーが発生しました。もう一度お試しください。",
       "uploadsDisabled": "アップロードは無効です",
-      "uploadsDisabledHelp": "テナントのオーナーが新規アップロードを一時的に無効にしました。後でもう一度お試しください。"
+      "uploadsDisabledHelp": "テナントのオーナーが新規アップロードを一時的に無効にしました。後でもう一度お試しください。",
+      "networkError": "アップロード中に接続の問題が発生しました。インターネット接続を確認してもう一度お試しください — 完了したファイルは保持されます。",
+      "fileTooLargeServer": "このファイルは許可されている最大サイズを超えています。",
+      "unsupportedFileType": "このファイル形式はサポートされていません。",
+      "rateLimited": "リクエストが多すぎます。しばらく待ってからもう一度お試しください。",
+      "uploadCancelled": "アップロードをキャンセルしました。"
     },
+    "leaveWarning": "アップロードが進行中です。今離れるとキャンセルされます。それでも離れますか？",
     "success": {
       "entryCreated": "エントリーを下書きとして作成しました",
       "uploadComplete": "ファイルのアップロードに成功しました",

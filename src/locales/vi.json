@@ -487,6 +487,7 @@
       "submitting": "Đang gửi...",
       "saveDraft": "Lưu bản nháp",
       "cancel": "Hủy",
+      "cancelUpload": "Hủy tải lên",
       "goToStudio": "Đi đến Xưởng sáng tạo",
       "uploadAnother": "Tải lên cái khác"
     },
@@ -507,7 +508,8 @@
       "finalizingUpload": "Đang hoàn tất tải lên...",
       "uploadComplete": "Tải lên hoàn tất!",
       "creatingEntry": "Đang tạo bài viết...",
-      "submittingForReview": "Đang gửi để xét duyệt..."
+      "submittingForReview": "Đang gửi để xét duyệt...",
+      "retrying": "Sự cố kết nối — đang thử lại (lần {attempt})..."
     },
     "errors": {
       "uploadFailed": "Tải lên thất bại. Vui lòng thử lại.",
@@ -516,8 +518,14 @@
       "noFullAsset": "Vui lòng tải lên tệp nội dung đầy đủ trước khi gửi.",
       "unexpectedError": "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại.",
       "uploadsDisabled": "Tải lên đã bị tắt",
-      "uploadsDisabledHelp": "Chủ tenant đã tạm thời tắt tải lên mới. Vui lòng thử lại sau."
+      "uploadsDisabledHelp": "Chủ tenant đã tạm thời tắt tải lên mới. Vui lòng thử lại sau.",
+      "networkError": "Sự cố kết nối trong khi tải lên. Kiểm tra kết nối internet của bạn và thử lại — các tệp đã hoàn tất được giữ nguyên.",
+      "fileTooLargeServer": "Tệp này vượt quá kích thước tối đa cho phép.",
+      "unsupportedFileType": "Loại tệp này không được hỗ trợ.",
+      "rateLimited": "Quá nhiều yêu cầu. Vui lòng đợi một lát rồi thử lại.",
+      "uploadCancelled": "Đã hủy tải lên."
     },
+    "leaveWarning": "Đang có một quá trình tải lên. Nếu rời đi bây giờ, nó sẽ bị hủy. Vẫn rời đi?",
     "success": {
       "entryCreated": "Bài viết đã được tạo dưới dạng bản nháp",
       "uploadComplete": "Tệp đã được tải lên thành công",

@@ -192,4 +192,3 @@
     fetchSubscriptions()
   })
 </script>
-

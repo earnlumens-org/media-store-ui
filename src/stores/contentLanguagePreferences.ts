@@ -133,8 +133,8 @@ export const useContentLanguagePreferencesStore = defineStore('contentLanguagePr
         this.includeMulti = prefs.includeMulti ?? true
         this.showAllLanguages = prefs.showAllLanguages ?? false
         this.loaded = true
-      } catch (e) {
-        console.warn('[contentLangPrefs] failed to load /me', e)
+      } catch (error) {
+        console.warn('[contentLangPrefs] failed to load /me', error)
         // Fall back to defaults so the UI is still usable.
         const fallback = defaultPrefs()
         this.contentLanguages = fallback.contentLanguages
@@ -156,9 +156,15 @@ export const useContentLanguagePreferencesStore = defineStore('contentLanguagePr
         showAllLanguages: this.showAllLanguages,
       }
       // Optimistic apply
-      if (patch.contentLanguages !== undefined) this.contentLanguages = [...patch.contentLanguages]
-      if (patch.includeMulti !== undefined) this.includeMulti = patch.includeMulti
-      if (patch.showAllLanguages !== undefined) this.showAllLanguages = patch.showAllLanguages
+      if (patch.contentLanguages !== undefined) {
+        this.contentLanguages = [...patch.contentLanguages]
+      }
+      if (patch.includeMulti !== undefined) {
+        this.includeMulti = patch.includeMulti
+      }
+      if (patch.showAllLanguages !== undefined) {
+        this.showAllLanguages = patch.showAllLanguages
+      }
 
       const auth = useAuthStore()
       if (!auth.isAuthenticated) {
@@ -176,13 +182,13 @@ export const useContentLanguagePreferencesStore = defineStore('contentLanguagePr
         this.contentLanguages = saved.contentLanguages ?? []
         this.includeMulti = saved.includeMulti ?? true
         this.showAllLanguages = saved.showAllLanguages ?? false
-      } catch (e) {
+      } catch (error) {
         // Roll back optimistic state on failure.
         this.contentLanguages = previous.contentLanguages
         this.includeMulti = previous.includeMulti
         this.showAllLanguages = previous.showAllLanguages
-        this.error = e instanceof Error ? e.message : 'Failed to save preferences'
-        throw e
+        this.error = error instanceof Error ? error.message : 'Failed to save preferences'
+        throw error
       } finally {
         this.saving = false
       }

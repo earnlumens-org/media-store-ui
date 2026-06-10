@@ -487,6 +487,7 @@
       "submitting": "Wysyłanie...",
       "saveDraft": "Zapisz szkic",
       "cancel": "Anuluj",
+      "cancelUpload": "Anuluj przesyłanie",
       "goToStudio": "Przejdź do Studia Twórcy",
       "uploadAnother": "Prześlij kolejny"
     },
@@ -507,7 +508,8 @@
       "finalizingUpload": "Kończenie przesyłania...",
       "uploadComplete": "Przesyłanie zakończone!",
       "creatingEntry": "Tworzenie wpisu...",
-      "submittingForReview": "Wysyłanie do weryfikacji..."
+      "submittingForReview": "Wysyłanie do weryfikacji...",
+      "retrying": "Problem z połączeniem — ponawianie (próba {attempt})..."
     },
     "errors": {
       "uploadFailed": "Przesyłanie nie powiodło się. Spróbuj ponownie.",
@@ -516,8 +518,14 @@
       "noFullAsset": "Prześlij plik pełnej treści przed wysłaniem.",
       "unexpectedError": "Wystąpił nieoczekiwany błąd. Spróbuj ponownie.",
       "uploadsDisabled": "Przesyłanie jest wyłączone",
-      "uploadsDisabledHelp": "Właściciel tenanta tymczasowo wyłączył nowe przesyłanie. Spróbuj ponownie później."
+      "uploadsDisabledHelp": "Właściciel tenanta tymczasowo wyłączył nowe przesyłanie. Spróbuj ponownie później.",
+      "networkError": "Problem z połączeniem podczas przesyłania. Sprawdź połączenie z internetem i spróbuj ponownie — ukończone pliki zostają zachowane.",
+      "fileTooLargeServer": "Ten plik przekracza maksymalny dozwolony rozmiar.",
+      "unsupportedFileType": "Ten typ pliku nie jest obsługiwany.",
+      "rateLimited": "Zbyt wiele żądań. Poczekaj chwilę i spróbuj ponownie.",
+      "uploadCancelled": "Przesyłanie anulowane."
     },
+    "leaveWarning": "Trwa przesyłanie. Jeśli teraz wyjdziesz, zostanie ono anulowane. Wyjść mimo to?",
     "success": {
       "entryCreated": "Wpis utworzony jako szkic",
       "uploadComplete": "Plik przesłano pomyślnie",

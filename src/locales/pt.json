@@ -487,6 +487,7 @@
       "submitting": "Enviando...",
       "saveDraft": "Salvar rascunho",
       "cancel": "Cancelar",
+      "cancelUpload": "Cancelar envio",
       "goToStudio": "Ir para o Estúdio do Criador",
       "uploadAnother": "Carregar outro"
     },
@@ -507,7 +508,8 @@
       "finalizingUpload": "Finalizando upload...",
       "uploadComplete": "Upload concluído!",
       "creatingEntry": "Criando entrada...",
-      "submittingForReview": "Enviando para revisão..."
+      "submittingForReview": "Enviando para revisão...",
+      "retrying": "Problema de conexão — tentando novamente (tentativa {attempt})..."
     },
     "errors": {
       "uploadFailed": "Falha no upload. Por favor, tente novamente.",
@@ -516,8 +518,14 @@
       "noFullAsset": "Por favor, carregue o arquivo de conteúdo completo antes de enviar.",
       "unexpectedError": "Ocorreu um erro inesperado. Por favor, tente novamente.",
       "uploadsDisabled": "Os envios estão desativados",
-      "uploadsDisabledHelp": "O proprietário do tenant desativou temporariamente novos envios. Tente novamente mais tarde."
+      "uploadsDisabledHelp": "O proprietário do tenant desativou temporariamente novos envios. Tente novamente mais tarde.",
+      "networkError": "Problema de conexão durante o envio. Verifique sua internet e tente novamente — os arquivos concluídos são mantidos.",
+      "fileTooLargeServer": "Este arquivo excede o tamanho máximo permitido.",
+      "unsupportedFileType": "Este tipo de arquivo não é suportado.",
+      "rateLimited": "Muitas solicitações. Aguarde um momento e tente novamente.",
+      "uploadCancelled": "Envio cancelado."
     },
+    "leaveWarning": "Há um envio em andamento. Se você sair agora, ele será cancelado. Sair mesmo assim?",
     "success": {
       "entryCreated": "Entrada criada como rascunho",
       "uploadComplete": "Arquivo carregado com sucesso",

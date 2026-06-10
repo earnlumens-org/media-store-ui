@@ -487,6 +487,7 @@
       "submitting": "Gönderiliyor...",
       "saveDraft": "Taslağı kaydet",
       "cancel": "İptal",
+      "cancelUpload": "Yüklemeyi iptal et",
       "goToStudio": "İçerik Stüdyosuna Git",
       "uploadAnother": "Başka Bir Tane Yükle"
     },
@@ -507,7 +508,8 @@
       "finalizingUpload": "Yükleme tamamlanıyor...",
       "uploadComplete": "Yükleme tamamlandı!",
       "creatingEntry": "Girdi oluşturuluyor...",
-      "submittingForReview": "İncelemeye gönderiliyor..."
+      "submittingForReview": "İncelemeye gönderiliyor...",
+      "retrying": "Bağlantı sorunu — yeniden deneniyor (deneme {attempt})..."
     },
     "errors": {
       "uploadFailed": "Yükleme başarısız oldu. Lütfen tekrar deneyin.",
@@ -516,8 +518,14 @@
       "noFullAsset": "Göndermeden önce lütfen tam içerik dosyasını yükleyin.",
       "unexpectedError": "Beklenmeyen bir hata oluştu. Lütfen tekrar deneyin.",
       "uploadsDisabled": "Yüklemeler devre dışı",
-      "uploadsDisabledHelp": "Tenant sahibi yeni yüklemeleri geçici olarak devre dışı bıraktı. Lütfen daha sonra tekrar deneyin."
+      "uploadsDisabledHelp": "Tenant sahibi yeni yüklemeleri geçici olarak devre dışı bıraktı. Lütfen daha sonra tekrar deneyin.",
+      "networkError": "Yükleme sırasında bağlantı sorunu oluştu. İnternet bağlantınızı kontrol edip tekrar deneyin — tamamlanan dosyalar korunur.",
+      "fileTooLargeServer": "Bu dosya izin verilen en büyük boyutu aşıyor.",
+      "unsupportedFileType": "Bu dosya türü desteklenmiyor.",
+      "rateLimited": "Çok fazla istek. Lütfen biraz bekleyip tekrar deneyin.",
+      "uploadCancelled": "Yükleme iptal edildi."
     },
+    "leaveWarning": "Devam eden bir yükleme var. Şimdi ayrılırsanız iptal edilecek. Yine de ayrılmak istiyor musunuz?",
     "success": {
       "entryCreated": "Girdi taslak olarak oluşturuldu",
       "uploadComplete": "Dosya başarıyla yüklendi",

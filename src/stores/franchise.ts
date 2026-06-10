@@ -1,3 +1,5 @@
+import type { PublicFranchiseDto } from '@/api/modules/franchise.api'
+
 /**
  * Active franchise ("beta") store.
  *
@@ -11,8 +13,6 @@
  * looks exactly as it did before.
  */
 import { defineStore } from 'pinia'
-
-import type { PublicFranchiseDto } from '@/api/modules/franchise.api'
 import { getPublicFranchise } from '@/api/modules/franchise.api'
 import { getCdnBaseUrl } from '@/config/env'
 
@@ -45,12 +45,16 @@ export const useFranchiseStore = defineStore('franchise', {
     ownerDisplayName: (state): string | null => state.active?.ownerDisplayName ?? null,
     /** Public CDN URL for the franchise logo, or null to fall back to tenant. */
     logoUrl: (state): string | null => {
-      if (!state.active?.logoR2Key) return null
+      if (!state.active?.logoR2Key) {
+        return null
+      }
       return `${getCdnBaseUrl()}/${state.active.logoR2Key}`
     },
     /** Public CDN URL for the franchise cover/hero image. */
     coverUrl: (state): string | null => {
-      if (!state.active?.coverR2Key) return null
+      if (!state.active?.coverR2Key) {
+        return null
+      }
       return `${getCdnBaseUrl()}/${state.active.coverR2Key}`
     },
   },

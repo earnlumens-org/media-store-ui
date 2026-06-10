@@ -148,10 +148,10 @@
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRoute } from 'vue-router'
+  import { fetchTenantGuidelineNotes } from '@/api/modules/tenant.api'
   import SanctionLadderExplainer from '@/components/sanctions/SanctionLadderExplainer.vue'
   import { useGuidelinesContent } from '@/lib/useGuidelinesContent'
   import { useTenantStore } from '@/stores/tenant'
-  import { fetchTenantGuidelineNotes } from '@/api/modules/tenant.api'
 
   const { t, te, tm } = useI18n()
   const { loading, error } = useGuidelinesContent()
@@ -166,7 +166,9 @@
   // rules above are always shown immediately; the tenant card just swaps
   // from placeholder to notes when the response arrives.
   const tenantNotes = ref<string | null>(null)
-  fetchTenantGuidelineNotes().then(r => { tenantNotes.value = r.notes })
+  fetchTenantGuidelineNotes().then(r => {
+    tenantNotes.value = r.notes
+  })
 
   // Hash deep-linking (e.g. /guidelines#tenant-specific-rules from the admin
   // panel preview button). The router's scrollBehavior already does an
@@ -213,12 +215,12 @@
   const platformHeading = computed(() =>
     te('Guidelines.platformSection.heading')
       ? t('Guidelines.platformSection.heading')
-      : 'Platform-wide rules'
+      : 'Platform-wide rules',
   )
   const platformBody = computed(() =>
     te('Guidelines.platformSection.body')
       ? t('Guidelines.platformSection.body')
-      : 'These rules apply to every tenant on EarnLumens, including this one.'
+      : 'These rules apply to every tenant on EarnLumens, including this one.',
   )
   const tenantLabel = computed(() => tenantStore.subdomain || 'this tenant')
   const tenantHeading = computed(() => {
@@ -230,12 +232,12 @@
   const tenantBody = computed(() =>
     te('Guidelines.tenantSection.body')
       ? t('Guidelines.tenantSection.body')
-      : 'On top of the platform rules above, each tenant may add its own publishing notes.'
+      : 'On top of the platform rules above, each tenant may add its own publishing notes.',
   )
   const tenantPlaceholder = computed(() =>
     te('Guidelines.tenantSection.placeholder')
       ? t('Guidelines.tenantSection.placeholder')
-      : 'This tenant has not added specific publishing notes yet. Only the platform-wide rules above apply here.'
+      : 'This tenant has not added specific publishing notes yet. Only the platform-wide rules above apply here.',
   )
 
   // Sanctions section copy uses the same fallback pattern as the platform/
@@ -244,12 +246,12 @@
   const sanctionsHeading = computed(() =>
     te('Guidelines.sanctionsSection.heading')
       ? t('Guidelines.sanctionsSection.heading')
-      : 'How sanctions work'
+      : 'How sanctions work',
   )
   const sanctionsBody = computed(() =>
     te('Guidelines.sanctionsSection.body')
       ? t('Guidelines.sanctionsSection.body')
-      : 'If you break the rules above, this is exactly what happens. The same ladder applies on every tenant — there are no hidden penalties.'
+      : 'If you break the rules above, this is exactly what happens. The same ladder applies on every tenant — there are no hidden penalties.',
   )
 
   const creatorSections = computed(() => resolveSections('Guidelines.forCreators.sections'))

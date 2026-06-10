@@ -498,6 +498,7 @@
       "submitting": "Indienen...",
       "saveDraft": "Opslaan als concept",
       "cancel": "Annuleren",
+      "cancelUpload": "Upload annuleren",
       "goToStudio": "Ga naar Creator Studio",
       "uploadAnother": "Upload nog een"
     },
@@ -518,7 +519,8 @@
       "finalizingUpload": "Uploaden voltooien...",
       "uploadComplete": "Uploaden voltooid!",
       "creatingEntry": "Invoer maken...",
-      "submittingForReview": "Ter beoordeling indienen..."
+      "submittingForReview": "Ter beoordeling indienen...",
+      "retrying": "Verbindingsprobleem — opnieuw proberen (poging {attempt})..."
     },
     "errors": {
       "uploadFailed": "Uploaden mislukt. Probeer het opnieuw.",
@@ -527,8 +529,14 @@
       "noFullAsset": "Upload het volledige contentsbestand voordat u het verzendt.",
       "unexpectedError": "Er is een onverwachte fout opgetreden. Probeer het opnieuw.",
       "uploadsDisabled": "Uploaden is momenteel uitgeschakeld",
-      "uploadsDisabledHelp": "De tenanteigenaar heeft nieuwe uploads tijdelijk uitgeschakeld. Probeer het later opnieuw."
+      "uploadsDisabledHelp": "De tenanteigenaar heeft nieuwe uploads tijdelijk uitgeschakeld. Probeer het later opnieuw.",
+      "networkError": "Verbindingsprobleem tijdens het uploaden. Controleer je internetverbinding en probeer het opnieuw — voltooide bestanden blijven bewaard.",
+      "fileTooLargeServer": "Dit bestand is groter dan de maximaal toegestane grootte.",
+      "unsupportedFileType": "Dit bestandstype wordt niet ondersteund.",
+      "rateLimited": "Te veel verzoeken. Wacht even en probeer het opnieuw.",
+      "uploadCancelled": "Upload geannuleerd."
     },
+    "leaveWarning": "Er is een upload bezig. Als je nu weggaat, wordt deze geannuleerd. Toch weggaan?",
     "success": {
       "entryCreated": "Inzending gemaakt als concept",
       "uploadComplete": "Bestand geüpload",

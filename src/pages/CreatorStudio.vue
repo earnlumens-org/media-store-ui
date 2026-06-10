@@ -1885,21 +1885,25 @@
   }
 
   async function uploadEditAsset (entryId: string, file: File, kind: AssetKind, progressRef: typeof editThumbnailProgress) {
-    const initResp = await api.upload.initUpload({
+    const initRequest = {
       entryId,
       fileName: file.name,
       contentType: file.type || 'application/octet-stream',
       kind,
       fileSizeBytes: file.size,
-    })
-    await api.upload.uploadToR2(initResp.presignedUrl, file, pct => {
-      progressRef.value = pct
+    }
+    const initResp = await api.upload.initUpload(initRequest)
+    const usedInit = await api.upload.uploadFileToR2(initResp, file, {
+      onProgress: pct => {
+        progressRef.value = pct
+      },
+      refresh: () => api.upload.initUpload(initRequest),
     })
     const meta = await extractImageMeta(file)
     await api.upload.finalizeUpload({
-      uploadId: initResp.uploadId,
+      uploadId: usedInit.uploadId,
       entryId,
-      r2Key: initResp.r2Key,
+      r2Key: usedInit.r2Key,
       contentType: file.type,
       fileName: file.name,
       fileSizeBytes: file.size,

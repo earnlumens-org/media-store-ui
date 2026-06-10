@@ -22,13 +22,13 @@
     <!-- Mobile: sticky Material tabs (centered, scrollable, animated indicator) -->
     <v-tabs
       v-else
-      :model-value="modelValue"
       align-tabs="start"
       bg-color="surface"
       center-active
       color="primary"
       density="compact"
       grow
+      :model-value="modelValue"
       show-arrows
       @update:model-value="(v: unknown) => $emit('update:modelValue', String(v))"
     >

@@ -487,6 +487,7 @@
       "submitting": "提交中...",
       "saveDraft": "保存草稿",
       "cancel": "取消",
+      "cancelUpload": "取消上传",
       "goToStudio": "前往创作者工作室",
       "uploadAnother": "上传另一个"
     },
@@ -507,7 +508,8 @@
       "finalizingUpload": "正在完成上传...",
       "uploadComplete": "上传完成！",
       "creatingEntry": "正在创建条目...",
-      "submittingForReview": "正在提交审核..."
+      "submittingForReview": "正在提交审核...",
+      "retrying": "连接出现问题 — 正在重试（第 {attempt} 次）..."
     },
     "errors": {
       "uploadFailed": "上传失败。请重试。",
@@ -516,8 +518,14 @@
       "noFullAsset": "提交前请先上传完整内容文件。",
       "unexpectedError": "发生意外错误。请重试。",
       "uploadsDisabled": "上传已禁用",
-      "uploadsDisabledHelp": "租户所有者已临时关闭新的上传。请稍后再试。"
+      "uploadsDisabledHelp": "租户所有者已临时关闭新的上传。请稍后再试。",
+      "networkError": "上传过程中出现连接问题。请检查网络连接后重试 — 已完成的文件会被保留。",
+      "fileTooLargeServer": "此文件超过允许的最大大小。",
+      "unsupportedFileType": "不支持此文件类型。",
+      "rateLimited": "请求过多。请稍候再试。",
+      "uploadCancelled": "已取消上传。"
     },
+    "leaveWarning": "正在上传。如果现在离开，上传将被取消。仍要离开吗？",
     "success": {
       "entryCreated": "条目已创建为草稿",
       "uploadComplete": "文件上传成功",

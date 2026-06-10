@@ -253,13 +253,13 @@
 </template>
 
 <script setup lang="ts">
+  import type { SpaceSummaryDto } from '@/api/modules/spaces.api'
   import { storeToRefs } from 'pinia'
   import { computed, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import { useRoute } from 'vue-router'
   import { useTheme } from 'vuetify'
   import { api } from '@/api/api'
-  import type { SpaceSummaryDto } from '@/api/modules/spaces.api'
   import logo from '@/assets/logo.svg?raw'
   import CxDarkLightMode from '@/components/CxDarkLightMode.vue'
   import CxLanguageDialog from '@/components/CxLanguageDialog.vue'
@@ -346,7 +346,7 @@
   const { locale, t } = useI18n()
 
   const dynamicSpaces = computed(() =>
-    sidebarSpaces.value.filter(s => !(s.systemSpace && s.key === 'explore'))
+    sidebarSpaces.value.filter(s => !(s.systemSpace && s.key === 'explore')),
   )
 
   function resolveSpaceTitle (s: SpaceSummaryDto): string {

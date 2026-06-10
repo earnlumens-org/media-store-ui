@@ -137,8 +137,8 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
   // restriction" — the storefront then shows every tab and upload type.
   const allowedEntryTypes = Array.isArray(body.allowedEntryTypes)
     ? (body.allowedEntryTypes as unknown[])
-      .filter((v): v is string => typeof v === 'string' && v.length > 0)
-      .map(v => v.toUpperCase())
+        .filter((v): v is string => typeof v === 'string' && v.length > 0)
+        .map(v => v.toUpperCase())
     : null
   const allowedEntryTypesFinal = allowedEntryTypes && allowedEntryTypes.length > 0 ? allowedEntryTypes : null
   if (body.kind === 'tenant' && typeof body.subdomain === 'string') {

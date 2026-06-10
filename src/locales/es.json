@@ -552,6 +552,7 @@
       "submitting": "Enviando...",
       "saveDraft": "Guardar como borrador",
       "cancel": "Cancelar",
+      "cancelUpload": "Cancelar subida",
       "goToStudio": "Ir a Creator Studio",
       "uploadAnother": "Subir otro"
     },
@@ -572,7 +573,8 @@
       "finalizingUpload": "Finalizando subida...",
       "uploadComplete": "¡Subida completa!",
       "creatingEntry": "Creando entrada...",
-      "submittingForReview": "Enviando para revisión..."
+      "submittingForReview": "Enviando para revisión...",
+      "retrying": "Problema de conexión — reintentando (intento {attempt})..."
     },
     "errors": {
       "uploadFailed": "La subida falló. Por favor, inténtalo de nuevo.",
@@ -581,8 +583,14 @@
       "noFullAsset": "Por favor, sube el archivo de contenido completo antes de enviar.",
       "unexpectedError": "Ocurrió un error inesperado. Por favor, inténtalo de nuevo.",
       "uploadsDisabled": "Las cargas están deshabilitadas",
-      "uploadsDisabledHelp": "El propietario del tenant ha desactivado temporalmente las nuevas cargas. Inténtalo de nuevo más tarde."
+      "uploadsDisabledHelp": "El propietario del tenant ha desactivado temporalmente las nuevas cargas. Inténtalo de nuevo más tarde.",
+      "networkError": "Problema de conexión durante la subida. Comprueba tu conexión a internet e inténtalo de nuevo — los archivos completados se conservan.",
+      "fileTooLargeServer": "Este archivo supera el tamaño máximo permitido.",
+      "unsupportedFileType": "Este tipo de archivo no es compatible.",
+      "rateLimited": "Demasiadas solicitudes. Espera un momento e inténtalo de nuevo.",
+      "uploadCancelled": "Subida cancelada."
     },
+    "leaveWarning": "Hay una subida en curso. Si sales ahora se cancelará. ¿Salir de todos modos?",
     "success": {
       "entryCreated": "Entrada creada como borrador",
       "uploadComplete": "Archivo subido correctamente",

@@ -44,29 +44,43 @@ let deferredPrompt: BeforeInstallPromptEvent | null = null
 let initialised = false
 
 function detectStandalone (): boolean {
-  if (typeof window === 'undefined') return false
+  if (typeof window === 'undefined') {
+    return false
+  }
   const mql = window.matchMedia?.('(display-mode: standalone)')
   // `navigator.standalone` is the legacy iOS-only flag.
   return Boolean(mql?.matches) || (window.navigator as any).standalone === true
 }
 
 function detectPlatform (): PwaPlatform {
-  if (typeof navigator === 'undefined') return 'other'
+  if (typeof navigator === 'undefined') {
+    return 'other'
+  }
   const ua = navigator.userAgent || ''
   const isIOS
     = /iphone|ipad|ipod/i.test(ua)
       // iPadOS 13+ masquerades as macOS — distinguish via touch support.
       || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-  if (isIOS) return 'ios'
-  if (/android/i.test(ua)) return 'android'
-  if (/windows|macintosh|linux|cros/i.test(ua)) return 'desktop'
+  if (isIOS) {
+    return 'ios'
+  }
+  if (/android/i.test(ua)) {
+    return 'android'
+  }
+  if (/windows|macintosh|linux|cros/i.test(ua)) {
+    return 'desktop'
+  }
   return 'other'
 }
 
 function detectIosVersion (): number | null {
-  if (typeof navigator === 'undefined') return null
+  if (typeof navigator === 'undefined') {
+    return null
+  }
   const m = navigator.userAgent.match(/OS (\d+)_(\d+)/i)
-  if (!m) return null
+  if (!m) {
+    return null
+  }
   return Number(`${m[1]}.${m[2]}`)
 }
 
@@ -85,7 +99,9 @@ function onAppInstalled (): void {
 }
 
 function init (): void {
-  if (initialised || typeof window === 'undefined') return
+  if (initialised || typeof window === 'undefined') {
+    return
+  }
   initialised = true
 
   platform.value = detectPlatform()
@@ -121,10 +137,14 @@ init()
  * @returns the user's choice, or `'unavailable'` when no prompt was captured.
  */
 async function promptInstall (): Promise<'accepted' | 'dismissed' | 'unavailable'> {
-  if (!deferredPrompt) return 'unavailable'
+  if (!deferredPrompt) {
+    return 'unavailable'
+  }
   await deferredPrompt.prompt()
   const { outcome } = await deferredPrompt.userChoice
-  if (outcome === 'accepted') installState.value = 'installed'
+  if (outcome === 'accepted') {
+    installState.value = 'installed'
+  }
   deferredPrompt = null
   return outcome
 }

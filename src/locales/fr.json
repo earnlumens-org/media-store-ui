@@ -487,6 +487,7 @@
       "submitting": "Soumission...",
       "saveDraft": "Enregistrer le brouillon",
       "cancel": "Annuler",
+      "cancelUpload": "Annuler l'envoi",
       "goToStudio": "Aller au Creator Studio",
       "uploadAnother": "Téléverser un autre"
     },
@@ -507,7 +508,8 @@
       "finalizingUpload": "Finalisation du téléversement...",
       "uploadComplete": "Téléversement terminé !",
       "creatingEntry": "Création de l'entrée...",
-      "submittingForReview": "Soumission pour examen..."
+      "submittingForReview": "Soumission pour examen...",
+      "retrying": "Problème de connexion — nouvelle tentative ({attempt})..."
     },
     "errors": {
       "uploadFailed": "Le téléversement a échoué. Veuillez réessayer.",
@@ -516,8 +518,14 @@
       "noFullAsset": "Veuillez téléverser le fichier de contenu complet avant de soumettre.",
       "unexpectedError": "Une erreur inattendue s’est produite. Veuillez réessayer.",
       "uploadsDisabled": "Les téléversements sont désactivés",
-      "uploadsDisabledHelp": "Le propriétaire du tenant a temporairement désactivé les nouveaux téléversements. Veuillez réessayer plus tard."
+      "uploadsDisabledHelp": "Le propriétaire du tenant a temporairement désactivé les nouveaux téléversements. Veuillez réessayer plus tard.",
+      "networkError": "Problème de connexion pendant l'envoi. Vérifiez votre connexion internet et réessayez — les fichiers terminés sont conservés.",
+      "fileTooLargeServer": "Ce fichier dépasse la taille maximale autorisée.",
+      "unsupportedFileType": "Ce type de fichier n'est pas pris en charge.",
+      "rateLimited": "Trop de requêtes. Veuillez patienter un instant et réessayer.",
+      "uploadCancelled": "Envoi annulé."
     },
+    "leaveWarning": "Un envoi est en cours. Si vous quittez maintenant, il sera annulé. Quitter quand même ?",
     "success": {
       "entryCreated": "Entrée créée en brouillon",
       "uploadComplete": "Fichier téléversé avec succès",

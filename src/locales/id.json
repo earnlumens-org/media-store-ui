@@ -498,6 +498,7 @@
       "submitting": "Mengirim...",
       "saveDraft": "Simpan sebagai Draf",
       "cancel": "Batal",
+      "cancelUpload": "Batalkan unggahan",
       "goToStudio": "Ke Creator Studio",
       "uploadAnother": "Unggah Lagi"
     },
@@ -518,7 +519,8 @@
       "finalizingUpload": "Menyelesaikan unggahan...",
       "uploadComplete": "Unggahan selesai!",
       "creatingEntry": "Membuat entri...",
-      "submittingForReview": "Mengirim untuk ditinjau..."
+      "submittingForReview": "Mengirim untuk ditinjau...",
+      "retrying": "Masalah koneksi — mencoba lagi (percobaan {attempt})..."
     },
     "errors": {
       "uploadFailed": "Unggahan gagal. Silakan coba lagi.",
@@ -527,8 +529,14 @@
       "noFullAsset": "Mohon unggah file konten penuh sebelum mengirim.",
       "unexpectedError": "Terjadi kesalahan yang tidak terduga. Silakan coba lagi.",
       "uploadsDisabled": "Unggahan saat ini dinonaktifkan",
-      "uploadsDisabledHelp": "Pemilik tenant telah menonaktifkan unggahan baru untuk sementara. Silakan coba lagi nanti."
+      "uploadsDisabledHelp": "Pemilik tenant telah menonaktifkan unggahan baru untuk sementara. Silakan coba lagi nanti.",
+      "networkError": "Terjadi masalah koneksi saat mengunggah. Periksa koneksi internet Anda dan coba lagi — berkas yang selesai tetap tersimpan.",
+      "fileTooLargeServer": "Berkas ini melebihi ukuran maksimum yang diizinkan.",
+      "unsupportedFileType": "Jenis berkas ini tidak didukung.",
+      "rateLimited": "Terlalu banyak permintaan. Tunggu sebentar lalu coba lagi.",
+      "uploadCancelled": "Unggahan dibatalkan."
     },
+    "leaveWarning": "Unggahan sedang berlangsung. Jika Anda keluar sekarang, unggahan akan dibatalkan. Tetap keluar?",
     "success": {
       "entryCreated": "Entri dibuat sebagai draf",
       "uploadComplete": "File berhasil diunggah",
