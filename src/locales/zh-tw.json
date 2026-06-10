@@ -1,4 +1,7 @@
 {
+  "Explore": {
+    "newContent": "最新內容"
+  },
   "TenantNotFound": {
     "title": "此租戶不存在",
     "body": "您嘗試存取的子網域與 EarnLumens 上任何有效的市集都不相符。",

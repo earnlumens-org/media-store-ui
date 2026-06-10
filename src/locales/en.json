@@ -1,4 +1,7 @@
 {
+  "Explore": {
+    "newContent": "New content"
+  },
   "Franchise": {
     "officialOf": "Official franchise of {tenant}",
     "poweredBy": "powered by EarnLumens",

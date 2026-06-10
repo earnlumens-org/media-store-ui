@@ -1,4 +1,7 @@
 {
+  "Explore": {
+    "newContent": "Yeni içerik"
+  },
   "TenantNotFound": {
     "title": "Bu tenant mevcut değil",
     "body": "Erişmeye çalıştığınız alt alan adı, EarnLumens üzerindeki hiçbir aktif pazar yeriyle eşleşmiyor.",

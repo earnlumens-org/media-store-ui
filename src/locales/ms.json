@@ -1,4 +1,7 @@
 {
+  "Explore": {
+    "newContent": "Kandungan terbaru"
+  },
   "TenantNotFound": {
     "title": "Penyewa ini tidak wujud",
     "body": "Subdomain yang anda cuba akses tidak sepadan dengan mana-mana marketplace aktif di EarnLumens.",

@@ -1,4 +1,7 @@
 {
+  "Explore": {
+    "newContent": "Neuste Inhalte"
+  },
   "TenantNotFound": {
     "title": "Dieser Tenant existiert nicht",
     "body": "Die Subdomain, die du aufrufen möchtest, gehört zu keinem aktiven Marktplatz auf EarnLumens.",

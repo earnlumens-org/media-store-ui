@@ -1,4 +1,7 @@
 {
+  "Explore": {
+    "newContent": "Nouveau contenu"
+  },
   "TenantNotFound": {
     "title": "Ce tenant n’existe pas",
     "body": "Le sous-domaine que vous essayez d’atteindre ne correspond à aucune marketplace active sur EarnLumens.",

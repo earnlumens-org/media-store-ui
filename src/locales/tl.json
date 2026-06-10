@@ -1,4 +1,7 @@
 {
+  "Explore": {
+    "newContent": "Bagong nilalaman"
+  },
   "TenantNotFound": {
     "title": "Wala ang tenant na ito",
     "body": "Ang subdomain na sinusubukan mong i-access ay hindi tumutugma sa anumang aktibong marketplace sa EarnLumens.",

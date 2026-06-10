@@ -1,4 +1,7 @@
 {
+  "Explore": {
+    "newContent": "新しいコンテンツ"
+  },
   "TenantNotFound": {
     "title": "このテナントは存在しません",
     "body": "アクセスしようとしているサブドメインは、EarnLumens 上のいずれの有効なマーケットプレイスにも一致しません。",
