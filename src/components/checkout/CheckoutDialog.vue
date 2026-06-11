@@ -260,7 +260,12 @@
       dialogOpen.value = false
     } catch (error_) {
       const msg = error_ instanceof Error ? error_.message : ''
-      error.value = msg === 'WALLET_NOT_ACTIVATED' ? t('Preview.walletNotActivated') : msg || t('Preview.paymentFailed')
+      error.value
+        = msg === 'WALLET_NOT_ACTIVATED'
+          ? t('Preview.walletNotActivated')
+          : (msg === 'SPLIT_WALLET_NOT_ACTIVE'
+            ? t('Preview.contentWalletInactive')
+            : msg || t('Preview.paymentFailed'))
     } finally {
       isProcessing.value = false
     }

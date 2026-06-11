@@ -660,6 +660,7 @@
     "transactionExpiredMessage": "Esta sesión de pago ha expirado. El tipo de cambio puede haber cambiado. Intenta de nuevo para obtener una cotización actualizada.",
     "tryAgain": "Intentar de nuevo",
     "walletNotActivated": "Tu billetera aún no está activa en la red Stellar. Envía al menos 1 XLM para activarla antes de realizar una compra.",
+    "contentWalletInactive": "Este contenido no se puede comprar en este momento: una de sus billeteras de cobro ya no está activa en la red Stellar. Inténtalo de nuevo más tarde.",
     "goToWallet": "Ir a Billetera"
   },
   "Purchased": {
