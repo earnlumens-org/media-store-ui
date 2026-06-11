@@ -672,7 +672,8 @@
     "tryAgain": "Try again",
     "walletNotActivated": "Your wallet is not yet active on the Stellar network. Send at least 1 XLM to activate it before making a purchase.",
     "contentWalletInactive": "This content can't be purchased right now: one of its payout wallets is no longer active on the Stellar network. Please try again later.",
-    "goToWallet": "Go to Wallet"
+    "goToWallet": "Go to Wallet",
+    "paymentInProgress": "Your previous payment is still being confirmed on the Stellar network. Please wait a few minutes and try again."
   },
   "Favorites": {
     "empty": "No favorites yet",

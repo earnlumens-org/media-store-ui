@@ -594,7 +594,8 @@
     "transactionExpiredMessage": "此付款会话已过期。汇率可能已发生变化。请重试以获取最新报价。",
     "tryAgain": "重试",
     "walletNotActivated": "您的钱包尚未在 Stellar 网络上激活。请发送至少 1 XLM 来激活它，然后再进行购买。",
-    "goToWallet": "前往钱包"
+    "goToWallet": "前往钱包",
+    "paymentInProgress": "您之前的付款仍在 Stellar 网络上确认中。请等待几分钟后重试。"
   },
   "Purchased": {
     "title": "我的购买",

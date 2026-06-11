@@ -594,7 +594,8 @@
     "transactionExpiredMessage": "Ta sesja płatności wygasła. Kurs wymiany mógł się zmienić. Spróbuj ponownie, aby uzyskać aktualną wycenę.",
     "tryAgain": "Spróbuj ponownie",
     "walletNotActivated": "Twój portfel nie jest jeszcze aktywny w sieci Stellar. Wyślij co najmniej 1 XLM, aby go aktywować przed dokonaniem zakupu.",
-    "goToWallet": "Przejdź do Portfela"
+    "goToWallet": "Przejdź do Portfela",
+    "paymentInProgress": "Twoja poprzednia płatność jest wciąż potwierdzana w sieci Stellar. Poczekaj kilka minut i spróbuj ponownie."
   },
   "Purchased": {
     "title": "Moje zakupy",

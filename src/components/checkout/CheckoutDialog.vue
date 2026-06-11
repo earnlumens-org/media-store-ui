@@ -260,12 +260,28 @@
       dialogOpen.value = false
     } catch (error_) {
       const msg = error_ instanceof Error ? error_.message : ''
+
+      // The backend already holds a confirmed purchase for this content
+      // (e.g. the previous submit succeeded but the response was lost, or a
+      // stuck payment was reconciled server-side). Treat it as success.
+      if (msg === 'Content already purchased') {
+        purchasesStore.markUnlocked(props.item.id, {
+          type: props.item.type,
+          title: props.item.title,
+        })
+        emit('purchased', props.item.id)
+        dialogOpen.value = false
+        return
+      }
+
       error.value
         = msg === 'WALLET_NOT_ACTIVATED'
           ? t('Preview.walletNotActivated')
           : (msg === 'SPLIT_WALLET_NOT_ACTIVE'
             ? t('Preview.contentWalletInactive')
-            : msg || t('Preview.paymentFailed'))
+            : (msg === 'PAYMENT_IN_PROGRESS'
+              ? t('Preview.paymentInProgress')
+              : msg || t('Preview.paymentFailed')))
     } finally {
       isProcessing.value = false
     }

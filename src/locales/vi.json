@@ -594,7 +594,8 @@
     "transactionExpiredMessage": "Phiên thanh toán này đã hết hạn. Tỷ giá hối đoái có thể đã thay đổi. Vui lòng thử lại để nhận báo giá cập nhật.",
     "tryAgain": "Thử lại",
     "walletNotActivated": "Ví của bạn chưa được kích hoạt trên mạng Stellar. Gửi ít nhất 1 XLM để kích hoạt trước khi mua hàng.",
-    "goToWallet": "Đi đến Ví"
+    "goToWallet": "Đi đến Ví",
+    "paymentInProgress": "Khoản thanh toán trước đó của bạn vẫn đang được xác nhận trên mạng Stellar. Vui lòng đợi vài phút và thử lại."
   },
   "Purchased": {
     "title": "Mua hàng của tôi",

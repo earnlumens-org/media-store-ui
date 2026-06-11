@@ -605,7 +605,8 @@
     "transactionExpiredMessage": "Nag-expire na ang sesyon ng bayad na ito. Maaaring nagbago ang exchange rate. Pakisubukan muli para kumuha ng na-update na quote.",
     "tryAgain": "Subukan muli",
     "walletNotActivated": "Hindi pa aktibo ang iyong wallet sa Stellar network. Magpadala ng hindi bababa sa 1 XLM para i-activate ito bago bumili.",
-    "goToWallet": "Pumunta sa wallet"
+    "goToWallet": "Pumunta sa wallet",
+    "paymentInProgress": "Ang nakaraang bayad mo ay kinukumpirma pa rin sa Stellar network. Maghintay ng ilang minuto at subukang muli."
   },
   "Favorites": {
     "empty": "Wala pang mga paborito",

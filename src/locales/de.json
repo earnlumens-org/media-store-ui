@@ -594,7 +594,8 @@
     "transactionExpiredMessage": "Diese Zahlungssitzung ist abgelaufen. Der Wechselkurs hat sich möglicherweise geändert. Bitte versuche es erneut für ein aktuelles Angebot.",
     "tryAgain": "Erneut versuchen",
     "walletNotActivated": "Deine Wallet ist noch nicht im Stellar-Netzwerk aktiviert. Sende mindestens 1 XLM, um sie vor einem Kauf zu aktivieren.",
-    "goToWallet": "Zur Wallet"
+    "goToWallet": "Zur Wallet",
+    "paymentInProgress": "Deine vorherige Zahlung wird noch im Stellar-Netzwerk bestätigt. Bitte warte einige Minuten und versuche es erneut."
   },
   "Purchased": {
     "title": "Meine Käufe",

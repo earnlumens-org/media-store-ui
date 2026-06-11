@@ -594,7 +594,8 @@
     "transactionExpiredMessage": "Bu ödeme oturumunun süresi doldu. Döviz kuru değişmiş olabilir. Güncel bir teklif almak için lütfen tekrar deneyin.",
     "tryAgain": "Tekrar dene",
     "walletNotActivated": "Cüzdanınız henüz Stellar ağında etkinleştirilmemiş. Satın alma yapmadan önce etkinleştirmek için en az 1 XLM gönderin.",
-    "goToWallet": "Cüzdana Git"
+    "goToWallet": "Cüzdana Git",
+    "paymentInProgress": "Önceki ödemeniz hâlâ Stellar ağında onaylanıyor. Lütfen birkaç dakika bekleyip tekrar deneyin."
   },
   "Purchased": {
     "title": "Satın Alımlarım",

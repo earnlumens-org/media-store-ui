@@ -661,7 +661,8 @@
     "tryAgain": "Intentar de nuevo",
     "walletNotActivated": "Tu billetera aún no está activa en la red Stellar. Envía al menos 1 XLM para activarla antes de realizar una compra.",
     "contentWalletInactive": "Este contenido no se puede comprar en este momento: una de sus billeteras de cobro ya no está activa en la red Stellar. Inténtalo de nuevo más tarde.",
-    "goToWallet": "Ir a Billetera"
+    "goToWallet": "Ir a Billetera",
+    "paymentInProgress": "Tu pago anterior todavía se está confirmando en la red Stellar. Espera unos minutos y vuelve a intentarlo."
   },
   "Purchased": {
     "title": "Mis compras",

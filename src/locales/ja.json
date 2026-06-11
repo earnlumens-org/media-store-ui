@@ -594,7 +594,8 @@
     "transactionExpiredMessage": "この支払いセッションは期限切れです。為替レートが変更された可能性があります。最新の見積もりを取得するには、もう一度お試しください。",
     "tryAgain": "もう一度試す",
     "walletNotActivated": "ウォレットはまだStellarネットワークで有効化されていません。購入前に少なくとも1 XLMを送信して有効化してください。",
-    "goToWallet": "ウォレットへ移動"
+    "goToWallet": "ウォレットへ移動",
+    "paymentInProgress": "前回のお支払いはまだ Stellar ネットワークで確認中です。数分待ってから、もう一度お試しください。"
   },
   "Purchased": {
     "title": "購入済み",

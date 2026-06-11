@@ -605,7 +605,8 @@
     "transactionExpiredMessage": "Sesi pembayaran ini telah kedaluwarsa. Nilai tukar mungkin telah berubah. Silakan coba lagi untuk mendapatkan kutipan yang diperbarui.",
     "tryAgain": "Coba lagi",
     "walletNotActivated": "Dompet Anda belum aktif di jaringan Stellar. Kirim setidaknya 1 XLM untuk mengaktifkannya sebelum melakukan pembelian.",
-    "goToWallet": "Ke Dompet"
+    "goToWallet": "Ke Dompet",
+    "paymentInProgress": "Pembayaran Anda sebelumnya masih dikonfirmasi di jaringan Stellar. Harap tunggu beberapa menit dan coba lagi."
   },
   "Favorites": {
     "empty": "Belum ada favorit",

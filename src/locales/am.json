@@ -605,7 +605,8 @@
     "transactionExpiredMessage": "ይህ የክፍያ ክፍለ ጊዜ ጊዜው አልፏል። የምንዛሬ ተመን ተቀይሮ ሊሆን ይችላል። የተዘመነ ዋጋ ለማግኘት እንደገና ይሞክሩ።",
     "tryAgain": "እንደገና ሞክር",
     "walletNotActivated": "ቦርሳዎ በStellar አውታረ መረብ ላይ እስካሁን ንቁ አይደለም። ግዢ ከማድረግዎ በፊት ለማንቃት ቢያንስ 1 XLM ይላኩ።",
-    "goToWallet": "ወደ ቦርሳ ሂድ"
+    "goToWallet": "ወደ ቦርሳ ሂድ",
+    "paymentInProgress": "የቀደመው ክፍያዎ አሁንም በ Stellar አውታረ መረብ ላይ እየተረጋገጠ ነው። ጥቂት ደቂቃዎችን ይጠብቁና እንደገና ይሞክሩ።"
   },
   "Favorites": {
     "empty": "እስካሁን ተወዳጆች የሉም",

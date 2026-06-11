@@ -594,7 +594,8 @@
     "transactionExpiredMessage": "Questa sessione di pagamento è scaduta. Il tasso di cambio potrebbe essere cambiato. Riprova per ottenere un preventivo aggiornato.",
     "tryAgain": "Riprova",
     "walletNotActivated": "Il tuo portafoglio non è ancora attivo sulla rete Stellar. Invia almeno 1 XLM per attivarlo prima di effettuare un acquisto.",
-    "goToWallet": "Vai al Portafoglio"
+    "goToWallet": "Vai al Portafoglio",
+    "paymentInProgress": "Il tuo pagamento precedente è ancora in fase di conferma sulla rete Stellar. Attendi qualche minuto e riprova."
   },
   "Purchased": {
     "title": "I miei acquisti",

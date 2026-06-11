@@ -605,7 +605,8 @@
     "transactionExpiredMessage": "Deze betaalsessie is verlopen. Het kan zijn dat de wisselkoers veranderd is. Probeer het opnieuw voor een bijgewerkte offerte.",
     "tryAgain": "Probeer het opnieuw",
     "walletNotActivated": "Uw wallet is nog niet actief op het Stellar-netwerk. Stuur minimaal 1 XLM om deze te activeren voordat u een aankoop doet.",
-    "goToWallet": "Ga naar Wallet"
+    "goToWallet": "Ga naar Wallet",
+    "paymentInProgress": "Je vorige betaling wordt nog bevestigd op het Stellar-netwerk. Wacht een paar minuten en probeer het opnieuw."
   },
   "Favorites": {
     "empty": "Nog geen favorieten",
