@@ -175,7 +175,7 @@
     "tooManyRequests": "অনেক বেশি অনুরোধ। অনুগ্রহ করে এক মুহূর্ত অপেক্ষা করুন এবং আবার চেষ্টা করুন।"
   },
   "Themes": {
-    "title": "EarnLumens থিম নির্বাচক",
+    "title": "থিম নির্বাচক",
     "subtitle": "আপনার ভিজ্যুয়াল পরিচয় চয়ন করুন",
     "categories": "বিভাগ",
     "categoryThemes": "{category} থিম",

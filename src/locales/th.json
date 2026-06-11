@@ -175,7 +175,7 @@
     "tooManyRequests": "มีคำขอมากเกินไป โปรดรอสักครู่แล้วลองอีกครั้ง"
   },
   "Themes": {
-    "title": "ตัวเลือกธีมของ EarnLumens",
+    "title": "ตัวเลือกธีม",
     "subtitle": "เลือกอัตลักษณ์ภาพของคุณ",
     "categories": "หมวดหมู่",
     "categoryThemes": "ธีม{category}",

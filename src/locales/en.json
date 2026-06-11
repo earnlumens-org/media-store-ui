@@ -239,7 +239,7 @@
     "tooManyRequests": "Too many requests. Please wait a moment and try again."
   },
   "Themes": {
-    "title": "EarnLumens Theme Selector",
+    "title": "Theme Selector",
     "subtitle": "Choose your visual identity",
     "categories": "Categories",
     "categoryThemes": "{category} Themes",
