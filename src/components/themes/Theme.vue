@@ -454,7 +454,6 @@
   ]
 
   const CATEGORIES: Category[] = [
-    { key: 'education', themes: ['academicClean', 'nord', 'rosePineDawn'] },
     { key: 'finance-tech', themes: ['fintechPro', 'corporateClassic', 'dracula', 'gruvbox', 'solarizedDark', 'catppuccinMocha'] },
     { key: 'gaming', themes: ['gamerArena', 'tokyoNight', 'synthwave84'] },
     { key: 'wellness', themes: ['zen', 'earthGaia', 'mintFresh'] },
@@ -468,6 +467,7 @@
     { key: 'urban', themes: ['urbanStreet'] },
     { key: 'creative-pro', themes: ['creativeStudio', 'neoBrutalArt'] },
     { key: 'legal-institutional', themes: ['institutional'] },
+    { key: 'education', themes: ['academicClean', 'nord', 'rosePineDawn'] },
   ]
 
   const DEFAULT_CATEGORY: Category = CATEGORIES[0] ?? { key: 'education', themes: [] }
