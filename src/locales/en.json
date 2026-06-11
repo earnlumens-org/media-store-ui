@@ -62,7 +62,8 @@
       "image_key": "Couldn't attach that image. Please try again.",
       "tenant_blocked": "This marketplace is not active.",
       "not_found": "Franchise not found.",
-      "forbidden": "Please log in to continue."
+      "forbidden": "Please log in to continue.",
+      "wallet_not_activated": "This wallet is not yet active on the Stellar network. Send at least 1 XLM to this address to activate it."
     }
   },
   "TenantNotFound": {

@@ -62,7 +62,8 @@
       "image_key": "No se pudo adjuntar esa imagen. Inténtalo de nuevo.",
       "tenant_blocked": "Este marketplace no está activo.",
       "not_found": "Franquicia no encontrada.",
-      "forbidden": "Inicia sesión para continuar."
+      "forbidden": "Inicia sesión para continuar.",
+      "wallet_not_activated": "Esta billetera aún no está activa en la red Stellar. Envía al menos 1 XLM a esta dirección para activarla."
     }
   },
   "TenantNotFound": {

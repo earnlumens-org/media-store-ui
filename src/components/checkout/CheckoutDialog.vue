@@ -25,6 +25,7 @@
 
   import { api } from '@/api/api'
   import xIcon from '@/assets/twitterx.svg?raw'
+  import { accountExists } from '@/services/stellar'
 
   import { useAppStore } from '@/stores/app'
   import { useFranchiseStore } from '@/stores/franchise'
@@ -209,6 +210,13 @@
       const buyerWallet = walletStore.activeAddress
       if (!buyerWallet) {
         throw new Error(t('Preview.noWalletAddress'))
+      }
+
+      // 1b. Require an ACTIVE (funded) wallet before doing anything else.
+      // The backend re-checks this at prepare time; checking here gives the
+      // user immediate feedback with a link to the funding instructions.
+      if (!(await accountExists(buyerWallet))) {
+        throw new Error('WALLET_NOT_ACTIVATED')
       }
 
       // 2. Prepare — backend builds unsigned Stellar tx

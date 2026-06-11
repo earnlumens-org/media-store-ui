@@ -299,7 +299,23 @@
               :label="t('MyFranchise.fieldPayout')"
               :rules="[walletRule]"
               variant="outlined"
+              @update:model-value="walletInactive = false"
             />
+            <v-alert
+              v-if="walletInactive"
+              class="mb-4"
+              density="compact"
+              type="warning"
+              variant="tonal"
+            >
+              {{ t('MyFranchise.errors.wallet_not_activated') }}
+              <a
+                class="text-decoration-underline"
+                href="https://developers.stellar.org/docs/build/guides/transactions/create-account#create-an-account-1"
+                rel="noopener noreferrer"
+                target="_blank"
+              >{{ t('Wallet.learnMore') }}</a>
+            </v-alert>
             <v-text-field
               v-model="create.title"
               counter="80"
@@ -374,6 +390,7 @@
   import { api, ApiError } from '@/api/api'
   import CxLoginDialog from '@/components/CxLoginDialog.vue'
   import { cdnPublicUrl } from '@/config/env'
+  import { accountExists } from '@/services/stellar'
   import { useAuthStore } from '@/stores/auth'
   import { useTenantStore } from '@/stores/tenant'
 
@@ -413,6 +430,9 @@
     accentColor: '',
     acceptTerms: false,
   })
+
+  /** The payout wallet is syntactically valid but not funded on the network. */
+  const walletInactive = ref(false)
 
   const edit = reactive({ title: '', description: '', accentColor: '' })
   const editOriginal = reactive({ title: '', description: '', accentColor: '' })
@@ -553,6 +573,13 @@
     if (!create.acceptTerms) return
     saving.value = true
     try {
+      // The payout wallet is immutable after creation and becomes a payment
+      // destination — require an activated (funded) Stellar account up front.
+      walletInactive.value = !(await accountExists(create.payoutWallet.trim()))
+      if (walletInactive.value) {
+        notify(t('MyFranchise.errors.wallet_not_activated'), 'error')
+        return
+      }
       const created = await api.franchises.create({
         slug: create.slug.trim().toLowerCase(),
         payoutWallet: create.payoutWallet.trim(),
