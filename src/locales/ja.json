@@ -771,7 +771,8 @@
       "VIDEO": "動画",
       "AUDIO": "音声",
       "IMAGE": "画像",
-      "RESOURCE": "リソース"
+      "RESOURCE": "リソース",
+      "COLLECTION": "コレクション"
     },
     "role": {
       "SELLER": "販売者",

@@ -771,7 +771,8 @@
       "VIDEO": "व्हिडिओ",
       "AUDIO": "ऑडिओ",
       "IMAGE": "प्रतिमा",
-      "RESOURCE": "संसाधन"
+      "RESOURCE": "संसाधन",
+      "COLLECTION": "संग्रह"
     },
     "role": {
       "SELLER": "विक्रेता",

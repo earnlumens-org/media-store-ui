@@ -771,7 +771,8 @@
       "VIDEO": "ವೀಡಿಯೋ",
       "AUDIO": "ಆಡಿಯೋ",
       "IMAGE": "ಚಿತ್ರ",
-      "RESOURCE": "ಸಂಪನ್ಮೂಲ"
+      "RESOURCE": "ಸಂಪನ್ಮೂಲ",
+      "COLLECTION": "ಸಂಗ್ರಹ"
     },
     "role": {
       "SELLER": "ಮಾರಾಟಗಾರ",

@@ -771,7 +771,8 @@
       "VIDEO": "ቪዲዮ",
       "AUDIO": "ኦዲዮ",
       "IMAGE": "ምስል",
-      "RESOURCE": "ሀብት"
+      "RESOURCE": "ሀብት",
+      "COLLECTION": "ስብስብ"
     },
     "role": {
       "SELLER": "ሻጭ",

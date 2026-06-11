@@ -771,7 +771,8 @@
       "VIDEO": "影片",
       "AUDIO": "音訊",
       "IMAGE": "圖片",
-      "RESOURCE": "資源"
+      "RESOURCE": "資源",
+      "COLLECTION": "合輯"
     },
     "role": {
       "SELLER": "賣家",

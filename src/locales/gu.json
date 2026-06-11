@@ -771,7 +771,8 @@
       "VIDEO": "વિડિયો",
       "AUDIO": "ઑડિયો",
       "IMAGE": "છબી",
-      "RESOURCE": "સ્રોત"
+      "RESOURCE": "સ્રોત",
+      "COLLECTION": "કલેક્શન"
     },
     "role": {
       "SELLER": "વિક્રેતા",

@@ -771,7 +771,8 @@
       "VIDEO": "ਵੀਡੀਓ",
       "AUDIO": "ਆਡੀਓ",
       "IMAGE": "ਚਿੱਤਰ",
-      "RESOURCE": "ਸਰੋਤ"
+      "RESOURCE": "ਸਰੋਤ",
+      "COLLECTION": "ਸੰਗ੍ਰਹਿ"
     },
     "role": {
       "SELLER": "ਵਿਕਰੇਤਾ",

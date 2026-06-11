@@ -14,7 +14,6 @@
 
 <script setup lang="ts">
   import xIcon from '@/assets/twitterx.svg?raw'
-  import { getApiBaseUrl } from '@/config/env'
 
   const xIconSvg = xIcon
 
@@ -46,9 +45,12 @@
       return 'http://localhost.dv:8080/oauth2/authorization/x'
     }
 
-    // Single-tenant dev tunnel — bounce the OAuth flow through itself.
+    // Single-tenant dev tunnel — bounce through the dev API host. Must be
+    // explicit (NOT getApiBaseUrl(), which is same-origin in tunnelDev):
+    // the OAuth provider only has api-dev redirect URIs registered, and
+    // the tenants-router dev env doesn't bind /oauth2/* on app-dev.
     if (hostname === 'app-dev.earnlumens.org') {
-      return `${getApiBaseUrl()}/oauth2/authorization/x`
+      return 'https://api-dev.earnlumens.org/oauth2/authorization/x'
     }
 
     // Tenant subdomain on the dev tunnel: bounce through the dev API host

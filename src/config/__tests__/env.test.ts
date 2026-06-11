@@ -7,8 +7,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
  *     URL to its OWN origin, never to a sibling tenant or to a hard-coded
  *     api.earnlumens.org. That keeps the refresh cookie host-only and means
  *     a leak in one tenant cannot reach another.
- *   - localhost and app-dev.earnlumens.org keep their explicit cross-origin
- *     URLs so local dev and the dev tunnel do not regress.
+ *   - localhost keeps its explicit cross-origin URL so local dev does not
+ *     regress. app-dev.earnlumens.org calls SAME-ORIGIN (tenants-router dev
+ *     binds /api/* and /public/* on it) so the host-only refresh cookie is
+ *     scoped to app-dev and reaches the cdn-worker on /cdn/*.
  *
  * If anyone ever changes env.ts to fall back to a global API host for prod
  * tenants, this suite must fail loudly — the security model relies on it.
@@ -93,10 +95,16 @@ describe('getApiBaseUrl — tenant session isolation', () => {
     expect(getApiBaseUrl()).toBe('http://localhost:8080')
   })
 
-  it('app-dev.earnlumens.org tunnel keeps its explicit cross-origin API host', async () => {
+  it('app-dev.earnlumens.org resolves to its own origin (same-origin, cookie scope)', async () => {
     stubLocation('app-dev.earnlumens.org', 'https://app-dev.earnlumens.org')
     const { getApiBaseUrl } = await loadEnv()
-    expect(getApiBaseUrl()).toBe('https://api-dev.earnlumens.org')
+    expect(getApiBaseUrl()).toBe('https://app-dev.earnlumens.org')
+  })
+
+  it('tenant subdomain acme.app-dev.earnlumens.org resolves to its own origin', async () => {
+    stubLocation('acme.app-dev.earnlumens.org', 'https://acme.app-dev.earnlumens.org')
+    const { getApiBaseUrl } = await loadEnv()
+    expect(getApiBaseUrl()).toBe('https://acme.app-dev.earnlumens.org')
   })
 
   it('VITE_API_BASE_URL override wins over runtime detection (rollback escape hatch)', async () => {

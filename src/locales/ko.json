@@ -771,7 +771,8 @@
       "VIDEO": "동영상",
       "AUDIO": "오디오",
       "IMAGE": "이미지",
-      "RESOURCE": "리소스"
+      "RESOURCE": "리소스",
+      "COLLECTION": "컬렉션"
     },
     "role": {
       "SELLER": "판매자",

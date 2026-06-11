@@ -26,37 +26,25 @@
           <p class="text-body-1 text-medium-emphasis mb-2">
             {{ createdAsDraft
               ? t('CreateCollection.success.draftMessage')
-              : t('CreateCollection.success.publishedMessage')
+              : t('Upload.success.reviewMessage', { type: t('Upload.type.collection') })
             }}
           </p>
 
           <v-chip
             class="mb-6"
-            :color="createdAsDraft ? 'warning' : 'success'"
+            :color="createdAsDraft ? 'warning' : 'info'"
             size="small"
             variant="tonal"
           >
-            {{ createdAsDraft ? t('CreateCollection.status.draft') : t('CreateCollection.status.published') }}
+            {{ createdAsDraft ? t('CreateCollection.status.draft') : t('Upload.status.inReview') }}
           </v-chip>
 
           <div class="d-flex flex-column ga-3">
             <v-btn
-              v-if="!createdAsDraft && createdCollectionId"
               block
               color="primary"
               size="large"
               variant="elevated"
-              @click="router.push(`/collection/${createdCollectionId}`)"
-            >
-              <v-icon class="me-2">mdi-eye</v-icon>
-              {{ t('CreateCollection.success.viewCollection') }}
-            </v-btn>
-
-            <v-btn
-              block
-              :color="createdAsDraft ? 'primary' : undefined"
-              size="large"
-              :variant="createdAsDraft ? 'elevated' : 'outlined'"
               @click="router.push('/creator-studio')"
             >
               <v-icon class="me-2">mdi-view-dashboard-outline</v-icon>
@@ -560,7 +548,7 @@
                 @click="handleCreate(true)"
               >
                 <v-icon class="me-1">mdi-send</v-icon>
-                {{ t('CreateCollection.actions.publish') }}
+                {{ t('Upload.actions.submitForReview') }}
               </v-btn>
             </div>
           </div>
@@ -933,9 +921,10 @@
         await api.collections.finalizeCoverUpload(created.id, initResp.r2Key)
       }
 
-      // 4. Publish if requested
+      // 4. Submit for review if requested (collections go through
+      // moderation — they become PUBLISHED only after approval)
       if (publish) {
-        progressMessage.value = t('CreateCollection.progress.publishing')
+        progressMessage.value = t('Upload.progress.submittingForReview')
         await api.collections.publish(created.id)
       }
 

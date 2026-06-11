@@ -557,7 +557,7 @@
                       prepend-icon="mdi-publish"
                       @click="publishColl(item._collection)"
                     >
-                      <v-list-item-title>{{ t('CreatorStudio.collections.publish') }}</v-list-item-title>
+                      <v-list-item-title>{{ t('CreatorStudio.actions.submitReview') }}</v-list-item-title>
                     </v-list-item>
                     <v-divider />
                     <v-list-item
@@ -822,7 +822,7 @@
                     prepend-icon="mdi-publish"
                     @click="publishColl(item._collection)"
                   >
-                    <v-list-item-title>{{ t('CreatorStudio.collections.publish') }}</v-list-item-title>
+                    <v-list-item-title>{{ t('CreatorStudio.actions.submitReview') }}</v-list-item-title>
                   </v-list-item>
                   <v-divider />
                   <v-list-item
@@ -2102,7 +2102,7 @@
   async function publishColl (coll: CollectionItemModel) {
     try {
       await api.collections.publish(coll.id)
-      showToast(t('CreatorStudio.collections.publishSuccess'))
+      showToast(t('Upload.success.submittedForReview'))
       await fetchEntries()
     } catch (error_) {
       console.error('[CreatorStudio] Publish collection failed:', error_)

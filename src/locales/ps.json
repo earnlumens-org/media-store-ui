@@ -771,7 +771,8 @@
       "VIDEO": "ویډیو",
       "AUDIO": "آډیو",
       "IMAGE": "انځور",
-      "RESOURCE": "سرچینه"
+      "RESOURCE": "سرچینه",
+      "COLLECTION": "ټولګه"
     },
     "role": {
       "SELLER": "پلورونکی",

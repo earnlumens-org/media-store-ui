@@ -771,7 +771,8 @@
       "VIDEO": "ဗီဒီယို",
       "AUDIO": "အသံ",
       "IMAGE": "ပုံ",
-      "RESOURCE": "အရင်းအမြစ်"
+      "RESOURCE": "အရင်းအမြစ်",
+      "COLLECTION": "စုစည်းမှု"
     },
     "role": {
       "SELLER": "ရောင်းသူ",

@@ -771,7 +771,8 @@
       "VIDEO": "ভিডিও",
       "AUDIO": "অডিও",
       "IMAGE": "ছবি",
-      "RESOURCE": "রিসোর্স"
+      "RESOURCE": "রিসোর্স",
+      "COLLECTION": "কালেকশন"
     },
     "role": {
       "SELLER": "বিক্রেতা",

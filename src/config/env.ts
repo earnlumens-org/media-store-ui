@@ -126,23 +126,6 @@ function currentHostname (): string {
 }
 
 /**
- * True when the SPA is running on a tenant subdomain (not the bare apex /
- * dev host). Used to decide whether to call the API/CDN same-origin.
- */
-function isOnTenantSubdomain (): boolean {
-  const host = currentHostname().toLowerCase()
-  if (host.endsWith('.app-dev.earnlumens.org') && host !== 'app-dev.earnlumens.org') {
-    return true
-  }
-  if (host.endsWith('.earnlumens.org')
-    && host !== 'earnlumens.org'
-    && host !== 'app-dev.earnlumens.org') {
-    return true
-  }
-  return false
-}
-
-/**
  * Resolves the API base URL using runtime hostname detection.
  * Falls back to VITE_API_BASE_URL env var if explicitly set.
  */
@@ -157,16 +140,17 @@ function resolveApiBaseUrl (): string {
   const env = detectEnvironment()
   // production  : every tenant talks to its own origin; the edge Worker
   //               routes /api/* to the backend behind the scenes.
-  // tunnelDev   : tenant subdomains (e.g. acme.app-dev.earnlumens.org)
-  //               also call same-origin so cloudflared can route /api/*
-  //               to the local backend with the right X-Forwarded-Host.
-  //               Bare app-dev keeps calling api-dev.earnlumens.org so
-  //               the existing default-tenant flow stays unchanged.
+  // tunnelDev   : same-origin for BOTH the bare app-dev host and tenant
+  //               subdomains. The tenants-router dev env binds
+  //               app-dev.earnlumens.org/api/* and /public/* and proxies
+  //               them to api-dev with X-Visitor-Host, mirroring prod.
+  //               Same-origin is what scopes the host-only refresh cookie
+  //               to app-dev so it reaches the cdn-worker on /cdn/* —
+  //               calling api-dev directly would scope the cookie to
+  //               api-dev and paid content would 403 at the CDN.
   // local       : http://localhost:8080.
   let baseUrl: string
-  if (env === 'production') {
-    baseUrl = currentOrigin()
-  } else if (env === 'tunnelDev' && isOnTenantSubdomain()) {
+  if (env === 'production' || env === 'tunnelDev') {
     baseUrl = currentOrigin()
   } else {
     baseUrl = API_URLS[env]

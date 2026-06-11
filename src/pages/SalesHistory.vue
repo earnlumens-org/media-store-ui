@@ -186,6 +186,7 @@
       AUDIO: 'mdi-music-note',
       IMAGE: 'mdi-image-outline',
       RESOURCE: 'mdi-text-box-outline',
+      COLLECTION: 'mdi-folder-multiple-outline',
     }
     return icons[type] ?? 'mdi-file-outline'
   }

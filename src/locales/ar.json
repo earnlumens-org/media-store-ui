@@ -771,7 +771,8 @@
       "VIDEO": "فيديو",
       "AUDIO": "صوت",
       "IMAGE": "صورة",
-      "RESOURCE": "مورد"
+      "RESOURCE": "مورد",
+      "COLLECTION": "مجموعة"
     },
     "role": {
       "SELLER": "البائع",

@@ -771,7 +771,8 @@
       "VIDEO": "ویدیو",
       "AUDIO": "صوتی",
       "IMAGE": "تصویر",
-      "RESOURCE": "منبع"
+      "RESOURCE": "منبع",
+      "COLLECTION": "مجموعه"
     },
     "role": {
       "SELLER": "فروشنده",

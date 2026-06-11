@@ -771,7 +771,8 @@
       "VIDEO": "Video",
       "AUDIO": "Audio",
       "IMAGE": "Gambar",
-      "RESOURCE": "Sumber"
+      "RESOURCE": "Sumber",
+      "COLLECTION": "Koleksi"
     },
     "role": {
       "SELLER": "Penjual",

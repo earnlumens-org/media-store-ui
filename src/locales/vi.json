@@ -771,7 +771,8 @@
       "VIDEO": "Video",
       "AUDIO": "Âm thanh",
       "IMAGE": "Hình ảnh",
-      "RESOURCE": "Tài nguyên"
+      "RESOURCE": "Tài nguyên",
+      "COLLECTION": "Bộ sưu tập"
     },
     "role": {
       "SELLER": "Người bán",

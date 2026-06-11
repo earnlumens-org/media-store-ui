@@ -472,23 +472,30 @@
                   <span>{{ collectionData?.itemsCount || 0 }} {{ $t('Preview.items') }}</span>
                 </div>
 
-                <!-- Locked items list -->
-                <v-list class="bg-transparent" density="compact">
+                <!-- Items tracklist (titles visible, content locked) -->
+                <v-list v-if="collectionItems.length > 0" class="bg-transparent" density="compact">
                   <v-list-item
-                    v-for="n in Math.min(collectionData?.itemsCount || 5, 5)"
-                    :key="n"
+                    v-for="(item, idx) in collectionItems"
+                    :key="item.entryId"
                     class="px-0"
                   >
                     <template #prepend>
+                      <span class="text-caption text-disabled mr-3" style="min-width: 20px; text-align: right;">{{ idx + 1 }}</span>
                       <v-avatar class="mr-3" color="grey-darken-3" rounded="lg" size="48">
-                        <v-icon color="grey">mdi-lock</v-icon>
+                        <v-img
+                          v-if="item.thumbnailUrl"
+                          cover
+                          :src="item.thumbnailUrl"
+                          :srcset="item.thumbnailSrcset"
+                        />
+                        <v-icon v-else color="grey">{{ getItemTypeIcon(item.type) }}</v-icon>
                       </v-avatar>
                     </template>
                     <v-list-item-title class="text-medium-emphasis">
-                      {{ $t('Preview.lockedItem', { n }) }}
+                      {{ item.title }}
                     </v-list-item-title>
                     <v-list-item-subtitle class="text-disabled">
-                      {{ $t('Preview.unlockCollectionToView') }}
+                      {{ translateItemType(item.type) }}<template v-if="item.durationSec"> · {{ formatDuration(item.durationSec) }}</template>
                     </v-list-item-subtitle>
                     <template #append>
                       <v-icon color="grey" size="small">mdi-lock</v-icon>
@@ -496,15 +503,41 @@
                   </v-list-item>
                 </v-list>
 
-                <v-alert
-                  v-if="(collectionData?.itemsCount || 0) > 5"
-                  class="mt-2"
-                  density="compact"
-                  type="info"
-                  variant="tonal"
-                >
-                  {{ $t('Preview.moreItems', { count: (collectionData?.itemsCount || 0) - 5 }) }}
-                </v-alert>
+                <!-- Fallback placeholders (item metadata unavailable) -->
+                <template v-else>
+                  <v-list class="bg-transparent" density="compact">
+                    <v-list-item
+                      v-for="n in Math.min(collectionData?.itemsCount || 5, 5)"
+                      :key="n"
+                      class="px-0"
+                    >
+                      <template #prepend>
+                        <v-avatar class="mr-3" color="grey-darken-3" rounded="lg" size="48">
+                          <v-icon color="grey">mdi-lock</v-icon>
+                        </v-avatar>
+                      </template>
+                      <v-list-item-title class="text-medium-emphasis">
+                        {{ $t('Preview.lockedItem', { n }) }}
+                      </v-list-item-title>
+                      <v-list-item-subtitle class="text-disabled">
+                        {{ $t('Preview.unlockCollectionToView') }}
+                      </v-list-item-subtitle>
+                      <template #append>
+                        <v-icon color="grey" size="small">mdi-lock</v-icon>
+                      </template>
+                    </v-list-item>
+                  </v-list>
+
+                  <v-alert
+                    v-if="(collectionData?.itemsCount || 0) > 5"
+                    class="mt-2"
+                    density="compact"
+                    type="info"
+                    variant="tonal"
+                  >
+                    {{ $t('Preview.moreItems', { count: (collectionData?.itemsCount || 0) - 5 }) }}
+                  </v-alert>
+                </template>
               </v-card-text>
             </v-card>
 
@@ -673,7 +706,7 @@
 </template>
 
 <script setup lang="ts">
-  import type { CollectionDetailModel } from '@/api/types/collection.types'
+  import type { CollectionDetailModel, CollectionEntryItemModel } from '@/api/types/collection.types'
   import type { PublicEntryModel } from '@/api/types/entry.types'
   import type { CollectionModel, EntryModel } from '@/api/types/entryMock.types'
 
@@ -710,6 +743,7 @@
   // State
   const content = ref<EntryModel | null>(null)
   const collectionData = ref<CollectionModel | null>(null)
+  const collectionItems = ref<CollectionEntryItemModel[]>([])
   const loading = ref(true)
   const error = ref(false)
   const notFound = ref(false)
@@ -818,6 +852,28 @@
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
+  function getItemTypeIcon (type: string): string {
+    const icons: Record<string, string> = {
+      video: 'mdi-play-circle',
+      audio: 'mdi-music',
+      image: 'mdi-image',
+      entry: 'mdi-file-document',
+      resource: 'mdi-file-document',
+    }
+    return icons[type] || 'mdi-file'
+  }
+
+  function translateItemType (type: string): string {
+    const typeKeys: Record<string, string> = {
+      video: 'Common.video',
+      audio: 'Common.audio',
+      image: 'Common.image',
+      entry: 'Common.entry',
+      resource: 'Common.entry',
+    }
+    return t(typeKeys[type] || 'Common.entry')
+  }
+
   function formatDate (date: string | Date): string {
     const d = date instanceof Date ? date : new Date(date)
     return d.toLocaleDateString('en-US', {
@@ -833,6 +889,7 @@
     notFound.value = false
     errorMessage.value = ''
     collectionData.value = null
+    collectionItems.value = []
     realPrice.value = undefined
     realDescription.value = undefined
     isVerified.value = false
@@ -948,6 +1005,8 @@
               itemsCount: collDetail.itemCount,
               locked: collDetail.locked,
             }
+
+            collectionItems.value = collDetail.items ?? []
 
             content.value = {
               id: collDetail.id,

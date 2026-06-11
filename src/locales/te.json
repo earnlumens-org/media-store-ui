@@ -771,7 +771,8 @@
       "VIDEO": "వీడియో",
       "AUDIO": "ఆడియో",
       "IMAGE": "చిత్రం",
-      "RESOURCE": "వనరు"
+      "RESOURCE": "వనరు",
+      "COLLECTION": "సేకరణ"
     },
     "role": {
       "SELLER": "విక్రేత",

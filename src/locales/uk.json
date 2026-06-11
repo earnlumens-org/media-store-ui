@@ -771,7 +771,8 @@
       "VIDEO": "Відео",
       "AUDIO": "Аудіо",
       "IMAGE": "Зображення",
-      "RESOURCE": "Ресурс"
+      "RESOURCE": "Ресурс",
+      "COLLECTION": "Колекція"
     },
     "role": {
       "SELLER": "Продавець",

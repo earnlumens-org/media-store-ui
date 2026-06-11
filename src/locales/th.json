@@ -771,7 +771,8 @@
       "VIDEO": "วิดีโอ",
       "AUDIO": "เสียง",
       "IMAGE": "รูปภาพ",
-      "RESOURCE": "ทรัพยากร"
+      "RESOURCE": "ทรัพยากร",
+      "COLLECTION": "คอลเลกชัน"
     },
     "role": {
       "SELLER": "ผู้ขาย",

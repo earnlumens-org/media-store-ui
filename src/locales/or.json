@@ -771,7 +771,8 @@
       "VIDEO": "ଭିଡିଓ",
       "AUDIO": "ଅଡିଓ",
       "IMAGE": "ପ୍ରତିଛବି",
-      "RESOURCE": "ଉତ୍ସ"
+      "RESOURCE": "ଉତ୍ସ",
+      "COLLECTION": "ସଂଗ୍ରହ"
     },
     "role": {
       "SELLER": "ବିକ୍ରେତା",

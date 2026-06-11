@@ -771,7 +771,8 @@
       "VIDEO": "ویڈیو",
       "AUDIO": "آڈیو",
       "IMAGE": "تصویر",
-      "RESOURCE": "وسیلہ"
+      "RESOURCE": "وسیلہ",
+      "COLLECTION": "مجموعہ"
     },
     "role": {
       "SELLER": "بیچنے والا",

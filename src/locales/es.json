@@ -836,7 +836,8 @@
       "VIDEO": "Video",
       "AUDIO": "Audio",
       "IMAGE": "Imagen",
-      "RESOURCE": "Recurso"
+      "RESOURCE": "Recurso",
+      "COLLECTION": "Colección"
     },
     "role": {
       "SELLER": "Vendedor",

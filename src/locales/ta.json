@@ -771,7 +771,8 @@
       "VIDEO": "வீடியோ",
       "AUDIO": "ஆடியோ",
       "IMAGE": "படம்",
-      "RESOURCE": "வளம்"
+      "RESOURCE": "வளம்",
+      "COLLECTION": "தொகுப்பு"
     },
     "role": {
       "SELLER": "விற்பனையாளர்",

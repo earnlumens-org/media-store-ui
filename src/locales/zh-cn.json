@@ -771,7 +771,8 @@
       "VIDEO": "视频",
       "AUDIO": "音频",
       "IMAGE": "图片",
-      "RESOURCE": "资源"
+      "RESOURCE": "资源",
+      "COLLECTION": "合集"
     },
     "role": {
       "SELLER": "卖家",
