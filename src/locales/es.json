@@ -664,7 +664,8 @@
     "goToWallet": "Ir a Billetera",
     "paymentInProgress": "Tu pago anterior todavía se está confirmando en la red Stellar. Espera unos minutos y vuelve a intentarlo.",
     "walletAccountMismatch": "La wallet firmó con una cuenta distinta a la seleccionada. Cambia a la cuenta seleccionada dentro de tu wallet y vuelve a intentarlo.",
-    "walletReconnectRequired": "La sesión de tu wallet ha caducado o no está disponible. Vuelve a conectar tu wallet e inténtalo de nuevo."
+    "walletReconnectRequired": "La sesión de tu wallet ha caducado o no está disponible. Vuelve a conectar tu wallet e inténtalo de nuevo.",
+    "franchiseSelfPurchase": "Los dueños de una franquicia no pueden comprar a través de su propia franquicia. Realiza la compra desde la tienda principal."
   },
   "Purchased": {
     "title": "Mis compras",

@@ -597,7 +597,8 @@
     "goToWallet": "Đi đến Ví",
     "paymentInProgress": "Khoản thanh toán trước đó của bạn vẫn đang được xác nhận trên mạng Stellar. Vui lòng đợi vài phút và thử lại.",
     "walletAccountMismatch": "Ví đã ký bằng một tài khoản khác với tài khoản đã chọn. Hãy chuyển sang tài khoản đã chọn trong ví của bạn và thử lại.",
-    "walletReconnectRequired": "Phiên ví của bạn đã hết hạn hoặc không khả dụng. Vui lòng kết nối lại ví và thử lại."
+    "walletReconnectRequired": "Phiên ví của bạn đã hết hạn hoặc không khả dụng. Vui lòng kết nối lại ví và thử lại.",
+    "franchiseSelfPurchase": "Chủ sở hữu nhượng quyền không thể mua qua nhượng quyền của chính mình. Vui lòng mua từ cửa hàng chính."
   },
   "Purchased": {
     "title": "Mua hàng của tôi",

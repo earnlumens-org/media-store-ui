@@ -675,7 +675,8 @@
     "goToWallet": "Go to Wallet",
     "paymentInProgress": "Your previous payment is still being confirmed on the Stellar network. Please wait a few minutes and try again.",
     "walletAccountMismatch": "The wallet signed with a different account than the one selected. Switch to the selected account in your wallet and try again.",
-    "walletReconnectRequired": "Your wallet session has expired or is unavailable. Please reconnect your wallet and try again."
+    "walletReconnectRequired": "Your wallet session has expired or is unavailable. Please reconnect your wallet and try again.",
+    "franchiseSelfPurchase": "Franchise owners can't buy through their own franchise. Please purchase from the main store instead."
   },
   "Favorites": {
     "empty": "No favorites yet",

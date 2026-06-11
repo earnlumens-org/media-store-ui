@@ -283,6 +283,7 @@
         WALLET_NOT_ACTIVATED: 'Preview.walletNotActivated',
         SPLIT_WALLET_NOT_ACTIVE: 'Preview.contentWalletInactive',
         PAYMENT_IN_PROGRESS: 'Preview.paymentInProgress',
+        FRANCHISE_SELF_PURCHASE: 'Preview.franchiseSelfPurchase',
         WALLET_ACCOUNT_MISMATCH: 'Preview.walletAccountMismatch',
         WALLET_RECONNECT_REQUIRED: 'Preview.walletReconnectRequired',
       }

@@ -597,7 +597,8 @@
     "goToWallet": "前往錢包",
     "paymentInProgress": "您先前的付款仍在 Stellar 網路上確認中。請等待幾分鐘後再試。",
     "walletAccountMismatch": "錢包使用了與所選帳戶不同的帳戶進行簽名。請在錢包中切換到所選帳戶後再試一次。",
-    "walletReconnectRequired": "您的錢包工作階段已過期或無法使用。請重新連接錢包後再試一次。"
+    "walletReconnectRequired": "您的錢包工作階段已過期或無法使用。請重新連接錢包後再試一次。",
+    "franchiseSelfPurchase": "加盟店擁有者無法透過自己的加盟店購買。請改至主商店購買。"
   },
   "Purchased": {
     "title": "我的購買",

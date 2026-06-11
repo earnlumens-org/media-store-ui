@@ -597,7 +597,8 @@
     "goToWallet": "지갑으로 이동",
     "paymentInProgress": "이전 결제가 아직 Stellar 네트워크에서 확인 중입니다. 몇 분 기다린 후 다시 시도해 주세요.",
     "walletAccountMismatch": "지갑이 선택한 계정이 아닌 다른 계정으로 서명했습니다. 지갑에서 선택한 계정으로 전환한 후 다시 시도해 주세요.",
-    "walletReconnectRequired": "지갑 세션이 만료되었거나 사용할 수 없습니다. 지갑을 다시 연결한 후 다시 시도해 주세요."
+    "walletReconnectRequired": "지갑 세션이 만료되었거나 사용할 수 없습니다. 지갑을 다시 연결한 후 다시 시도해 주세요.",
+    "franchiseSelfPurchase": "프랜차이즈 소유자는 자신의 프랜차이즈를 통해 구매할 수 없습니다. 메인 스토어에서 구매해 주세요."
   },
   "Purchased": {
     "title": "내 구매",

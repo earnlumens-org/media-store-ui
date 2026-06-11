@@ -597,7 +597,8 @@
     "goToWallet": "Vai al Portafoglio",
     "paymentInProgress": "Il tuo pagamento precedente è ancora in fase di conferma sulla rete Stellar. Attendi qualche minuto e riprova.",
     "walletAccountMismatch": "Il wallet ha firmato con un account diverso da quello selezionato. Passa all’account selezionato nel tuo wallet e riprova.",
-    "walletReconnectRequired": "La sessione del tuo wallet è scaduta o non è disponibile. Ricollega il tuo wallet e riprova."
+    "walletReconnectRequired": "La sessione del tuo wallet è scaduta o non è disponibile. Ricollega il tuo wallet e riprova.",
+    "franchiseSelfPurchase": "I proprietari di una franchigia non possono acquistare tramite la propria franchigia. Effettua l'acquisto dal negozio principale."
   },
   "Purchased": {
     "title": "I miei acquisti",

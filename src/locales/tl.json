@@ -608,7 +608,8 @@
     "goToWallet": "Pumunta sa wallet",
     "paymentInProgress": "Ang nakaraang bayad mo ay kinukumpirma pa rin sa Stellar network. Maghintay ng ilang minuto at subukang muli.",
     "walletAccountMismatch": "Pumirma ang wallet gamit ang ibang account kaysa sa napili. Lumipat sa napiling account sa iyong wallet at subukang muli.",
-    "walletReconnectRequired": "Nag-expire na o hindi available ang session ng iyong wallet. Pakikonekta muli ang iyong wallet at subukang muli."
+    "walletReconnectRequired": "Nag-expire na o hindi available ang session ng iyong wallet. Pakikonekta muli ang iyong wallet at subukang muli.",
+    "franchiseSelfPurchase": "Hindi maaaring bumili ang mga may-ari ng franchise sa pamamagitan ng sarili nilang franchise. Mangyaring bumili mula sa pangunahing tindahan."
   },
   "Favorites": {
     "empty": "Wala pang mga paborito",

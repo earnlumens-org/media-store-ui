@@ -597,7 +597,8 @@
     "goToWallet": "Pergi ke Dompet",
     "paymentInProgress": "Pembayaran anda sebelum ini masih disahkan di rangkaian Stellar. Sila tunggu beberapa minit dan cuba lagi.",
     "walletAccountMismatch": "Dompet menandatangani dengan akaun yang berbeza daripada yang dipilih. Tukar ke akaun yang dipilih dalam dompet anda dan cuba lagi.",
-    "walletReconnectRequired": "Sesi dompet anda telah tamat tempoh atau tidak tersedia. Sila sambung semula dompet anda dan cuba lagi."
+    "walletReconnectRequired": "Sesi dompet anda telah tamat tempoh atau tidak tersedia. Sila sambung semula dompet anda dan cuba lagi.",
+    "franchiseSelfPurchase": "Pemilik francais tidak boleh membeli melalui francais mereka sendiri. Sila beli dari kedai utama."
   },
   "Purchased": {
     "title": "Pembelian Saya",

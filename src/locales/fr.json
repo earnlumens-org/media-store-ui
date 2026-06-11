@@ -597,7 +597,8 @@
     "goToWallet": "Aller au Portefeuille",
     "paymentInProgress": "Votre paiement précédent est encore en cours de confirmation sur le réseau Stellar. Veuillez patienter quelques minutes et réessayer.",
     "walletAccountMismatch": "Le portefeuille a signé avec un compte différent de celui sélectionné. Passez au compte sélectionné dans votre portefeuille et réessayez.",
-    "walletReconnectRequired": "La session de votre portefeuille a expiré ou est indisponible. Veuillez reconnecter votre portefeuille et réessayer."
+    "walletReconnectRequired": "La session de votre portefeuille a expiré ou est indisponible. Veuillez reconnecter votre portefeuille et réessayer.",
+    "franchiseSelfPurchase": "Les propriétaires d'une franchise ne peuvent pas acheter via leur propre franchise. Veuillez effectuer l'achat depuis la boutique principale."
   },
   "Purchased": {
     "title": "Mes achats",
