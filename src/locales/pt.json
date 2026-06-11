@@ -595,7 +595,9 @@
     "tryAgain": "Tentar novamente",
     "walletNotActivated": "Sua carteira ainda não está ativa na rede Stellar. Envie pelo menos 1 XLM para ativá-la antes de realizar uma compra.",
     "goToWallet": "Ir para Carteira",
-    "paymentInProgress": "Seu pagamento anterior ainda está sendo confirmado na rede Stellar. Aguarde alguns minutos e tente novamente."
+    "paymentInProgress": "Seu pagamento anterior ainda está sendo confirmado na rede Stellar. Aguarde alguns minutos e tente novamente.",
+    "walletAccountMismatch": "A carteira assinou com uma conta diferente da selecionada. Mude para a conta selecionada na sua carteira e tente novamente.",
+    "walletReconnectRequired": "A sessão da sua carteira expirou ou está indisponível. Reconecte sua carteira e tente novamente."
   },
   "Purchased": {
     "title": "Minhas compras",

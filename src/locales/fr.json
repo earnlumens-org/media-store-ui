@@ -595,7 +595,9 @@
     "tryAgain": "Réessayer",
     "walletNotActivated": "Votre portefeuille n'est pas encore actif sur le réseau Stellar. Envoyez au moins 1 XLM pour l'activer avant d'effectuer un achat.",
     "goToWallet": "Aller au Portefeuille",
-    "paymentInProgress": "Votre paiement précédent est encore en cours de confirmation sur le réseau Stellar. Veuillez patienter quelques minutes et réessayer."
+    "paymentInProgress": "Votre paiement précédent est encore en cours de confirmation sur le réseau Stellar. Veuillez patienter quelques minutes et réessayer.",
+    "walletAccountMismatch": "Le portefeuille a signé avec un compte différent de celui sélectionné. Passez au compte sélectionné dans votre portefeuille et réessayez.",
+    "walletReconnectRequired": "La session de votre portefeuille a expiré ou est indisponible. Veuillez reconnecter votre portefeuille et réessayer."
   },
   "Purchased": {
     "title": "Mes achats",

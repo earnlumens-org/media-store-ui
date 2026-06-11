@@ -1,10 +1,17 @@
 /**
  * Registro de proveedores de wallet
  *
- * Para agregar un nuevo proveedor (ej: XMoney):
- * 1. Crear archivo xmoney.ts implementando WalletProvider
+ * Para agregar un nuevo proveedor (ej: X Payments sobre Stellar):
+ * 1. Crear archivo xPayments.ts implementando WalletProvider
+ *    (id 'x-payments'; si es de wallet única puede omitir activateWallet)
  * 2. Exportar la instancia aquí
  * 3. Registrarlo en walletProviders
+ *
+ * El resto del sistema (store, firmas, persistencia, multi-wallet,
+ * desconexión) enruta por providerId automáticamente: no hace falta
+ * tocar nada más. Las wallets persistidas con un providerId no
+ * registrado se conservan pero fallan al firmar con
+ * 'WALLET_RECONNECT_REQUIRED'.
  */
 
 import type { WalletProvider } from '../types'
@@ -12,7 +19,7 @@ import { stellarWalletsKitProvider } from './stellarWalletsKit'
 
 // Re-exportar proveedores individuales
 export { stellarWalletsKitProvider } from './stellarWalletsKit'
-// export { xMoneyProvider } from './xmoney' // Futuro
+// export { xPaymentsProvider } from './xPayments' // Futuro
 
 /**
  * Registro de todos los proveedores disponibles
@@ -20,7 +27,7 @@ export { stellarWalletsKitProvider } from './stellarWalletsKit'
  */
 export const walletProviders: Record<string, WalletProvider> = {
   'stellar-wallets-kit': stellarWalletsKitProvider,
-  // 'xmoney': xMoneyProvider, // Futuro
+  // 'x-payments': xPaymentsProvider, // Futuro
 }
 
 /**

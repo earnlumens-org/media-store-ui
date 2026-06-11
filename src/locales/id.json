@@ -606,7 +606,9 @@
     "tryAgain": "Coba lagi",
     "walletNotActivated": "Dompet Anda belum aktif di jaringan Stellar. Kirim setidaknya 1 XLM untuk mengaktifkannya sebelum melakukan pembelian.",
     "goToWallet": "Ke Dompet",
-    "paymentInProgress": "Pembayaran Anda sebelumnya masih dikonfirmasi di jaringan Stellar. Harap tunggu beberapa menit dan coba lagi."
+    "paymentInProgress": "Pembayaran Anda sebelumnya masih dikonfirmasi di jaringan Stellar. Harap tunggu beberapa menit dan coba lagi.",
+    "walletAccountMismatch": "Dompet menandatangani dengan akun yang berbeda dari yang dipilih. Beralihlah ke akun yang dipilih di dompet Anda dan coba lagi.",
+    "walletReconnectRequired": "Sesi dompet Anda telah berakhir atau tidak tersedia. Silakan hubungkan kembali dompet Anda dan coba lagi."
   },
   "Favorites": {
     "empty": "Belum ada favorit",

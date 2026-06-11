@@ -3,6 +3,7 @@
  */
 
 import type {
+  ConnectedWallet,
   SignAuthEntryResult,
   SignMessageResult,
   SignTransactionOptions,
@@ -39,7 +40,7 @@ export class StellarWalletsKitProvider implements WalletProvider {
   readonly name = 'Stellar Wallets Kit'
 
   private _isInitialized = false
-  private _pendingModuleId = ''
+  private _isConnecting = false
 
   get isInitialized (): boolean {
     return this._isInitialized
@@ -58,28 +59,78 @@ export class StellarWalletsKitProvider implements WalletProvider {
     this._isInitialized = true
   }
 
-  async connect (): Promise<{ address: string, providerName: string } | null> {
+  async connect (): Promise<{ address: string, providerName: string, moduleId?: string } | null> {
+    // Evita dos authModal superpuestos (doble click, doble flujo de checkout)
+    if (this._isConnecting) {
+      return null
+    }
+    this._isConnecting = true
+
+    // Escuchar wallet seleccionada para capturar el módulo elegido.
+    // OJO: el effect del kit dispara inmediatamente con el valor actual
+    // (persistido de una sesión anterior), así que esto es solo un
+    // fallback — la fuente de verdad tras authModal() es selectedModule.
+    let pendingModuleId = ''
+    const unsubscribe = StellarWalletsKit.on(KitEventType.WALLET_SELECTED, event => {
+      if (event.payload?.id) {
+        pendingModuleId = event.payload.id
+      }
+    })
+
     try {
-      // Escuchar wallet seleccionada para capturar el módulo
-      const unsubscribe = StellarWalletsKit.on(KitEventType.WALLET_SELECTED, event => {
-        if (event.payload?.id) {
-          this._pendingModuleId = event.payload.id
-        }
-      })
-
       const result = await StellarWalletsKit.authModal()
-      unsubscribe()
 
-      const moduleId = this._pendingModuleId
-      this._pendingModuleId = ''
+      // Tras un authModal exitoso el kit deja seleccionado el módulo que
+      // el usuario eligió: leerlo directamente evita carreras de eventos.
+      const moduleId = this.readSelectedModuleId() || pendingModuleId
 
       return {
         address: result.address,
         providerName: MODULE_NAMES[moduleId] || moduleId || 'Unknown',
+        moduleId: moduleId || undefined,
       }
     } catch (error) {
       console.error('[StellarWalletsKitProvider] Error connecting:', error)
       return null
+    } finally {
+      unsubscribe()
+      this._isConnecting = false
+    }
+  }
+
+  /**
+   * Re-activa el módulo del kit que corresponde a la wallet dada, de modo
+   * que las próximas firmas se enruten a ESA wallet y no a la última que
+   * pasó por el authModal. Idempotente y sin popups.
+   *
+   * Lanza 'WALLET_RECONNECT_REQUIRED' cuando no es posible determinar o
+   * restaurar el módulo (wallet persistida sin moduleId de versiones
+   * anteriores, o módulo ya no registrado en el kit).
+   */
+  async activateWallet (wallet: ConnectedWallet): Promise<void> {
+    const currentModuleId = this.readSelectedModuleId()
+
+    if (!wallet.moduleId) {
+      // Wallet persistida por una versión anterior (sin moduleId).
+      // Solo es seguro firmar si el kit conserva como activa exactamente
+      // esta dirección (entonces su módulo seleccionado es el correcto).
+      const kitAddress = await this.getAddress()
+      if (currentModuleId && kitAddress === wallet.address) {
+        return
+      }
+      throw new Error('WALLET_RECONNECT_REQUIRED')
+    }
+
+    if (currentModuleId === wallet.moduleId) {
+      return
+    }
+
+    try {
+      StellarWalletsKit.setWallet(wallet.moduleId)
+    } catch (error) {
+      // El módulo ya no existe en el kit (ej: módulo retirado del bundle)
+      console.error('[StellarWalletsKitProvider] Cannot activate module:', error)
+      throw new Error('WALLET_RECONNECT_REQUIRED')
     }
   }
 
@@ -146,6 +197,18 @@ export class StellarWalletsKitProvider implements WalletProvider {
     return StellarWalletsKit.on(KitEventType.DISCONNECT, () => {
       callback()
     })
+  }
+
+  /**
+   * Lee el moduleId actualmente seleccionado en el kit (si hay uno).
+   * El getter del kit lanza si no hay módulo activo.
+   */
+  private readSelectedModuleId (): string {
+    try {
+      return StellarWalletsKit.selectedModule.productId
+    } catch {
+      return ''
+    }
   }
 }
 

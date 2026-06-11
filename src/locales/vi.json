@@ -595,7 +595,9 @@
     "tryAgain": "Thử lại",
     "walletNotActivated": "Ví của bạn chưa được kích hoạt trên mạng Stellar. Gửi ít nhất 1 XLM để kích hoạt trước khi mua hàng.",
     "goToWallet": "Đi đến Ví",
-    "paymentInProgress": "Khoản thanh toán trước đó của bạn vẫn đang được xác nhận trên mạng Stellar. Vui lòng đợi vài phút và thử lại."
+    "paymentInProgress": "Khoản thanh toán trước đó của bạn vẫn đang được xác nhận trên mạng Stellar. Vui lòng đợi vài phút và thử lại.",
+    "walletAccountMismatch": "Ví đã ký bằng một tài khoản khác với tài khoản đã chọn. Hãy chuyển sang tài khoản đã chọn trong ví của bạn và thử lại.",
+    "walletReconnectRequired": "Phiên ví của bạn đã hết hạn hoặc không khả dụng. Vui lòng kết nối lại ví và thử lại."
   },
   "Purchased": {
     "title": "Mua hàng của tôi",

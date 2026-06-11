@@ -1,6 +1,7 @@
 /**
  * Tipos e interfaces para el sistema de wallets modular
- * Diseñado para soportar múltiples proveedores (Stellar Wallets Kit, XMoney, etc.)
+ * Diseñado para soportar múltiples proveedores (Stellar Wallets Kit,
+ * X Payments, etc.)
  */
 
 /**
@@ -9,10 +10,17 @@
 export interface ConnectedWallet {
   /** Dirección pública de la wallet (Stellar public key) */
   address: string
-  /** ID del proveedor (stellar-wallets-kit, xmoney, etc.) */
+  /** ID del proveedor (stellar-wallets-kit, x-payments, etc.) */
   providerId: string
-  /** Nombre amigable del proveedor (Lobstr, Freighter, XMoney, etc.) */
+  /** Nombre amigable del proveedor (Lobstr, Freighter, X Payments, etc.) */
   providerName: string
+  /**
+   * ID de la sub-wallet/módulo dentro del proveedor (ej: 'xbull',
+   * 'freighter' en Stellar Wallets Kit). Necesario para re-enrutar la
+   * firma a la wallet correcta cuando hay varias conectadas.
+   * Opcional: proveedores de wallet única pueden omitirlo.
+   */
+  moduleId?: string
   /** Timestamp de cuando se conectó */
   connectedAt: number
 }
@@ -70,9 +78,18 @@ export interface WalletProvider {
 
   /**
    * Abre el modal de autenticación/conexión
-   * @returns La dirección conectada y el nombre del sub-proveedor (ej: Lobstr, Freighter)
+   * @returns La dirección conectada, el nombre del sub-proveedor
+   * (ej: Lobstr, Freighter) y el moduleId interno para re-activarla luego
    */
-  connect: () => Promise<{ address: string, providerName: string } | null>
+  connect: () => Promise<{ address: string, providerName: string, moduleId?: string } | null>
+
+  /**
+   * Activa una wallet previamente conectada como la wallet operativa del
+   * proveedor (re-enruta firmas hacia su módulo). Debe ser idempotente y
+   * no debe abrir popups. Lanza error si el módulo ya no está disponible.
+   * Opcional: proveedores de wallet única pueden omitirlo.
+   */
+  activateWallet?: (wallet: ConnectedWallet) => Promise<void>
 
   /**
    * Desconecta la wallet del proveedor

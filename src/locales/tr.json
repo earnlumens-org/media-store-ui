@@ -595,7 +595,9 @@
     "tryAgain": "Tekrar dene",
     "walletNotActivated": "Cüzdanınız henüz Stellar ağında etkinleştirilmemiş. Satın alma yapmadan önce etkinleştirmek için en az 1 XLM gönderin.",
     "goToWallet": "Cüzdana Git",
-    "paymentInProgress": "Önceki ödemeniz hâlâ Stellar ağında onaylanıyor. Lütfen birkaç dakika bekleyip tekrar deneyin."
+    "paymentInProgress": "Önceki ödemeniz hâlâ Stellar ağında onaylanıyor. Lütfen birkaç dakika bekleyip tekrar deneyin.",
+    "walletAccountMismatch": "Cüzdan, seçilen hesaptan farklı bir hesapla imzaladı. Cüzdanınızda seçilen hesaba geçin ve tekrar deneyin.",
+    "walletReconnectRequired": "Cüzdan oturumunuzun süresi doldu veya kullanılamıyor. Lütfen cüzdanınızı yeniden bağlayın ve tekrar deneyin."
   },
   "Purchased": {
     "title": "Satın Alımlarım",

@@ -595,7 +595,9 @@
     "tryAgain": "Spróbuj ponownie",
     "walletNotActivated": "Twój portfel nie jest jeszcze aktywny w sieci Stellar. Wyślij co najmniej 1 XLM, aby go aktywować przed dokonaniem zakupu.",
     "goToWallet": "Przejdź do Portfela",
-    "paymentInProgress": "Twoja poprzednia płatność jest wciąż potwierdzana w sieci Stellar. Poczekaj kilka minut i spróbuj ponownie."
+    "paymentInProgress": "Twoja poprzednia płatność jest wciąż potwierdzana w sieci Stellar. Poczekaj kilka minut i spróbuj ponownie.",
+    "walletAccountMismatch": "Portfel podpisał innym kontem niż wybrane. Przełącz się na wybrane konto w portfelu i spróbuj ponownie.",
+    "walletReconnectRequired": "Sesja portfela wygasła lub jest niedostępna. Połącz portfel ponownie i spróbuj jeszcze raz."
   },
   "Purchased": {
     "title": "Moje zakupy",

@@ -595,7 +595,9 @@
     "tryAgain": "Erneut versuchen",
     "walletNotActivated": "Deine Wallet ist noch nicht im Stellar-Netzwerk aktiviert. Sende mindestens 1 XLM, um sie vor einem Kauf zu aktivieren.",
     "goToWallet": "Zur Wallet",
-    "paymentInProgress": "Deine vorherige Zahlung wird noch im Stellar-Netzwerk bestätigt. Bitte warte einige Minuten und versuche es erneut."
+    "paymentInProgress": "Deine vorherige Zahlung wird noch im Stellar-Netzwerk bestätigt. Bitte warte einige Minuten und versuche es erneut.",
+    "walletAccountMismatch": "Die Wallet hat mit einem anderen Konto signiert als dem ausgewählten. Wechsle in deiner Wallet zum ausgewählten Konto und versuche es erneut.",
+    "walletReconnectRequired": "Deine Wallet-Sitzung ist abgelaufen oder nicht verfügbar. Bitte verbinde deine Wallet erneut und versuche es noch einmal."
   },
   "Purchased": {
     "title": "Meine Käufe",

@@ -238,9 +238,13 @@
         startCountdown(prepared.expiresAt)
       }
 
-      // 3. Sign — wallet extension signs the XDR
+      // 3. Sign — wallet extension signs the XDR.
+      // Pin the signing wallet to the SAME address the backend built the tx
+      // for, so switching the active wallet mid-checkout (or in another tab)
+      // can never route the signature to a different wallet.
       const signResult = await walletStore.signTransaction(prepared.unsignedXdr, {
         networkPassphrase: prepared.networkPassphrase,
+        address: buyerWallet,
       })
 
       // 4. Submit — backend submits signed tx to Stellar network
@@ -274,14 +278,16 @@
         return
       }
 
-      error.value
-        = msg === 'WALLET_NOT_ACTIVATED'
-          ? t('Preview.walletNotActivated')
-          : (msg === 'SPLIT_WALLET_NOT_ACTIVE'
-            ? t('Preview.contentWalletInactive')
-            : (msg === 'PAYMENT_IN_PROGRESS'
-              ? t('Preview.paymentInProgress')
-              : msg || t('Preview.paymentFailed')))
+      // Map well-known wallet/payment error codes to localized messages
+      const errorKeyByCode: Record<string, string> = {
+        WALLET_NOT_ACTIVATED: 'Preview.walletNotActivated',
+        SPLIT_WALLET_NOT_ACTIVE: 'Preview.contentWalletInactive',
+        PAYMENT_IN_PROGRESS: 'Preview.paymentInProgress',
+        WALLET_ACCOUNT_MISMATCH: 'Preview.walletAccountMismatch',
+        WALLET_RECONNECT_REQUIRED: 'Preview.walletReconnectRequired',
+      }
+      const errorKey = errorKeyByCode[msg]
+      error.value = errorKey ? t(errorKey) : (msg || t('Preview.paymentFailed'))
     } finally {
       isProcessing.value = false
     }

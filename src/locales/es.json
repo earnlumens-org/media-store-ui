@@ -662,7 +662,9 @@
     "walletNotActivated": "Tu billetera aún no está activa en la red Stellar. Envía al menos 1 XLM para activarla antes de realizar una compra.",
     "contentWalletInactive": "Este contenido no se puede comprar en este momento: una de sus billeteras de cobro ya no está activa en la red Stellar. Inténtalo de nuevo más tarde.",
     "goToWallet": "Ir a Billetera",
-    "paymentInProgress": "Tu pago anterior todavía se está confirmando en la red Stellar. Espera unos minutos y vuelve a intentarlo."
+    "paymentInProgress": "Tu pago anterior todavía se está confirmando en la red Stellar. Espera unos minutos y vuelve a intentarlo.",
+    "walletAccountMismatch": "La wallet firmó con una cuenta distinta a la seleccionada. Cambia a la cuenta seleccionada dentro de tu wallet y vuelve a intentarlo.",
+    "walletReconnectRequired": "La sesión de tu wallet ha caducado o no está disponible. Vuelve a conectar tu wallet e inténtalo de nuevo."
   },
   "Purchased": {
     "title": "Mis compras",

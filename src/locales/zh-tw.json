@@ -595,7 +595,9 @@
     "tryAgain": "重試",
     "walletNotActivated": "您的錢包尚未在 Stellar 網路上啟用。請發送至少 1 XLM 來啟用它，然後再進行購買。",
     "goToWallet": "前往錢包",
-    "paymentInProgress": "您先前的付款仍在 Stellar 網路上確認中。請等待幾分鐘後再試。"
+    "paymentInProgress": "您先前的付款仍在 Stellar 網路上確認中。請等待幾分鐘後再試。",
+    "walletAccountMismatch": "錢包使用了與所選帳戶不同的帳戶進行簽名。請在錢包中切換到所選帳戶後再試一次。",
+    "walletReconnectRequired": "您的錢包工作階段已過期或無法使用。請重新連接錢包後再試一次。"
   },
   "Purchased": {
     "title": "我的購買",

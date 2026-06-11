@@ -606,7 +606,9 @@
     "tryAgain": "Probeer het opnieuw",
     "walletNotActivated": "Uw wallet is nog niet actief op het Stellar-netwerk. Stuur minimaal 1 XLM om deze te activeren voordat u een aankoop doet.",
     "goToWallet": "Ga naar Wallet",
-    "paymentInProgress": "Je vorige betaling wordt nog bevestigd op het Stellar-netwerk. Wacht een paar minuten en probeer het opnieuw."
+    "paymentInProgress": "Je vorige betaling wordt nog bevestigd op het Stellar-netwerk. Wacht een paar minuten en probeer het opnieuw.",
+    "walletAccountMismatch": "De wallet heeft ondertekend met een ander account dan het geselecteerde. Schakel in je wallet over naar het geselecteerde account en probeer het opnieuw.",
+    "walletReconnectRequired": "Je walletsessie is verlopen of niet beschikbaar. Verbind je wallet opnieuw en probeer het nog eens."
   },
   "Favorites": {
     "empty": "Nog geen favorieten",

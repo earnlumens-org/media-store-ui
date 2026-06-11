@@ -595,7 +595,9 @@
     "tryAgain": "重试",
     "walletNotActivated": "您的钱包尚未在 Stellar 网络上激活。请发送至少 1 XLM 来激活它，然后再进行购买。",
     "goToWallet": "前往钱包",
-    "paymentInProgress": "您之前的付款仍在 Stellar 网络上确认中。请等待几分钟后重试。"
+    "paymentInProgress": "您之前的付款仍在 Stellar 网络上确认中。请等待几分钟后重试。",
+    "walletAccountMismatch": "钱包使用了与所选账户不同的账户进行签名。请在钱包中切换到所选账户后重试。",
+    "walletReconnectRequired": "您的钱包会话已过期或不可用。请重新连接钱包后重试。"
   },
   "Purchased": {
     "title": "我的购买",

@@ -17,6 +17,20 @@
  * walletStore.isConnected
  * walletStore.activeWallet
  * walletStore.wallets
+ *
+ * Garantías de enrutado de firmas:
+ * - Cada wallet recuerda su proveedor (`providerId`) y su sub-módulo
+ *   (`moduleId`, ej: 'xbull' | 'freighter' dentro de Stellar Wallets Kit).
+ * - Antes de CADA firma se re-activa el módulo de la wallet objetivo, de
+ *   modo que cambiar de wallet activa (o firmar para una dirección
+ *   concreta) nunca deja "operativa" la wallet anterior.
+ * - Tras la firma se verifica que el firmante coincida con la dirección
+ *   pedida (si la wallet lo reporta), evitando pagos firmados por otra
+ *   cuenta cuando el usuario cambió de cuenta dentro de la extensión.
+ *
+ * Códigos de error que pueden lanzar las firmas (mapear a i18n en la UI):
+ * - 'WALLET_RECONNECT_REQUIRED'  → la sesión/módulo ya no está disponible
+ * - 'WALLET_ACCOUNT_MISMATCH'    → firmó una cuenta distinta a la pedida
  */
 
 import type {
@@ -35,6 +49,10 @@ import { getAllProviders, getProvider } from '@/services/wallet/providers'
 const STORAGE_KEY = 'earnlumens_wallets'
 const ACTIVE_WALLET_KEY = 'earnlumens_active_wallet'
 
+/** Claves de persistencia interna de Stellar Wallets Kit (para migración) */
+const SWK_ACTIVE_ADDRESS_KEY = '@StellarWalletsKit/activeAddress'
+const SWK_SELECTED_MODULE_KEY = '@StellarWalletsKit/selectedModuleId'
+
 /**
  * Formatea una dirección de forma abreviada
  */
@@ -43,6 +61,21 @@ function formatAddress (address: string): string {
     return address
   }
   return `${address.slice(0, 7)}...${address.slice(-7)}`
+}
+
+/**
+ * Valida que un valor persistido tenga la forma mínima de ConnectedWallet.
+ * Tolera entradas de versiones anteriores (sin moduleId) y descarta basura.
+ */
+function isValidStoredWallet (value: unknown): value is ConnectedWallet {
+  if (!value || typeof value !== 'object') {
+    return false
+  }
+  const w = value as Record<string, unknown>
+  return typeof w.address === 'string'
+    && w.address.length > 0
+    && typeof w.providerId === 'string'
+    && w.providerId.length > 0
 }
 
 interface WalletState {
@@ -127,10 +160,14 @@ export const useWalletStore = defineStore('wallet', {
         try {
           await provider.init()
 
-          // Escuchar cambios de estado de cada proveedor
+          // Escuchar cambios de estado de cada proveedor.
+          // Solo adoptamos la dirección reportada cuando la app aún no
+          // tiene wallet activa: la selección del usuario (persistida por
+          // esta store) es la fuente de verdad, no el estado interno del
+          // proveedor (que refleja la ÚLTIMA wallet autenticada, no la
+          // elegida por el usuario).
           provider.onStateChange(address => {
-            if (address && address !== this.activeAddress) {
-              // Verificar si esta wallet pertenece a este proveedor
+            if (address && !this.activeAddress) {
               const wallet = this.wallets.find(
                 w => w.address === address && w.providerId === provider.id,
               )
@@ -150,7 +187,44 @@ export const useWalletStore = defineStore('wallet', {
         }
       }))
 
+      // Sincronizar el módulo del proveedor con la wallet activa persistida,
+      // para que la primera firma tras recargar vaya a la wallet correcta.
+      const active = this.activeWallet
+      if (active) {
+        this.activateWalletSession(active).catch(() => {
+          // Wallet legacy sin moduleId o módulo no disponible: se resolverá
+          // (o fallará con error claro) en el momento de firmar.
+        })
+      }
+
+      // Sincronización multi-pestaña: si otra pestaña conecta/elimina
+      // wallets o cambia la activa, reflejarlo aquí.
+      if (typeof window !== 'undefined') {
+        window.addEventListener('storage', event => {
+          if (event.key === STORAGE_KEY || event.key === ACTIVE_WALLET_KEY) {
+            this.loadFromStorage()
+          }
+        })
+      }
+
       this.isInitialized = true
+    },
+
+    /**
+     * Re-activa la sesión de una wallet en su proveedor (re-enruta firmas
+     * hacia su módulo). Idempotente, sin popups.
+     */
+    async activateWalletSession (wallet: ConnectedWallet): Promise<void> {
+      const provider = getProvider(wallet.providerId)
+      if (!provider) {
+        throw new Error('WALLET_RECONNECT_REQUIRED')
+      }
+      if (!provider.isInitialized) {
+        await provider.init()
+      }
+      if (provider.activateWallet) {
+        await provider.activateWallet(wallet)
+      }
     },
 
     /**
@@ -158,6 +232,11 @@ export const useWalletStore = defineStore('wallet', {
      * @param providerId - ID del proveedor a usar (si no se especifica, usa el primero disponible)
      */
     async connect (providerId?: string): Promise<ConnectedWallet | null> {
+      // Evitar dos flujos de conexión superpuestos (doble click)
+      if (this.isLoading) {
+        return null
+      }
+
       // Si no se especifica, usar el primer proveedor disponible
       const providers = getAllProviders()
       const resolvedProviderId = providerId ?? providers[0]?.id
@@ -186,14 +265,18 @@ export const useWalletStore = defineStore('wallet', {
           return null
         }
 
-        const { address, providerName } = result
+        const { address, providerName, moduleId } = result
 
-        // Verificar si ya existe
+        // Verificar si ya existe (misma dirección)
         const existing = this.wallets.find(w => w.address === address)
         if (existing) {
-          // Ya existe, solo activarla
+          // Re-conectada (quizá vía otro módulo/proveedor): actualizar el
+          // enrutado para que las firmas vayan a la wallet usada AHORA.
+          existing.providerId = resolvedProviderId
+          existing.providerName = providerName
+          existing.moduleId = moduleId
           this.activeAddress = address
-          this.saveActiveToStorage()
+          this.saveToStorage()
           return existing
         }
 
@@ -202,6 +285,7 @@ export const useWalletStore = defineStore('wallet', {
           address,
           providerId: resolvedProviderId,
           providerName,
+          moduleId,
           connectedAt: Date.now(),
         }
 
@@ -220,14 +304,23 @@ export const useWalletStore = defineStore('wallet', {
     },
 
     /**
-     * Selecciona una wallet como activa
+     * Selecciona una wallet como activa.
+     * Además de cambiar el estado de la app, re-activa el módulo de esa
+     * wallet en su proveedor para que la ANTERIOR deje de ser la firmante.
      */
     selectWallet (address: string) {
       const wallet = this.wallets.find(w => w.address === address)
-      if (wallet) {
-        this.activeAddress = address
-        this.saveActiveToStorage()
+      if (!wallet) {
+        return
       }
+
+      this.activeAddress = address
+      this.saveActiveToStorage()
+
+      // Sincronizar el proveedor en segundo plano. Si falla (wallet legacy
+      // sin moduleId, módulo retirado), la firma re-intentará la activación
+      // y lanzará un error claro.
+      this.activateWalletSession(wallet).catch(() => {})
     },
 
     /**
@@ -235,30 +328,50 @@ export const useWalletStore = defineStore('wallet', {
      */
     removeWallet (address: string) {
       const index = this.wallets.findIndex(w => w.address === address)
-      if (index !== -1) {
-        this.wallets.splice(index, 1)
-
-        // Si era la activa, seleccionar otra o limpiar
-        if (this.activeAddress === address) {
-          this.activeAddress = this.wallets[0]?.address ?? ''
-        }
-
-        this.saveToStorage()
+      if (index === -1) {
+        return
       }
+
+      const [removed] = this.wallets.splice(index, 1)
+
+      // Si era la última wallet de su proveedor, cerrar la sesión del
+      // proveedor para que no quede "operativa" una wallet eliminada.
+      if (removed && !this.wallets.some(w => w.providerId === removed.providerId)) {
+        const provider = getProvider(removed.providerId)
+        provider?.disconnect().catch(error => {
+          console.error('[WalletStore] Error disconnecting provider:', error)
+        })
+      }
+
+      // Si era la activa, seleccionar otra o limpiar
+      if (this.activeAddress === address) {
+        const next = this.wallets[0]
+        this.activeAddress = next?.address ?? ''
+        if (next) {
+          this.activateWalletSession(next).catch(() => {})
+        }
+      }
+
+      this.saveToStorage()
     },
 
     /**
-     * Desconecta todas las wallets
+     * Desconecta todas las wallets (de TODOS los proveedores con sesión)
      */
     async disconnectAll () {
       this.isLoading = true
 
       try {
-        // Desconectar del proveedor activo
-        const provider = this.activeProvider
-        if (provider) {
-          await provider.disconnect()
-        }
+        // Desconectar cada proveedor que tenga al menos una wallet,
+        // aislando errores para que un proveedor caído no bloquee al resto.
+        const providerIds = [...new Set(this.wallets.map(w => w.providerId))]
+        await Promise.all(providerIds.map(async id => {
+          try {
+            await getProvider(id)?.disconnect()
+          } catch (error) {
+            console.error(`[WalletStore] Error disconnecting provider ${id}:`, error)
+          }
+        }))
 
         // Limpiar estado
         this.wallets = []
@@ -270,21 +383,65 @@ export const useWalletStore = defineStore('wallet', {
     },
 
     /**
-     * Firma una transacción XDR con la wallet activa
+     * Resuelve la wallet objetivo de una firma: la que coincide con
+     * options.address, o la activa. Lanza si no hay ninguna utilizable.
+     */
+    resolveSigningWallet (requestedAddress?: string): ConnectedWallet {
+      const wallet = requestedAddress
+        ? this.wallets.find(w => w.address === requestedAddress)
+        : this.activeWallet
+
+      if (!wallet) {
+        throw new Error(requestedAddress && this.activeWallet
+          ? 'WALLET_ACCOUNT_MISMATCH'
+          : 'No hay wallet activa')
+      }
+      return wallet
+    },
+
+    /**
+     * Prepara una firma: resuelve wallet + proveedor y re-activa el módulo
+     * correcto, garantizando que la wallet anterior no siga operativa.
+     */
+    async prepareSigning (requestedAddress?: string): Promise<{ wallet: ConnectedWallet, provider: WalletProvider }> {
+      const wallet = this.resolveSigningWallet(requestedAddress)
+
+      const provider = getProvider(wallet.providerId)
+      if (!provider) {
+        throw new Error('WALLET_RECONNECT_REQUIRED')
+      }
+
+      await this.activateWalletSession(wallet)
+      return { wallet, provider }
+    },
+
+    /**
+     * Verifica que la cuenta que firmó sea la pedida (cuando la wallet lo
+     * reporta). Protege contra cambios de cuenta dentro de la extensión.
+     */
+    assertSignerMatches (expected: string, signerAddress?: string) {
+      if (signerAddress && signerAddress !== expected) {
+        throw new Error('WALLET_ACCOUNT_MISMATCH')
+      }
+    },
+
+    /**
+     * Firma una transacción XDR con la wallet activa (o con la wallet de
+     * options.address si se especifica)
      */
     async signTransaction (
       xdr: string,
       options?: SignTransactionOptions,
     ): Promise<SignTransactionResult> {
-      const provider = this.activeProvider
-      if (!provider) {
-        throw new Error('No hay wallet activa')
-      }
+      const { wallet, provider } = await this.prepareSigning(options?.address)
 
-      return provider.signTransaction(xdr, {
+      const result = await provider.signTransaction(xdr, {
         ...options,
-        address: options?.address || this.activeAddress,
+        address: wallet.address,
       })
+
+      this.assertSignerMatches(wallet.address, result.signerAddress)
+      return result
     },
 
     /**
@@ -294,15 +451,15 @@ export const useWalletStore = defineStore('wallet', {
       authEntry: string,
       options?: SignTransactionOptions,
     ): Promise<SignAuthEntryResult> {
-      const provider = this.activeProvider
-      if (!provider) {
-        throw new Error('No hay wallet activa')
-      }
+      const { wallet, provider } = await this.prepareSigning(options?.address)
 
-      return provider.signAuthEntry(authEntry, {
+      const result = await provider.signAuthEntry(authEntry, {
         ...options,
-        address: options?.address || this.activeAddress,
+        address: wallet.address,
       })
+
+      this.assertSignerMatches(wallet.address, result.signerAddress)
+      return result
     },
 
     /**
@@ -312,15 +469,15 @@ export const useWalletStore = defineStore('wallet', {
       message: string,
       options?: SignTransactionOptions,
     ): Promise<SignMessageResult> {
-      const provider = this.activeProvider
-      if (!provider) {
-        throw new Error('No hay wallet activa')
-      }
+      const { wallet, provider } = await this.prepareSigning(options?.address)
 
-      return provider.signMessage(message, {
+      const result = await provider.signMessage(message, {
         ...options,
-        address: options?.address || this.activeAddress,
+        address: wallet.address,
       })
+
+      this.assertSignerMatches(wallet.address, result.signerAddress)
+      return result
     },
 
     /**
@@ -334,18 +491,61 @@ export const useWalletStore = defineStore('wallet', {
       try {
         const stored = localStorage.getItem(STORAGE_KEY)
         if (stored) {
-          this.wallets = JSON.parse(stored)
+          const parsed: unknown = JSON.parse(stored)
+          this.wallets = Array.isArray(parsed)
+            ? parsed.filter(w => isValidStoredWallet(w))
+            : []
+        } else {
+          this.wallets = []
         }
+
+        // Migración: wallets persistidas por versiones anteriores no tienen
+        // moduleId. Si el kit aún recuerda qué módulo usó esa dirección,
+        // backfillear para que el enrutado de firmas funcione sin reconectar.
+        this.migrateModuleIds()
 
         const activeStored = localStorage.getItem(ACTIVE_WALLET_KEY)
         if (activeStored && this.wallets.some(w => w.address === activeStored)) {
           this.activeAddress = activeStored
         } else if (this.wallets.length > 0 && this.wallets[0]) {
           this.activeAddress = this.wallets[0].address
+        } else {
+          this.activeAddress = ''
         }
       } catch {
         this.wallets = []
         this.activeAddress = ''
+      }
+    },
+
+    /**
+     * Backfill de moduleId para wallets SWK legacy: si la dirección coincide
+     * con la última sesión del kit, su selectedModuleId es el módulo correcto.
+     */
+    migrateModuleIds () {
+      try {
+        const kitAddress = localStorage.getItem(SWK_ACTIVE_ADDRESS_KEY)
+        const kitModuleId = localStorage.getItem(SWK_SELECTED_MODULE_KEY)
+        if (!kitAddress || !kitModuleId) {
+          return
+        }
+
+        let migrated = false
+        for (const wallet of this.wallets) {
+          if (
+            !wallet.moduleId
+            && wallet.providerId === 'stellar-wallets-kit'
+            && wallet.address === kitAddress
+          ) {
+            wallet.moduleId = kitModuleId
+            migrated = true
+          }
+        }
+        if (migrated) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(this.wallets))
+        }
+      } catch {
+        // Ignorar: la migración es best-effort
       }
     },
 
@@ -357,6 +557,8 @@ export const useWalletStore = defineStore('wallet', {
     saveActiveToStorage () {
       if (this.activeAddress) {
         localStorage.setItem(ACTIVE_WALLET_KEY, this.activeAddress)
+      } else {
+        localStorage.removeItem(ACTIVE_WALLET_KEY)
       }
     },
 

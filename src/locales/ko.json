@@ -595,7 +595,9 @@
     "tryAgain": "다시 시도",
     "walletNotActivated": "지갑이 아직 Stellar 네트워크에서 활성화되지 않았습니다. 구매하기 전에 최소 1 XLM을 보내 활성화하세요.",
     "goToWallet": "지갑으로 이동",
-    "paymentInProgress": "이전 결제가 아직 Stellar 네트워크에서 확인 중입니다. 몇 분 기다린 후 다시 시도해 주세요."
+    "paymentInProgress": "이전 결제가 아직 Stellar 네트워크에서 확인 중입니다. 몇 분 기다린 후 다시 시도해 주세요.",
+    "walletAccountMismatch": "지갑이 선택한 계정이 아닌 다른 계정으로 서명했습니다. 지갑에서 선택한 계정으로 전환한 후 다시 시도해 주세요.",
+    "walletReconnectRequired": "지갑 세션이 만료되었거나 사용할 수 없습니다. 지갑을 다시 연결한 후 다시 시도해 주세요."
   },
   "Purchased": {
     "title": "내 구매",
