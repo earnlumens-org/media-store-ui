@@ -102,8 +102,11 @@
         </v-chip>
       </div>
 
-      <!-- Loading state (initial load only) -->
-      <v-row v-if="loading && feedItems.length === 0" class="mt-4" dense>
+      <!-- Loading state: initial load OR a filter switch that starts from an
+           empty grid (no old cards to keep on screen). Showing skeletons here
+           — never the empty-state — guarantees "no content" can only render
+           once the latest request has actually settled. -->
+      <v-row v-if="(loading || switching) && feedItems.length === 0" class="mt-4" dense>
         <v-col
           v-for="n in 36"
           :key="`skeleton-${n}`"
@@ -133,10 +136,13 @@
         </template>
       </v-alert>
 
-      <!-- Empty state (no items from API) -->
+      <!-- Empty state (no items from API). The language-filter explanation is
+           auth-only: the backend never applies language filtering to anonymous
+           requests (LanguageFilter.NONE), so showing it to a guest would blame
+           a filter that wasn't applied — guests get the generic message. -->
       <v-row v-else-if="feedItems.length === 0" class="mt-4" dense>
         <v-col cols="12">
-          <div v-if="contentLangPrefs.loaded && languageChip.active" class="ma-4">
+          <div v-if="authStore.isAuthenticated && contentLangPrefs.loaded && languageChip.active" class="ma-4">
             <div
               v-if="authStore.isAuthenticated"
               class="d-flex justify-end mb-2"
@@ -391,6 +397,15 @@
   // Fix #4: AbortController to cancel in-flight requests
   let fetchController: AbortController | null = null
 
+  // Monotonic token identifying the latest page-0 request (the "epoch").
+  // Every state-mutating path captures it before awaiting and re-checks it
+  // after: a superseded request — aborted or simply slower — must never
+  // touch `feedItems`/`loading`/`switching`/`error` owned by its successor.
+  // Without this, the `finally` of an aborted fetch cleared `loading` while
+  // the winning request was still in flight, flashing the "no content in
+  // your languages" empty-state for a second or two on page load.
+  let fetchEpoch = 0
+
   const hasMorePages = computed(() => currentPage.value < totalPages.value - 1)
 
   // Server-side params derived from UI state
@@ -534,6 +549,7 @@
     }
     fetchController = new AbortController()
     const signal = fetchController.signal
+    const epoch = ++fetchEpoch
 
     if (!isSwitch) loading.value = true
     error.value = false
@@ -550,17 +566,25 @@
         page: 0,
         size: props.pageSize,
       }, signal)
+      if (epoch !== fetchEpoch) return // superseded while awaiting
       feedItems.value = response.items
       cacheFeedEntries(response.items)
       currentPage.value = response.page
       totalPages.value = response.totalPages
     } catch (error_: any) {
       if (axios.isCancel(error_) || error_?.code === 'ERR_CANCELED') return
+      if (epoch !== fetchEpoch) return // stale failure — successor owns the state
       console.error('[EntryCardGrid] Failed to fetch feed:', error_)
       error.value = true
     } finally {
-      loading.value = false
-      switching.value = false
+      // `finally` runs even after the early returns above, so gate it on the
+      // epoch: only the LATEST request may clear the shared flags. This is
+      // the line that used to let an aborted predecessor wipe `loading` and
+      // flash the empty-state while its successor was still loading.
+      if (epoch === fetchEpoch) {
+        loading.value = false
+        switching.value = false
+      }
     }
   }
 
@@ -570,6 +594,10 @@
       return
     }
 
+    // Snapshot the epoch: if the feed is reset while this page is in flight
+    // (filter change, prefs change, "new content" applied), appending the
+    // response would mix items from two different feeds.
+    const epoch = fetchEpoch
     const controller = new AbortController()
 
     try {
@@ -579,6 +607,12 @@
         page: currentPage.value + 1,
         size: props.pageSize,
       }, controller.signal)
+      if (epoch !== fetchEpoch) {
+        // Stale page from a previous feed generation — drop it. Report 'ok'
+        // so the scroller stays alive for the new feed's own pagination.
+        done('ok')
+        return
+      }
       feedItems.value.push(...response.items)
       cacheFeedEntries(response.items)
       currentPage.value = response.page
@@ -587,6 +621,10 @@
       done(hasMorePages.value ? 'ok' : 'empty')
     } catch (error_: any) {
       if (axios.isCancel(error_) || error_?.code === 'ERR_CANCELED') return
+      if (epoch !== fetchEpoch) {
+        done('ok')
+        return
+      }
       console.error('[EntryCardGrid] Failed to load more:', error_)
       done('error')
     }
@@ -657,6 +695,9 @@
       fetchFeed()
       return
     }
+    // New feed generation: invalidate any infinite-scroll page still in
+    // flight so it can't append old-feed items on top of the fresh page 0.
+    fetchEpoch++
     feedItems.value = fresh.items
     cacheFeedEntries(fresh.items)
     currentPage.value = fresh.page
@@ -740,14 +781,15 @@
     fetchFeed()
   })
 
-  // Refetch when the user updates their content-language preferences so
-  // the explore feed reflects the new filter without a manual reload.
+  // Refetch when the user ACTIVELY updates their content-language
+  // preferences (store bumps `revision` only from `update()`). We
+  // deliberately don't watch the raw pref values: `loadIfNeeded()` syncing
+  // the navigator seed with the stored prefs would trigger a refetch on
+  // every page load — redundant (the backend already filtered the initial
+  // request by the stored prefs via the auth token) and the source of the
+  // empty-state flash this component used to show.
   watch(
-    () => [
-      contentLangPrefs.showAllLanguages,
-      contentLangPrefs.includeMulti,
-      contentLangPrefs.contentLanguages.join(','),
-    ],
+    () => contentLangPrefs.revision,
     () => {
       window.scrollTo(0, 0)
       fetchFeed()

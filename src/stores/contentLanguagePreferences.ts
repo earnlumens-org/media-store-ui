@@ -30,6 +30,15 @@ interface State extends ContentLanguagePreferences {
   loaded: boolean
   saving: boolean
   error: string | null
+  /**
+   * Monotonic counter bumped ONLY when the user actively changes their
+   * preferences via `update()`. Feed components watch this (instead of the
+   * raw values) to decide when to refetch: `loadIfNeeded()` syncing the
+   * navigator seed with stored prefs must never trigger a refetch, because
+   * the backend already filtered the initial request by the stored prefs
+   * (token-based) — that redundant refetch caused an empty-state flash.
+   */
+  revision: number
 }
 
 function readGuestPrefs (): ContentLanguagePreferences {
@@ -88,6 +97,7 @@ export const useContentLanguagePreferencesStore = defineStore('contentLanguagePr
       loaded: false,
       saving: false,
       error: null,
+      revision: 0,
     }
   },
 
@@ -173,6 +183,7 @@ export const useContentLanguagePreferencesStore = defineStore('contentLanguagePr
           includeMulti: this.includeMulti,
           showAllLanguages: this.showAllLanguages,
         })
+        this.revision++
         return
       }
       this.saving = true
@@ -182,6 +193,9 @@ export const useContentLanguagePreferencesStore = defineStore('contentLanguagePr
         this.contentLanguages = saved.contentLanguages ?? []
         this.includeMulti = saved.includeMulti ?? true
         this.showAllLanguages = saved.showAllLanguages ?? false
+        // Bump only after the server has persisted: feeds refetching on this
+        // signal are guaranteed to be filtered by the new prefs.
+        this.revision++
       } catch (error) {
         // Roll back optimistic state on failure.
         this.contentLanguages = previous.contentLanguages
