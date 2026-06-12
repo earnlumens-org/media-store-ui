@@ -18,6 +18,7 @@
 import { defineStore } from 'pinia'
 
 import { getPurchases } from '@/api/modules/purchase.api'
+import { useAuthStore } from '@/stores/auth'
 
 /**
  * Per-tenant storage key. The hostname uniquely identifies the tenant
@@ -91,10 +92,21 @@ export const usePurchasesStore = defineStore('purchases', {
 
   getters: {
     /**
-     * Check if content is unlocked
+     * Check if content is unlocked.
+     *
+     * Entitlements are account-scoped: once auth has resolved and the user
+     * is a guest, any locally cached unlock is stale by definition (logged
+     * out, expired session, another user's leftovers) and must not unlock
+     * cards or consumption views. While auth is still resolving we trust
+     * the cache optimistically so returning logged-in users don't see
+     * their purchases flash as blocked during rehydration.
      */
     isUnlocked: state => {
       return (id: string): boolean => {
+        const auth = useAuthStore()
+        if (auth.isAuthReady && !auth.isAuthenticated) {
+          return false
+        }
         return state.purchases.has(id)
       }
     },
@@ -148,12 +160,15 @@ export const usePurchasesStore = defineStore('purchases', {
     },
 
     /**
-     * Clear all purchases (for logout)
+     * Clear all purchases (for logout / session expiry).
+     * Removes both the per-tenant key and the legacy un-suffixed key so no
+     * stale unlock state survives into a guest session or another account.
      */
     clearAll () {
       generation++
       this.$patch({ purchases: new Map() })
       localStorage.removeItem(tenantStorageKey())
+      localStorage.removeItem(PURCHASES_STORAGE_KEY)
     },
 
     /**

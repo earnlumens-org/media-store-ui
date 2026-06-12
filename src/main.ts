@@ -19,7 +19,7 @@ import pinia from '@/stores'
 
 import { useAuthStore } from '@/stores/auth'
 import { useFavoritesStore } from '@/stores/favorites'
-import { PURCHASES_STORAGE_KEY, usePurchasesStore } from '@/stores/purchases'
+import { usePurchasesStore } from '@/stores/purchases'
 import { useSubscriptionsStore } from '@/stores/subscriptions'
 import { useWalletStore } from '@/stores/wallet'
 // Components
@@ -119,6 +119,10 @@ async function rehydrateSession (): Promise<void> {
       purchasesStore.loadPurchaseIds().catch(() => {})
     } else {
       authStore.setAuthenticated(false)
+      // Server confirmed there is no session: any locally cached unlock
+      // state belongs to a previous session and would falsely render paid
+      // cards as unlocked for this guest — purge it.
+      usePurchasesStore(pinia).clearAll()
     }
   } catch {
     // No valid session - user will need to login
@@ -139,7 +143,7 @@ onSessionExpired(async () => {
   }
 
   await clearToken()
-  localStorage.removeItem(PURCHASES_STORAGE_KEY)
+  usePurchasesStore(pinia).clearAll()
   broadcastAuthEvent('SESSION_EXPIRED')
   window.location.assign('/')
 })
@@ -153,7 +157,7 @@ onAuthBroadcast(async () => {
   }
 
   await clearToken()
-  localStorage.removeItem(PURCHASES_STORAGE_KEY)
+  usePurchasesStore(pinia).clearAll()
   window.location.assign('/')
 })
 

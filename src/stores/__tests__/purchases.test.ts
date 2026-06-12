@@ -1,6 +1,7 @@
 import { createPinia, setActivePinia } from 'pinia'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { useAuthStore } from '../auth'
 import { usePurchasesStore } from '../purchases'
 
 // ── Mock the API module ──────────────────────────────────────
@@ -185,5 +186,45 @@ describe('purchasesStore.loadPurchaseIds', () => {
     // Cached data should survive the API failure
     expect(store.isUnlocked('safe-1')).toBe(true)
     expect(store.totalPurchases).toBe(1)
+  })
+})
+
+describe('purchasesStore.isUnlocked auth gating', () => {
+  it('ignores cached unlocks once auth resolves as guest', () => {
+    const auth = useAuthStore()
+    const store = usePurchasesStore()
+    store.markUnlocked('stale-1')
+
+    // While auth is still resolving the cache is trusted (optimistic)
+    expect(store.isUnlocked('stale-1')).toBe(true)
+
+    // Rehydration finished without a session → guest must see locked cards
+    auth.setAuthReady(true)
+    expect(store.isUnlocked('stale-1')).toBe(false)
+  })
+
+  it('trusts the cache for an authenticated user', () => {
+    const auth = useAuthStore()
+    auth.setAuthenticated(true)
+    auth.setAuthReady(true)
+
+    const store = usePurchasesStore()
+    store.markUnlocked('mine-1')
+
+    expect(store.isUnlocked('mine-1')).toBe(true)
+    expect(store.isUnlocked('other-1')).toBe(false)
+  })
+
+  it('clearAll removes both the tenant-scoped and legacy storage keys', () => {
+    storage.set('earnlumens_purchases', JSON.stringify([{ id: 'legacy-1', purchasedAt: '2026-01-01T00:00:00Z' }]))
+
+    const store = usePurchasesStore()
+    store.markUnlocked('e1')
+    store.clearAll()
+
+    expect(store.totalPurchases).toBe(0)
+    for (const key of storage.keys()) {
+      expect(key.startsWith('earnlumens_purchases')).toBe(false)
+    }
   })
 })

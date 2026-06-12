@@ -144,7 +144,7 @@
   import { clearToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
-  import { PURCHASES_STORAGE_KEY } from '@/stores/purchases'
+  import { usePurchasesStore } from '@/stores/purchases'
   import { useTenantStore } from '@/stores/tenant'
 
   const menu = ref(false)
@@ -221,7 +221,7 @@
     }
 
     await clearToken()
-    localStorage.removeItem(PURCHASES_STORAGE_KEY)
+    usePurchasesStore().clearAll()
     broadcastAuthEvent('LOGOUT')
     window.location.assign('/')
   }

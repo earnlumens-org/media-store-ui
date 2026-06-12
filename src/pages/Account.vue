@@ -366,7 +366,7 @@
   import { broadcastAuthEvent } from '@/services/authBroadcast'
   import { clearToken } from '@/services/tokenWorkerClient'
   import { useAppStore } from '@/stores/app'
-  import { PURCHASES_STORAGE_KEY } from '@/stores/purchases'
+  import { usePurchasesStore } from '@/stores/purchases'
 
   const appStore = useAppStore()
 
@@ -470,7 +470,7 @@
     }
 
     await clearToken()
-    localStorage.removeItem(PURCHASES_STORAGE_KEY)
+    usePurchasesStore().clearAll()
     broadcastAuthEvent('LOGOUT')
     window.location.assign('/')
   }
