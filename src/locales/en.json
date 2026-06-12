@@ -676,7 +676,9 @@
     "paymentInProgress": "Your previous payment is still being confirmed on the Stellar network. Please wait a few minutes and try again.",
     "walletAccountMismatch": "The wallet signed with a different account than the one selected. Switch to the selected account in your wallet and try again.",
     "walletReconnectRequired": "Your wallet session has expired or is unavailable. Please reconnect your wallet and try again.",
-    "franchiseSelfPurchase": "Franchise owners can't buy through their own franchise. Please purchase from the main store instead."
+    "franchiseSelfPurchase": "Franchise owners can't buy through their own franchise. Please purchase from the main store instead.",
+    "confirmingPayment": "Confirming your payment on the Stellar network… This usually takes a few seconds.",
+    "paymentConfirmTimeout": "We couldn't confirm your payment yet. If it went through, your content will unlock automatically within a few minutes."
   },
   "Favorites": {
     "empty": "No favorites yet",

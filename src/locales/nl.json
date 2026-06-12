@@ -609,7 +609,9 @@
     "paymentInProgress": "Je vorige betaling wordt nog bevestigd op het Stellar-netwerk. Wacht een paar minuten en probeer het opnieuw.",
     "walletAccountMismatch": "De wallet heeft ondertekend met een ander account dan het geselecteerde. Schakel in je wallet over naar het geselecteerde account en probeer het opnieuw.",
     "walletReconnectRequired": "Je walletsessie is verlopen of niet beschikbaar. Verbind je wallet opnieuw en probeer het nog eens.",
-    "franchiseSelfPurchase": "Franchise-eigenaren kunnen niet via hun eigen franchise kopen. Koop in plaats daarvan via de hoofdwinkel."
+    "franchiseSelfPurchase": "Franchise-eigenaren kunnen niet via hun eigen franchise kopen. Koop in plaats daarvan via de hoofdwinkel.",
+    "confirmingPayment": "Je betaling wordt bevestigd op het Stellar-netwerk… Dit duurt meestal maar een paar seconden.",
+    "paymentConfirmTimeout": "We konden je betaling nog niet bevestigen. Als deze is gelukt, wordt je content binnen enkele minuten automatisch ontgrendeld."
   },
   "Favorites": {
     "empty": "Nog geen favorieten",

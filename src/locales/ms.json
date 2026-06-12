@@ -598,7 +598,9 @@
     "paymentInProgress": "Pembayaran anda sebelum ini masih disahkan di rangkaian Stellar. Sila tunggu beberapa minit dan cuba lagi.",
     "walletAccountMismatch": "Dompet menandatangani dengan akaun yang berbeza daripada yang dipilih. Tukar ke akaun yang dipilih dalam dompet anda dan cuba lagi.",
     "walletReconnectRequired": "Sesi dompet anda telah tamat tempoh atau tidak tersedia. Sila sambung semula dompet anda dan cuba lagi.",
-    "franchiseSelfPurchase": "Pemilik francais tidak boleh membeli melalui francais mereka sendiri. Sila beli dari kedai utama."
+    "franchiseSelfPurchase": "Pemilik francais tidak boleh membeli melalui francais mereka sendiri. Sila beli dari kedai utama.",
+    "confirmingPayment": "Mengesahkan pembayaran anda di rangkaian Stellar… Ini biasanya mengambil masa beberapa saat.",
+    "paymentConfirmTimeout": "Kami belum dapat mengesahkan pembayaran anda. Jika ia berjaya, kandungan anda akan dibuka secara automatik dalam beberapa minit."
   },
   "Purchased": {
     "title": "Pembelian Saya",

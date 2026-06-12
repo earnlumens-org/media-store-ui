@@ -598,7 +598,9 @@
     "paymentInProgress": "Votre paiement précédent est encore en cours de confirmation sur le réseau Stellar. Veuillez patienter quelques minutes et réessayer.",
     "walletAccountMismatch": "Le portefeuille a signé avec un compte différent de celui sélectionné. Passez au compte sélectionné dans votre portefeuille et réessayez.",
     "walletReconnectRequired": "La session de votre portefeuille a expiré ou est indisponible. Veuillez reconnecter votre portefeuille et réessayer.",
-    "franchiseSelfPurchase": "Les propriétaires d'une franchise ne peuvent pas acheter via leur propre franchise. Veuillez effectuer l'achat depuis la boutique principale."
+    "franchiseSelfPurchase": "Les propriétaires d'une franchise ne peuvent pas acheter via leur propre franchise. Veuillez effectuer l'achat depuis la boutique principale.",
+    "confirmingPayment": "Confirmation de votre paiement sur le réseau Stellar… Cela ne prend généralement que quelques secondes.",
+    "paymentConfirmTimeout": "Nous n'avons pas encore pu confirmer votre paiement. S'il a abouti, votre contenu sera débloqué automatiquement dans quelques minutes."
   },
   "Purchased": {
     "title": "Mes achats",

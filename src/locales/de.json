@@ -598,7 +598,9 @@
     "paymentInProgress": "Deine vorherige Zahlung wird noch im Stellar-Netzwerk bestätigt. Bitte warte einige Minuten und versuche es erneut.",
     "walletAccountMismatch": "Die Wallet hat mit einem anderen Konto signiert als dem ausgewählten. Wechsle in deiner Wallet zum ausgewählten Konto und versuche es erneut.",
     "walletReconnectRequired": "Deine Wallet-Sitzung ist abgelaufen oder nicht verfügbar. Bitte verbinde deine Wallet erneut und versuche es noch einmal.",
-    "franchiseSelfPurchase": "Franchise-Inhaber können nicht über ihre eigene Franchise kaufen. Bitte kaufe stattdessen im Hauptshop."
+    "franchiseSelfPurchase": "Franchise-Inhaber können nicht über ihre eigene Franchise kaufen. Bitte kaufe stattdessen im Hauptshop.",
+    "confirmingPayment": "Deine Zahlung wird im Stellar-Netzwerk bestätigt… Das dauert in der Regel nur wenige Sekunden.",
+    "paymentConfirmTimeout": "Wir konnten deine Zahlung noch nicht bestätigen. Falls sie erfolgreich war, wird dein Inhalt innerhalb weniger Minuten automatisch freigeschaltet."
   },
   "Purchased": {
     "title": "Meine Käufe",

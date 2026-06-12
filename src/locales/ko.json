@@ -598,7 +598,9 @@
     "paymentInProgress": "이전 결제가 아직 Stellar 네트워크에서 확인 중입니다. 몇 분 기다린 후 다시 시도해 주세요.",
     "walletAccountMismatch": "지갑이 선택한 계정이 아닌 다른 계정으로 서명했습니다. 지갑에서 선택한 계정으로 전환한 후 다시 시도해 주세요.",
     "walletReconnectRequired": "지갑 세션이 만료되었거나 사용할 수 없습니다. 지갑을 다시 연결한 후 다시 시도해 주세요.",
-    "franchiseSelfPurchase": "프랜차이즈 소유자는 자신의 프랜차이즈를 통해 구매할 수 없습니다. 메인 스토어에서 구매해 주세요."
+    "franchiseSelfPurchase": "프랜차이즈 소유자는 자신의 프랜차이즈를 통해 구매할 수 없습니다. 메인 스토어에서 구매해 주세요.",
+    "confirmingPayment": "Stellar 네트워크에서 결제를 확인하고 있습니다… 보통 몇 초 정도 걸립니다.",
+    "paymentConfirmTimeout": "아직 결제를 확인하지 못했습니다. 결제가 완료되었다면 몇 분 안에 콘텐츠가 자동으로 잠금 해제됩니다."
   },
   "Purchased": {
     "title": "내 구매",

@@ -3,7 +3,9 @@
  *
  * Two-phase flow:
  *   1. preparePayment  — backend builds unsigned Stellar tx, returns XDR
- *   2. submitPayment   — send wallet-signed XDR, backend submits to network
+ *   2. submitPayment   — send wallet-signed XDR; the backend verifies and
+ *      locks the order inline, then confirms on-chain asynchronously
+ *      (status PROCESSING) — poll getPaymentOrder until a final state
  *
  * Uses apiRequest (not axiosClient) to auto-inject Bearer token.
  */
@@ -60,8 +62,10 @@ export async function preparePayment (
 
 /**
  * Phase 2 — Submit the wallet-signed transaction.
- * The backend verifies integrity and submits to the Stellar network,
- * then creates the entitlement on success.
+ * The backend verifies integrity, locks the order and submits to the Stellar
+ * network. With async confirmation enabled it returns status PROCESSING
+ * (HTTP 202) while the on-chain confirmation continues server-side — poll
+ * getPaymentOrder until the order reaches a final state.
  */
 export async function submitPayment (
   orderId: string,
@@ -74,6 +78,26 @@ export async function submitPayment (
       method: 'POST',
       body: JSON.stringify(body),
     },
+  )
+  return {
+    orderId: d.orderId,
+    stellarTxHash: d.stellarTxHash,
+    status: d.status,
+    entryId: d.entryId,
+    collectionId: d.collectionId,
+  }
+}
+
+/**
+ * Status of the buyer's own order — polled after an async submit (202)
+ * until the order reaches COMPLETED / FAILED / EXPIRED.
+ */
+export async function getPaymentOrder (
+  orderId: string,
+): Promise<SubmitPaymentModel> {
+  const d = await apiRequest<SubmitPaymentResponseDto>(
+    `${BASE_PATH}/orders/${encodeURIComponent(orderId)}`,
+    { method: 'GET' },
   )
   return {
     orderId: d.orderId,

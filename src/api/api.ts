@@ -35,7 +35,7 @@ import { createFranchise, getFranchiseConfig,
   presignFranchiseImage,
   updateMyFranchise,
   uploadFranchiseImage } from './modules/franchise.api'
-import { preparePayment, submitPayment } from './modules/payment.api'
+import { getPaymentOrder, preparePayment, submitPayment } from './modules/payment.api'
 import { getPurchaseCollections, getPurchasedFeed, getPurchases } from './modules/purchase.api'
 import { deleteRating, getMyRating, getRatings, getRatingSummary, submitRating } from './modules/rating.api'
 import { getSellerSales } from './modules/sales.api'
@@ -98,6 +98,7 @@ export const api = {
   payment: {
     prepare: preparePayment,
     submit: submitPayment,
+    getOrder: getPaymentOrder,
   },
   purchases: {
     list: getPurchases,
@@ -210,7 +211,7 @@ export {
 export { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
 export { createFranchise, getFranchiseConfig, getPublicFranchise, listMyFranchises, listPublicFranchises, presignFranchiseImage, updateMyFranchise, uploadFranchiseImage } from './modules/franchise.api'
 export type { CreateFranchisePayload, FranchiseConfigDto, FranchiseImageSlot, FranchiseImageUploadInit, ManagedFranchiseDto, PublicFranchiseDto, UpdateFranchisePayload } from './modules/franchise.api'
-export { preparePayment, submitPayment } from './modules/payment.api'
+export { getPaymentOrder, preparePayment, submitPayment } from './modules/payment.api'
 export { getPurchaseCollections, getPurchases } from './modules/purchase.api'
 export { getSellerSales } from './modules/sales.api'
 export { checkSubscription, getMySubscriberCount, getMySubscribers, getMySubscriptions, getPublicSubscriberCount, subscribe, unsubscribe } from './modules/subscription.api'

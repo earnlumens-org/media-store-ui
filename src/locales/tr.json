@@ -598,7 +598,9 @@
     "paymentInProgress": "Önceki ödemeniz hâlâ Stellar ağında onaylanıyor. Lütfen birkaç dakika bekleyip tekrar deneyin.",
     "walletAccountMismatch": "Cüzdan, seçilen hesaptan farklı bir hesapla imzaladı. Cüzdanınızda seçilen hesaba geçin ve tekrar deneyin.",
     "walletReconnectRequired": "Cüzdan oturumunuzun süresi doldu veya kullanılamıyor. Lütfen cüzdanınızı yeniden bağlayın ve tekrar deneyin.",
-    "franchiseSelfPurchase": "Franchise sahipleri kendi franchise'ları üzerinden satın alma yapamaz. Lütfen ana mağazadan satın alın."
+    "franchiseSelfPurchase": "Franchise sahipleri kendi franchise'ları üzerinden satın alma yapamaz. Lütfen ana mağazadan satın alın.",
+    "confirmingPayment": "Ödemeniz Stellar ağında onaylanıyor… Bu genellikle birkaç saniye sürer.",
+    "paymentConfirmTimeout": "Ödemenizi henüz onaylayamadık. Başarılı olduysa, içeriğiniz birkaç dakika içinde otomatik olarak açılacaktır."
   },
   "Purchased": {
     "title": "Satın Alımlarım",

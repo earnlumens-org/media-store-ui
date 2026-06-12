@@ -73,6 +73,8 @@
   // State
   const selectedPayment = ref<'wallet' | 'card'>('wallet')
   const isProcessing = ref(false)
+  /** True while the backend confirms the submitted tx on-chain (async submit). */
+  const isConfirming = ref(false)
   const error = ref<string | null>(null)
   const isWalletNotActivated = computed(() => error.value === t('Preview.walletNotActivated'))
   /** After prepare(), holds the actual XLM amount the Stellar tx will charge */
@@ -154,6 +156,7 @@
       selectedPayment.value = 'wallet'
       error.value = null
       isProcessing.value = false
+      isConfirming.value = false
       resolvedXlmAmount.value = null
       resolvedXlmRate.value = null
       countdownSeconds.value = null
@@ -247,8 +250,19 @@
         address: buyerWallet,
       })
 
-      // 4. Submit — backend submits signed tx to Stellar network
-      const result = await api.payment.submit(prepared.orderId, signResult.signedTxXdr)
+      // 4. Submit — backend verifies + locks the order inline; the on-chain
+      // confirmation continues asynchronously (202 + status PROCESSING).
+      let result = await api.payment.submit(prepared.orderId, signResult.signedTxXdr)
+
+      // 4b. Poll the order until the backend confirms the tx on-chain.
+      // The money left the wallet the moment the network accepted the tx,
+      // so the countdown is no longer meaningful here.
+      if (result.status === 'PROCESSING') {
+        stopCountdown()
+        countdownSeconds.value = null
+        isConfirming.value = true
+        result = await waitForOrderConfirmation(result.orderId)
+      }
 
       // 5. Mark unlocked locally
       purchasesStore.markUnlocked(props.item.id, {
@@ -286,12 +300,43 @@
         FRANCHISE_SELF_PURCHASE: 'Preview.franchiseSelfPurchase',
         WALLET_ACCOUNT_MISMATCH: 'Preview.walletAccountMismatch',
         WALLET_RECONNECT_REQUIRED: 'Preview.walletReconnectRequired',
+        PAYMENT_NOT_CONFIRMED: 'Preview.paymentFailed',
+        PAYMENT_CONFIRMATION_TIMEOUT: 'Preview.paymentConfirmTimeout',
       }
       const errorKey = errorKeyByCode[msg]
       error.value = errorKey ? t(errorKey) : (msg || t('Preview.paymentFailed'))
     } finally {
       isProcessing.value = false
+      isConfirming.value = false
     }
+  }
+
+  /**
+   * Polls the buyer's order after an async submit until the backend reaches a
+   * final verdict. COMPLETED resolves; FAILED/EXPIRED rejects. Transient
+   * polling errors are tolerated — the backend's reconciliation watchdog is
+   * the ultimate source of truth, so a timeout here is not a final "no".
+   */
+  async function waitForOrderConfirmation (orderId: string) {
+    const POLL_INTERVAL_MS = 2000
+    const MAX_ATTEMPTS = 45 // ~90 s — covers the backend's worst-case on-chain polling
+    for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
+      await new Promise(resolve => setTimeout(resolve, POLL_INTERVAL_MS))
+      try {
+        const order = await api.payment.getOrder(orderId)
+        if (order.status === 'COMPLETED') return order
+        if (order.status === 'FAILED' || order.status === 'EXPIRED') {
+          throw new Error('PAYMENT_NOT_CONFIRMED')
+        }
+        // PROCESSING — keep polling
+      } catch (error_) {
+        if (error_ instanceof Error && error_.message === 'PAYMENT_NOT_CONFIRMED') {
+          throw error_
+        }
+        // Transient network/API error — keep polling
+      }
+    }
+    throw new Error('PAYMENT_CONFIRMATION_TIMEOUT')
   }
 
   // Close dialog
@@ -441,6 +486,18 @@
               :class="`text-${countdownColor}`"
             >{{ countdownDisplay }}</span>
           </div>
+
+          <!-- Confirming on-chain (async submit) -->
+          <v-alert
+            v-if="isConfirming"
+            class="mt-4"
+            density="compact"
+            icon="mdi-progress-clock"
+            type="info"
+            variant="tonal"
+          >
+            {{ $t('Preview.confirmingPayment') }}
+          </v-alert>
 
           <!-- Expired Alert -->
           <v-alert
@@ -623,6 +680,18 @@
               :class="`text-${countdownColor}`"
             >{{ countdownDisplay }}</span>
           </div>
+
+          <!-- Confirming on-chain (async submit) -->
+          <v-alert
+            v-if="isConfirming"
+            class="mt-4"
+            density="compact"
+            icon="mdi-progress-clock"
+            type="info"
+            variant="tonal"
+          >
+            {{ $t('Preview.confirmingPayment') }}
+          </v-alert>
 
           <!-- Expired Alert -->
           <v-alert

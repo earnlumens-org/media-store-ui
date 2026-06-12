@@ -598,7 +598,9 @@
     "paymentInProgress": "Twoja poprzednia płatność jest wciąż potwierdzana w sieci Stellar. Poczekaj kilka minut i spróbuj ponownie.",
     "walletAccountMismatch": "Portfel podpisał innym kontem niż wybrane. Przełącz się na wybrane konto w portfelu i spróbuj ponownie.",
     "walletReconnectRequired": "Sesja portfela wygasła lub jest niedostępna. Połącz portfel ponownie i spróbuj jeszcze raz.",
-    "franchiseSelfPurchase": "Właściciele franczyzy nie mogą kupować za pośrednictwem własnej franczyzy. Dokonaj zakupu w sklepie głównym."
+    "franchiseSelfPurchase": "Właściciele franczyzy nie mogą kupować za pośrednictwem własnej franczyzy. Dokonaj zakupu w sklepie głównym.",
+    "confirmingPayment": "Potwierdzanie płatności w sieci Stellar… Zwykle zajmuje to kilka sekund.",
+    "paymentConfirmTimeout": "Nie udało się jeszcze potwierdzić Twojej płatności. Jeśli się powiodła, treść odblokuje się automatycznie w ciągu kilku minut."
   },
   "Purchased": {
     "title": "Moje zakupy",
