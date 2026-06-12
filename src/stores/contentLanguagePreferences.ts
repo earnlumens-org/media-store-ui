@@ -22,6 +22,7 @@ import {
   getCurrentUser,
   updateContentLanguagePreferences,
 } from '@/api/modules/user.api'
+import { setToken } from '@/services/tokenWorkerClient'
 import { useAuthStore } from '@/stores/auth'
 
 const GUEST_STORAGE_KEY = 'el_content_lang_prefs_v1'
@@ -193,6 +194,17 @@ export const useContentLanguagePreferencesStore = defineStore('contentLanguagePr
         this.contentLanguages = saved.contentLanguages ?? []
         this.includeMulti = saved.includeMulti ?? true
         this.showAllLanguages = saved.showAllLanguages ?? false
+        // The backend reads language prefs from JWT claims (no DB lookup per
+        // feed request), so swap in the freshly minted token BEFORE bumping
+        // the revision — otherwise refetching feeds would still send the old
+        // token with the old claims until it expires.
+        if (saved.accessToken) {
+          try {
+            await setToken(saved.accessToken)
+          } catch (error) {
+            console.warn('[contentLangPrefs] failed to swap refreshed token', error)
+          }
+        }
         // Bump only after the server has persisted: feeds refetching on this
         // signal are guaranteed to be filtered by the new prefs.
         this.revision++

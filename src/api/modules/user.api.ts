@@ -103,10 +103,13 @@ export async function checkUsernameExists (username: string): Promise<{ username
 /**
  * Update consumer-side content-language preferences. Partial update:
  * only fields present in {@code body} are changed server-side. Returns
- * the persisted preferences with safe defaults applied.
+ * the persisted preferences with safe defaults applied, plus a freshly
+ * minted access token: preferences live as JWT claims on the backend
+ * (feeds read them without a DB lookup), so the caller must swap the
+ * token in for the new filter to apply before the old token expires.
  */
 export async function updateContentLanguagePreferences (
   body: Partial<ContentLanguagePreferences>,
-): Promise<ContentLanguagePreferences> {
-  return api.patch<ContentLanguagePreferences>('/api/user/me/preferences/content-languages', body)
+): Promise<ContentLanguagePreferences & { accessToken?: string }> {
+  return api.patch<ContentLanguagePreferences & { accessToken?: string }>('/api/user/me/preferences/content-languages', body)
 }
