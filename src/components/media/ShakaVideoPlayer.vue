@@ -17,7 +17,7 @@
   <div
     ref="containerRef"
     class="shaka-player-container bg-black position-relative"
-    :class="[containerClass, { 'shaka-is-buffering': isBuffering }]"
+    :class="[containerClass, { 'shaka-is-buffering': showSpinner, 'shaka-hide-spinner': isBuffering && !showSpinner }]"
   >
     <!-- Player error overlay -->
     <div
@@ -73,19 +73,21 @@
       :crossorigin="crossorigin"
       playsinline
       :poster="poster"
-      @canplay="isBuffering = false"
-      @ended="$emit('ended')"
-      @loadeddata="isBuffering = false"
-      @pause="$emit('pause')"
-      @play="$emit('play')"
+      @canplay="onCanPlay"
+      @ended="onEnded"
+      @loadeddata="onLoadedData"
+      @pause="onPause"
+      @play="onPlay"
       @playing="onPlaying"
+      @seeked="onSeeked"
       @timeupdate="onTimeUpdate"
+      @waiting="onWaiting"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-  import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+  import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
   import 'shaka-player/dist/controls.css'
 
@@ -131,6 +133,29 @@
    */
   const isBuffering = ref(false)
 
+  /**
+   * Whether the underlying <video> is currently paused. Starts paused (autoplay
+   * may be blocked) and is kept in sync via the native play/pause/playing events.
+   */
+  const isPaused = ref(true)
+
+  /**
+   * Whether at least one frame is decoded and ready to display. Once true, a
+   * paused player can always be started, so the centered play button must stay
+   * reachable regardless of Shaka's buffering signal.
+   */
+  const hasFrame = ref(false)
+
+  /**
+   * Show the loading spinner (and hide the centered play button) only while the
+   * player is genuinely loading: either the very first load before any frame is
+   * ready, or an active rebuffer while playing. When the player is paused with a
+   * frame ready (e.g. right after seeking into an unbuffered region) we must NOT
+   * hide the play button — doing so deadlocks the UI: Shaka keeps the buffering
+   * state set while paused, and the user can no longer click play to clear it.
+   */
+  const showSpinner = computed(() => isBuffering.value && (!isPaused.value || !hasFrame.value))
+
   /*
    * Shaka Player types are declared globally via `declare namespace shaka { ... }`
    * but the compiled vs UI d.ts files conflict when resolved through package.json "types".
@@ -153,6 +178,8 @@
   async function initPlayer () {
     playerError.value = null
     isBuffering.value = true
+    hasFrame.value = false
+    isPaused.value = true
 
     try {
       const lib = await loadShaka()
@@ -438,12 +465,65 @@
   /** Video started playing — clear the spinner and close any orphaned PiP */
   function onPlaying () {
     isBuffering.value = false
+    isPaused.value = false
+    hasFrame.value = true
     // A handed-off (orphaned) <video> keeps Vue's leftover @playing listener
     // attached even after unmount, because we keep the node alive in <body>.
     // Guard against it: only a live, in-page player should close previous
     // orphans — otherwise the orphan would close (and stop) itself.
     if (videoRef.value?.closest('[data-pip-orphan="true"]')) return
     void closeOrphanedPipPlayers()
+  }
+
+  /** Native play event — the user (or autoplay) started playback */
+  function onPlay () {
+    isPaused.value = false
+    emit('play')
+  }
+
+  /** Native pause event — keep the play button reachable while paused */
+  function onPause () {
+    isPaused.value = true
+    emit('pause')
+  }
+
+  /** Playback ended — treat as paused so the replay/play button is shown */
+  function onEnded () {
+    isPaused.value = true
+    isBuffering.value = false
+    emit('ended')
+  }
+
+  /** Enough data buffered to play — a frame is ready, drop the spinner */
+  function onCanPlay () {
+    hasFrame.value = true
+    isBuffering.value = false
+  }
+
+  /** First frame decoded — mark it ready so the play button stays available */
+  function onLoadedData () {
+    hasFrame.value = true
+    isBuffering.value = false
+  }
+
+  /**
+   * A seek finished. The target frame is now displayed, so a paused player must
+   * be startable again. Clear the buffering flag whenever the media can already
+   * play through, and always record that a frame is available.
+   */
+  function onSeeked () {
+    const video = videoRef.value
+    if (!video) return
+    hasFrame.value = true
+    // HAVE_FUTURE_DATA (3) or better means we can resume without rebuffering.
+    if (video.paused || video.readyState >= 3) {
+      isBuffering.value = false
+    }
+  }
+
+  /** The element ran out of buffered data and is waiting — show the spinner */
+  function onWaiting () {
+    isBuffering.value = true
   }
 
   onBeforeUnmount(async () => {
@@ -485,9 +565,23 @@
    * visible on mobile (iOS/Android), where autoplay is blocked and the video
    * stays paused after load — once buffering ends the play button reappears
    * so the user can tap to start.
+   *
+   * Driven by `showSpinner`, which is only true while the player is genuinely
+   * loading (first load, or an active rebuffer during playback) — never while
+   * paused with a frame ready. That keeps the play button reachable after a
+   * seek, instead of leaving the frame visible with no way to resume.
    */
   .shaka-player-container.shaka-is-buffering .shaka-play-button-container,
   .shaka-player-container.shaka-is-buffering .shaka-play-button {
+    display: none !important;
+  }
+
+  /*
+   * Paused with a frame ready (e.g. after seeking into an unbuffered region):
+   * Shaka may still report a buffering state, but we don't want a spinner here.
+   * Hide it so the user sees only the centered play button and can resume.
+   */
+  .shaka-player-container.shaka-hide-spinner .shaka-spinner-container {
     display: none !important;
   }
 </style>
