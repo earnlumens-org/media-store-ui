@@ -6,9 +6,11 @@ import { usePurchasesStore } from '../purchases'
 
 // ── Mock the API module ──────────────────────────────────────
 const getPurchasesMock = vi.fn()
+const getPurchaseCollectionsMock = vi.fn()
 
 vi.mock('@/api/modules/purchase.api', () => ({
   getPurchases: (...args: unknown[]) => getPurchasesMock(...args),
+  getPurchaseCollections: (...args: unknown[]) => getPurchaseCollectionsMock(...args),
 }))
 
 // ── Fake localStorage ────────────────────────────────────────
@@ -25,6 +27,9 @@ beforeEach(() => {
   setActivePinia(createPinia())
   storage.clear()
   getPurchasesMock.mockReset()
+  getPurchaseCollectionsMock.mockReset()
+  // Default: no purchased collections unless a test overrides it.
+  getPurchaseCollectionsMock.mockResolvedValue(apiPage([], 0, 1))
 })
 
 afterEach(() => {
@@ -45,8 +50,21 @@ function makePurchasedEntry (id: string, title = `Entry ${id}`) {
   }
 }
 
-function apiPage (
-  items: ReturnType<typeof makePurchasedEntry>[],
+function makePurchasedCollection (id: string, title = `Collection ${id}`) {
+  return {
+    id,
+    title,
+    collectionType: 'catalog',
+    purchasedAt: '2026-03-01T00:00:00Z',
+    authorName: 'author',
+    isPaid: true,
+    itemCount: 3,
+    publishedAt: '2026-02-28T00:00:00Z',
+  }
+}
+
+function apiPage<T> (
+  items: T[],
   page: number,
   totalPages: number,
 ) {
@@ -87,6 +105,38 @@ describe('purchasesStore.loadPurchaseIds', () => {
     expect(getPurchasesMock).toHaveBeenCalledWith({ page: 0, size: 100 })
     expect(getPurchasesMock).toHaveBeenCalledWith({ page: 1, size: 100 })
     expect(getPurchasesMock).toHaveBeenCalledWith({ page: 2, size: 100 })
+  })
+
+  it('loads purchased collection IDs so collection cards unlock', async () => {
+    getPurchasesMock.mockResolvedValueOnce(apiPage([makePurchasedEntry('e1')], 0, 1))
+    getPurchaseCollectionsMock.mockReset()
+    getPurchaseCollectionsMock.mockResolvedValueOnce(
+      apiPage([makePurchasedCollection('c1'), makePurchasedCollection('c2')], 0, 1),
+    )
+
+    const store = usePurchasesStore()
+    await store.loadPurchaseIds()
+
+    expect(store.isUnlocked('e1')).toBe(true)
+    expect(store.isUnlocked('c1')).toBe(true)
+    expect(store.isUnlocked('c2')).toBe(true)
+    expect(store.getPurchase('c1')?.type).toBe('catalog')
+  })
+
+  it('paginates through multiple collection pages', async () => {
+    getPurchasesMock.mockResolvedValueOnce(apiPage([], 0, 1))
+    getPurchaseCollectionsMock.mockReset()
+    getPurchaseCollectionsMock
+      .mockResolvedValueOnce(apiPage([makePurchasedCollection('c1')], 0, 2))
+      .mockResolvedValueOnce(apiPage([makePurchasedCollection('c2')], 1, 2))
+
+    const store = usePurchasesStore()
+    await store.loadPurchaseIds()
+
+    expect(store.totalPurchases).toBe(2)
+    expect(getPurchaseCollectionsMock).toHaveBeenCalledTimes(2)
+    expect(getPurchaseCollectionsMock).toHaveBeenCalledWith({ page: 0, size: 100 })
+    expect(getPurchaseCollectionsMock).toHaveBeenCalledWith({ page: 1, size: 100 })
   })
 
   it('merges server data with existing localStorage cache', async () => {

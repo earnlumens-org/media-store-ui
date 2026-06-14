@@ -17,7 +17,7 @@
 
 import { defineStore } from 'pinia'
 
-import { getPurchases } from '@/api/modules/purchase.api'
+import { getPurchaseCollections, getPurchases } from '@/api/modules/purchase.api'
 import { useAuthStore } from '@/stores/auth'
 
 /**
@@ -175,15 +175,22 @@ export const usePurchasesStore = defineStore('purchases', {
      * Load all purchase IDs from the server and merge into local cache.
      * Called on login / session rehydration so the grid reflects unlock
      * state even on a new device.
+     *
+     * Loads BOTH purchased entries and purchased collections. The entry feed
+     * already expands collection entitlements into their child entry IDs, but
+     * it never returns the collection's own ID — so without the second loop a
+     * purchased collection renders as BLOCKED on every surface that resolves
+     * lock state purely client-side (Explore, Community feed, Search).
      */
     async loadPurchaseIds () {
       const gen = generation
       this.purchases = loadFromStorage()
 
       try {
+        // 1. Purchased entries (includes entries expanded from purchased
+        //    collections, so standalone entry cards unlock too).
         let page = 0
         let hasMore = true
-
         while (hasMore) {
           const response = await getPurchases({ page, size: 100 })
           if (generation !== gen) {
@@ -196,6 +203,29 @@ export const usePurchasesStore = defineStore('purchases', {
                 id: item.id,
                 purchasedAt: item.purchasedAt,
                 type: item.type,
+                title: item.title,
+              })
+            }
+          }
+          page++
+          hasMore = page < response.totalPages
+        }
+
+        // 2. Purchased collections (their own IDs, missing from the entry feed).
+        page = 0
+        hasMore = true
+        while (hasMore) {
+          const response = await getPurchaseCollections({ page, size: 100 })
+          if (generation !== gen) {
+            return
+          }
+
+          for (const item of response.items) {
+            if (!this.purchases.has(item.id)) {
+              this.purchases.set(item.id, {
+                id: item.id,
+                purchasedAt: item.purchasedAt,
+                type: item.collectionType,
                 title: item.title,
               })
             }
