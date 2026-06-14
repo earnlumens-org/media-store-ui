@@ -15,6 +15,16 @@ export interface PreparePaymentRequestDto {
   buyerWallet: string
 }
 
+export interface PrepareTipRequestDto {
+  entryId?: string
+  collectionId?: string
+  /** Slug of the franchise storefront the tip happened on, when on /f/:slug. */
+  franchiseSlug?: string
+  buyerWallet: string
+  /** Tip amount in USD — the only price input; bounded server-side to [0.25, 100]. */
+  amountUsd: number
+}
+
 export interface SubmitPaymentRequestDto {
   orderId: string
   signedXdr: string

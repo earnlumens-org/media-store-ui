@@ -35,7 +35,7 @@ import { createFranchise, getFranchiseConfig,
   presignFranchiseImage,
   updateMyFranchise,
   uploadFranchiseImage } from './modules/franchise.api'
-import { getPaymentOrder, preparePayment, submitPayment } from './modules/payment.api'
+import { getPaymentOrder, preparePayment, prepareTip, submitPayment } from './modules/payment.api'
 import { getPurchaseCollections, getPurchasedFeed, getPurchases } from './modules/purchase.api'
 import { deleteRating, getMyRating, getRatings, getRatingSummary, submitRating } from './modules/rating.api'
 import { getSellerSales } from './modules/sales.api'
@@ -97,6 +97,7 @@ export const api = {
   },
   payment: {
     prepare: preparePayment,
+    prepareTip,
     submit: submitPayment,
     getOrder: getPaymentOrder,
   },

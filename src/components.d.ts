@@ -58,6 +58,7 @@ declare module 'vue' {
     TenantNotFoundPage: typeof import('./components/TenantNotFoundPage.vue')['default']
     Theme: typeof import('./components/themes/Theme.vue')['default']
     ThemeCard: typeof import('./components/themes/ThemeCard.vue')['default']
+    TipDialog: typeof import('./components/checkout/TipDialog.vue')['default']
     UploadAssetPicker: typeof import('./components/upload/UploadAssetPicker.vue')['default']
     UploadForm: typeof import('./components/upload/UploadForm.vue')['default']
     UploadTypeDialog: typeof import('./components/upload/UploadTypeDialog.vue')['default']

@@ -545,6 +545,18 @@
                       <p class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</p>
                     </div>
                     <v-btn
+                      v-if="!isOwnCollection"
+                      :aria-label="$t('Common.tipCreator')"
+                      class="flex-shrink-0 ms-2"
+                      prepend-icon="mdi-hand-coin-outline"
+                      rounded="pill"
+                      :size="$vuetify.display.smAndDown ? 'small' : 'default'"
+                      variant="tonal"
+                      @click="tipDialog = true"
+                    >
+                      {{ $t('Common.tip') }}
+                    </v-btn>
+                    <v-btn
                       class="flex-shrink-0 ms-2"
                       color="primary"
                       rounded="pill"
@@ -616,6 +628,9 @@
         :target-id="collectionId"
         target-type="COLLECTION"
       />
+
+      <!-- Tip Dialog -->
+      <TipDialog v-model="tipDialog" :target="tipTarget" />
     </template>
   </div>
 </template>
@@ -629,6 +644,7 @@
 
   import { api } from '@/api/api'
   import CheckoutDialog from '@/components/checkout/CheckoutDialog.vue'
+  import TipDialog from '@/components/checkout/TipDialog.vue'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import AudioPlayerDialog from '@/components/entry/AudioPlayerDialog.vue'
   import EntryPreviewDialog from '@/components/entry/EntryPreviewDialog.vue'
@@ -677,6 +693,7 @@
   const activeTab = ref('items')
   const voteCount = ref(0)
   const reportDialog = ref(false)
+  const tipDialog = ref(false)
   const selectedType = ref('all')
   const searchQuery = ref('')
   const sortBy = ref<'default' | 'recent' | 'title'>('default')
@@ -711,6 +728,21 @@
   // Derive items + description from collection detail
   const items = computed<CollectionEntryItemModel[]>(() => collection.value?.items ?? [])
   const collectionDescription = computed(() => collection.value?.description || '')
+
+  /** Hide the tip action on the viewer's own collection. */
+  const isOwnCollection = computed(() => !!collection.value?.isOwner)
+
+  /** Target passed to the tip dialog. */
+  const tipTarget = computed(() =>
+    collection.value
+      ? {
+        id: collection.value.id,
+        type: 'collection' as const,
+        creatorName: collection.value.authorName,
+        creatorAvatar: authorAvatarSrc.value,
+      }
+      : null,
+  )
 
   /**
    * Whether the current user may rate this collection. Mirrors the backend

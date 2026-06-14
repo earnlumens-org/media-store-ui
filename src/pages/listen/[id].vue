@@ -429,6 +429,18 @@
                 </div>
                 <span class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</span>
               </div>
+              <v-btn
+                v-if="!isOwnContent"
+                :aria-label="$t('Common.tipCreator')"
+                class="flex-shrink-0 ms-2"
+                prepend-icon="mdi-hand-coin-outline"
+                rounded="pill"
+                :size="$vuetify.display.smAndDown ? 'small' : 'default'"
+                variant="tonal"
+                @click="tipDialog = true"
+              >
+                {{ $t('Common.tip') }}
+              </v-btn>
               <CxSubscribeButton
                 v-if="entry.authorId"
                 class="flex-shrink-0 ms-2"
@@ -514,6 +526,7 @@
   </v-container>
 
   <ReportDialog v-model="reportDialog" :entry-id="entryId" />
+  <TipDialog v-model="tipDialog" :target="tipTarget" />
 </template>
 
 <script setup lang="ts">
@@ -523,6 +536,7 @@
   import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
+  import TipDialog from '@/components/checkout/TipDialog.vue'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import RatingPill from '@/components/rating/RatingPill.vue'
@@ -574,10 +588,28 @@
   const descriptionExpanded = ref(false)
   const avatarBroken = ref(false)
   const reportDialog = ref(false)
+  const tipDialog = ref(false)
 
   /** Avatar URL — cleared when the OAuth provider image fails to load */
   const avatarUrl = computed(() =>
     avatarBroken.value ? undefined : entry.value?.authorAvatarUrl,
+  )
+
+  /** Hide the tip action on the viewer's own content (a creator can't tip themselves). */
+  const isOwnContent = computed(() =>
+    !!entry.value?.authorId && entry.value.authorId === authStore.user?.id,
+  )
+
+  /** Target passed to the tip dialog. */
+  const tipTarget = computed(() =>
+    entry.value
+      ? {
+        id: entry.value.id,
+        type: entry.value.type,
+        creatorName: entry.value.authorName,
+        creatorAvatar: avatarUrl.value,
+      }
+      : null,
   )
 
   // Playback speed options

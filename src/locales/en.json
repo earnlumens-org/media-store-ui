@@ -1002,5 +1002,23 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Tip": {
+    "title": "Send a tip",
+    "heading": "Support the creator",
+    "subtitle": "Show your support with a one-time tip in XLM.",
+    "chooseAmount": "Choose an amount",
+    "other": "Other",
+    "customAmount": "Amount in USD",
+    "amountHint": "Min $0.25 — Max $100",
+    "amountInvalid": "Enter an amount between $0.25 and $100.",
+    "send": "Send tip",
+    "youPay": "You pay",
+    "success": "Thank you for your support!",
+    "successSubtitle": "Your tip was sent successfully.",
+    "unavailable": "This creator hasn't set up tips yet.",
+    "cannotTipOwn": "You can't tip your own content.",
+    "done": "Done",
+    "processing": "Sending your tip…"
   }
 }

@@ -98,6 +98,7 @@
             density="compact"
             icon="mdi-dots-vertical"
             variant="text"
+            @click.stop.prevent
           />
         </template>
 

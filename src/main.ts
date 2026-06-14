@@ -37,6 +37,8 @@ const app = createApp(App)
 const i18n = createI18n({
   legacy: false,
   locale: 'en',
+  fallbackLocale: 'en',
+  silentFallbackWarn: true,
   messages: {},
 })
 
@@ -61,6 +63,13 @@ export async function loadLanguage (language: string) {
   try {
     const messages = await import(`./locales/${language}.json`)
     i18n.global.setLocaleMessage(language, messages.default || messages)
+    // Always keep the English bundle loaded as the fallback locale so any key
+    // not yet translated in the active locale renders in English instead of
+    // showing the raw key path.
+    if (language !== 'en') {
+      const fallback = await import('./locales/en.json')
+      i18n.global.setLocaleMessage('en', fallback.default || fallback)
+    }
     i18n.global.locale.value = language
   } catch (error) {
     console.error('Error loading language, defaulting to en:', error)

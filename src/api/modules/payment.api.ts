@@ -14,6 +14,7 @@ import type {
   PreparePaymentModel,
   PreparePaymentRequestDto,
   PreparePaymentResponseDto,
+  PrepareTipRequestDto,
   SubmitPaymentModel,
   SubmitPaymentRequestDto,
   SubmitPaymentResponseDto,
@@ -41,6 +42,45 @@ export async function preparePayment (
   }
   const d = await apiRequest<PreparePaymentResponseDto>(
     `${BASE_PATH}/prepare`,
+    {
+      method: 'POST',
+      body: JSON.stringify(body),
+    },
+  )
+  return {
+    orderId: d.orderId,
+    unsignedXdr: d.unsignedXdr,
+    integrityHash: d.integrityHash,
+    totalXlm: d.totalXlm,
+    originalAmountUsd: d.originalAmountUsd,
+    priceCurrency: d.priceCurrency,
+    xlmUsdRate: d.xlmUsdRate,
+    memo: d.memo,
+    expiresAt: d.expiresAt,
+    networkPassphrase: d.networkPassphrase,
+  }
+}
+
+/**
+ * Phase 1 (TIP) — Prepare an unsigned Stellar tip transaction.
+ * The buyer chooses {@code amountUsd} (the only price input); the backend
+ * bounds it, converts USD→XLM at a locked rate, resolves the creator's payout
+ * wallet and every split, and returns the XDR for the wallet to sign. A tip
+ * grants no entitlement. Pass either entryId or collectionId (exactly one).
+ */
+export async function prepareTip (
+  buyerWallet: string,
+  options: { entryId?: string, collectionId?: string, franchiseSlug?: string, amountUsd: number },
+): Promise<PreparePaymentModel> {
+  const body: PrepareTipRequestDto = {
+    entryId: options.entryId,
+    collectionId: options.collectionId,
+    buyerWallet,
+    amountUsd: options.amountUsd,
+    ...(options.franchiseSlug ? { franchiseSlug: options.franchiseSlug } : {}),
+  }
+  const d = await apiRequest<PreparePaymentResponseDto>(
+    `${BASE_PATH}/tip/prepare`,
     {
       method: 'POST',
       body: JSON.stringify(body),

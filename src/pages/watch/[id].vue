@@ -334,10 +334,12 @@
                   variant="tonal"
                 />
                 <v-btn
+                  v-if="!isOwnContent"
                   :aria-label="$t('Common.tipCreator')"
                   prepend-icon="mdi-hand-coin-outline"
                   rounded="pill"
                   variant="tonal"
+                  @click="tipDialog = true"
                 >
                   {{ $t('Common.tip') }}
                 </v-btn>
@@ -404,6 +406,7 @@
   </v-container>
 
   <ReportDialog v-model="reportDialog" :entry-id="entryId" />
+  <TipDialog v-model="tipDialog" :target="tipTarget" />
 </template>
 
 <script setup lang="ts">
@@ -418,6 +421,7 @@
   import ShakaVideoPlayer from '@/components/media/ShakaVideoPlayer.vue'
   import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
+  import TipDialog from '@/components/checkout/TipDialog.vue'
   import { cdnHlsUrl, cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAuthStore } from '@/stores/auth'
@@ -452,6 +456,7 @@
   const descriptionExpanded = ref(false)
   const avatarBroken = ref(false)
   const reportDialog = ref(false)
+  const tipDialog = ref(false)
 
   /** Avatar URL — cleared when the OAuth provider image fails to load */
   const avatarUrl = computed(() =>
@@ -472,6 +477,23 @@
     if (entry.value.authorId && entry.value.authorId === authStore.user?.id) return false
     return !entry.value.isPaid || purchasesStore.isUnlocked(entryId.value)
   })
+
+  /** Hide the tip action on the viewer's own content (a creator can't tip themselves). */
+  const isOwnContent = computed(() =>
+    !!entry.value?.authorId && entry.value.authorId === authStore.user?.id,
+  )
+
+  /** Target passed to the tip dialog. */
+  const tipTarget = computed(() =>
+    entry.value
+      ? {
+        id: entry.value.id,
+        type: entry.value.type,
+        creatorName: entry.value.authorName,
+        creatorAvatar: avatarUrl.value,
+      }
+      : null,
+  )
 
   // CDN URL for actual media content — HLS when transcoded, raw file fallback
   const mediaUrl = computed(() => {

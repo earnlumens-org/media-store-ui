@@ -1002,5 +1002,23 @@
       "oldest": "Más antiguos",
       "views": "Más vistos"
     }
+  },
+  "Tip": {
+    "title": "Enviar propina",
+    "heading": "Apoya al creador",
+    "subtitle": "Muestra tu apoyo con una propina en XLM.",
+    "chooseAmount": "Elige un monto",
+    "other": "Otro",
+    "customAmount": "Monto en USD",
+    "amountHint": "Mín $0.25 — Máx $100",
+    "amountInvalid": "Ingresa un monto entre $0.25 y $100.",
+    "send": "Enviar propina",
+    "youPay": "Pagas",
+    "success": "¡Gracias por tu apoyo!",
+    "successSubtitle": "Tu propina se envió correctamente.",
+    "unavailable": "Este creador aún no ha configurado las propinas.",
+    "cannotTipOwn": "No puedes dar propina a tu propio contenido.",
+    "done": "Listo",
+    "processing": "Enviando tu propina…"
   }
 }
