@@ -14,25 +14,30 @@ export type RatingTargetType = 'entry' | 'collection'
 export interface RatingAggregate {
   targetType: string
   targetId: string
-  /** Total number of ratings. UI must hide everything when this is 0. */
+  /** Total number of votes (likes + dislikes). UI hides everything when this is 0. */
   count: number
-  /** Mean of all ratings (0 when count is 0). */
-  average: number
-  /** Number of verified (purchase-backed) ratings. */
+  /** Number of likes (thumbs up). */
+  likes: number
+  /** Number of dislikes (thumbs down). */
+  dislikes: number
+  /** Percentage of likes, 0–100 (0 when count is 0). The Roblox-style headline score. */
+  likePercent: number
+  /** Number of verified (purchase-backed) votes. */
   verifiedCount: number
-  /** Mean of verified ratings only (0 when none). */
-  verifiedAverage: number
-  /** Bayesian-adjusted score used for ranking. */
-  bayesianScore: number
-  /** Star distribution, index 0 = 1 star … index 4 = 5 stars. */
-  distribution: number[]
+  /** Number of verified likes. */
+  verifiedLikes: number
+  /** Number of verified dislikes. */
+  verifiedDislikes: number
+  /** Percentage of likes among verified votes only (0 when none). */
+  verifiedLikePercent: number
 }
 
 export interface RatingItem {
   id: string
   userId: string
   username?: string
-  stars: number
+  /** true = like (thumbs up), false = dislike (thumbs down). */
+  liked: boolean
   comment?: string
   /** "PURCHASE" | "FREE_VIEW" */
   proofType: string
@@ -52,7 +57,8 @@ export interface RatingList {
 }
 
 export interface SubmitRatingRequest {
-  stars: number
+  /** true = like, false = dislike. */
+  liked: boolean
   comment?: string
 }
 

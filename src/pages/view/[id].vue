@@ -55,7 +55,6 @@
             />
           </template>
           <v-list density="compact">
-            <v-list-item prepend-icon="mdi-download" :title="$t('Common.download')" />
             <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
           </v-list>
         </v-menu>
@@ -282,7 +281,6 @@
                     />
                   </template>
                   <v-list density="compact">
-                    <v-list-item prepend-icon="mdi-download" :title="$t('Common.download')" />
                     <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
                   </v-list>
                 </v-menu>
@@ -293,8 +291,14 @@
                 {{ entry.title }}
               </h1>
 
-              <!-- Date -->
+              <!-- Views, Votes & Date -->
               <div class="text-body-2 text-medium-emphasis mt-1">
+                <span>{{ formatViewCount(entry.viewCount ?? 0) }} views</span>
+                <template v-if="voteCount > 0">
+                  <span class="mx-1">•</span>
+                  <span>{{ $t('rating.basedOn', { count: formatCount(voteCount) }, voteCount) }}</span>
+                </template>
+                <span class="mx-1">•</span>
                 <span>{{ formatDate(entry.publishedAt) }}</span>
               </div>
 
@@ -334,7 +338,13 @@
               </v-sheet>
 
               <!-- Action Buttons -->
-              <div class="d-flex flex-wrap ga-2 mt-4">
+              <div class="d-flex flex-wrap align-center ga-2 mt-4">
+                <RatingPill
+                  :can-rate="canRate"
+                  :target-id="entryId"
+                  target-type="entry"
+                  @update:count="voteCount = $event"
+                />
                 <CxFavoriteButton
                   :item-id="entryId"
                   item-type="ENTRY"
@@ -394,13 +404,6 @@
                 </v-chip>
               </div>
 
-              <!-- Ratings & Reviews -->
-              <RatingSection
-                :can-rate="canRate"
-                :target-id="entryId"
-                target-type="entry"
-              />
-
               <!-- Mobile: Recommendations Section -->
               <div class="d-md-none mt-6">
                 <h2 class="text-subtitle-1 font-weight-bold mb-4">
@@ -443,7 +446,7 @@
   import { api } from '@/api/api'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
-  import RatingSection from '@/components/rating/RatingSection.vue'
+  import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
@@ -472,6 +475,7 @@
   const errorMessage = ref('')
 
   // UI State
+  const voteCount = ref(0)
   const descriptionExpanded = ref(false)
   const avatarBroken = ref(false)
   const downloading = ref(false)
@@ -507,6 +511,26 @@
 
   /** Tags from the real entry data */
   const tags = computed(() => entry.value?.tags ?? [])
+
+  const ONE_MILLION = 10 ** 6
+  const ONE_THOUSAND = 1000
+
+  function formatViewCount (count: number): string {
+    if (count >= ONE_MILLION) {
+      return `${(count / ONE_MILLION).toFixed(1)}M`
+    }
+    if (count >= ONE_THOUSAND) {
+      return `${(count / ONE_THOUSAND).toFixed(1)}K`
+    }
+    return count.toString()
+  }
+
+  function formatCount (count: number): string {
+    if (count >= ONE_THOUSAND) {
+      return `${(count / ONE_THOUSAND).toFixed(1)}K`
+    }
+    return count.toString()
+  }
 
   function formatDate (date: string | Date): string {
     const d = date instanceof Date ? date : new Date(date)

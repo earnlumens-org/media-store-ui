@@ -60,7 +60,6 @@
             />
           </template>
           <v-list density="compact">
-            <v-list-item prepend-icon="mdi-bookmark-outline" :title="$t('Common.saveToCollection')" />
             <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
           </v-list>
         </v-menu>
@@ -231,7 +230,6 @@
                   />
                 </template>
                 <v-list density="compact">
-                  <v-list-item prepend-icon="mdi-bookmark-outline" :title="$t('Common.saveToCollection')" />
                   <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
                 </v-list>
               </v-menu>
@@ -242,9 +240,15 @@
               {{ entry.title }}
             </h1>
 
-            <!-- Date -->
+            <!-- Views, Votes & Date -->
             <p class="text-body-2 text-medium-emphasis mb-4">
-              {{ formatDate(entry.publishedAt) }}
+              <span>{{ formatViewCount(entry.viewCount ?? 0) }} views</span>
+              <template v-if="voteCount > 0">
+                <span class="mx-1">•</span>
+                <span>{{ $t('rating.basedOn', { count: formatCount(voteCount) }, voteCount) }}</span>
+              </template>
+              <span class="mx-1">•</span>
+              <span>{{ formatDate(entry.publishedAt) }}</span>
             </p>
 
             <!-- Author Block -->
@@ -397,7 +401,13 @@
 
             <!-- Actions -->
             <v-divider class="mb-4" />
-            <div class="d-flex flex-wrap ga-2 mb-6">
+            <div class="d-flex flex-wrap align-center ga-2 mb-6">
+              <RatingPill
+                :can-rate="canRate"
+                :target-id="entryId"
+                target-type="entry"
+                @update:count="voteCount = $event"
+              />
               <CxFavoriteButton
                 :item-id="entryId"
                 item-type="ENTRY"
@@ -414,13 +424,6 @@
                 {{ $t('Common.share') }}
               </v-btn>
             </div>
-
-            <!-- Ratings & Reviews -->
-            <RatingSection
-              :can-rate="canRate"
-              :target-id="entryId"
-              target-type="entry"
-            />
 
             <!-- Mobile: Related Entries -->
             <div class="d-lg-none">
@@ -503,7 +506,7 @@
   import { formatFileSize } from '@/api/types/upload.types'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
-  import RatingSection from '@/components/rating/RatingSection.vue'
+  import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
@@ -538,6 +541,7 @@
   const errorMessage = ref('')
 
   // UI State
+  const voteCount = ref(0)
   const avatarBroken = ref(false)
   const reportDialog = ref(false)
 
@@ -633,6 +637,26 @@
       month: 'long',
       day: 'numeric',
     })
+  }
+
+  const ONE_MILLION = 10 ** 6
+  const ONE_THOUSAND = 1000
+
+  function formatViewCount (count: number): string {
+    if (count >= ONE_MILLION) {
+      return `${(count / ONE_MILLION).toFixed(1)}M`
+    }
+    if (count >= ONE_THOUSAND) {
+      return `${(count / ONE_THOUSAND).toFixed(1)}K`
+    }
+    return count.toString()
+  }
+
+  function formatCount (count: number): string {
+    if (count >= ONE_THOUSAND) {
+      return `${(count / ONE_THOUSAND).toFixed(1)}K`
+    }
+    return count.toString()
   }
 
   // Fetch entry data

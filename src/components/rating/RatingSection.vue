@@ -1,72 +1,66 @@
 <!--
-  RatingSection — fraud-resistant rating / review block for an entry or a collection.
+  RatingSection — fraud-resistant like / dislike block for an entry or a collection.
+
+  Roblox-style: users give a thumbs up (like) or thumbs down (dislike); the
+  public score is the percentage of likes, shown above a split green/red bar.
+
+  Anti-fraud / anti-abuse (enforced server-side, mirrored here):
+    1. One vote per user per target — a user can switch like↔dislike but never
+       stack votes (unique index + upsert on the backend).
+    2. Voting requires authentication — the interactive controls are only
+       shown to eligible users (`canRate`); anonymous callers are rejected
+       with 401 by the API.
+    3. Paid content requires a verified purchase to vote (403 otherwise).
 
   UX constraints (intentional):
-    1. Cards never show stars — this block only lives on detail pages.
-    2. Nothing is rendered about the aggregate until there is at least one
-       rating (count > 0). A target with no ratings shows no "0 stars",
-       avoiding unfair "bad press".
-    3. The interactive star selector is only shown to eligible users
-       (`canRate` — authenticated, not the owner, and either the content is
-       free or already unlocked/purchased). Everyone else just sees the
-       aggregate + reviews once they exist.
-
-  The component is self-contained: pass the target and eligibility, it
-  handles loading, submitting, updating and deleting the current user's
-  rating, and renders the public aggregate + reviews.
+    1. Cards never show the score — this block only lives on detail pages.
+    2. Nothing about the aggregate is rendered until there is at least one
+       vote (count > 0), avoiding unfair "0% liked" press.
 -->
 <template>
   <section v-if="visible" class="rating-section mt-6">
-    <!-- Aggregate summary — only once the target starts ranking -->
-    <div v-if="hasAggregate" class="d-flex flex-wrap align-center ga-3 mb-2">
-      <div class="d-flex align-center ga-2">
-        <span class="text-h5 font-weight-bold">{{ averageLabel }}</span>
-        <v-rating
-          color="amber"
-          density="compact"
-          half-increments
-          :model-value="aggregate!.average"
-          readonly
+    <!-- Aggregate summary — only once the target has at least one vote -->
+    <div v-if="hasAggregate" class="mb-4">
+      <div class="d-flex flex-wrap align-center ga-3 mb-2">
+        <div class="d-flex align-center ga-2">
+          <v-icon color="success" size="22">mdi-thumb-up</v-icon>
+          <span class="text-h5 font-weight-bold">{{ likePercentLabel }}</span>
+        </div>
+        <span class="text-body-2 text-medium-emphasis">
+          {{ t('rating.basedOn', { count: aggregate!.count }, aggregate!.count) }}
+        </span>
+        <v-chip
+          v-if="aggregate!.verifiedCount > 0"
+          color="success"
+          prepend-icon="mdi-shield-check"
           size="small"
-        />
+          variant="tonal"
+        >
+          {{ t('rating.verifiedLikes', { value: verifiedLikePercentLabel, count: aggregate!.verifiedCount }) }}
+        </v-chip>
       </div>
-      <span class="text-body-2 text-medium-emphasis">
-        {{ t('rating.basedOn', { count: aggregate!.count }, aggregate!.count) }}
-      </span>
-      <v-chip
-        v-if="aggregate!.verifiedCount > 0"
-        color="success"
-        prepend-icon="mdi-shield-check"
-        size="small"
-        variant="tonal"
-      >
-        {{ t('rating.verifiedAverage', { value: verifiedAverageLabel, count: aggregate!.verifiedCount }) }}
-      </v-chip>
-    </div>
 
-    <!-- Distribution bars -->
-    <div v-if="hasAggregate" class="rating-distribution mb-4">
+      <!-- Roblox-style split bar: green = likes, red = dislikes -->
       <div
-        v-for="star in [5, 4, 3, 2, 1]"
-        :key="star"
-        class="d-flex align-center ga-2 mb-1"
+        :aria-label="t('rating.barAria', { percent: likePercentLabel })"
+        class="rating-bar"
+        role="img"
       >
-        <span class="text-caption" style="width: 12px">{{ star }}</span>
-        <v-icon color="amber" size="14">mdi-star</v-icon>
-        <v-progress-linear
-          bg-opacity="0.1"
-          color="amber"
-          height="8"
-          :model-value="distributionPercent(star)"
-          rounded
-        />
-        <span class="text-caption text-medium-emphasis" style="width: 32px; text-align: right">
-          {{ distributionCount(star) }}
+        <div class="rating-bar-likes" :style="{ width: aggregate!.likePercent + '%' }" />
+        <div class="rating-bar-dislikes" :style="{ width: (100 - aggregate!.likePercent) + '%' }" />
+      </div>
+
+      <div class="d-flex justify-space-between mt-1">
+        <span class="text-caption text-success d-flex align-center ga-1">
+          <v-icon size="14">mdi-thumb-up</v-icon>{{ aggregate!.likes }}
+        </span>
+        <span class="text-caption text-error d-flex align-center ga-1">
+          {{ aggregate!.dislikes }}<v-icon size="14">mdi-thumb-down</v-icon>
         </span>
       </div>
     </div>
 
-    <!-- Current user's rating selector — eligible users only -->
+    <!-- Current user's vote controls — eligible (authenticated) users only -->
     <v-card
       v-if="showSelector"
       class="mb-4"
@@ -75,25 +69,33 @@
     >
       <v-card-text>
         <div class="text-subtitle-2 font-weight-medium mb-2">
-          {{ myRating ? t('rating.yourRating') : t('rating.rateThis') }}
+          {{ myRating ? t('rating.yourVote') : t('rating.rateThis') }}
         </div>
-        <div class="d-flex align-center ga-3 mb-3">
-          <v-rating
-            v-model="draftStars"
-            color="amber"
-            hover
-            :readonly="submitting"
-            size="large"
-          />
-          <span v-if="draftStars > 0" class="text-body-2 text-medium-emphasis">
-            {{ t('rating.starsValue', { count: draftStars }, draftStars) }}
-          </span>
+        <div class="d-flex align-center ga-2 mb-3">
+          <v-btn
+            :color="draftLiked === true ? 'success' : undefined"
+            :disabled="submitting"
+            prepend-icon="mdi-thumb-up"
+            :variant="draftLiked === true ? 'flat' : 'outlined'"
+            @click="onVote(true)"
+          >
+            {{ t('rating.like') }}
+          </v-btn>
+          <v-btn
+            :color="draftLiked === false ? 'error' : undefined"
+            :disabled="submitting"
+            prepend-icon="mdi-thumb-down"
+            :variant="draftLiked === false ? 'flat' : 'outlined'"
+            @click="onVote(false)"
+          >
+            {{ t('rating.dislike') }}
+          </v-btn>
         </div>
         <v-textarea
           v-model="draftComment"
           auto-grow
           :counter="1000"
-          :disabled="submitting"
+          :disabled="submitting || draftLiked === null"
           :label="t('rating.commentLabel')"
           :maxlength="1000"
           :placeholder="t('rating.commentPlaceholder')"
@@ -111,7 +113,7 @@
           </v-btn>
           <v-btn
             color="primary"
-            :disabled="draftStars < 1"
+            :disabled="draftLiked === null"
             :loading="submitting"
             variant="flat"
             @click="onSubmit"
@@ -133,6 +135,12 @@
         class="rating-review mb-4"
       >
         <div class="d-flex align-center ga-2 mb-1">
+          <v-icon
+            :color="r.liked ? 'success' : 'error'"
+            size="16"
+          >
+            {{ r.liked ? 'mdi-thumb-up' : 'mdi-thumb-down' }}
+          </v-icon>
           <span class="text-body-2 font-weight-medium">
             {{ r.username || t('rating.anonymous') }}
           </span>
@@ -150,13 +158,6 @@
             {{ formatDate(r.updatedAt || r.createdAt) }}
           </span>
         </div>
-        <v-rating
-          color="amber"
-          density="compact"
-          :model-value="r.stars"
-          readonly
-          size="x-small"
-        />
         <p v-if="r.comment" class="text-body-2 mt-1 mb-0 rating-review-comment">
           {{ r.comment }}
         </p>
@@ -188,7 +189,7 @@
   interface Props {
     targetType: RatingTargetType
     targetId: string
-    /** True when the current user is allowed to rate (auth + not owner + free/unlocked). */
+    /** True when the current user is allowed to vote (auth + not owner + free/unlocked). */
     canRate?: boolean
   }
 
@@ -208,32 +209,22 @@
   const loadingMore = ref(false)
   const submitting = ref(false)
 
-  const draftStars = ref(0)
+  /** null = not chosen yet, true = like, false = dislike. */
+  const draftLiked = ref<boolean | null>(null)
   const draftComment = ref('')
 
   const hasAggregate = computed(() => !!aggregate.value && aggregate.value.count > 0)
   const showSelector = computed(() => props.canRate && !!props.targetId)
   // Render the whole block only when there is something meaningful to show:
-  // an existing aggregate, existing reviews, or an eligible user who can rate.
+  // an existing aggregate, existing reviews, or an eligible user who can vote.
   const visible = computed(() => hasAggregate.value || reviews.value.length > 0 || showSelector.value)
 
-  const averageLabel = computed(() =>
-    aggregate.value ? aggregate.value.average.toFixed(1) : '0.0',
+  const likePercentLabel = computed(() =>
+    aggregate.value ? `${Math.round(aggregate.value.likePercent)}%` : '0%',
   )
-  const verifiedAverageLabel = computed(() =>
-    aggregate.value ? aggregate.value.verifiedAverage.toFixed(1) : '0.0',
+  const verifiedLikePercentLabel = computed(() =>
+    aggregate.value ? `${Math.round(aggregate.value.verifiedLikePercent)}%` : '0%',
   )
-
-  function distributionCount (star: number): number {
-    const dist = aggregate.value?.distribution
-    if (!dist) return 0
-    return dist[star - 1] ?? 0
-  }
-
-  function distributionPercent (star: number): number {
-    if (!aggregate.value || aggregate.value.count === 0) return 0
-    return (distributionCount(star) / aggregate.value.count) * 100
-  }
 
   function formatDate (date?: string): string {
     if (!date) return ''
@@ -261,14 +252,14 @@
   async function loadMyRating () {
     if (!props.canRate) {
       myRating.value = null
-      draftStars.value = 0
+      draftLiked.value = null
       draftComment.value = ''
       return
     }
     try {
       const mine = await api.ratings.mine(props.targetType, props.targetId)
       myRating.value = mine
-      draftStars.value = mine?.stars ?? 0
+      draftLiked.value = mine ? mine.liked : null
       draftComment.value = mine?.comment ?? ''
     } catch (error) {
       console.error('[RatingSection] Failed to load my rating:', error)
@@ -290,12 +281,17 @@
     }
   }
 
+  function onVote (liked: boolean) {
+    if (submitting.value) return
+    draftLiked.value = liked
+  }
+
   async function onSubmit () {
-    if (draftStars.value < 1 || submitting.value) return
+    if (draftLiked.value === null || submitting.value) return
     submitting.value = true
     try {
       const res = await api.ratings.submit(props.targetType, props.targetId, {
-        stars: draftStars.value,
+        liked: draftLiked.value,
         comment: draftComment.value.trim() || undefined,
       })
       aggregate.value = res.aggregate
@@ -316,7 +312,7 @@
     try {
       await api.ratings.remove(props.targetType, props.targetId)
       myRating.value = null
-      draftStars.value = 0
+      draftLiked.value = null
       draftComment.value = ''
       showGlobalNotification('rating.removed')
       await loadAggregateAndReviews()
@@ -329,6 +325,10 @@
 
   function handleError (error: unknown) {
     if (error instanceof ApiError) {
+      if (error.status === 401) {
+        showGlobalNotification('rating.loginRequired')
+        return
+      }
       if (error.status === 403) {
         showGlobalNotification('rating.purchaseRequired')
         return
@@ -364,6 +364,25 @@
 </script>
 
 <style scoped>
+  .rating-bar {
+    display: flex;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: rgba(var(--v-theme-error), 0.25);
+  }
+
+  .rating-bar-likes {
+    background-color: rgb(var(--v-theme-success));
+    transition: width 0.3s ease;
+  }
+
+  .rating-bar-dislikes {
+    background-color: rgb(var(--v-theme-error));
+    transition: width 0.3s ease;
+  }
+
   .rating-review-comment {
     white-space: pre-wrap;
     word-break: break-word;

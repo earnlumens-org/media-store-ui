@@ -156,10 +156,12 @@
           </template>
         </v-img>
 
-        <!-- Gradient Overlay -->
-        <v-sheet
+        <!-- Banner Scrim — a single overlay over the whole banner so the white
+             text/icons stay readable over any cover image, in both light and
+             dark mode (decoupled from the background color). -->
+        <div
           class="position-absolute w-100 h-100"
-          color="rgba(0, 0, 0, 0.6)"
+          style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.2) 35%, rgba(0, 0, 0, 0.55) 100%);"
         />
 
         <!-- Hero Content -->
@@ -168,7 +170,7 @@
           <div class="d-md-none mb-auto">
             <v-btn
               :aria-label="$t('Common.goBack')"
-              color="white"
+              class="text-white"
               icon="mdi-arrow-left"
               variant="text"
               @click="goBack"
@@ -180,8 +182,7 @@
             <!-- Back Button (Desktop) -->
             <v-btn
               :aria-label="$t('Common.goBack')"
-              class="d-none d-md-inline-flex mb-2"
-              color="white"
+              class="d-none d-md-inline-flex mb-2 text-white"
               prepend-icon="mdi-arrow-left"
               variant="text"
               @click="goBack"
@@ -191,17 +192,20 @@
 
             <!-- Type Badge -->
             <v-chip
-              class="mb-2"
+              class="mb-2 text-white"
               color="white"
               size="small"
-              variant="tonal"
+              variant="outlined"
             >
               <v-icon size="14" start>mdi-folder-multiple</v-icon>
               {{ collection.collectionType || 'Collection' }}
             </v-chip>
 
             <!-- Title -->
-            <h1 class="text-h4 text-md-h3 font-weight-bold text-white mb-1">
+            <h1
+              class="text-h4 text-md-h3 font-weight-bold text-white mb-1"
+              style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);"
+            >
               {{ collection.title }}
             </h1>
 
@@ -209,12 +213,17 @@
             <router-link class="d-flex align-center mb-3 text-decoration-none" style="min-width: 0" :to="`/${collection.authorName}`">
               <v-avatar
                 class="me-2 flex-shrink-0"
-                :image="collection.authorAvatarUrl"
                 size="28"
               >
-                <v-icon v-if="!collection.authorAvatarUrl" size="16">mdi-account</v-icon>
+                <v-img
+                  v-if="authorAvatarSrc"
+                  cover
+                  :src="authorAvatarSrc"
+                  @error="authorAvatarBroken = true"
+                />
+                <v-icon v-else size="16">mdi-account</v-icon>
               </v-avatar>
-              <span class="text-body-2 text-white text-truncate">{{ collection.authorName }}</span>
+              <span class="text-body-2 text-white text-truncate" style="text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);">{{ collection.authorName }}</span>
               <v-avatar
                 v-if="collBadgeSrc"
                 class="ms-1 flex-shrink-0"
@@ -226,7 +235,10 @@
             </router-link>
 
             <!-- Stats Row -->
-            <div class="d-flex flex-wrap align-center ga-3 text-body-2 text-white text-medium-emphasis mb-4">
+            <div
+              class="d-flex flex-wrap align-center ga-3 text-body-2 text-white mb-4"
+              style="text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);"
+            >
               <span v-if="collection.itemCount">
                 <v-icon class="me-1" size="16">mdi-format-list-bulleted</v-icon>
                 {{ $t('Common.itemsCount', { count: collection.itemCount }) }}
@@ -239,10 +251,14 @@
                 <v-icon class="me-1" size="16">mdi-calendar</v-icon>
                 {{ formatDate(collection.publishedAt) }}
               </span>
+              <span v-if="voteCount > 0">
+                <v-icon class="me-1" size="16">mdi-thumb-up-outline</v-icon>
+                {{ $t('rating.basedOn', { count: formatCount(voteCount) }, voteCount) }}
+              </span>
             </div>
 
             <!-- Actions -->
-            <div class="d-flex flex-wrap ga-2">
+            <div class="d-flex flex-wrap align-center ga-2">
               <v-btn
                 color="primary"
                 :prepend-icon="hasProgress ? 'mdi-play' : 'mdi-play-circle'"
@@ -252,11 +268,6 @@
               >
                 {{ hasProgress ? $t('Common.continue') : $t('Common.start') }}
               </v-btn>
-              <CxFavoriteButton
-                :item-id="collectionId"
-                item-type="COLLECTION"
-                variant="icon"
-              />
               <v-btn
                 v-if="collection.isPaid && !collection.unlocked && !collection.isOwner"
                 color="accent"
@@ -267,13 +278,27 @@
               >
                 {{ $t('Common.buy') }}
               </v-btn>
-              <v-btn
-                :aria-label="$t('Common.share')"
-                color="white"
-                icon="mdi-share-variant"
-                variant="tonal"
-                @click="onShare"
-              />
+              <!-- Icon actions — white over the banner scrim. -->
+              <div class="d-inline-flex align-center ga-1 text-white">
+                <CxFavoriteButton
+                  :item-id="collectionId"
+                  item-type="COLLECTION"
+                  variant="icon"
+                />
+                <RatingPill
+                  :can-rate="canRateCollection"
+                  :target-id="collectionId"
+                  target-type="collection"
+                  @update:count="voteCount = $event"
+                />
+                <v-btn
+                  :aria-label="$t('Common.share')"
+                  color="white"
+                  icon="mdi-share-variant"
+                  variant="text"
+                  @click="onShare"
+                />
+              </div>
             </div>
           </div>
         </v-container>
@@ -480,10 +505,15 @@
                   <v-card-text class="d-flex align-center">
                     <router-link class="me-4 flex-shrink-0" :to="`/${collection.authorName}`">
                       <v-avatar
-                        :image="collection.authorAvatarUrl"
                         size="56"
                       >
-                        <v-icon v-if="!collection.authorAvatarUrl" size="28">mdi-account</v-icon>
+                        <v-img
+                          v-if="authorAvatarSrc"
+                          cover
+                          :src="authorAvatarSrc"
+                          @error="authorAvatarBroken = true"
+                        />
+                        <v-icon v-else size="28">mdi-account</v-icon>
                       </v-avatar>
                     </router-link>
                     <div class="flex-grow-1" style="min-width: 0">
@@ -535,13 +565,6 @@
                     </v-list-item>
                   </v-list>
                 </v-card>
-
-                <!-- Ratings & Reviews -->
-                <RatingSection
-                  :can-rate="canRateCollection"
-                  :target-id="collectionId"
-                  target-type="collection"
-                />
               </v-col>
             </v-row>
           </v-container>
@@ -589,7 +612,7 @@
   import AudioPlayerDialog from '@/components/entry/AudioPlayerDialog.vue'
   import EntryPreviewDialog from '@/components/entry/EntryPreviewDialog.vue'
   import ImageLightbox from '@/components/entry/ImageLightbox.vue'
-  import RatingSection from '@/components/rating/RatingSection.vue'
+  import RatingPill from '@/components/rating/RatingPill.vue'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { isPopNavigation } from '@/router'
   import { useAppStore } from '@/stores/app'
@@ -615,6 +638,11 @@
   // Collection State
   const collection = ref<CollectionDetailModel | null>(null)
   const collBadgeSrc = computed(() => getProfileBadgeSrc(collection.value?.profileBadge))
+  const authorAvatarBroken = ref(false)
+  /** Author avatar URL — cleared when the provider image fails to load */
+  const authorAvatarSrc = computed(() =>
+    authorAvatarBroken.value ? undefined : collection.value?.authorAvatarUrl,
+  )
   const loading = ref(true)
   const error = ref(false)
   const notFound = ref(false)
@@ -625,6 +653,7 @@
 
   // UI State
   const activeTab = ref('items')
+  const voteCount = ref(0)
   const selectedType = ref('all')
   const searchQuery = ref('')
   const sortBy = ref<'default' | 'recent' | 'title'>('default')
@@ -773,6 +802,15 @@
     return `${minutes}:${secs.toString().padStart(2, '0')}`
   }
 
+  const ONE_THOUSAND = 1000
+
+  function formatCount (count: number): string {
+    if (count >= ONE_THOUSAND) {
+      return `${(count / ONE_THOUSAND).toFixed(1)}K`
+    }
+    return count.toString()
+  }
+
   function formatDate (date: string | Date): string {
     if (!date) return ''
 
@@ -877,6 +915,7 @@
         return
       }
 
+      authorAvatarBroken.value = false
       collection.value = data
     } catch (error_: unknown) {
       console.error('[CollectionPage] Failed to fetch collection:', error_)
@@ -930,6 +969,7 @@
   onMounted(() => {
     const cached = scrollCache.get(route.path)
     if (cached && isPopNavigation()) {
+      authorAvatarBroken.value = false
       collection.value = cached.collection as CollectionDetailModel
       activeTab.value = cached.activeTab as string
       selectedType.value = cached.selectedType as string

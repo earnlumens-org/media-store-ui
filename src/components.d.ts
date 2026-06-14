@@ -47,6 +47,7 @@ declare module 'vue' {
     ImageLightbox: typeof import('./components/entry/ImageLightbox.vue')['default']
     InstallAppButton: typeof import('./components/pwa/InstallAppButton.vue')['default']
     MediaFrame: typeof import('./components/media/MediaFrame.vue')['default']
+    RatingPill: typeof import('./components/rating/RatingPill.vue')['default']
     RatingSection: typeof import('./components/rating/RatingSection.vue')['default']
     ReportDialog: typeof import('./components/report/ReportDialog.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

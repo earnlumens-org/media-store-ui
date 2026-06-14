@@ -56,7 +56,6 @@
           </template>
           <v-list density="compact">
             <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
-            <v-list-item prepend-icon="mdi-playlist-plus" :title="$t('Common.addToPlaylist')" />
           </v-list>
         </v-menu>
       </template>
@@ -242,7 +241,6 @@
                 </template>
                 <v-list density="compact">
                   <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
-                  <v-list-item prepend-icon="mdi-playlist-plus" :title="$t('Common.addToPlaylist')" />
                 </v-list>
               </v-menu>
             </div>
@@ -439,11 +437,27 @@
               />
             </v-sheet>
 
+            <!-- Rating -->
+            <div class="d-flex align-center mt-4">
+              <RatingPill
+                :can-rate="canRate"
+                :target-id="entryId"
+                target-type="entry"
+                @update:count="voteCount = $event"
+              />
+            </div>
+
             <!-- Description -->
             <v-card class="mt-4" color="surface" variant="flat">
               <v-card-text>
                 <div class="text-body-2 text-medium-emphasis mb-2">
-                  {{ $t('Common.published', { date: formatDate(entry.publishedAt) }) }}
+                  <span>{{ formatViewCount(entry.viewCount ?? 0) }} views</span>
+                  <template v-if="voteCount > 0">
+                    <span class="mx-1">•</span>
+                    <span>{{ $t('rating.basedOn', { count: formatCount(voteCount) }, voteCount) }}</span>
+                  </template>
+                  <span class="mx-1">•</span>
+                  <span>{{ $t('Common.published', { date: formatDate(entry.publishedAt) }) }}</span>
                 </div>
                 <div :class="{ 'text-truncate-multiline': !descriptionExpanded }">
                   {{ description }}
@@ -473,13 +487,6 @@
                 #{{ tag }}
               </v-chip>
             </div>
-
-            <!-- Ratings & Reviews -->
-            <RatingSection
-              :can-rate="canRate"
-              :target-id="entryId"
-              target-type="entry"
-            />
 
             <!-- Mobile: Recommendations Section -->
             <div class="d-md-none mt-6">
@@ -518,7 +525,7 @@
   import { api } from '@/api/api'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
-  import RatingSection from '@/components/rating/RatingSection.vue'
+  import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
@@ -563,6 +570,7 @@
   const playbackSpeed = ref(1)
   const isSeeking = ref(false)
   const audioDuration = ref(0)
+  const voteCount = ref(0)
   const descriptionExpanded = ref(false)
   const avatarBroken = ref(false)
   const reportDialog = ref(false)
@@ -659,6 +667,26 @@
       month: 'short',
       day: 'numeric',
     })
+  }
+
+  const ONE_MILLION = 10 ** 6
+  const ONE_THOUSAND = 1000
+
+  function formatViewCount (count: number): string {
+    if (count >= ONE_MILLION) {
+      return `${(count / ONE_MILLION).toFixed(1)}M`
+    }
+    if (count >= ONE_THOUSAND) {
+      return `${(count / ONE_THOUSAND).toFixed(1)}K`
+    }
+    return count.toString()
+  }
+
+  function formatCount (count: number): string {
+    if (count >= ONE_THOUSAND) {
+      return `${(count / ONE_THOUSAND).toFixed(1)}K`
+    }
+    return count.toString()
   }
 
   // Navigation

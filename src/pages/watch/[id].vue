@@ -57,7 +57,6 @@
           </template>
           <v-list density="compact">
             <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
-            <v-list-item prepend-icon="mdi-playlist-plus" :title="$t('Common.addToPlaylist')" />
           </v-list>
         </v-menu>
       </template>
@@ -254,7 +253,6 @@
                   </template>
                   <v-list density="compact">
                     <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
-                    <v-list-item prepend-icon="mdi-playlist-plus" :title="$t('Common.addToPlaylist')" />
                   </v-list>
                 </v-menu>
               </div>
@@ -264,9 +262,13 @@
                 {{ entry.title }}
               </h1>
 
-              <!-- Views & Date -->
+              <!-- Views, Votes & Date -->
               <div class="text-body-2 text-medium-emphasis mt-1">
-                <span>{{ formatViewCount(12500) }} views</span>
+                <span>{{ formatViewCount(entry.viewCount ?? 0) }} views</span>
+                <template v-if="voteCount > 0">
+                  <span class="mx-1">•</span>
+                  <span>{{ $t('rating.basedOn', { count: formatCount(voteCount) }, voteCount) }}</span>
+                </template>
                 <span class="mx-1">•</span>
                 <span>{{ formatDate(entry.publishedAt) }}</span>
               </div>
@@ -309,23 +311,12 @@
               </v-sheet>
 
               <!-- Action Buttons -->
-              <div class="d-flex flex-wrap ga-2 mt-4">
-                <v-btn
-                  :aria-label="isLiked ? $t('Common.unlike') : $t('Common.like')"
-                  :color="isLiked ? 'primary' : undefined"
-                  :prepend-icon="isLiked ? 'mdi-thumb-up' : 'mdi-thumb-up-outline'"
-                  rounded="pill"
-                  variant="tonal"
-                  @click="toggleLike"
-                >
-                  {{ formatCount(likes) }}
-                </v-btn>
-                <v-btn
-                  :aria-label="$t('Common.dislike')"
-                  icon="mdi-thumb-down-outline"
-                  rounded="pill"
-                  size="small"
-                  variant="tonal"
+              <div class="d-flex flex-wrap align-center ga-2 mt-4">
+                <RatingPill
+                  :can-rate="canRate"
+                  :target-id="entryId"
+                  target-type="entry"
+                  @update:count="voteCount = $event"
                 />
                 <v-btn
                   :aria-label="$t('Common.share')"
@@ -386,13 +377,6 @@
                 </v-chip>
               </div>
 
-              <!-- Ratings & Reviews -->
-              <RatingSection
-                :can-rate="canRate"
-                :target-id="entryId"
-                target-type="entry"
-              />
-
               <!-- Mobile: Recommendations Section -->
               <div class="d-md-none mt-6">
                 <h2 class="text-subtitle-1 font-weight-bold mb-3">{{ $t('Common.upNext') }}</h2>
@@ -432,7 +416,7 @@
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import ShakaVideoPlayer from '@/components/media/ShakaVideoPlayer.vue'
-  import RatingSection from '@/components/rating/RatingSection.vue'
+  import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
   import { cdnHlsUrl, cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
@@ -464,8 +448,7 @@
   const notFound = ref(false)
 
   // UI State
-  const isLiked = ref(false)
-  const likes = ref(0)
+  const voteCount = ref(0)
   const descriptionExpanded = ref(false)
   const avatarBroken = ref(false)
   const reportDialog = ref(false)
@@ -568,12 +551,6 @@
 
   function goHome () {
     router.push('/')
-  }
-
-  // Actions
-  function toggleLike () {
-    isLiked.value = !isLiked.value
-    likes.value += isLiked.value ? 1 : -1
   }
 
   function onShare () {

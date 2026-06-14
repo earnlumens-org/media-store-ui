@@ -105,21 +105,67 @@ router.beforeEach(async (to, _from) => {
   }
 })
 
-router.onError((err, to) => {
-  if (err?.message?.includes?.('Failed to fetch dynamically imported module')) {
-    if (localStorage.getItem('vuetify:dynamic-reload')) {
-      console.error('Dynamic import error, reloading page did not fix it', err)
-    } else {
-      console.log('Reloading page to fix dynamic import error')
-      localStorage.setItem('vuetify:dynamic-reload', 'true')
-      location.assign(to.fullPath)
-    }
-  } else {
-    console.error(err)
+// A failed lazy-loaded route chunk is the #1 cause of the "back button does
+// nothing / stuck on the current page until I refresh" symptom — vue-router
+// aborts the navigation and leaves the user on the previous view. It happens
+// most on PWAs and mobile: a new deploy purges the old hashed chunks while a
+// standalone PWA is still open, or a spotty mobile connection drops the chunk
+// request. The recovery is a full reload to the intended URL.
+//
+// The error wording differs per engine, so matching only Chromium's phrase
+// (as before) left iOS/WebKit PWAs and other browsers stranded:
+//   - Chromium: "Failed to fetch dynamically imported module"
+//   - Firefox:  "error loading dynamically imported module"
+//   - WebKit/iOS: "Importing a module script failed" / "Unable to load …" /
+//                 "Load failed"
+const CHUNK_LOAD_ERROR_RE = /failed to fetch dynamically imported module|error loading dynamically imported module|importing a module script failed|module script failed|dynamically imported module|unable to (?:load|preload)|load failed/i
+
+function isDynamicImportError (err: unknown): boolean {
+  if (!err) return false
+  const message = err instanceof Error ? err.message : String(err)
+  const name = err instanceof Error ? err.name : ''
+  return name === 'ChunkLoadError' || CHUNK_LOAD_ERROR_RE.test(message)
+}
+
+const RELOAD_GUARD_KEY = 'router:chunk-reload-at'
+
+/**
+ * Recover from a stale/failed route chunk with a full reload to `targetUrl`,
+ * guarded against reload loops. Returns `true` if a reload was triggered.
+ */
+function recoverFromChunkError (targetUrl: string, err: unknown): boolean {
+  const now = Date.now()
+  const last = Number(sessionStorage.getItem(RELOAD_GUARD_KEY) ?? '0')
+  if (Number.isFinite(last) && now - last < 10_000) {
+    console.error('[Router] Dynamic import error persisted after reload', err)
+    return false
   }
+  sessionStorage.setItem(RELOAD_GUARD_KEY, String(now))
+  console.warn('[Router] Reloading to recover from stale route chunk', err)
+  location.assign(targetUrl)
+  return true
+}
+
+router.onError((err, to) => {
+  if (!isDynamicImportError(err)) {
+    console.error(err)
+    return
+  }
+  recoverFromChunkError(to.fullPath, err)
+})
+
+// Vite also surfaces failed lazy-chunk preloads through this window event,
+// which can fire without a corresponding router error (e.g. a hovered
+// <link rel=modulepreload> that 404s after a deploy). Recover the same way so
+// the next navigation/back-press doesn't silently stall.
+window.addEventListener('vite:preloadError', event => {
+  event.preventDefault()
+  recoverFromChunkError(window.location.href, (event as { payload?: unknown }).payload)
 })
 
 router.isReady().then(() => {
+  // Successful boot → clear both the time-window guard and any legacy flag.
+  sessionStorage.removeItem(RELOAD_GUARD_KEY)
   localStorage.removeItem('vuetify:dynamic-reload')
 })
 
