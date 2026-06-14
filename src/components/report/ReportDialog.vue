@@ -139,21 +139,31 @@
   import { useI18n } from 'vue-i18n'
 
   import { ApiError } from '@/api/apiRequest'
-  import { submitReport } from '@/api/modules/report.api'
+  import { submitCollectionReport, submitReport } from '@/api/modules/report.api'
   import { REPORT_REASONS } from '@/api/types/report.types'
   import { showGlobalNotification } from '@/services/globalNotification'
 
   interface Props {
     modelValue: boolean
-    entryId: string
+    /** Target id. Use `targetId` for new call sites; `entryId` kept for back-compat. */
+    entryId?: string
+    targetId?: string
+    /** What kind of content is being reported. Defaults to ENTRY. */
+    targetType?: 'ENTRY' | 'COLLECTION'
   }
 
-  const props = defineProps<Props>()
+  const props = withDefaults(defineProps<Props>(), {
+    entryId: undefined,
+    targetId: undefined,
+    targetType: 'ENTRY',
+  })
   const emit = defineEmits<{
     'update:modelValue': [value: boolean]
   }>()
 
   const { t } = useI18n()
+
+  const resolvedTargetId = computed(() => props.targetId ?? props.entryId ?? '')
 
   const dialogModel = computed({
     get: () => props.modelValue,
@@ -186,10 +196,13 @@
     if (!selectedReason.value) return
     submitting.value = true
     try {
-      await submitReport(props.entryId, {
+      const request = {
         reason: selectedReason.value,
         comment: comment.value.trim() || undefined,
-      })
+      }
+      await (props.targetType === 'COLLECTION'
+        ? submitCollectionReport(resolvedTargetId.value, request)
+        : submitReport(resolvedTargetId.value, request))
       step.value = 'done'
     } catch (error) {
       if (error instanceof ApiError) {

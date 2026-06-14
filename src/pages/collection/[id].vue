@@ -298,6 +298,20 @@
                   variant="text"
                   @click="onShare"
                 />
+                <v-menu v-if="!collection.isOwner">
+                  <template #activator="{ props: menuProps }">
+                    <v-btn
+                      v-bind="menuProps"
+                      :aria-label="$t('Common.moreOptions')"
+                      color="white"
+                      icon="mdi-dots-vertical"
+                      variant="text"
+                    />
+                  </template>
+                  <v-list density="compact">
+                    <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
+                  </v-list>
+                </v-menu>
               </div>
             </div>
           </div>
@@ -595,6 +609,13 @@
         :item="checkoutItem"
         @purchased="onPurchased"
       />
+
+      <!-- Report Dialog -->
+      <ReportDialog
+        v-model="reportDialog"
+        :target-id="collectionId"
+        target-type="COLLECTION"
+      />
     </template>
   </div>
 </template>
@@ -613,6 +634,7 @@
   import EntryPreviewDialog from '@/components/entry/EntryPreviewDialog.vue'
   import ImageLightbox from '@/components/entry/ImageLightbox.vue'
   import RatingPill from '@/components/rating/RatingPill.vue'
+  import ReportDialog from '@/components/report/ReportDialog.vue'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { isPopNavigation } from '@/router'
   import { useAppStore } from '@/stores/app'
@@ -654,6 +676,7 @@
   // UI State
   const activeTab = ref('items')
   const voteCount = ref(0)
+  const reportDialog = ref(false)
   const selectedType = ref('all')
   const searchQuery = ref('')
   const sortBy = ref<'default' | 'recent' | 'title'>('default')
