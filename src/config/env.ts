@@ -16,31 +16,10 @@
  *   isn't involved. This is the foundation of tenant session isolation.
  */
 
-/**
- * Primary apex host for this deployment.
- *
- * This is the ONLY value that needs to change to run the whole frontend
- * under a different domain. Defaults to `earnlumens.org`; override at build
- * time with `VITE_PRIMARY_HOST` (e.g. each Cloudflare Pages project bakes its
- * own domain). Every dev/api/cdn hostname and the brand name are derived from
- * it, so a single variable re-brands and re-points the entire SPA.
- */
-const PRIMARY_HOST: string = (() => {
-  const raw = import.meta.env.VITE_PRIMARY_HOST
-  return typeof raw === 'string' && raw.trim() !== ''
-    ? raw.trim().toLowerCase()
-    : 'earnlumens.org'
-})()
-
-/** Dev/api/cdn hostnames derived from the primary apex. */
-const APP_DEV_HOST = `app-dev.${PRIMARY_HOST}`
-const API_DEV_HOST = `api-dev.${PRIMARY_HOST}`
-const CDN_DEV_HOST = `cdn-dev.${PRIMARY_HOST}`
-
 /** API base URLs per environment for non-production targets */
 const API_URLS = {
   local: 'http://localhost:8080',
-  tunnelDev: `https://${API_DEV_HOST}`,
+  tunnelDev: 'https://api-dev.earnlumens.org',
 } as const
 
 /** CDN base URLs per environment.
@@ -53,7 +32,7 @@ const API_URLS = {
  *    runs on http://localhost:3000 and there's no edge proxy in front.
  */
 const CDN_URLS = {
-  local: `https://${CDN_DEV_HOST}`,
+  local: 'https://cdn-dev.earnlumens.org',
 } as const
 
 /** Stellar Horizon URLs per environment */
@@ -89,7 +68,7 @@ function currentOrigin (): string {
     return self.location.origin
   }
   // SSR: fall back to apex
-  return `https://${PRIMARY_HOST}`
+  return 'https://earnlumens.org'
 }
 
 /**
@@ -114,18 +93,18 @@ function detectEnvironment (): Environment {
   }
 
   // Dev tunnel covers both the bare host and any tenant subdomain under it
-  // (e.g. acme.app-dev.<apex>). The wildcard CNAME → cloudflared tunnel
-  // routes every *.app-dev.<apex> request to the local SPA, so they all
-  // share the tunnelDev API + CDN endpoints.
+  // (e.g. acme.app-dev.earnlumens.org). The wildcard CNAME → cloudflared
+  // tunnel routes every *.app-dev.earnlumens.org request to the local SPA,
+  // so they all share the tunnelDev API + CDN endpoints.
   if (
-    hostname === APP_DEV_HOST
-    || hostname.endsWith(`.${APP_DEV_HOST}`)
+    hostname === 'app-dev.earnlumens.org'
+    || hostname.endsWith('.app-dev.earnlumens.org')
   ) {
     return 'tunnelDev'
   }
 
-  // <apex> or *.<apex> -> production (same-origin)
-  if (hostname === PRIMARY_HOST || hostname.endsWith(`.${PRIMARY_HOST}`)) {
+  // earnlumens.org or *.earnlumens.org -> production (same-origin)
+  if (hostname === 'earnlumens.org' || hostname.endsWith('.earnlumens.org')) {
     return 'production'
   }
 
@@ -304,26 +283,6 @@ export function cdnHlsUrl (entryId: string): string {
  */
 export function getEnvironment (): Environment {
   return detectEnvironment()
-}
-
-// ==================== Platform branding helpers ====================
-
-/**
- * The platform's apex domain for this deployment, e.g. `earnlumens.org`.
- * Use this for any user-visible domain reference (links, "powered by", etc.)
- * so a different deployment automatically shows its own domain.
- */
-export function getPlatformDomain (): string {
-  return PRIMARY_HOST
-}
-
-/**
- * The platform brand name derived from the domain: the first label,
- * uppercased. `earnlumens.org` -> `EARNLUMENS`, `pepe.com` -> `PEPE`.
- * Use this for any user-visible brand/title text.
- */
-export function getPlatformName (): string {
-  return (PRIMARY_HOST.split('.')[0] || PRIMARY_HOST).toUpperCase()
 }
 
 // ==================== Stellar network helpers ====================
