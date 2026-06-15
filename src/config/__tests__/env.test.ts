@@ -135,3 +135,45 @@ describe('apiUrl — same-origin path composition for tenants', () => {
     expect(apiUrl('api/whoami')).toBe('https://acme.earnlumens.org/api/whoami')
   })
 })
+
+describe('platform branding helpers — derived from VITE_PRIMARY_HOST', () => {
+  it('defaults to earnlumens.org / EARNLUMENS when no override is set', async () => {
+    stubLocation('earnlumens.org', 'https://earnlumens.org')
+    const { getPlatformDomain, getPlatformName } = await loadEnv()
+    expect(getPlatformDomain()).toBe('earnlumens.org')
+    expect(getPlatformName()).toBe('EARNLUMENS')
+  })
+
+  it('derives domain and uppercase name from VITE_PRIMARY_HOST override', async () => {
+    vi.stubEnv('VITE_PRIMARY_HOST', 'pepe.com')
+    stubLocation('pepe.com', 'https://pepe.com')
+    const { getPlatformDomain, getPlatformName } = await loadEnv()
+    expect(getPlatformDomain()).toBe('pepe.com')
+    expect(getPlatformName()).toBe('PEPE')
+  })
+})
+
+describe('VITE_PRIMARY_HOST re-points the whole environment', () => {
+  it('apex of the overridden domain resolves same-origin (production)', async () => {
+    vi.stubEnv('VITE_PRIMARY_HOST', 'pepe.com')
+    stubLocation('pepe.com', 'https://pepe.com')
+    const { getApiBaseUrl, getEnvironment } = await loadEnv()
+    expect(getEnvironment()).toBe('production')
+    expect(getApiBaseUrl()).toBe('https://pepe.com')
+  })
+
+  it('tenant subdomain of the overridden domain resolves to its own origin', async () => {
+    vi.stubEnv('VITE_PRIMARY_HOST', 'pepe.com')
+    stubLocation('acme.pepe.com', 'https://acme.pepe.com')
+    const { getApiBaseUrl } = await loadEnv()
+    expect(getApiBaseUrl()).toBe('https://acme.pepe.com')
+  })
+
+  it('app-dev tunnel host is derived from the overridden domain', async () => {
+    vi.stubEnv('VITE_PRIMARY_HOST', 'pepe.com')
+    stubLocation('app-dev.pepe.com', 'https://app-dev.pepe.com')
+    const { getApiBaseUrl, getEnvironment } = await loadEnv()
+    expect(getEnvironment()).toBe('tunnelDev')
+    expect(getApiBaseUrl()).toBe('https://app-dev.pepe.com')
+  })
+})
