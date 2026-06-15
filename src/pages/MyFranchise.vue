@@ -389,7 +389,7 @@
   import { useRouter } from 'vue-router'
   import { api, ApiError } from '@/api/api'
   import CxLoginDialog from '@/components/CxLoginDialog.vue'
-  import { cdnPublicUrl } from '@/config/env'
+  import { cdnPublicUrl, getPlatformName } from '@/config/env'
   import { accountExists } from '@/services/stellar'
   import { useAuthStore } from '@/stores/auth'
   import { useTenantStore } from '@/stores/tenant'
@@ -439,7 +439,7 @@
 
   const snackbar = reactive({ show: false, text: '', color: 'success' })
 
-  const tenantBrand = computed(() => tenantStore.brandText || 'EARNLUMENS')
+  const tenantBrand = computed(() => tenantStore.brandText || getPlatformName())
 
   const origin = computed(() =>
     typeof window === 'undefined' ? '' : window.location.origin,
