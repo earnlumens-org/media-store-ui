@@ -14,7 +14,6 @@
 
 <script setup lang="ts">
   import xIcon from '@/assets/twitterx.svg?raw'
-  import { getPlatformDomain } from '@/config/env'
 
   const xIconSvg = xIcon
 
@@ -40,10 +39,6 @@
    */
   function buildOAuthUrl (): string {
     const hostname = globalThis.location.hostname
-    const apex = getPlatformDomain()
-    const appDevHost = `app-dev.${apex}`
-    const apiDevAuthUrl = `https://api-dev.${apex}/oauth2/authorization/x`
-    const apexAuthUrl = `https://${apex}/oauth2/authorization/x`
 
     // Local dev — Spring runs on a different port; current logic preserved.
     if (hostname === 'localhost' || hostname === '127.0.0.1') {
@@ -54,38 +49,38 @@
     // explicit (NOT getApiBaseUrl(), which is same-origin in tunnelDev):
     // the OAuth provider only has api-dev redirect URIs registered, and
     // the tenants-router dev env doesn't bind /oauth2/* on app-dev.
-    if (hostname === appDevHost) {
-      return apiDevAuthUrl
+    if (hostname === 'app-dev.earnlumens.org') {
+      return 'https://api-dev.earnlumens.org/oauth2/authorization/x'
     }
 
     // Tenant subdomain on the dev tunnel: bounce through the dev API host
     // (NOT the prod apex) so we don't burn prod OAuth credentials in local
     // testing and so the SuccessHandler reads the dev root-domain when
-    // redirecting back to <tenant>.app-dev.<apex>.
-    if (hostname.endsWith(`.${appDevHost}`)) {
-      const sub = hostname.slice(0, -`.${appDevHost}`.length)
+    // redirecting back to <tenant>.app-dev.earnlumens.org.
+    if (hostname.endsWith('.app-dev.earnlumens.org')) {
+      const sub = hostname.slice(0, -'.app-dev.earnlumens.org'.length)
       if (sub === '' || sub.includes('.')) {
-        return apiDevAuthUrl
+        return 'https://api-dev.earnlumens.org/oauth2/authorization/x'
       }
       const params = new URLSearchParams({ tenant: sub })
-      return `${apiDevAuthUrl}?${params.toString()}`
+      return `https://api-dev.earnlumens.org/oauth2/authorization/x?${params.toString()}`
     }
 
     // Production: send everything through the apex. If we're already on
     // the apex no `tenant` parameter is needed — the SuccessHandler will
     // default to apex on its own.
-    if (hostname === apex) {
-      return apexAuthUrl
+    if (hostname === 'earnlumens.org') {
+      return 'https://earnlumens.org/oauth2/authorization/x'
     }
 
     // Tenant subdomain: extract the leftmost label and forward it so the
     // SuccessHandler knows where to send the user back to.
     const sub = hostname.split('.')[0] ?? ''
     if (sub === '') {
-      return apexAuthUrl
+      return 'https://earnlumens.org/oauth2/authorization/x'
     }
     const params = new URLSearchParams({ tenant: sub })
-    return `${apexAuthUrl}?${params.toString()}`
+    return `https://earnlumens.org/oauth2/authorization/x?${params.toString()}`
   }
 
   function redirectToXLogin (): void {

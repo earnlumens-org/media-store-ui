@@ -12,12 +12,12 @@
     <div class="tenant-not-found__card">
       <div aria-hidden="true" class="tenant-not-found__logo" v-html="logoSvg" />
 
-      <p class="tenant-not-found__eyebrow">{{ platformName }}</p>
+      <p class="tenant-not-found__eyebrow">EARNLUMENS</p>
 
       <h1 class="tenant-not-found__title">{{ t('TenantNotFound.title') }}</h1>
 
       <p class="tenant-not-found__subdomain">
-        <code>{{ subdomain }}.{{ platformDomain }}</code>
+        <code>{{ subdomain }}.earnlumens.org</code>
       </p>
 
       <p class="tenant-not-found__body">{{ t('TenantNotFound.body') }}</p>
@@ -33,7 +33,6 @@
   import { computed } from 'vue'
   import { useI18n } from 'vue-i18n'
   import logoSvg from '@/assets/logo.svg?raw'
-  import { getPlatformDomain, getPlatformName } from '@/config/env'
 
   const props = defineProps<{
     subdomain: string
@@ -41,12 +40,9 @@
 
   const { t } = useI18n()
 
-  const platformName = getPlatformName()
-  const platformDomain = getPlatformDomain()
-
   const apexHref = computed(() => {
-    if (typeof window === 'undefined') return `https://${platformDomain}`
-    return `${window.location.protocol}//${platformDomain}`
+    if (typeof window === 'undefined') return 'https://earnlumens.org'
+    return `${window.location.protocol}//earnlumens.org`
   })
 
   // Reference the prop so TS / linters don't flag it as unused — the

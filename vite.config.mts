@@ -1,6 +1,4 @@
 import { fileURLToPath, URL } from 'node:url'
-import { existsSync, readFileSync, writeFileSync } from 'node:fs'
-import { resolve } from 'node:path'
 import Vue from '@vitejs/plugin-vue'
 // Plugins
 import AutoImport from 'unplugin-auto-import/vite'
@@ -8,44 +6,11 @@ import Components from 'unplugin-vue-components/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import VueRouter from 'unplugin-vue-router/vite'
 // Utilities
-import { defineConfig, type Plugin } from 'vite'
+import { defineConfig } from 'vite'
 
 import { VitePWA } from 'vite-plugin-pwa'
 import Layouts from 'vite-plugin-vue-layouts-next'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
-
-/**
- * Build-time brand de-cabling: rewrites the canonical tokens baked into the
- * static `index.html` (og/twitter meta) and the verbatim-copied `_headers`
- * CSP file to this deployment's domain/name. Driven by `VITE_PRIMARY_HOST`
- * (default `earnlumens.org`), so a single env var re-brands a fresh build.
- *   `earnlumens.org` -> <primary host>     (og:url, og:image host, CSP apex)
- *   `EARNLUMENS`      -> <name, uppercase>  (og:title, twitter:title)
- */
-function brandTokens (): Plugin {
-  const primaryHost = (process.env.VITE_PRIMARY_HOST || 'earnlumens.org').trim().toLowerCase()
-  const platformName = (primaryHost.split('.')[0] || primaryHost).toUpperCase()
-  const rewrite = (s: string): string => s
-    .split('earnlumens.org').join(primaryHost)
-    .split('EARNLUMENS').join(platformName)
-  let outDir = 'dist'
-  return {
-    name: 'brand-tokens',
-    apply: 'build',
-    configResolved (config) {
-      outDir = config.build.outDir
-    },
-    transformIndexHtml (html) {
-      return rewrite(html)
-    },
-    closeBundle () {
-      const headersPath = resolve(outDir, '_headers')
-      if (existsSync(headersPath)) {
-        writeFileSync(headersPath, rewrite(readFileSync(headersPath, 'utf8')))
-      }
-    },
-  }
-}
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -116,7 +81,6 @@ export default defineConfig({
         configFile: 'src/styles/settings.scss',
       },
     }),
-    brandTokens(),
   ],
   optimizeDeps: {
     exclude: [

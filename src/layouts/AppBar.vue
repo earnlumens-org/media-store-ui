@@ -266,7 +266,6 @@
   import CxLoginDialog from '@/components/CxLoginDialog.vue'
   import CxPopoverMenu from '@/components/CxPopoverMenu.vue'
   import CxSearchDialog from '@/components/CxSearchDialog.vue'
-  import { getPlatformName } from '@/config/env'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
   import { useFranchiseStore } from '@/stores/franchise'
@@ -305,15 +304,14 @@
 
   /**
    * Storefront brand label rendered next to the logo. An active franchise
-   * title wins, then the tenant override, then the platform name derived
-   * from the deployment domain so the UI never goes blank if the tenant
-   * probe has not resolved yet.
+   * title wins, then the tenant override, then the hardcoded EARNLUMENS so
+   * the UI never goes blank if the tenant probe has not resolved yet.
    */
   const brandLabel = computed(
-    () => (franchiseActive.value && franchiseBrand.value) || brandText.value || getPlatformName(),
+    () => (franchiseActive.value && franchiseBrand.value) || brandText.value || 'EARNLUMENS',
   )
   /** Name of the franchisor tenant, shown in the "official franchise of" badge. */
-  const franchiseTenantName = computed(() => brandText.value ?? getPlatformName())
+  const franchiseTenantName = computed(() => brandText.value ?? 'EarnLumens')
   /**
    * When the tenant has flipped on logo-only mode the AppBar hides the
    * text entirely. brandTextHidden is read from the visitor probe so the

@@ -74,7 +74,6 @@
   import { computed, onBeforeUnmount, watch } from 'vue'
   import { useRoute } from 'vue-router'
   import EntryCardGrid from '@/components/entry/EntryCardGrid.vue'
-  import { getPlatformName } from '@/config/env'
   import { useFranchiseStore } from '@/stores/franchise'
   import { useTenantStore } from '@/stores/tenant'
 
@@ -85,9 +84,9 @@
   const slug = computed(() => String((route.params as Record<string, string | string[] | undefined>).slug ?? ''))
 
   const title = computed(
-    () => franchiseStore.brandText ?? tenantStore.brandText ?? getPlatformName(),
+    () => franchiseStore.brandText ?? tenantStore.brandText ?? 'EARNLUMENS',
   )
-  const tenantName = computed(() => tenantStore.brandText ?? getPlatformName())
+  const tenantName = computed(() => tenantStore.brandText ?? 'EarnLumens')
 
   const heroStyle = computed(() => {
     const accent = franchiseStore.accentColor

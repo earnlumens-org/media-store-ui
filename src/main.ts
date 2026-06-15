@@ -7,8 +7,6 @@ import { createI18n } from 'vue-i18n'
 // API
 import { parseUserFromToken } from '@/api/modules/user.api'
 
-import { normalizeBrandText } from '@/config/env'
-
 // Plugins
 import { registerPlugins } from '@/plugins'
 
@@ -61,45 +59,22 @@ export function determineLanguageCode (language: string): string {
   return normalized.slice(0, 2)
 }
 
-/**
- * Recursively rewrites the canonical brand tokens (earnlumens.org / EarnLumens)
- * in a loaded locale bundle to this deployment's domain/name, so a single
- * VITE_PRIMARY_HOST re-brands every translation without touching the locale
- * files. Preserves the input shape (objects, arrays, strings).
- */
-function normalizeBrandMessages<T> (node: T): T {
-  if (typeof node === 'string') {
-    return normalizeBrandText(node) as unknown as T
-  }
-  if (Array.isArray(node)) {
-    return node.map(item => normalizeBrandMessages(item)) as unknown as T
-  }
-  if (node !== null && typeof node === 'object') {
-    const out: Record<string, unknown> = {}
-    for (const [key, value] of Object.entries(node as Record<string, unknown>)) {
-      out[key] = normalizeBrandMessages(value)
-    }
-    return out as unknown as T
-  }
-  return node
-}
-
 export async function loadLanguage (language: string) {
   try {
     const messages = await import(`./locales/${language}.json`)
-    i18n.global.setLocaleMessage(language, normalizeBrandMessages(messages.default || messages))
+    i18n.global.setLocaleMessage(language, messages.default || messages)
     // Always keep the English bundle loaded as the fallback locale so any key
     // not yet translated in the active locale renders in English instead of
     // showing the raw key path.
     if (language !== 'en') {
       const fallback = await import('./locales/en.json')
-      i18n.global.setLocaleMessage('en', normalizeBrandMessages(fallback.default || fallback))
+      i18n.global.setLocaleMessage('en', fallback.default || fallback)
     }
     i18n.global.locale.value = language
   } catch (error) {
     console.error('Error loading language, defaulting to en:', error)
     const messages = await import('./locales/en.json')
-    i18n.global.setLocaleMessage('en', normalizeBrandMessages(messages.default || messages))
+    i18n.global.setLocaleMessage('en', messages.default || messages)
     i18n.global.locale.value = 'en'
   }
 }

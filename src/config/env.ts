@@ -326,21 +326,6 @@ export function getPlatformName (): string {
   return (PRIMARY_HOST.split('.')[0] || PRIMARY_HOST).toUpperCase()
 }
 
-/**
- * Rewrites the canonical brand tokens baked into translation strings to
- * this deployment's domain/name:
- *   `earnlumens.org` -> getPlatformDomain()  (domains, emails, links)
- *   `EarnLumens`     -> getPlatformName()    (display brand, uppercased)
- * The two tokens never overlap textually (one is all-lowercase, the other
- * CamelCase), so the order is irrelevant. On earnlumens.org the only visible
- * effect is the brand becoming uppercase, per the branding directive.
- */
-export function normalizeBrandText (value: string): string {
-  return value
-    .split('earnlumens.org').join(getPlatformDomain())
-    .split('EarnLumens').join(getPlatformName())
-}
-
 // ==================== Stellar network helpers ====================
 
 let cachedHorizonUrl: string | null = null

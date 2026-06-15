@@ -69,7 +69,6 @@
   import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
   import { useTheme } from 'vuetify'
   import TenantNotFoundPage from '@/components/TenantNotFoundPage.vue'
-  import { getPlatformName } from '@/config/env'
   import { DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from '@/plugins/vuetify'
   import { globalSnackbar, globalSnackbarColor, globalSnackbarMessage } from '@/services/globalNotification'
   import { useAppStore } from '@/stores/app'
@@ -188,10 +187,9 @@
 
   // Per-tenant browser-tab title. Mirrors the AppBar's fallback chain so
   // the tab text and the AppBar label stay in sync: explicit override →
-  // tenant title → platform name derived from the deployment domain.
-  // Skipped while the visitor probe is in flight so we don't flash an
-  // empty title on slow networks.
-  const DEFAULT_BROWSER_TITLE = getPlatformName()
+  // tenant title → hardcoded EARNLUMENS. Skipped while the visitor probe
+  // is in flight so we don't flash an empty title on slow networks.
+  const DEFAULT_BROWSER_TITLE = 'EARNLUMENS'
   watch(
     () => [tenantStore.isReady, tenantStore.browserTitle, tenantStore.brandText, tenantStore.subdomain] as const,
     ([ready, browserTitle]) => {
