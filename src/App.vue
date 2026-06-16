@@ -167,20 +167,42 @@
     }
   }, { immediate: true })
 
-  // Per-tenant browser favicon: swap the in-document <link rel="icon"> href
-  // at runtime so each tenant can ship its own tab icon. Gated on
-  // tenantStore.isReady so we don't briefly flash the platform default
-  // /favicon.ico on every refresh before the visitor probe resolves
-  // (index.html ships with a blank data: icon for the same reason).
-  const DEFAULT_FAVICON_HREF = '/favicon.ico'
+  // Per-tenant browser favicon: install the in-document <link rel="icon">
+  // set at runtime so each tenant can ship its own tab icon. The platform
+  // default is a self-contained SVG (scalable + crisp on Chrome/Firefox/Edge)
+  // with a multi-size .ico fallback for Safari and legacy browsers; both are
+  // a white flame on the brand dark tile so they stay legible on any browser
+  // chrome (light or dark, desktop or mobile). Gated on tenantStore.isReady
+  // so we don't briefly flash the platform default before the visitor probe
+  // resolves (index.html ships with a blank data: icon for the same reason).
+  const DEFAULT_FAVICON_SVG = '/favicon.svg'
+  const DEFAULT_FAVICON_ICO = '/favicon.ico'
+  const applyFavicon = (customUrl: string | null) => {
+    if (typeof document === 'undefined') return
+    const head = document.head
+    // Replace the whole set atomically: drop the blank boot icon and any
+    // previously-installed links, then add the resolved one(s).
+    head.querySelectorAll('link[rel="icon"]').forEach((el) => el.remove())
+    const specs: Array<{ href: string, type?: string, sizes?: string }> = customUrl
+      ? [{ href: customUrl }]
+      : [
+          { href: DEFAULT_FAVICON_SVG, type: 'image/svg+xml' },
+          { href: DEFAULT_FAVICON_ICO, sizes: '32x32' },
+        ]
+    for (const spec of specs) {
+      const link = document.createElement('link')
+      link.rel = 'icon'
+      link.href = spec.href
+      if (spec.type) link.type = spec.type
+      if (spec.sizes) link.setAttribute('sizes', spec.sizes)
+      head.appendChild(link)
+    }
+  }
   watch(
     () => [tenantStore.isReady, tenantStore.faviconUrl] as const,
     ([ready, url]) => {
-      if (typeof document === 'undefined') return
       if (!ready) return
-      const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]')
-      if (!link) return
-      link.setAttribute('href', url ?? DEFAULT_FAVICON_HREF)
+      applyFavicon(url ?? null)
     },
     { immediate: true },
   )

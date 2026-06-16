@@ -27,7 +27,7 @@ export default defineConfig({
     // manifest (see DEPLOY notes).
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'pwa/apple-touch-icon.png'],
+      includeAssets: ['favicon.ico', 'favicon.svg', 'pwa/apple-touch-icon.png'],
       // Don't precache large media; only the app shell. Navigation falls back
       // to index.html so deep links (incl. /oauth2/callback) work offline-first.
       workbox: {
