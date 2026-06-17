@@ -1885,6 +1885,10 @@
   }
 
   async function uploadEditAsset (entryId: string, file: File, kind: AssetKind, progressRef: typeof editThumbnailProgress) {
+    // Show the progress bar immediately (indeterminate) while we init the
+    // upload, then 0→99 during the PUT, holding at 99 through finalize so the
+    // indicator stays visible until the asset is fully committed.
+    progressRef.value = 0
     const initRequest = {
       entryId,
       fileName: file.name,
@@ -1895,7 +1899,7 @@
     const initResp = await api.upload.initUpload(initRequest)
     const usedInit = await api.upload.uploadFileToR2(initResp, file, {
       onProgress: pct => {
-        progressRef.value = pct
+        progressRef.value = Math.min(pct, 99)
       },
       refresh: () => api.upload.initUpload(initRequest),
     })
@@ -1913,6 +1917,7 @@
       durationSec: null,
       bitrateBps: null,
     })
+    progressRef.value = 100
   }
 
   async function extractImageMeta (file: File): Promise<{ widthPx: number | null, heightPx: number | null }> {
@@ -1969,6 +1974,10 @@
       await fetchEntries()
     } catch (error_) {
       console.error('[CreatorStudio] Edit failed:', error_)
+      // Clear the per-asset progress bars so they don't stay stuck on a
+      // partial value after a failed upload.
+      editThumbnailProgress.value = null
+      editPreviewProgress.value = null
       if (error_ instanceof ApiError && error_.status === 409) {
         showToast(t('CreatorStudio.actions.transcodingError'), 'warning')
         return
@@ -1976,6 +1985,7 @@
       showToast(t('CreatorStudio.editError'), 'error')
     } finally {
       isSaving.value = false
+      isUploading.value = false
     }
   }
 

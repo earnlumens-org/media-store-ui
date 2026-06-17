@@ -33,13 +33,22 @@
       </div>
 
       <!-- Upload progress -->
-      <v-progress-linear
+      <div
         v-if="uploadProgress !== null && uploadProgress < 100"
         class="mt-2"
-        color="primary"
-        :model-value="uploadProgress"
-        rounded
-      />
+      >
+        <v-progress-linear
+          color="primary"
+          height="6"
+          :indeterminate="uploadProgress === 0"
+          :model-value="uploadProgress"
+          rounded
+        />
+        <div class="text-caption text-medium-emphasis mt-1">
+          {{ t('Upload.assets.uploading') }}
+          <span v-if="uploadProgress > 0">{{ uploadProgress }}%</span>
+        </div>
+      </div>
     </v-card>
 
     <!-- Empty state: drop zone -->

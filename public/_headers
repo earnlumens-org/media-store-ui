@@ -17,6 +17,11 @@
 #    so a tenant page on acme.earnlumens.org can hit api.admin… via the
 #    edge router IF/when needed; today the API is same-origin so this is a
 #    safety margin.
+#  - 'https://*.r2.cloudflarestorage.com' is REQUIRED for direct-to-R2
+#    uploads: initUpload() returns an account-scoped presigned PUT URL on
+#    '<account>.r2.cloudflarestorage.com' that the browser XHRs to. Without
+#    it the browser blocks the PUT and uploads (create AND edit/re-upload)
+#    fail with an opaque 'R2 upload network error'.
 #  - frame-ancestors 'none' blocks clickjacking (X-Frame-Options is sent for
 #    legacy browsers).
 #  - frame-src whitelists the Stellar wallet popups we currently integrate
@@ -25,7 +30,7 @@
 #    a frame-src entry.
 
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data:; connect-src 'self' https://*.earnlumens.org https://horizon.stellar.org https://horizon-testnet.stellar.org https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src 'self' https://lobstr.co https://*.lobstr.co; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob: https:; font-src 'self' data:; connect-src 'self' https://*.earnlumens.org https://*.r2.cloudflarestorage.com https://horizon.stellar.org https://horizon-testnet.stellar.org https://www.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src 'self' https://lobstr.co https://*.lobstr.co; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
