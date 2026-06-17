@@ -708,7 +708,7 @@
 <script setup lang="ts">
   import type { CollectionDetailModel, CollectionEntryItemModel } from '@/api/types/collection.types'
   import type { PublicEntryModel } from '@/api/types/entry.types'
-  import type { CollectionModel, EntryModel } from '@/api/types/entryMock.types'
+  import type { CollectionModel, EntryModel } from '@/api/types/feedItem.types'
 
   import { computed, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'

@@ -156,7 +156,8 @@
 </template>
 
 <script setup lang="ts">
-  import type { FeedItemModel, FeedPageModel, FeedRequestParams } from '@/api/api'
+  import type { CollectionModel, EntryModel, FeedItemModel, FeedPageModel, FeedRequestParams } from '@/api/api'
+  import type { PublicFeedItemModel } from '@/api/types/feed.types'
 
   import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { onBeforeRouteLeave, useRoute } from 'vue-router'
@@ -172,7 +173,7 @@
     showAuthor?: boolean
     /** Number of items per page */
     pageSize?: number
-    /** Custom feed function (defaults to api.mock.getFeed) */
+    /** Custom feed function (defaults to the real explore feed) */
     feedFn?: (params: FeedRequestParams) => Promise<FeedPageModel>
   }
 
@@ -205,7 +206,52 @@
     })
   })
 
-  const fetchFeedFn = computed(() => props.feedFn ?? api.mock.getFeed)
+  function toFeedItem (m: PublicFeedItemModel): FeedItemModel {
+    if (m.kind === 'collection') {
+      const collection: CollectionModel = {
+        id: m.id,
+        collectionType: m.type,
+        title: m.title,
+        authorName: m.authorName,
+        authorAvatarUrl: m.authorAvatarUrl,
+        profileBadge: m.profileBadge,
+        publishedAt: m.publishedAt,
+        coverUrl: m.coverUrl,
+        coverSrcset: m.coverSrcset,
+        itemsCount: m.itemCount,
+        locked: m.locked,
+      }
+      return { kind: 'collection', collection }
+    }
+    const entry: EntryModel = {
+      id: m.id,
+      type: m.type as EntryModel['type'],
+      title: m.title,
+      authorName: m.authorName,
+      authorAvatarUrl: m.authorAvatarUrl,
+      profileBadge: m.profileBadge,
+      publishedAt: m.publishedAt,
+      thumbnailUrl: m.thumbnailUrl,
+      thumbnailSrcset: m.thumbnailSrcset,
+      durationSec: m.durationSec,
+      locked: m.locked,
+    }
+    return { kind: 'entry', entry }
+  }
+
+  /** Real explore feed mapped to the grid's {@link FeedPageModel} shape. */
+  async function defaultFeedFn (params: FeedRequestParams): Promise<FeedPageModel> {
+    const page = await api.entries.getExploreFeed(params)
+    return {
+      items: page.items.map(item => toFeedItem(item)),
+      page: page.page,
+      size: page.size,
+      totalElements: page.totalElements,
+      totalPages: page.totalPages,
+    }
+  }
+
+  const fetchFeedFn = computed(() => props.feedFn ?? defaultFeedFn)
 
   function itemKey (item: FeedItemModel) {
     return item.kind === 'entry'

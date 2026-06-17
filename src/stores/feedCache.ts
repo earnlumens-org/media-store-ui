@@ -5,15 +5,14 @@
  * Populated by grid components when items are loaded from the API.
  * Used by the preview page to display correct data without re-fetching.
  *
- * This solves the problem where:
- * - The mock API generates different random data on each request (by-ID ≠ feed)
- * - Real API entries don't have a by-ID public endpoint yet
+ * This solves the problem where the real API entries don't have a by-ID
+ * public endpoint yet: the grid seeds the cache so the preview page can
+ * render correct data instantly without a redundant fetch.
  *
- * The cache is session-only (no persistence). If the user accesses a preview
- * URL directly without visiting the feed first, we fall back to the mock API.
+ * The cache is session-only (no persistence).
  */
 
-import type { CollectionModel, EntryModel } from '@/api/types/entryMock.types'
+import type { CollectionModel, EntryModel } from '@/api/types/feedItem.types'
 
 import { defineStore } from 'pinia'
 

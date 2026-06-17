@@ -20,13 +20,6 @@ import {
 } from './modules/collection.api'
 import { archiveEntry, deleteEntry, getCreatorDashboardStats, getCreatorEntries, getStudioItems, restoreDeletedEntry, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
 import { getExploreFeed, getProfileFeed, getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
-import {
-  getMockCollectionById,
-  getMockCollections,
-  getMockEntries,
-  getMockEntryById,
-  getMockFeed,
-} from './modules/entryMock.api'
 import { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
 import { createFranchise, getFranchiseConfig,
   getPublicFranchise,
@@ -171,14 +164,6 @@ export const api = {
     presignImage: presignFranchiseImage,
     uploadImage: uploadFranchiseImage,
   },
-  /** Mock API — still used by the entry/collection lightboxes. */
-  mock: {
-    getFeed: getMockFeed,
-    getEntries: getMockEntries,
-    getCollections: getMockCollections,
-    getEntryById: getMockEntryById,
-    getCollectionById: getMockCollectionById,
-  },
 } as const
 
 export { ApiError, apiRequest } from './apiRequest'
@@ -202,13 +187,6 @@ export {
 } from './modules/collection.api'
 export { archiveEntry, deleteEntry, getCreatorDashboardStats, getCreatorEntries, getStudioItems, restoreDeletedEntry, unarchiveEntry, updateEntryMetadata } from './modules/creator.api'
 export { getPublishedEntries, getPublishedEntriesByUser, getPublishedEntryById } from './modules/entry.api'
-export {
-  getMockCollectionById,
-  getMockCollections,
-  getMockEntries,
-  getMockEntryById,
-  getMockFeed,
-} from './modules/entryMock.api'
 export { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './modules/favorite.api'
 export { createFranchise, getFranchiseConfig, getPublicFranchise, listMyFranchises, listPublicFranchises, presignFranchiseImage, updateMyFranchise, uploadFranchiseImage } from './modules/franchise.api'
 export type { CreateFranchisePayload, FranchiseConfigDto, FranchiseImageSlot, FranchiseImageUploadInit, ManagedFranchiseDto, PublicFranchiseDto, UpdateFranchisePayload } from './modules/franchise.api'
@@ -254,7 +232,7 @@ export type {
   FeedItemModel,
   FeedPageModel,
   FeedRequestParams,
-} from './types/entryMock.types'
+} from './types/feedItem.types'
 
 export type {
   FavoriteItemModel,

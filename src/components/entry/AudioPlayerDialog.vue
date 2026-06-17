@@ -126,8 +126,22 @@
     errorMessage.value = ''
 
     try {
-      const data = await api.mock.getEntryById(id)
-      entry.value = data
+      const data = await api.entries.getById(id)
+      entry.value = {
+        id: data.id,
+        type: data.type,
+        title: data.title,
+        authorName: data.authorName,
+        authorAvatarUrl: data.authorAvatarUrl,
+        profileBadge: data.profileBadge,
+        publishedAt: data.publishedAt,
+        thumbnailUrl: data.thumbnailUrl,
+        thumbnailSrcset: data.thumbnailSrcset,
+        previewUrl: data.previewUrl,
+        previewSrcset: data.previewSrcset,
+        durationSec: data.durationSec,
+        locked: data.isPaid,
+      }
     } catch (error_: unknown) {
       console.error('[AudioPlayerDialog] Failed to fetch entry:', error_)
       error.value = true

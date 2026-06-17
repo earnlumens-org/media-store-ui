@@ -13,7 +13,7 @@ import type {
   FeedItemModel,
   FeedPageModel,
   FeedRequestParams,
-} from '../types/entryMock.types'
+} from '../types/feedItem.types'
 
 import axiosClient from '../axios/axiosClient'
 import { mapPublicEntryPageDtoToModel } from '../mappers/entry.mapper'
