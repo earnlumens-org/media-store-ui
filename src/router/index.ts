@@ -1,6 +1,7 @@
 import { setupLayouts } from 'virtual:generated-layouts'
 import { createRouter, createWebHistory } from 'vue-router'
 import { routes } from 'vue-router/auto-routes'
+import { maybeApplyUpdateOnNavigation } from '@/services/appUpdate'
 import { useAuthStore } from '@/stores/auth'
 
 // ── Scroll restoration: detect browser back/forward (popstate) ──────────────
@@ -44,6 +45,11 @@ router.afterEach(() => {
   setTimeout(() => {
     _isPopNavigation = false
   }, 0)
+
+  // A route change is a natural full-content boundary: if a new build is
+  // waiting and no critical operation is in flight, silently land the user on
+  // it now (a one-time reload to the destination). Deferred / no-op otherwise.
+  maybeApplyUpdateOnNavigation()
 })
 
 // Middleware de autenticación antes de cada ruta

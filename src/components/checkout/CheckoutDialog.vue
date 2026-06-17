@@ -25,6 +25,7 @@
 
   import { api } from '@/api/api'
   import xIcon from '@/assets/twitterx.svg?raw'
+  import { beginCriticalSection } from '@/services/criticalSection'
   import { accountExists } from '@/services/stellar'
 
   import { useAppStore } from '@/stores/app'
@@ -201,6 +202,10 @@
     isProcessing.value = true
     error.value = null
 
+    // Money is about to move: hold any pending app-update reload until this
+    // whole prepare → sign → submit → confirm window finishes (success or not).
+    const releaseCritical = beginCriticalSection('checkout')
+
     try {
       // 1. Ensure wallet is connected
       if (!walletStore.isConnected) {
@@ -308,6 +313,7 @@
     } finally {
       isProcessing.value = false
       isConfirming.value = false
+      releaseCritical()
     }
   }
 

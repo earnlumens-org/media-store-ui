@@ -29,6 +29,10 @@ import App from './App.vue'
 // listener is registered before the browser fires the event.
 import '@/lib/pwaInstall'
 
+// App-update orchestrator: registers the service worker (prompt mode) and
+// drives safe, never-interrupting reloads onto the newest deployed build.
+import { initAppUpdate } from '@/services/appUpdate'
+
 // Styles
 import '@/styles/global.css'
 
@@ -181,6 +185,10 @@ async function initApp () {
   initAuthBroadcast()
 
   await initI18n()
+
+  // Register the service worker and start watching for new deploys. Done after
+  // mount so the SW controls a fully-booted app shell.
+  initAppUpdate()
 
   // Rehydrate session BEFORE app is fully ready (blocks router guards)
   await rehydrateSession()

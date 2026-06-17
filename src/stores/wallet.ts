@@ -44,6 +44,7 @@ import type {
 
 import { defineStore } from 'pinia'
 
+import { beginCriticalSection } from '@/services/criticalSection'
 import { getAllProviders, getProvider } from '@/services/wallet/providers'
 
 const STORAGE_KEY = 'earnlumens_wallets'
@@ -255,6 +256,10 @@ export const useWalletStore = defineStore('wallet', {
       this.isLoading = true
       this.lastError = null
 
+      // Connecting a wallet opens an external popup/extension flow the user is
+      // actively interacting with — don't let an app-update reload yank it away.
+      const releaseCritical = beginCriticalSection('wallet-connect')
+
       try {
         if (!provider.isInitialized) {
           await provider.init()
@@ -300,6 +305,7 @@ export const useWalletStore = defineStore('wallet', {
         return null
       } finally {
         this.isLoading = false
+        releaseCritical()
       }
     },
 
@@ -433,15 +439,20 @@ export const useWalletStore = defineStore('wallet', {
       xdr: string,
       options?: SignTransactionOptions,
     ): Promise<SignTransactionResult> {
-      const { wallet, provider } = await this.prepareSigning(options?.address)
+      const release = beginCriticalSection('wallet-sign')
+      try {
+        const { wallet, provider } = await this.prepareSigning(options?.address)
 
-      const result = await provider.signTransaction(xdr, {
-        ...options,
-        address: wallet.address,
-      })
+        const result = await provider.signTransaction(xdr, {
+          ...options,
+          address: wallet.address,
+        })
 
-      this.assertSignerMatches(wallet.address, result.signerAddress)
-      return result
+        this.assertSignerMatches(wallet.address, result.signerAddress)
+        return result
+      } finally {
+        release()
+      }
     },
 
     /**
@@ -451,15 +462,20 @@ export const useWalletStore = defineStore('wallet', {
       authEntry: string,
       options?: SignTransactionOptions,
     ): Promise<SignAuthEntryResult> {
-      const { wallet, provider } = await this.prepareSigning(options?.address)
+      const release = beginCriticalSection('wallet-sign')
+      try {
+        const { wallet, provider } = await this.prepareSigning(options?.address)
 
-      const result = await provider.signAuthEntry(authEntry, {
-        ...options,
-        address: wallet.address,
-      })
+        const result = await provider.signAuthEntry(authEntry, {
+          ...options,
+          address: wallet.address,
+        })
 
-      this.assertSignerMatches(wallet.address, result.signerAddress)
-      return result
+        this.assertSignerMatches(wallet.address, result.signerAddress)
+        return result
+      } finally {
+        release()
+      }
     },
 
     /**
@@ -469,15 +485,20 @@ export const useWalletStore = defineStore('wallet', {
       message: string,
       options?: SignTransactionOptions,
     ): Promise<SignMessageResult> {
-      const { wallet, provider } = await this.prepareSigning(options?.address)
+      const release = beginCriticalSection('wallet-sign')
+      try {
+        const { wallet, provider } = await this.prepareSigning(options?.address)
 
-      const result = await provider.signMessage(message, {
-        ...options,
-        address: wallet.address,
-      })
+        const result = await provider.signMessage(message, {
+          ...options,
+          address: wallet.address,
+        })
 
-      this.assertSignerMatches(wallet.address, result.signerAddress)
-      return result
+        this.assertSignerMatches(wallet.address, result.signerAddress)
+        return result
+      } finally {
+        release()
+      }
     },
 
     /**

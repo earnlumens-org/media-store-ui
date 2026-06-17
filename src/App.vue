@@ -36,6 +36,36 @@
       {{ $t(globalSnackMsg) }}
     </v-snackbar>
 
+    <!--
+      New-version snackbar. Only ever shown when it's safe (no payment / wallet
+      operation in flight — see services/appUpdate + services/criticalSection).
+      Persistent (no auto-timeout) so the user can apply on their own terms; an
+      ordinary route navigation also applies it automatically when safe.
+    -->
+    <v-snackbar
+      v-model="appUpdateVisible"
+      color="primary"
+      location="bottom"
+      :timeout="-1"
+    >
+      {{ $t('Common.updateAvailable') }}
+
+      <template #actions>
+        <v-btn
+          variant="text"
+          @click="dismissUpdatePrompt"
+        >
+          {{ $t('Common.close') }}
+        </v-btn>
+        <v-btn
+          variant="text"
+          @click="applyUpdate"
+        >
+          {{ $t('Common.updateNow') }}
+        </v-btn>
+      </template>
+    </v-snackbar>
+
     <!-- Login error dialog -->
     <v-dialog
       v-model="loginErrorDialog"
@@ -70,6 +100,7 @@
   import { useTheme } from 'vuetify'
   import TenantNotFoundPage from '@/components/TenantNotFoundPage.vue'
   import { DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from '@/plugins/vuetify'
+  import { applyUpdate, dismissUpdatePrompt, updatePromptVisible } from '@/services/appUpdate'
   import { globalSnackbar, globalSnackbarColor, globalSnackbarMessage } from '@/services/globalNotification'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
@@ -79,6 +110,17 @@
   const globalSnack = globalSnackbar
   const globalSnackMsg = globalSnackbarMessage
   const globalSnackColor = globalSnackbarColor
+
+  // New-version snackbar. `updatePromptVisible` is read-only (the service owns
+  // when it may appear); the v-model setter only handles the user dismissing it.
+  const appUpdateVisible = computed({
+    get: () => updatePromptVisible.value,
+    set: value => {
+      if (!value) {
+        dismissUpdatePrompt()
+      }
+    },
+  })
 
   const app = useAppStore()
   const authStore = useAuthStore()

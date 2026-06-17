@@ -200,6 +200,8 @@
     "blockquote": "Start in the main financial education tenant and activate your blue credential to create your own tenant, publish content, and earn in XLM.",
     "blocked": "Blocked",
     "accept": "Accept",
+    "updateAvailable": "A new version is available.",
+    "updateNow": "Update",
     "upload": "Upload",
     "helpCenter": "Help",
     "failedToLoadImage": "Failed to load image",

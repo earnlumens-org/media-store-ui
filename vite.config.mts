@@ -26,7 +26,14 @@ export default defineConfig({
     // manifest); per-tenant branding would require a dynamic edge-served
     // manifest (see DEPLOY notes).
     VitePWA({
-      registerType: 'autoUpdate',
+      // `prompt`, NOT `autoUpdate`: a new build installs and *waits* instead of
+      // skip-waiting + reloading on its own. The reload is then driven from
+      // `@/services/appUpdate`, which never interrupts a critical operation
+      // (payment / wallet connect / signing). Registration is done manually in
+      // that service via `virtual:pwa-register`, so the plugin must not inject
+      // its own registration script.
+      registerType: 'prompt',
+      injectRegister: false,
       includeAssets: ['favicon.ico', 'favicon.svg', 'pwa/apple-touch-icon.png'],
       // Don't precache large media; only the app shell. Navigation falls back
       // to index.html so deep links (incl. /oauth2/callback) work offline-first.
@@ -35,7 +42,13 @@ export default defineConfig({
         // Never let the SW intercept the OAuth handshake / API calls.
         navigateFallbackDenylist: [/^\/oauth2\//, /^\/api\//, /^\/login\//],
         globPatterns: ['**/*.{js,css,html,woff2}'],
+        // Drop precaches from previous builds so stale chunks can't be served
+        // after a deploy.
         cleanupOutdatedCaches: true,
+        // The waiting SW only takes over when the user (or the safe-reload
+        // orchestrator) asks it to, via SKIP_WAITING.
+        skipWaiting: false,
+        clientsClaim: true,
       },
       manifest: {
         name: 'Earn Lumens',
