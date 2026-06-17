@@ -293,8 +293,8 @@
 </template>
 
 <script setup lang="ts">
-  import type { EntryModel } from '@/api/types/feedItem.types'
   import type { PublicFeedItemModel, PublicFeedPageModel } from '@/api/types/feed.types'
+  import type { EntryModel } from '@/api/types/feedItem.types'
   import type { Collection } from '@/components/collection/CollectionCard.vue'
   import type { Entry } from '@/components/entry/EntryCard.vue'
 

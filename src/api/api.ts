@@ -225,6 +225,11 @@ export type {
 } from './types/entry.types'
 
 export type {
+  FavoriteItemModel,
+  FavoritePageModel,
+} from './types/favorite.types'
+
+export type {
   CollectionModel,
   CollectionsRequestParams,
   EntriesRequestParams,
@@ -233,11 +238,6 @@ export type {
   FeedPageModel,
   FeedRequestParams,
 } from './types/feedItem.types'
-
-export type {
-  FavoriteItemModel,
-  FavoritePageModel,
-} from './types/favorite.types'
 
 export type {
   PreparePaymentModel,
