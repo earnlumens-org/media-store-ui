@@ -101,9 +101,18 @@
   // Layout adapts to the number of visible options so the dialog never
   // shows empty whitespace: 1 col for 1 item, 2 cols for 2 or 4 items,
   // 3 cols for 3 or 5 items (5 wraps as 3 + 2).
+  //
+  // On phones the dialog is fullscreen, so columns must be free to shrink
+  // (minmax min = 0); a fixed 220px/200px minimum would push the grid wider
+  // than the viewport and clip the right-hand column. Desktop keeps the
+  // comfortable minimum since dialogMaxWidth already caps the overall size.
   const gridColumns = computed(() => {
     const n = contentTypes.value.length
     if (n <= 1) return '1fr'
+    if (smAndDown.value) {
+      // Never more than 2 columns on a phone; let them fill the width evenly.
+      return 'repeat(2, minmax(0, 1fr))'
+    }
     if (n === 2 || n === 4) return 'repeat(2, minmax(220px, 1fr))'
     return 'repeat(3, minmax(200px, 1fr))'
   })
