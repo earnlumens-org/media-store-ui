@@ -172,7 +172,9 @@
     "addedToFavorites": "आवडत्यांमध्ये जोडले",
     "removedFromFavorites": "आवडत्यांमधून काढले",
     "linkCopied": "लिंक क्लिपबोर्डवर कॉपी केली",
-    "tooManyRequests": "खूप विनंत्या. कृपया क्षणभर थांबा आणि पुन्हा प्रयत्न करा."
+    "tooManyRequests": "खूप विनंत्या. कृपया क्षणभर थांबा आणि पुन्हा प्रयत्न करा.",
+    "updateAvailable": "एक नवीन आवृत्ती उपलब्ध आहे.",
+    "updateNow": "अपडेट करा"
   },
   "Themes": {
     "title": "थीम निवडक",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "कालबाह्यता नाही",
     "badgeNone": "तुमच्याकडे अद्याप सक्रिय निळे क्रेडेन्शियल नाही",
     "badgeNoneHint": "भाडेकरू निर्मितीची विनंती करण्यासाठी आणि प्रगत साधनांमध्ये प्रवेश करण्यासाठी तुमचे निळे क्रेडेन्शियल सक्रिय करा.",
-    "badgeGetAccess": "निळे क्रेडेन्शियल सक्रिय करा"
+    "badgeGetAccess": "निळे क्रेडेन्शियल सक्रिय करा",
+    "myFranchise": "माझी फ्रँचायझी",
+    "myFranchiseHint": "या मार्केटप्लेसच्या अंतर्गत तुमचे स्वतःचे स्टोअर उघडा आणि व्यवस्थापित करा"
   },
   "AppBar": {
     "home": "मुख्यपृष्ठ",
@@ -611,7 +615,8 @@
     "walletReconnectRequired": "तुमच्या वॉलेटचे सत्र कालबाह्य झाले आहे किंवा उपलब्ध नाही. कृपया तुमचे वॉलेट पुन्हा कनेक्ट करा आणि पुन्हा प्रयत्न करा.",
     "franchiseSelfPurchase": "फ्रँचायझीचे मालक स्वतःच्या फ्रँचायझीद्वारे खरेदी करू शकत नाहीत. कृपया मुख्य स्टोअरमधून खरेदी करा.",
     "confirmingPayment": "तुमचे पेमेंट Stellar नेटवर्कवर पुष्टी होत आहे… यास सहसा काही सेकंद लागतात.",
-    "paymentConfirmTimeout": "आम्ही अद्याप तुमच्या पेमेंटची पुष्टी करू शकलो नाही. ते यशस्वी झाले असल्यास, तुमचे कंटेंट काही मिनिटांत आपोआप अनलॉक होईल."
+    "paymentConfirmTimeout": "आम्ही अद्याप तुमच्या पेमेंटची पुष्टी करू शकलो नाही. ते यशस्वी झाले असल्यास, तुमचे कंटेंट काही मिनिटांत आपोआप अनलॉक होईल.",
+    "contentWalletInactive": "ही सामग्री सध्या खरेदी करता येणार नाही: तिच्या पेआउट वॉलेटपैकी एक यापुढे Stellar नेटवर्कवर सक्रिय नाही. कृपया नंतर पुन्हा प्रयत्न करा."
   },
   "Favorites": {
     "empty": "अद्याप कोणतेही आवडते नाहीत",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "तुम्ही दैनिक अहवाल मर्यादेपर्यंत पोहोचला आहात. कृपया उद्या पुन्हा प्रयत्न करा."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "तुमचे मत",
+    "like": "आवडले",
+    "dislike": "नापसंत",
+    "verifiedLikes": "{value} — {count} सत्यापित खरेदीदारांनी आवडले",
+    "barAria": "{percent} मते आवडली आहेत",
+    "loginRequired": "या सामग्रीवर मत देण्यासाठी साइन इन करा."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "{tenant} ची अधिकृत फ्रँचायझी",
+    "poweredBy": "EarnLumens द्वारे समर्थित",
+    "notFoundTitle": "फ्रँचायझी सापडली नाही",
+    "notFoundBody": "हे फ्रँचायझी स्टोअरफ्रंट अस्तित्वात नाही किंवा यापुढे उपलब्ध नाही.",
+    "backToStore": "स्टोअरवर परत जा",
+    "errorTitle": "ही फ्रँचायझी लोड करता आली नाही",
+    "retry": "पुन्हा प्रयत्न करा"
+  },
+  "MyFranchise": {
+    "title": "माझी फ्रँचायझी",
+    "subtitle": "या मार्केटप्लेसच्या अंतर्गत तुमचे स्वतःचे स्टोअर चालवा.",
+    "loginRequired": "तुमची फ्रँचायझी तयार करण्यासाठी किंवा व्यवस्थापित करण्यासाठी लॉग इन करा.",
+    "becomePartner": "भागीदार व्हा",
+    "becomePartnerBody": "तुमचे स्वतःचे फ्रँचायझी स्टोअरफ्रंट उघडा आणि या मार्केटप्लेसची मंजूर सामग्री तुमच्या स्वतःच्या ब्रँडखाली पुनर्विक्री करा.",
+    "commissionDisclosure": "तुम्ही प्रत्येक विक्रीवर {percent} कमिशन कमावता, जे मार्केटप्लेसच्या वाट्यातून घेतले जाते — खरेदीदाराची किंमत कधीही बदलत नाही. तुमची फ्रँचायझी तयार करताना हा दर निश्चित होतो.",
+    "fieldSlug": "स्टोअर पत्ता (slug)",
+    "fieldPayout": "पेआउट वॉलेट (Stellar सार्वजनिक की)",
+    "fieldTitle": "प्रदर्शित शीर्षक (पर्यायी)",
+    "fieldDescription": "वर्णन (पर्यायी)",
+    "fieldAccent": "अॅक्सेंट रंग (पर्यायी)",
+    "acceptTerms": "मी फ्रँचायझीच्या अटी स्वीकारतो/स्वीकारते, वरील दर्शविलेल्या कमिशनसह.",
+    "createCta": "माझी फ्रँचायझी तयार करा",
+    "createdOk": "तुमची फ्रँचायझी आता सक्रिय आहे!",
+    "savedOk": "ब्रँडिंग अपडेट झाले",
+    "save": "बदल जतन करा",
+    "brandingTitle": "स्टोअर ब्रँडिंग",
+    "previewTitle": "पूर्वावलोकन",
+    "imagesTitle": "लोगो आणि कव्हर प्रतिमा",
+    "imagesHint": "PNG, JPG किंवा WebP. लोगो 2 MB पर्यंत, कव्हर 6 MB पर्यंत.",
+    "imagesAfterCreate": "तुमची फ्रँचायझी तयार केल्यानंतर तुम्ही लोगो आणि कव्हर प्रतिमा अपलोड करू शकाल.",
+    "logoLabel": "लोगो",
+    "coverLabel": "कव्हर प्रतिमा",
+    "changeImage": "बदला",
+    "removeImage": "काढा",
+    "storefrontLabel": "स्टोअर पत्ता",
+    "commissionLabel": "तुमचे कमिशन",
+    "payoutLabel": "पेआउट वॉलेट",
+    "statusActive": "सक्रिय",
+    "statusDisabled": "अक्षम",
+    "disabledTitle": "ही फ्रँचायझी अक्षम केली आहे",
+    "unavailableGeneric": "या स्टोअरवर फ्रँचायझी सध्या उपलब्ध नाहीत.",
+    "unavailableNotEnabled": "हे मार्केटप्लेस अद्याप फ्रँचायझी देत नाही.",
+    "unavailablePaused": "नवीन फ्रँचायझी नोंदणी सध्या थांबवली आहे. कृपया नंतर पुन्हा तपासा.",
+    "unavailableBanned": "तुम्ही या मार्केटप्लेसवर फ्रँचायझी तयार करू शकत नाही.",
+    "errors": {
+      "franchises_not_enabled": "हे मार्केटप्लेस फ्रँचायझी देत नाही.",
+      "franchises_paused": "नवीन फ्रँचायझी नोंदणी सध्या थांबवली आहे.",
+      "user_banned": "तुम्ही या मार्केटप्लेसवर फ्रँचायझी तयार करू शकत नाही.",
+      "slug_required": "एक स्टोअर पत्ता निवडा.",
+      "slug_format": "3–30 लहान अक्षरे, अंक किंवा हायफन वापरा.",
+      "slug_taken": "तो स्टोअर पत्ता आधीच घेतला आहे.",
+      "wallet_format": "वैध Stellar सार्वजनिक की प्रविष्ट करा (G ने सुरू होते).",
+      "accent_color_format": "#1E88E5 सारखा हेक्स रंग वापरा.",
+      "image_type": "PNG, JPG किंवा WebP प्रतिमा वापरा.",
+      "image_size": "ती प्रतिमा खूप मोठी आहे.",
+      "image_slot": "अवैध प्रतिमा स्लॉट.",
+      "image_key": "ती प्रतिमा जोडता आली नाही. कृपया पुन्हा प्रयत्न करा.",
+      "tenant_blocked": "हे मार्केटप्लेस सक्रिय नाही.",
+      "not_found": "फ्रँचायझी सापडली नाही.",
+      "forbidden": "सुरू ठेवण्यासाठी कृपया लॉग इन करा.",
+      "wallet_not_activated": "हे वॉलेट अद्याप Stellar नेटवर्कवर सक्रिय नाही. ते सक्रिय करण्यासाठी या पत्त्यावर किमान 1 XLM पाठवा."
+    }
+  },
+  "Tip": {
+    "title": "टिप पाठवा",
+    "heading": "निर्मात्याला पाठिंबा द्या",
+    "subtitle": "XLM मध्ये एकवेळच्या टिपने तुमचा पाठिंबा दाखवा.",
+    "chooseAmount": "रक्कम निवडा",
+    "other": "इतर",
+    "customAmount": "USD मध्ये रक्कम",
+    "amountHint": "किमान $0.25 — कमाल $100",
+    "amountInvalid": "$0.25 आणि $100 दरम्यान रक्कम प्रविष्ट करा.",
+    "send": "टिप पाठवा",
+    "youPay": "तुम्ही देता",
+    "success": "तुमच्या पाठिंब्याबद्दल धन्यवाद!",
+    "successSubtitle": "तुमची टिप यशस्वीरित्या पाठवली गेली.",
+    "unavailable": "या निर्मात्याने अद्याप टिप सेट अप केल्या नाहीत.",
+    "cannotTipOwn": "तुम्ही तुमच्या स्वतःच्या सामग्रीला टिप देऊ शकत नाही.",
+    "done": "पूर्ण",
+    "processing": "तुमची टिप पाठवली जात आहे…"
   }
 }

@@ -172,7 +172,9 @@
     "removedFromFavorites": "Rimosso dai preferiti",
     "linkCopied": "Link copiato negli appunti",
     "tooManyRequests": "Troppe richieste. Attendi un momento e riprova.",
-    "cancel": "Annulla"
+    "cancel": "Annulla",
+    "updateAvailable": "È disponibile una nuova versione.",
+    "updateNow": "Aggiorna"
   },
   "Themes": {
     "title": "Selettore temi",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "Nessuna scadenza",
     "badgeNone": "Non hai ancora una credenziale blu attiva",
     "badgeNoneHint": "Attiva la tua credenziale blu per richiedere la creazione del tuo tenant e accedere agli strumenti avanzati.",
-    "badgeGetAccess": "Attiva credenziale blu"
+    "badgeGetAccess": "Attiva credenziale blu",
+    "myFranchise": "Il mio franchising",
+    "myFranchiseHint": "Apri e gestisci il tuo negozio all’interno di questo marketplace"
   },
   "AppBar": {
     "home": "Home",
@@ -600,7 +604,8 @@
     "walletReconnectRequired": "La sessione del tuo wallet è scaduta o non è disponibile. Ricollega il tuo wallet e riprova.",
     "franchiseSelfPurchase": "I proprietari di una franchigia non possono acquistare tramite la propria franchigia. Effettua l'acquisto dal negozio principale.",
     "confirmingPayment": "Conferma del pagamento sulla rete Stellar in corso… Di solito richiede pochi secondi.",
-    "paymentConfirmTimeout": "Non siamo ancora riusciti a confermare il tuo pagamento. Se è andato a buon fine, il contenuto si sbloccherà automaticamente entro pochi minuti."
+    "paymentConfirmTimeout": "Non siamo ancora riusciti a confermare il tuo pagamento. Se è andato a buon fine, il contenuto si sbloccherà automaticamente entro pochi minuti.",
+    "contentWalletInactive": "Questo contenuto non può essere acquistato in questo momento: uno dei suoi wallet di pagamento non è più attivo sulla rete Stellar. Riprova più tardi."
   },
   "Purchased": {
     "title": "I miei acquisti",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "Hai raggiunto il limite giornaliero di segnalazioni. Riprova domani."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "Il tuo voto",
+    "like": "Mi piace",
+    "dislike": "Non mi piace",
+    "verifiedLikes": "{value} apprezzato da {count} acquirenti verificati",
+    "barAria": "{percent} dei voti sono positivi",
+    "loginRequired": "Accedi per votare questo contenuto."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "Franchising ufficiale di {tenant}",
+    "poweredBy": "offerto da EarnLumens",
+    "notFoundTitle": "Franchising non trovato",
+    "notFoundBody": "Questo negozio in franchising non esiste o non è più disponibile.",
+    "backToStore": "Torna al negozio",
+    "errorTitle": "Impossibile caricare questo franchising",
+    "retry": "Riprova"
+  },
+  "MyFranchise": {
+    "title": "Il mio franchising",
+    "subtitle": "Gestisci il tuo negozio all’interno di questo marketplace.",
+    "loginRequired": "Accedi per creare o gestire il tuo franchising.",
+    "becomePartner": "Diventa partner",
+    "becomePartnerBody": "Apri il tuo negozio in franchising e rivendi i contenuti approvati di questo marketplace con il tuo marchio.",
+    "commissionDisclosure": "Guadagni una commissione del {percent} su ogni vendita, prelevata dalla quota del marketplace — il prezzo per l’acquirente non cambia mai. Questa percentuale viene fissata alla creazione del tuo franchising.",
+    "fieldSlug": "Indirizzo del negozio (slug)",
+    "fieldPayout": "Wallet di pagamento (chiave pubblica Stellar)",
+    "fieldTitle": "Titolo visualizzato (facoltativo)",
+    "fieldDescription": "Descrizione (facoltativo)",
+    "fieldAccent": "Colore d’accento (facoltativo)",
+    "acceptTerms": "Accetto i termini del franchising, inclusa la commissione mostrata sopra.",
+    "createCta": "Crea il mio franchising",
+    "createdOk": "Il tuo franchising è online!",
+    "savedOk": "Branding aggiornato",
+    "save": "Salva modifiche",
+    "brandingTitle": "Branding del negozio",
+    "previewTitle": "Anteprima",
+    "imagesTitle": "Logo e immagine di copertina",
+    "imagesHint": "PNG, JPG o WebP. Logo fino a 2 MB, copertina fino a 6 MB.",
+    "imagesAfterCreate": "Potrai caricare un logo e un’immagine di copertina dopo aver creato il tuo franchising.",
+    "logoLabel": "Logo",
+    "coverLabel": "Immagine di copertina",
+    "changeImage": "Cambia",
+    "removeImage": "Rimuovi",
+    "storefrontLabel": "Indirizzo del negozio",
+    "commissionLabel": "La tua commissione",
+    "payoutLabel": "Wallet di pagamento",
+    "statusActive": "Attivo",
+    "statusDisabled": "Disabilitato",
+    "disabledTitle": "Questo franchising è stato disabilitato",
+    "unavailableGeneric": "I franchising non sono disponibili in questo negozio al momento.",
+    "unavailableNotEnabled": "Questo marketplace non offre ancora franchising.",
+    "unavailablePaused": "Le nuove iscrizioni ai franchising sono sospese al momento. Riprova più tardi.",
+    "unavailableBanned": "Non puoi creare un franchising su questo marketplace.",
+    "errors": {
+      "franchises_not_enabled": "Questo marketplace non offre franchising.",
+      "franchises_paused": "Le nuove iscrizioni ai franchising sono sospese al momento.",
+      "user_banned": "Non puoi creare un franchising su questo marketplace.",
+      "slug_required": "Scegli un indirizzo per il negozio.",
+      "slug_format": "Usa da 3 a 30 lettere minuscole, numeri o trattini.",
+      "slug_taken": "Questo indirizzo del negozio è già in uso.",
+      "wallet_format": "Inserisci una chiave pubblica Stellar valida (che inizia con G).",
+      "accent_color_format": "Usa un colore esadecimale come #1E88E5.",
+      "image_type": "Usa un’immagine PNG, JPG o WebP.",
+      "image_size": "Questa immagine è troppo grande.",
+      "image_slot": "Slot immagine non valido.",
+      "image_key": "Impossibile allegare questa immagine. Riprova.",
+      "tenant_blocked": "Questo marketplace non è attivo.",
+      "not_found": "Franchising non trovato.",
+      "forbidden": "Accedi per continuare.",
+      "wallet_not_activated": "Questo wallet non è ancora attivo sulla rete Stellar. Invia almeno 1 XLM a questo indirizzo per attivarlo."
+    }
+  },
+  "Tip": {
+    "title": "Invia una mancia",
+    "heading": "Sostieni il creator",
+    "subtitle": "Mostra il tuo sostegno con una mancia una tantum in XLM.",
+    "chooseAmount": "Scegli un importo",
+    "other": "Altro",
+    "customAmount": "Importo in USD",
+    "amountHint": "Min 0,25 $ — Max 100 $",
+    "amountInvalid": "Inserisci un importo tra 0,25 $ e 100 $.",
+    "send": "Invia mancia",
+    "youPay": "Paghi",
+    "success": "Grazie per il tuo sostegno!",
+    "successSubtitle": "La tua mancia è stata inviata con successo.",
+    "unavailable": "Questo creator non ha ancora configurato le mance.",
+    "cannotTipOwn": "Non puoi lasciare una mancia ai tuoi contenuti.",
+    "done": "Fatto",
+    "processing": "Invio della mancia in corso…"
   }
 }

@@ -172,7 +172,9 @@
     "addedToFavorites": "เพิ่มในรายการโปรดแล้ว",
     "removedFromFavorites": "ลบออกจากรายการโปรดแล้ว",
     "linkCopied": "คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว",
-    "tooManyRequests": "มีคำขอมากเกินไป โปรดรอสักครู่แล้วลองอีกครั้ง"
+    "tooManyRequests": "มีคำขอมากเกินไป โปรดรอสักครู่แล้วลองอีกครั้ง",
+    "updateAvailable": "มีเวอร์ชันใหม่พร้อมใช้งาน",
+    "updateNow": "อัปเดต"
   },
   "Themes": {
     "title": "ตัวเลือกธีม",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "ไม่มีวันหมดอายุ",
     "badgeNone": "คุณยังไม่มีข้อมูลรับรองสีน้ำเงินที่เปิดใช้งาน",
     "badgeNoneHint": "เปิดใช้งานข้อมูลรับรองสีน้ำเงินของคุณเพื่อขอสร้างผู้เช่าและเข้าถึงเครื่องมือขั้นสูง",
-    "badgeGetAccess": "เปิดใช้งานข้อมูลรับรองสีน้ำเงิน"
+    "badgeGetAccess": "เปิดใช้งานข้อมูลรับรองสีน้ำเงิน",
+    "myFranchise": "แฟรนไชส์ของฉัน",
+    "myFranchiseHint": "เปิดและจัดการหน้าร้านของคุณเองภายในมาร์เก็ตเพลสนี้"
   },
   "AppBar": {
     "home": "หน้าหลัก",
@@ -611,7 +615,8 @@
     "walletReconnectRequired": "เซสชันวอลเล็ตของคุณหมดอายุหรือไม่พร้อมใช้งาน โปรดเชื่อมต่อวอลเล็ตของคุณใหม่แล้วลองอีกครั้ง",
     "franchiseSelfPurchase": "เจ้าของแฟรนไชส์ไม่สามารถซื้อผ่านแฟรนไชส์ของตนเองได้ กรุณาซื้อจากร้านค้าหลักแทน",
     "confirmingPayment": "กำลังยืนยันการชำระเงินของคุณบนเครือข่าย Stellar… โดยปกติใช้เวลาเพียงไม่กี่วินาที",
-    "paymentConfirmTimeout": "เรายังไม่สามารถยืนยันการชำระเงินของคุณได้ หากสำเร็จ เนื้อหาของคุณจะปลดล็อกโดยอัตโนมัติภายในไม่กี่นาที"
+    "paymentConfirmTimeout": "เรายังไม่สามารถยืนยันการชำระเงินของคุณได้ หากสำเร็จ เนื้อหาของคุณจะปลดล็อกโดยอัตโนมัติภายในไม่กี่นาที",
+    "contentWalletInactive": "ไม่สามารถซื้อเนื้อหานี้ได้ในขณะนี้: กระเป๋าเงินรับชำระอันหนึ่งไม่ได้เปิดใช้งานบนเครือข่าย Stellar อีกต่อไป โปรดลองอีกครั้งภายหลัง"
   },
   "Favorites": {
     "empty": "ยังไม่มีรายการโปรด",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "คุณถึงขีดจำกัดการรายงานรายวันแล้ว โปรดลองอีกครั้งในวันพรุ่งนี้"
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "การโหวตของคุณ",
+    "like": "ชอบ",
+    "dislike": "ไม่ชอบ",
+    "verifiedLikes": "{value} ถูกใจโดยผู้ซื้อที่ยืนยันแล้ว {count} ราย",
+    "barAria": "{percent} ของการโหวตเป็นการกดถูกใจ",
+    "loginRequired": "เข้าสู่ระบบเพื่อโหวตเนื้อหานี้"
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "แฟรนไชส์อย่างเป็นทางการของ {tenant}",
+    "poweredBy": "ขับเคลื่อนโดย EarnLumens",
+    "notFoundTitle": "ไม่พบแฟรนไชส์",
+    "notFoundBody": "หน้าร้านแฟรนไชส์นี้ไม่มีอยู่หรือไม่พร้อมใช้งานอีกต่อไป",
+    "backToStore": "กลับไปที่ร้านค้า",
+    "errorTitle": "ไม่สามารถโหลดแฟรนไชส์นี้ได้",
+    "retry": "ลองอีกครั้ง"
+  },
+  "MyFranchise": {
+    "title": "แฟรนไชส์ของฉัน",
+    "subtitle": "ดำเนินการหน้าร้านของคุณเองภายในมาร์เก็ตเพลสนี้",
+    "loginRequired": "เข้าสู่ระบบเพื่อสร้างหรือจัดการแฟรนไชส์ของคุณ",
+    "becomePartner": "เป็นพาร์ทเนอร์",
+    "becomePartnerBody": "เปิดหน้าร้านแฟรนไชส์ของคุณเองและขายต่อเนื้อหาที่ผ่านการอนุมัติของมาร์เก็ตเพลสนี้ภายใต้แบรนด์ของคุณเอง",
+    "commissionDisclosure": "คุณได้รับค่าคอมมิชชัน {percent} จากการขายแต่ละครั้ง ซึ่งหักจากส่วนแบ่งของมาร์เก็ตเพลส โดยราคาสำหรับผู้ซื้อไม่เคยเปลี่ยนแปลง อัตรานี้จะถูกล็อกเมื่อคุณสร้างแฟรนไชส์",
+    "fieldSlug": "ที่อยู่หน้าร้าน (slug)",
+    "fieldPayout": "กระเป๋าเงินรับชำระ (กุญแจสาธารณะ Stellar)",
+    "fieldTitle": "ชื่อที่แสดง (ไม่บังคับ)",
+    "fieldDescription": "คำอธิบาย (ไม่บังคับ)",
+    "fieldAccent": "สีเน้น (ไม่บังคับ)",
+    "acceptTerms": "ฉันยอมรับข้อกำหนดของแฟรนไชส์ รวมถึงค่าคอมมิชชันที่แสดงด้านบน",
+    "createCta": "สร้างแฟรนไชส์ของฉัน",
+    "createdOk": "แฟรนไชส์ของคุณเปิดใช้งานแล้ว!",
+    "savedOk": "อัปเดตแบรนด์แล้ว",
+    "save": "บันทึกการเปลี่ยนแปลง",
+    "brandingTitle": "แบรนด์ของหน้าร้าน",
+    "previewTitle": "ตัวอย่าง",
+    "imagesTitle": "โลโก้และภาพหน้าปก",
+    "imagesHint": "PNG, JPG หรือ WebP โลโก้สูงสุด 2 MB ปกสูงสุด 6 MB",
+    "imagesAfterCreate": "คุณจะสามารถอัปโหลดโลโก้และภาพหน้าปกได้หลังจากสร้างแฟรนไชส์",
+    "logoLabel": "โลโก้",
+    "coverLabel": "ภาพหน้าปก",
+    "changeImage": "เปลี่ยน",
+    "removeImage": "ลบ",
+    "storefrontLabel": "ที่อยู่หน้าร้าน",
+    "commissionLabel": "ค่าคอมมิชชันของคุณ",
+    "payoutLabel": "กระเป๋าเงินรับชำระ",
+    "statusActive": "ใช้งานอยู่",
+    "statusDisabled": "ปิดใช้งาน",
+    "disabledTitle": "แฟรนไชส์นี้ถูกปิดใช้งานแล้ว",
+    "unavailableGeneric": "ขณะนี้ไม่สามารถใช้แฟรนไชส์ในหน้าร้านนี้ได้",
+    "unavailableNotEnabled": "มาร์เก็ตเพลสนี้ยังไม่มีบริการแฟรนไชส์",
+    "unavailablePaused": "การสมัครแฟรนไชส์ใหม่ถูกหยุดชั่วคราวในขณะนี้ โปรดกลับมาตรวจสอบภายหลัง",
+    "unavailableBanned": "คุณไม่สามารถสร้างแฟรนไชส์ในมาร์เก็ตเพลสนี้ได้",
+    "errors": {
+      "franchises_not_enabled": "มาร์เก็ตเพลสนี้ไม่มีบริการแฟรนไชส์",
+      "franchises_paused": "การสมัครแฟรนไชส์ใหม่ถูกหยุดชั่วคราวในขณะนี้",
+      "user_banned": "คุณไม่สามารถสร้างแฟรนไชส์ในมาร์เก็ตเพลสนี้ได้",
+      "slug_required": "เลือกที่อยู่หน้าร้าน",
+      "slug_format": "ใช้ตัวพิมพ์เล็ก ตัวเลข หรือยัติภังค์ 3–30 ตัว",
+      "slug_taken": "ที่อยู่หน้าร้านนี้ถูกใช้ไปแล้ว",
+      "wallet_format": "ป้อนกุญแจสาธารณะ Stellar ที่ถูกต้อง (ขึ้นต้นด้วย G)",
+      "accent_color_format": "ใช้สีฐานสิบหก เช่น #1E88E5",
+      "image_type": "ใช้ภาพ PNG, JPG หรือ WebP",
+      "image_size": "ภาพนี้มีขนาดใหญ่เกินไป",
+      "image_slot": "ช่องภาพไม่ถูกต้อง",
+      "image_key": "ไม่สามารถแนบภาพนี้ได้ โปรดลองอีกครั้ง",
+      "tenant_blocked": "มาร์เก็ตเพลสนี้ไม่ได้เปิดใช้งาน",
+      "not_found": "ไม่พบแฟรนไชส์",
+      "forbidden": "โปรดเข้าสู่ระบบเพื่อดำเนินการต่อ",
+      "wallet_not_activated": "กระเป๋าเงินนี้ยังไม่เปิดใช้งานบนเครือข่าย Stellar ส่งอย่างน้อย 1 XLM ไปยังที่อยู่นี้เพื่อเปิดใช้งาน"
+    }
+  },
+  "Tip": {
+    "title": "ส่งทิป",
+    "heading": "สนับสนุนผู้สร้าง",
+    "subtitle": "แสดงการสนับสนุนด้วยทิปครั้งเดียวเป็น XLM",
+    "chooseAmount": "เลือกจำนวน",
+    "other": "อื่น ๆ",
+    "customAmount": "จำนวนเงินเป็น USD",
+    "amountHint": "ขั้นต่ำ $0.25 — สูงสุด $100",
+    "amountInvalid": "ป้อนจำนวนระหว่าง $0.25 ถึง $100",
+    "send": "ส่งทิป",
+    "youPay": "คุณจ่าย",
+    "success": "ขอบคุณสำหรับการสนับสนุน!",
+    "successSubtitle": "ส่งทิปของคุณสำเร็จแล้ว",
+    "unavailable": "ผู้สร้างรายนี้ยังไม่ได้ตั้งค่าทิป",
+    "cannotTipOwn": "คุณไม่สามารถให้ทิปเนื้อหาของตัวเองได้",
+    "done": "เสร็จสิ้น",
+    "processing": "กำลังส่งทิปของคุณ…"
   }
 }

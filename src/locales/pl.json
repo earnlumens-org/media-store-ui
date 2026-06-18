@@ -172,7 +172,9 @@
     "removedFromFavorites": "Usunięto z ulubionych",
     "linkCopied": "Link skopiowany do schowka",
     "tooManyRequests": "Zbyt wiele żądań. Poczekaj chwilę i spróbuj ponownie.",
-    "cancel": "Anuluj"
+    "cancel": "Anuluj",
+    "updateAvailable": "Dostępna jest nowa wersja.",
+    "updateNow": "Aktualizuj"
   },
   "Themes": {
     "title": "Wybór motywu",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "Bez wygaśnięcia",
     "badgeNone": "Nie masz jeszcze aktywnego niebieskiego poświadczenia",
     "badgeNoneHint": "Aktywuj swoje niebieskie poświadczenie, aby złożyć wniosek o utworzenie tenanta i uzyskać dostęp do zaawansowanych narzędzi.",
-    "badgeGetAccess": "Aktywuj niebieskie poświadczenie"
+    "badgeGetAccess": "Aktywuj niebieskie poświadczenie",
+    "myFranchise": "Moja franczyza",
+    "myFranchiseHint": "Otwórz i zarządzaj własnym sklepem w ramach tego marketplace’u"
   },
   "AppBar": {
     "home": "Strona główna",
@@ -600,7 +604,8 @@
     "walletReconnectRequired": "Sesja portfela wygasła lub jest niedostępna. Połącz portfel ponownie i spróbuj jeszcze raz.",
     "franchiseSelfPurchase": "Właściciele franczyzy nie mogą kupować za pośrednictwem własnej franczyzy. Dokonaj zakupu w sklepie głównym.",
     "confirmingPayment": "Potwierdzanie płatności w sieci Stellar… Zwykle zajmuje to kilka sekund.",
-    "paymentConfirmTimeout": "Nie udało się jeszcze potwierdzić Twojej płatności. Jeśli się powiodła, treść odblokuje się automatycznie w ciągu kilku minut."
+    "paymentConfirmTimeout": "Nie udało się jeszcze potwierdzić Twojej płatności. Jeśli się powiodła, treść odblokuje się automatycznie w ciągu kilku minut.",
+    "contentWalletInactive": "Tej treści nie można teraz kupić: jeden z portfeli wypłat nie jest już aktywny w sieci Stellar. Spróbuj ponownie później."
   },
   "Purchased": {
     "title": "Moje zakupy",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "Osiągnąłeś dzienny limit zgłoszeń. Spróbuj ponownie jutro."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "Twój głos",
+    "like": "Lubię",
+    "dislike": "Nie lubię",
+    "verifiedLikes": "{value} polubione przez {count} zweryfikowanych kupujących",
+    "barAria": "{percent} głosów jest pozytywnych",
+    "loginRequired": "Zaloguj się, aby zagłosować na tę treść."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "Oficjalna franczyza {tenant}",
+    "poweredBy": "obsługiwane przez EarnLumens",
+    "notFoundTitle": "Nie znaleziono franczyzy",
+    "notFoundBody": "Ten sklep franczyzowy nie istnieje lub nie jest już dostępny.",
+    "backToStore": "Powrót do sklepu",
+    "errorTitle": "Nie udało się załadować tej franczyzy",
+    "retry": "Spróbuj ponownie"
+  },
+  "MyFranchise": {
+    "title": "Moja franczyza",
+    "subtitle": "Prowadź własny sklep w ramach tego marketplace’u.",
+    "loginRequired": "Zaloguj się, aby utworzyć franczyzę lub nią zarządzać.",
+    "becomePartner": "Zostań partnerem",
+    "becomePartnerBody": "Otwórz własny sklep franczyzowy i odsprzedawaj zatwierdzone treści tego marketplace’u pod własną marką.",
+    "commissionDisclosure": "Zarabiasz prowizję {percent} od każdej sprzedaży, pobieraną z udziału marketplace’u — cena dla kupującego nigdy się nie zmienia. Stawka ta jest ustalana przy tworzeniu franczyzy.",
+    "fieldSlug": "Adres sklepu (slug)",
+    "fieldPayout": "Portfel wypłat (klucz publiczny Stellar)",
+    "fieldTitle": "Tytuł wyświetlany (opcjonalnie)",
+    "fieldDescription": "Opis (opcjonalnie)",
+    "fieldAccent": "Kolor akcentu (opcjonalnie)",
+    "acceptTerms": "Akceptuję warunki franczyzy, w tym prowizję pokazaną powyżej.",
+    "createCta": "Utwórz moją franczyzę",
+    "createdOk": "Twoja franczyza jest już aktywna!",
+    "savedOk": "Zaktualizowano markę",
+    "save": "Zapisz zmiany",
+    "brandingTitle": "Marka sklepu",
+    "previewTitle": "Podgląd",
+    "imagesTitle": "Logo i obraz okładki",
+    "imagesHint": "PNG, JPG lub WebP. Logo do 2 MB, okładka do 6 MB.",
+    "imagesAfterCreate": "Logo i obraz okładki będziesz mógł przesłać po utworzeniu franczyzy.",
+    "logoLabel": "Logo",
+    "coverLabel": "Obraz okładki",
+    "changeImage": "Zmień",
+    "removeImage": "Usuń",
+    "storefrontLabel": "Adres sklepu",
+    "commissionLabel": "Twoja prowizja",
+    "payoutLabel": "Portfel wypłat",
+    "statusActive": "Aktywna",
+    "statusDisabled": "Wyłączona",
+    "disabledTitle": "Ta franczyza została wyłączona",
+    "unavailableGeneric": "Franczyzy nie są obecnie dostępne w tym sklepie.",
+    "unavailableNotEnabled": "Ten marketplace nie oferuje jeszcze franczyz.",
+    "unavailablePaused": "Nowe zgłoszenia franczyzowe są obecnie wstrzymane. Sprawdź ponownie później.",
+    "unavailableBanned": "Nie możesz utworzyć franczyzy na tym marketplace.",
+    "errors": {
+      "franchises_not_enabled": "Ten marketplace nie oferuje franczyz.",
+      "franchises_paused": "Nowe zgłoszenia franczyzowe są obecnie wstrzymane.",
+      "user_banned": "Nie możesz utworzyć franczyzy na tym marketplace.",
+      "slug_required": "Wybierz adres sklepu.",
+      "slug_format": "Użyj 3–30 małych liter, cyfr lub myślników.",
+      "slug_taken": "Ten adres sklepu jest już zajęty.",
+      "wallet_format": "Wprowadź prawidłowy klucz publiczny Stellar (zaczyna się od G).",
+      "accent_color_format": "Użyj koloru szesnastkowego, np. #1E88E5.",
+      "image_type": "Użyj obrazu PNG, JPG lub WebP.",
+      "image_size": "Ten obraz jest zbyt duży.",
+      "image_slot": "Nieprawidłowy slot obrazu.",
+      "image_key": "Nie udało się dołączyć tego obrazu. Spróbuj ponownie.",
+      "tenant_blocked": "Ten marketplace nie jest aktywny.",
+      "not_found": "Nie znaleziono franczyzy.",
+      "forbidden": "Zaloguj się, aby kontynuować.",
+      "wallet_not_activated": "Ten portfel nie jest jeszcze aktywny w sieci Stellar. Wyślij co najmniej 1 XLM na ten adres, aby go aktywować."
+    }
+  },
+  "Tip": {
+    "title": "Wyślij napiwek",
+    "heading": "Wesprzyj twórcę",
+    "subtitle": "Okaż wsparcie jednorazowym napiwkiem w XLM.",
+    "chooseAmount": "Wybierz kwotę",
+    "other": "Inna",
+    "customAmount": "Kwota w USD",
+    "amountHint": "Min. 0,25 $ — Maks. 100 $",
+    "amountInvalid": "Wprowadź kwotę od 0,25 $ do 100 $.",
+    "send": "Wyślij napiwek",
+    "youPay": "Płacisz",
+    "success": "Dziękujemy za wsparcie!",
+    "successSubtitle": "Twój napiwek został wysłany pomyślnie.",
+    "unavailable": "Ten twórca nie skonfigurował jeszcze napiwków.",
+    "cannotTipOwn": "Nie możesz dać napiwku własnej treści.",
+    "done": "Gotowe",
+    "processing": "Wysyłanie napiwku…"
   }
 }

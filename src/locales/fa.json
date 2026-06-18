@@ -172,7 +172,9 @@
     "addedToFavorites": "به علاقه‌مندی‌ها اضافه شد",
     "removedFromFavorites": "از علاقه‌مندی‌ها حذف شد",
     "linkCopied": "پیوند در کلیپ‌بورد کپی شد",
-    "tooManyRequests": "درخواست‌های بیش از حد. لطفاً لحظه‌ای صبر کنید و دوباره امتحان کنید."
+    "tooManyRequests": "درخواست‌های بیش از حد. لطفاً لحظه‌ای صبر کنید و دوباره امتحان کنید.",
+    "updateAvailable": "نسخهٔ جدیدی در دسترس است.",
+    "updateNow": "به‌روزرسانی"
   },
   "Themes": {
     "title": "انتخابگر پوسته",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "بدون انقضا",
     "badgeNone": "شما هنوز اعتبارنامه آبی فعالی ندارید",
     "badgeNoneHint": "اعتبارنامه آبی خود را فعال کنید تا درخواست ایجاد مستأجر بدهید و به ابزارهای پیشرفته دسترسی پیدا کنید.",
-    "badgeGetAccess": "فعال‌سازی اعتبارنامه آبی"
+    "badgeGetAccess": "فعال‌سازی اعتبارنامه آبی",
+    "myFranchise": "نمایندگی من",
+    "myFranchiseHint": "فروشگاه خود را در این بازار باز کنید و مدیریت کنید"
   },
   "AppBar": {
     "home": "خانه",
@@ -611,7 +615,8 @@
     "walletReconnectRequired": "نشست کیف پول شما منقضی شده یا در دسترس نیست. لطفاً کیف پول خود را دوباره متصل کنید و دوباره تلاش کنید.",
     "franchiseSelfPurchase": "صاحبان فرنچایز نمی‌توانند از طریق فرنچایز خود خرید کنند. لطفاً از فروشگاه اصلی خرید کنید.",
     "confirmingPayment": "پرداخت شما در شبکه Stellar در حال تأیید است… این کار معمولاً چند ثانیه طول می‌کشد.",
-    "paymentConfirmTimeout": "هنوز نتوانستیم پرداخت شما را تأیید کنیم. اگر انجام شده باشد، محتوای شما طی چند دقیقه به‌طور خودکار باز می‌شود."
+    "paymentConfirmTimeout": "هنوز نتوانستیم پرداخت شما را تأیید کنیم. اگر انجام شده باشد، محتوای شما طی چند دقیقه به‌طور خودکار باز می‌شود.",
+    "contentWalletInactive": "این محتوا در حال حاضر قابل خرید نیست: یکی از کیف‌پول‌های پرداخت آن دیگر در شبکهٔ Stellar فعال نیست. لطفاً بعداً دوباره تلاش کنید."
   },
   "Favorites": {
     "empty": "هنوز علاقه‌مندی وجود ندارد",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "شما به محدودیت روزانه گزارش رسیده‌اید. لطفاً فردا دوباره امتحان کنید."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "رأی شما",
+    "like": "پسندیدن",
+    "dislike": "نپسندیدن",
+    "verifiedLikes": "{value} توسط {count} خریدار تأییدشده پسندیده شد",
+    "barAria": "{percent} از رأی‌ها پسند است",
+    "loginRequired": "برای رأی دادن به این محتوا وارد شوید."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "نمایندگی رسمی {tenant}",
+    "poweredBy": "قدرت‌گرفته از EarnLumens",
+    "notFoundTitle": "نمایندگی پیدا نشد",
+    "notFoundBody": "این فروشگاه نمایندگی وجود ندارد یا دیگر در دسترس نیست.",
+    "backToStore": "بازگشت به فروشگاه",
+    "errorTitle": "بارگذاری این نمایندگی ممکن نشد",
+    "retry": "تلاش دوباره"
+  },
+  "MyFranchise": {
+    "title": "نمایندگی من",
+    "subtitle": "فروشگاه خود را در این بازار اداره کنید.",
+    "loginRequired": "برای ایجاد یا مدیریت نمایندگی خود وارد شوید.",
+    "becomePartner": "شریک شوید",
+    "becomePartnerBody": "فروشگاه نمایندگی خود را باز کنید و محتوای تأییدشدهٔ این بازار را با برند خودتان بازفروشی کنید.",
+    "commissionDisclosure": "شما در هر فروش {percent} کمیسیون می‌گیرید که از سهم بازار کسر می‌شود — قیمت برای خریدار هرگز تغییر نمی‌کند. این نرخ هنگام ایجاد نمایندگی ثابت می‌شود.",
+    "fieldSlug": "نشانی فروشگاه (slug)",
+    "fieldPayout": "کیف‌پول پرداخت (کلید عمومی Stellar)",
+    "fieldTitle": "عنوان نمایشی (اختیاری)",
+    "fieldDescription": "توضیحات (اختیاری)",
+    "fieldAccent": "رنگ تأکیدی (اختیاری)",
+    "acceptTerms": "شرایط نمایندگی، از جمله کمیسیون نشان‌داده‌شده در بالا را می‌پذیرم.",
+    "createCta": "ایجاد نمایندگی من",
+    "createdOk": "نمایندگی شما فعال شد!",
+    "savedOk": "برندینگ به‌روزرسانی شد",
+    "save": "ذخیرهٔ تغییرات",
+    "brandingTitle": "برندینگ فروشگاه",
+    "previewTitle": "پیش‌نمایش",
+    "imagesTitle": "لوگو و تصویر جلد",
+    "imagesHint": "PNG، JPG یا WebP. لوگو تا ۲ مگابایت، جلد تا ۶ مگابایت.",
+    "imagesAfterCreate": "پس از ایجاد نمایندگی می‌توانید لوگو و تصویر جلد بارگذاری کنید.",
+    "logoLabel": "لوگو",
+    "coverLabel": "تصویر جلد",
+    "changeImage": "تغییر",
+    "removeImage": "حذف",
+    "storefrontLabel": "نشانی فروشگاه",
+    "commissionLabel": "کمیسیون شما",
+    "payoutLabel": "کیف‌پول پرداخت",
+    "statusActive": "فعال",
+    "statusDisabled": "غیرفعال",
+    "disabledTitle": "این نمایندگی غیرفعال شده است",
+    "unavailableGeneric": "نمایندگی‌ها در حال حاضر در این فروشگاه در دسترس نیستند.",
+    "unavailableNotEnabled": "این بازار هنوز نمایندگی ارائه نمی‌دهد.",
+    "unavailablePaused": "ثبت‌نام نمایندگی‌های جدید در حال حاضر متوقف شده است. لطفاً بعداً دوباره بررسی کنید.",
+    "unavailableBanned": "شما نمی‌توانید در این بازار نمایندگی ایجاد کنید.",
+    "errors": {
+      "franchises_not_enabled": "این بازار نمایندگی ارائه نمی‌دهد.",
+      "franchises_paused": "ثبت‌نام نمایندگی‌های جدید در حال حاضر متوقف شده است.",
+      "user_banned": "شما نمی‌توانید در این بازار نمایندگی ایجاد کنید.",
+      "slug_required": "یک نشانی فروشگاه انتخاب کنید.",
+      "slug_format": "از ۳ تا ۳۰ حرف کوچک، عدد یا خط تیره استفاده کنید.",
+      "slug_taken": "این نشانی فروشگاه قبلاً گرفته شده است.",
+      "wallet_format": "یک کلید عمومی Stellar معتبر وارد کنید (با G شروع می‌شود).",
+      "accent_color_format": "از رنگ هگزادسیمال مانند #1E88E5 استفاده کنید.",
+      "image_type": "از تصویر PNG، JPG یا WebP استفاده کنید.",
+      "image_size": "این تصویر بسیار بزرگ است.",
+      "image_slot": "جایگاه تصویر نامعتبر است.",
+      "image_key": "افزودن آن تصویر ممکن نشد. لطفاً دوباره تلاش کنید.",
+      "tenant_blocked": "این بازار فعال نیست.",
+      "not_found": "نمایندگی پیدا نشد.",
+      "forbidden": "برای ادامه لطفاً وارد شوید.",
+      "wallet_not_activated": "این کیف‌پول هنوز در شبکهٔ Stellar فعال نیست. برای فعال‌سازی، حداقل ۱ XLM به این نشانی ارسال کنید."
+    }
+  },
+  "Tip": {
+    "title": "ارسال انعام",
+    "heading": "از سازنده حمایت کنید",
+    "subtitle": "با یک انعام یک‌باره به XLM حمایت خود را نشان دهید.",
+    "chooseAmount": "یک مبلغ انتخاب کنید",
+    "other": "سایر",
+    "customAmount": "مبلغ به دلار",
+    "amountHint": "حداقل ۰٫۲۵ دلار — حداکثر ۱۰۰ دلار",
+    "amountInvalid": "مبلغی بین ۰٫۲۵ تا ۱۰۰ دلار وارد کنید.",
+    "send": "ارسال انعام",
+    "youPay": "شما می‌پردازید",
+    "success": "از حمایت شما سپاسگزاریم!",
+    "successSubtitle": "انعام شما با موفقیت ارسال شد.",
+    "unavailable": "این سازنده هنوز انعام را تنظیم نکرده است.",
+    "cannotTipOwn": "نمی‌توانید به محتوای خودتان انعام بدهید.",
+    "done": "انجام شد",
+    "processing": "در حال ارسال انعام شما…"
   }
 }

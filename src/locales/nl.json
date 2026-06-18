@@ -172,7 +172,9 @@
     "addedToFavorites": "Toegevoegd aan favorieten",
     "removedFromFavorites": "Verwijderd uit favorieten",
     "linkCopied": "Link gekopieerd naar klembord",
-    "tooManyRequests": "Te veel verzoeken. Wacht even en probeer het opnieuw."
+    "tooManyRequests": "Te veel verzoeken. Wacht even en probeer het opnieuw.",
+    "updateAvailable": "Er is een nieuwe versie beschikbaar.",
+    "updateNow": "Bijwerken"
   },
   "Themes": {
     "title": "Themakiezer",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "Geen vervaldatum",
     "badgeNone": "U heeft nog geen actieve blauwe identificatie",
     "badgeNoneHint": "Activeer uw blauwe credential om het aanmaken van tenants aan te vragen en toegang te krijgen tot geavanceerde tools.",
-    "badgeGetAccess": "Activeer blauwe identificatie"
+    "badgeGetAccess": "Activeer blauwe identificatie",
+    "myFranchise": "Mijn franchise",
+    "myFranchiseHint": "Open en beheer je eigen winkel binnen deze marktplaats"
   },
   "AppBar": {
     "home": "Thuis",
@@ -611,7 +615,8 @@
     "walletReconnectRequired": "Je walletsessie is verlopen of niet beschikbaar. Verbind je wallet opnieuw en probeer het nog eens.",
     "franchiseSelfPurchase": "Franchise-eigenaren kunnen niet via hun eigen franchise kopen. Koop in plaats daarvan via de hoofdwinkel.",
     "confirmingPayment": "Je betaling wordt bevestigd op het Stellar-netwerk… Dit duurt meestal maar een paar seconden.",
-    "paymentConfirmTimeout": "We konden je betaling nog niet bevestigen. Als deze is gelukt, wordt je content binnen enkele minuten automatisch ontgrendeld."
+    "paymentConfirmTimeout": "We konden je betaling nog niet bevestigen. Als deze is gelukt, wordt je content binnen enkele minuten automatisch ontgrendeld.",
+    "contentWalletInactive": "Deze content kan op dit moment niet worden gekocht: een van de uitbetalingswallets is niet meer actief op het Stellar-netwerk. Probeer het later opnieuw."
   },
   "Favorites": {
     "empty": "Nog geen favorieten",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "U heeft de dagelijkse rapportlimiet bereikt. Probeer het morgen opnieuw."
   },
   "rating": {
-    "yourRating": "Jouw beoordeling",
     "rateThis": "Beoordeel dit",
-    "starsValue": "{count}-ster | {count}-sterren",
     "basedOn": "{count}-beoordeling | {count}-beoordelingen",
-    "verifiedAverage": "{value} van {count} geverifieerd",
     "commentLabel": "Voeg een recensie toe (optioneel)",
     "commentPlaceholder": "Deel uw ervaring om anderen te helpen...",
     "remove": "Verwijderen",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Koop deze content om deze te beoordelen.",
     "dailyLimit": "U heeft de dagelijkse beoordelingslimiet bereikt. Probeer het morgen opnieuw.",
     "ownContent": "U kunt uw eigen content niet beoordelen.",
-    "error": "Er is iets misgegaan. Probeer het opnieuw."
+    "error": "Er is iets misgegaan. Probeer het opnieuw.",
+    "yourVote": "Jouw stem",
+    "like": "Leuk",
+    "dislike": "Niet leuk",
+    "verifiedLikes": "{value} leuk gevonden door {count} geverifieerde kopers",
+    "barAria": "{percent} van de stemmen is positief",
+    "loginRequired": "Log in om op deze content te stemmen."
   },
   "Search": {
     "placeholder": "Zoeken",
@@ -932,5 +940,87 @@
       "oldest": "Oudste",
       "views": "Meest bekeken"
     }
+  },
+  "Franchise": {
+    "officialOf": "Officiële franchise van {tenant}",
+    "poweredBy": "mogelijk gemaakt door EarnLumens",
+    "notFoundTitle": "Franchise niet gevonden",
+    "notFoundBody": "Deze franchisewinkel bestaat niet of is niet meer beschikbaar.",
+    "backToStore": "Terug naar de winkel",
+    "errorTitle": "Kan deze franchise niet laden",
+    "retry": "Opnieuw proberen"
+  },
+  "MyFranchise": {
+    "title": "Mijn franchise",
+    "subtitle": "Beheer je eigen winkel binnen deze marktplaats.",
+    "loginRequired": "Log in om je franchise te maken of te beheren.",
+    "becomePartner": "Partner worden",
+    "becomePartnerBody": "Open je eigen franchisewinkel en verkoop de goedgekeurde content van deze marktplaats door onder je eigen merk.",
+    "commissionDisclosure": "Je verdient een commissie van {percent} op elke verkoop, genomen uit het aandeel van de marktplaats — de prijs voor de koper verandert nooit. Dit tarief wordt vastgelegd wanneer je je franchise aanmaakt.",
+    "fieldSlug": "Winkeladres (slug)",
+    "fieldPayout": "Uitbetalingswallet (Stellar publieke sleutel)",
+    "fieldTitle": "Weergavetitel (optioneel)",
+    "fieldDescription": "Beschrijving (optioneel)",
+    "fieldAccent": "Accentkleur (optioneel)",
+    "acceptTerms": "Ik accepteer de franchisevoorwaarden, inclusief de hierboven getoonde commissie.",
+    "createCta": "Mijn franchise aanmaken",
+    "createdOk": "Je franchise is live!",
+    "savedOk": "Branding bijgewerkt",
+    "save": "Wijzigingen opslaan",
+    "brandingTitle": "Winkelbranding",
+    "previewTitle": "Voorbeeld",
+    "imagesTitle": "Logo & omslagafbeelding",
+    "imagesHint": "PNG, JPG of WebP. Logo tot 2 MB, omslag tot 6 MB.",
+    "imagesAfterCreate": "Je kunt een logo en omslagafbeelding uploaden nadat je je franchise hebt aangemaakt.",
+    "logoLabel": "Logo",
+    "coverLabel": "Omslagafbeelding",
+    "changeImage": "Wijzigen",
+    "removeImage": "Verwijderen",
+    "storefrontLabel": "Winkeladres",
+    "commissionLabel": "Jouw commissie",
+    "payoutLabel": "Uitbetalingswallet",
+    "statusActive": "Actief",
+    "statusDisabled": "Uitgeschakeld",
+    "disabledTitle": "Deze franchise is uitgeschakeld",
+    "unavailableGeneric": "Franchises zijn momenteel niet beschikbaar in deze winkel.",
+    "unavailableNotEnabled": "Deze marktplaats biedt nog geen franchises aan.",
+    "unavailablePaused": "Nieuwe franchise-aanmeldingen zijn momenteel gepauzeerd. Kom later terug.",
+    "unavailableBanned": "Je kunt geen franchise aanmaken op deze marktplaats.",
+    "errors": {
+      "franchises_not_enabled": "Deze marktplaats biedt geen franchises aan.",
+      "franchises_paused": "Nieuwe franchise-aanmeldingen zijn momenteel gepauzeerd.",
+      "user_banned": "Je kunt geen franchise aanmaken op deze marktplaats.",
+      "slug_required": "Kies een winkeladres.",
+      "slug_format": "Gebruik 3–30 kleine letters, cijfers of koppeltekens.",
+      "slug_taken": "Dat winkeladres is al in gebruik.",
+      "wallet_format": "Voer een geldige Stellar publieke sleutel in (begint met G).",
+      "accent_color_format": "Gebruik een hexkleur zoals #1E88E5.",
+      "image_type": "Gebruik een PNG-, JPG- of WebP-afbeelding.",
+      "image_size": "Die afbeelding is te groot.",
+      "image_slot": "Ongeldige afbeeldingsslot.",
+      "image_key": "Kan die afbeelding niet toevoegen. Probeer het opnieuw.",
+      "tenant_blocked": "Deze marktplaats is niet actief.",
+      "not_found": "Franchise niet gevonden.",
+      "forbidden": "Log in om door te gaan.",
+      "wallet_not_activated": "Deze wallet is nog niet actief op het Stellar-netwerk. Stuur minstens 1 XLM naar dit adres om hem te activeren."
+    }
+  },
+  "Tip": {
+    "title": "Fooi sturen",
+    "heading": "Steun de maker",
+    "subtitle": "Toon je steun met een eenmalige fooi in XLM.",
+    "chooseAmount": "Kies een bedrag",
+    "other": "Anders",
+    "customAmount": "Bedrag in USD",
+    "amountHint": "Min. $0,25 — Max. $100",
+    "amountInvalid": "Voer een bedrag in tussen $0,25 en $100.",
+    "send": "Fooi sturen",
+    "youPay": "Je betaalt",
+    "success": "Bedankt voor je steun!",
+    "successSubtitle": "Je fooi is succesvol verzonden.",
+    "unavailable": "Deze maker heeft nog geen fooien ingesteld.",
+    "cannotTipOwn": "Je kunt geen fooi geven aan je eigen content.",
+    "done": "Klaar",
+    "processing": "Je fooi wordt verzonden…"
   }
 }

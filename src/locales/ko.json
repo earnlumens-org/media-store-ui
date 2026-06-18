@@ -172,7 +172,9 @@
     "removedFromFavorites": "즐겨찾기에서 제거되었습니다",
     "linkCopied": "링크가 클립보드에 복사되었습니다",
     "tooManyRequests": "요청이 너무 많습니다. 잠시 후 다시 시도해 주세요.",
-    "cancel": "취소"
+    "cancel": "취소",
+    "updateAvailable": "새 버전을 사용할 수 있습니다.",
+    "updateNow": "업데이트"
   },
   "Themes": {
     "title": "테마 선택기",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "만료 없음",
     "badgeNone": "아직 활성화된 블루 자격증이 없습니다",
     "badgeNoneHint": "테넌트 생성을 요청하고 고급 도구에 액세스하려면 블루 자격증을 활성화하세요.",
-    "badgeGetAccess": "블루 자격증 활성화"
+    "badgeGetAccess": "블루 자격증 활성화",
+    "myFranchise": "내 프랜차이즈",
+    "myFranchiseHint": "이 마켓플레이스에서 나만의 스토어를 열고 관리하세요"
   },
   "AppBar": {
     "home": "홈",
@@ -600,7 +604,8 @@
     "walletReconnectRequired": "지갑 세션이 만료되었거나 사용할 수 없습니다. 지갑을 다시 연결한 후 다시 시도해 주세요.",
     "franchiseSelfPurchase": "프랜차이즈 소유자는 자신의 프랜차이즈를 통해 구매할 수 없습니다. 메인 스토어에서 구매해 주세요.",
     "confirmingPayment": "Stellar 네트워크에서 결제를 확인하고 있습니다… 보통 몇 초 정도 걸립니다.",
-    "paymentConfirmTimeout": "아직 결제를 확인하지 못했습니다. 결제가 완료되었다면 몇 분 안에 콘텐츠가 자동으로 잠금 해제됩니다."
+    "paymentConfirmTimeout": "아직 결제를 확인하지 못했습니다. 결제가 완료되었다면 몇 분 안에 콘텐츠가 자동으로 잠금 해제됩니다.",
+    "contentWalletInactive": "이 콘텐츠는 지금 구매할 수 없습니다. 정산 지갑 중 하나가 더 이상 Stellar 네트워크에서 활성 상태가 아닙니다. 나중에 다시 시도하세요."
   },
   "Purchased": {
     "title": "내 구매",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "일일 신고 한도에 도달했습니다. 내일 다시 시도해 주세요."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "내 평가",
+    "like": "좋아요",
+    "dislike": "싫어요",
+    "verifiedLikes": "{value} (인증된 구매자 {count}명이 좋아함)",
+    "barAria": "투표의 {percent}가 좋아요입니다",
+    "loginRequired": "이 콘텐츠에 투표하려면 로그인하세요."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "{tenant} 공식 프랜차이즈",
+    "poweredBy": "EarnLumens 제공",
+    "notFoundTitle": "프랜차이즈를 찾을 수 없습니다",
+    "notFoundBody": "이 프랜차이즈 스토어는 존재하지 않거나 더 이상 사용할 수 없습니다.",
+    "backToStore": "스토어로 돌아가기",
+    "errorTitle": "이 프랜차이즈를 불러올 수 없습니다",
+    "retry": "다시 시도"
+  },
+  "MyFranchise": {
+    "title": "내 프랜차이즈",
+    "subtitle": "이 마켓플레이스에서 나만의 스토어를 운영하세요.",
+    "loginRequired": "프랜차이즈를 생성하거나 관리하려면 로그인하세요.",
+    "becomePartner": "파트너 되기",
+    "becomePartnerBody": "나만의 프랜차이즈 스토어를 열고 이 마켓플레이스의 승인된 콘텐츠를 내 브랜드로 재판매하세요.",
+    "commissionDisclosure": "판매할 때마다 {percent}의 수수료를 받습니다. 이는 마켓플레이스의 몫에서 차감되며 구매자 가격은 변하지 않습니다. 이 비율은 프랜차이즈를 생성할 때 고정됩니다.",
+    "fieldSlug": "스토어 주소(슬러그)",
+    "fieldPayout": "정산 지갑(Stellar 공개 키)",
+    "fieldTitle": "표시 제목(선택 사항)",
+    "fieldDescription": "설명(선택 사항)",
+    "fieldAccent": "강조 색상(선택 사항)",
+    "acceptTerms": "위에 표시된 수수료를 포함한 프랜차이즈 약관에 동의합니다.",
+    "createCta": "내 프랜차이즈 만들기",
+    "createdOk": "프랜차이즈가 활성화되었습니다!",
+    "savedOk": "브랜딩이 업데이트되었습니다",
+    "save": "변경 사항 저장",
+    "brandingTitle": "스토어 브랜딩",
+    "previewTitle": "미리보기",
+    "imagesTitle": "로고 및 커버 이미지",
+    "imagesHint": "PNG, JPG 또는 WebP. 로고 최대 2MB, 커버 최대 6MB.",
+    "imagesAfterCreate": "프랜차이즈를 만든 후 로고와 커버 이미지를 업로드할 수 있습니다.",
+    "logoLabel": "로고",
+    "coverLabel": "커버 이미지",
+    "changeImage": "변경",
+    "removeImage": "제거",
+    "storefrontLabel": "스토어 주소",
+    "commissionLabel": "내 수수료",
+    "payoutLabel": "정산 지갑",
+    "statusActive": "활성",
+    "statusDisabled": "비활성화됨",
+    "disabledTitle": "이 프랜차이즈가 비활성화되었습니다",
+    "unavailableGeneric": "현재 이 스토어에서는 프랜차이즈를 사용할 수 없습니다.",
+    "unavailableNotEnabled": "이 마켓플레이스는 아직 프랜차이즈를 제공하지 않습니다.",
+    "unavailablePaused": "신규 프랜차이즈 가입이 현재 일시 중지되었습니다. 나중에 다시 확인하세요.",
+    "unavailableBanned": "이 마켓플레이스에서는 프랜차이즈를 만들 수 없습니다.",
+    "errors": {
+      "franchises_not_enabled": "이 마켓플레이스는 프랜차이즈를 제공하지 않습니다.",
+      "franchises_paused": "신규 프랜차이즈 가입이 현재 일시 중지되었습니다.",
+      "user_banned": "이 마켓플레이스에서는 프랜차이즈를 만들 수 없습니다.",
+      "slug_required": "스토어 주소를 선택하세요.",
+      "slug_format": "소문자, 숫자 또는 하이픈 3~30자를 사용하세요.",
+      "slug_taken": "해당 스토어 주소는 이미 사용 중입니다.",
+      "wallet_format": "유효한 Stellar 공개 키를 입력하세요(G로 시작).",
+      "accent_color_format": "#1E88E5 와 같은 16진수 색상을 사용하세요.",
+      "image_type": "PNG, JPG 또는 WebP 이미지를 사용하세요.",
+      "image_size": "이미지가 너무 큽니다.",
+      "image_slot": "잘못된 이미지 슬롯입니다.",
+      "image_key": "해당 이미지를 첨부할 수 없습니다. 다시 시도하세요.",
+      "tenant_blocked": "이 마켓플레이스는 활성 상태가 아닙니다.",
+      "not_found": "프랜차이즈를 찾을 수 없습니다.",
+      "forbidden": "계속하려면 로그인하세요.",
+      "wallet_not_activated": "이 지갑은 아직 Stellar 네트워크에서 활성화되지 않았습니다. 활성화하려면 이 주소로 최소 1 XLM을 보내세요."
+    }
+  },
+  "Tip": {
+    "title": "팁 보내기",
+    "heading": "크리에이터 후원",
+    "subtitle": "XLM 일회성 팁으로 후원을 표현하세요.",
+    "chooseAmount": "금액 선택",
+    "other": "기타",
+    "customAmount": "금액(USD)",
+    "amountHint": "최소 $0.25 — 최대 $100",
+    "amountInvalid": "$0.25에서 $100 사이의 금액을 입력하세요.",
+    "send": "팁 보내기",
+    "youPay": "결제 금액",
+    "success": "후원해 주셔서 감사합니다!",
+    "successSubtitle": "팁이 성공적으로 전송되었습니다.",
+    "unavailable": "이 크리에이터는 아직 팁을 설정하지 않았습니다.",
+    "cannotTipOwn": "자신의 콘텐츠에는 팁을 보낼 수 없습니다.",
+    "done": "완료",
+    "processing": "팁을 전송하는 중…"
   }
 }

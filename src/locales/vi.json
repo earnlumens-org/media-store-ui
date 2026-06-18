@@ -172,7 +172,9 @@
     "removedFromFavorites": "Đã xóa khỏi yêu thích",
     "linkCopied": "Đã sao chép liên kết vào bộ nhớ tạm",
     "tooManyRequests": "Quá nhiều yêu cầu. Vui lòng đợi một chút và thử lại.",
-    "cancel": "Hủy"
+    "cancel": "Hủy",
+    "updateAvailable": "Đã có phiên bản mới.",
+    "updateNow": "Cập nhật"
   },
   "Themes": {
     "title": "Bộ chọn chủ đề",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "Không hết hạn",
     "badgeNone": "Bạn chưa có chứng chỉ xanh đang hoạt động",
     "badgeNoneHint": "Kích hoạt chứng chỉ xanh của bạn để yêu cầu tạo người thuê và truy cập các công cụ nâng cao.",
-    "badgeGetAccess": "Kích hoạt chứng chỉ xanh"
+    "badgeGetAccess": "Kích hoạt chứng chỉ xanh",
+    "myFranchise": "Nhượng quyền của tôi",
+    "myFranchiseHint": "Mở và quản lý cửa hàng của riêng bạn trong sàn này"
   },
   "AppBar": {
     "home": "Trang chủ",
@@ -600,7 +604,8 @@
     "walletReconnectRequired": "Phiên ví của bạn đã hết hạn hoặc không khả dụng. Vui lòng kết nối lại ví và thử lại.",
     "franchiseSelfPurchase": "Chủ sở hữu nhượng quyền không thể mua qua nhượng quyền của chính mình. Vui lòng mua từ cửa hàng chính.",
     "confirmingPayment": "Đang xác nhận thanh toán của bạn trên mạng Stellar… Thường chỉ mất vài giây.",
-    "paymentConfirmTimeout": "Chúng tôi chưa thể xác nhận thanh toán của bạn. Nếu giao dịch thành công, nội dung sẽ tự động mở khóa trong vài phút."
+    "paymentConfirmTimeout": "Chúng tôi chưa thể xác nhận thanh toán của bạn. Nếu giao dịch thành công, nội dung sẽ tự động mở khóa trong vài phút.",
+    "contentWalletInactive": "Hiện không thể mua nội dung này: một trong các ví thanh toán không còn hoạt động trên mạng Stellar. Vui lòng thử lại sau."
   },
   "Purchased": {
     "title": "Mua hàng của tôi",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "Bạn đã đạt giới hạn báo cáo hàng ngày. Vui lòng thử lại vào ngày mai."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "Bình chọn của bạn",
+    "like": "Thích",
+    "dislike": "Không thích",
+    "verifiedLikes": "{value} được {count} người mua đã xác minh thích",
+    "barAria": "{percent} lượt bình chọn là thích",
+    "loginRequired": "Đăng nhập để bình chọn nội dung này."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "Cửa hàng nhượng quyền chính thức của {tenant}",
+    "poweredBy": "được cung cấp bởi EarnLumens",
+    "notFoundTitle": "Không tìm thấy cửa hàng nhượng quyền",
+    "notFoundBody": "Cửa hàng nhượng quyền này không tồn tại hoặc không còn khả dụng.",
+    "backToStore": "Quay lại cửa hàng",
+    "errorTitle": "Không thể tải cửa hàng nhượng quyền này",
+    "retry": "Thử lại"
+  },
+  "MyFranchise": {
+    "title": "Nhượng quyền của tôi",
+    "subtitle": "Vận hành cửa hàng của riêng bạn trong sàn này.",
+    "loginRequired": "Đăng nhập để tạo hoặc quản lý cửa hàng nhượng quyền của bạn.",
+    "becomePartner": "Trở thành đối tác",
+    "becomePartnerBody": "Mở cửa hàng nhượng quyền của riêng bạn và bán lại nội dung đã được duyệt của sàn này dưới thương hiệu của bạn.",
+    "commissionDisclosure": "Bạn nhận hoa hồng {percent} trên mỗi lượt bán, được trích từ phần của sàn — giá người mua trả không bao giờ thay đổi. Mức này được khóa khi bạn tạo cửa hàng nhượng quyền.",
+    "fieldSlug": "Địa chỉ cửa hàng (slug)",
+    "fieldPayout": "Ví thanh toán (khóa công khai Stellar)",
+    "fieldTitle": "Tiêu đề hiển thị (tùy chọn)",
+    "fieldDescription": "Mô tả (tùy chọn)",
+    "fieldAccent": "Màu nhấn (tùy chọn)",
+    "acceptTerms": "Tôi chấp nhận các điều khoản nhượng quyền, bao gồm mức hoa hồng hiển thị ở trên.",
+    "createCta": "Tạo cửa hàng nhượng quyền của tôi",
+    "createdOk": "Cửa hàng nhượng quyền của bạn đã hoạt động!",
+    "savedOk": "Đã cập nhật thương hiệu",
+    "save": "Lưu thay đổi",
+    "brandingTitle": "Thương hiệu cửa hàng",
+    "previewTitle": "Xem trước",
+    "imagesTitle": "Logo & ảnh bìa",
+    "imagesHint": "PNG, JPG hoặc WebP. Logo tối đa 2 MB, ảnh bìa tối đa 6 MB.",
+    "imagesAfterCreate": "Bạn có thể tải lên logo và ảnh bìa sau khi tạo cửa hàng nhượng quyền.",
+    "logoLabel": "Logo",
+    "coverLabel": "Ảnh bìa",
+    "changeImage": "Thay đổi",
+    "removeImage": "Xóa",
+    "storefrontLabel": "Địa chỉ cửa hàng",
+    "commissionLabel": "Hoa hồng của bạn",
+    "payoutLabel": "Ví thanh toán",
+    "statusActive": "Đang hoạt động",
+    "statusDisabled": "Đã tắt",
+    "disabledTitle": "Cửa hàng nhượng quyền này đã bị tắt",
+    "unavailableGeneric": "Hiện chưa có nhượng quyền tại cửa hàng này.",
+    "unavailableNotEnabled": "Sàn này chưa cung cấp nhượng quyền.",
+    "unavailablePaused": "Việc đăng ký nhượng quyền mới hiện đang tạm dừng. Vui lòng quay lại sau.",
+    "unavailableBanned": "Bạn không thể tạo cửa hàng nhượng quyền trên sàn này.",
+    "errors": {
+      "franchises_not_enabled": "Sàn này không cung cấp nhượng quyền.",
+      "franchises_paused": "Việc đăng ký nhượng quyền mới hiện đang tạm dừng.",
+      "user_banned": "Bạn không thể tạo cửa hàng nhượng quyền trên sàn này.",
+      "slug_required": "Chọn một địa chỉ cửa hàng.",
+      "slug_format": "Dùng 3–30 chữ thường, số hoặc dấu gạch nối.",
+      "slug_taken": "Địa chỉ cửa hàng đó đã có người dùng.",
+      "wallet_format": "Nhập khóa công khai Stellar hợp lệ (bắt đầu bằng G).",
+      "accent_color_format": "Dùng mã màu hex như #1E88E5.",
+      "image_type": "Dùng ảnh PNG, JPG hoặc WebP.",
+      "image_size": "Ảnh đó quá lớn.",
+      "image_slot": "Vị trí ảnh không hợp lệ.",
+      "image_key": "Không thể đính kèm ảnh đó. Vui lòng thử lại.",
+      "tenant_blocked": "Sàn này không hoạt động.",
+      "not_found": "Không tìm thấy cửa hàng nhượng quyền.",
+      "forbidden": "Vui lòng đăng nhập để tiếp tục.",
+      "wallet_not_activated": "Ví này chưa hoạt động trên mạng Stellar. Gửi ít nhất 1 XLM đến địa chỉ này để kích hoạt."
+    }
+  },
+  "Tip": {
+    "title": "Gửi tiền boa",
+    "heading": "Ủng hộ nhà sáng tạo",
+    "subtitle": "Thể hiện sự ủng hộ bằng một khoản boa một lần bằng XLM.",
+    "chooseAmount": "Chọn số tiền",
+    "other": "Khác",
+    "customAmount": "Số tiền bằng USD",
+    "amountHint": "Tối thiểu $0,25 — Tối đa $100",
+    "amountInvalid": "Nhập số tiền từ $0,25 đến $100.",
+    "send": "Gửi boa",
+    "youPay": "Bạn trả",
+    "success": "Cảm ơn sự ủng hộ của bạn!",
+    "successSubtitle": "Khoản boa của bạn đã được gửi thành công.",
+    "unavailable": "Nhà sáng tạo này chưa thiết lập tiền boa.",
+    "cannotTipOwn": "Bạn không thể boa cho nội dung của chính mình.",
+    "done": "Xong",
+    "processing": "Đang gửi tiền boa của bạn…"
   }
 }

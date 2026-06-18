@@ -172,7 +172,9 @@
     "removedFromFavorites": "Видалено з обраного",
     "linkCopied": "Посилання скопійовано до буфера обміну",
     "tooManyRequests": "Забагато запитів. Зачекайте хвилинку і спробуйте знову.",
-    "cancel": "Скасувати"
+    "cancel": "Скасувати",
+    "updateAvailable": "Доступна нова версія.",
+    "updateNow": "Оновити"
   },
   "Themes": {
     "title": "Вибір теми",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "Без терміну дії",
     "badgeNone": "У вас ще немає активного синього посвідчення",
     "badgeNoneHint": "Активуйте синє посвідчення, щоб запросити створення орендаря та отримати доступ до розширених інструментів.",
-    "badgeGetAccess": "Активувати синє посвідчення"
+    "badgeGetAccess": "Активувати синє посвідчення",
+    "myFranchise": "Моя франшиза",
+    "myFranchiseHint": "Відкрийте власний магазин у межах цього маркетплейсу та керуйте ним"
   },
   "AppBar": {
     "home": "Домашня",
@@ -600,7 +604,8 @@
     "walletReconnectRequired": "Сесія вашого гаманця закінчилася або недоступна. Підключіть гаманець знову та спробуйте ще раз.",
     "franchiseSelfPurchase": "Власники франшизи не можуть купувати через власну франшизу. Будь ласка, зробіть покупку в основному магазині.",
     "confirmingPayment": "Підтверджуємо ваш платіж у мережі Stellar… Зазвичай це займає кілька секунд.",
-    "paymentConfirmTimeout": "Ми поки не змогли підтвердити ваш платіж. Якщо він пройшов, контент розблокується автоматично протягом кількох хвилин."
+    "paymentConfirmTimeout": "Ми поки не змогли підтвердити ваш платіж. Якщо він пройшов, контент розблокується автоматично протягом кількох хвилин.",
+    "contentWalletInactive": "Цей контент наразі неможливо придбати: один із гаманців для виплат більше не активний у мережі Stellar. Спробуйте пізніше."
   },
   "Purchased": {
     "title": "Мої покупки",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "Ви досягли денного ліміту скарг. Спробуйте знову завтра."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "Ваш голос",
+    "like": "Подобається",
+    "dislike": "Не подобається",
+    "verifiedLikes": "{value} вподобали {count} перевірених покупців",
+    "barAria": "{percent} голосів — позитивні",
+    "loginRequired": "Увійдіть, щоб проголосувати за цей контент."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "Офіційна франшиза {tenant}",
+    "poweredBy": "працює на EarnLumens",
+    "notFoundTitle": "Франшизу не знайдено",
+    "notFoundBody": "Цей магазин-франшиза не існує або більше недоступний.",
+    "backToStore": "Повернутися до магазину",
+    "errorTitle": "Не вдалося завантажити цю франшизу",
+    "retry": "Повторити"
+  },
+  "MyFranchise": {
+    "title": "Моя франшиза",
+    "subtitle": "Керуйте власним магазином у межах цього маркетплейсу.",
+    "loginRequired": "Увійдіть, щоб створити франшизу або керувати нею.",
+    "becomePartner": "Стати партнером",
+    "becomePartnerBody": "Відкрийте власний магазин-франшизу та перепродавайте схвалений контент цього маркетплейсу під власним брендом.",
+    "commissionDisclosure": "Ви отримуєте комісію {percent} з кожного продажу, що утримується з частки маркетплейсу — ціна для покупця ніколи не змінюється. Цю ставку фіксують під час створення франшизи.",
+    "fieldSlug": "Адреса магазину (slug)",
+    "fieldPayout": "Гаманець для виплат (публічний ключ Stellar)",
+    "fieldTitle": "Назва для показу (необов’язково)",
+    "fieldDescription": "Опис (необов’язково)",
+    "fieldAccent": "Акцентний колір (необов’язково)",
+    "acceptTerms": "Я приймаю умови франшизи, зокрема комісію, показану вище.",
+    "createCta": "Створити мою франшизу",
+    "createdOk": "Ваша франшиза запущена!",
+    "savedOk": "Брендинг оновлено",
+    "save": "Зберегти зміни",
+    "brandingTitle": "Брендинг магазину",
+    "previewTitle": "Попередній перегляд",
+    "imagesTitle": "Логотип та обкладинка",
+    "imagesHint": "PNG, JPG або WebP. Логотип до 2 МБ, обкладинка до 6 МБ.",
+    "imagesAfterCreate": "Ви зможете завантажити логотип та обкладинку після створення франшизи.",
+    "logoLabel": "Логотип",
+    "coverLabel": "Обкладинка",
+    "changeImage": "Змінити",
+    "removeImage": "Видалити",
+    "storefrontLabel": "Адреса магазину",
+    "commissionLabel": "Ваша комісія",
+    "payoutLabel": "Гаманець для виплат",
+    "statusActive": "Активна",
+    "statusDisabled": "Вимкнена",
+    "disabledTitle": "Цю франшизу вимкнено",
+    "unavailableGeneric": "Франшизи наразі недоступні в цьому магазині.",
+    "unavailableNotEnabled": "Цей маркетплейс поки що не пропонує франшизи.",
+    "unavailablePaused": "Реєстрацію нових франшиз наразі призупинено. Завітайте пізніше.",
+    "unavailableBanned": "Ви не можете створити франшизу на цьому маркетплейсі.",
+    "errors": {
+      "franchises_not_enabled": "Цей маркетплейс не пропонує франшизи.",
+      "franchises_paused": "Реєстрацію нових франшиз наразі призупинено.",
+      "user_banned": "Ви не можете створити франшизу на цьому маркетплейсі.",
+      "slug_required": "Виберіть адресу магазину.",
+      "slug_format": "Використовуйте 3–30 малих літер, цифр або дефісів.",
+      "slug_taken": "Цю адресу магазину вже зайнято.",
+      "wallet_format": "Введіть дійсний публічний ключ Stellar (починається з G).",
+      "accent_color_format": "Використовуйте шістнадцятковий колір, як-от #1E88E5.",
+      "image_type": "Використовуйте зображення PNG, JPG або WebP.",
+      "image_size": "Це зображення завелике.",
+      "image_slot": "Недійсний слот зображення.",
+      "image_key": "Не вдалося прикріпити це зображення. Спробуйте ще раз.",
+      "tenant_blocked": "Цей маркетплейс не активний.",
+      "not_found": "Франшизу не знайдено.",
+      "forbidden": "Увійдіть, щоб продовжити.",
+      "wallet_not_activated": "Цей гаманець ще не активний у мережі Stellar. Надішліть щонайменше 1 XLM на цю адресу, щоб активувати його."
+    }
+  },
+  "Tip": {
+    "title": "Надіслати чайові",
+    "heading": "Підтримайте автора",
+    "subtitle": "Підтримайте автора разовими чайовими в XLM.",
+    "chooseAmount": "Виберіть суму",
+    "other": "Інша",
+    "customAmount": "Сума в USD",
+    "amountHint": "Мін. $0,25 — Макс. $100",
+    "amountInvalid": "Введіть суму від $0,25 до $100.",
+    "send": "Надіслати чайові",
+    "youPay": "Ви платите",
+    "success": "Дякуємо за підтримку!",
+    "successSubtitle": "Ваші чайові успішно надіслано.",
+    "unavailable": "Цей автор ще не налаштував чайові.",
+    "cannotTipOwn": "Ви не можете залишити чайові власному контенту.",
+    "done": "Готово",
+    "processing": "Надсилання чайових…"
   }
 }

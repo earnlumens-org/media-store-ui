@@ -172,7 +172,9 @@
     "removedFromFavorites": "تمت الإزالة من المفضلة",
     "linkCopied": "تم نسخ الرابط إلى الحافظة",
     "tooManyRequests": "طلبات كثيرة جدًا. يرجى الانتظار لحظة والمحاولة مرة أخرى.",
-    "cancel": "إلغاء"
+    "cancel": "إلغاء",
+    "updateAvailable": "يتوفّر إصدار جديد.",
+    "updateNow": "تحديث"
   },
   "Themes": {
     "title": "محدد السمات",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "بدون انتهاء",
     "badgeNone": "ليس لديك وثيقة زرقاء نشطة بعد",
     "badgeNoneHint": "فعّل وثيقتك الزرقاء لطلب إنشاء مستأجرك والوصول إلى الأدوات المتقدمة.",
-    "badgeGetAccess": "تفعيل الوثيقة الزرقاء"
+    "badgeGetAccess": "تفعيل الوثيقة الزرقاء",
+    "myFranchise": "امتيازي",
+    "myFranchiseHint": "افتح متجرك الخاص ضمن هذه السوق وأدِره"
   },
   "AppBar": {
     "home": "الصفحة الرئيسية",
@@ -600,7 +604,8 @@
     "walletReconnectRequired": "انتهت صلاحية جلسة محفظتك أو أنها غير متاحة. يرجى إعادة ربط محفظتك والمحاولة مرة أخرى.",
     "franchiseSelfPurchase": "لا يمكن لأصحاب الامتياز الشراء عبر امتيازهم الخاص. يُرجى الشراء من المتجر الرئيسي.",
     "confirmingPayment": "يتم تأكيد دفعتك على شبكة Stellar… يستغرق هذا عادةً بضع ثوانٍ.",
-    "paymentConfirmTimeout": "لم نتمكن من تأكيد دفعتك بعد. إذا تمت بنجاح، فسيتم فتح المحتوى تلقائيًا خلال بضع دقائق."
+    "paymentConfirmTimeout": "لم نتمكن من تأكيد دفعتك بعد. إذا تمت بنجاح، فسيتم فتح المحتوى تلقائيًا خلال بضع دقائق.",
+    "contentWalletInactive": "لا يمكن شراء هذا المحتوى الآن: إحدى محافظ الدفع الخاصة به لم تعد نشطة على شبكة Stellar. يُرجى المحاولة لاحقًا."
   },
   "Purchased": {
     "title": "مشترياتي",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "لقد وصلت إلى الحد اليومي للبلاغات. يرجى المحاولة مجدداً غداً."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "تصويتك",
+    "like": "إعجاب",
+    "dislike": "عدم إعجاب",
+    "verifiedLikes": "{value} أعجب به {count} من المشترين الموثّقين",
+    "barAria": "{percent} من الأصوات إعجابات",
+    "loginRequired": "سجّل الدخول للتصويت على هذا المحتوى."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "الامتياز الرسمي لـ {tenant}",
+    "poweredBy": "مدعوم من EarnLumens",
+    "notFoundTitle": "لم يتم العثور على الامتياز",
+    "notFoundBody": "متجر الامتياز هذا غير موجود أو لم يعد متاحًا.",
+    "backToStore": "العودة إلى المتجر",
+    "errorTitle": "تعذّر تحميل هذا الامتياز",
+    "retry": "إعادة المحاولة"
+  },
+  "MyFranchise": {
+    "title": "امتيازي",
+    "subtitle": "أدِر متجرك الخاص ضمن هذه السوق.",
+    "loginRequired": "سجّل الدخول لإنشاء امتيازك أو إدارته.",
+    "becomePartner": "كن شريكًا",
+    "becomePartnerBody": "افتح متجر امتياز خاصًا بك وأعد بيع المحتوى المعتمد في هذه السوق تحت علامتك التجارية الخاصة.",
+    "commissionDisclosure": "تكسب عمولة قدرها {percent} على كل عملية بيع، تُؤخذ من حصة السوق — ولا يتغير السعر بالنسبة للمشتري أبدًا. يتم تثبيت هذه النسبة عند إنشاء امتيازك.",
+    "fieldSlug": "عنوان المتجر (slug)",
+    "fieldPayout": "محفظة الدفع (مفتاح Stellar العام)",
+    "fieldTitle": "العنوان المعروض (اختياري)",
+    "fieldDescription": "الوصف (اختياري)",
+    "fieldAccent": "لون التمييز (اختياري)",
+    "acceptTerms": "أوافق على شروط الامتياز، بما في ذلك العمولة الموضّحة أعلاه.",
+    "createCta": "إنشاء امتيازي",
+    "createdOk": "امتيازك الآن نشط!",
+    "savedOk": "تم تحديث العلامة التجارية",
+    "save": "حفظ التغييرات",
+    "brandingTitle": "العلامة التجارية للمتجر",
+    "previewTitle": "معاينة",
+    "imagesTitle": "الشعار وصورة الغلاف",
+    "imagesHint": "PNG أو JPG أو WebP. الشعار حتى 2 ميغابايت، الغلاف حتى 6 ميغابايت.",
+    "imagesAfterCreate": "ستتمكّن من رفع شعار وصورة غلاف بعد إنشاء امتيازك.",
+    "logoLabel": "الشعار",
+    "coverLabel": "صورة الغلاف",
+    "changeImage": "تغيير",
+    "removeImage": "إزالة",
+    "storefrontLabel": "عنوان المتجر",
+    "commissionLabel": "عمولتك",
+    "payoutLabel": "محفظة الدفع",
+    "statusActive": "نشط",
+    "statusDisabled": "معطّل",
+    "disabledTitle": "تم تعطيل هذا الامتياز",
+    "unavailableGeneric": "الامتيازات غير متاحة في هذا المتجر حاليًا.",
+    "unavailableNotEnabled": "لا تقدّم هذه السوق امتيازات بعد.",
+    "unavailablePaused": "تم إيقاف تسجيل الامتيازات الجديدة مؤقتًا حاليًا. يُرجى التحقق لاحقًا.",
+    "unavailableBanned": "لا يمكنك إنشاء امتياز في هذه السوق.",
+    "errors": {
+      "franchises_not_enabled": "لا تقدّم هذه السوق امتيازات.",
+      "franchises_paused": "تم إيقاف تسجيل الامتيازات الجديدة مؤقتًا حاليًا.",
+      "user_banned": "لا يمكنك إنشاء امتياز في هذه السوق.",
+      "slug_required": "اختر عنوانًا للمتجر.",
+      "slug_format": "استخدم من 3 إلى 30 حرفًا صغيرًا أو أرقامًا أو شرطات.",
+      "slug_taken": "عنوان المتجر هذا مستخدم بالفعل.",
+      "wallet_format": "أدخل مفتاح Stellar عامًا صالحًا (يبدأ بحرف G).",
+      "accent_color_format": "استخدم لونًا ست عشري مثل #1E88E5.",
+      "image_type": "استخدم صورة PNG أو JPG أو WebP.",
+      "image_size": "هذه الصورة كبيرة جدًا.",
+      "image_slot": "خانة صورة غير صالحة.",
+      "image_key": "تعذّر إرفاق تلك الصورة. يُرجى المحاولة مرة أخرى.",
+      "tenant_blocked": "هذه السوق غير نشطة.",
+      "not_found": "لم يتم العثور على الامتياز.",
+      "forbidden": "يُرجى تسجيل الدخول للمتابعة.",
+      "wallet_not_activated": "هذه المحفظة غير نشطة بعد على شبكة Stellar. أرسل ما لا يقل عن 1 XLM إلى هذا العنوان لتفعيلها."
+    }
+  },
+  "Tip": {
+    "title": "إرسال إكرامية",
+    "heading": "ادعم المُنشئ",
+    "subtitle": "أظهر دعمك بإكرامية لمرة واحدة بعملة XLM.",
+    "chooseAmount": "اختر مبلغًا",
+    "other": "آخر",
+    "customAmount": "المبلغ بالدولار الأمريكي",
+    "amountHint": "الحد الأدنى 0.25 دولار — الحد الأقصى 100 دولار",
+    "amountInvalid": "أدخل مبلغًا بين 0.25 دولار و100 دولار.",
+    "send": "إرسال الإكرامية",
+    "youPay": "تدفع",
+    "success": "شكرًا لدعمك!",
+    "successSubtitle": "تم إرسال إكراميتك بنجاح.",
+    "unavailable": "لم يقم هذا المُنشئ بإعداد الإكراميات بعد.",
+    "cannotTipOwn": "لا يمكنك إرسال إكرامية لمحتواك الخاص.",
+    "done": "تم",
+    "processing": "جارٍ إرسال إكراميتك…"
   }
 }

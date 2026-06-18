@@ -172,7 +172,9 @@
     "removedFromFavorites": "पसंदीदा से हटाया गया",
     "linkCopied": "लिंक क्लिपबोर्ड पर कॉपी किया गया",
     "tooManyRequests": "बहुत अधिक अनुरोध। कृपया कुछ देर प्रतीक्षा करें और पुनः प्रयास करें।",
-    "cancel": "रद्द करें"
+    "cancel": "रद्द करें",
+    "updateAvailable": "एक नया संस्करण उपलब्ध है।",
+    "updateNow": "अपडेट करें"
   },
   "Themes": {
     "title": "थीम चयनकर्ता",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "कोई समाप्ति नहीं",
     "badgeNone": "आपके पास अभी तक कोई सक्रिय नीला क्रेडेंशियल नहीं है",
     "badgeNoneHint": "अपना टेनेंट बनाने का अनुरोध करने और उन्नत टूल्स तक पहुंचने के लिए अपना नीला क्रेडेंशियल सक्रिय करें।",
-    "badgeGetAccess": "नीला क्रेडेंशियल सक्रिय करें"
+    "badgeGetAccess": "नीला क्रेडेंशियल सक्रिय करें",
+    "myFranchise": "मेरी फ़्रैंचाइज़ी",
+    "myFranchiseHint": "इस मार्केटप्लेस के तहत अपना स्टोर खोलें और प्रबंधित करें"
   },
   "AppBar": {
     "home": "होम",
@@ -600,7 +604,8 @@
     "walletReconnectRequired": "आपके वॉलेट का सत्र समाप्त हो गया है या उपलब्ध नहीं है। कृपया अपना वॉलेट फिर से कनेक्ट करें और पुनः प्रयास करें।",
     "franchiseSelfPurchase": "फ़्रैंचाइज़ी के मालिक अपनी ही फ़्रैंचाइज़ी से ख़रीदारी नहीं कर सकते। कृपया मुख्य स्टोर से ख़रीदें।",
     "confirmingPayment": "आपका भुगतान Stellar नेटवर्क पर पुष्टि किया जा रहा है… इसमें आमतौर पर कुछ सेकंड लगते हैं।",
-    "paymentConfirmTimeout": "हम अभी तक आपके भुगतान की पुष्टि नहीं कर सके। यदि यह सफल हुआ, तो आपका कंटेंट कुछ ही मिनटों में अपने आप अनलॉक हो जाएगा।"
+    "paymentConfirmTimeout": "हम अभी तक आपके भुगतान की पुष्टि नहीं कर सके। यदि यह सफल हुआ, तो आपका कंटेंट कुछ ही मिनटों में अपने आप अनलॉक हो जाएगा।",
+    "contentWalletInactive": "यह सामग्री अभी खरीदी नहीं जा सकती: इसके भुगतान वॉलेट में से एक अब Stellar नेटवर्क पर सक्रिय नहीं है। कृपया बाद में पुनः प्रयास करें।"
   },
   "Purchased": {
     "title": "मेरी खरीदारी",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "आप दैनिक रिपोर्ट सीमा तक पहुँच गए हैं। कृपया कल पुनः प्रयास करें।"
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "आपका वोट",
+    "like": "पसंद",
+    "dislike": "नापसंद",
+    "verifiedLikes": "{value} को {count} सत्यापित खरीदारों ने पसंद किया",
+    "barAria": "{percent} वोट पसंद हैं",
+    "loginRequired": "इस सामग्री पर वोट करने के लिए साइन इन करें।"
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "{tenant} की आधिकारिक फ़्रैंचाइज़ी",
+    "poweredBy": "EarnLumens द्वारा संचालित",
+    "notFoundTitle": "फ़्रैंचाइज़ी नहीं मिली",
+    "notFoundBody": "यह फ़्रैंचाइज़ी स्टोरफ़्रंट मौजूद नहीं है या अब उपलब्ध नहीं है।",
+    "backToStore": "स्टोर पर वापस जाएँ",
+    "errorTitle": "यह फ़्रैंचाइज़ी लोड नहीं हो सकी",
+    "retry": "पुनः प्रयास करें"
+  },
+  "MyFranchise": {
+    "title": "मेरी फ़्रैंचाइज़ी",
+    "subtitle": "इस मार्केटप्लेस के तहत अपना स्टोर चलाएँ।",
+    "loginRequired": "अपनी फ़्रैंचाइज़ी बनाने या प्रबंधित करने के लिए लॉग इन करें।",
+    "becomePartner": "पार्टनर बनें",
+    "becomePartnerBody": "अपना खुद का फ़्रैंचाइज़ी स्टोरफ़्रंट खोलें और इस मार्केटप्लेस की स्वीकृत सामग्री को अपने ब्रांड के तहत पुनः बेचें।",
+    "commissionDisclosure": "आप हर बिक्री पर {percent} कमीशन कमाते हैं, जो मार्केटप्लेस के हिस्से से लिया जाता है — खरीदार की कीमत कभी नहीं बदलती। यह दर आपकी फ़्रैंचाइज़ी बनाने पर तय हो जाती है।",
+    "fieldSlug": "स्टोर पता (slug)",
+    "fieldPayout": "भुगतान वॉलेट (Stellar सार्वजनिक कुंजी)",
+    "fieldTitle": "प्रदर्शित शीर्षक (वैकल्पिक)",
+    "fieldDescription": "विवरण (वैकल्पिक)",
+    "fieldAccent": "एक्सेंट रंग (वैकल्पिक)",
+    "acceptTerms": "मैं फ़्रैंचाइज़ी की शर्तें स्वीकार करता/करती हूँ, जिसमें ऊपर दिखाया गया कमीशन शामिल है।",
+    "createCta": "मेरी फ़्रैंचाइज़ी बनाएँ",
+    "createdOk": "आपकी फ़्रैंचाइज़ी सक्रिय हो गई!",
+    "savedOk": "ब्रांडिंग अपडेट हुई",
+    "save": "बदलाव सहेजें",
+    "brandingTitle": "स्टोर ब्रांडिंग",
+    "previewTitle": "पूर्वावलोकन",
+    "imagesTitle": "लोगो और कवर छवि",
+    "imagesHint": "PNG, JPG या WebP. लोगो 2 MB तक, कवर 6 MB तक।",
+    "imagesAfterCreate": "आप अपनी फ़्रैंचाइज़ी बनाने के बाद लोगो और कवर छवि अपलोड कर सकेंगे।",
+    "logoLabel": "लोगो",
+    "coverLabel": "कवर छवि",
+    "changeImage": "बदलें",
+    "removeImage": "हटाएँ",
+    "storefrontLabel": "स्टोर पता",
+    "commissionLabel": "आपका कमीशन",
+    "payoutLabel": "भुगतान वॉलेट",
+    "statusActive": "सक्रिय",
+    "statusDisabled": "अक्षम",
+    "disabledTitle": "यह फ़्रैंचाइज़ी अक्षम कर दी गई है",
+    "unavailableGeneric": "इस स्टोर पर फ़्रैंचाइज़ी अभी उपलब्ध नहीं हैं।",
+    "unavailableNotEnabled": "यह मार्केटप्लेस अभी फ़्रैंचाइज़ी प्रदान नहीं करता।",
+    "unavailablePaused": "नई फ़्रैंचाइज़ी पंजीकरण अभी रोक दिया गया है। कृपया बाद में फिर देखें।",
+    "unavailableBanned": "आप इस मार्केटप्लेस पर फ़्रैंचाइज़ी नहीं बना सकते।",
+    "errors": {
+      "franchises_not_enabled": "यह मार्केटप्लेस फ़्रैंचाइज़ी प्रदान नहीं करता।",
+      "franchises_paused": "नई फ़्रैंचाइज़ी पंजीकरण अभी रोक दिया गया है।",
+      "user_banned": "आप इस मार्केटप्लेस पर फ़्रैंचाइज़ी नहीं बना सकते।",
+      "slug_required": "एक स्टोर पता चुनें।",
+      "slug_format": "3–30 छोटे अक्षर, संख्याएँ या हाइफ़न उपयोग करें।",
+      "slug_taken": "वह स्टोर पता पहले से लिया जा चुका है।",
+      "wallet_format": "एक मान्य Stellar सार्वजनिक कुंजी दर्ज करें (G से शुरू होती है)।",
+      "accent_color_format": "#1E88E5 जैसा हेक्स रंग उपयोग करें।",
+      "image_type": "PNG, JPG या WebP छवि उपयोग करें।",
+      "image_size": "वह छवि बहुत बड़ी है।",
+      "image_slot": "अमान्य छवि स्लॉट।",
+      "image_key": "वह छवि संलग्न नहीं हो सकी। कृपया पुनः प्रयास करें।",
+      "tenant_blocked": "यह मार्केटप्लेस सक्रिय नहीं है।",
+      "not_found": "फ़्रैंचाइज़ी नहीं मिली।",
+      "forbidden": "जारी रखने के लिए कृपया लॉग इन करें।",
+      "wallet_not_activated": "यह वॉलेट अभी Stellar नेटवर्क पर सक्रिय नहीं है। इसे सक्रिय करने के लिए इस पते पर कम से कम 1 XLM भेजें।"
+    }
+  },
+  "Tip": {
+    "title": "टिप भेजें",
+    "heading": "क्रिएटर का समर्थन करें",
+    "subtitle": "XLM में एक बार की टिप से अपना समर्थन दिखाएँ।",
+    "chooseAmount": "एक राशि चुनें",
+    "other": "अन्य",
+    "customAmount": "USD में राशि",
+    "amountHint": "न्यूनतम $0.25 — अधिकतम $100",
+    "amountInvalid": "$0.25 और $100 के बीच राशि दर्ज करें।",
+    "send": "टिप भेजें",
+    "youPay": "आप भुगतान करते हैं",
+    "success": "आपके समर्थन के लिए धन्यवाद!",
+    "successSubtitle": "आपकी टिप सफलतापूर्वक भेज दी गई।",
+    "unavailable": "इस क्रिएटर ने अभी टिप सेट अप नहीं की हैं।",
+    "cannotTipOwn": "आप अपनी सामग्री को टिप नहीं दे सकते।",
+    "done": "पूर्ण",
+    "processing": "आपकी टिप भेजी जा रही है…"
   }
 }

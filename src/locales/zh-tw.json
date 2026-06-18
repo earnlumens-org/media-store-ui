@@ -172,7 +172,9 @@
     "removedFromFavorites": "已從收藏中移除",
     "linkCopied": "連結已複製到剪貼簿",
     "tooManyRequests": "請求過多。請稍候再試。",
-    "cancel": "取消"
+    "cancel": "取消",
+    "updateAvailable": "有新版本可用。",
+    "updateNow": "更新"
   },
   "Themes": {
     "title": "主題選擇器",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "無到期日",
     "badgeNone": "您還沒有活躍的藍色憑證",
     "badgeNoneHint": "啟用您的藍色憑證以申請創建租戶並訪問高級工具。",
-    "badgeGetAccess": "啟用藍色憑證"
+    "badgeGetAccess": "啟用藍色憑證",
+    "myFranchise": "我的加盟店",
+    "myFranchiseHint": "在此市集下開設並管理您自己的店鋪"
   },
   "AppBar": {
     "home": "主頁",
@@ -600,7 +604,8 @@
     "walletReconnectRequired": "您的錢包工作階段已過期或無法使用。請重新連接錢包後再試一次。",
     "franchiseSelfPurchase": "加盟店擁有者無法透過自己的加盟店購買。請改至主商店購買。",
     "confirmingPayment": "正在 Stellar 網路上確認您的付款… 通常只需幾秒鐘。",
-    "paymentConfirmTimeout": "我們尚未能確認您的付款。如果付款成功，您的內容將在幾分鐘內自動解鎖。"
+    "paymentConfirmTimeout": "我們尚未能確認您的付款。如果付款成功，您的內容將在幾分鐘內自動解鎖。",
+    "contentWalletInactive": "此內容目前無法購買：其中一個收款錢包已不再在 Stellar 網路上啟用。請稍後再試。"
   },
   "Purchased": {
     "title": "我的購買",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "您已達到每日檢舉上限，請明天再試。"
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "您的投票",
+    "like": "讚",
+    "dislike": "倒讚",
+    "verifiedLikes": "{value}，{count} 位已驗證買家按讚",
+    "barAria": "{percent} 的投票為按讚",
+    "loginRequired": "登入以對此內容投票。"
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "{tenant} 的官方加盟店",
+    "poweredBy": "由 EarnLumens 提供支援",
+    "notFoundTitle": "找不到加盟店",
+    "notFoundBody": "此加盟店鋪不存在或已不再提供。",
+    "backToStore": "返回商店",
+    "errorTitle": "無法載入此加盟店",
+    "retry": "重試"
+  },
+  "MyFranchise": {
+    "title": "我的加盟店",
+    "subtitle": "在此市集下經營您自己的店鋪。",
+    "loginRequired": "登入以建立或管理您的加盟店。",
+    "becomePartner": "成為合作夥伴",
+    "becomePartnerBody": "開設您自己的加盟店鋪，以自己的品牌轉售此市集已審核通過的內容。",
+    "commissionDisclosure": "每筆銷售您可獲得 {percent} 的佣金，從市集的分潤中扣除——買家價格永不改變。此費率在您建立加盟店時鎖定。",
+    "fieldSlug": "店鋪地址（slug）",
+    "fieldPayout": "收款錢包（Stellar 公鑰）",
+    "fieldTitle": "顯示標題（選填）",
+    "fieldDescription": "描述（選填）",
+    "fieldAccent": "強調色（選填）",
+    "acceptTerms": "我接受加盟條款，包括上方顯示的佣金。",
+    "createCta": "建立我的加盟店",
+    "createdOk": "您的加盟店已上線！",
+    "savedOk": "品牌設定已更新",
+    "save": "儲存變更",
+    "brandingTitle": "店鋪品牌",
+    "previewTitle": "預覽",
+    "imagesTitle": "標誌與封面圖片",
+    "imagesHint": "PNG、JPG 或 WebP。標誌最大 2 MB，封面最大 6 MB。",
+    "imagesAfterCreate": "建立加盟店後，您將能夠上傳標誌與封面圖片。",
+    "logoLabel": "標誌",
+    "coverLabel": "封面圖片",
+    "changeImage": "變更",
+    "removeImage": "移除",
+    "storefrontLabel": "店鋪地址",
+    "commissionLabel": "您的佣金",
+    "payoutLabel": "收款錢包",
+    "statusActive": "已啟用",
+    "statusDisabled": "已停用",
+    "disabledTitle": "此加盟店已被停用",
+    "unavailableGeneric": "此店鋪目前無法使用加盟功能。",
+    "unavailableNotEnabled": "此市集尚未提供加盟。",
+    "unavailablePaused": "新加盟註冊目前已暫停。請稍後再來查看。",
+    "unavailableBanned": "您無法在此市集建立加盟店。",
+    "errors": {
+      "franchises_not_enabled": "此市集不提供加盟。",
+      "franchises_paused": "新加盟註冊目前已暫停。",
+      "user_banned": "您無法在此市集建立加盟店。",
+      "slug_required": "請選擇店鋪地址。",
+      "slug_format": "使用 3–30 個小寫字母、數字或連字號。",
+      "slug_taken": "該店鋪地址已被使用。",
+      "wallet_format": "請輸入有效的 Stellar 公鑰（以 G 開頭）。",
+      "accent_color_format": "請使用類似 #1E88E5 的十六進位色彩。",
+      "image_type": "請使用 PNG、JPG 或 WebP 圖片。",
+      "image_size": "該圖片太大。",
+      "image_slot": "無效的圖片位置。",
+      "image_key": "無法附加該圖片。請重試。",
+      "tenant_blocked": "此市集未啟用。",
+      "not_found": "找不到加盟店。",
+      "forbidden": "請登入以繼續。",
+      "wallet_not_activated": "此錢包尚未在 Stellar 網路上啟用。請向此地址傳送至少 1 XLM 以啟用它。"
+    }
+  },
+  "Tip": {
+    "title": "傳送抖內",
+    "heading": "支持創作者",
+    "subtitle": "用一次性 XLM 抖內表達您的支持。",
+    "chooseAmount": "選擇金額",
+    "other": "其他",
+    "customAmount": "金額（USD）",
+    "amountHint": "最低 $0.25 — 最高 $100",
+    "amountInvalid": "請輸入 $0.25 到 $100 之間的金額。",
+    "send": "傳送抖內",
+    "youPay": "您支付",
+    "success": "感謝您的支持！",
+    "successSubtitle": "您的抖內已成功傳送。",
+    "unavailable": "該創作者尚未設定抖內。",
+    "cannotTipOwn": "您不能抖內自己的內容。",
+    "done": "完成",
+    "processing": "正在傳送您的抖內…"
   }
 }

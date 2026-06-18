@@ -172,7 +172,9 @@
     "addedToFavorites": "ਪਸੰਦੀਦਾ ਵਿੱਚ ਜੋੜਿਆ",
     "removedFromFavorites": "ਪਸੰਦੀਦਾ ਵਿੱਚੋਂ ਹਟਾਇਆ",
     "linkCopied": "ਲਿੰਕ ਕਲਿੱਪਬੋਰਡ 'ਤੇ ਕਾਪੀ ਕੀਤਾ ਗਿਆ",
-    "tooManyRequests": "ਬਹੁਤ ਜ਼ਿਆਦਾ ਬੇਨਤੀਆਂ। ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਪਲ ਉਡੀਕ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+    "tooManyRequests": "ਬਹੁਤ ਜ਼ਿਆਦਾ ਬੇਨਤੀਆਂ। ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਪਲ ਉਡੀਕ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+    "updateAvailable": "ਇੱਕ ਨਵਾਂ ਵਰਜਨ ਉਪਲਬਧ ਹੈ।",
+    "updateNow": "ਅੱਪਡੇਟ ਕਰੋ"
   },
   "Themes": {
     "title": "ਥੀਮ ਚੋਣਕਾਰ",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "ਕੋਈ ਮਿਆਦ ਖਤਮ ਨਹੀਂ",
     "badgeNone": "ਤੁਹਾਡੇ ਕੋਲ ਅਜੇ ਸਰਗਰਮ ਨੀਲਾ ਪ੍ਰਮਾਣ-ਪੱਤਰ ਨਹੀਂ ਹੈ",
     "badgeNoneHint": "ਟੈਨੈਂਟ ਬਣਾਉਣ ਦੀ ਬੇਨਤੀ ਕਰਨ ਅਤੇ ਉੱਨਤ ਟੂਲਾਂ ਤੱਕ ਪਹੁੰਚ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਆਪਣਾ ਨੀਲਾ ਪ੍ਰਮਾਣ-ਪੱਤਰ ਸਰਗਰਮ ਕਰੋ।",
-    "badgeGetAccess": "ਨੀਲਾ ਪ੍ਰਮਾਣ-ਪੱਤਰ ਸਰਗਰਮ ਕਰੋ"
+    "badgeGetAccess": "ਨੀਲਾ ਪ੍ਰਮਾਣ-ਪੱਤਰ ਸਰਗਰਮ ਕਰੋ",
+    "myFranchise": "ਮੇਰੀ ਫ੍ਰੈਂਚਾਇਜ਼ੀ",
+    "myFranchiseHint": "ਇਸ ਮਾਰਕੀਟਪਲੇਸ ਅਧੀਨ ਆਪਣਾ ਸਟੋਰ ਖੋਲ੍ਹੋ ਅਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰੋ"
   },
   "AppBar": {
     "home": "ਮੁੱਖ ਪੰਨਾ",
@@ -611,7 +615,8 @@
     "walletReconnectRequired": "ਤੁਹਾਡੇ ਵਾਲਿਟ ਦਾ ਸੈਸ਼ਨ ਖਤਮ ਹੋ ਗਿਆ ਹੈ ਜਾਂ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਵਾਲਿਟ ਦੁਬਾਰਾ ਕਨੈਕਟ ਕਰੋ ਅਤੇ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
     "franchiseSelfPurchase": "ਫਰੈਂਚਾਇਜ਼ੀ ਦੇ ਮਾਲਕ ਆਪਣੀ ਫਰੈਂਚਾਇਜ਼ੀ ਰਾਹੀਂ ਖਰੀਦਦਾਰੀ ਨਹੀਂ ਕਰ ਸਕਦੇ। ਕਿਰਪਾ ਕਰਕੇ ਮੁੱਖ ਸਟੋਰ ਤੋਂ ਖਰੀਦੋ।",
     "confirmingPayment": "ਤੁਹਾਡਾ ਭੁਗਤਾਨ Stellar ਨੈੱਟਵਰਕ 'ਤੇ ਪੁਸ਼ਟੀ ਹੋ ਰਿਹਾ ਹੈ… ਇਸ ਵਿੱਚ ਆਮ ਤੌਰ 'ਤੇ ਕੁਝ ਸਕਿੰਟ ਲੱਗਦੇ ਹਨ।",
-    "paymentConfirmTimeout": "ਅਸੀਂ ਅਜੇ ਤੱਕ ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰ ਸਕੇ। ਜੇ ਇਹ ਸਫਲ ਹੋਇਆ, ਤਾਂ ਤੁਹਾਡੀ ਸਮੱਗਰੀ ਕੁਝ ਮਿੰਟਾਂ ਵਿੱਚ ਆਪਣੇ ਆਪ ਅਨਲੌਕ ਹੋ ਜਾਵੇਗੀ।"
+    "paymentConfirmTimeout": "ਅਸੀਂ ਅਜੇ ਤੱਕ ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰ ਸਕੇ। ਜੇ ਇਹ ਸਫਲ ਹੋਇਆ, ਤਾਂ ਤੁਹਾਡੀ ਸਮੱਗਰੀ ਕੁਝ ਮਿੰਟਾਂ ਵਿੱਚ ਆਪਣੇ ਆਪ ਅਨਲੌਕ ਹੋ ਜਾਵੇਗੀ।",
+    "contentWalletInactive": "ਇਹ ਸਮੱਗਰੀ ਇਸ ਵੇਲੇ ਖਰੀਦੀ ਨਹੀਂ ਜਾ ਸਕਦੀ: ਇਸ ਦੇ ਪੇਆਉਟ ਵਾਲਿਟਾਂ ਵਿੱਚੋਂ ਇੱਕ ਹੁਣ Stellar ਨੈੱਟਵਰਕ 'ਤੇ ਸਰਗਰਮ ਨਹੀਂ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਬਾਅਦ ਵਿੱਚ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
   },
   "Favorites": {
     "empty": "ਅਜੇ ਕੋਈ ਪਸੰਦੀਦਾ ਨਹੀਂ",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "ਤੁਸੀਂ ਰੋਜ਼ਾਨਾ ਰਿਪੋਰਟ ਸੀਮਾ 'ਤੇ ਪਹੁੰਚ ਗਏ ਹੋ। ਕਿਰਪਾ ਕਰਕੇ ਕੱਲ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "ਤੁਹਾਡੀ ਵੋਟ",
+    "like": "ਪਸੰਦ",
+    "dislike": "ਨਾਪਸੰਦ",
+    "verifiedLikes": "{value} — {count} ਤਸਦੀਕਸ਼ੁਦਾ ਖਰੀਦਦਾਰਾਂ ਨੇ ਪਸੰਦ ਕੀਤਾ",
+    "barAria": "{percent} ਵੋਟਾਂ ਪਸੰਦ ਹਨ",
+    "loginRequired": "ਇਸ ਸਮੱਗਰੀ 'ਤੇ ਵੋਟ ਪਾਉਣ ਲਈ ਸਾਈਨ ਇਨ ਕਰੋ।"
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "{tenant} ਦੀ ਅਧਿਕਾਰਤ ਫ੍ਰੈਂਚਾਇਜ਼ੀ",
+    "poweredBy": "EarnLumens ਦੁਆਰਾ ਸੰਚਾਲਿਤ",
+    "notFoundTitle": "ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਨਹੀਂ ਮਿਲੀ",
+    "notFoundBody": "ਇਹ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਸਟੋਰਫ੍ਰੰਟ ਮੌਜੂਦ ਨਹੀਂ ਹੈ ਜਾਂ ਹੁਣ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।",
+    "backToStore": "ਸਟੋਰ 'ਤੇ ਵਾਪਸ ਜਾਓ",
+    "errorTitle": "ਇਹ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੀ",
+    "retry": "ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ"
+  },
+  "MyFranchise": {
+    "title": "ਮੇਰੀ ਫ੍ਰੈਂਚਾਇਜ਼ੀ",
+    "subtitle": "ਇਸ ਮਾਰਕੀਟਪਲੇਸ ਅਧੀਨ ਆਪਣਾ ਸਟੋਰ ਚਲਾਓ।",
+    "loginRequired": "ਆਪਣੀ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਬਣਾਉਣ ਜਾਂ ਪ੍ਰਬੰਧਿਤ ਕਰਨ ਲਈ ਲੌਗ ਇਨ ਕਰੋ।",
+    "becomePartner": "ਭਾਈਵਾਲ ਬਣੋ",
+    "becomePartnerBody": "ਆਪਣਾ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਸਟੋਰਫ੍ਰੰਟ ਖੋਲ੍ਹੋ ਅਤੇ ਇਸ ਮਾਰਕੀਟਪਲੇਸ ਦੀ ਮਨਜ਼ੂਰਸ਼ੁਦਾ ਸਮੱਗਰੀ ਨੂੰ ਆਪਣੇ ਬ੍ਰਾਂਡ ਅਧੀਨ ਮੁੜ ਵੇਚੋ।",
+    "commissionDisclosure": "ਤੁਸੀਂ ਹਰ ਵਿਕਰੀ 'ਤੇ {percent} ਕਮਿਸ਼ਨ ਕਮਾਉਂਦੇ ਹੋ, ਜੋ ਮਾਰਕੀਟਪਲੇਸ ਦੇ ਹਿੱਸੇ ਵਿੱਚੋਂ ਲਿਆ ਜਾਂਦਾ ਹੈ — ਖਰੀਦਦਾਰ ਦੀ ਕੀਮਤ ਕਦੇ ਨਹੀਂ ਬਦਲਦੀ। ਇਹ ਦਰ ਤੁਹਾਡੀ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਬਣਾਉਣ ਵੇਲੇ ਨਿਸ਼ਚਿਤ ਹੋ ਜਾਂਦੀ ਹੈ।",
+    "fieldSlug": "ਸਟੋਰ ਪਤਾ (slug)",
+    "fieldPayout": "ਪੇਆਉਟ ਵਾਲਿਟ (Stellar ਪਬਲਿਕ ਕੁੰਜੀ)",
+    "fieldTitle": "ਪ੍ਰਦਰਸ਼ਿਤ ਸਿਰਲੇਖ (ਵਿਕਲਪਿਕ)",
+    "fieldDescription": "ਵੇਰਵਾ (ਵਿਕਲਪਿਕ)",
+    "fieldAccent": "ਐਕਸੈਂਟ ਰੰਗ (ਵਿਕਲਪਿਕ)",
+    "acceptTerms": "ਮੈਂ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਦੀਆਂ ਸ਼ਰਤਾਂ ਸਵੀਕਾਰ ਕਰਦਾ/ਕਰਦੀ ਹਾਂ, ਉੱਪਰ ਦਿਖਾਏ ਕਮਿਸ਼ਨ ਸਮੇਤ।",
+    "createCta": "ਮੇਰੀ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਬਣਾਓ",
+    "createdOk": "ਤੁਹਾਡੀ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਹੁਣ ਸਰਗਰਮ ਹੈ!",
+    "savedOk": "ਬ੍ਰਾਂਡਿੰਗ ਅੱਪਡੇਟ ਹੋਈ",
+    "save": "ਬਦਲਾਅ ਸੁਰੱਖਿਅਤ ਕਰੋ",
+    "brandingTitle": "ਸਟੋਰ ਬ੍ਰਾਂਡਿੰਗ",
+    "previewTitle": "ਝਲਕ",
+    "imagesTitle": "ਲੋਗੋ ਅਤੇ ਕਵਰ ਚਿੱਤਰ",
+    "imagesHint": "PNG, JPG ਜਾਂ WebP. ਲੋਗੋ 2 MB ਤੱਕ, ਕਵਰ 6 MB ਤੱਕ।",
+    "imagesAfterCreate": "ਤੁਸੀਂ ਆਪਣੀ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਬਣਾਉਣ ਤੋਂ ਬਾਅਦ ਲੋਗੋ ਅਤੇ ਕਵਰ ਚਿੱਤਰ ਅੱਪਲੋਡ ਕਰ ਸਕੋਗੇ।",
+    "logoLabel": "ਲੋਗੋ",
+    "coverLabel": "ਕਵਰ ਚਿੱਤਰ",
+    "changeImage": "ਬਦਲੋ",
+    "removeImage": "ਹਟਾਓ",
+    "storefrontLabel": "ਸਟੋਰ ਪਤਾ",
+    "commissionLabel": "ਤੁਹਾਡਾ ਕਮਿਸ਼ਨ",
+    "payoutLabel": "ਪੇਆਉਟ ਵਾਲਿਟ",
+    "statusActive": "ਸਰਗਰਮ",
+    "statusDisabled": "ਅਯੋਗ",
+    "disabledTitle": "ਇਹ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਅਯੋਗ ਕਰ ਦਿੱਤੀ ਗਈ ਹੈ",
+    "unavailableGeneric": "ਇਸ ਸਟੋਰ 'ਤੇ ਫ੍ਰੈਂਚਾਇਜ਼ੀਆਂ ਇਸ ਵੇਲੇ ਉਪਲਬਧ ਨਹੀਂ ਹਨ।",
+    "unavailableNotEnabled": "ਇਹ ਮਾਰਕੀਟਪਲੇਸ ਅਜੇ ਫ੍ਰੈਂਚਾਇਜ਼ੀਆਂ ਪੇਸ਼ ਨਹੀਂ ਕਰਦਾ।",
+    "unavailablePaused": "ਨਵੀਆਂ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਰਜਿਸਟ੍ਰੇਸ਼ਨਾਂ ਇਸ ਵੇਲੇ ਰੋਕੀਆਂ ਗਈਆਂ ਹਨ। ਕਿਰਪਾ ਕਰਕੇ ਬਾਅਦ ਵਿੱਚ ਮੁੜ ਜਾਂਚੋ।",
+    "unavailableBanned": "ਤੁਸੀਂ ਇਸ ਮਾਰਕੀਟਪਲੇਸ 'ਤੇ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਨਹੀਂ ਬਣਾ ਸਕਦੇ।",
+    "errors": {
+      "franchises_not_enabled": "ਇਹ ਮਾਰਕੀਟਪਲੇਸ ਫ੍ਰੈਂਚਾਇਜ਼ੀਆਂ ਪੇਸ਼ ਨਹੀਂ ਕਰਦਾ।",
+      "franchises_paused": "ਨਵੀਆਂ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਰਜਿਸਟ੍ਰੇਸ਼ਨਾਂ ਇਸ ਵੇਲੇ ਰੋਕੀਆਂ ਗਈਆਂ ਹਨ।",
+      "user_banned": "ਤੁਸੀਂ ਇਸ ਮਾਰਕੀਟਪਲੇਸ 'ਤੇ ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਨਹੀਂ ਬਣਾ ਸਕਦੇ।",
+      "slug_required": "ਇੱਕ ਸਟੋਰ ਪਤਾ ਚੁਣੋ।",
+      "slug_format": "3–30 ਛੋਟੇ ਅੱਖਰ, ਅੰਕ ਜਾਂ ਹਾਈਫਨ ਵਰਤੋ।",
+      "slug_taken": "ਉਹ ਸਟੋਰ ਪਤਾ ਪਹਿਲਾਂ ਹੀ ਲਿਆ ਜਾ ਚੁੱਕਾ ਹੈ।",
+      "wallet_format": "ਇੱਕ ਵੈਧ Stellar ਪਬਲਿਕ ਕੁੰਜੀ ਦਾਖਲ ਕਰੋ (G ਨਾਲ ਸ਼ੁਰੂ ਹੁੰਦੀ ਹੈ)।",
+      "accent_color_format": "#1E88E5 ਵਰਗਾ ਹੈਕਸ ਰੰਗ ਵਰਤੋ।",
+      "image_type": "PNG, JPG ਜਾਂ WebP ਚਿੱਤਰ ਵਰਤੋ।",
+      "image_size": "ਉਹ ਚਿੱਤਰ ਬਹੁਤ ਵੱਡਾ ਹੈ।",
+      "image_slot": "ਅਵੈਧ ਚਿੱਤਰ ਸਲਾਟ।",
+      "image_key": "ਉਹ ਚਿੱਤਰ ਜੋੜਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+      "tenant_blocked": "ਇਹ ਮਾਰਕੀਟਪਲੇਸ ਸਰਗਰਮ ਨਹੀਂ ਹੈ।",
+      "not_found": "ਫ੍ਰੈਂਚਾਇਜ਼ੀ ਨਹੀਂ ਮਿਲੀ।",
+      "forbidden": "ਜਾਰੀ ਰੱਖਣ ਲਈ ਕਿਰਪਾ ਕਰਕੇ ਲੌਗ ਇਨ ਕਰੋ।",
+      "wallet_not_activated": "ਇਹ ਵਾਲਿਟ ਅਜੇ Stellar ਨੈੱਟਵਰਕ 'ਤੇ ਸਰਗਰਮ ਨਹੀਂ ਹੈ। ਇਸ ਨੂੰ ਸਰਗਰਮ ਕਰਨ ਲਈ ਇਸ ਪਤੇ 'ਤੇ ਘੱਟੋ-ਘੱਟ 1 XLM ਭੇਜੋ।"
+    }
+  },
+  "Tip": {
+    "title": "ਟਿੱਪ ਭੇਜੋ",
+    "heading": "ਨਿਰਮਾਤਾ ਦਾ ਸਮਰਥਨ ਕਰੋ",
+    "subtitle": "XLM ਵਿੱਚ ਇੱਕ ਵਾਰੀ ਟਿੱਪ ਨਾਲ ਆਪਣਾ ਸਮਰਥਨ ਦਿਖਾਓ।",
+    "chooseAmount": "ਇੱਕ ਰਕਮ ਚੁਣੋ",
+    "other": "ਹੋਰ",
+    "customAmount": "USD ਵਿੱਚ ਰਕਮ",
+    "amountHint": "ਘੱਟੋ-ਘੱਟ $0.25 — ਵੱਧੋ-ਵੱਧ $100",
+    "amountInvalid": "$0.25 ਅਤੇ $100 ਵਿਚਕਾਰ ਰਕਮ ਦਾਖਲ ਕਰੋ।",
+    "send": "ਟਿੱਪ ਭੇਜੋ",
+    "youPay": "ਤੁਸੀਂ ਅਦਾ ਕਰਦੇ ਹੋ",
+    "success": "ਤੁਹਾਡੇ ਸਮਰਥਨ ਲਈ ਧੰਨਵਾਦ!",
+    "successSubtitle": "ਤੁਹਾਡੀ ਟਿੱਪ ਸਫਲਤਾਪੂਰਵਕ ਭੇਜੀ ਗਈ।",
+    "unavailable": "ਇਸ ਨਿਰਮਾਤਾ ਨੇ ਅਜੇ ਟਿੱਪਾਂ ਸੈੱਟ ਅੱਪ ਨਹੀਂ ਕੀਤੀਆਂ।",
+    "cannotTipOwn": "ਤੁਸੀਂ ਆਪਣੀ ਸਮੱਗਰੀ ਨੂੰ ਟਿੱਪ ਨਹੀਂ ਦੇ ਸਕਦੇ।",
+    "done": "ਮੁਕੰਮਲ",
+    "processing": "ਤੁਹਾਡੀ ਟਿੱਪ ਭੇਜੀ ਜਾ ਰਹੀ ਹੈ…"
   }
 }

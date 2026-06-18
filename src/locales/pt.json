@@ -172,7 +172,9 @@
     "removedFromFavorites": "Removido dos favoritos",
     "linkCopied": "Link copiado para a área de transferência",
     "tooManyRequests": "Muitas solicitações. Por favor, aguarde um momento e tente novamente.",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "updateAvailable": "Uma nova versão está disponível.",
+    "updateNow": "Atualizar"
   },
   "Themes": {
     "title": "Seletor de temas",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "Sem expiração",
     "badgeNone": "Você ainda não tem uma credencial azul ativa",
     "badgeNoneHint": "Ative sua credencial azul para solicitar a criação do seu tenant e acessar ferramentas avançadas.",
-    "badgeGetAccess": "Ativar credencial azul"
+    "badgeGetAccess": "Ativar credencial azul",
+    "myFranchise": "Minha franquia",
+    "myFranchiseHint": "Abra e gerencie sua própria loja dentro deste marketplace"
   },
   "AppBar": {
     "home": "Início",
@@ -600,7 +604,8 @@
     "walletReconnectRequired": "A sessão da sua carteira expirou ou está indisponível. Reconecte sua carteira e tente novamente.",
     "franchiseSelfPurchase": "Os donos de uma franquia não podem comprar através da própria franquia. Faça a compra na loja principal.",
     "confirmingPayment": "Confirmando seu pagamento na rede Stellar… Isso geralmente leva alguns segundos.",
-    "paymentConfirmTimeout": "Ainda não conseguimos confirmar seu pagamento. Se ele foi concluído, seu conteúdo será desbloqueado automaticamente em alguns minutos."
+    "paymentConfirmTimeout": "Ainda não conseguimos confirmar seu pagamento. Se ele foi concluído, seu conteúdo será desbloqueado automaticamente em alguns minutos.",
+    "contentWalletInactive": "Este conteúdo não pode ser comprado no momento: uma das carteiras de pagamento não está mais ativa na rede Stellar. Tente novamente mais tarde."
   },
   "Purchased": {
     "title": "Minhas compras",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "Você atingiu o limite diário de denúncias. Tente novamente amanhã."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "Seu voto",
+    "like": "Curtir",
+    "dislike": "Não curtir",
+    "verifiedLikes": "{value} curtido por {count} compradores verificados",
+    "barAria": "{percent} dos votos são positivos",
+    "loginRequired": "Faça login para votar neste conteúdo."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "Franquia oficial de {tenant}",
+    "poweredBy": "com tecnologia EarnLumens",
+    "notFoundTitle": "Franquia não encontrada",
+    "notFoundBody": "Esta loja de franquia não existe ou não está mais disponível.",
+    "backToStore": "Voltar à loja",
+    "errorTitle": "Não foi possível carregar esta franquia",
+    "retry": "Tentar novamente"
+  },
+  "MyFranchise": {
+    "title": "Minha franquia",
+    "subtitle": "Gerencie sua própria loja dentro deste marketplace.",
+    "loginRequired": "Faça login para criar ou gerenciar sua franquia.",
+    "becomePartner": "Tornar-se parceiro",
+    "becomePartnerBody": "Abra sua própria loja de franquia e revenda o conteúdo aprovado deste marketplace com a sua própria marca.",
+    "commissionDisclosure": "Você ganha uma comissão de {percent} em cada venda, retirada da parte do marketplace — o preço para o comprador nunca muda. Essa taxa é fixada quando você cria sua franquia.",
+    "fieldSlug": "Endereço da loja (slug)",
+    "fieldPayout": "Carteira de pagamento (chave pública Stellar)",
+    "fieldTitle": "Título de exibição (opcional)",
+    "fieldDescription": "Descrição (opcional)",
+    "fieldAccent": "Cor de destaque (opcional)",
+    "acceptTerms": "Aceito os termos da franquia, incluindo a comissão mostrada acima.",
+    "createCta": "Criar minha franquia",
+    "createdOk": "Sua franquia está no ar!",
+    "savedOk": "Identidade visual atualizada",
+    "save": "Salvar alterações",
+    "brandingTitle": "Identidade da loja",
+    "previewTitle": "Prévia",
+    "imagesTitle": "Logo e imagem de capa",
+    "imagesHint": "PNG, JPG ou WebP. Logo até 2 MB, capa até 6 MB.",
+    "imagesAfterCreate": "Você poderá enviar um logo e uma imagem de capa após criar sua franquia.",
+    "logoLabel": "Logo",
+    "coverLabel": "Imagem de capa",
+    "changeImage": "Alterar",
+    "removeImage": "Remover",
+    "storefrontLabel": "Endereço da loja",
+    "commissionLabel": "Sua comissão",
+    "payoutLabel": "Carteira de pagamento",
+    "statusActive": "Ativa",
+    "statusDisabled": "Desativada",
+    "disabledTitle": "Esta franquia foi desativada",
+    "unavailableGeneric": "As franquias não estão disponíveis nesta loja no momento.",
+    "unavailableNotEnabled": "Este marketplace ainda não oferece franquias.",
+    "unavailablePaused": "Os novos cadastros de franquia estão pausados no momento. Volte mais tarde.",
+    "unavailableBanned": "Você não pode criar uma franquia neste marketplace.",
+    "errors": {
+      "franchises_not_enabled": "Este marketplace não oferece franquias.",
+      "franchises_paused": "Os novos cadastros de franquia estão pausados no momento.",
+      "user_banned": "Você não pode criar uma franquia neste marketplace.",
+      "slug_required": "Escolha um endereço para a loja.",
+      "slug_format": "Use de 3 a 30 letras minúsculas, números ou hifens.",
+      "slug_taken": "Esse endereço de loja já está em uso.",
+      "wallet_format": "Insira uma chave pública Stellar válida (começa com G).",
+      "accent_color_format": "Use uma cor hexadecimal como #1E88E5.",
+      "image_type": "Use uma imagem PNG, JPG ou WebP.",
+      "image_size": "Essa imagem é muito grande.",
+      "image_slot": "Slot de imagem inválido.",
+      "image_key": "Não foi possível anexar essa imagem. Tente novamente.",
+      "tenant_blocked": "Este marketplace não está ativo.",
+      "not_found": "Franquia não encontrada.",
+      "forbidden": "Faça login para continuar.",
+      "wallet_not_activated": "Esta carteira ainda não está ativa na rede Stellar. Envie pelo menos 1 XLM para este endereço para ativá-la."
+    }
+  },
+  "Tip": {
+    "title": "Enviar gorjeta",
+    "heading": "Apoie o criador",
+    "subtitle": "Mostre seu apoio com uma gorjeta única em XLM.",
+    "chooseAmount": "Escolha um valor",
+    "other": "Outro",
+    "customAmount": "Valor em USD",
+    "amountHint": "Mín. US$ 0,25 — Máx. US$ 100",
+    "amountInvalid": "Insira um valor entre US$ 0,25 e US$ 100.",
+    "send": "Enviar gorjeta",
+    "youPay": "Você paga",
+    "success": "Obrigado pelo seu apoio!",
+    "successSubtitle": "Sua gorjeta foi enviada com sucesso.",
+    "unavailable": "Este criador ainda não configurou gorjetas.",
+    "cannotTipOwn": "Você não pode dar gorjeta ao seu próprio conteúdo.",
+    "done": "Concluído",
+    "processing": "Enviando sua gorjeta…"
   }
 }

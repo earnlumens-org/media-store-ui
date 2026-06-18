@@ -172,7 +172,9 @@
     "addedToFavorites": "Ditambahkan ke favorit",
     "removedFromFavorites": "Dihapus dari favorit",
     "linkCopied": "Tautan disalin ke clipboard",
-    "tooManyRequests": "Terlalu banyak permintaan. Mohon tunggu sebentar dan coba lagi."
+    "tooManyRequests": "Terlalu banyak permintaan. Mohon tunggu sebentar dan coba lagi.",
+    "updateAvailable": "Versi baru tersedia.",
+    "updateNow": "Perbarui"
   },
   "Themes": {
     "title": "Pemilih Tema",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "Tidak ada kedaluwarsa",
     "badgeNone": "Anda belum memiliki kredensial biru aktif",
     "badgeNoneHint": "Aktifkan kredensial biru Anda untuk meminta pembuatan tenant dan mengakses alat lanjutan.",
-    "badgeGetAccess": "Aktifkan kredensial biru"
+    "badgeGetAccess": "Aktifkan kredensial biru",
+    "myFranchise": "Waralaba Saya",
+    "myFranchiseHint": "Buka dan kelola etalase Anda sendiri di dalam marketplace ini"
   },
   "AppBar": {
     "home": "Beranda",
@@ -611,7 +615,8 @@
     "walletReconnectRequired": "Sesi dompet Anda telah berakhir atau tidak tersedia. Silakan hubungkan kembali dompet Anda dan coba lagi.",
     "franchiseSelfPurchase": "Pemilik waralaba tidak dapat membeli melalui waralaba mereka sendiri. Silakan beli dari toko utama.",
     "confirmingPayment": "Mengonfirmasi pembayaran Anda di jaringan Stellar… Biasanya hanya butuh beberapa detik.",
-    "paymentConfirmTimeout": "Kami belum dapat mengonfirmasi pembayaran Anda. Jika berhasil, konten Anda akan terbuka secara otomatis dalam beberapa menit."
+    "paymentConfirmTimeout": "Kami belum dapat mengonfirmasi pembayaran Anda. Jika berhasil, konten Anda akan terbuka secara otomatis dalam beberapa menit.",
+    "contentWalletInactive": "Konten ini tidak dapat dibeli saat ini: salah satu dompet pembayarannya tidak lagi aktif di jaringan Stellar. Silakan coba lagi nanti."
   },
   "Favorites": {
     "empty": "Belum ada favorit",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "Anda telah mencapai batas laporan harian. Silakan coba lagi besok."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "Suara Anda",
+    "like": "Suka",
+    "dislike": "Tidak suka",
+    "verifiedLikes": "{value} disukai oleh {count} pembeli terverifikasi",
+    "barAria": "{percent} suara adalah suka",
+    "loginRequired": "Masuk untuk memberi suara pada konten ini."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "Waralaba resmi {tenant}",
+    "poweredBy": "didukung oleh EarnLumens",
+    "notFoundTitle": "Waralaba tidak ditemukan",
+    "notFoundBody": "Etalase waralaba ini tidak ada atau tidak lagi tersedia.",
+    "backToStore": "Kembali ke toko",
+    "errorTitle": "Tidak dapat memuat waralaba ini",
+    "retry": "Coba lagi"
+  },
+  "MyFranchise": {
+    "title": "Waralaba Saya",
+    "subtitle": "Jalankan etalase Anda sendiri di dalam marketplace ini.",
+    "loginRequired": "Masuk untuk membuat atau mengelola waralaba Anda.",
+    "becomePartner": "Jadi mitra",
+    "becomePartnerBody": "Buka etalase waralaba Anda sendiri dan jual kembali konten yang disetujui dari marketplace ini dengan merek Anda sendiri.",
+    "commissionDisclosure": "Anda mendapatkan komisi {percent} dari setiap penjualan, diambil dari bagian marketplace — harga untuk pembeli tidak pernah berubah. Tarif ini dikunci saat Anda membuat waralaba.",
+    "fieldSlug": "Alamat etalase (slug)",
+    "fieldPayout": "Dompet pembayaran (kunci publik Stellar)",
+    "fieldTitle": "Judul tampilan (opsional)",
+    "fieldDescription": "Deskripsi (opsional)",
+    "fieldAccent": "Warna aksen (opsional)",
+    "acceptTerms": "Saya menerima ketentuan waralaba, termasuk komisi yang ditampilkan di atas.",
+    "createCta": "Buat waralaba saya",
+    "createdOk": "Waralaba Anda sudah aktif!",
+    "savedOk": "Branding diperbarui",
+    "save": "Simpan perubahan",
+    "brandingTitle": "Branding etalase",
+    "previewTitle": "Pratinjau",
+    "imagesTitle": "Logo & gambar sampul",
+    "imagesHint": "PNG, JPG atau WebP. Logo hingga 2 MB, sampul hingga 6 MB.",
+    "imagesAfterCreate": "Anda dapat mengunggah logo dan gambar sampul setelah membuat waralaba.",
+    "logoLabel": "Logo",
+    "coverLabel": "Gambar sampul",
+    "changeImage": "Ubah",
+    "removeImage": "Hapus",
+    "storefrontLabel": "Alamat etalase",
+    "commissionLabel": "Komisi Anda",
+    "payoutLabel": "Dompet pembayaran",
+    "statusActive": "Aktif",
+    "statusDisabled": "Dinonaktifkan",
+    "disabledTitle": "Waralaba ini telah dinonaktifkan",
+    "unavailableGeneric": "Waralaba tidak tersedia di etalase ini saat ini.",
+    "unavailableNotEnabled": "Marketplace ini belum menawarkan waralaba.",
+    "unavailablePaused": "Pendaftaran waralaba baru sedang dijeda saat ini. Silakan periksa kembali nanti.",
+    "unavailableBanned": "Anda tidak dapat membuat waralaba di marketplace ini.",
+    "errors": {
+      "franchises_not_enabled": "Marketplace ini tidak menawarkan waralaba.",
+      "franchises_paused": "Pendaftaran waralaba baru sedang dijeda saat ini.",
+      "user_banned": "Anda tidak dapat membuat waralaba di marketplace ini.",
+      "slug_required": "Pilih alamat etalase.",
+      "slug_format": "Gunakan 3–30 huruf kecil, angka, atau tanda hubung.",
+      "slug_taken": "Alamat etalase itu sudah digunakan.",
+      "wallet_format": "Masukkan kunci publik Stellar yang valid (dimulai dengan G).",
+      "accent_color_format": "Gunakan warna heksadesimal seperti #1E88E5.",
+      "image_type": "Gunakan gambar PNG, JPG, atau WebP.",
+      "image_size": "Gambar itu terlalu besar.",
+      "image_slot": "Slot gambar tidak valid.",
+      "image_key": "Tidak dapat melampirkan gambar itu. Silakan coba lagi.",
+      "tenant_blocked": "Marketplace ini tidak aktif.",
+      "not_found": "Waralaba tidak ditemukan.",
+      "forbidden": "Silakan masuk untuk melanjutkan.",
+      "wallet_not_activated": "Dompet ini belum aktif di jaringan Stellar. Kirim setidaknya 1 XLM ke alamat ini untuk mengaktifkannya."
+    }
+  },
+  "Tip": {
+    "title": "Kirim tip",
+    "heading": "Dukung kreator",
+    "subtitle": "Tunjukkan dukungan Anda dengan tip sekali pakai dalam XLM.",
+    "chooseAmount": "Pilih jumlah",
+    "other": "Lainnya",
+    "customAmount": "Jumlah dalam USD",
+    "amountHint": "Min $0,25 — Maks $100",
+    "amountInvalid": "Masukkan jumlah antara $0,25 dan $100.",
+    "send": "Kirim tip",
+    "youPay": "Anda membayar",
+    "success": "Terima kasih atas dukungan Anda!",
+    "successSubtitle": "Tip Anda berhasil dikirim.",
+    "unavailable": "Kreator ini belum menyiapkan tip.",
+    "cannotTipOwn": "Anda tidak dapat memberi tip pada konten Anda sendiri.",
+    "done": "Selesai",
+    "processing": "Mengirim tip Anda…"
   }
 }

@@ -172,7 +172,9 @@
     "addedToFavorites": "پسندیدہ میں شامل کیا گیا",
     "removedFromFavorites": "پسندیدہ سے ہٹایا گیا",
     "linkCopied": "لنک کلپ بورڈ پر کاپی ہو گیا",
-    "tooManyRequests": "بہت زیادہ درخواستیں۔ براہ کرم ایک لمحہ انتظار کریں اور دوبارہ کوشش کریں۔"
+    "tooManyRequests": "بہت زیادہ درخواستیں۔ براہ کرم ایک لمحہ انتظار کریں اور دوبارہ کوشش کریں۔",
+    "updateAvailable": "ایک نیا ورژن دستیاب ہے۔",
+    "updateNow": "اپ ڈیٹ کریں"
   },
   "Themes": {
     "title": "تھیم سلیکٹر",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "بلا میعاد",
     "badgeNone": "آپ کے پاس ابھی تک کوئی فعال بلیو کریڈینشیل نہیں ہے",
     "badgeNoneHint": "ٹیننٹ بنانے کی درخواست کرنے اور جدید ٹولز تک رسائی کے لیے اپنا بلیو کریڈینشیل فعال کریں۔",
-    "badgeGetAccess": "بلیو کریڈینشیل فعال کریں"
+    "badgeGetAccess": "بلیو کریڈینشیل فعال کریں",
+    "myFranchise": "میری فرنچائز",
+    "myFranchiseHint": "اس مارکیٹ پلیس کے تحت اپنا اسٹور کھولیں اور اس کا انتظام کریں"
   },
   "AppBar": {
     "home": "ہوم",
@@ -611,7 +615,8 @@
     "walletReconnectRequired": "آپ کے والٹ کا سیشن ختم ہو گیا ہے یا دستیاب نہیں ہے۔ براہ کرم اپنا والٹ دوبارہ منسلک کریں اور دوبارہ کوشش کریں۔",
     "franchiseSelfPurchase": "فرنچائز کے مالکان اپنی فرنچائز کے ذریعے خریداری نہیں کر سکتے۔ براہ کرم مرکزی اسٹور سے خریداری کریں۔",
     "confirmingPayment": "آپ کی ادائیگی Stellar نیٹ ورک پر تصدیق ہو رہی ہے… اس میں عام طور پر چند سیکنڈ لگتے ہیں۔",
-    "paymentConfirmTimeout": "ہم ابھی تک آپ کی ادائیگی کی تصدیق نہیں کر سکے۔ اگر یہ کامیاب ہو گئی، تو آپ کا مواد چند منٹوں میں خود بخود کھل جائے گا۔"
+    "paymentConfirmTimeout": "ہم ابھی تک آپ کی ادائیگی کی تصدیق نہیں کر سکے۔ اگر یہ کامیاب ہو گئی، تو آپ کا مواد چند منٹوں میں خود بخود کھل جائے گا۔",
+    "contentWalletInactive": "یہ مواد ابھی خریدا نہیں جا سکتا: اس کے ادائیگی والیٹس میں سے ایک اب Stellar نیٹ ورک پر فعال نہیں ہے۔ براہ کرم بعد میں دوبارہ کوشش کریں۔"
   },
   "Favorites": {
     "empty": "ابھی تک کوئی پسندیدہ نہیں",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "آپ نے روزانہ کی رپورٹ حد تک پہنچ گئے ہیں۔ براہ کرم کل دوبارہ کوشش کریں۔"
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "آپ کا ووٹ",
+    "like": "پسند",
+    "dislike": "ناپسند",
+    "verifiedLikes": "{value} کو {count} تصدیق شدہ خریداروں نے پسند کیا",
+    "barAria": "{percent} ووٹ پسند ہیں",
+    "loginRequired": "اس مواد پر ووٹ دینے کے لیے سائن اِن کریں۔"
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "{tenant} کی آفیشل فرنچائز",
+    "poweredBy": "EarnLumens کے ذریعے فراہم کردہ",
+    "notFoundTitle": "فرنچائز نہیں ملی",
+    "notFoundBody": "یہ فرنچائز اسٹور موجود نہیں یا اب دستیاب نہیں ہے۔",
+    "backToStore": "اسٹور پر واپس جائیں",
+    "errorTitle": "یہ فرنچائز لوڈ نہیں ہو سکی",
+    "retry": "دوبارہ کوشش کریں"
+  },
+  "MyFranchise": {
+    "title": "میری فرنچائز",
+    "subtitle": "اس مارکیٹ پلیس کے تحت اپنا اسٹور چلائیں۔",
+    "loginRequired": "اپنی فرنچائز بنانے یا اس کا انتظام کرنے کے لیے لاگ ان کریں۔",
+    "becomePartner": "پارٹنر بنیں",
+    "becomePartnerBody": "اپنا فرنچائز اسٹور کھولیں اور اس مارکیٹ پلیس کے منظور شدہ مواد کو اپنے برانڈ کے تحت دوبارہ فروخت کریں۔",
+    "commissionDisclosure": "آپ ہر فروخت پر {percent} کمیشن کماتے ہیں، جو مارکیٹ پلیس کے حصے سے لیا جاتا ہے — خریدار کی قیمت کبھی تبدیل نہیں ہوتی۔ یہ شرح آپ کی فرنچائز بنانے پر طے ہو جاتی ہے۔",
+    "fieldSlug": "اسٹور کا پتہ (slug)",
+    "fieldPayout": "ادائیگی والیٹ (Stellar پبلک کی)",
+    "fieldTitle": "ظاہر ہونے والا عنوان (اختیاری)",
+    "fieldDescription": "تفصیل (اختیاری)",
+    "fieldAccent": "ایکسنٹ رنگ (اختیاری)",
+    "acceptTerms": "میں فرنچائز کی شرائط قبول کرتا/کرتی ہوں، بشمول اوپر دکھایا گیا کمیشن۔",
+    "createCta": "میری فرنچائز بنائیں",
+    "createdOk": "آپ کی فرنچائز فعال ہو گئی!",
+    "savedOk": "برانڈنگ اپ ڈیٹ ہو گئی",
+    "save": "تبدیلیاں محفوظ کریں",
+    "brandingTitle": "اسٹور برانڈنگ",
+    "previewTitle": "پیش منظر",
+    "imagesTitle": "لوگو اور کور تصویر",
+    "imagesHint": "PNG، JPG یا WebP۔ لوگو 2 MB تک، کور 6 MB تک۔",
+    "imagesAfterCreate": "آپ اپنی فرنچائز بنانے کے بعد لوگو اور کور تصویر اپ لوڈ کر سکیں گے۔",
+    "logoLabel": "لوگو",
+    "coverLabel": "کور تصویر",
+    "changeImage": "تبدیل کریں",
+    "removeImage": "ہٹا دیں",
+    "storefrontLabel": "اسٹور کا پتہ",
+    "commissionLabel": "آپ کا کمیشن",
+    "payoutLabel": "ادائیگی والیٹ",
+    "statusActive": "فعال",
+    "statusDisabled": "غیر فعال",
+    "disabledTitle": "یہ فرنچائز غیر فعال کر دی گئی ہے",
+    "unavailableGeneric": "اس اسٹور پر فرنچائزز فی الحال دستیاب نہیں ہیں۔",
+    "unavailableNotEnabled": "یہ مارکیٹ پلیس ابھی فرنچائزز پیش نہیں کرتا۔",
+    "unavailablePaused": "نئی فرنچائز رجسٹریشن فی الحال روک دی گئی ہے۔ براہ کرم بعد میں دوبارہ چیک کریں۔",
+    "unavailableBanned": "آپ اس مارکیٹ پلیس پر فرنچائز نہیں بنا سکتے۔",
+    "errors": {
+      "franchises_not_enabled": "یہ مارکیٹ پلیس فرنچائزز پیش نہیں کرتا۔",
+      "franchises_paused": "نئی فرنچائز رجسٹریشن فی الحال روک دی گئی ہے۔",
+      "user_banned": "آپ اس مارکیٹ پلیس پر فرنچائز نہیں بنا سکتے۔",
+      "slug_required": "ایک اسٹور پتہ منتخب کریں۔",
+      "slug_format": "3 سے 30 چھوٹے حروف، اعداد یا ہائیفن استعمال کریں۔",
+      "slug_taken": "یہ اسٹور پتہ پہلے سے استعمال میں ہے۔",
+      "wallet_format": "ایک درست Stellar پبلک کی درج کریں (G سے شروع ہوتی ہے)۔",
+      "accent_color_format": "#1E88E5 جیسا ہیکس رنگ استعمال کریں۔",
+      "image_type": "PNG، JPG یا WebP تصویر استعمال کریں۔",
+      "image_size": "یہ تصویر بہت بڑی ہے۔",
+      "image_slot": "غلط امیج سلاٹ۔",
+      "image_key": "وہ تصویر منسلک نہیں ہو سکی۔ براہ کرم دوبارہ کوشش کریں۔",
+      "tenant_blocked": "یہ مارکیٹ پلیس فعال نہیں ہے۔",
+      "not_found": "فرنچائز نہیں ملی۔",
+      "forbidden": "جاری رکھنے کے لیے براہ کرم لاگ ان کریں۔",
+      "wallet_not_activated": "یہ والیٹ ابھی Stellar نیٹ ورک پر فعال نہیں ہے۔ اسے فعال کرنے کے لیے اس پتے پر کم از کم 1 XLM بھیجیں۔"
+    }
+  },
+  "Tip": {
+    "title": "ٹِپ بھیجیں",
+    "heading": "تخلیق کار کی حمایت کریں",
+    "subtitle": "XLM میں ایک بار کی ٹِپ کے ساتھ اپنی حمایت ظاہر کریں۔",
+    "chooseAmount": "ایک رقم منتخب کریں",
+    "other": "دیگر",
+    "customAmount": "USD میں رقم",
+    "amountHint": "کم از کم $0.25 — زیادہ سے زیادہ $100",
+    "amountInvalid": "$0.25 اور $100 کے درمیان رقم درج کریں۔",
+    "send": "ٹِپ بھیجیں",
+    "youPay": "آپ ادا کرتے ہیں",
+    "success": "آپ کی حمایت کا شکریہ!",
+    "successSubtitle": "آپ کی ٹِپ کامیابی سے بھیج دی گئی۔",
+    "unavailable": "اس تخلیق کار نے ابھی ٹِپس سیٹ اپ نہیں کی ہیں۔",
+    "cannotTipOwn": "آپ اپنے مواد کو ٹِپ نہیں دے سکتے۔",
+    "done": "ہو گیا",
+    "processing": "آپ کی ٹِپ بھیجی جا رہی ہے…"
   }
 }

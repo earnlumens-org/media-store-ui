@@ -172,7 +172,9 @@
     "removedFromFavorites": "Удалено из избранного",
     "linkCopied": "Ссылка скопирована в буфер обмена",
     "tooManyRequests": "Слишком много запросов. Подождите немного и попробуйте снова.",
-    "cancel": "Отмена"
+    "cancel": "Отмена",
+    "updateAvailable": "Доступна новая версия.",
+    "updateNow": "Обновить"
   },
   "Themes": {
     "title": "Выбор темы",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "Без срока действия",
     "badgeNone": "У вас ещё нет активного синего удостоверения",
     "badgeNoneHint": "Активируйте ваше синее удостоверение, чтобы запросить создание арендатора и получить доступ к расширенным инструментам.",
-    "badgeGetAccess": "Активировать синее удостоверение"
+    "badgeGetAccess": "Активировать синее удостоверение",
+    "myFranchise": "Моя франшиза",
+    "myFranchiseHint": "Откройте собственный магазин в рамках этого маркетплейса и управляйте им"
   },
   "AppBar": {
     "home": "Главная",
@@ -600,7 +604,8 @@
     "walletReconnectRequired": "Сессия вашего кошелька истекла или недоступна. Подключите кошелёк заново и попробуйте снова.",
     "franchiseSelfPurchase": "Владельцы франшизы не могут покупать через собственную франшизу. Пожалуйста, совершите покупку в основном магазине.",
     "confirmingPayment": "Подтверждаем ваш платёж в сети Stellar… Обычно это занимает несколько секунд.",
-    "paymentConfirmTimeout": "Мы пока не смогли подтвердить ваш платёж. Если он прошёл, контент разблокируется автоматически в течение нескольких минут."
+    "paymentConfirmTimeout": "Мы пока не смогли подтвердить ваш платёж. Если он прошёл, контент разблокируется автоматически в течение нескольких минут.",
+    "contentWalletInactive": "Этот контент сейчас нельзя купить: один из кошельков для выплат больше не активен в сети Stellar. Попробуйте позже."
   },
   "Purchased": {
     "title": "Мои покупки",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "Вы достигли дневного лимита жалоб. Попробуйте снова завтра."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "Ваш голос",
+    "like": "Нравится",
+    "dislike": "Не нравится",
+    "verifiedLikes": "{value} понравилось {count} проверенным покупателям",
+    "barAria": "{percent} голосов — положительные",
+    "loginRequired": "Войдите, чтобы проголосовать за этот контент."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "Официальная франшиза {tenant}",
+    "poweredBy": "работает на EarnLumens",
+    "notFoundTitle": "Франшиза не найдена",
+    "notFoundBody": "Этот магазин-франшиза не существует или больше недоступен.",
+    "backToStore": "Вернуться в магазин",
+    "errorTitle": "Не удалось загрузить эту франшизу",
+    "retry": "Повторить"
+  },
+  "MyFranchise": {
+    "title": "Моя франшиза",
+    "subtitle": "Управляйте собственным магазином в рамках этого маркетплейса.",
+    "loginRequired": "Войдите, чтобы создать франшизу или управлять ею.",
+    "becomePartner": "Стать партнёром",
+    "becomePartnerBody": "Откройте собственный магазин-франшизу и перепродавайте одобренный контент этого маркетплейса под своим брендом.",
+    "commissionDisclosure": "Вы получаете комиссию {percent} с каждой продажи, удерживаемую из доли маркетплейса — цена для покупателя никогда не меняется. Эта ставка фиксируется при создании франшизы.",
+    "fieldSlug": "Адрес магазина (slug)",
+    "fieldPayout": "Кошелёк для выплат (публичный ключ Stellar)",
+    "fieldTitle": "Отображаемое название (необязательно)",
+    "fieldDescription": "Описание (необязательно)",
+    "fieldAccent": "Акцентный цвет (необязательно)",
+    "acceptTerms": "Я принимаю условия франшизы, включая указанную выше комиссию.",
+    "createCta": "Создать мою франшизу",
+    "createdOk": "Ваша франшиза запущена!",
+    "savedOk": "Брендинг обновлён",
+    "save": "Сохранить изменения",
+    "brandingTitle": "Брендинг магазина",
+    "previewTitle": "Предпросмотр",
+    "imagesTitle": "Логотип и обложка",
+    "imagesHint": "PNG, JPG или WebP. Логотип до 2 МБ, обложка до 6 МБ.",
+    "imagesAfterCreate": "Вы сможете загрузить логотип и обложку после создания франшизы.",
+    "logoLabel": "Логотип",
+    "coverLabel": "Обложка",
+    "changeImage": "Изменить",
+    "removeImage": "Удалить",
+    "storefrontLabel": "Адрес магазина",
+    "commissionLabel": "Ваша комиссия",
+    "payoutLabel": "Кошелёк для выплат",
+    "statusActive": "Активна",
+    "statusDisabled": "Отключена",
+    "disabledTitle": "Эта франшиза отключена",
+    "unavailableGeneric": "Франшизы сейчас недоступны в этом магазине.",
+    "unavailableNotEnabled": "Этот маркетплейс пока не предлагает франшизы.",
+    "unavailablePaused": "Регистрация новых франшиз сейчас приостановлена. Загляните позже.",
+    "unavailableBanned": "Вы не можете создать франшизу на этом маркетплейсе.",
+    "errors": {
+      "franchises_not_enabled": "Этот маркетплейс не предлагает франшизы.",
+      "franchises_paused": "Регистрация новых франшиз сейчас приостановлена.",
+      "user_banned": "Вы не можете создать франшизу на этом маркетплейсе.",
+      "slug_required": "Выберите адрес магазина.",
+      "slug_format": "Используйте 3–30 строчных букв, цифр или дефисов.",
+      "slug_taken": "Этот адрес магазина уже занят.",
+      "wallet_format": "Введите действительный публичный ключ Stellar (начинается с G).",
+      "accent_color_format": "Используйте шестнадцатеричный цвет, например #1E88E5.",
+      "image_type": "Используйте изображение PNG, JPG или WebP.",
+      "image_size": "Это изображение слишком большое.",
+      "image_slot": "Недопустимый слот изображения.",
+      "image_key": "Не удалось прикрепить это изображение. Попробуйте ещё раз.",
+      "tenant_blocked": "Этот маркетплейс не активен.",
+      "not_found": "Франшиза не найдена.",
+      "forbidden": "Войдите, чтобы продолжить.",
+      "wallet_not_activated": "Этот кошелёк ещё не активен в сети Stellar. Отправьте не менее 1 XLM на этот адрес, чтобы активировать его."
+    }
+  },
+  "Tip": {
+    "title": "Отправить чаевые",
+    "heading": "Поддержите автора",
+    "subtitle": "Поддержите автора разовыми чаевыми в XLM.",
+    "chooseAmount": "Выберите сумму",
+    "other": "Другая",
+    "customAmount": "Сумма в USD",
+    "amountHint": "Мин. $0,25 — Макс. $100",
+    "amountInvalid": "Введите сумму от $0,25 до $100.",
+    "send": "Отправить чаевые",
+    "youPay": "Вы платите",
+    "success": "Спасибо за поддержку!",
+    "successSubtitle": "Ваши чаевые успешно отправлены.",
+    "unavailable": "Этот автор ещё не настроил чаевые.",
+    "cannotTipOwn": "Вы не можете оставить чаевые своему контенту.",
+    "done": "Готово",
+    "processing": "Отправка чаевых…"
   }
 }

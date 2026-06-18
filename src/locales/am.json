@@ -172,7 +172,9 @@
     "addedToFavorites": "ወደ ተወዳጆች ታክሏል",
     "removedFromFavorites": "ከተወዳጆች ተወግዷል",
     "linkCopied": "አገናኙ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
-    "tooManyRequests": "ጥያቄዎች በጣም በዙ። እባክዎ ትንሽ ይጠብቁና እንደገና ይሞክሩ።"
+    "tooManyRequests": "ጥያቄዎች በጣም በዙ። እባክዎ ትንሽ ይጠብቁና እንደገና ይሞክሩ።",
+    "updateAvailable": "አዲስ ስሪት ይገኛል።",
+    "updateNow": "አዘምን"
   },
   "Themes": {
     "title": "ገጽታ መራጭ",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "የማብቂያ ጊዜ የለም",
     "badgeNone": "እስካሁን ንቁ ሰማያዊ ምስክርነት የለዎትም",
     "badgeNoneHint": "የተከራይ ፍጠራን ለመጠየቅ እና የላቁ መሳሪያዎችን ለመድረስ ሰማያዊ ምስክርነትዎን ያንቁ።",
-    "badgeGetAccess": "ሰማያዊ ምስክርነት አንቃ"
+    "badgeGetAccess": "ሰማያዊ ምስክርነት አንቃ",
+    "myFranchise": "የእኔ ፍራንቻይዝ",
+    "myFranchiseHint": "በዚህ ገበያ ስር የራስዎን መደብር ይክፈቱ እና ያስተዳድሩ"
   },
   "AppBar": {
     "home": "መነሻ",
@@ -611,7 +615,8 @@
     "walletReconnectRequired": "የቢልዎ ክፍለ-ጊዜ ጊዜው አልፏል ወይም አይገኝም። እባክዎ ቢልዎን እንደገና ያገናኙና እንደገና ይሞክሩ።",
     "franchiseSelfPurchase": "የፍራንቻይዝ ባለቤቶች በራሳቸው ፍራንቻይዝ በኩል መግዛት አይችሉም። እባክዎ ከዋናው መደብር ይግዙ።",
     "confirmingPayment": "ክፍያዎ በ Stellar አውታረ መረብ ላይ እየተረጋገጠ ነው… ይህ አብዛኛውን ጊዜ ጥቂት ሰከንዶች ይወስዳል።",
-    "paymentConfirmTimeout": "ክፍያዎን ገና ማረጋገጥ አልቻልንም። ከተሳካ፣ ይዘትዎ በጥቂት ደቂቃዎች ውስጥ በራስ-ሰር ይከፈታል።"
+    "paymentConfirmTimeout": "ክፍያዎን ገና ማረጋገጥ አልቻልንም። ከተሳካ፣ ይዘትዎ በጥቂት ደቂቃዎች ውስጥ በራስ-ሰር ይከፈታል።",
+    "contentWalletInactive": "ይህ ይዘት አሁን ሊገዛ አይችልም፦ ከክፍያ ዋሌቶቹ አንዱ ከእንግዲህ በ Stellar አውታረ መረብ ላይ ንቁ አይደለም። እባክዎ በኋላ እንደገና ይሞክሩ።"
   },
   "Favorites": {
     "empty": "እስካሁን ተወዳጆች የሉም",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "የዕለታዊ ሪፖርት ገደብ ደርሰዋል። እባክዎ ነገ እንደገና ይሞክሩ።"
   },
   "rating": {
-    "yourRating": "የእርስዎ ደረጃ",
     "rateThis": "ይህን ደረጃ ይስጡ",
-    "starsValue": "{count} ኮከብ | {count} ኮከቦች",
     "basedOn": "{count} ደረጃ | {count} ደረጃዎች",
-    "verifiedAverage": "{value} ከ{count} የተረጋገጡ",
     "commentLabel": "ግምገማ ያክሉ (አማራጭ)",
     "commentPlaceholder": "ሌሎችን ለመርዳት ተሞክሮዎን ያጋሩ...",
     "remove": "አስወግድ",
@@ -911,7 +913,13 @@
     "purchaseRequired": "ይህን ይዘት ደረጃ ለመስጠት ይግዙት።",
     "dailyLimit": "የዕለታዊ ደረጃ ገደብ ደርሰዋል። እባክዎ ነገ እንደገና ይሞክሩ።",
     "ownContent": "የራስዎን ይዘት ደረጃ መስጠት አይችሉም።",
-    "error": "አንድ ነገር ተሳስቷል። እባክዎ እንደገና ይሞክሩ።"
+    "error": "አንድ ነገር ተሳስቷል። እባክዎ እንደገና ይሞክሩ።",
+    "yourVote": "የእርስዎ ድምፅ",
+    "like": "ወድጃለሁ",
+    "dislike": "አልወደድኩም",
+    "verifiedLikes": "{value} — በ {count} የተረጋገጡ ገዢዎች ተወዷል",
+    "barAria": "{percent} የሚሆኑ ድምፆች ውዴታዎች ናቸው",
+    "loginRequired": "በዚህ ይዘት ላይ ድምፅ ለመስጠት ይግቡ።"
   },
   "Search": {
     "placeholder": "ፈልግ",
@@ -932,5 +940,87 @@
       "oldest": "አሮጌው",
       "views": "በጣም የታየ"
     }
+  },
+  "Franchise": {
+    "officialOf": "የ{tenant} ይፋዊ ፍራንቻይዝ",
+    "poweredBy": "በ EarnLumens የተጎለበተ",
+    "notFoundTitle": "ፍራንቻይዝ አልተገኘም",
+    "notFoundBody": "ይህ የፍራንቻይዝ መደብር የለም ወይም ከእንግዲህ አይገኝም።",
+    "backToStore": "ወደ መደብር ተመለስ",
+    "errorTitle": "ይህን ፍራንቻይዝ መጫን አልተቻለም",
+    "retry": "እንደገና ሞክር"
+  },
+  "MyFranchise": {
+    "title": "የእኔ ፍራንቻይዝ",
+    "subtitle": "በዚህ ገበያ ስር የራስዎን መደብር ያንቀሳቅሱ።",
+    "loginRequired": "ፍራንቻይዝዎን ለመፍጠር ወይም ለማስተዳደር ይግቡ።",
+    "becomePartner": "አጋር ይሁኑ",
+    "becomePartnerBody": "የራስዎን የፍራንቻይዝ መደብር ይክፈቱ እና የዚህን ገበያ የተፈቀደ ይዘት በራስዎ የምርት ስም እንደገና ይሽጡ።",
+    "commissionDisclosure": "በእያንዳንዱ ሽያጭ {percent} ኮሚሽን ያገኛሉ፣ ይህም ከገበያው ድርሻ ይወሰዳል — የገዢው ዋጋ ፈጽሞ አይለወጥም። ይህ ተመን ፍራንቻይዝዎን ሲፈጥሩ ይቆለፋል።",
+    "fieldSlug": "የመደብር አድራሻ (slug)",
+    "fieldPayout": "የክፍያ ዋሌት (የ Stellar የሕዝብ ቁልፍ)",
+    "fieldTitle": "የሚታይ ርዕስ (አማራጭ)",
+    "fieldDescription": "መግለጫ (አማራጭ)",
+    "fieldAccent": "የማድመቂያ ቀለም (አማራጭ)",
+    "acceptTerms": "ከላይ የተመለከተውን ኮሚሽን ጨምሮ የፍራንቻይዝ ውሎችን እቀበላለሁ።",
+    "createCta": "የእኔን ፍራንቻይዝ ይፍጠሩ",
+    "createdOk": "ፍራንቻይዝዎ አሁን ንቁ ነው!",
+    "savedOk": "ብራንዲንግ ተዘምኗል",
+    "save": "ለውጦችን አስቀምጥ",
+    "brandingTitle": "የመደብር ብራንዲንግ",
+    "previewTitle": "ቅድመ-እይታ",
+    "imagesTitle": "ሎጎ እና የሽፋን ምስል",
+    "imagesHint": "PNG፣ JPG ወይም WebP። ሎጎ እስከ 2 MB፣ ሽፋን እስከ 6 MB።",
+    "imagesAfterCreate": "ፍራንቻይዝዎን ከፈጠሩ በኋላ ሎጎ እና የሽፋን ምስል መስቀል ይችላሉ።",
+    "logoLabel": "ሎጎ",
+    "coverLabel": "የሽፋን ምስል",
+    "changeImage": "ቀይር",
+    "removeImage": "አስወግድ",
+    "storefrontLabel": "የመደብር አድራሻ",
+    "commissionLabel": "የእርስዎ ኮሚሽን",
+    "payoutLabel": "የክፍያ ዋሌት",
+    "statusActive": "ንቁ",
+    "statusDisabled": "ተሰናክሏል",
+    "disabledTitle": "ይህ ፍራንቻይዝ ተሰናክሏል",
+    "unavailableGeneric": "በዚህ መደብር ፍራንቻይዞች በአሁኑ ጊዜ አይገኙም።",
+    "unavailableNotEnabled": "ይህ ገበያ እስካሁን ፍራንቻይዞችን አያቀርብም።",
+    "unavailablePaused": "አዲስ የፍራንቻይዝ ምዝገባ በአሁኑ ጊዜ ቆሟል። እባክዎ በኋላ እንደገና ያረጋግጡ።",
+    "unavailableBanned": "በዚህ ገበያ ፍራንቻይዝ መፍጠር አይችሉም።",
+    "errors": {
+      "franchises_not_enabled": "ይህ ገበያ ፍራንቻይዞችን አያቀርብም።",
+      "franchises_paused": "አዲስ የፍራንቻይዝ ምዝገባ በአሁኑ ጊዜ ቆሟል።",
+      "user_banned": "በዚህ ገበያ ፍራንቻይዝ መፍጠር አይችሉም።",
+      "slug_required": "የመደብር አድራሻ ይምረጡ።",
+      "slug_format": "3–30 ትናንሽ ፊደላት፣ ቁጥሮች ወይም ሰረዞችን ይጠቀሙ።",
+      "slug_taken": "ያ የመደብር አድራሻ አስቀድሞ ተወስዷል።",
+      "wallet_format": "ትክክለኛ የ Stellar የሕዝብ ቁልፍ ያስገቡ (በ G ይጀምራል)።",
+      "accent_color_format": "እንደ #1E88E5 ያለ hex ቀለም ይጠቀሙ።",
+      "image_type": "PNG፣ JPG ወይም WebP ምስል ይጠቀሙ።",
+      "image_size": "ያ ምስል በጣም ትልቅ ነው።",
+      "image_slot": "ልክ ያልሆነ የምስል ቦታ።",
+      "image_key": "ያን ምስል ማያያዝ አልተቻለም። እባክዎ እንደገና ይሞክሩ።",
+      "tenant_blocked": "ይህ ገበያ ንቁ አይደለም።",
+      "not_found": "ፍራንቻይዝ አልተገኘም።",
+      "forbidden": "ለመቀጠል እባክዎ ይግቡ።",
+      "wallet_not_activated": "ይህ ዋሌት እስካሁን በ Stellar አውታረ መረብ ላይ ንቁ አይደለም። ለማንቃት ቢያንስ 1 XLM ወደዚህ አድራሻ ይላኩ።"
+    }
+  },
+  "Tip": {
+    "title": "ጉርሻ ላክ",
+    "heading": "ፈጣሪውን ይደግፉ",
+    "subtitle": "በ XLM በአንድ ጊዜ ጉርሻ ድጋፍዎን ያሳዩ።",
+    "chooseAmount": "መጠን ይምረጡ",
+    "other": "ሌላ",
+    "customAmount": "በ USD መጠን",
+    "amountHint": "ዝቅተኛ $0.25 — ከፍተኛ $100",
+    "amountInvalid": "ከ $0.25 እስከ $100 መካከል መጠን ያስገቡ።",
+    "send": "ጉርሻ ላክ",
+    "youPay": "እርስዎ ይከፍላሉ",
+    "success": "ስለ ድጋፍዎ እናመሰግናለን!",
+    "successSubtitle": "ጉርሻዎ በተሳካ ሁኔታ ተልኳል።",
+    "unavailable": "ይህ ፈጣሪ እስካሁን ጉርሻዎችን አላዋቀረም።",
+    "cannotTipOwn": "የራስዎን ይዘት ጉርሻ መስጠት አይችሉም።",
+    "done": "ተጠናቋል",
+    "processing": "ጉርሻዎ እየተላከ ነው…"
   }
 }

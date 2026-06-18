@@ -172,7 +172,9 @@
     "removedFromFavorites": "Retiré des favoris",
     "linkCopied": "Lien copié dans le presse-papiers",
     "tooManyRequests": "Trop de requêtes. Veuillez patienter un instant et réessayer.",
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "updateAvailable": "Une nouvelle version est disponible.",
+    "updateNow": "Mettre à jour"
   },
   "Themes": {
     "title": "Sélecteur de thèmes",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "Sans expiration",
     "badgeNone": "Vous n'avez pas encore de credential bleue active",
     "badgeNoneHint": "Activez votre credential bleue pour demander la création de votre tenant et accéder aux outils avancés.",
-    "badgeGetAccess": "Activer la credential bleue"
+    "badgeGetAccess": "Activer la credential bleue",
+    "myFranchise": "Ma franchise",
+    "myFranchiseHint": "Ouvrez et gérez votre propre boutique au sein de cette marketplace"
   },
   "AppBar": {
     "home": "Accueil",
@@ -600,7 +604,8 @@
     "walletReconnectRequired": "La session de votre portefeuille a expiré ou est indisponible. Veuillez reconnecter votre portefeuille et réessayer.",
     "franchiseSelfPurchase": "Les propriétaires d'une franchise ne peuvent pas acheter via leur propre franchise. Veuillez effectuer l'achat depuis la boutique principale.",
     "confirmingPayment": "Confirmation de votre paiement sur le réseau Stellar… Cela ne prend généralement que quelques secondes.",
-    "paymentConfirmTimeout": "Nous n'avons pas encore pu confirmer votre paiement. S'il a abouti, votre contenu sera débloqué automatiquement dans quelques minutes."
+    "paymentConfirmTimeout": "Nous n'avons pas encore pu confirmer votre paiement. S'il a abouti, votre contenu sera débloqué automatiquement dans quelques minutes.",
+    "contentWalletInactive": "Ce contenu ne peut pas être acheté pour le moment : l’un de ses portefeuilles de paiement n’est plus actif sur le réseau Stellar. Veuillez réessayer plus tard."
   },
   "Purchased": {
     "title": "Mes achats",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "Vous avez atteint la limite quotidienne de signalements. Réessayez demain."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "Votre vote",
+    "like": "J’aime",
+    "dislike": "Je n’aime pas",
+    "verifiedLikes": "{value} aimé par {count} acheteurs vérifiés",
+    "barAria": "{percent} des votes sont positifs",
+    "loginRequired": "Connectez-vous pour voter sur ce contenu."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "Franchise officielle de {tenant}",
+    "poweredBy": "propulsé par EarnLumens",
+    "notFoundTitle": "Franchise introuvable",
+    "notFoundBody": "Cette boutique franchisée n’existe pas ou n’est plus disponible.",
+    "backToStore": "Retour à la boutique",
+    "errorTitle": "Impossible de charger cette franchise",
+    "retry": "Réessayer"
+  },
+  "MyFranchise": {
+    "title": "Ma franchise",
+    "subtitle": "Gérez votre propre boutique au sein de cette marketplace.",
+    "loginRequired": "Connectez-vous pour créer ou gérer votre franchise.",
+    "becomePartner": "Devenir partenaire",
+    "becomePartnerBody": "Ouvrez votre propre boutique franchisée et revendez le contenu approuvé de cette marketplace sous votre propre marque.",
+    "commissionDisclosure": "Vous gagnez une commission de {percent} sur chaque vente, prélevée sur la part de la marketplace — le prix pour l’acheteur ne change jamais. Ce taux est fixé lors de la création de votre franchise.",
+    "fieldSlug": "Adresse de la boutique (slug)",
+    "fieldPayout": "Portefeuille de paiement (clé publique Stellar)",
+    "fieldTitle": "Titre affiché (facultatif)",
+    "fieldDescription": "Description (facultatif)",
+    "fieldAccent": "Couleur d’accent (facultatif)",
+    "acceptTerms": "J’accepte les conditions de la franchise, y compris la commission indiquée ci-dessus.",
+    "createCta": "Créer ma franchise",
+    "createdOk": "Votre franchise est en ligne !",
+    "savedOk": "Identité visuelle mise à jour",
+    "save": "Enregistrer les modifications",
+    "brandingTitle": "Identité de la boutique",
+    "previewTitle": "Aperçu",
+    "imagesTitle": "Logo et image de couverture",
+    "imagesHint": "PNG, JPG ou WebP. Logo jusqu’à 2 Mo, couverture jusqu’à 6 Mo.",
+    "imagesAfterCreate": "Vous pourrez téléverser un logo et une image de couverture après avoir créé votre franchise.",
+    "logoLabel": "Logo",
+    "coverLabel": "Image de couverture",
+    "changeImage": "Changer",
+    "removeImage": "Supprimer",
+    "storefrontLabel": "Adresse de la boutique",
+    "commissionLabel": "Votre commission",
+    "payoutLabel": "Portefeuille de paiement",
+    "statusActive": "Active",
+    "statusDisabled": "Désactivée",
+    "disabledTitle": "Cette franchise a été désactivée",
+    "unavailableGeneric": "Les franchises ne sont pas disponibles sur cette boutique pour le moment.",
+    "unavailableNotEnabled": "Cette marketplace ne propose pas encore de franchises.",
+    "unavailablePaused": "Les nouvelles inscriptions de franchise sont suspendues pour le moment. Veuillez revenir plus tard.",
+    "unavailableBanned": "Vous ne pouvez pas créer de franchise sur cette marketplace.",
+    "errors": {
+      "franchises_not_enabled": "Cette marketplace ne propose pas de franchises.",
+      "franchises_paused": "Les nouvelles inscriptions de franchise sont suspendues pour le moment.",
+      "user_banned": "Vous ne pouvez pas créer de franchise sur cette marketplace.",
+      "slug_required": "Choisissez une adresse de boutique.",
+      "slug_format": "Utilisez 3 à 30 lettres minuscules, chiffres ou traits d’union.",
+      "slug_taken": "Cette adresse de boutique est déjà prise.",
+      "wallet_format": "Saisissez une clé publique Stellar valide (commençant par G).",
+      "accent_color_format": "Utilisez une couleur hexadécimale comme #1E88E5.",
+      "image_type": "Utilisez une image PNG, JPG ou WebP.",
+      "image_size": "Cette image est trop volumineuse.",
+      "image_slot": "Emplacement d’image invalide.",
+      "image_key": "Impossible de joindre cette image. Veuillez réessayer.",
+      "tenant_blocked": "Cette marketplace n’est pas active.",
+      "not_found": "Franchise introuvable.",
+      "forbidden": "Veuillez vous connecter pour continuer.",
+      "wallet_not_activated": "Ce portefeuille n’est pas encore actif sur le réseau Stellar. Envoyez au moins 1 XLM à cette adresse pour l’activer."
+    }
+  },
+  "Tip": {
+    "title": "Envoyer un pourboire",
+    "heading": "Soutenir le créateur",
+    "subtitle": "Montrez votre soutien avec un pourboire unique en XLM.",
+    "chooseAmount": "Choisir un montant",
+    "other": "Autre",
+    "customAmount": "Montant en USD",
+    "amountHint": "Min 0,25 $ — Max 100 $",
+    "amountInvalid": "Saisissez un montant entre 0,25 $ et 100 $.",
+    "send": "Envoyer le pourboire",
+    "youPay": "Vous payez",
+    "success": "Merci pour votre soutien !",
+    "successSubtitle": "Votre pourboire a été envoyé avec succès.",
+    "unavailable": "Ce créateur n’a pas encore configuré les pourboires.",
+    "cannotTipOwn": "Vous ne pouvez pas donner de pourboire à votre propre contenu.",
+    "done": "Terminé",
+    "processing": "Envoi de votre pourboire…"
   }
 }

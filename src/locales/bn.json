@@ -172,7 +172,9 @@
     "addedToFavorites": "প্রিয়তে যোগ করা হয়েছে",
     "removedFromFavorites": "প্রিয় থেকে সরানো হয়েছে",
     "linkCopied": "লিঙ্ক ক্লিপবোর্ডে কপি করা হয়েছে",
-    "tooManyRequests": "অনেক বেশি অনুরোধ। অনুগ্রহ করে এক মুহূর্ত অপেক্ষা করুন এবং আবার চেষ্টা করুন।"
+    "tooManyRequests": "অনেক বেশি অনুরোধ। অনুগ্রহ করে এক মুহূর্ত অপেক্ষা করুন এবং আবার চেষ্টা করুন।",
+    "updateAvailable": "একটি নতুন সংস্করণ উপলব্ধ।",
+    "updateNow": "আপডেট করুন"
   },
   "Themes": {
     "title": "থিম নির্বাচক",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "মেয়াদ শেষ নেই",
     "badgeNone": "আপনার এখনও কোনো সক্রিয় ব্লু ক্রেডেনশিয়াল নেই",
     "badgeNoneHint": "টেন্যান্ট তৈরির অনুরোধ এবং উন্নত সরঞ্জাম অ্যাক্সেস করতে আপনার ব্লু ক্রেডেনশিয়াল সক্রিয় করুন।",
-    "badgeGetAccess": "ব্লু ক্রেডেনশিয়াল সক্রিয় করুন"
+    "badgeGetAccess": "ব্লু ক্রেডেনশিয়াল সক্রিয় করুন",
+    "myFranchise": "আমার ফ্র্যাঞ্চাইজি",
+    "myFranchiseHint": "এই মার্কেটপ্লেসের অধীনে আপনার নিজের স্টোর খুলুন ও পরিচালনা করুন"
   },
   "AppBar": {
     "home": "হোম",
@@ -611,7 +615,8 @@
     "walletReconnectRequired": "আপনার ওয়ালেট সেশনের মেয়াদ শেষ হয়েছে বা এটি অনুপলব্ধ। অনুগ্রহ করে আপনার ওয়ালেট পুনরায় সংযুক্ত করে আবার চেষ্টা করুন।",
     "franchiseSelfPurchase": "ফ্র্যাঞ্চাইজির মালিকরা নিজেদের ফ্র্যাঞ্চাইজির মাধ্যমে কেনাকাটা করতে পারবেন না। অনুগ্রহ করে মূল স্টোর থেকে কিনুন।",
     "confirmingPayment": "আপনার পেমেন্ট Stellar নেটওয়ার্কে নিশ্চিত করা হচ্ছে… এতে সাধারণত কয়েক সেকেন্ড লাগে।",
-    "paymentConfirmTimeout": "আমরা এখনও আপনার পেমেন্ট নিশ্চিত করতে পারিনি। এটি সফল হলে, আপনার কনটেন্ট কয়েক মিনিটের মধ্যে স্বয়ংক্রিয়ভাবে আনলক হবে।"
+    "paymentConfirmTimeout": "আমরা এখনও আপনার পেমেন্ট নিশ্চিত করতে পারিনি। এটি সফল হলে, আপনার কনটেন্ট কয়েক মিনিটের মধ্যে স্বয়ংক্রিয়ভাবে আনলক হবে।",
+    "contentWalletInactive": "এই কনটেন্টটি এখন কেনা যাবে না: এর পেআউট ওয়ালেটগুলির একটি আর Stellar নেটওয়ার্কে সক্রিয় নয়। অনুগ্রহ করে পরে আবার চেষ্টা করুন।"
   },
   "Favorites": {
     "empty": "এখনও কোনো প্রিয় নেই",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "আপনি দৈনিক রিপোর্ট সীমাতে পৌঁছেছেন। আগামীকাল আবার চেষ্টা করুন।"
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "আপনার ভোট",
+    "like": "পছন্দ",
+    "dislike": "অপছন্দ",
+    "verifiedLikes": "{value} — {count} জন যাচাইকৃত ক্রেতা পছন্দ করেছেন",
+    "barAria": "{percent} ভোট পছন্দ",
+    "loginRequired": "এই কনটেন্টে ভোট দিতে সাইন ইন করুন।"
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "{tenant}-এর অফিসিয়াল ফ্র্যাঞ্চাইজি",
+    "poweredBy": "EarnLumens দ্বারা পরিচালিত",
+    "notFoundTitle": "ফ্র্যাঞ্চাইজি পাওয়া যায়নি",
+    "notFoundBody": "এই ফ্র্যাঞ্চাইজি স্টোরফ্রন্টটি বিদ্যমান নেই বা আর উপলব্ধ নয়।",
+    "backToStore": "স্টোরে ফিরে যান",
+    "errorTitle": "এই ফ্র্যাঞ্চাইজিটি লোড করা যায়নি",
+    "retry": "আবার চেষ্টা করুন"
+  },
+  "MyFranchise": {
+    "title": "আমার ফ্র্যাঞ্চাইজি",
+    "subtitle": "এই মার্কেটপ্লেসের অধীনে আপনার নিজের স্টোর পরিচালনা করুন।",
+    "loginRequired": "আপনার ফ্র্যাঞ্চাইজি তৈরি বা পরিচালনা করতে লগ ইন করুন।",
+    "becomePartner": "পার্টনার হন",
+    "becomePartnerBody": "আপনার নিজের ফ্র্যাঞ্চাইজি স্টোরফ্রন্ট খুলুন এবং এই মার্কেটপ্লেসের অনুমোদিত কনটেন্ট আপনার নিজের ব্র্যান্ডে পুনরায় বিক্রি করুন।",
+    "commissionDisclosure": "আপনি প্রতিটি বিক্রয়ে {percent} কমিশন উপার্জন করেন, যা মার্কেটপ্লেসের অংশ থেকে নেওয়া হয় — ক্রেতার মূল্য কখনও পরিবর্তিত হয় না। আপনার ফ্র্যাঞ্চাইজি তৈরির সময় এই হার নির্ধারিত হয়।",
+    "fieldSlug": "স্টোরের ঠিকানা (slug)",
+    "fieldPayout": "পেআউট ওয়ালেট (Stellar পাবলিক কী)",
+    "fieldTitle": "প্রদর্শিত শিরোনাম (ঐচ্ছিক)",
+    "fieldDescription": "বিবরণ (ঐচ্ছিক)",
+    "fieldAccent": "অ্যাকসেন্ট রঙ (ঐচ্ছিক)",
+    "acceptTerms": "আমি ফ্র্যাঞ্চাইজির শর্তাবলী গ্রহণ করছি, উপরে দেখানো কমিশন সহ।",
+    "createCta": "আমার ফ্র্যাঞ্চাইজি তৈরি করুন",
+    "createdOk": "আপনার ফ্র্যাঞ্চাইজি এখন সক্রিয়!",
+    "savedOk": "ব্র্যান্ডিং আপডেট হয়েছে",
+    "save": "পরিবর্তন সংরক্ষণ করুন",
+    "brandingTitle": "স্টোর ব্র্যান্ডিং",
+    "previewTitle": "প্রিভিউ",
+    "imagesTitle": "লোগো এবং কভার ছবি",
+    "imagesHint": "PNG, JPG বা WebP। লোগো সর্বোচ্চ 2 MB, কভার সর্বোচ্চ 6 MB।",
+    "imagesAfterCreate": "আপনার ফ্র্যাঞ্চাইজি তৈরির পর আপনি লোগো এবং কভার ছবি আপলোড করতে পারবেন।",
+    "logoLabel": "লোগো",
+    "coverLabel": "কভার ছবি",
+    "changeImage": "পরিবর্তন",
+    "removeImage": "সরান",
+    "storefrontLabel": "স্টোরের ঠিকানা",
+    "commissionLabel": "আপনার কমিশন",
+    "payoutLabel": "পেআউট ওয়ালেট",
+    "statusActive": "সক্রিয়",
+    "statusDisabled": "নিষ্ক্রিয়",
+    "disabledTitle": "এই ফ্র্যাঞ্চাইজিটি নিষ্ক্রিয় করা হয়েছে",
+    "unavailableGeneric": "এই স্টোরে ফ্র্যাঞ্চাইজি এখন উপলব্ধ নয়।",
+    "unavailableNotEnabled": "এই মার্কেটপ্লেস এখনও ফ্র্যাঞ্চাইজি অফার করে না।",
+    "unavailablePaused": "নতুন ফ্র্যাঞ্চাইজি সাইন-আপ এখন স্থগিত আছে। অনুগ্রহ করে পরে আবার দেখুন।",
+    "unavailableBanned": "আপনি এই মার্কেটপ্লেসে ফ্র্যাঞ্চাইজি তৈরি করতে পারবেন না।",
+    "errors": {
+      "franchises_not_enabled": "এই মার্কেটপ্লেস ফ্র্যাঞ্চাইজি অফার করে না।",
+      "franchises_paused": "নতুন ফ্র্যাঞ্চাইজি সাইন-আপ এখন স্থগিত আছে।",
+      "user_banned": "আপনি এই মার্কেটপ্লেসে ফ্র্যাঞ্চাইজি তৈরি করতে পারবেন না।",
+      "slug_required": "একটি স্টোর ঠিকানা নির্বাচন করুন।",
+      "slug_format": "3–30টি ছোট হাতের অক্ষর, সংখ্যা বা হাইফেন ব্যবহার করুন।",
+      "slug_taken": "সেই স্টোর ঠিকানাটি ইতিমধ্যে নেওয়া হয়েছে।",
+      "wallet_format": "একটি বৈধ Stellar পাবলিক কী লিখুন (G দিয়ে শুরু)।",
+      "accent_color_format": "#1E88E5-এর মতো একটি হেক্স রঙ ব্যবহার করুন।",
+      "image_type": "একটি PNG, JPG বা WebP ছবি ব্যবহার করুন।",
+      "image_size": "সেই ছবিটি খুব বড়।",
+      "image_slot": "অবৈধ ছবির স্লট।",
+      "image_key": "সেই ছবিটি সংযুক্ত করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।",
+      "tenant_blocked": "এই মার্কেটপ্লেস সক্রিয় নয়।",
+      "not_found": "ফ্র্যাঞ্চাইজি পাওয়া যায়নি।",
+      "forbidden": "চালিয়ে যেতে অনুগ্রহ করে লগ ইন করুন।",
+      "wallet_not_activated": "এই ওয়ালেটটি এখনও Stellar নেটওয়ার্কে সক্রিয় নয়। এটি সক্রিয় করতে এই ঠিকানায় কমপক্ষে 1 XLM পাঠান।"
+    }
+  },
+  "Tip": {
+    "title": "টিপ পাঠান",
+    "heading": "নির্মাতাকে সমর্থন করুন",
+    "subtitle": "XLM-এ একবারের টিপ দিয়ে আপনার সমর্থন দেখান।",
+    "chooseAmount": "একটি পরিমাণ নির্বাচন করুন",
+    "other": "অন্যান্য",
+    "customAmount": "USD-তে পরিমাণ",
+    "amountHint": "সর্বনিম্ন $0.25 — সর্বোচ্চ $100",
+    "amountInvalid": "$0.25 এবং $100-এর মধ্যে একটি পরিমাণ লিখুন।",
+    "send": "টিপ পাঠান",
+    "youPay": "আপনি পরিশোধ করেন",
+    "success": "আপনার সমর্থনের জন্য ধন্যবাদ!",
+    "successSubtitle": "আপনার টিপ সফলভাবে পাঠানো হয়েছে।",
+    "unavailable": "এই নির্মাতা এখনও টিপ সেট আপ করেননি।",
+    "cannotTipOwn": "আপনি নিজের কনটেন্টে টিপ দিতে পারবেন না।",
+    "done": "সম্পন্ন",
+    "processing": "আপনার টিপ পাঠানো হচ্ছে…"
   }
 }

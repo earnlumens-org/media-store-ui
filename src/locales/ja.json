@@ -172,7 +172,9 @@
     "removedFromFavorites": "お気に入りから削除しました",
     "linkCopied": "リンクをクリップボードにコピーしました",
     "tooManyRequests": "リクエストが多すぎます。しばらくしてからもう一度お試しください。",
-    "cancel": "キャンセル"
+    "cancel": "キャンセル",
+    "updateAvailable": "新しいバージョンが利用可能です。",
+    "updateNow": "更新"
   },
   "Themes": {
     "title": "テーマセレクター",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "無期限",
     "badgeNone": "まだアクティブなブルークレデンシャルがありません",
     "badgeNoneHint": "テナント作成を申請し、高度なツールにアクセスするためにブルークレデンシャルを有効化してください。",
-    "badgeGetAccess": "ブルークレデンシャルを有効化"
+    "badgeGetAccess": "ブルークレデンシャルを有効化",
+    "myFranchise": "マイフランチャイズ",
+    "myFranchiseHint": "このマーケットプレイス内で自分のストアを開設・管理する"
   },
   "AppBar": {
     "home": "ホームページ",
@@ -600,7 +604,8 @@
     "walletReconnectRequired": "ウォレットのセッションが期限切れか利用できません。ウォレットを再接続して、もう一度お試しください。",
     "franchiseSelfPurchase": "フランチャイズのオーナーは自分のフランチャイズ経由で購入できません。メインストアからご購入ください。",
     "confirmingPayment": "Stellar ネットワークでお支払いを確認しています… 通常は数秒で完了します。",
-    "paymentConfirmTimeout": "お支払いをまだ確認できていません。完了している場合、コンテンツは数分以内に自動的にロック解除されます。"
+    "paymentConfirmTimeout": "お支払いをまだ確認できていません。完了している場合、コンテンツは数分以内に自動的にロック解除されます。",
+    "contentWalletInactive": "このコンテンツは現在購入できません。受取ウォレットの 1 つが Stellar ネットワークで有効でなくなっています。後でもう一度お試しください。"
   },
   "Purchased": {
     "title": "購入済み",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "1日の報告上限に達しました。明日もう一度お試しください。"
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "あなたの評価",
+    "like": "高評価",
+    "dislike": "低評価",
+    "verifiedLikes": "{value}（認証済み購入者 {count} 人が高評価）",
+    "barAria": "投票の {percent} が高評価です",
+    "loginRequired": "このコンテンツを評価するにはログインしてください。"
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "{tenant} の公式フランチャイズ",
+    "poweredBy": "Powered by EarnLumens",
+    "notFoundTitle": "フランチャイズが見つかりません",
+    "notFoundBody": "このフランチャイズストアは存在しないか、すでに利用できません。",
+    "backToStore": "ストアに戻る",
+    "errorTitle": "このフランチャイズを読み込めませんでした",
+    "retry": "再試行"
+  },
+  "MyFranchise": {
+    "title": "マイフランチャイズ",
+    "subtitle": "このマーケットプレイス内で自分のストアを運営しましょう。",
+    "loginRequired": "フランチャイズを作成・管理するにはログインしてください。",
+    "becomePartner": "パートナーになる",
+    "becomePartnerBody": "自分のフランチャイズストアを開設し、このマーケットプレイスの承認済みコンテンツを自分のブランドで再販しましょう。",
+    "commissionDisclosure": "販売ごとに {percent} の手数料を獲得できます。これはマーケットプレイスの取り分から差し引かれ、購入者の価格は変わりません。このレートはフランチャイズ作成時に固定されます。",
+    "fieldSlug": "ストアアドレス（スラッグ）",
+    "fieldPayout": "受取ウォレット（Stellar 公開鍵）",
+    "fieldTitle": "表示タイトル（任意）",
+    "fieldDescription": "説明（任意）",
+    "fieldAccent": "アクセントカラー（任意）",
+    "acceptTerms": "上記の手数料を含むフランチャイズ規約に同意します。",
+    "createCta": "マイフランチャイズを作成",
+    "createdOk": "フランチャイズが公開されました！",
+    "savedOk": "ブランディングを更新しました",
+    "save": "変更を保存",
+    "brandingTitle": "ストアのブランディング",
+    "previewTitle": "プレビュー",
+    "imagesTitle": "ロゴとカバー画像",
+    "imagesHint": "PNG、JPG、または WebP。ロゴは最大 2 MB、カバーは最大 6 MB。",
+    "imagesAfterCreate": "フランチャイズを作成すると、ロゴとカバー画像をアップロードできます。",
+    "logoLabel": "ロゴ",
+    "coverLabel": "カバー画像",
+    "changeImage": "変更",
+    "removeImage": "削除",
+    "storefrontLabel": "ストアアドレス",
+    "commissionLabel": "あなたの手数料",
+    "payoutLabel": "受取ウォレット",
+    "statusActive": "有効",
+    "statusDisabled": "無効",
+    "disabledTitle": "このフランチャイズは無効化されています",
+    "unavailableGeneric": "現在、このストアではフランチャイズを利用できません。",
+    "unavailableNotEnabled": "このマーケットプレイスはまだフランチャイズを提供していません。",
+    "unavailablePaused": "新規フランチャイズの登録は現在停止中です。後でもう一度ご確認ください。",
+    "unavailableBanned": "このマーケットプレイスではフランチャイズを作成できません。",
+    "errors": {
+      "franchises_not_enabled": "このマーケットプレイスはフランチャイズを提供していません。",
+      "franchises_paused": "新規フランチャイズの登録は現在停止中です。",
+      "user_banned": "このマーケットプレイスではフランチャイズを作成できません。",
+      "slug_required": "ストアアドレスを選択してください。",
+      "slug_format": "3〜30 文字の小文字、数字、またはハイフンを使用してください。",
+      "slug_taken": "そのストアアドレスはすでに使用されています。",
+      "wallet_format": "有効な Stellar 公開鍵を入力してください（G で始まります）。",
+      "accent_color_format": "#1E88E5 のような 16 進数カラーを使用してください。",
+      "image_type": "PNG、JPG、または WebP 画像を使用してください。",
+      "image_size": "その画像は大きすぎます。",
+      "image_slot": "無効な画像スロットです。",
+      "image_key": "その画像を添付できませんでした。もう一度お試しください。",
+      "tenant_blocked": "このマーケットプレイスは有効ではありません。",
+      "not_found": "フランチャイズが見つかりません。",
+      "forbidden": "続行するにはログインしてください。",
+      "wallet_not_activated": "このウォレットは Stellar ネットワークでまだ有効化されていません。有効化するには、このアドレスに少なくとも 1 XLM を送金してください。"
+    }
+  },
+  "Tip": {
+    "title": "チップを送る",
+    "heading": "クリエイターを応援",
+    "subtitle": "XLM の一度きりのチップで応援を示しましょう。",
+    "chooseAmount": "金額を選択",
+    "other": "その他",
+    "customAmount": "金額（USD）",
+    "amountHint": "最小 $0.25 — 最大 $100",
+    "amountInvalid": "$0.25 から $100 の間の金額を入力してください。",
+    "send": "チップを送る",
+    "youPay": "お支払い額",
+    "success": "応援ありがとうございます！",
+    "successSubtitle": "チップが正常に送信されました。",
+    "unavailable": "このクリエイターはまだチップを設定していません。",
+    "cannotTipOwn": "自分のコンテンツにチップを送ることはできません。",
+    "done": "完了",
+    "processing": "チップを送信しています…"
   }
 }

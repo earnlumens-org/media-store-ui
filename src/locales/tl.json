@@ -172,7 +172,9 @@
     "addedToFavorites": "Idinagdag sa mga paborito",
     "removedFromFavorites": "Inalis sa mga paborito",
     "linkCopied": "Nakopya ang link sa clipboard",
-    "tooManyRequests": "Sobrang dami ng kahilingan. Mangyaring sandaling huminto at subukan muli."
+    "tooManyRequests": "Sobrang dami ng kahilingan. Mangyaring sandaling huminto at subukan muli.",
+    "updateAvailable": "May bagong bersyon na available.",
+    "updateNow": "I-update"
   },
   "Themes": {
     "title": "Theme Selector",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "Walang expiration",
     "badgeNone": "Wala ka pang aktibong asul na credential",
     "badgeNoneHint": "I-activate ang iyong asul na credential para humiling ng paglikha ng tenant at i-access ang mga advanced na tool.",
-    "badgeGetAccess": "I-activate ang asul na credential"
+    "badgeGetAccess": "I-activate ang asul na credential",
+    "myFranchise": "Aking Prangkisa",
+    "myFranchiseHint": "Magbukas at pamahalaan ang sarili mong storefront sa ilalim ng marketplace na ito"
   },
   "AppBar": {
     "home": "Home",
@@ -611,7 +615,8 @@
     "walletReconnectRequired": "Nag-expire na o hindi available ang session ng iyong wallet. Pakikonekta muli ang iyong wallet at subukang muli.",
     "franchiseSelfPurchase": "Hindi maaaring bumili ang mga may-ari ng franchise sa pamamagitan ng sarili nilang franchise. Mangyaring bumili mula sa pangunahing tindahan.",
     "confirmingPayment": "Kinukumpirma ang bayad mo sa Stellar network… Karaniwang inaabot lang ito ng ilang segundo.",
-    "paymentConfirmTimeout": "Hindi pa namin nakumpirma ang bayad mo. Kung natuloy ito, awtomatikong maa-unlock ang content mo sa loob ng ilang minuto."
+    "paymentConfirmTimeout": "Hindi pa namin nakumpirma ang bayad mo. Kung natuloy ito, awtomatikong maa-unlock ang content mo sa loob ng ilang minuto.",
+    "contentWalletInactive": "Hindi mabibili ang nilalamang ito sa ngayon: isa sa mga payout wallet nito ay hindi na aktibo sa Stellar network. Pakisubukan ulit mamaya."
   },
   "Favorites": {
     "empty": "Wala pang mga paborito",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "Naabot mo na ang pang-araw-araw na limit ng ulat. Pakisubukan muli bukas."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "Iyong boto",
+    "like": "Gusto",
+    "dislike": "Ayaw",
+    "verifiedLikes": "{value} na-like ng {count} na na-verify na mamimili",
+    "barAria": "{percent} ng mga boto ay gusto",
+    "loginRequired": "Mag-sign in para bumoto sa nilalamang ito."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "Opisyal na prangkisa ng {tenant}",
+    "poweredBy": "pinapagana ng EarnLumens",
+    "notFoundTitle": "Hindi nakita ang prangkisa",
+    "notFoundBody": "Wala o hindi na available ang storefront ng prangkisang ito.",
+    "backToStore": "Bumalik sa tindahan",
+    "errorTitle": "Hindi ma-load ang prangkisang ito",
+    "retry": "Subukan ulit"
+  },
+  "MyFranchise": {
+    "title": "Aking Prangkisa",
+    "subtitle": "Patakbuhin ang sarili mong tindahan sa ilalim ng marketplace na ito.",
+    "loginRequired": "Mag-log in para gumawa o pamahalaan ang iyong prangkisa.",
+    "becomePartner": "Maging partner",
+    "becomePartnerBody": "Magbukas ng sarili mong storefront ng prangkisa at ibenta muli ang aprubadong nilalaman ng marketplace na ito sa ilalim ng iyong sariling brand.",
+    "commissionDisclosure": "Kumikita ka ng {percent} na komisyon sa bawat benta, kinukuha mula sa bahagi ng marketplace — hindi nagbabago ang presyo para sa mamimili. Naka-lock ang rate na ito kapag ginawa mo ang iyong prangkisa.",
+    "fieldSlug": "Address ng storefront (slug)",
+    "fieldPayout": "Wallet para sa bayad (Stellar public key)",
+    "fieldTitle": "Display na pamagat (opsyonal)",
+    "fieldDescription": "Paglalarawan (opsyonal)",
+    "fieldAccent": "Accent color (opsyonal)",
+    "acceptTerms": "Tinatanggap ko ang mga tuntunin ng prangkisa, kasama ang komisyong ipinakita sa itaas.",
+    "createCta": "Gawin ang aking prangkisa",
+    "createdOk": "Live na ang iyong prangkisa!",
+    "savedOk": "Na-update ang branding",
+    "save": "I-save ang mga pagbabago",
+    "brandingTitle": "Branding ng storefront",
+    "previewTitle": "Preview",
+    "imagesTitle": "Logo at cover na larawan",
+    "imagesHint": "PNG, JPG o WebP. Logo hanggang 2 MB, cover hanggang 6 MB.",
+    "imagesAfterCreate": "Makakapag-upload ka ng logo at cover na larawan pagkatapos gawin ang iyong prangkisa.",
+    "logoLabel": "Logo",
+    "coverLabel": "Cover na larawan",
+    "changeImage": "Palitan",
+    "removeImage": "Alisin",
+    "storefrontLabel": "Address ng storefront",
+    "commissionLabel": "Iyong komisyon",
+    "payoutLabel": "Wallet para sa bayad",
+    "statusActive": "Aktibo",
+    "statusDisabled": "Naka-disable",
+    "disabledTitle": "Na-disable ang prangkisang ito",
+    "unavailableGeneric": "Hindi available ang mga prangkisa sa storefront na ito sa ngayon.",
+    "unavailableNotEnabled": "Wala pang inaalok na prangkisa ang marketplace na ito.",
+    "unavailablePaused": "Naka-pause ang mga bagong pag-sign up sa prangkisa sa ngayon. Pakibalikan mamaya.",
+    "unavailableBanned": "Hindi ka makakagawa ng prangkisa sa marketplace na ito.",
+    "errors": {
+      "franchises_not_enabled": "Walang inaalok na prangkisa ang marketplace na ito.",
+      "franchises_paused": "Naka-pause ang mga bagong pag-sign up sa prangkisa sa ngayon.",
+      "user_banned": "Hindi ka makakagawa ng prangkisa sa marketplace na ito.",
+      "slug_required": "Pumili ng address ng storefront.",
+      "slug_format": "Gumamit ng 3–30 maliliit na titik, numero o gitling.",
+      "slug_taken": "Nakuha na ang address ng storefront na iyon.",
+      "wallet_format": "Maglagay ng wastong Stellar public key (nagsisimula sa G).",
+      "accent_color_format": "Gumamit ng hex color tulad ng #1E88E5.",
+      "image_type": "Gumamit ng PNG, JPG o WebP na larawan.",
+      "image_size": "Masyadong malaki ang larawang iyon.",
+      "image_slot": "Di-wastong slot ng larawan.",
+      "image_key": "Hindi mailakip ang larawang iyon. Pakisubukan ulit.",
+      "tenant_blocked": "Hindi aktibo ang marketplace na ito.",
+      "not_found": "Hindi nakita ang prangkisa.",
+      "forbidden": "Mag-log in para magpatuloy.",
+      "wallet_not_activated": "Hindi pa aktibo ang wallet na ito sa Stellar network. Magpadala ng hindi bababa sa 1 XLM sa address na ito para i-activate ito."
+    }
+  },
+  "Tip": {
+    "title": "Magpadala ng tip",
+    "heading": "Suportahan ang creator",
+    "subtitle": "Ipakita ang iyong suporta gamit ang isang beses na tip sa XLM.",
+    "chooseAmount": "Pumili ng halaga",
+    "other": "Iba pa",
+    "customAmount": "Halaga sa USD",
+    "amountHint": "Min $0.25 — Max $100",
+    "amountInvalid": "Maglagay ng halaga sa pagitan ng $0.25 at $100.",
+    "send": "Magpadala ng tip",
+    "youPay": "Babayaran mo",
+    "success": "Salamat sa iyong suporta!",
+    "successSubtitle": "Matagumpay na naipadala ang iyong tip.",
+    "unavailable": "Hindi pa nag-set up ng mga tip ang creator na ito.",
+    "cannotTipOwn": "Hindi mo mati-tip ang sarili mong nilalaman.",
+    "done": "Tapos na",
+    "processing": "Ipinapadala ang iyong tip…"
   }
 }

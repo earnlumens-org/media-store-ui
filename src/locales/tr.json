@@ -172,7 +172,9 @@
     "removedFromFavorites": "Favorilerden kaldırıldı",
     "linkCopied": "Bağlantı panoya kopyalandı",
     "tooManyRequests": "Çok fazla istek. Lütfen bir süre bekleyin ve tekrar deneyin.",
-    "cancel": "İptal"
+    "cancel": "İptal",
+    "updateAvailable": "Yeni bir sürüm mevcut.",
+    "updateNow": "Güncelle"
   },
   "Themes": {
     "title": "Tema Seçici",
@@ -294,7 +296,9 @@
     "badgeNoExpiration": "Süresiz",
     "badgeNone": "Henüz aktif bir mavi kimlik bilginiz yok",
     "badgeNoneHint": "Kiracı oluşturma talebinde bulunmak ve gelişmiş araçlara erişmek için mavi kimlik bilginizi etkinleştirin.",
-    "badgeGetAccess": "Mavi kimlik bilgisini etkinleştir"
+    "badgeGetAccess": "Mavi kimlik bilgisini etkinleştir",
+    "myFranchise": "Bayiliğim",
+    "myFranchiseHint": "Bu pazar yerinin altında kendi mağazanızı açın ve yönetin"
   },
   "AppBar": {
     "home": "Ana Sayfa",
@@ -600,7 +604,8 @@
     "walletReconnectRequired": "Cüzdan oturumunuzun süresi doldu veya kullanılamıyor. Lütfen cüzdanınızı yeniden bağlayın ve tekrar deneyin.",
     "franchiseSelfPurchase": "Franchise sahipleri kendi franchise'ları üzerinden satın alma yapamaz. Lütfen ana mağazadan satın alın.",
     "confirmingPayment": "Ödemeniz Stellar ağında onaylanıyor… Bu genellikle birkaç saniye sürer.",
-    "paymentConfirmTimeout": "Ödemenizi henüz onaylayamadık. Başarılı olduysa, içeriğiniz birkaç dakika içinde otomatik olarak açılacaktır."
+    "paymentConfirmTimeout": "Ödemenizi henüz onaylayamadık. Başarılı olduysa, içeriğiniz birkaç dakika içinde otomatik olarak açılacaktır.",
+    "contentWalletInactive": "Bu içerik şu anda satın alınamıyor: ödeme cüzdanlarından biri Stellar ağında artık etkin değil. Lütfen daha sonra tekrar deneyin."
   },
   "Purchased": {
     "title": "Satın Alımlarım",
@@ -892,11 +897,8 @@
     "dailyLimitReached": "Günlük bildirim sınırına ulaştınız. Lütfen yarın tekrar deneyin."
   },
   "rating": {
-    "yourRating": "Your rating",
     "rateThis": "Rate this",
-    "starsValue": "{count} star | {count} stars",
     "basedOn": "{count} rating | {count} ratings",
-    "verifiedAverage": "{value} from {count} verified",
     "commentLabel": "Add a review (optional)",
     "commentPlaceholder": "Share your experience to help others...",
     "remove": "Remove",
@@ -911,7 +913,13 @@
     "purchaseRequired": "Purchase this content to rate it.",
     "dailyLimit": "You've reached the daily rating limit. Please try again tomorrow.",
     "ownContent": "You can't rate your own content.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "yourVote": "Oyunuz",
+    "like": "Beğen",
+    "dislike": "Beğenme",
+    "verifiedLikes": "{value} — {count} doğrulanmış alıcı beğendi",
+    "barAria": "Oyların %{percent} kadarı beğeni",
+    "loginRequired": "Bu içeriğe oy vermek için giriş yapın."
   },
   "Search": {
     "placeholder": "Search",
@@ -932,5 +940,87 @@
       "oldest": "Oldest",
       "views": "Most viewed"
     }
+  },
+  "Franchise": {
+    "officialOf": "{tenant} resmi bayisi",
+    "poweredBy": "EarnLumens tarafından desteklenmektedir",
+    "notFoundTitle": "Bayi bulunamadı",
+    "notFoundBody": "Bu bayi mağazası mevcut değil veya artık kullanılamıyor.",
+    "backToStore": "Mağazaya dön",
+    "errorTitle": "Bu bayi yüklenemedi",
+    "retry": "Tekrar dene"
+  },
+  "MyFranchise": {
+    "title": "Bayiliğim",
+    "subtitle": "Bu pazar yerinin altında kendi mağazanızı işletin.",
+    "loginRequired": "Bayiliğinizi oluşturmak veya yönetmek için giriş yapın.",
+    "becomePartner": "Ortak olun",
+    "becomePartnerBody": "Kendi bayi mağazanızı açın ve bu pazar yerinin onaylanmış içeriğini kendi markanızla yeniden satın.",
+    "commissionDisclosure": "Her satıştan {percent} komisyon kazanırsınız; bu, pazar yerinin payından alınır — alıcının ödediği fiyat asla değişmez. Bu oran, bayiliğinizi oluşturduğunuzda sabitlenir.",
+    "fieldSlug": "Mağaza adresi (slug)",
+    "fieldPayout": "Ödeme cüzdanı (Stellar genel anahtarı)",
+    "fieldTitle": "Görünen başlık (isteğe bağlı)",
+    "fieldDescription": "Açıklama (isteğe bağlı)",
+    "fieldAccent": "Vurgu rengi (isteğe bağlı)",
+    "acceptTerms": "Yukarıda gösterilen komisyon dahil bayilik şartlarını kabul ediyorum.",
+    "createCta": "Bayiliğimi oluştur",
+    "createdOk": "Bayiliğiniz yayında!",
+    "savedOk": "Marka görünümü güncellendi",
+    "save": "Değişiklikleri kaydet",
+    "brandingTitle": "Mağaza markası",
+    "previewTitle": "Önizleme",
+    "imagesTitle": "Logo ve kapak görseli",
+    "imagesHint": "PNG, JPG veya WebP. Logo en fazla 2 MB, kapak en fazla 6 MB.",
+    "imagesAfterCreate": "Bayiliğinizi oluşturduktan sonra logo ve kapak görseli yükleyebileceksiniz.",
+    "logoLabel": "Logo",
+    "coverLabel": "Kapak görseli",
+    "changeImage": "Değiştir",
+    "removeImage": "Kaldır",
+    "storefrontLabel": "Mağaza adresi",
+    "commissionLabel": "Komisyonunuz",
+    "payoutLabel": "Ödeme cüzdanı",
+    "statusActive": "Etkin",
+    "statusDisabled": "Devre dışı",
+    "disabledTitle": "Bu bayilik devre dışı bırakıldı",
+    "unavailableGeneric": "Bayilikler şu anda bu mağazada kullanılamıyor.",
+    "unavailableNotEnabled": "Bu pazar yeri henüz bayilik sunmuyor.",
+    "unavailablePaused": "Yeni bayilik kayıtları şu anda duraklatıldı. Lütfen daha sonra tekrar kontrol edin.",
+    "unavailableBanned": "Bu pazar yerinde bayilik oluşturamazsınız.",
+    "errors": {
+      "franchises_not_enabled": "Bu pazar yeri bayilik sunmuyor.",
+      "franchises_paused": "Yeni bayilik kayıtları şu anda duraklatıldı.",
+      "user_banned": "Bu pazar yerinde bayilik oluşturamazsınız.",
+      "slug_required": "Bir mağaza adresi seçin.",
+      "slug_format": "3–30 küçük harf, rakam veya tire kullanın.",
+      "slug_taken": "Bu mağaza adresi zaten alınmış.",
+      "wallet_format": "Geçerli bir Stellar genel anahtarı girin (G ile başlar).",
+      "accent_color_format": "#1E88E5 gibi bir onaltılık renk kullanın.",
+      "image_type": "PNG, JPG veya WebP görseli kullanın.",
+      "image_size": "Bu görsel çok büyük.",
+      "image_slot": "Geçersiz görsel yuvası.",
+      "image_key": "Bu görsel eklenemedi. Lütfen tekrar deneyin.",
+      "tenant_blocked": "Bu pazar yeri etkin değil.",
+      "not_found": "Bayilik bulunamadı.",
+      "forbidden": "Devam etmek için lütfen giriş yapın.",
+      "wallet_not_activated": "Bu cüzdan Stellar ağında henüz etkin değil. Etkinleştirmek için bu adrese en az 1 XLM gönderin."
+    }
+  },
+  "Tip": {
+    "title": "Bahşiş gönder",
+    "heading": "İçerik üreticisini destekle",
+    "subtitle": "Tek seferlik XLM bahşişiyle desteğini göster.",
+    "chooseAmount": "Bir tutar seç",
+    "other": "Diğer",
+    "customAmount": "USD cinsinden tutar",
+    "amountHint": "En az 0,25 $ — En fazla 100 $",
+    "amountInvalid": "0,25 $ ile 100 $ arasında bir tutar girin.",
+    "send": "Bahşiş gönder",
+    "youPay": "Ödediğiniz",
+    "success": "Desteğin için teşekkürler!",
+    "successSubtitle": "Bahşişin başarıyla gönderildi.",
+    "unavailable": "Bu içerik üreticisi henüz bahşiş ayarlamadı.",
+    "cannotTipOwn": "Kendi içeriğine bahşiş veremezsin.",
+    "done": "Tamam",
+    "processing": "Bahşişin gönderiliyor…"
   }
 }
