@@ -350,7 +350,8 @@
     "burmese": "birmano",
     "odia": "Odia",
     "dutch": "Olandese",
-    "malayalam": "Malayalam"
+    "malayalam": "Malayalam",
+    "nepali": "nepalese"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "L'email deve essere valida",

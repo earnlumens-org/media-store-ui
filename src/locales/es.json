@@ -414,7 +414,8 @@
     "burmese": "birmano",
     "odia": "Odia",
     "dutch": "Neerlandés",
-    "malayalam": "Malayalam"
+    "malayalam": "Malayalam",
+    "nepali": "nepalí"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El correo electrónico debe ser válido",

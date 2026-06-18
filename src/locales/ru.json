@@ -350,7 +350,8 @@
     "burmese": "бирманский",
     "odia": "Одиа",
     "dutch": "Нидерландский",
-    "malayalam": "малаялам"
+    "malayalam": "малаялам",
+    "nepali": "непальский"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Электронная почта должна быть действительной",

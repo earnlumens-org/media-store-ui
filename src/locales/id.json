@@ -350,7 +350,8 @@
     "burmese": "Burma",
     "odia": "Odia",
     "dutch": "Belanda",
-    "malayalam": "Malayalam"
+    "malayalam": "Malayalam",
+    "nepali": "Nepali"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email harus valid",

@@ -64,6 +64,7 @@
           <v-radio :label="`ଓଡ଼ିଆ (${$t('Language.odia')})`" value="or" />
           <v-radio :label="`Nederlands (${$t('Language.dutch')})`" value="nl" />
           <v-radio :label="`മലയാളം (${$t('Language.malayalam')})`" value="ml" />
+          <v-radio :label="`नेपाली (${$t('Language.nepali')})`" value="ne" />
         </v-radio-group>
       </v-card-text>
 
