@@ -349,7 +349,8 @@
     "pashto": "paszto",
     "burmese": "birmański",
     "odia": "Odia",
-    "dutch": "Niderlandzki"
+    "dutch": "Niderlandzki",
+    "malayalam": "malajalam"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail musi być poprawny",

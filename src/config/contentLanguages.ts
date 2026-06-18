@@ -46,4 +46,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'my', title: 'မြန်မာ — Burmese' },
   { value: 'or', title: 'ଓଡ଼ିଆ — Odia' },
   { value: 'nl', title: 'Nederlands — Dutch' },
+  { value: 'ml', title: 'മലയാളം — Malayalam' },
 ] as const
