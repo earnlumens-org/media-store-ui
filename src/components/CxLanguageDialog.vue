@@ -65,6 +65,7 @@
           <v-radio :label="`Nederlands (${$t('Language.dutch')})`" value="nl" />
           <v-radio :label="`മലയാളം (${$t('Language.malayalam')})`" value="ml" />
           <v-radio :label="`नेपाली (${$t('Language.nepali')})`" value="ne" />
+          <v-radio :label="`سنڌي (${$t('Language.sindhi')})`" value="sd" />
         </v-radio-group>
       </v-card-text>
 
