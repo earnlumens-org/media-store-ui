@@ -13,8 +13,24 @@
           icon
           variant="text"
         >
-          <v-avatar>
-            <v-img :src="profileImageUrl" />
+          <!--
+            color="surface-variant" keeps the avatar slot a visible, theme-toned
+            disc so the menu button never collapses into an empty/invisible
+            circle when the X profile image is missing or fails to load.
+            referrerpolicy="no-referrer" is the actual fix for the intermittent
+            blank avatar: pbs.twimg.com sometimes 403s requests that carry a
+            Referer header (varies by device/cache), and @error falls back to
+            the account icon when it does.
+          -->
+          <v-avatar color="surface-variant">
+            <v-img
+              v-if="avatarUrl"
+              :alt="displayName || username || 'avatar'"
+              referrerpolicy="no-referrer"
+              :src="avatarUrl"
+              @error="avatarFailed = true"
+            />
+            <v-icon v-else color="on-surface-variant" icon="mdi-account-circle" />
           </v-avatar>
         </v-btn>
       </template>
@@ -134,7 +150,7 @@
 </template>
 
 <script setup lang="ts">
-  import { computed, ref } from 'vue'
+  import { computed, ref, watch } from 'vue'
   import { useRouter } from 'vue-router'
   import { useTheme } from 'vuetify'
   import { logout } from '@/api/modules/auth.api'
@@ -230,4 +246,12 @@
   const profileImageUrl = computed(() => authStore.user?.profileImageUrl ?? '')
   const username = computed(() => authStore.user?.username ? `@${authStore.user.username}` : '')
   const displayName = computed(() => authStore.user?.displayName ?? '')
+
+  // Avatar with graceful degradation: when the X profile image is absent or
+  // fails to load, avatarUrl becomes '' and the template shows the themed
+  // account-icon fallback instead of an empty circle.
+  const avatarFailed = ref(false)
+  const avatarUrl = computed(() => (avatarFailed.value ? '' : profileImageUrl.value))
+  // A fresh login / profile change re-arms the load attempt.
+  watch(profileImageUrl, () => { avatarFailed.value = false })
 </script>
