@@ -41,11 +41,28 @@
         <!-- Perfil -->
         <v-list>
           <v-list-item
-            :prepend-avatar="profileImageUrl"
             :subtitle="username"
             :title="displayName"
             @click="goToProfile"
           >
+            <!--
+              Same palliative as the activator avatar: a themed disc with an
+              account-icon fallback so a missing/failed X profile image never
+              leaves an empty hole in the profile row (shares avatarUrl /
+              avatarFailed so both recover together on a fresh login).
+            -->
+            <template #prepend>
+              <v-avatar color="surface-variant">
+                <v-img
+                  v-if="avatarUrl"
+                  :alt="displayName || username || 'avatar'"
+                  referrerpolicy="no-referrer"
+                  :src="avatarUrl"
+                  @error="avatarFailed = true"
+                />
+                <v-icon v-else color="on-surface-variant" icon="mdi-account-circle" />
+              </v-avatar>
+            </template>
             <template #append>
               <v-icon>mdi-chevron-right</v-icon>
             </template>
