@@ -28,7 +28,7 @@
               :alt="displayName || username || 'avatar'"
               referrerpolicy="no-referrer"
               :src="avatarUrl"
-              @error="avatarFailed = true"
+              @error="onAvatarError"
             />
             <v-icon v-else color="on-surface-variant" icon="mdi-account-circle" />
           </v-avatar>
@@ -58,7 +58,7 @@
                   :alt="displayName || username || 'avatar'"
                   referrerpolicy="no-referrer"
                   :src="avatarUrl"
-                  @error="avatarFailed = true"
+                  @error="onAvatarError"
                 />
                 <v-icon v-else color="on-surface-variant" icon="mdi-account-circle" />
               </v-avatar>
@@ -136,6 +136,7 @@
               class="text-none justify-start"
               prepend-icon="mdi-help-circle-outline"
               variant="text"
+              @click="openHelp"
             >
               {{ $t('Common.helpCenter') }}
             </v-btn>
@@ -163,6 +164,53 @@
 
     <!-- Upload type selector dialog -->
     <UploadTypeDialog v-model="showUploadDialog" />
+
+    <!--
+      Avatar diagnostics modal. Only reachable via the Help item when an avatar
+      load error was captured (otherwise the Help button is a no-op). Surfaces
+      the failing URL + best-effort HTTP status so the real cause of the
+      intermittent blank avatar can be identified on the affected device.
+    -->
+    <v-dialog v-model="showHelpDialog" max-width="560" scrollable>
+      <v-card v-if="avatarError">
+        <v-card-title class="text-h6">Diagnóstico de avatar</v-card-title>
+        <v-card-text style="max-height: 70vh; overflow-y: auto;">
+          <p class="text-body-2 mb-3">
+            La imagen de perfil no pudo cargarse en este dispositivo. Estos
+            datos ayudan a identificar el motivo real:
+          </p>
+          <v-table density="compact">
+            <tbody>
+              <tr>
+                <td class="font-weight-medium">URL</td>
+                <td style="word-break: break-all;">{{ avatarError.url }}</td>
+              </tr>
+              <tr>
+                <td class="font-weight-medium">Status</td>
+                <td>{{ avatarError.status ?? '—' }} {{ avatarError.statusText }}</td>
+              </tr>
+              <tr>
+                <td class="font-weight-medium">Cuándo</td>
+                <td>{{ avatarError.when }}</td>
+              </tr>
+              <tr>
+                <td class="font-weight-medium">Nota</td>
+                <td>{{ avatarError.note }}</td>
+              </tr>
+              <tr>
+                <td class="font-weight-medium">Navegador</td>
+                <td style="word-break: break-all;">{{ avatarError.userAgent }}</td>
+              </tr>
+            </tbody>
+          </v-table>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn variant="text" @click="copyAvatarError">{{ copied ? 'Copiado' : 'Copiar' }}</v-btn>
+          <v-spacer />
+          <v-btn variant="text" @click="showHelpDialog = false">Cerrar</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -269,6 +317,77 @@
   // account-icon fallback instead of an empty circle.
   const avatarFailed = ref(false)
   const avatarUrl = computed(() => (avatarFailed.value ? '' : profileImageUrl.value))
-  // A fresh login / profile change re-arms the load attempt.
-  watch(profileImageUrl, () => { avatarFailed.value = false })
+  // A fresh login / profile change re-arms the load attempt and clears any
+  // previously captured diagnostic.
+  watch(profileImageUrl, () => {
+    avatarFailed.value = false
+    avatarError.value = null
+  })
+
+  // Avatar load-failure diagnostics. The captured info is shown in a modal via
+  // the Help item; the Help button is a no-op while avatarError is null.
+  interface AvatarErrorInfo {
+    url: string
+    when: string
+    userAgent: string
+    status: number | null
+    statusText: string
+    note: string
+  }
+  const avatarError = ref<AvatarErrorInfo | null>(null)
+  const showHelpDialog = ref(false)
+  const copied = ref(false)
+
+  async function onAvatarError () {
+    avatarFailed.value = true
+    const url = profileImageUrl.value
+    if (!url) return
+    const info: AvatarErrorInfo = {
+      url,
+      when: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      status: null,
+      statusText: '',
+      note: '',
+    }
+    // Best-effort probe of the failing URL. The <img> error event carries no
+    // HTTP status, so re-request it: a CORS fetch can read the status when the
+    // host allows it; otherwise a no-cors fetch at least distinguishes "the
+    // resource was reachable but blocked from rendering" (Referer/policy) from
+    // a genuine network failure.
+    try {
+      const res = await fetch(url, { method: 'GET', mode: 'cors', referrerPolicy: 'no-referrer', cache: 'no-store' })
+      info.status = res.status
+      info.statusText = res.statusText
+      info.note = res.ok
+        ? 'El recurso respondió OK vía fetch: el bloqueo es de render, no de red (probable Referer/SW/caché).'
+        : 'El servidor respondió con error HTTP.'
+    } catch {
+      try {
+        await fetch(url, { method: 'GET', mode: 'no-cors', referrerPolicy: 'no-referrer', cache: 'no-store' })
+        info.note = 'CORS impidió leer el status; en modo no-cors el recurso fue alcanzable (respuesta opaca). Probable bloqueo de imagen por Referer/políticas, no caída de red.'
+      } catch (noCorsErr) {
+        info.note = `Fallo de red al alcanzar la imagen: ${(noCorsErr as Error)?.message ?? 'desconocido'}`
+      }
+    }
+    avatarError.value = info
+  }
+
+  function openHelp () {
+    // No captured avatar error → the Help item does nothing.
+    if (!avatarError.value) return
+    menu.value = false
+    showHelpDialog.value = true
+  }
+
+  async function copyAvatarError () {
+    if (!avatarError.value) return
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(avatarError.value, null, 2))
+      copied.value = true
+      setTimeout(() => { copied.value = false }, 1500)
+    } catch {
+      // Clipboard unavailable (insecure context / permissions) — ignore.
+    }
+  }
 </script>
