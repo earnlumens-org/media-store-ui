@@ -49,4 +49,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'ml', title: 'മലയാളം — Malayalam' },
   { value: 'ne', title: 'नेपाली — Nepali' },
   { value: 'sd', title: 'سنڌي — Sindhi' },
+  { value: 'lo', title: 'ລາວ — Lao' },
 ] as const

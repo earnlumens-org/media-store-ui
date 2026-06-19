@@ -66,6 +66,7 @@
           <v-radio :label="`മലയാളം (${$t('Language.malayalam')})`" value="ml" />
           <v-radio :label="`नेपाली (${$t('Language.nepali')})`" value="ne" />
           <v-radio :label="`سنڌي (${$t('Language.sindhi')})`" value="sd" />
+          <v-radio :label="`ລາວ (${$t('Language.lao')})`" value="lo" />
         </v-radio-group>
       </v-card-text>
 

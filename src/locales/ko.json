@@ -352,7 +352,8 @@
     "dutch": "네덜란드어",
     "malayalam": "말라얄람어",
     "nepali": "네팔어",
-    "sindhi": "신디어"
+    "sindhi": "신디어",
+    "lao": "라오어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

@@ -352,7 +352,8 @@
     "dutch": "オランダ語",
     "malayalam": "マラヤーラム語",
     "nepali": "ネパール語",
-    "sindhi": "シンド語"
+    "sindhi": "シンド語",
+    "lao": "ラオ語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "メールが有効である必要があります",

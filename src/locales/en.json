@@ -416,7 +416,8 @@
     "dutch": "Dutch",
     "malayalam": "Malayalam",
     "nepali": "Nepali",
-    "sindhi": "Sindhi"
+    "sindhi": "Sindhi",
+    "lao": "Lao"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email must be valid",
