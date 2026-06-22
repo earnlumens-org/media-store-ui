@@ -55,7 +55,8 @@
 
           <div class="d-flex flex-wrap ga-4 justify-center justify-md-start">
             <v-btn
-              class="px-8 text-none font-weight-bold"
+              :block="smAndDown"
+              class="hero-btn px-8 text-none font-weight-bold"
               color="primary"
               elevation="2"
               rounded="lg"
@@ -63,19 +64,24 @@
               @click="showVerification = true"
             >
               {{ $t("Home.claimFreeVerification") }}
-              <v-icon class="ms-2" icon="mdi-check-decagram" />
+              <template #append>
+                <v-icon icon="mdi-check-decagram" />
+              </template>
             </v-btn>
 
             <VerificationDialog v-model="showVerification" />
 
             <v-btn
-              class="px-6 text-none font-weight-medium"
+              :block="smAndDown"
+              class="hero-btn px-6 text-none font-weight-medium"
               rounded="lg"
               size="x-large"
               to="/explore"
               variant="outlined"
             >
-              <v-icon class="me-2" icon="mdi-compass-outline" />
+              <template #prepend>
+                <v-icon icon="mdi-compass-outline" />
+              </template>
               {{ $t("Home.aboutXLM") }}
             </v-btn>
           </div>
@@ -87,9 +93,12 @@
 
 <script setup lang="ts">
   import { ref } from 'vue'
+  import { useDisplay } from 'vuetify'
 
   import fireLogoImg from '@/assets/fire.svg'
   import VerificationDialog from '@/components/home/VerificationDialog.vue'
+
+  const { smAndDown } = useDisplay()
 
   const fireLogo = ref(fireLogoImg)
   const showVerification = ref(false)
@@ -111,6 +120,22 @@
 
 .hero-container {
   overflow-x: clip;
+}
+
+/* Let long localized labels wrap instead of overflowing/clipping the button,
+   and allow the button to grow vertically while keeping the tap target. */
+.hero-btn {
+  height: auto;
+  min-height: 52px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.hero-btn :deep(.v-btn__content) {
+  white-space: normal;
+  word-break: break-word;
+  text-align: center;
+  line-height: 1.25;
 }
 
 .hero-row {
