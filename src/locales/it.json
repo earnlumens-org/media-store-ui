@@ -354,7 +354,8 @@
     "nepali": "nepalese",
     "sindhi": "sindhi",
     "lao": "Lao",
-    "romanian": "Rumeno"
+    "romanian": "Rumeno",
+    "khmer": "khmer"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "L'email deve essere valida",

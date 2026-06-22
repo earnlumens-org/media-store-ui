@@ -354,7 +354,8 @@
     "nepali": "ネパール語",
     "sindhi": "シンド語",
     "lao": "ラオ語",
-    "romanian": "ルーマニア語"
+    "romanian": "ルーマニア語",
+    "khmer": "クメール語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "メールが有効である必要があります",
