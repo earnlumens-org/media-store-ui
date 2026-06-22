@@ -50,4 +50,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'ne', title: 'नेपाली — Nepali' },
   { value: 'sd', title: 'سنڌي — Sindhi' },
   { value: 'lo', title: 'ລາວ — Lao' },
+  { value: 'ro', title: 'română — Romanian' },
 ] as const

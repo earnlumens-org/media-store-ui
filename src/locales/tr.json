@@ -353,7 +353,8 @@
     "malayalam": "Malayalamca",
     "nepali": "Nepalce",
     "sindhi": "Sintçe",
-    "lao": "Laoca"
+    "lao": "Laoca",
+    "romanian": "Rumence"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-posta geçerli olmalıdır",

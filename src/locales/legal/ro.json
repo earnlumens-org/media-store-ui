@@ -1,0 +1,81 @@
+{
+    "Legal": {
+        "termsTitle": "Termeni și condiții",
+        "privacyTitle": "Politica de confidențialitate",
+        "lastUpdated": "Ultima actualizare: {date}",
+        "terms": {
+            "intro": "Bun venit la EarnLumens. Prin accesarea sau utilizarea platformei noastre, ești de acord să respecți acești Termeni și condiții.",
+            "sections": [
+                {
+                    "heading": "1. Acceptarea termenilor",
+                    "body": "Prin crearea unui cont sau utilizarea oricărei părți a platformei EarnLumens, confirmi că ai citit, ai înțeles și ești de acord să respecți acești Termeni și condiții, precum și Politica noastră de confidențialitate. Dacă nu ești de acord, nu trebuie să utilizezi platforma."
+                },
+                {
+                    "heading": "2. Descrierea serviciului",
+                    "body": "EarnLumens este o platformă de conținut multi-tenant construită pe rețeaua Stellar. Tenantul principal este în prezent axat pe educație financiară, iar platforma permite noi instanțe pentru alte verticale prin acreditări de verificare. Creatorii pot publica conținut (videoclipuri, audio, imagini și resurse) și pot stabili prețuri în XLM (Stellar Lumens). Utilizatorii pot cumpăra, vizualiza și interacționa cu acest conținut."
+                },
+                {
+                    "heading": "3. Înregistrarea contului",
+                    "body": "Trebuie să furnizezi informații exacte și complete la crearea unui cont. Ești responsabil pentru menținerea confidențialității acreditărilor tale și pentru toate activitățile care au loc în contul tău. Trebuie să ne notifici imediat cu privire la orice utilizare neautorizată."
+                },
+                {
+                    "heading": "4. Conținut și proprietate intelectuală",
+                    "body": "Creatorii își păstrează dreptul de proprietate asupra conținutului pe care îl publică pe EarnLumens. Prin publicare, creatorii acordă EarnLumens o licență neexclusivă, mondială, de a afișa, distribui și promova conținutul pe platformă. Utilizatorii nu pot reproduce, redistribui sau revinde conținutul cumpărat fără permisiunea explicită a creatorului."
+                },
+                {
+                    "heading": "5. Plăți și tranzacții",
+                    "body": "Plățile efectuate prin EarnLumens constituie tranzacții directe, exclusive și independente între cumpărător și creator, realizate folosind XLM pe rețeaua Stellar. EarnLumens acționează exclusiv ca platformă tehnologică pentru publicare și intermediere tehnică și nu intervine ca vânzător, cumpărător, agent, custode, agent de încasare, fiduciar sau garant al vreunei tranzacții între utilizatori. Prețurile sunt stabilite exclusiv de creatori, iar EarnLumens poate aplica taxele de platformă aplicabile. Cu excepția cazului în care legislația aplicabilă prevede în mod expres altfel, toate vânzările sunt finale, irevocabile și nerambursabile. Dacă EarnLumens detectează, primește raportări sau suspectează în mod rezonabil fraudă, abuz, încălcare sau orice altă conduită ilegală sau contrară acestor Termeni, poate suspenda, restricționa sau anula temporar ori permanent contul creatorului implicat și poate adopta orice măsuri interne pe care le consideră rezonabile. Fără a aduce atingere celor de mai sus, EarnLumens nu își asumă nicio obligație de a interveni în dispute între utilizatori și nu garantează, în nicio circumstanță, inversarea tranzacțiilor, recuperarea activelor sau restituirea, returnarea ori rambursarea fondurilor transferate. Utilizatorul recunoaște și acceptă în mod expres riscurile inerente tranzacțiilor blockchain, inclusiv natura lor potențial ireversibilă, precum și responsabilitatea exclusivă pentru taxele de rețea, erorile de adresă, sumele trimise sau deciziile de cumpărare."
+                },
+                {
+                    "heading": "6. Conduită interzisă",
+                    "body": "Ești de acord să nu: (a) încarci conținut dăunător, ilegal sau care încalcă drepturi; (b) te dai drept altcineva; (c) încerci să exploatezi sau să perturbi platforma; (d) folosești instrumente automate pentru a extrage sau accesa platforma fără autorizație; (e) te angajezi în orice activitate care încalcă legile sau reglementările aplicabile."
+                },
+                {
+                    "heading": "7. Încetarea",
+                    "body": "Ne rezervăm dreptul de a-ți suspenda sau închide contul în orice moment dacă încalci acești Termeni. La încetare, dreptul tău de a utiliza platforma încetează imediat, deși prevederile care prin natura lor ar trebui să supraviețuiască vor rămâne în vigoare."
+                },
+                {
+                    "heading": "8. Declinări de responsabilitate",
+                    "body": "Platforma este furnizată „ca atare” și „așa cum este disponibilă”, fără garanții de niciun fel. EarnLumens nu garantează acuratețea, integralitatea sau utilitatea vreunui conținut publicat de creatori. Nu suntem responsabili pentru nicio pierdere rezultată din tranzacțiile pe rețeaua Stellar."
+                },
+                {
+                    "heading": "9. Limitarea răspunderii",
+                    "body": "În măsura maximă permisă de legislația aplicabilă, EarnLumens, afiliații, directorii, angajații, contractorii și reprezentanții săi nu vor fi răspunzători pentru niciun fel de daune directe, indirecte, incidentale, speciale, consecvente, exemplare, punitive sau orice alte daune care decurg din sau sunt legate de utilizarea sau imposibilitatea de a utiliza platforma, tranzacțiile între utilizatori, conținutul publicat de creatori, conduita frauduloasă sau ilegală a terților, așteptările comerciale neîndeplinite, pierderea de date, pierderea de oportunități, profituri pierdute, reputație, clientelă sau pentru pierderi ori daune care decurg din tranzacții blockchain, inclusiv cele care sunt ireversibile. În special, EarnLumens nu va fi răspunzător pentru nelivrarea conținutului, sau pentru calitatea, legalitatea, autenticitatea, acuratețea ori utilitatea conținutului oferit de creatori, nici pentru returnări, refuzuri de plată imposibile, reclamații între utilizatori sau pierderea de fonduri. În orice situație în care, în pofida celor de mai sus, vreo răspundere a EarnLumens este stabilită legal, aceasta va fi limitată la suma efectiv primită de EarnLumens ca taxă de platformă în tranzacția specifică ce a generat reclamația."
+                },
+                {
+                    "heading": "10. Modificări ale termenilor",
+                    "body": "Putem actualiza acești Termeni în orice moment. Vom depune eforturi pentru a informa utilizatorii cu privire la modificările semnificative prin intermediul platformei, dar este responsabilitatea ta să revizuiești periodic Termenii. Utilizarea continuă după modificări constituie acceptarea Termenilor revizuiți."
+                },
+                {
+                    "heading": "11. Contact",
+                    "body": "Pentru întrebări despre acești Termeni, te rugăm să ne contactezi la legal{'@'}earnlumens.org."
+                }
+            ]
+        },
+        "privacy": {
+            "intro": "Această Politică de confidențialitate descrie modul în care EarnLumens colectează, utilizează și protejează informațiile tale personale.",
+            "sections": [
+                {
+                    "heading": "1. Informațiile pe care le colectăm",
+                    "body": "Colectăm informații pe care le furnizezi direct (detalii de cont, informații de profil) și informații generate prin utilizarea platformei (istoric de tranzacții, activitate de vizualizare, informații despre dispozitiv)."
+                },
+                {
+                    "heading": "2. Cum folosim informațiile tale",
+                    "body": "Folosim informațiile tale pentru a: furniza și îmbunătăți serviciile noastre, procesa tranzacții, comunica cu tine, asigura securitatea platformei și respecta obligațiile legale."
+                },
+                {
+                    "heading": "3. Partajarea datelor",
+                    "body": "Nu vindem informațiile tale personale. Putem partaja date cu furnizorii de servicii care ne ajută la operarea platformei, sau când este cerut de lege."
+                },
+                {
+                    "heading": "4. Securitatea datelor",
+                    "body": "Implementăm măsuri de securitate rezonabile din punct de vedere comercial pentru a-ți proteja datele. Cu toate acestea, nicio metodă de transmitere pe Internet nu este 100% sigură și nu putem garanta securitatea absolută."
+                },
+                {
+                    "heading": "5. Drepturile tale",
+                    "body": "Poți accesa, corecta sau solicita ștergerea datelor tale personale contactându-ne. Vom depune eforturi rezonabile pentru a răspunde cererii tale într-un interval de timp rezonabil."
+                }
+            ]
+        }
+    }
+}

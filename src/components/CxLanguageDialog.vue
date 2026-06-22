@@ -67,6 +67,7 @@
           <v-radio :label="`नेपाली (${$t('Language.nepali')})`" value="ne" />
           <v-radio :label="`سنڌي (${$t('Language.sindhi')})`" value="sd" />
           <v-radio :label="`ລາວ (${$t('Language.lao')})`" value="lo" />
+          <v-radio :label="`română (${$t('Language.romanian')})`" value="ro" />
         </v-radio-group>
       </v-card-text>
 

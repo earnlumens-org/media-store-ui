@@ -417,7 +417,8 @@
     "malayalam": "Malayalam",
     "nepali": "nepalí",
     "sindhi": "sindhi",
-    "lao": "Lao"
+    "lao": "Lao",
+    "romanian": "Rumano"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El correo electrónico debe ser válido",

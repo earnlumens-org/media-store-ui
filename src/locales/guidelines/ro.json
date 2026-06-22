@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Ghid de conținut pentru creatori",
+    "subtitle": "Ce poți publica pe EarnLumens și ce evităm",
+    "lastUpdated": "Ultima actualizare: {date}",
+    "intro": "EarnLumens este o platformă de educație financiară axată pe ecosistemul Stellar. Pentru orice publici se aplică două straturi de reguli: un strat la nivel de platformă, nenegociabil (fraudă, vătămare, conținut ilegal), care este identic pe fiecare tenant, și un strat specific tenantului, care depinde de marketplace-ul în care publici.",
+    "platformSection": {
+      "heading": "Reguli la nivel de platformă",
+      "body": "Aceste reguli se aplică fiecărui tenant de pe EarnLumens, inclusiv acestuia. Ele nu pot fi relaxate de marketplace-uri individuale și există pentru a menține comunitatea în siguranță."
+    },
+    "tenantSection": {
+      "heading": "Reguli specifice tenantului",
+      "body": "Pe lângă regulile de platformă de mai sus, fiecare tenant poate adăuga propriile note de publicare — de exemplu pe ce subiecte se axează, tonul așteptat sau formatele specifice pe care le acceptă.",
+      "placeholder": "Acest tenant nu a adăugat încă note de publicare specifice. Aici se aplică doar regulile la nivel de platformă de mai sus."
+    },
+    "sanctionsSection": {
+      "heading": "Cum funcționează sancțiunile",
+      "body": "Dacă încalci regulile de mai sus, exact asta se întâmplă. Același sistem gradual se aplică pe fiecare tenant — nu există penalități ascunse."
+    },
+    "forCreators": {
+      "heading": "Pentru creatori",
+      "sections": [
+        {
+          "heading": "1. Ce poți publica liber",
+          "body": "Gama de subiecte acceptabile este largă. Nu ai nevoie de permisiune sau de un format rigid:",
+          "items": [
+            "Educație despre rețeaua Stellar (protocol, SCP, Soroban, SDK-uri, ancore, DEX) și XLM",
+            "Educație financiară generală: economisire, bugetare, datorii, investiții responsabile, taxe",
+            "Tutoriale practice, demonstrații de cod, ghiduri pentru portofele și dApp-uri",
+            "Comparații oneste între rețele, portofele sau protocoale, inclusiv unele din afara Stellar, atât timp cât comparația este informativă",
+            "Opinii personale și analize identificate clar drept opinie",
+            "Conținut în orice limbă acceptată de platformă"
+          ]
+        },
+        {
+          "heading": "2. Ce respingem întotdeauna",
+          "body": "Aceste categorii sunt respinse fără excepție pentru că pun comunitatea în pericol sau sunt ilegale:",
+          "items": [
+            "Scheme Ponzi, scheme piramidale, pump and dump, rug pulls sau promisiuni de randament garantat",
+            "Semnale de tranzacționare cu plată, recomandări de cumpărare/vânzare cu sume specifice sau consultanță financiară personalizată",
+            "Phishing, airdrop-uri false, solicitări de chei private, fraze seed sau acreditări, drenoare de portofele, domenii similare care imită Freighter / xBull / LOBSTR / SDF / exchange-uri",
+            "Uzurparea identității sau deepfake-uri ale unor persoane publice, proiecte sau EarnLumens / SDF — inclusiv audio sau video sintetizat care sugerează în mod fals o aprobare",
+            "Glorificarea suicidului sau a autovătămării, metode ori instrucțiuni de autorănire, conținut pro-anorexie sau pro-bulimie (este permisă încadrarea educativă și orientată spre recuperare)",
+            "Discurs instigator la ură, hărțuire, discriminare sau incitare la violență",
+            "Conținut sexual explicit, violență grafică sau material care implică minori",
+            "Material protejat clar de drepturi de autor fără autorizație (muzică, video, cărți, software)",
+            "Date personale ale terților fără consimțământul lor",
+            "Spam evident: titluri fără sens, conținut duplicat în masă, ecrane goale, conținut generat de AI fără revizuire umană"
+          ]
+        },
+        {
+          "heading": "3. Zonă gri: poate ajunge la revizuire manuală",
+          "body": "Aceste cazuri nu sunt respinse automat, dar pot fi revizuite de un moderator uman:",
+          "items": [
+            "Menționarea unor criptomonede sau tokenuri specifice fără un context educativ clar",
+            "Promovarea propriilor produse sau servicii fără a le eticheta drept sponsorizate",
+            "Afirmații despre performanța din trecut fără o sursă verificabilă",
+            "Conținut foarte scurt sau de calitate tehnică scăzută care îi face valoarea greu de evaluat"
+          ]
+        },
+        {
+          "heading": "4. Bune practici (recomandate, nu obligatorii)",
+          "body": "Acestea nu sunt cerințe de aprobare, dar ajută ca acel conținut să fie mai bine primit și reduc frecușul de moderare:",
+          "items": [
+            "Folosește un titlu descriptiv, fără clickbait înșelător",
+            "Citează sursele când folosești date, statistici sau cifre",
+            "Clarifică faptul că acel conținut este educativ și nu consultanță financiară personalizată",
+            "Menționează dacă deții o poziție semnificativă într-un activ pe care îl discuți",
+            "Etichetează conținutul sponsorizat sau de afiliere",
+            "Pentru portofele, DEX-uri și instrumente Stellar, preferăm pe cele listate la https://stellar.org/ecosystem ca referință de încredere, dar le poți menționa și pe altele atât timp cât nu promovezi fraudă"
+          ]
+        }
+      ]
+    },
+    "footer": "Acest ghid poate fi actualizat. Scopul este un spațiu educativ sigur: respingem conținutul dăunător, nu ideile diferite. Dacă crezi că o respingere a fost nedreaptă, poți revizui și retrimite, sau poți solicita revizuire manuală din partea echipei tenantului."
+  }
+}

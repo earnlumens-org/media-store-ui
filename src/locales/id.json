@@ -353,7 +353,8 @@
     "malayalam": "Malayalam",
     "nepali": "Nepali",
     "sindhi": "Sindhi",
-    "lao": "Bahasa Lao"
+    "lao": "Bahasa Lao",
+    "romanian": "Bahasa Rumania"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email harus valid",
