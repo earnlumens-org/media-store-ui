@@ -356,7 +356,8 @@
     "lao": "寮語",
     "romanian": "羅馬尼亞語",
     "khmer": "高棉語",
-    "sinhala": "僧伽羅語"
+    "sinhala": "僧伽羅語",
+    "greek": "希臘語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "電子郵件必須有效",

@@ -420,7 +420,8 @@
     "lao": "Lao",
     "romanian": "Rumano",
     "khmer": "jemer",
-    "sinhala": "cingalés"
+    "sinhala": "cingalés",
+    "greek": "Griego"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El correo electrónico debe ser válido",

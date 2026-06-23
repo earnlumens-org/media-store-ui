@@ -356,7 +356,8 @@
     "lao": "Laotisch",
     "romanian": "Rumänisch",
     "khmer": "Khmer",
-    "sinhala": "Singhalesisch"
+    "sinhala": "Singhalesisch",
+    "greek": "Griechisch"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-Mail muss gültig sein",

@@ -420,7 +420,8 @@
     "lao": "Lao",
     "romanian": "Romanian",
     "khmer": "Khmer",
-    "sinhala": "Sinhala"
+    "sinhala": "Sinhala",
+    "greek": "Greek"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email must be valid",

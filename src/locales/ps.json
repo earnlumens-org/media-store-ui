@@ -356,7 +356,8 @@
     "lao": "لاو",
     "romanian": "روماني",
     "khmer": "خمېر",
-    "sinhala": "سینهالي"
+    "sinhala": "سینهالي",
+    "greek": "یوناني"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "بریښنالیک باید د اعتبار وړ وي",

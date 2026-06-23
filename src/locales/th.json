@@ -356,7 +356,8 @@
     "lao": "ลาว",
     "romanian": "ภาษาโรมาเนีย",
     "khmer": "เขมร",
-    "sinhala": "สิงหล"
+    "sinhala": "สิงหล",
+    "greek": "กรีก"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "อีเมลต้องถูกต้อง",

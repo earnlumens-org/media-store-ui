@@ -356,7 +356,8 @@
     "lao": "لائوسی",
     "romanian": "رومانیایی",
     "khmer": "خمر",
-    "sinhala": "سینهالی"
+    "sinhala": "سینهالی",
+    "greek": "یونانی"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ایمیل باید معتبر باشد",

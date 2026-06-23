@@ -356,7 +356,8 @@
     "lao": "লাও",
     "romanian": "রোমানীয়",
     "khmer": "খমের",
-    "sinhala": "সিংহলি"
+    "sinhala": "সিংহলি",
+    "greek": "গ্রিক"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ইমেইল বৈধ হতে হবে",

@@ -356,7 +356,8 @@
     "lao": "Laoca",
     "romanian": "Rumence",
     "khmer": "Kmerce",
-    "sinhala": "Sinhala"
+    "sinhala": "Sinhala",
+    "greek": "Yunanca"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-posta geçerli olmalıdır",

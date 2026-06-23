@@ -356,7 +356,8 @@
     "lao": "ላኦ",
     "romanian": "ሮማንኛ",
     "khmer": "ክመር",
-    "sinhala": "ሲንሃላ"
+    "sinhala": "ሲንሃላ",
+    "greek": "ግሪክኛ"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ኢሜይል ትክክለኛ መሆን አለበት",

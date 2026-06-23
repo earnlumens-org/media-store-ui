@@ -53,4 +53,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'ro', title: 'română — Romanian' },
   { value: 'km', title: 'ខ្មែរ — Khmer' },
   { value: 'si', title: 'සිංහල — Sinhala' },
+  { value: 'el', title: 'Ελληνικά — Greek' },
 ] as const

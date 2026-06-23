@@ -356,7 +356,8 @@
     "lao": "老挝语",
     "romanian": "罗马尼亚语",
     "khmer": "高棉语",
-    "sinhala": "僧伽罗语"
+    "sinhala": "僧伽罗语",
+    "greek": "希腊语"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "电子邮件必须有效",

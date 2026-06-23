@@ -356,7 +356,8 @@
     "lao": "Tiếng Lào",
     "romanian": "Tiếng Romania",
     "khmer": "tiếng Khmer",
-    "sinhala": "tiếng Sinhala"
+    "sinhala": "tiếng Sinhala",
+    "greek": "Tiếng Hy Lạp"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email phải hợp lệ",
