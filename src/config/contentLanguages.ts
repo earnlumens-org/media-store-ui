@@ -55,4 +55,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'si', title: 'සිංහල — Sinhala' },
   { value: 'el', title: 'Ελληνικά — Greek' },
   { value: 'cs', title: 'čeština — Czech' },
+  { value: 'hu', title: 'magyar — Hungarian' },
 ] as const

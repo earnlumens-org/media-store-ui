@@ -358,7 +358,8 @@
     "khmer": "خمېر",
     "sinhala": "سینهالي",
     "greek": "یوناني",
-    "czech": "چکي"
+    "czech": "چکي",
+    "hungarian": "هنګري"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "بریښنالیک باید د اعتبار وړ وي",

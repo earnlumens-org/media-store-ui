@@ -358,7 +358,8 @@
     "khmer": "খমের",
     "sinhala": "সিংহলি",
     "greek": "গ্রিক",
-    "czech": "চেক"
+    "czech": "চেক",
+    "hungarian": "হাঙ্গেরীয়"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ইমেইল বৈধ হতে হবে",

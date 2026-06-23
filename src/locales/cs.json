@@ -422,7 +422,8 @@
     "khmer": "khmerština",
     "sinhala": "sinhálština",
     "greek": "řečtina",
-    "czech": "čeština"
+    "czech": "čeština",
+    "hungarian": "Maďarština"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail musí být platný",

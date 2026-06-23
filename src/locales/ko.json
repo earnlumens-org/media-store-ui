@@ -358,7 +358,8 @@
     "khmer": "크메르어",
     "sinhala": "싱할라어",
     "greek": "그리스어",
-    "czech": "체코어"
+    "czech": "체코어",
+    "hungarian": "헝가리어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

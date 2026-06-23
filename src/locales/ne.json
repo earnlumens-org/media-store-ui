@@ -422,7 +422,8 @@
     "khmer": "खमेर",
     "sinhala": "सिंहला",
     "greek": "ग्रीक",
-    "czech": "चेक"
+    "czech": "चेक",
+    "hungarian": "हंगेरीयाली"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "इमेल वैध हुनुपर्छ",

@@ -358,7 +358,8 @@
     "khmer": "Kmerce",
     "sinhala": "Sinhala",
     "greek": "Yunanca",
-    "czech": "Çekçe"
+    "czech": "Çekçe",
+    "hungarian": "Macarca"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-posta geçerli olmalıdır",

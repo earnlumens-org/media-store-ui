@@ -358,7 +358,8 @@
     "khmer": "الخميرية",
     "sinhala": "السنهالية",
     "greek": "اليونانية",
-    "czech": "التشيكية"
+    "czech": "التشيكية",
+    "hungarian": "المجرية"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "يجب أن يكون البريد الإلكتروني صالحًا",

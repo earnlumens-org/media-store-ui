@@ -358,7 +358,8 @@
     "khmer": "khmer",
     "sinhala": "cingalês",
     "greek": "Grego",
-    "czech": "checo"
+    "czech": "checo",
+    "hungarian": "húngaro"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "O e-mail deve ser válido",

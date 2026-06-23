@@ -422,7 +422,8 @@
     "khmer": "Χμερ",
     "sinhala": "Σινχάλα",
     "greek": "Ελληνικά",
-    "czech": "Τσεχικά"
+    "czech": "Τσεχικά",
+    "hungarian": "Ουγγρικά"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Το email πρέπει να είναι έγκυρο",

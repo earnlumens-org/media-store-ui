@@ -358,7 +358,8 @@
     "khmer": "Khmer",
     "sinhala": "Sinhala",
     "greek": "Griyego",
-    "czech": "Czech"
+    "czech": "Czech",
+    "hungarian": "Hungarian"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Ang email ay dapat na wasto",

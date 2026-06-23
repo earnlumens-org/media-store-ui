@@ -358,7 +358,8 @@
     "khmer": "кхмерська",
     "sinhala": "сингальська",
     "greek": "Грецька",
-    "czech": "чеська"
+    "czech": "чеська",
+    "hungarian": "угорська"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Електронна пошта повинна бути дійсною",

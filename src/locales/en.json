@@ -422,7 +422,8 @@
     "khmer": "Khmer",
     "sinhala": "Sinhala",
     "greek": "Greek",
-    "czech": "Czech"
+    "czech": "Czech",
+    "hungarian": "Hungarian"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email must be valid",

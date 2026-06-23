@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Tartalmi irányelvek alkotóknak",
+    "subtitle": "Mit tehetsz közzé az EarnLumens platformon, és mit kerülünk",
+    "lastUpdated": "Utolsó frissítés: {date}",
+    "intro": "Az EarnLumens pénzügyi oktatási platform, amely a Stellar ökoszisztémára összpontosít. Minden közzétett tartalomra két szabályréteg vonatkozik: egy nem alku tárgyát képező, platformszintű réteg (csalás, károkozás, illegális tartalom), amely minden tenantban azonos, és egy tenant-specifikus réteg, amely attól a piactértől függ, ahol közzéteszel.",
+    "platformSection": {
+      "heading": "Platformszintű szabályok",
+      "body": "Ezek a szabályok az EarnLumens minden tenantjára vonatkoznak, erre is. Az egyes piacterek nem enyhíthetik őket; céljuk a közösség biztonságának megőrzése."
+    },
+    "tenantSection": {
+      "heading": "Tenant-specifikus szabályok",
+      "body": "A fenti platformszabályokon felül minden tenant hozzáadhatja saját közzétételi megjegyzéseit — például hogy mely témákra összpontosít, milyen hangnemet vár el, vagy milyen konkrét formátumokat fogad el.",
+      "placeholder": "Ez a tenant még nem adott hozzá külön közzétételi megjegyzéseket. Itt csak a fenti platformszintű szabályok érvényesek."
+    },
+    "sanctionsSection": {
+      "heading": "Hogyan működnek a szankciók",
+      "body": "Ha megszeged a fenti szabályokat, pontosan ez történik. Ugyanaz a fokozatrendszer érvényes minden tenantban — nincsenek rejtett büntetések."
+    },
+    "forCreators": {
+      "heading": "Alkotóknak",
+      "sections": [
+        {
+          "heading": "1. Amit szabadon közzétehetsz",
+          "body": "Az elfogadható témák köre széles. Nincs szükséged engedélyre vagy merev formátumra:",
+          "items": [
+            "Oktatás a Stellar hálózatról (protokoll, SCP, Soroban, SDK-k, anchorok, DEX) és az XLM-ről",
+            "Általános pénzügyi oktatás: megtakarítás, költségvetés, adósság, felelős befektetés, adók",
+            "Gyakorlati útmutatók, kóddemók, tárca- és dApp-bemutatók",
+            "Őszinte összehasonlítások hálózatok, tárcák vagy protokollok között, beleértve a Stellar rendszeren kívülieket is, amennyiben az összehasonlítás informatív",
+            "Személyes vélemények és elemzések, egyértelműen véleményként megjelölve",
+            "Tartalom a platform által támogatott bármely nyelven"
+          ]
+        },
+        {
+          "heading": "2. Amit mindig elutasítunk",
+          "body": "Ezeket a kategóriákat kivétel nélkül elutasítjuk, mert veszélyeztetik a közösséget vagy illegálisak:",
+          "items": [
+            "Ponzi-sémák, piramisjátékok, pump and dump, rug pullok vagy garantált hozamot ígérő ajánlatok",
+            "Fizetős kereskedési jelzések, konkrét összegekkel ellátott vételi/eladási ajánlások vagy személyre szabott pénzügyi tanácsadás",
+            "Adathalászat, hamis airdropok, privát kulcsok, seed phrase-ek vagy hitelesítő adatok kérése, wallet drainerek, Freighter / xBull / LOBSTR / SDF / tőzsdéket utánzó hasonló domainek",
+            "Közszereplők, projektek vagy EarnLumens / SDF megszemélyesítése vagy deepfake-jei — beleértve a szintetikus hangot vagy videót, amely hamisan támogatást sugall",
+            "Öngyilkosság vagy önkárosítás dicsőítése, önsértés módszerei vagy utasításai, pro-anorexia vagy pro-bulimia tartalom (oktatási és felépülésközpontú keretezés megengedett)",
+            "Gyűlöletbeszéd, zaklatás, diszkrimináció vagy erőszakra uszítás",
+            "Kifejezetten szexuális tartalom, grafikus erőszak vagy kiskorúakat érintő anyag",
+            "Egyértelműen szerzői joggal védett anyag engedély nélkül (zene, videó, könyvek, szoftverek)",
+            "Harmadik felek személyes adatai a beleegyezésük nélkül",
+            "Nyilvánvaló spam: értelmetlen címek, tömegesen duplikált tartalom, üres képernyők, emberi felülvizsgálat nélküli AI-tartalom"
+          ]
+        },
+        {
+          "heading": "3. Szürke zóna: kézi felülvizsgálatra kerülhet",
+          "body": "Ezek az esetek nem kerülnek automatikus elutasításra, de emberi moderátor felülvizsgálhatja őket:",
+          "items": [
+            "Konkrét kriptovaluták vagy tokenek említése világos oktatási kontextus nélkül",
+            "Saját termékeid vagy szolgáltatásaid népszerűsítése szponzoráltként való megjelölés nélkül",
+            "Múltbeli teljesítményre vonatkozó állítások ellenőrizhető forrás nélkül",
+            "Nagyon rövid tartalom vagy alacsony technikai minőség, amely megnehezíti az érték megítélését"
+          ]
+        },
+        {
+          "heading": "4. Bevált gyakorlatok (ajánlott, nem kötelező)",
+          "body": "Ezek nem jóváhagyási követelmények, de segítenek abban, hogy a tartalmadat jobban fogadják, és csökkentik a moderációs súrlódást:",
+          "items": [
+            "Használj leíró címet félrevezető clickbait nélkül",
+            "Adatok, statisztikák vagy számok használatakor hivatkozz forrásokra",
+            "Tedd egyértelművé, hogy a tartalom oktatási célú, és nem személyre szabott pénzügyi tanácsadás",
+            "Említsd meg, ha jelentős pozícióval rendelkezel egy általad tárgyalt eszközben",
+            "Jelöld meg a szponzorált vagy affiliate tartalmat",
+            "Stellar tárcák, DEX-ek és eszközök esetén megbízható hivatkozásként a https://stellar.org/ecosystem oldalon felsoroltakat részesítjük előnyben, de másokat is említhetsz, amennyiben nem népszerűsítesz csalást"
+          ]
+        }
+      ]
+    },
+    "footer": "Ezek az irányelvek frissülhetnek. A cél egy biztonságos oktatási tér: a káros tartalmat utasítjuk el, nem az eltérő gondolatokat. Ha úgy véled, hogy egy elutasítás igazságtalan volt, módosíthatod és újra beküldheted, vagy kézi felülvizsgálatot kérhetsz a tenant csapatától."
+  }
+}

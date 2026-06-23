@@ -1,0 +1,81 @@
+{
+    "Legal": {
+        "termsTitle": "Felhasználási feltételek",
+        "privacyTitle": "Adatvédelmi irányelvek",
+        "lastUpdated": "Utolsó frissítés: {date}",
+        "terms": {
+            "intro": "Üdvözlünk az EarnLumens platformon. A platform elérésével vagy használatával elfogadod, hogy ezek a Felhasználási feltételek rád nézve kötelezőek.",
+            "sections": [
+                {
+                    "heading": "1. A feltételek elfogadása",
+                    "body": "Fiók létrehozásával vagy az EarnLumens platform bármely részének használatával elismered, hogy elolvastad, megértetted és elfogadod, hogy ezek a Felhasználási feltételek, valamint Adatvédelmi irányelveink rád nézve kötelezőek. Ha nem értesz egyet, nem használhatod a platformot."
+                },
+                {
+                    "heading": "2. A szolgáltatás leírása",
+                    "body": "Az EarnLumens egy többtenantos tartalmi platform, amely a Stellar hálózatra épül. A fő tenant jelenleg a pénzügyi oktatásra összpontosít, a platform pedig hitelesítési jogosultságokon keresztül teszi lehetővé új példányok létrehozását más területek számára. Az alkotók tartalmakat (videókat, hanganyagokat, képeket és erőforrásokat) tehetnek közzé, és XLM-ben (Stellar Lumens) állíthatnak be árakat. A felhasználók megvásárolhatják, megtekinthetik és használhatják ezeket a tartalmakat."
+                },
+                {
+                    "heading": "3. Fiókregisztráció",
+                    "body": "Fiók létrehozásakor pontos és teljes információkat kell megadnod. Te felelsz a hitelesítő adataid bizalmas kezeléséért és a fiókod alatt végzett minden tevékenységért. Bármilyen jogosulatlan használatról azonnal értesítened kell minket."
+                },
+                {
+                    "heading": "4. Tartalom és szellemi tulajdon",
+                    "body": "Az alkotók megtartják az EarnLumens platformon közzétett tartalmaik tulajdonjogát. Közzététellel az alkotók nem kizárólagos, világszintű licencet adnak az EarnLumens számára a tartalom platformon történő megjelenítésére, terjesztésére és népszerűsítésére. A felhasználók az alkotó kifejezett engedélye nélkül nem reprodukálhatják, nem terjeszthetik tovább és nem értékesíthetik tovább a megvásárolt tartalmat."
+                },
+                {
+                    "heading": "5. Fizetések és tranzakciók",
+                    "body": "Az EarnLumens rendszeren keresztül végrehajtott fizetések közvetlen, kizárólagos és független tranzakcióknak minősülnek a vevő és az alkotó között, XLM használatával a Stellar hálózaton. Az EarnLumens kizárólag közzétételi és technikai közvetítő technológiai platformként jár el, és nem avatkozik be eladóként, vevőként, ügynökként, letétkezelőként, beszedési megbízottként, bizalmi vagyonkezelőként vagy bármely felhasználók közötti tranzakció kezeseként. Az árakat kizárólag az alkotók határozzák meg, az EarnLumens pedig alkalmazhat vonatkozó platformdíjakat. Hacsak az alkalmazandó jog kifejezetten másként nem rendelkezik, minden értékesítés végleges, visszavonhatatlan és nem visszatéríthető. Ha az EarnLumens csalást, visszaélést, szerződésszegést vagy bármely más jogellenes, illetve jelen Feltételekkel ellentétes magatartást észlel, arról jelentést kap, vagy azt megalapozottan feltételezi, ideiglenesen vagy véglegesen felfüggesztheti, korlátozhatja vagy törölheti az érintett alkotó fiókját, és bármely ésszerűnek tartott belső intézkedést meghozhat. A fentiek ellenére az EarnLumens nem vállal kötelezettséget a felhasználók közötti vitákba való beavatkozásra, és semmilyen körülmények között nem garantálja a tranzakciók visszafordítását, az eszközök visszaszerzését, illetve az átutalt pénzeszközök helyreállítását, visszaadását vagy visszatérítését. A felhasználó kifejezetten tudomásul veszi és elfogadja a blockchain tranzakciók természetéből fakadó kockázatokat, beleértve azok potenciálisan visszafordíthatatlan jellegét, valamint kizárólagos felelősségét a hálózati díjakért, címhibákért, elküldött összegekért és vásárlási döntésekért."
+                },
+                {
+                    "heading": "6. Tiltott magatartás",
+                    "body": "Vállalod, hogy nem: (a) töltesz fel káros, illegális vagy jogsértő tartalmat; (b) adod ki magad másnak; (c) kísérled meg kihasználni vagy megzavarni a platformot; (d) használsz automatizált eszközöket a platform jogosulatlan adatkinyerésére vagy elérésére; (e) veszel részt olyan tevékenységben, amely sérti az alkalmazandó jogszabályokat vagy előírásokat."
+                },
+                {
+                    "heading": "7. Megszüntetés",
+                    "body": "Fenntartjuk a jogot, hogy bármikor felfüggesszük vagy megszüntessük a fiókodat, ha megsérted ezeket a Feltételeket. Megszüntetés esetén a platform használatára vonatkozó jogod azonnal megszűnik, bár azok a rendelkezések, amelyek természetüknél fogva fennmaradnak, továbbra is hatályban maradnak."
+                },
+                {
+                    "heading": "8. Felelősségkizárások",
+                    "body": "A platform \"adott állapotban\" és \"elérhetőség szerint\" kerül biztosításra, bármilyen garancia nélkül. Az EarnLumens nem garantálja az alkotók által közzétett tartalmak pontosságát, teljességét vagy hasznosságát. Nem vállalunk felelősséget a Stellar hálózati tranzakciókból eredő veszteségekért."
+                },
+                {
+                    "heading": "9. A felelősség korlátozása",
+                    "body": "Az alkalmazandó jog által megengedett legnagyobb mértékben az EarnLumens, kapcsolt vállalkozásai, igazgatói, alkalmazottai, vállalkozói és képviselői nem felelnek semmilyen közvetlen, közvetett, járulékos, különleges, következményi, példaszerű, büntető vagy bármely más kárért, amely a platform használatából vagy használhatatlanságából, a felhasználók közötti tranzakciókból, az alkotók által közzétett tartalmakból, harmadik felek csalárd vagy jogellenes magatartásából, nem teljesült kereskedelmi elvárásokból, adatvesztésből, lehetőségvesztésből, elmaradt haszonból, hírnévből, ügyfélkörből, illetve blockchain tranzakciókból eredő veszteségekből vagy károkból fakad vagy azokhoz kapcsolódik, beleértve a visszafordíthatatlan tranzakciókat is. Különösen az EarnLumens nem felel a tartalom kézbesítésének elmaradásáért, az alkotók által kínált tartalom minőségéért, jogszerűségéért, hitelességéért, pontosságáért vagy hasznosságáért, továbbá visszaküldésekért, lehetetlen chargebackekért, felhasználók közötti igényekért vagy pénzeszközök elvesztéséért. Bármely olyan esetben, amikor a fentiek ellenére az EarnLumens felelősségét jogilag megállapítják, ez a felelősség arra az összegre korlátozódik, amelyet az EarnLumens ténylegesen platformdíjként kapott abban a konkrét tranzakcióban, amelyből az igény ered."
+                },
+                {
+                    "heading": "10. A feltételek módosítása",
+                    "body": "Ezeket a Feltételeket bármikor frissíthetjük. Törekszünk arra, hogy a lényeges változásokról a platformon keresztül tájékoztassuk a felhasználókat, de a Feltételek időszakos áttekintése a te felelősséged. A változások utáni további használatod a módosított Feltételek elfogadásának minősül."
+                },
+                {
+                    "heading": "11. Kapcsolat",
+                    "body": "A Feltételekkel kapcsolatos kérdések esetén írj nekünk a legal{'@'}earnlumens.org címen."
+                }
+            ]
+        },
+        "privacy": {
+            "intro": "Ez az Adatvédelmi irányelv leírja, hogyan gyűjti, használja és védi az EarnLumens a személyes adataidat.",
+            "sections": [
+                {
+                    "heading": "1. Az általunk gyűjtött információk",
+                    "body": "Gyűjtjük az általad közvetlenül megadott információkat (fiókadatok, profilinformációk), valamint a platform használata során keletkező információkat (tranzakciós előzmények, megtekintési aktivitás, eszközinformációk)."
+                },
+                {
+                    "heading": "2. Hogyan használjuk az információidat",
+                    "body": "Az információidat szolgáltatásaink nyújtására és fejlesztésére, tranzakciók feldolgozására, veled való kommunikációra, a platform biztonságának biztosítására és jogi kötelezettségek teljesítésére használjuk."
+                },
+                {
+                    "heading": "3. Adatmegosztás",
+                    "body": "Nem értékesítjük a személyes adataidat. Megoszthatunk adatokat olyan szolgáltatókkal, akik segítenek a platform működtetésében, illetve ha ezt jogszabály írja elő."
+                },
+                {
+                    "heading": "4. Adatbiztonság",
+                    "body": "Kereskedelmileg ésszerű biztonsági intézkedéseket alkalmazunk az adataid védelmére. Ugyanakkor az interneten történő adattovábbítás egyetlen módja sem 100%-ban biztonságos, ezért nem garantálhatunk abszolút biztonságot."
+                },
+                {
+                    "heading": "5. Jogaid",
+                    "body": "Kapcsolatfelvétellel hozzáférhetsz személyes adataidhoz, javíthatod azokat, vagy kérheted törlésüket. Ésszerű erőfeszítéseket teszünk, hogy kérésedet ésszerű időn belül kezeljük."
+                }
+            ]
+        }
+    }
+}
