@@ -71,6 +71,7 @@
           <v-radio :label="`ខ្មែរ (${$t('Language.khmer')})`" value="km" />
           <v-radio :label="`සිංහල (${$t('Language.sinhala')})`" value="si" />
           <v-radio :label="`Ελληνικά (${$t('Language.greek')})`" value="el" />
+          <v-radio :label="`čeština (${$t('Language.czech')})`" value="cs" />
         </v-radio-group>
       </v-card-text>
 

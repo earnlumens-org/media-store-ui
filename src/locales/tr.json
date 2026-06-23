@@ -357,7 +357,8 @@
     "romanian": "Rumence",
     "khmer": "Kmerce",
     "sinhala": "Sinhala",
-    "greek": "Yunanca"
+    "greek": "Yunanca",
+    "czech": "Çekçe"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-posta geçerli olmalıdır",

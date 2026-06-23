@@ -357,7 +357,8 @@
     "romanian": "罗马尼亚语",
     "khmer": "高棉语",
     "sinhala": "僧伽罗语",
-    "greek": "希腊语"
+    "greek": "希腊语",
+    "czech": "捷克语"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "电子邮件必须有效",

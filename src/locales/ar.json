@@ -357,7 +357,8 @@
     "romanian": "الرومانية",
     "khmer": "الخميرية",
     "sinhala": "السنهالية",
-    "greek": "اليونانية"
+    "greek": "اليونانية",
+    "czech": "التشيكية"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "يجب أن يكون البريد الإلكتروني صالحًا",

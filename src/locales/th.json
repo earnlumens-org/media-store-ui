@@ -357,7 +357,8 @@
     "romanian": "ภาษาโรมาเนีย",
     "khmer": "เขมร",
     "sinhala": "สิงหล",
-    "greek": "กรีก"
+    "greek": "กรีก",
+    "czech": "ภาษาเช็ก"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "อีเมลต้องถูกต้อง",

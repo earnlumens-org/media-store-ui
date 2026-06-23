@@ -357,7 +357,8 @@
     "romanian": "रोमानियन",
     "khmer": "ख्मेर",
     "sinhala": "सिंहला",
-    "greek": "ग्रीक"
+    "greek": "ग्रीक",
+    "czech": "झेक"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ईमेल वैध असणे आवश्यक आहे",

@@ -421,7 +421,8 @@
     "romanian": "Romanian",
     "khmer": "Khmer",
     "sinhala": "Sinhala",
-    "greek": "Greek"
+    "greek": "Greek",
+    "czech": "Czech"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email must be valid",

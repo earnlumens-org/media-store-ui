@@ -357,7 +357,8 @@
     "romanian": "Румунська",
     "khmer": "кхмерська",
     "sinhala": "сингальська",
-    "greek": "Грецька"
+    "greek": "Грецька",
+    "czech": "чеська"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Електронна пошта повинна бути дійсною",

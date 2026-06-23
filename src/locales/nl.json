@@ -357,7 +357,8 @@
     "romanian": "Roemeens",
     "khmer": "Khmer",
     "sinhala": "Singalees",
-    "greek": "Grieks"
+    "greek": "Grieks",
+    "czech": "Tsjechisch"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail moet geldig zijn",

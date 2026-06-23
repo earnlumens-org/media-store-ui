@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Obsahové pokyny pro autory",
+    "subtitle": "Co můžete publikovat na EarnLumens a čemu se vyvarujeme",
+    "lastUpdated": "Poslední aktualizace: {date}",
+    "intro": "EarnLumens je platforma finančního vzdělávání se zaměřením na ekosystém Stellar. Na cokoli, co publikujete, se vztahují dvě vrstvy pravidel: neobchodovatelná celoplatformová vrstva (podvod, poškození, nelegální obsah), která je stejná pro každého tenanta, a vrstva specifická pro tenanta, která závisí na tržišti, na kterém publikujete.",
+    "platformSection": {
+      "heading": "Pravidla pro celou platformu",
+      "body": "Tato pravidla platí pro každého tenanta na EarnLumens, včetně tohoto. Nemohou být uvolněny jednotlivými tržišti a existují proto, aby udržely komunitu v bezpečí."
+    },
+    "tenantSection": {
+      "heading": "Pravidla specifická pro nájemce",
+      "body": "Kromě výše uvedených pravidel platformy může každý nájemce přidat své vlastní publikační poznámky – například na která témata se zaměřuje, očekávaný tón nebo konkrétní formáty, které přijímá.",
+      "placeholder": "Tento nájemce zatím nepřidal konkrétní publikační poznámky. Zde platí pouze pravidla platná výše."
+    },
+    "sanctionsSection": {
+      "heading": "Jak fungují sankce",
+      "body": "Pokud porušíte výše uvedená pravidla, stane se přesně toto. Pro každého nájemce platí stejný žebříček — neexistují žádné skryté sankce."
+    },
+    "forCreators": {
+      "heading": "Pro Tvůrce",
+      "sections": [
+        {
+          "heading": "1. Co můžete volně publikovat",
+          "body": "Škála přijatelných témat je široká. Nepotřebujete povolení ani pevný formát:",
+          "items": [
+            "Vzdělávání o síti Stellar (protokol, SCP, Soroban, SDK, kotvy, DEX ) a XLM",
+            "Všeobecné finanční vzdělání: spoření, rozpočtování, dluh, zodpovědné investování, daně",
+            "Praktické návody, ukázky kódu, peněženka a návody dApp",
+            "Čestná srovnání mezi sítěmi, peněženkami nebo protokoly, včetně těch mimo Stellar, pokud je srovnání informativní",
+            "Osobní názory a analýzy jasně identifikované jako názor",
+            "Obsah v jakémkoli jazyce podporovaném platformou"
+          ]
+        },
+        {
+          "heading": "2. Co vždy odmítáme",
+          "body": "Tyto kategorie jsou bez výjimky odmítány, protože ohrožují komunitu nebo jsou nezákonné:",
+          "items": [
+            "Ponziho schémata, pyramidová schémata, pump and dump, koberce nebo sliby zaručené návratnosti",
+            "Placené obchodní signály, doporučení k nákupu/prodeji s konkrétními částkami nebo personalizované finanční poradenství",
+            "Phishing, falešné airdropy, žádosti o soukromé klíče, počáteční fráze nebo přihlašovací údaje, odčerpávání peněženek, podobné domény napodobující Freighter / xBull / LOBSTR / SDF / výměny",
+            "Předstírání nebo falšování veřejných osob, projektů nebo EarnLumens / SDF – včetně syntetizovaného zvuku nebo videa, které falešně naznačují podporu",
+            "Oslavování sebevražd nebo sebepoškozování, metody nebo pokyny pro sebepoškozování, obsah pro anorexii nebo bulimii (je povoleno rámování zaměřené na vzdělávání a uzdravení)",
+            "Projevy nenávisti, obtěžování, diskriminace nebo podněcování k násilí",
+            "Explicitní sexuální obsah, explicitní násilí nebo materiál zahrnující nezletilé",
+            "Jasně chráněný materiál bez povolení (hudba, video, knihy, software)",
+            "Osobní údaje třetích stran bez jejich souhlasu",
+            "Zjevný spam: nesmyslné názvy, hromadně duplikovaný obsah, prázdné obrazovky, obsah AI bez kontroly člověkem"
+          ]
+        },
+        {
+          "heading": "3. Šedá oblast: může přejít na ruční kontrolu",
+          "body": "Tyto případy nejsou automaticky odmítnuty, ale mohou být zkontrolovány lidským moderátorem:",
+          "items": [
+            "Zmínění konkrétních kryptoměn nebo tokenů bez jasného vzdělávacího kontextu",
+            "Propagace vašich vlastních produktů nebo služeb, aniž byste je označili jako sponzorované",
+            "Tvrzení o minulém výkonu bez ověřitelného zdroje",
+            "Velmi krátký obsah nebo nízká technická kvalita, kvůli které je obtížné posoudit jeho hodnotu"
+          ]
+        },
+        {
+          "heading": "4. Nejlepší postupy (doporučeno, není vyžadováno)",
+          "body": "Nejedná se o požadavky na schválení, ale pomáhají lépe přijímat váš obsah a snižují třenice při moderování:",
+          "items": [
+            "Použijte popisný název bez zavádějícího clickbaitu",
+            "Při používání dat, statistik nebo čísel citujte zdroje",
+            "Upřesněte, že obsah je vzdělávací, nikoli personalizované finanční poradenství",
+            "Uveďte to, pokud zastáváte významnou pozici v aktivu, o kterém diskutujete",
+            "Označte sponzorovaný nebo přidružený obsah",
+            "U peněženek Stellar, DEX a nástrojů upřednostňujeme ty, které jsou uvedeny na https://stellar.org/ecosystem jako spolehlivou referenci, ale můžete zmínit i jiné, pokud nepropagujete podvody."
+          ]
+        }
+      ]
+    },
+    "footer": "Tyto pokyny mohou být aktualizovány. Cílem je bezpečný vzdělávací prostor: odmítáme škodlivý obsah, nikoli odlišné myšlenky. Pokud se domníváte, že zamítnutí bylo nespravedlivé, můžete jej upravit a znovu odeslat nebo požádat tým nájemců o ruční kontrolu."
+  }
+}

@@ -357,7 +357,8 @@
     "romanian": "رومانیایی",
     "khmer": "خمر",
     "sinhala": "سینهالی",
-    "greek": "یونانی"
+    "greek": "یونانی",
+    "czech": "چکی"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ایمیل باید معتبر باشد",
