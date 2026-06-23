@@ -359,7 +359,8 @@
     "sinhala": "сингальский",
     "greek": "Греческий",
     "czech": "чешский",
-    "hungarian": "венгерский"
+    "hungarian": "венгерский",
+    "swedish": "шведский"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Электронная почта должна быть действительной",

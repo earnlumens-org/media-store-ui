@@ -359,7 +359,8 @@
     "sinhala": "Sinhala",
     "greek": "Yunanca",
     "czech": "Çekçe",
-    "hungarian": "Macarca"
+    "hungarian": "Macarca",
+    "swedish": "İsveççe"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-posta geçerli olmalıdır",

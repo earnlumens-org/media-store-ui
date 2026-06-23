@@ -359,7 +359,8 @@
     "sinhala": "Singhalesisch",
     "greek": "Griechisch",
     "czech": "Tschechisch",
-    "hungarian": "Ungarisch"
+    "hungarian": "Ungarisch",
+    "swedish": "Schwedisch"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-Mail muss gültig sein",

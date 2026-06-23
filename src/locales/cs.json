@@ -423,7 +423,8 @@
     "sinhala": "sinhálština",
     "greek": "řečtina",
     "czech": "čeština",
-    "hungarian": "Maďarština"
+    "hungarian": "Maďarština",
+    "swedish": "švédština"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail musí být platný",

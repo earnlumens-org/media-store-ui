@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Riktlinjer för innehåll för kreatörer",
+    "subtitle": "Vad du kan publicera på EarnLumens och vad vi undviker",
+    "lastUpdated": "Senast uppdaterad: {date}",
+    "intro": "EarnLumens är en finansiell utbildningsplattform med fokus på Stellar-ekosystemet. Två lager av regler gäller för allt du publicerar: ett icke-förhandlingsbart plattformsomfattande lager (bedrägeri, skada, olagligt innehåll) som är samma för alla tenanter, och ett tenantspecifikt lager som beror på vilken marknadsplats du publicerar på.",
+    "platformSection": {
+      "heading": "Plattformsomfattande regler",
+      "body": "Dessa regler gäller för alla tenanter på EarnLumens, inklusive denna. De kan inte avslappnas av enskilda marknadsplatser och finns till för att hålla samhället säkert."
+    },
+    "tenantSection": {
+      "heading": "Tenantspecifika regler",
+      "body": "Utöver plattformsreglerna ovan kan varje tenant lägga till sina egna publiceringsanteckningar - till exempel vilka ämnen den fokuserar på, förväntad ton eller specifika format den accepterar.",
+      "placeholder": "Den här tenanten har inte lagt till specifika publiceringsmeddelanden än. Endast de plattformsomfattande reglerna ovan gäller här."
+    },
+    "sanctionsSection": {
+      "heading": "Så fungerar sanktioner",
+      "body": "Om du bryter mot reglerna ovan är det precis vad som händer. Samma stege gäller för alla tenanter - det finns inga dolda påföljder."
+    },
+    "forCreators": {
+      "heading": "För skapare",
+      "sections": [
+        {
+          "heading": "1. Vad du kan publicera fritt",
+          "body": "Utbudet av acceptabla ämnen är brett. Du behöver inte tillstånd eller ett stel format:",
+          "items": [
+            "Utbildning om Stellar-nätverket (protokoll, SCP, Soroban, SDK:er, ankare, DEX) och XLM",
+            "Allmän finansiell utbildning: sparande, budgetering, skuldsättning, ansvarsfulla investeringar, skatter",
+            "Praktiska handledningar, koddemos, plånbok och dApp-genomgångar",
+            "Ärliga jämförelser mellan nätverk, plånböcker eller protokoll, inklusive sådana utanför Stellar, så länge jämförelsen är informativ",
+            "Personliga åsikter och analyser tydligt identifierade som åsikter",
+            "Innehåll på alla språk som stöds av plattformen"
+          ]
+        },
+        {
+          "heading": "2. Vad vi alltid förkastar",
+          "body": "Dessa kategorier avvisas utan undantag eftersom de utsätter samhället för risker eller är olagliga:",
+          "items": [
+            "Ponzi-spel, pyramidspel, pump and dump, mattdrag eller löften om garanterad avkastning",
+            "Betalda handelssignaler, köp/säljrekommendationer med specifika belopp eller personlig finansiell rådgivning",
+            "Nätfiske, falska airdrops, förfrågningar om privata nycklar, fröfraser eller referenser, plånboksavlopp, look-alike-domäner som imiterar Freighter / xBull / LOBSTR / SDF / utbyten",
+            "Imitation eller djupförfalskning av offentliga personer, projekt eller EarnLumens / SDF – inklusive syntetiserat ljud eller video som felaktigt antyder ett stöd",
+            "Glorifiering av självmord eller självskada, metoder eller instruktioner för självskada, pro-anorexi eller pro-bulimi (pedagogisk och återhämtningsorienterad inramning är tillåten)",
+            "Hatretorik, trakasserier, diskriminering eller uppvigling till våld",
+            "Explicit sexuellt innehåll, grafiskt våld eller material som involverar minderåriga",
+            "Tydligt upphovsrättsskyddat material utan tillstånd (musik, video, böcker, programvara)",
+            "Personuppgifter från tredje part utan deras medgivande",
+            "Uppenbar spam: meningslösa titlar, massduplicerat innehåll, tomma skärmar, AI-innehåll utan mänsklig granskning"
+          ]
+        },
+        {
+          "heading": "3. Grått område: kan gå till manuell granskning",
+          "body": "Dessa fall avvisas inte automatiskt, men de kan granskas av en mänsklig moderator:",
+          "items": [
+            "Att nämna specifika kryptovalutor eller tokens utan tydlig utbildningskontext",
+            "Marknadsföring av dina egna produkter eller tjänster utan att märka dem som sponsrade",
+            "Påståenden om tidigare prestanda utan en verifierbar källa",
+            "Mycket kort innehåll eller låg teknisk kvalitet som gör dess värde svårt att bedöma"
+          ]
+        },
+        {
+          "heading": "4. Bästa metoder (rekommenderas, inte obligatoriskt)",
+          "body": "Dessa är inte godkännandekrav, men de hjälper ditt innehåll att tas emot bättre och minska modereringsfriktionen:",
+          "items": [
+            "Använd en beskrivande titel utan vilseledande clickbait",
+            "Ange källor när du använder data, statistik eller siffror",
+            "Förtydliga att innehållet är pedagogiskt och inte personlig ekonomisk rådgivning",
+            "Nämn det om du har en betydande position i en tillgång du diskuterar",
+            "Etikett sponsrat eller affilierat innehåll",
+            "För Stellar-plånböcker, DEX:er och verktyg, föredrar vi de som anges på https://stellar.org/ecosystem som en pålitlig referens, men du kan nämna andra så länge du inte främjar bedrägeri"
+          ]
+        }
+      ]
+    },
+    "footer": "Dessa riktlinjer kan komma att uppdateras. Målet är ett säkert pedagogiskt utrymme: vi avvisar skadligt innehåll, inte olika idéer. Om du anser att ett avslag var orättvist kan du revidera och skicka in det igen eller begära manuell granskning från tenantteamet."
+  }
+}

@@ -359,7 +359,8 @@
     "sinhala": "السنهالية",
     "greek": "اليونانية",
     "czech": "التشيكية",
-    "hungarian": "المجرية"
+    "hungarian": "المجرية",
+    "swedish": "السويدية"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "يجب أن يكون البريد الإلكتروني صالحًا",

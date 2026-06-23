@@ -423,7 +423,8 @@
     "sinhala": "Sinhala",
     "greek": "Greek",
     "czech": "Czech",
-    "hungarian": "Hungarian"
+    "hungarian": "Hungarian",
+    "swedish": "Swedish"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email must be valid",

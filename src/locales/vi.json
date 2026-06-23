@@ -359,7 +359,8 @@
     "sinhala": "tiếng Sinhala",
     "greek": "Tiếng Hy Lạp",
     "czech": "tiếng Séc",
-    "hungarian": "tiếng Hungary"
+    "hungarian": "tiếng Hungary",
+    "swedish": "tiếng Thụy Điển"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email phải hợp lệ",

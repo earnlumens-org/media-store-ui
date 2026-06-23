@@ -359,7 +359,8 @@
     "sinhala": "Sinhala",
     "greek": "Yunani",
     "czech": "Bahasa Czech",
-    "hungarian": "Bahasa Hungary"
+    "hungarian": "Bahasa Hungary",
+    "swedish": "Bahasa Sweden"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mel mestilah sah",

@@ -423,7 +423,8 @@
     "sinhala": "szingaléz",
     "greek": "görög",
     "czech": "cseh",
-    "hungarian": "magyar"
+    "hungarian": "magyar",
+    "swedish": "svéd"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Az e-mailnek érvényesnek kell lennie",

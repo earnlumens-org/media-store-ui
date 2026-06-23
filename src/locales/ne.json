@@ -423,7 +423,8 @@
     "sinhala": "सिंहला",
     "greek": "ग्रीक",
     "czech": "चेक",
-    "hungarian": "हंगेरीयाली"
+    "hungarian": "हंगेरीयाली",
+    "swedish": "स्विडिश"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "इमेल वैध हुनुपर्छ",
