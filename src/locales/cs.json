@@ -424,7 +424,8 @@
     "greek": "řečtina",
     "czech": "čeština",
     "hungarian": "Maďarština",
-    "swedish": "švédština"
+    "swedish": "švédština",
+    "uyghur": "ujgurština"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail musí být platný",

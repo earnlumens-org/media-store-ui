@@ -360,7 +360,8 @@
     "greek": "希腊语",
     "czech": "捷克语",
     "hungarian": "匈牙利语",
-    "swedish": "瑞典语"
+    "swedish": "瑞典语",
+    "uyghur": "维吾尔语"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "电子邮件必须有效",

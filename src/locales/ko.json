@@ -360,7 +360,8 @@
     "greek": "그리스어",
     "czech": "체코어",
     "hungarian": "헝가리어",
-    "swedish": "스웨덴어"
+    "swedish": "스웨덴어",
+    "uyghur": "위구르어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

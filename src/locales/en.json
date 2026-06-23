@@ -424,7 +424,8 @@
     "greek": "Greek",
     "czech": "Czech",
     "hungarian": "Hungarian",
-    "swedish": "Swedish"
+    "swedish": "Swedish",
+    "uyghur": "Uyghur"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email must be valid",

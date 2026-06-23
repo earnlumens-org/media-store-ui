@@ -360,7 +360,8 @@
     "greek": "Греческий",
     "czech": "чешский",
     "hungarian": "венгерский",
-    "swedish": "шведский"
+    "swedish": "шведский",
+    "uyghur": "уйгурский"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Электронная почта должна быть действительной",

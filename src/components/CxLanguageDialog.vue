@@ -74,6 +74,7 @@
           <v-radio :label="`čeština (${$t('Language.czech')})`" value="cs" />
           <v-radio :label="`magyar (${$t('Language.hungarian')})`" value="hu" />
           <v-radio :label="`svenska (${$t('Language.swedish')})`" value="sv" />
+          <v-radio :label="`ئۇيغۇرچە (${$t('Language.uyghur')})`" value="ug" />
         </v-radio-group>
       </v-card-text>
 

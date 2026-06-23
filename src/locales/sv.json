@@ -424,7 +424,8 @@
     "greek": "Grekiska",
     "czech": "Tjeckiska",
     "hungarian": "Ungerska",
-    "swedish": "svenska"
+    "swedish": "svenska",
+    "uyghur": "uiguriska"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-post måste vara giltig",

@@ -424,7 +424,8 @@
     "greek": "Griego",
     "czech": "checo",
     "hungarian": "húngaro",
-    "swedish": "sueco"
+    "swedish": "sueco",
+    "uyghur": "uigur"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El correo electrónico debe ser válido",
