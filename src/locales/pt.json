@@ -355,7 +355,8 @@
     "sindhi": "sindi",
     "lao": "Laociano",
     "romanian": "Romeno",
-    "khmer": "khmer"
+    "khmer": "khmer",
+    "sinhala": "cingalês"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "O e-mail deve ser válido",

@@ -355,7 +355,8 @@
     "sindhi": "سندی",
     "lao": "لائوسی",
     "romanian": "رومانیایی",
-    "khmer": "خمر"
+    "khmer": "خمر",
+    "sinhala": "سینهالی"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ایمیل باید معتبر باشد",

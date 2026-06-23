@@ -355,7 +355,8 @@
     "sindhi": "신디어",
     "lao": "라오어",
     "romanian": "루마니아어",
-    "khmer": "크메르어"
+    "khmer": "크메르어",
+    "sinhala": "싱할라어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

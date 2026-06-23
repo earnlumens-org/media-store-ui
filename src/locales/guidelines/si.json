@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Creators සඳහා අන්තර්ගත මාර්ගෝපදේශ",
+    "subtitle": "EarnLumens මත ඔබට පළ කළ හැකි දේ සහ අප වැළකී සිටින දේ",
+    "lastUpdated": "අවසන් යාවත්කාලීන කිරීම: {date}",
+    "intro": "EarnLumens යනු Stellar ecosystem කෙරෙහි අවධානය යොමු කරන මූල්‍ය අධ්‍යාපන වේදිකාවකි. ඔබ පළ කරන ඕනෑම දෙයකට නීති ස්ථර දෙකක් අදාළ වේ: සෑම tenant එකකම එකසේ පවතින, සාකච්ඡා කළ නොහැකි platform-wide ස්ථරයක් (වංචා, හානි, නීතිවිරෝධී අන්තර්ගතය), සහ ඔබ පළ කරන marketplace එක මත රඳා පවතින tenant-specific ස්ථරයක්.",
+    "platformSection": {
+      "heading": "Platform-wide නීති",
+      "body": "මෙම නීති EarnLumens හි සෑම tenant එකකටම, මෙය ඇතුළුව, අදාළ වේ. ඒවා තනි marketplaces මගින් ලිහිල් කළ නොහැකි අතර ප්‍රජාව ආරක්ෂිතව තබා ගැනීමට පවතී."
+    },
+    "tenantSection": {
+      "heading": "Tenant-specific නීති",
+      "body": "ඉහත platform නීති වලට අමතරව, සෑම tenant එකකටම තමන්ගේම publishing notes එක් කළ හැක — උදාහරණයක් ලෙස එය අවධානය යොමු කරන මාතෘකා, අපේක්ෂිත tone, හෝ එය පිළිගන්නා විශේෂ formats.",
+      "placeholder": "මෙම tenant තවම විශේෂ publishing notes එක් කර නැත. මෙහි අදාළ වන්නේ ඉහත platform-wide නීති පමණි."
+    },
+    "sanctionsSection": {
+      "heading": "සම්බාධක ක්‍රියා කරන ආකාරය",
+      "body": "ඔබ ඉහත නීති කඩ කළහොත්, සිදුවන්නේ මෙයයි. සෑම tenant එකකම එකම ladder එක අදාළ වේ — සැඟවුණු දඬුවම් නැත."
+    },
+    "forCreators": {
+      "heading": "Creators සඳහා",
+      "sections": [
+        {
+          "heading": "1. ඔබට නිදහසේ පළ කළ හැකි දේ",
+          "body": "පිළිගත හැකි මාතෘකා පරාසය පුළුල්ය. ඔබට අවසරයක් හෝ දැඩි format එකක් අවශ්‍ය නැත:",
+          "items": [
+            "Stellar network (protocol, SCP, Soroban, SDKs, anchors, DEX) සහ XLM පිළිබඳ අධ්‍යාපනය",
+            "සාමාන්‍ය මූල්‍ය අධ්‍යාපනය: ඉතිරි කිරීම, budget කිරීම, ණය, වගකීම් සහිත ආයෝජනය, බදු",
+            "ප්‍රායෝගික tutorials, code demos, wallet සහ dApp walkthroughs",
+            "සංසන්දනය තොරතුරුදායක නම්, Stellar පිටත ඒවා ඇතුළුව networks, wallets, හෝ protocols අතර සාධාරණ සංසන්දන",
+            "අදහස් බව පැහැදිලිව හඳුනාගත් පුද්ගලික අදහස් සහ විශ්ලේෂණ",
+            "වේදිකාව සහය දක්වන ඕනෑම භාෂාවක අන්තර්ගතය"
+          ]
+        },
+        {
+          "heading": "2. අප සැමවිටම ප්‍රතික්ෂේප කරන දේ",
+          "body": "මෙම ප්‍රවර්ග ව්‍යතිරේකයකින් තොරව ප්‍රතික්ෂේප කෙරේ, මන්ද ඒවා ප්‍රජාව අවදානමට ලක් කරන හෝ නීතිවිරෝධී නිසාය:",
+          "items": [
+            "Ponzi schemes, pyramid schemes, pump and dump, rug pulls, හෝ සහතික කළ returns පොරොන්දු",
+            "ගෙවීම් සහිත trading signals, නිශ්චිත මුදල් සමඟ buy/sell recommendations, හෝ පුද්ගලීකෘත මූල්‍ය උපදෙස්",
+            "Phishing, ව්‍යාජ airdrops, private keys, seed phrases හෝ credentials ඉල්ලීම්, wallet drainers, Freighter / xBull / LOBSTR / SDF / exchanges අනුකරණය කරන look-alike domains",
+            "පොදු චරිත, projects, හෝ EarnLumens / SDF ලෙස වේශධාරණය කිරීම හෝ deepfakes — endorsement එකක් ඇති බව ව්‍යාජව පෙන්වන synthesized audio හෝ video ඇතුළුව",
+            "සියදිවි නසාගැනීම හෝ self-harm මහත්කොට පෙන්වීම, self-injury ක්‍රම හෝ උපදෙස්, pro-anorexia හෝ pro-bulimia අන්තර්ගතය (අධ්‍යාපනික සහ recovery-oriented framing අවසර ඇත)",
+            "වෛරී ප්‍රකාශ, හිරිහැර, වෙනස්කම් කිරීම, හෝ ප්‍රචණ්ඩත්වයට උසිගැන්වීම",
+            "පැහැදිලි ලිංගික අන්තර්ගතය, graphic violence, හෝ අහිංසකයන් සම්බන්ධ ද්‍රව්‍ය",
+            "අවසරයකින් තොරව පැහැදිලිව copyrighted ද්‍රව්‍ය (සංගීතය, වීඩියෝ, පොත්, software)",
+            "තෙවන පාර්ශ්වයන්ගේ පුද්ගලික දත්ත ඔවුන්ගේ එකඟතාවකින් තොරව",
+            "පැහැදිලි spam: අර්ථහීන මාතෘකා, විශාල ප්‍රමාණයෙන් duplicate කළ අන්තර්ගතය, හිස් screens, මානව සමාලෝචනයකින් තොර AI අන්තර්ගතය"
+          ]
+        },
+        {
+          "heading": "3. Gray area: manual review වෙත යා හැක",
+          "body": "මෙම අවස්ථා ස්වයංක්‍රීයව ප්‍රතික්ෂේප නොකෙරේ, නමුත් මානව moderator කෙනෙකු විසින් සමාලෝචනය කළ හැක:",
+          "items": [
+            "පැහැදිලි අධ්‍යාපනික context එකකින් තොරව නිශ්චිත cryptocurrencies හෝ tokens සඳහන් කිරීම",
+            "sponsored ලෙස ලේබල් නොකර ඔබේම products හෝ services ප්‍රවර්ධනය කිරීම",
+            "තහවුරු කළ හැකි මූලාශ්‍රයකින් තොරව අතීත කාර්යසාධනය පිළිබඳ claims",
+            "එහි වටිනාකම ඇගයීමට අපහසු කරන ඉතා කෙටි අන්තර්ගතය හෝ අඩු තාක්ෂණික ගුණාත්මකභාවය"
+          ]
+        },
+        {
+          "heading": "4. හොඳම practices (නිර්දේශිතයි, අවශ්‍ය නොවේ)",
+          "body": "මේවා අනුමැතිය සඳහා අවශ්‍යතා නොවේ, නමුත් ඔබේ අන්තර්ගතය වඩා හොඳින් පිළිගැනීමට සහ moderation friction අඩු කිරීමට උපකාරී වේ:",
+          "items": [
+            "නොමඟ යවන clickbait නැති විස්තරාත්මක මාතෘකාවක් භාවිත කරන්න",
+            "දත්ත, statistics, හෝ figures භාවිත කරන විට මූලාශ්‍ර උපුටා දක්වන්න",
+            "අන්තර්ගතය අධ්‍යාපනික බව සහ පුද්ගලීකෘත මූල්‍ය උපදෙස් නොවන බව පැහැදිලි කරන්න",
+            "ඔබ සාකච්ඡා කරන asset එකක වැදගත් position එකක් තබාගෙන සිටී නම් එය සඳහන් කරන්න",
+            "sponsored හෝ affiliate අන්තර්ගතය ලේබල් කරන්න",
+            "Stellar wallets, DEXs සහ tools සඳහා, විශ්වාසනීය reference එකක් ලෙස https://stellar.org/ecosystem හි ලැයිස්තුගත ඒවා අපි කැමති කරමු, නමුත් ඔබ fraud ප්‍රවර්ධනය නොකරන තාක් වෙනත් ඒවා සඳහන් කළ හැක"
+          ]
+        }
+      ]
+    },
+    "footer": "මෙම මාර්ගෝපදේශ යාවත්කාලීන විය හැක. අරමුණ ආරක්ෂිත අධ්‍යාපනික අවකාශයකි: අපි ප්‍රතික්ෂේප කරන්නේ හානිකර අන්තර්ගතය මිස වෙනස් අදහස් නොවේ. ප්‍රතික්ෂේප කිරීම අසාධාරණ යැයි ඔබ විශ්වාස කරන්නේ නම්, සංශෝධනය කර නැවත ඉදිරිපත් කළ හැක, හෝ tenant team වෙතින් manual review ඉල්ලා සිටිය හැක."
+  }
+}

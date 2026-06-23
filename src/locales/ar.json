@@ -355,7 +355,8 @@
     "sindhi": "السندية",
     "lao": "اللاوية",
     "romanian": "الرومانية",
-    "khmer": "الخميرية"
+    "khmer": "الخميرية",
+    "sinhala": "السنهالية"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "يجب أن يكون البريد الإلكتروني صالحًا",

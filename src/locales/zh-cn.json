@@ -355,7 +355,8 @@
     "sindhi": "信德语",
     "lao": "老挝语",
     "romanian": "罗马尼亚语",
-    "khmer": "高棉语"
+    "khmer": "高棉语",
+    "sinhala": "僧伽罗语"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "电子邮件必须有效",

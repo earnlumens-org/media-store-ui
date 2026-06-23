@@ -355,7 +355,8 @@
     "sindhi": "Sindhi",
     "lao": "Bahasa Lao",
     "romanian": "Bahasa Rumania",
-    "khmer": "Khmer"
+    "khmer": "Khmer",
+    "sinhala": "Sinhala"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email harus valid",

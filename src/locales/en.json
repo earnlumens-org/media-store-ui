@@ -419,7 +419,8 @@
     "sindhi": "Sindhi",
     "lao": "Lao",
     "romanian": "Romanian",
-    "khmer": "Khmer"
+    "khmer": "Khmer",
+    "sinhala": "Sinhala"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email must be valid",
