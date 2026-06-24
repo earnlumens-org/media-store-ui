@@ -361,7 +361,8 @@
     "czech": "czeski",
     "hungarian": "węgierski",
     "swedish": "szwedzki",
-    "uyghur": "ujgurski"
+    "uyghur": "ujgurski",
+    "haitianCreole": "kreolski haitański"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail musi być poprawny",

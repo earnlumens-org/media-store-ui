@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Règ sou Kontni pou Kreyatè",
+    "subtitle": "Sa ou ka pibliye sou EarnLumens ak sa nou evite",
+    "lastUpdated": "Dènye mizajou: {date}",
+    "intro": "EarnLumens se yon platfòm edikasyon finansye ki konsantre sou ekosistèm Stellar la. De kouch règ aplike pou nenpòt bagay ou pibliye: yon kouch pou tout platfòm nan ki pa negosyab (fwod, domaj, kontni ilegal) ki menm sou chak tenant, epi yon kouch espesifik pou tenant ki depann de mache kote ou pibliye a.",
+    "platformSection": {
+      "heading": "Règ pou tout platfòm nan",
+      "body": "Règ sa yo aplike pou chak tenant sou EarnLumens, tankou sa a. Mache endividyèl pa ka diminye yo, epi yo egziste pou kenbe kominote a an sekirite."
+    },
+    "tenantSection": {
+      "heading": "Règ espesifik pou tenant",
+      "body": "Anplis règ platfòm ki anlè yo, chak tenant ka ajoute pwòp nòt piblikasyon li — pa egzanp sijè li konsantre sou yo, ton yo atann, oswa fòma espesifik li aksepte.",
+      "placeholder": "Tenant sa a poko ajoute nòt piblikasyon espesifik. Se sèlman règ pou tout platfòm ki anlè yo ki aplike isit la."
+    },
+    "sanctionsSection": {
+      "heading": "Kijan sanksyon yo fonksyone",
+      "body": "Si ou vyole règ ki anlè yo, men egzakteman sa k ap pase. Menm nechèl la aplike sou chak tenant — pa gen okenn penalite kache."
+    },
+    "forCreators": {
+      "heading": "Pou Kreyatè",
+      "sections": [
+        {
+          "heading": "1. Sa ou ka pibliye lib",
+          "body": "Ranje sijè ki akseptab yo laj. Ou pa bezwen pèmisyon oswa yon fòma rijid:",
+          "items": [
+            "Edikasyon sou rezo Stellar la (pwotokòl, SCP, Soroban, SDKs, anchors, DEX) ak XLM",
+            "Edikasyon finansye jeneral: ekonomi, bidjè, dèt, envestisman responsab, taks",
+            "Leson pratik, demonstrasyon kòd, gid etap-pa-etap pou bous ak dApp",
+            "Konparezon onèt ant rezo, bous, oswa pwotokòl, menm sa ki deyò Stellar, depi konparezon an enfòmatif",
+            "Opinyon pèsonèl ak analiz ki idantifye klèman kòm opinyon",
+            "Kontni nan nenpòt lang platfòm nan sipòte"
+          ]
+        },
+        {
+          "heading": "2. Sa nou toujou rejte",
+          "body": "Kategori sa yo rejte san eksepsyon paske yo mete kominote a an danje oswa yo ilegal:",
+          "items": [
+            "Konplo Ponzi, konplo piramid, pump and dump, rug pulls, oswa pwomès rannman garanti",
+            "Siyal trading peye, rekòmandasyon achte/vann ak kantite espesifik, oswa konsèy finansye pèsonalize",
+            "Phishing, fo airdrops, demann pou kle prive, seed phrases, oswa kalifikasyon, wallet drainers, domèn ki sanble epi ki imite Freighter / xBull / LOBSTR / SDF / exchanges",
+            "Fè tèt ou pase pou pèsonalite piblik, pwojè, oswa EarnLumens / SDF, oswa deepfakes sou yo — tankou odyo oswa videyo sentetize ki fè kwè gen yon andòsman fo",
+            "Glorifikasyon swisid oswa oto-domaj, metòd oswa enstriksyon pou blese tèt ou, kontni pro-anorexia oswa pro-bulimia (ankadreman edikatif ak oryante sou rekiperasyon pèmèt)",
+            "Diskou rayisman, arasman, diskriminasyon, oswa ankourajman vyolans",
+            "Kontni seksyèl eksplisit, vyolans grafik, oswa materyèl ki enplike minè",
+            "Materyèl ki klèman anba copyright san otorizasyon (mizik, videyo, liv, lojisyèl)",
+            "Done pèsonèl twazyèm pati san konsantman yo",
+            "Spam evidan: tit ki pa gen sans, kontni diplike an mas, ekran vid, kontni AI san revizyon imen"
+          ]
+        },
+        {
+          "heading": "3. Zòn gri: ka ale nan revizyon manyèl",
+          "body": "Ka sa yo pa rejte otomatikman, men yon moderatè imen ka revize yo:",
+          "items": [
+            "Mansyone cryptomonnaies oswa tokens espesifik san kontèks edikatif klè",
+            "Pwomosyon pwòp pwodwi oswa sèvis ou san make yo kòm patwone",
+            "Reklamasyon sou pèfòmans pase san yon sous ki ka verifye",
+            "Kontni trè kout oswa kalite teknik ki ba ki fè valè li difisil pou evalye"
+          ]
+        },
+        {
+          "heading": "4. Pi bon pratik (rekòmande, pa obligatwa)",
+          "body": "Sa yo pa kondisyon apwobasyon, men yo ede kontni ou resevwa pi byen epi diminye friksyon moderasyon:",
+          "items": [
+            "Sèvi ak yon tit deskriptif san clickbait ki twonpe moun",
+            "Site sous lè ou sèvi ak done, estatistik, oswa chif",
+            "Klarifye kontni an se edikatif epi li pa konsèy finansye pèsonalize",
+            "Mansyone sa si ou gen yon pozisyon enpòtan nan yon byen w ap diskite",
+            "Make kontni patwone oswa afilye",
+            "Pou bous Stellar, DEXs, ak zouti, nou prefere sa yo ki sou lis nan https://stellar.org/ecosystem kòm referans fyab, men ou ka mansyone lòt yo depi ou pa ap ankouraje fwod"
+          ]
+        }
+      ]
+    },
+    "footer": "Règ sa yo ka mete ajou. Objektif la se yon espas edikatif ki an sekirite: nou rejte kontni danjere, pa lide diferan. Si ou kwè yon rejè pa t jis, ou ka revize epi soumèt ankò, oswa mande ekip tenant lan fè yon revizyon manyèl."
+  }
+}

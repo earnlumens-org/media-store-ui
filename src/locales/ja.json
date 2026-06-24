@@ -361,7 +361,8 @@
     "czech": "チェコ語",
     "hungarian": "ハンガリー語",
     "swedish": "スウェーデン語",
-    "uyghur": "ウイグル語"
+    "uyghur": "ウイグル語",
+    "haitianCreole": "ハイチ・クレオール語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "メールが有効である必要があります",

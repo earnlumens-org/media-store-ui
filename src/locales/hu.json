@@ -425,7 +425,8 @@
     "czech": "cseh",
     "hungarian": "magyar",
     "swedish": "svéd",
-    "uyghur": "ujgur"
+    "uyghur": "ujgur",
+    "haitianCreole": "haiti kreol"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Az e-mailnek érvényesnek kell lennie",

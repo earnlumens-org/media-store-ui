@@ -361,7 +361,8 @@
     "czech": "чешский",
     "hungarian": "венгерский",
     "swedish": "шведский",
-    "uyghur": "уйгурский"
+    "uyghur": "уйгурский",
+    "haitianCreole": "гаитянский креольский"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Электронная почта должна быть действительной",

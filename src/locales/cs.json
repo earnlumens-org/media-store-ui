@@ -425,7 +425,8 @@
     "czech": "čeština",
     "hungarian": "Maďarština",
     "swedish": "švédština",
-    "uyghur": "ujgurština"
+    "uyghur": "ujgurština",
+    "haitianCreole": "haitská kreolština"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail musí být platný",

@@ -425,7 +425,8 @@
     "czech": "Τσεχικά",
     "hungarian": "Ουγγρικά",
     "swedish": "σουηδικά",
-    "uyghur": "Ουιγουρικά"
+    "uyghur": "Ουιγουρικά",
+    "haitianCreole": "Αϊτινή Κρεολή"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Το email πρέπει να είναι έγκυρο",

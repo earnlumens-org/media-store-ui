@@ -361,7 +361,8 @@
     "czech": "捷克语",
     "hungarian": "匈牙利语",
     "swedish": "瑞典语",
-    "uyghur": "维吾尔语"
+    "uyghur": "维吾尔语",
+    "haitianCreole": "海地克里奥尔语"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "电子邮件必须有效",

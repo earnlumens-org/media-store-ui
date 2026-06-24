@@ -361,7 +361,8 @@
     "czech": "চেক",
     "hungarian": "হাঙ্গেরীয়",
     "swedish": "সুইডিশ",
-    "uyghur": "উইঘুর"
+    "uyghur": "উইঘুর",
+    "haitianCreole": "হাইতিয়ান ক্রেওল"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ইমেইল বৈধ হতে হবে",
