@@ -426,7 +426,8 @@
     "hungarian": "Ungerska",
     "swedish": "svenska",
     "uyghur": "uiguriska",
-    "haitianCreole": "haitisk kreol"
+    "haitianCreole": "haitisk kreol",
+    "serbian": "serbiska"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-post måste vara giltig",

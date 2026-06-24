@@ -362,7 +362,8 @@
     "hungarian": "ungherese",
     "swedish": "svedese",
     "uyghur": "uiguro",
-    "haitianCreole": "creolo haitiano"
+    "haitianCreole": "creolo haitiano",
+    "serbian": "serbo"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "L'email deve essere valida",
