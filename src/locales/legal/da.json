@@ -1,0 +1,81 @@
+{
+    "Legal": {
+        "termsTitle": "Vilkår og betingelser",
+        "privacyTitle": "Privatlivspolitik",
+        "lastUpdated": "Sidst opdateret: {date}",
+        "terms": {
+            "intro": "Velkommen til EarnLumens. Ved at tilgå eller bruge vores platform accepterer du at være bundet af disse vilkår og betingelser.",
+            "sections": [
+                {
+                    "heading": "1. Accept af vilkår",
+                    "body": "Ved at oprette en konto eller bruge nogen del af EarnLumens-platformen bekræfter du, at du har læst, forstået og accepterer at være bundet af disse vilkår og betingelser samt vores privatlivspolitik. Hvis du ikke accepterer, må du ikke bruge platformen."
+                },
+                {
+                    "heading": "2. Beskrivelse af tjenesten",
+                    "body": "EarnLumens er en multi-tenant indholdsplatform bygget på Stellar-netværket. Hovedtenanten fokuserer i øjeblikket på finansiel uddannelse, og platformen muliggør nye instanser for andre vertikaler gennem verifikationslegitimationer. Skabere kan udgive indhold (videoer, lyd, billeder og ressourcer) og sætte priser i XLM (Stellar Lumens). Brugere kan købe, se og interagere med dette indhold."
+                },
+                {
+                    "heading": "3. Kontoregistrering",
+                    "body": "Du skal give korrekte og fuldstændige oplysninger, når du opretter en konto. Du er ansvarlig for at holde dine legitimationsoplysninger fortrolige og for alle aktiviteter, der finder sted under din konto. Du skal straks underrette os om enhver uautoriseret brug."
+                },
+                {
+                    "heading": "4. Indhold og intellektuel ejendom",
+                    "body": "Skabere bevarer ejerskabet til det indhold, de udgiver på EarnLumens. Ved at udgive giver skabere EarnLumens en ikke-eksklusiv, verdensomspændende licens til at vise, distribuere og promovere indholdet på platformen. Brugere må ikke reproducere, videredistribuere eller videresælge købt indhold uden skaberens udtrykkelige tilladelse."
+                },
+                {
+                    "heading": "5. Betalinger og transaktioner",
+                    "body": "Betalinger foretaget gennem EarnLumens udgør direkte, eksklusive og uafhængige transaktioner mellem køberen og skaberen, gennemført med XLM på Stellar-netværket. EarnLumens fungerer udelukkende som en teknologisk platform for udgivelse og teknisk formidling og griber ikke ind som sælger, køber, agent, depotforvalter, inkassoagent, fiduciary eller garant for nogen transaktion mellem brugere. Priser fastsættes udelukkende af skabere, og EarnLumens kan anvende gældende platformgebyrer. Medmindre gældende lov udtrykkeligt bestemmer andet, er alle salg endelige, uigenkaldelige og ikke-refunderbare. Hvis EarnLumens opdager, modtager rapporter om eller med rimelighed mistænker svindel, misbrug, brud eller anden ulovlig adfærd eller adfærd i strid med disse vilkår, kan EarnLumens midlertidigt eller permanent suspendere, begrænse eller annullere kontoen for den involverede skaber og træffe enhver intern foranstaltning, som EarnLumens finder rimelig. Uanset ovenstående påtager EarnLumens sig ingen forpligtelse til at gribe ind i tvister mellem brugere og garanterer under ingen omstændigheder tilbageførsel af transaktioner, genvinding af aktiver eller restitution, returnering eller refundering af overførte midler. Brugeren anerkender og accepterer udtrykkeligt de iboende risici ved blockchain-transaktioner, herunder deres potentielt irreversible karakter, samt eneansvar for netværksgebyrer, adressefejl, sendte beløb eller købsbeslutninger."
+                },
+                {
+                    "heading": "6. Forbudt adfærd",
+                    "body": "Du accepterer ikke at: (a) uploade skadeligt, ulovligt eller krænkende indhold; (b) udgive dig for at være andre; (c) forsøge at udnytte eller forstyrre platformen; (d) bruge automatiserede værktøjer til at scrape eller tilgå platformen uden tilladelse; (e) deltage i nogen aktivitet, der overtræder gældende love eller regler."
+                },
+                {
+                    "heading": "7. Opsigelse",
+                    "body": "Vi forbeholder os retten til at suspendere eller lukke din konto når som helst, hvis du overtræder disse vilkår. Ved opsigelse ophører din ret til at bruge platformen straks, selvom bestemmelser, der efter deres natur bør overleve, fortsat vil være gældende."
+                },
+                {
+                    "heading": "8. Ansvarsfraskrivelser",
+                    "body": "Platformen leveres \"som den er\" og \"som tilgængelig\" uden garantier af nogen art. EarnLumens garanterer ikke nøjagtigheden, fuldstændigheden eller nytten af noget indhold udgivet af skabere. Vi er ikke ansvarlige for tab, der skyldes transaktioner på Stellar-netværket."
+                },
+                {
+                    "heading": "9. Begrænsning af ansvar",
+                    "body": "I det maksimale omfang tilladt efter gældende lov er EarnLumens, dets tilknyttede selskaber, direktører, medarbejdere, kontraktparter og repræsentanter ikke ansvarlige for direkte, indirekte, tilfældige, særlige, følgeskader, eksemplariske, pønale eller andre skader, der opstår som følge af eller i forbindelse med brugen af eller manglende evne til at bruge platformen, transaktioner mellem brugere, indhold udgivet af skabere, svigagtig eller ulovlig adfærd fra tredjeparter, uopfyldte kommercielle forventninger, tab af data, tab af muligheder, tabt fortjeneste, omdømme, kundekreds eller for tab eller skader, der opstår fra blockchain-transaktioner, herunder dem der er irreversible. EarnLumens er især ikke ansvarlig for manglende levering af indhold eller for kvaliteten, lovligheden, ægtheden, nøjagtigheden eller nytten af indhold tilbudt af skabere, ej heller for returneringer, umulige chargebacks, krav mellem brugere eller tab af midler. I enhver situation, hvor der trods ovenstående juridisk fastslås et ansvar for EarnLumens, skal dette ansvar være begrænset til det beløb, EarnLumens faktisk modtog som platformgebyr i den specifikke transaktion, der gav anledning til kravet."
+                },
+                {
+                    "heading": "10. Ændringer af vilkår",
+                    "body": "Vi kan opdatere disse vilkår når som helst. Vi vil bestræbe os på at informere brugere om væsentlige ændringer gennem platformen, men det er dit ansvar regelmæssigt at gennemgå vilkårene. Din fortsatte brug efter ændringer udgør accept af de reviderede vilkår."
+                },
+                {
+                    "heading": "11. Kontakt",
+                    "body": "Hvis du har spørgsmål om disse vilkår, bedes du kontakte os på legal{'@'}earnlumens.org."
+                }
+            ]
+        },
+        "privacy": {
+            "intro": "Denne privatlivspolitik beskriver, hvordan EarnLumens indsamler, bruger og beskytter dine personoplysninger.",
+            "sections": [
+                {
+                    "heading": "1. Oplysninger vi indsamler",
+                    "body": "Vi indsamler oplysninger, du giver direkte (kontooplysninger, profiloplysninger), og oplysninger, der genereres gennem din brug af platformen (transaktionshistorik, visningsaktivitet, enhedsoplysninger)."
+                },
+                {
+                    "heading": "2. Hvordan vi bruger dine oplysninger",
+                    "body": "Vi bruger dine oplysninger til at: levere og forbedre vores tjenester, behandle transaktioner, kommunikere med dig, sikre platformens sikkerhed og overholde juridiske forpligtelser."
+                },
+                {
+                    "heading": "3. Deling af data",
+                    "body": "Vi sælger ikke dine personoplysninger. Vi kan dele data med tjenesteudbydere, der hjælper med at drive platformen, eller når loven kræver det."
+                },
+                {
+                    "heading": "4. Datasikkerhed",
+                    "body": "Vi implementerer kommercielt rimelige sikkerhedsforanstaltninger for at beskytte dine data. Ingen transmissionsmetode over internettet er dog 100% sikker, og vi kan ikke garantere absolut sikkerhed."
+                },
+                {
+                    "heading": "5. Dine rettigheder",
+                    "body": "Du kan få adgang til, rette eller anmode om sletning af dine personoplysninger ved at kontakte os. Vi vil gøre rimelige bestræbelser på at behandle din anmodning inden for en rimelig tidsramme."
+                }
+            ]
+        }
+    }
+}

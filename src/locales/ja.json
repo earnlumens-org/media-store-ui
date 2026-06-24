@@ -368,7 +368,8 @@
     "hebrew": "ヘブライ語",
     "soraniKurdish": "ソラニー・クルド語",
     "bulgarian": "ブルガリア語",
-    "armenian": "アルメニア語"
+    "armenian": "アルメニア語",
+    "danish": "デンマーク語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "メールが有効である必要があります",

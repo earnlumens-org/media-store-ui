@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Indholdsretningslinjer for skabere",
+    "subtitle": "Hvad du kan udgive på EarnLumens, og hvad vi undgår",
+    "lastUpdated": "Sidst opdateret: {date}",
+    "intro": "EarnLumens er en platform for finansiel uddannelse med fokus på Stellar-økosystemet. To lag af regler gælder for alt, hvad du udgiver: et ufravigeligt platformsdækkende lag (svindel, skade, ulovligt indhold), som er det samme på hver tenant, og et tenant-specifikt lag, der afhænger af den markedsplads, du udgiver på.",
+    "platformSection": {
+      "heading": "Platformsregler",
+      "body": "Disse regler gælder for hver tenant på EarnLumens, inklusive denne. De kan ikke lempes af individuelle markedspladser og findes for at holde fællesskabet sikkert."
+    },
+    "tenantSection": {
+      "heading": "Tenant-specifikke regler",
+      "body": "Ud over platformsreglerne ovenfor kan hver tenant tilføje sine egne udgivelsesnoter — for eksempel hvilke emner den fokuserer på, forventet tone eller specifikke formater, den accepterer.",
+      "placeholder": "Denne tenant har endnu ikke tilføjet specifikke udgivelsesnoter. Kun platformsreglerne ovenfor gælder her."
+    },
+    "sanctionsSection": {
+      "heading": "Sådan fungerer sanktioner",
+      "body": "Hvis du bryder reglerne ovenfor, er det præcis dette, der sker. Den samme trappe gælder på hver tenant — der er ingen skjulte straffe."
+    },
+    "forCreators": {
+      "heading": "For skabere",
+      "sections": [
+        {
+          "heading": "1. Hvad du frit kan udgive",
+          "body": "Rækken af acceptable emner er bred. Du behøver ikke tilladelse eller et fast format:",
+          "items": [
+            "Uddannelse om Stellar-netværket (protokol, SCP, Soroban, SDKs, anchors, DEX) og XLM",
+            "Generel finansiel uddannelse: opsparing, budgetlægning, gæld, ansvarlig investering, skat",
+            "Praktiske vejledninger, kode-demoer, gennemgange af wallets og dApp",
+            "Ærlige sammenligninger mellem netværk, wallets eller protokoller, også uden for Stellar, så længe sammenligningen er informativ",
+            "Personlige meninger og analyser, der tydeligt er markeret som mening",
+            "Indhold på ethvert sprog, som platformen understøtter"
+          ]
+        },
+        {
+          "heading": "2. Hvad vi altid afviser",
+          "body": "Disse kategorier afvises uden undtagelse, fordi de bringer fællesskabet i fare eller er ulovlige:",
+          "items": [
+            "Ponzi-ordninger, pyramidespil, pump and dump, rug pulls eller løfter om garanteret afkast",
+            "Betalte tradingsignaler, købs-/salgsanbefalinger med specifikke beløb eller personlig finansiel rådgivning",
+            "Phishing, falske airdrops, anmodninger om private nøgler, seed phrases eller legitimationsoplysninger, wallet drainers, look-alike-domæner, der efterligner Freighter / xBull / LOBSTR / SDF / exchanges",
+            "Efterligning eller deepfakes af offentlige personer, projekter eller EarnLumens / SDF — inklusive syntetiseret lyd eller video, der falsk antyder en anbefaling",
+            "Forherligelse af selvmord eller selvskade, metoder eller instruktioner til selvskade, pro-anoreksi- eller pro-bulimi-indhold (uddannelsesmæssig og recovery-orienteret rammesætning er tilladt)",
+            "Hadefuld tale, chikane, diskrimination eller tilskyndelse til vold",
+            "Eksplicit seksuelt indhold, grafisk vold eller materiale, der involverer mindreårige",
+            "Tydeligt ophavsretligt beskyttet materiale uden tilladelse (musik, video, bøger, software)",
+            "Tredjeparters persondata uden deres samtykke",
+            "Åbenlys spam: meningsløse titler, masse-duplikeret indhold, tomme skærme, AI-indhold uden menneskelig gennemgang"
+          ]
+        },
+        {
+          "heading": "3. Gråzone: kan gå til manuel gennemgang",
+          "body": "Disse tilfælde afvises ikke automatisk, men de kan blive gennemgået af en menneskelig moderator:",
+          "items": [
+            "Omtale af specifikke kryptovalutaer eller tokens uden tydelig uddannelsesmæssig kontekst",
+            "Promovering af dine egne produkter eller tjenester uden at markere dem som sponsorerede",
+            "Påstande om tidligere performance uden en verificerbar kilde",
+            "Meget kort indhold eller lav teknisk kvalitet, der gør værdien svær at vurdere"
+          ]
+        },
+        {
+          "heading": "4. Bedste praksis (anbefalet, ikke påkrævet)",
+          "body": "Dette er ikke godkendelseskrav, men de hjælper dit indhold med at blive bedre modtaget og reducerer moderationsfriktion:",
+          "items": [
+            "Brug en beskrivende titel uden vildledende clickbait",
+            "Angiv kilder, når du bruger data, statistik eller tal",
+            "Gør det klart, at indholdet er uddannelsesmæssigt og ikke personlig finansiel rådgivning",
+            "Nævn det, hvis du har en betydelig position i et aktiv, du omtaler",
+            "Markér sponsoreret indhold eller affiliate-indhold",
+            "For Stellar-wallets, DEXs og værktøjer foretrækker vi dem, der er angivet på https://stellar.org/ecosystem som en pålidelig reference, men du må nævne andre, så længe du ikke promoverer svindel"
+          ]
+        }
+      ]
+    },
+    "footer": "Disse retningslinjer kan blive opdateret. Målet er et sikkert uddannelsesrum: vi afviser skadeligt indhold, ikke anderledes idéer. Hvis du mener, at en afvisning var urimelig, kan du revidere og indsende igen eller anmode tenant-teamet om manuel gennemgang."
+  }
+}

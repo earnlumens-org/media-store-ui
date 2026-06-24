@@ -368,7 +368,8 @@
     "hebrew": "히브리어",
     "soraniKurdish": "소라니 쿠르드어",
     "bulgarian": "불가리아어",
-    "armenian": "아르메니아어"
+    "armenian": "아르메니아어",
+    "danish": "덴마크어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

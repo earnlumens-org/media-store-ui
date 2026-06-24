@@ -368,7 +368,8 @@
     "hebrew": "Hebrajski",
     "soraniKurdish": "kurdyjski sorani",
     "bulgarian": "bułgarski",
-    "armenian": "ormiański"
+    "armenian": "ormiański",
+    "danish": "duński"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail musi być poprawny",

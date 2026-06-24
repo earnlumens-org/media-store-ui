@@ -368,7 +368,8 @@
     "hebrew": "Иврит",
     "soraniKurdish": "сорани курдский",
     "bulgarian": "болгарский",
-    "armenian": "армянский"
+    "armenian": "армянский",
+    "danish": "датский"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Электронная почта должна быть действительной",

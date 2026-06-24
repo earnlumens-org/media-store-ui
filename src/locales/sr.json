@@ -432,7 +432,8 @@
     "hebrew": "Хебрејски",
     "soraniKurdish": "сорани курдски",
     "bulgarian": "бугарски",
-    "armenian": "јерменски"
+    "armenian": "јерменски",
+    "danish": "дански"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Е-пошта мора бити важећа",

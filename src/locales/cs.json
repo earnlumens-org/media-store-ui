@@ -432,7 +432,8 @@
     "hebrew": "Hebrejština",
     "soraniKurdish": "soránská kurdština",
     "bulgarian": "bulharština",
-    "armenian": "arménština"
+    "armenian": "arménština",
+    "danish": "dánština"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail musí být platný",
