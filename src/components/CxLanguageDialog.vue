@@ -83,6 +83,7 @@
           <v-radio :label="`български (${$t('Language.bulgarian')})`" value="bg" />
           <v-radio :label="`Հայերեն (${$t('Language.armenian')})`" value="hy" />
           <v-radio :label="`dansk (${$t('Language.danish')})`" value="da" />
+          <v-radio :label="`suomi (${$t('Language.finnish')})`" value="fi" />
         </v-radio-group>
       </v-card-text>
 

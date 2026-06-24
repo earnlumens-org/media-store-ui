@@ -369,7 +369,8 @@
     "soraniKurdish": "сорані курдська",
     "bulgarian": "болгарська",
     "armenian": "вірменська",
-    "danish": "данська"
+    "danish": "данська",
+    "finnish": "фінська"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Електронна пошта повинна бути дійсною",

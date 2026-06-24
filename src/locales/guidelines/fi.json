@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Sisältöohjeet tekijöille",
+    "subtitle": "Mitä voit julkaista EarnLumensissa ja mitä vältämme",
+    "lastUpdated": "Päivitetty viimeksi: {date}",
+    "intro": "EarnLumens on talouskoulutusalusta, joka keskittyy Stellar-ekosysteemiin. Kaikkeen julkaisemaasi sovelletaan kahta sääntökerrosta: neuvottelematon koko alustan tasoinen kerros (petos, haitta, laiton sisältö), joka on sama jokaisessa tenantissa, sekä tenanttikohtainen kerros, joka riippuu markkinapaikasta, jossa julkaiset.",
+    "platformSection": {
+      "heading": "Koko alustan säännöt",
+      "body": "Nämä säännöt koskevat jokaista EarnLumensin tenanttia, myös tätä. Yksittäiset markkinapaikat eivät voi lieventää niitä, ja niiden tarkoitus on pitää yhteisö turvallisena."
+    },
+    "tenantSection": {
+      "heading": "Tenanttikohtaiset säännöt",
+      "body": "Yllä olevien alustan sääntöjen lisäksi kukin tenantti voi lisätä omat julkaisuohjeensa — esimerkiksi mihin aiheisiin se keskittyy, millaista sävyä odotetaan tai mitä formaatteja se hyväksyy.",
+      "placeholder": "Tämä tenantti ei ole vielä lisännyt erityisiä julkaisuohjeita. Tässä sovelletaan vain yllä olevia koko alustan sääntöjä."
+    },
+    "sanctionsSection": {
+      "heading": "Miten sanktiot toimivat",
+      "body": "Jos rikot yllä olevia sääntöjä, näin tapahtuu. Sama portaikko koskee jokaista tenanttia — piilotettuja rangaistuksia ei ole."
+    },
+    "forCreators": {
+      "heading": "Tekijöille",
+      "sections": [
+        {
+          "heading": "1. Mitä voit julkaista vapaasti",
+          "body": "Hyväksyttävien aiheiden kirjo on laaja. Et tarvitse lupaa etkä jäykkää formaattia:",
+          "items": [
+            "Koulutus Stellar-verkosta (protokolla, SCP, Soroban, SDK:t, anchors, DEX) ja XLM:stä",
+            "Yleinen talouskoulutus: säästäminen, budjetointi, velka, vastuullinen sijoittaminen, verot",
+            "Käytännön tutoriaalit, koodidemot sekä lompakko- ja dApp-läpikäynnit",
+            "Rehelliset vertailut verkkojen, lompakoiden tai protokollien välillä, myös Stellar-verkon ulkopuolelta, kunhan vertailu on informatiivinen",
+            "Henkilökohtaiset mielipiteet ja analyysit, jotka on selvästi merkitty mielipiteiksi",
+            "Sisältö millä tahansa alustan tukemalla kielellä"
+          ]
+        },
+        {
+          "heading": "2. Mitä hylkäämme aina",
+          "body": "Nämä kategoriat hylätään poikkeuksetta, koska ne vaarantavat yhteisön tai ovat laittomia:",
+          "items": [
+            "Ponzi-järjestelmät, pyramidihuijaukset, pump and dump, rug pulls tai taatut tuottolupaukset",
+            "Maksulliset kaupankäyntisignaalit, osto-/myyntisuositukset täsmällisillä summilla tai henkilökohtainen talousneuvonta",
+            "Phishing, väärennetyt airdropit, yksityisten avainten, seed phrasejen tai tunnistetietojen pyynnöt, wallet drainerit, Freighter / xBull / LOBSTR / SDF / pörssejä jäljittelevät samannäköiset domainit",
+            "Julkisuuden henkilöiden, projektien tai EarnLumensin / SDF:n toisena esiintyminen tai deepfaket — mukaan lukien synteettinen ääni tai video, joka antaa virheellisesti ymmärtää hyväksynnästä",
+            "Itsemurhan tai itsensä vahingoittamisen ihannointi, menetelmät tai ohjeet itsensä vahingoittamiseen, pro-anoreksia- tai pro-bulimia-sisältö (koulutuksellinen ja toipumiseen suuntautuva kehystys on sallittu)",
+            "Vihapuhe, häirintä, syrjintä tai väkivaltaan yllyttäminen",
+            "Selkeä seksuaalinen sisältö, graafinen väkivalta tai alaikäisiä koskeva materiaali",
+            "Selvästi tekijänoikeudella suojattu materiaali ilman lupaa (musiikki, video, kirjat, ohjelmistot)",
+            "Kolmansien osapuolten henkilötiedot ilman heidän suostumustaan",
+            "Ilmeinen roskaposti: järjettömät otsikot, massakopioitu sisältö, tyhjät ruudut, AI-sisältö ilman ihmisen tarkistusta"
+          ]
+        },
+        {
+          "heading": "3. Harmaa alue: voi mennä manuaaliseen tarkistukseen",
+          "body": "Näitä tapauksia ei hylätä automaattisesti, mutta ihmismodeeraattori voi tarkistaa ne:",
+          "items": [
+            "Tiettyjen kryptovaluuttojen tai tokenien mainitseminen ilman selkeää koulutuksellista kontekstia",
+            "Omien tuotteiden tai palveluiden mainostaminen merkitsemättä niitä sponsoroiduiksi",
+            "Väitteet aiemmasta suorituskyvystä ilman todennettavaa lähdettä",
+            "Hyvin lyhyt sisältö tai matala tekninen laatu, joka tekee arvon arvioinnista vaikeaa"
+          ]
+        },
+        {
+          "heading": "4. Parhaat käytännöt (suositeltu, ei pakollinen)",
+          "body": "Nämä eivät ole hyväksymisvaatimuksia, mutta ne auttavat sisältöäsi tulemaan paremmin vastaanotetuksi ja vähentävät moderointikitkaa:",
+          "items": [
+            "Käytä kuvaavaa otsikkoa ilman harhaanjohtavaa clickbaitia",
+            "Mainitse lähteet, kun käytät dataa, tilastoja tai lukuja",
+            "Tee selväksi, että sisältö on koulutuksellista eikä henkilökohtaista talousneuvontaa",
+            "Mainitse, jos sinulla on merkittävä positio käsittelemässäsi omaisuuserässä",
+            "Merkitse sponsoroitu tai affiliate-sisältö",
+            "Stellar-lompakoissa, DEXeissä ja työkaluissa suosimme luotettavana viitteenä osoitteessa https://stellar.org/ecosystem listattuja, mutta voit mainita muitakin, kunhan et edistä petosta"
+          ]
+        }
+      ]
+    },
+    "footer": "Näitä ohjeita voidaan päivittää. Tavoitteena on turvallinen koulutuksellinen tila: hylkäämme haitallisen sisällön, emme erilaisia ideoita. Jos uskot hylkäyksen olleen epäoikeudenmukainen, voit muokata ja lähettää uudelleen tai pyytää tenanttitiimiltä manuaalista tarkistusta."
+  }
+}

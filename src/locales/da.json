@@ -433,7 +433,8 @@
     "soraniKurdish": "sorani-kurdisk",
     "bulgarian": "bulgarsk",
     "armenian": "armensk",
-    "danish": "dansk"
+    "danish": "dansk",
+    "finnish": "finsk"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail skal være gyldig",

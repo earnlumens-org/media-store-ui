@@ -1,0 +1,81 @@
+{
+    "Legal": {
+        "termsTitle": "Ehdot",
+        "privacyTitle": "Tietosuojakäytäntö",
+        "lastUpdated": "Päivitetty viimeksi: {date}",
+        "terms": {
+            "intro": "Tervetuloa EarnLumensiin. Käyttämällä alustaa tai siirtymällä siihen sitoudut noudattamaan näitä ehtoja.",
+            "sections": [
+                {
+                    "heading": "1. Ehtojen hyväksyminen",
+                    "body": "Luomalla tilin tai käyttämällä mitä tahansa EarnLumens-alustan osaa vahvistat lukeneesi ja ymmärtäneesi nämä ehdot sekä tietosuojakäytäntömme ja sitoudut noudattamaan niitä. Jos et hyväksy niitä, et saa käyttää alustaa."
+                },
+                {
+                    "heading": "2. Palvelun kuvaus",
+                    "body": "EarnLumens on Stellar-verkkoon rakennettu multi-tenant-sisältöalusta. Päätenantti keskittyy tällä hetkellä talouskoulutukseen, ja alusta mahdollistaa uusia instansseja muille toimialoille varmennustunnisteiden kautta. Tekijät voivat julkaista sisältöä (videoita, ääntä, kuvia ja resursseja) sekä asettaa hintoja XLM:nä (Stellar Lumens). Käyttäjät voivat ostaa, katsella ja käyttää tätä sisältöä."
+                },
+                {
+                    "heading": "3. Tilin rekisteröinti",
+                    "body": "Sinun on annettava tarkat ja täydelliset tiedot tiliä luodessasi. Olet vastuussa tunnistetietojesi luottamuksellisuuden säilyttämisestä ja kaikesta tililläsi tapahtuvasta toiminnasta. Sinun on ilmoitettava meille välittömästi luvattomasta käytöstä."
+                },
+                {
+                    "heading": "4. Sisältö ja immateriaalioikeudet",
+                    "body": "Tekijät säilyttävät omistusoikeuden EarnLumensissa julkaisemaansa sisältöön. Julkaisemalla tekijät myöntävät EarnLumensille ei-yksinomaisen, maailmanlaajuisen lisenssin näyttää, jakaa ja markkinoida sisältöä alustalla. Käyttäjät eivät saa kopioida, uudelleenjakaa tai jälleenmyydä ostettua sisältöä ilman tekijän nimenomaista lupaa."
+                },
+                {
+                    "heading": "5. Maksut ja tapahtumat",
+                    "body": "EarnLumensin kautta tehdyt maksut ovat suoria, yksinomaisia ja riippumattomia tapahtumia ostajan ja tekijän välillä, ja ne suoritetaan XLM:llä Stellar-verkossa. EarnLumens toimii ainoastaan teknologisena alustana julkaisemista ja teknistä välitystä varten, eikä se toimi myyjänä, ostajana, agenttina, säilyttäjänä, perintäagenttina, fidusiaarina tai takaajana missään käyttäjien välisessä tapahtumassa. Hinnat asettavat yksinomaan tekijät, ja EarnLumens voi periä sovellettavia alustamaksuja. Ellei sovellettava laki nimenomaisesti muuta määrää, kaikki myynnit ovat lopullisia, peruuttamattomia ja ei-hyvitettäviä. Jos EarnLumens havaitsee, saa ilmoituksia tai perustellusti epäilee petosta, väärinkäyttöä, rikkomusta tai muuta laitonta toimintaa tai näiden ehtojen vastaista toimintaa, se voi väliaikaisesti tai pysyvästi keskeyttää, rajoittaa tai peruuttaa kyseisen tekijän tilin ja ryhtyä kohtuullisiksi katsomiinsa sisäisiin toimiin. Edellä mainitusta huolimatta EarnLumensilla ei ole velvollisuutta puuttua käyttäjien välisiin riitoihin eikä se missään olosuhteissa takaa tapahtumien peruuttamista, varojen takaisin saamista tai siirrettyjen varojen palautusta tai hyvitystä. Käyttäjä nimenomaisesti tunnustaa ja hyväksyy blockchain-tapahtumiin liittyvät luontaiset riskit, mukaan lukien niiden mahdollisesti peruuttamattoman luonteen, sekä yksinomaisen vastuun verkkomaksuista, osoitevirheistä, lähetetyistä summista ja ostopäätöksistä."
+                },
+                {
+                    "heading": "6. Kielletty toiminta",
+                    "body": "Sitoudut olemaan: (a) lataamatta haitallista, laitonta tai oikeuksia loukkaavaa sisältöä; (b) esiintymättä toisena henkilönä; (c) yrittämättä hyväksikäyttää tai häiritä alustaa; (d) käyttämättä automaattisia työkaluja alustan kaapimiseen tai käyttöön ilman lupaa; (e) osallistumatta toimintaan, joka rikkoo sovellettavia lakeja tai määräyksiä."
+                },
+                {
+                    "heading": "7. Päättäminen",
+                    "body": "Pidätämme oikeuden keskeyttää tai päättää tilisi milloin tahansa, jos rikot näitä ehtoja. Päättämisen yhteydessä oikeutesi käyttää alustaa lakkaa välittömästi, mutta määräykset, joiden luonteen vuoksi niiden tulisi säilyä, pysyvät voimassa."
+                },
+                {
+                    "heading": "8. Vastuuvapauslausekkeet",
+                    "body": "Alusta tarjotaan \"sellaisenaan\" ja \"saatavuuden mukaan\" ilman minkäänlaisia takuita. EarnLumens ei takaa tekijöiden julkaiseman sisällön tarkkuutta, täydellisyyttä tai hyödyllisyyttä. Emme vastaa tappioista, jotka johtuvat Stellar-verkon tapahtumista."
+                },
+                {
+                    "heading": "9. Vastuunrajoitus",
+                    "body": "Sovellettavan lain sallimassa enimmäislaajuudessa EarnLumens, sen sidosyhtiöt, johtajat, työntekijät, alihankkijat ja edustajat eivät ole vastuussa mistään suorista, epäsuorista, satunnaisista, erityisistä, välillisistä, esimerkillisistä, rangaistusluonteisista tai muista vahingoista, jotka johtuvat alustan käytöstä tai kyvyttömyydestä käyttää sitä, käyttäjien välisistä tapahtumista, tekijöiden julkaisemasta sisällöstä, kolmansien osapuolten petollisesta tai laittomasta toiminnasta, täyttymättömistä kaupallisista odotuksista, tietojen menetyksestä, mahdollisuuksien menetyksestä, menetetyistä voitoista, maineesta, asiakaskunnasta tai blockchain-tapahtumista johtuvista tappioista tai vahingoista, mukaan lukien peruuttamattomat tapahtumat. Erityisesti EarnLumens ei ole vastuussa sisällön toimittamatta jättämisestä tai tekijöiden tarjoaman sisällön laadusta, laillisuudesta, aitoudesta, tarkkuudesta tai hyödyllisyydestä, eikä palautuksista, mahdottomista takaisinperinnöistä, käyttäjien välisistä vaatimuksista tai varojen menetyksestä. Jos EarnLumensin vastuu kaikesta edellä mainitusta huolimatta todetaan laillisesti, vastuu rajoittuu määrään, jonka EarnLumens on tosiasiallisesti saanut alustamaksuna siinä nimenomaisessa tapahtumassa, josta vaatimus aiheutui."
+                },
+                {
+                    "heading": "10. Ehtojen muutokset",
+                    "body": "Voimme päivittää näitä ehtoja milloin tahansa. Pyrimme ilmoittamaan käyttäjille olennaisista muutoksista alustan kautta, mutta sinun vastuullasi on tarkistaa ehdot säännöllisesti. Käytön jatkaminen muutosten jälkeen merkitsee tarkistettujen ehtojen hyväksymistä."
+                },
+                {
+                    "heading": "11. Yhteystiedot",
+                    "body": "Jos sinulla on kysyttävää näistä ehdoista, ota yhteyttä osoitteeseen legal{'@'}earnlumens.org."
+                }
+            ]
+        },
+        "privacy": {
+            "intro": "Tämä tietosuojakäytäntö kuvaa, miten EarnLumens kerää, käyttää ja suojaa henkilötietojasi.",
+            "sections": [
+                {
+                    "heading": "1. Keräämämme tiedot",
+                    "body": "Keräämme tietoja, jotka annat suoraan (tilitiedot, profiilitiedot), sekä tietoja, jotka syntyvät käyttäessäsi alustaa (tapahtumahistoria, katselutoiminta, laitetiedot)."
+                },
+                {
+                    "heading": "2. Miten käytämme tietojasi",
+                    "body": "Käytämme tietojasi palveluidemme tarjoamiseen ja parantamiseen, tapahtumien käsittelyyn, viestimiseen kanssasi, alustan turvallisuuden varmistamiseen ja lakisääteisten velvoitteiden noudattamiseen."
+                },
+                {
+                    "heading": "3. Tietojen jakaminen",
+                    "body": "Emme myy henkilötietojasi. Voimme jakaa tietoja palveluntarjoajille, jotka auttavat alustan toiminnassa, tai silloin kun laki sitä edellyttää."
+                },
+                {
+                    "heading": "4. Tietoturva",
+                    "body": "Toteutamme kaupallisesti kohtuullisia turvatoimia tietojesi suojaamiseksi. Mikään internetin kautta tapahtuva tiedonsiirtomenetelmä ei kuitenkaan ole 100-prosenttisen turvallinen, emmekä voi taata ehdotonta turvallisuutta."
+                },
+                {
+                    "heading": "5. Oikeutesi",
+                    "body": "Voit pyytää pääsyä henkilötietoihisi, niiden korjaamista tai poistamista ottamalla meihin yhteyttä. Pyrimme kohtuullisin toimin käsittelemään pyyntösi kohtuullisessa ajassa."
+                }
+            ]
+        }
+    }
+}

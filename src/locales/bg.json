@@ -433,7 +433,8 @@
     "soraniKurdish": "сорани кюрдски",
     "bulgarian": "български",
     "armenian": "арменски",
-    "danish": "датски"
+    "danish": "датски",
+    "finnish": "фински"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Имейлът трябва да е валиден",

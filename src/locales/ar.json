@@ -369,7 +369,8 @@
     "soraniKurdish": "الكردية السورانية",
     "bulgarian": "البلغارية",
     "armenian": "الأرمنية",
-    "danish": "الدنماركية"
+    "danish": "الدنماركية",
+    "finnish": "الفنلندية"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "يجب أن يكون البريد الإلكتروني صالحًا",
