@@ -363,7 +363,8 @@
     "swedish": "шведский",
     "uyghur": "уйгурский",
     "haitianCreole": "гаитянский креольский",
-    "serbian": "сербский"
+    "serbian": "сербский",
+    "catalan": "каталанский"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Электронная почта должна быть действительной",

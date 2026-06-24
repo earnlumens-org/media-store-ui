@@ -363,7 +363,8 @@
     "swedish": "bahasa Swedia",
     "uyghur": "Uighur",
     "haitianCreole": "Kreol Haiti",
-    "serbian": "bahasa Serbia"
+    "serbian": "bahasa Serbia",
+    "catalan": "Katalan"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email harus valid",

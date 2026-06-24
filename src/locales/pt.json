@@ -363,7 +363,8 @@
     "swedish": "sueco",
     "uyghur": "uigur",
     "haitianCreole": "crioulo haitiano",
-    "serbian": "sérvio"
+    "serbian": "sérvio",
+    "catalan": "catalão"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "O e-mail deve ser válido",

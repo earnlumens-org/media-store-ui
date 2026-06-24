@@ -427,7 +427,8 @@
     "swedish": "svenska",
     "uyghur": "uiguriska",
     "haitianCreole": "haitisk kreol",
-    "serbian": "serbiska"
+    "serbian": "serbiska",
+    "catalan": "katalanska"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-post måste vara giltig",

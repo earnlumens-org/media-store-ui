@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Normes de contingut per a creadors",
+    "subtitle": "Què pots publicar a EarnLumens i què evitem",
+    "lastUpdated": "Darrera actualització: {date}",
+    "intro": "EarnLumens és una plataforma d'educació financera centrada en l'ecosistema Stellar. A qualsevol cosa que publiquis s'hi apliquen dues capes de normes: una capa de tota la plataforma no negociable (frau, dany, contingut il·legal) que és la mateixa en cada tenant, i una capa específica del tenant que depèn del mercat on publiques.",
+    "platformSection": {
+      "heading": "Normes de tota la plataforma",
+      "body": "Aquestes normes s'apliquen a cada tenant d'EarnLumens, inclòs aquest. Els mercats individuals no les poden relaxar i existeixen per mantenir segura la comunitat."
+    },
+    "tenantSection": {
+      "heading": "Normes específiques del tenant",
+      "body": "A més de les normes de plataforma anteriors, cada tenant pot afegir les seves pròpies notes de publicació; per exemple, en quins temes se centra, el to esperat o els formats específics que accepta.",
+      "placeholder": "Aquest tenant encara no ha afegit notes de publicació específiques. Aquí només s'apliquen les normes de tota la plataforma anteriors."
+    },
+    "sanctionsSection": {
+      "heading": "Com funcionen les sancions",
+      "body": "Si incompleixes les normes anteriors, això és exactament el que passa. La mateixa escala s'aplica a cada tenant; no hi ha penalitzacions ocultes."
+    },
+    "forCreators": {
+      "heading": "Per a creadors",
+      "sections": [
+        {
+          "heading": "1. Què pots publicar lliurement",
+          "body": "El ventall de temes acceptables és ampli. No necessites permís ni un format rígid:",
+          "items": [
+            "Educació sobre la xarxa Stellar (protocol, SCP, Soroban, SDKs, anchors, DEX) i XLM",
+            "Educació financera general: estalvi, pressupostos, deute, inversió responsable, impostos",
+            "Tutorials pràctics, demostracions de codi, guies pas a pas de carteres i dApp",
+            "Comparacions honestes entre xarxes, carteres o protocols, inclosos els que són fora de Stellar, sempre que la comparació sigui informativa",
+            "Opinions personals i anàlisis identificades clarament com a opinió",
+            "Contingut en qualsevol llengua admesa per la plataforma"
+          ]
+        },
+        {
+          "heading": "2. Què rebutgem sempre",
+          "body": "Aquestes categories es rebutgen sense excepció perquè posen la comunitat en risc o són il·legals:",
+          "items": [
+            "Esquemes Ponzi, esquemes piramidals, pump and dump, rug pulls o promeses de rendiment garantit",
+            "Senyals de trading de pagament, recomanacions de compra/venda amb imports específics o assessorament financer personalitzat",
+            "Phishing, airdrops falsos, sol·licituds de claus privades, seed phrases o credencials, wallet drainers, dominis semblants que imiten Freighter / xBull / LOBSTR / SDF / exchanges",
+            "Suplantació o deepfakes de figures públiques, projectes o EarnLumens / SDF, inclosos àudio o vídeo sintetitzats que suggereixen falsament un suport",
+            "Glorificació del suïcidi o l'autolesió, mètodes o instruccions per autolesionar-se, contingut pro-anorexia o pro-bulimia (es permet un enfocament educatiu i orientat a la recuperació)",
+            "Discurs d'odi, assetjament, discriminació o incitació a la violència",
+            "Contingut sexual explícit, violència gràfica o material que involucri menors",
+            "Material clarament protegit per copyright sense autorització (música, vídeo, llibres, software)",
+            "Dades personals de tercers sense el seu consentiment",
+            "Spam evident: títols sense sentit, contingut duplicat en massa, pantalles en blanc, contingut d'IA sense revisió humana"
+          ]
+        },
+        {
+          "heading": "3. Zona grisa: pot anar a revisió manual",
+          "body": "Aquests casos no es rebutgen automàticament, però poden ser revisats per un moderador humà:",
+          "items": [
+            "Mencionar criptomonedes o tokens específics sense un context educatiu clar",
+            "Promoció dels teus propis productes o serveis sense etiquetar-los com a patrocinats",
+            "Afirmacions sobre rendiment passat sense una font verificable",
+            "Contingut molt curt o de baixa qualitat tècnica que en dificulta l'avaluació del valor"
+          ]
+        },
+        {
+          "heading": "4. Bones pràctiques (recomanades, no obligatòries)",
+          "body": "Això no són requisits d'aprovació, però ajuden que el teu contingut sigui millor rebut i redueixen la fricció de moderació:",
+          "items": [
+            "Fes servir un títol descriptiu sense clickbait enganyós",
+            "Cita fonts quan utilitzis dades, estadístiques o xifres",
+            "Aclara que el contingut és educatiu i no assessorament financer personalitzat",
+            "Esmenta-ho si tens una posició significativa en un actiu del qual parles",
+            "Etiqueta el contingut patrocinat o d'afiliació",
+            "Per a carteres Stellar, DEXs i eines, preferim les que apareixen a https://stellar.org/ecosystem com a referència fiable, però pots mencionar-ne d'altres sempre que no promoguis frau"
+          ]
+        }
+      ]
+    },
+    "footer": "Aquestes normes es poden actualitzar. L'objectiu és un espai educatiu segur: rebutgem contingut nociu, no idees diferents. Si creus que un rebuig ha estat injust, pots revisar i tornar a enviar el contingut, o demanar una revisió manual a l'equip del tenant."
+  }
+}

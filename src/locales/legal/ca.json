@@ -1,0 +1,81 @@
+{
+    "Legal": {
+        "termsTitle": "Termes i condicions",
+        "privacyTitle": "Política de privadesa",
+        "lastUpdated": "Darrera actualització: {date}",
+        "terms": {
+            "intro": "Benvingut a EarnLumens. En accedir a la nostra plataforma o utilitzar-la, acceptes quedar vinculat per aquests Termes i condicions.",
+            "sections": [
+                {
+                    "heading": "1. Acceptació dels termes",
+                    "body": "En crear un compte o utilitzar qualsevol part de la plataforma EarnLumens, reconeixes que has llegit, entès i acceptes quedar vinculat per aquests Termes i condicions, així com per la nostra Política de privadesa. Si no hi estàs d'acord, no has d'utilitzar la plataforma."
+                },
+                {
+                    "heading": "2. Descripció del servei",
+                    "body": "EarnLumens és una plataforma de contingut multi-tenant construïda sobre la xarxa Stellar. El tenant principal se centra actualment en l'educació financera, i la plataforma habilita noves instàncies per a altres verticals mitjançant credencials de verificació. Els creadors poden publicar contingut (vídeos, àudio, imatges i recursos) i fixar preus en XLM (Stellar Lumens). Els usuaris poden comprar, veure i interactuar amb aquest contingut."
+                },
+                {
+                    "heading": "3. Registre del compte",
+                    "body": "Has de proporcionar informació precisa i completa en crear un compte. Ets responsable de mantenir la confidencialitat de les teves credencials i de totes les activitats que es produeixin al teu compte. Ens has de notificar immediatament qualsevol ús no autoritzat."
+                },
+                {
+                    "heading": "4. Contingut i propietat intel·lectual",
+                    "body": "Els creadors conserven la propietat del contingut que publiquen a EarnLumens. En publicar, els creadors concedeixen a EarnLumens una llicència no exclusiva i mundial per mostrar, distribuir i promocionar el contingut a la plataforma. Els usuaris no poden reproduir, redistribuir ni revendre contingut comprat sense el permís explícit del creador."
+                },
+                {
+                    "heading": "5. Pagaments i transaccions",
+                    "body": "Els pagaments realitzats a través d'EarnLumens constitueixen transaccions directes, exclusives i independents entre el comprador i el creador, efectuades amb XLM a la xarxa Stellar. EarnLumens actua exclusivament com a plataforma tecnològica de publicació i intermediació tècnica, i no intervé com a venedor, comprador, agent, custodi, agent de cobrament, fiduciari o garant de cap transacció entre usuaris. Els preus els fixen exclusivament els creadors, i EarnLumens pot aplicar les comissions de plataforma aplicables. Llevat que la legislació aplicable disposi expressament el contrari, totes les vendes són definitives, irrevocables i no reemborsables. Si EarnLumens detecta, rep informes sobre, o sospita raonablement frau, abús, incompliment o qualsevol altra conducta il·lícita o contrària a aquests Termes, pot suspendre, restringir o cancel·lar temporalment o permanentment el compte del creador implicat i adoptar qualsevol mesura interna que consideri raonable. Sense perjudici de l'anterior, EarnLumens no assumeix cap obligació d'intervenir en disputes entre usuaris i no garanteix, sota cap circumstància, la reversió de transaccions, la recuperació d'actius ni la restitució, retorn o reemborsament dels fons transferits. L'usuari reconeix i accepta expressament els riscos inherents a les transaccions blockchain, inclosa la seva naturalesa potencialment irreversible, així com la responsabilitat exclusiva per les comissions de xarxa, errors d'adreça, imports enviats o decisions de compra."
+                },
+                {
+                    "heading": "6. Conducta prohibida",
+                    "body": "Acceptes no: (a) pujar contingut nociu, il·legal o infractor; (b) suplantar altres persones; (c) intentar explotar o interrompre la plataforma; (d) utilitzar eines automatitzades per extreure dades o accedir a la plataforma sense autorització; (e) participar en cap activitat que infringeixi les lleis o normatives aplicables."
+                },
+                {
+                    "heading": "7. Terminació",
+                    "body": "Ens reservem el dret de suspendre o cancel·lar el teu compte en qualsevol moment si infringeixes aquests Termes. En cas de terminació, el teu dret a utilitzar la plataforma cessa immediatament, tot i que les disposicions que per la seva naturalesa hagin de subsistir continuaran vigents."
+                },
+                {
+                    "heading": "8. Exclusions de garanties",
+                    "body": "La plataforma es proporciona \"tal com és\" i \"segons disponibilitat\", sense garanties de cap mena. EarnLumens no garanteix l'exactitud, integritat o utilitat de cap contingut publicat pels creadors. No som responsables de cap pèrdua derivada de transaccions a la xarxa Stellar."
+                },
+                {
+                    "heading": "9. Limitació de responsabilitat",
+                    "body": "En la màxima mesura permesa per la legislació aplicable, EarnLumens, les seves afiliades, directors, empleats, contractistes i representants no seran responsables de cap dany directe, indirecte, incidental, especial, conseqüencial, exemplar, punitiu o de qualsevol altra mena derivat de l'ús o la impossibilitat d'ús de la plataforma, transaccions entre usuaris, contingut publicat pels creadors, conducta fraudulenta o il·lícita de tercers, expectatives comercials no satisfetes, pèrdua de dades, pèrdua d'oportunitat, lucre cessant, reputació, clientela, o per pèrdues o danys derivats de transaccions blockchain, incloses les irreversibles. En particular, EarnLumens no serà responsable de la manca de lliurament de contingut, ni de la qualitat, legalitat, autenticitat, exactitud o utilitat del contingut ofert pels creadors, ni de devolucions, chargebacks impossibles, reclamacions entre usuaris o pèrdua de fons. En qualsevol cas en què, malgrat l'anterior, es determini legalment qualsevol responsabilitat d'EarnLumens, aquesta responsabilitat es limitarà a l'import realment rebut per EarnLumens com a comissió de plataforma en la transacció específica que hagi originat la reclamació."
+                },
+                {
+                    "heading": "10. Canvis als Termes",
+                    "body": "Podem actualitzar aquests Termes en qualsevol moment. Ens esforçarem per informar els usuaris dels canvis importants a través de la plataforma, però és responsabilitat teva revisar els Termes periòdicament. L'ús continuat després dels canvis constitueix l'acceptació dels Termes revisats."
+                },
+                {
+                    "heading": "11. Contacte",
+                    "body": "Per a preguntes sobre aquests Termes, contacta'ns a legal{'@'}earnlumens.org."
+                }
+            ]
+        },
+        "privacy": {
+            "intro": "Aquesta Política de privadesa descriu com EarnLumens recull, utilitza i protegeix la teva informació personal.",
+            "sections": [
+                {
+                    "heading": "1. Informació que recollim",
+                    "body": "Recollim la informació que proporciones directament (detalls del compte, informació del perfil) i la informació generada mitjançant l'ús de la plataforma (historial de transaccions, activitat de visualització, informació del dispositiu)."
+                },
+                {
+                    "heading": "2. Com utilitzem la teva informació",
+                    "body": "Utilitzem la teva informació per: prestar i millorar els nostres serveis, processar transaccions, comunicar-nos amb tu, garantir la seguretat de la plataforma i complir obligacions legals."
+                },
+                {
+                    "heading": "3. Compartició de dades",
+                    "body": "No venem la teva informació personal. Podem compartir dades amb proveïdors de serveis que ajuden a operar la plataforma, o quan ho exigeixi la llei."
+                },
+                {
+                    "heading": "4. Seguretat de les dades",
+                    "body": "Apliquem mesures de seguretat comercialment raonables per protegir les teves dades. Tanmateix, cap mètode de transmissió per Internet és 100% segur, i no podem garantir una seguretat absoluta."
+                },
+                {
+                    "heading": "5. Els teus drets",
+                    "body": "Pots accedir a les teves dades personals, corregir-les o sol·licitar-ne la supressió contactant amb nosaltres. Farem esforços raonables per atendre la teva sol·licitud en un termini raonable."
+                }
+            ]
+        }
+    }
+}
