@@ -431,7 +431,8 @@
     "catalan": "català",
     "hebrew": "Hebreu",
     "soraniKurdish": "kurd sorani",
-    "bulgarian": "búlgar"
+    "bulgarian": "búlgar",
+    "armenian": "armeni"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El correu electrònic ha de ser vàlid",

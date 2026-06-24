@@ -431,7 +431,8 @@
     "catalan": "katalanska",
     "hebrew": "Hebreiska",
     "soraniKurdish": "sorani-kurdiska",
-    "bulgarian": "bulgariska"
+    "bulgarian": "bulgariska",
+    "armenian": "armeniska"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-post måste vara giltig",

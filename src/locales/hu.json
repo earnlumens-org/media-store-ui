@@ -431,7 +431,8 @@
     "catalan": "katalán",
     "hebrew": "Héber",
     "soraniKurdish": "szoráni kurd",
-    "bulgarian": "bolgár"
+    "bulgarian": "bolgár",
+    "armenian": "örmény"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Az e-mailnek érvényesnek kell lennie",

@@ -367,7 +367,8 @@
     "catalan": "加泰罗尼亚语",
     "hebrew": "希伯来语",
     "soraniKurdish": "索拉尼库尔德语",
-    "bulgarian": "保加利亚语"
+    "bulgarian": "保加利亚语",
+    "armenian": "亚美尼亚语"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "电子邮件必须有效",
