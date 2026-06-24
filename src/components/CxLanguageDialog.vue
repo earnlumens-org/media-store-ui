@@ -80,6 +80,7 @@
           <v-radio :label="`català (${$t('Language.catalan')})`" value="ca" />
           <v-radio :label="`עברית (${$t('Language.hebrew')})`" value="he" />
           <v-radio :label="`کوردیی ناوەندی (${$t('Language.soraniKurdish')})`" value="ckb" />
+          <v-radio :label="`български (${$t('Language.bulgarian')})`" value="bg" />
         </v-radio-group>
       </v-card-text>
 

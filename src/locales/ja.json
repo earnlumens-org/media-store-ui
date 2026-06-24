@@ -366,7 +366,8 @@
     "serbian": "セルビア語",
     "catalan": "カタルーニャ語",
     "hebrew": "ヘブライ語",
-    "soraniKurdish": "ソラニー・クルド語"
+    "soraniKurdish": "ソラニー・クルド語",
+    "bulgarian": "ブルガリア語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "メールが有効である必要があります",

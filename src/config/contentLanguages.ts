@@ -63,4 +63,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'ca', title: 'català — Catalan' },
   { value: 'he', title: 'עברית — Hebrew' },
   { value: 'ckb', title: 'کوردیی ناوەندی — Sorani Kurdish' },
+  { value: 'bg', title: 'български — Bulgarian' },
 ] as const

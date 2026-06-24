@@ -430,7 +430,8 @@
     "serbian": "Σερβικά",
     "catalan": "Καταλανικά",
     "hebrew": "Εβραϊκά",
-    "soraniKurdish": "Σοράνι Κουρδικά"
+    "soraniKurdish": "Σοράνι Κουρδικά",
+    "bulgarian": "Βουλγαρικά"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Το email πρέπει να είναι έγκυρο",

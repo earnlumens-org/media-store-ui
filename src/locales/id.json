@@ -366,7 +366,8 @@
     "serbian": "bahasa Serbia",
     "catalan": "Katalan",
     "hebrew": "Ibrani",
-    "soraniKurdish": "Kurdi Sorani"
+    "soraniKurdish": "Kurdi Sorani",
+    "bulgarian": "Bulgaria"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email harus valid",

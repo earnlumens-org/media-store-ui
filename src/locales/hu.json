@@ -430,7 +430,8 @@
     "serbian": "szerb",
     "catalan": "katalán",
     "hebrew": "Héber",
-    "soraniKurdish": "szoráni kurd"
+    "soraniKurdish": "szoráni kurd",
+    "bulgarian": "bolgár"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Az e-mailnek érvényesnek kell lennie",

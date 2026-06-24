@@ -366,7 +366,8 @@
     "serbian": "세르비아어",
     "catalan": "카탈루냐어",
     "hebrew": "히브리어",
-    "soraniKurdish": "소라니 쿠르드어"
+    "soraniKurdish": "소라니 쿠르드어",
+    "bulgarian": "불가리아어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",
