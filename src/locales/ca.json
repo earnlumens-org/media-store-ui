@@ -428,7 +428,8 @@
     "uyghur": "uigur",
     "haitianCreole": "crioll haitia",
     "serbian": "serbi",
-    "catalan": "català"
+    "catalan": "català",
+    "hebrew": "Hebreu"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El correu electrònic ha de ser vàlid",

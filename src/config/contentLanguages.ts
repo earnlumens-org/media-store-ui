@@ -61,4 +61,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'ht', title: 'Haitian Creole — Haitian Creole' },
   { value: 'sr', title: 'српски — Serbian' },
   { value: 'ca', title: 'català — Catalan' },
+  { value: 'he', title: 'עברית — Hebrew' },
 ] as const

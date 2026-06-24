@@ -78,6 +78,7 @@
           <v-radio :label="`Haitian Creole (${$t('Language.haitianCreole')})`" value="ht" />
           <v-radio :label="`српски (${$t('Language.serbian')})`" value="sr" />
           <v-radio :label="`català (${$t('Language.catalan')})`" value="ca" />
+          <v-radio :label="`עברית (${$t('Language.hebrew')})`" value="he" />
         </v-radio-group>
       </v-card-text>
 

@@ -428,7 +428,8 @@
     "uyghur": "uigur",
     "haitianCreole": "criollo haitiano",
     "serbian": "serbio",
-    "catalan": "catalán"
+    "catalan": "catalán",
+    "hebrew": "Hebreo"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El correo electrónico debe ser válido",

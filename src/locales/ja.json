@@ -364,7 +364,8 @@
     "uyghur": "ウイグル語",
     "haitianCreole": "ハイチ・クレオール語",
     "serbian": "セルビア語",
-    "catalan": "カタルーニャ語"
+    "catalan": "カタルーニャ語",
+    "hebrew": "ヘブライ語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "メールが有効である必要があります",

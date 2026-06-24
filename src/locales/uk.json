@@ -364,7 +364,8 @@
     "uyghur": "уйгурська",
     "haitianCreole": "гаїтянська креольська",
     "serbian": "сербська",
-    "catalan": "каталанська"
+    "catalan": "каталанська",
+    "hebrew": "Іврит"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Електронна пошта повинна бути дійсною",

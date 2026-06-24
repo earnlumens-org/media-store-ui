@@ -364,7 +364,8 @@
     "uyghur": "الأويغورية",
     "haitianCreole": "الكريولية الهايتية",
     "serbian": "الصربية",
-    "catalan": "الكتالانية"
+    "catalan": "الكتالانية",
+    "hebrew": "العبرية"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "يجب أن يكون البريد الإلكتروني صالحًا",
