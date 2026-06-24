@@ -365,7 +365,8 @@
     "haitianCreole": "海地克里奥尔语",
     "serbian": "塞尔维亚语",
     "catalan": "加泰罗尼亚语",
-    "hebrew": "希伯来语"
+    "hebrew": "希伯来语",
+    "soraniKurdish": "索拉尼库尔德语"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "电子邮件必须有效",

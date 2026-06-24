@@ -365,7 +365,8 @@
     "haitianCreole": "гаїтянська креольська",
     "serbian": "сербська",
     "catalan": "каталанська",
-    "hebrew": "Іврит"
+    "hebrew": "Іврит",
+    "soraniKurdish": "сорані курдська"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Електронна пошта повинна бути дійсною",

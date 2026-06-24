@@ -429,7 +429,8 @@
     "haitianCreole": "Αϊτινή Κρεολή",
     "serbian": "Σερβικά",
     "catalan": "Καταλανικά",
-    "hebrew": "Εβραϊκά"
+    "hebrew": "Εβραϊκά",
+    "soraniKurdish": "Σοράνι Κουρδικά"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Το email πρέπει να είναι έγκυρο",
