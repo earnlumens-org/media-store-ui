@@ -435,7 +435,8 @@
     "armenian": "armeni",
     "danish": "danès",
     "finnish": "finès",
-    "norwegian": "noruec"
+    "norwegian": "noruec",
+    "georgian": "georgià"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El correu electrònic ha de ser vàlid",

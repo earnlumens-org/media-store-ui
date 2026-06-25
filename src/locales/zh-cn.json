@@ -371,7 +371,8 @@
     "armenian": "亚美尼亚语",
     "danish": "丹麦语",
     "finnish": "芬兰语",
-    "norwegian": "挪威语"
+    "norwegian": "挪威语",
+    "georgian": "格鲁吉亚语"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "电子邮件必须有效",

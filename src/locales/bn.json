@@ -371,7 +371,8 @@
     "armenian": "আর্মেনীয়",
     "danish": "ড্যানিশ",
     "finnish": "ফিনিশ",
-    "norwegian": "নরওয়েজীয়"
+    "norwegian": "নরওয়েজীয়",
+    "georgian": "জর্জিয়ান"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ইমেইল বৈধ হতে হবে",

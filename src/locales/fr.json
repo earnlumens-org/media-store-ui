@@ -371,7 +371,8 @@
     "armenian": "arménien",
     "danish": "danois",
     "finnish": "finnois",
-    "norwegian": "norvégien"
+    "norwegian": "norvégien",
+    "georgian": "géorgien"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "L’e-mail doit être valide",

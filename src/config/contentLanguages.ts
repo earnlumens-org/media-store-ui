@@ -68,4 +68,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'da', title: 'dansk — Danish' },
   { value: 'fi', title: 'suomi — Finnish' },
   { value: 'no', title: 'norsk — Norwegian' },
+  { value: 'ka', title: 'ქართული — Georgian' },
 ] as const

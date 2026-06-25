@@ -435,7 +435,8 @@
     "armenian": "јерменски",
     "danish": "дански",
     "finnish": "фински",
-    "norwegian": "норвешки"
+    "norwegian": "норвешки",
+    "georgian": "грузијски"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Е-пошта мора бити важећа",

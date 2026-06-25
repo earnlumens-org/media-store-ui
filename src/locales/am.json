@@ -371,7 +371,8 @@
     "armenian": "አርመንኛ",
     "danish": "ዴኒሽ",
     "finnish": "ፊኒሽ",
-    "norwegian": "ኖርዌጂያኛ"
+    "norwegian": "ኖርዌጂያኛ",
+    "georgian": "ጆርጂያኛ"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ኢሜይል ትክክለኛ መሆን አለበት",

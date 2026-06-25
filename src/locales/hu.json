@@ -435,7 +435,8 @@
     "armenian": "örmény",
     "danish": "dán",
     "finnish": "finn",
-    "norwegian": "norvég"
+    "norwegian": "norvég",
+    "georgian": "grúz"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Az e-mailnek érvényesnek kell lennie",

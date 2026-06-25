@@ -371,7 +371,8 @@
     "armenian": "ارمني",
     "danish": "ډنمارکي",
     "finnish": "فنلنډي",
-    "norwegian": "نارويژي"
+    "norwegian": "نارويژي",
+    "georgian": "ګورجي"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "بریښنالیک باید د اعتبار وړ وي",

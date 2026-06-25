@@ -435,7 +435,8 @@
     "armenian": "ארמנית",
     "danish": "דנית",
     "finnish": "פינית",
-    "norwegian": "נורווגית"
+    "norwegian": "נורווגית",
+    "georgian": "גאורגית"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "הדוא״ל חייב להיות תקין",

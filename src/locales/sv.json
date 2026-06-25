@@ -435,7 +435,8 @@
     "armenian": "armeniska",
     "danish": "danska",
     "finnish": "finska",
-    "norwegian": "norska"
+    "norwegian": "norska",
+    "georgian": "georgiska"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-post måste vara giltig",

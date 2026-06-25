@@ -371,7 +371,8 @@
     "armenian": "Armenia",
     "danish": "bahasa Denmark",
     "finnish": "bahasa Finlandia",
-    "norwegian": "Bahasa Norwegia"
+    "norwegian": "Bahasa Norwegia",
+    "georgian": "bahasa Georgia"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email harus valid",
