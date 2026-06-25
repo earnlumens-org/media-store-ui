@@ -443,7 +443,8 @@
     "estonian": "viro",
     "welsh": "kymri",
     "basque": "baski",
-    "icelandic": "islanti"
+    "icelandic": "islanti",
+    "divehi": "divehi"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Sähköpostin on oltava kelvollinen",

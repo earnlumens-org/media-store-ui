@@ -379,7 +379,8 @@
     "estonian": "эстонский",
     "welsh": "валлийский",
     "basque": "Баскский",
-    "icelandic": "исландский"
+    "icelandic": "исландский",
+    "divehi": "дивехи"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Электронная почта должна быть действительной",

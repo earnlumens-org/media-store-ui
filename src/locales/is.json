@@ -443,7 +443,8 @@
     "estonian": "eistneska",
     "welsh": "velska",
     "basque": "baskneska",
-    "icelandic": "íslenska"
+    "icelandic": "íslenska",
+    "divehi": "dívehí"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Tölvupóstur verður að vera gildur",

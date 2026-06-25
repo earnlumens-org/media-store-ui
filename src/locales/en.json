@@ -443,7 +443,8 @@
     "estonian": "Estonian",
     "welsh": "Welsh",
     "basque": "Basque",
-    "icelandic": "Icelandic"
+    "icelandic": "Icelandic",
+    "divehi": "Divehi"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email must be valid",

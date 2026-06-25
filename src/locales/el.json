@@ -443,7 +443,8 @@
     "estonian": "Εσθονικά",
     "welsh": "Ουαλικά",
     "basque": "Βασκικά",
-    "icelandic": "Ισλανδικά"
+    "icelandic": "Ισλανδικά",
+    "divehi": "ντιβέχι"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Το email πρέπει να είναι έγκυρο",

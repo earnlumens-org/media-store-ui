@@ -379,7 +379,8 @@
     "estonian": "Estonia",
     "welsh": "Bahasa Wales",
     "basque": "Bahasa Basque",
-    "icelandic": "Bahasa Islandia"
+    "icelandic": "Bahasa Islandia",
+    "divehi": "Divehi"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email harus valid",

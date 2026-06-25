@@ -379,7 +379,8 @@
     "estonian": "에스토니아어",
     "welsh": "웨일스어",
     "basque": "바스크어",
-    "icelandic": "아이슬란드어"
+    "icelandic": "아이슬란드어",
+    "divehi": "디베히어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",
