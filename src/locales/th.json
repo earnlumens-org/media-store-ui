@@ -373,7 +373,8 @@
     "finnish": "ภาษาฟินแลนด์",
     "norwegian": "ภาษานอร์เวย์",
     "georgian": "จอร์เจีย",
-    "lithuanian": "ลิทัวเนีย"
+    "lithuanian": "ลิทัวเนีย",
+    "slovenian": "สโลวีเนีย"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "อีเมลต้องถูกต้อง",

@@ -373,7 +373,8 @@
     "finnish": "финский",
     "norwegian": "норвежский",
     "georgian": "грузинский",
-    "lithuanian": "литовский"
+    "lithuanian": "литовский",
+    "slovenian": "словенский"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Электронная почта должна быть действительной",

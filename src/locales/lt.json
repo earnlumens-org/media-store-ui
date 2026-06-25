@@ -437,7 +437,8 @@
     "finnish": "suomių",
     "norwegian": "norvegų",
     "georgian": "gruzinų",
-    "lithuanian": "lietuvių"
+    "lithuanian": "lietuvių",
+    "slovenian": "slovėnų"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El. paštas turi būti galiojantis",

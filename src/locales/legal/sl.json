@@ -1,0 +1,81 @@
+{
+    "Legal": {
+        "termsTitle": "Določbe in pogoji",
+        "privacyTitle": "Politika zasebnosti",
+        "lastUpdated": "Zadnja posodobitev: {date}",
+        "terms": {
+            "intro": "Dobrodošli v EarnLumens. Z dostopom ali uporabo naše platforme se strinjate, da vas zavezujejo ti pogoji.",
+            "sections": [
+                {
+                    "heading": "1. Sprejemanje pogojev",
+                    "body": "Z ustvarjanjem računa ali uporabo katerega koli dela platforme EarnLumens potrjujete, da ste prebrali, razumeli in se strinjate, da vas zavezujejo ta določila in pogoji ter naš pravilnik o zasebnosti. Če se ne strinjate, ne smete uporabljati platforme."
+                },
+                {
+                    "heading": "2. Opis storitve",
+                    "body": "EarnLumens je vsebinska platforma z več najemniki, zgrajena na omrežju Stellar. Glavni najemnik je trenutno osredotočen na finančno izobraževanje, platforma pa omogoča nove instance za druge vertikale prek poverilnic za preverjanje. Ustvarjalci lahko objavijo vsebino (videoposnetke, zvok, slike in vire) in določijo cene v XLM (Stellar Lumens). Uporabniki lahko to vsebino kupujejo, si jo ogledujejo in z njo komunicirajo."
+                },
+                {
+                    "heading": "3. Registracija računa",
+                    "body": "Pri ustvarjanju računa morate zagotoviti točne in popolne podatke. Odgovorni ste za ohranjanje zaupnosti svojih poverilnic in za vse dejavnosti, ki se zgodijo pod vašim računom. O vsaki nepooblaščeni uporabi nas morate takoj obvestiti."
+                },
+                {
+                    "heading": "4. Vsebina in intelektualna lastnina",
+                    "body": "Ustvarjalci obdržijo lastništvo nad vsebino, ki jo objavijo na EarnLumens. Z objavo ustvarjalci podelijo EarnLumens neizključno, svetovno licenco za prikaz, distribucijo in promocijo vsebine na platformi. Uporabniki ne smejo reproducirati, naprej distribuirati ali preprodajati kupljene vsebine brez izrecnega dovoljenja ustvarjalca."
+                },
+                {
+                    "heading": "5. Plačila in transakcije",
+                    "body": "Plačila, opravljena prek EarnLumens, predstavljajo neposredne, ekskluzivne in neodvisne transakcije med kupcem in ustvarjalcem, izvedene z uporabo XLM v omrežju Stellar. EarnLumens deluje izključno kot tehnološka platforma za objavo in tehnično posredovanje in ne posreduje kot prodajalec, kupec, agent, skrbnik, agent za izterjavo, fiduciar ali garant kakršne koli transakcije med uporabniki. Cene določajo izključno ustvarjalci, EarnLumens pa lahko zaračuna veljavne pristojbine platforme. Če veljavna zakonodaja izrecno ne določa drugače, so vse prodaje dokončne, nepreklicne in nevračljive. Če EarnLumens odkrije, prejme poročila ali utemeljeno sumi goljufijo, zlorabo, kršitev ali katero koli drugo nezakonito ravnanje ali ravnanje v nasprotju s temi pogoji, lahko začasno ali trajno blokira, omeji ali prekliče račun vpletenega ustvarjalca in sprejme vse notranje ukrepe, ki se mu zdijo razumni. Ne glede na zgoraj navedeno EarnLumens ne prevzema nobene obveznosti posredovanja v sporih med uporabniki in v nobenem primeru ne jamči za razveljavitev transakcij, povrnitev sredstev ali vračilo, vračilo ali vračilo prenesenih sredstev. Uporabnik izrecno priznava in sprejema inherentna tveganja transakcij blockchain, vključno z njihovo potencialno nepopravljivo naravo, kot tudi izključno odgovornost za omrežnine, napake naslova, poslane zneske ali nakupne odločitve."
+                },
+                {
+                    "heading": "6. Prepovedano ravnanje",
+                    "body": "Strinjate se, da ne boste: (a) nalagali škodljive, nezakonite vsebine ali vsebine, ki krši pravice; (b) se lažno predstavljali kot druge osebe; (c) poskušali izkoriščati ali motiti platforme; (d) uporabljali avtomatiziranih orodij za zajemanje ali dostop do platforme brez pooblastila; (e) sodelovali pri kateri koli dejavnosti, ki krši veljavne zakone ali predpise."
+                },
+                {
+                    "heading": "7. Odpoved",
+                    "body": "Pridržujemo si pravico, da kadar koli začasno prekinemo ali ukinemo vaš račun, če kršite te pogoje. Po prekinitvi vaša pravica do uporabe platforme takoj preneha, čeprav bodo določbe, ki bi po svoji naravi morale preživeti, ostale v veljavi."
+                },
+                {
+                    "heading": "8. Zavrnitve odgovornosti",
+                    "body": "Platforma je na voljo \"kot je\" in \"kot je na voljo\" brez kakršnih koli jamstev. EarnLumens ne jamči za točnost, popolnost ali uporabnost katere koli vsebine, ki so jo objavili ustvarjalci. Nismo odgovorni za kakršne koli izgube, ki so posledica omrežnih transakcij Stellar."
+                },
+                {
+                    "heading": "9. Omejitev odgovornosti",
+                    "body": "V največjem obsegu, ki ga dovoljuje veljavna zakonodaja, EarnLumens, njegove podružnice, direktorji, zaposleni, izvajalci in zastopniki niso odgovorni za nobeno neposredno, posredno, naključno, posebno, posledično, eksemplarično, kaznovalno ali katero koli drugo škodo, ki izhaja iz ali je povezana z uporabo ali nezmožnostjo uporabe platforme, transakcijami med uporabniki, vsebino, ki so jo objavili ustvarjalci, goljufivim ali nezakonitim ravnanjem. tretjih oseb, neizpolnjenih komercialnih pričakovanj, izgube podatkov, izgube priložnosti, izgubljenega dobička, ugleda, strank ali za izgube ali škodo, ki izhajajo iz transakcij blockchain, vključno s tistimi, ki so nepopravljive. EarnLumens zlasti ne odgovarja za neuspešno dostavo vsebine ali za kakovost, zakonitost, pristnost, točnost ali uporabnost vsebine, ki jo ponujajo ustvarjalci, niti za vračila, nemogoče povratne bremenitve, zahtevke med uporabniki ali izgubo sredstev. V vsakem primeru, ko je kljub zgoraj navedenemu kakršna koli odgovornost EarnLumens zakonsko določena, bo taka odgovornost omejena na znesek, ki ga je EarnLumens dejansko prejel kot provizijo za platformo v določeni transakciji, ki je povzročila zahtevek."
+                },
+                {
+                    "heading": "10. Spremembe pogojev",
+                    "body": "Te pogoje lahko kadar koli posodobimo. Prizadevali si bomo, da bomo uporabnike obveščali o bistvenih spremembah prek platforme, vendar ste dolžni redno pregledovati pogoje. Vaša nadaljnja uporaba po spremembah pomeni sprejetje spremenjenih pogojev."
+                },
+                {
+                    "heading": "11. Kontakt",
+                    "body": "Za vprašanja o teh pogojih se obrnite na nas na legal{'@'}earnlumens.org."
+                }
+            ]
+        },
+        "privacy": {
+            "intro": "Ta pravilnik o zasebnosti opisuje, kako EarnLumens zbira, uporablja in varuje vaše osebne podatke.",
+            "sections": [
+                {
+                    "heading": "1. Informacije, ki jih zbiramo",
+                    "body": "Zbiramo podatke, ki jih posredujete neposredno (podrobnosti o računu, podatke o profilu) in podatke, ustvarjene z vašo uporabo platforme (zgodovina transakcij, dejavnost ogledov, podatki o napravi)."
+                },
+                {
+                    "heading": "2. Kako uporabljamo vaše podatke",
+                    "body": "Vaše podatke uporabljamo za: zagotavljanje in izboljšanje naših storitev, obdelavo transakcij, komuniciranje z vami, zagotavljanje varnosti platforme in izpolnjevanje zakonskih obveznosti."
+                },
+                {
+                    "heading": "3. Izmenjava podatkov",
+                    "body": "Vaših osebnih podatkov ne prodajamo. Podatke lahko delimo s ponudniki storitev, ki pomagajo pri upravljanju platforme, ali kadar to zahteva zakon."
+                },
+                {
+                    "heading": "4. Varnost podatkov",
+                    "body": "Izvajamo komercialno razumne varnostne ukrepe za zaščito vaših podatkov. Vendar pa noben način prenosa prek interneta ni 100-odstotno varen in ne moremo zagotoviti popolne varnosti."
+                },
+                {
+                    "heading": "5. Vaše pravice",
+                    "body": "Do svojih osebnih podatkov lahko dostopate, jih popravite ali zahtevate izbris tako, da nas kontaktirate. Potrudili se bomo, da bomo vašo zahtevo obravnavali v razumnem roku."
+                }
+            ]
+        }
+    }
+}

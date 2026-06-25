@@ -437,7 +437,8 @@
     "finnish": "finn",
     "norwegian": "norvég",
     "georgian": "grúz",
-    "lithuanian": "litván"
+    "lithuanian": "litván",
+    "slovenian": "szlovén"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Az e-mailnek érvényesnek kell lennie",

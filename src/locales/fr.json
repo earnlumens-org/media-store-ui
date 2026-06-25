@@ -373,7 +373,8 @@
     "finnish": "finnois",
     "norwegian": "norvégien",
     "georgian": "géorgien",
-    "lithuanian": "lituanien"
+    "lithuanian": "lituanien",
+    "slovenian": "slovène"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "L’e-mail doit être valide",

@@ -373,7 +373,8 @@
     "finnish": "芬蘭語",
     "norwegian": "挪威語",
     "georgian": "喬治亞語",
-    "lithuanian": "立陶宛語"
+    "lithuanian": "立陶宛語",
+    "slovenian": "斯洛維尼亞語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "電子郵件必須有效",

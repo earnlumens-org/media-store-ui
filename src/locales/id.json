@@ -373,7 +373,8 @@
     "finnish": "bahasa Finlandia",
     "norwegian": "Bahasa Norwegia",
     "georgian": "bahasa Georgia",
-    "lithuanian": "Lituania"
+    "lithuanian": "Lituania",
+    "slovenian": "Slovenia"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email harus valid",

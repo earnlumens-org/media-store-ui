@@ -437,7 +437,8 @@
     "finnish": "Φινλανδικά",
     "norwegian": "Νορβηγικά",
     "georgian": "γεωργιανά",
-    "lithuanian": "Λιθουανικά"
+    "lithuanian": "Λιθουανικά",
+    "slovenian": "σλοβενικά"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Το email πρέπει να είναι έγκυρο",

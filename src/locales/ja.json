@@ -373,7 +373,8 @@
     "finnish": "フィンランド語",
     "norwegian": "ノルウェー語",
     "georgian": "ジョージア語",
-    "lithuanian": "リトアニア語"
+    "lithuanian": "リトアニア語",
+    "slovenian": "スロベニア語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "メールが有効である必要があります",

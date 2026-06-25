@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Vsebinske smernice za ustvarjalce",
+    "subtitle": "Kaj lahko objavite na EarnLumens in čemu se izogibamo",
+    "lastUpdated": "Zadnja posodobitev: {date}",
+    "intro": "EarnLumens je platforma za finančno izobraževanje s poudarkom na ekosistemu Stellar. Dve ravni pravil veljata za vse, kar objavite: plast za celotno platformo, o kateri se ni mogoče pogajati (goljufije, škoda, nezakonita vsebina), ki je enaka za vsakega najemnika, in plast, specifična za najemnika, ki je odvisna od trga, na katerem objavljate.",
+    "platformSection": {
+      "heading": "Pravila za celotno platformo",
+      "body": "Ta pravila veljajo za vse najemnike na EarnLumens, vključno s tem. Posamezni trgi jih ne morejo sprostiti in obstajajo zato, da zagotavljajo varnost skupnosti."
+    },
+    "tenantSection": {
+      "heading": "Posebna pravila za najemnika",
+      "body": "Poleg zgornjih pravil platforme lahko vsak najemnik doda lastne opombe za objavljanje - na primer, na katere teme se osredotoča, kakšen ton pričakuje ali katere posebne formate sprejema.",
+      "placeholder": "Ta najemnik še ni dodal posebnih opomb za objavljanje. Tukaj veljajo samo zgornja pravila za celotno platformo."
+    },
+    "sanctionsSection": {
+      "heading": "Kako delujejo sankcije",
+      "body": "Če prekršite zgornja pravila, se zgodi točno to. Ista lestvica velja za vsakega najemnika - ni skritih kazni."
+    },
+    "forCreators": {
+      "heading": "Za ustvarjalce",
+      "sections": [
+        {
+          "heading": "1. Kaj lahko prosto objavite",
+          "body": "Razpon sprejemljivih tem je širok. Ne potrebujete dovoljenja ali toge oblike:",
+          "items": [
+            "Izobraževanje o omrežju Stellar (protokol, SCP, Soroban, SDK-ji, sidra, DEX) in XLM",
+            "Splošno finančno izobraževanje: varčevanje, proračun, dolgovi, odgovorno vlaganje, davki",
+            "Praktične vadnice, predstavitve kode, navodila za denarnice in dApp",
+            "Iskrene primerjave med omrežji, denarnicami ali protokoli, vključno s tistimi zunaj Stellar, če je primerjava informativna",
+            "Osebna mnenja in analize, jasno označeni kot mnenje",
+            "Vsebina v katerem koli jeziku, ki ga podpira platforma"
+          ]
+        },
+        {
+          "heading": "2. Kaj vedno zavračamo",
+          "body": "Te kategorije so zavrnjene brez izjeme, ker ogrožajo skupnost ali so nezakonite:",
+          "items": [
+            "Ponzijeve sheme, piramidne sheme, pump and dump, rug pulls ali obljube zajamčenega donosa",
+            "Plačani trgovalni signali, priporočila za nakup/prodajo z določenimi zneski ali prilagojeni finančni nasveti",
+            "Lažno predstavljanje, lažni airdropi, zahteve za zasebne ključe, seed phrase ali poverilnice, praznilniki denarnic, podobne domene, ki posnemajo Freighter / xBull / LOBSTR / SDF / borze",
+            "Lažno predstavljanje ali globoko ponarejanje javnih osebnosti, projektov ali EarnLumens/SDF – vključno s sintetiziranim zvokom ali videom, ki lažno nakazuje podporo",
+            "Poveličevanje samomora ali samopoškodovanja, metode ali navodila za samopoškodovanje, vsebina, ki podpira anoreksijo ali bulimijo (dovoljeno je uokvirjanje, usmerjeno v izobraževanje in okrevanje)",
+            "Sovražni govor, nadlegovanje, diskriminacija ali spodbujanje k nasilju",
+            "Eksplicitna spolna vsebina, nazorno nasilje ali gradivo, ki vključuje mladoletnike",
+            "Jasno avtorsko zaščiteno gradivo brez dovoljenja (glasba, video, knjige, programska oprema)",
+            "Osebni podatki tretjih oseb brez njihove privolitve",
+            "Očitna neželena pošta: nesmiselni naslovi, množično podvojena vsebina, prazni zasloni, vsebina z umetno inteligenco brez človeškega pregleda"
+          ]
+        },
+        {
+          "heading": "3. Sivo območje: lahko gre v ročni pregled",
+          "body": "Ti primeri niso samodejno zavrnjeni, lahko pa jih pregleda človeški moderator:",
+          "items": [
+            "Omenjanje določenih kriptovalut ali žetonov brez jasnega izobraževalnega konteksta",
+            "Promocija lastnih izdelkov ali storitev, ne da bi jih označili za sponzorirane",
+            "Trditve o pretekli uspešnosti brez preverljivega vira",
+            "Zelo kratka vsebina ali nizka tehnična kakovost, zaradi katere je težko oceniti njeno vrednost"
+          ]
+        },
+        {
+          "heading": "4. Najboljše prakse (priporočeno, ni obvezno)",
+          "body": "To niso zahteve za odobritev, vendar pomagajo bolje sprejeti vašo vsebino in zmanjšajo trenje pri moderiranju:",
+          "items": [
+            "Uporabite opisni naslov brez zavajajoče vabe za klike",
+            "Pri uporabi podatkov, statističnih podatkov ali številk navedite vire",
+            "Pojasnite, da je vsebina izobraževalna in ne osebni finančni nasvet",
+            "Omenite, če imate pomembno pozicijo v sredstvu, o katerem razpravljate",
+            "Označite sponzorirano ali pridruženo vsebino",
+            "Za denarnice Stellar, DEX in orodja imamo raje tiste, ki so navedeni na https://stellar.org/ecosystem kot zanesljivo referenco, vendar lahko omenite druge, če ne promovirate goljufije"
+          ]
+        }
+      ]
+    },
+    "footer": "Te smernice se lahko posodobijo. Cilj je varen izobraževalni prostor: zavračamo škodljive vsebine, ne drugačnih idej. Če menite, da je bila zavrnitev nepravična, jo lahko popravite in znova oddate ali zahtevate ročni pregled od ekipe najemnika."
+  }
+}
