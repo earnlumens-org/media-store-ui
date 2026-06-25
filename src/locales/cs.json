@@ -434,7 +434,8 @@
     "bulgarian": "bulharština",
     "armenian": "arménština",
     "danish": "dánština",
-    "finnish": "finština"
+    "finnish": "finština",
+    "norwegian": "norština"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail musí být platný",

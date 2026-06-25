@@ -434,7 +434,8 @@
     "bulgarian": "bulgaria",
     "armenian": "armenia",
     "danish": "tanska",
-    "finnish": "suomi"
+    "finnish": "suomi",
+    "norwegian": "norja"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Sähköpostin on oltava kelvollinen",

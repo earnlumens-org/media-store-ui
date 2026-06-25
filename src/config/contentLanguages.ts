@@ -67,4 +67,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'hy', title: 'Հայերեն — Armenian' },
   { value: 'da', title: 'dansk — Danish' },
   { value: 'fi', title: 'suomi — Finnish' },
+  { value: 'no', title: 'norsk — Norwegian' },
 ] as const

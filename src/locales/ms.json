@@ -370,7 +370,8 @@
     "bulgarian": "Bahasa Bulgaria",
     "armenian": "Bahasa Armenia",
     "danish": "Bahasa Denmark",
-    "finnish": "Bahasa Finland"
+    "finnish": "Bahasa Finland",
+    "norwegian": "Bahasa Norway"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mel mestilah sah",

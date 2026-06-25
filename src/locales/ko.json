@@ -370,7 +370,8 @@
     "bulgarian": "불가리아어",
     "armenian": "아르메니아어",
     "danish": "덴마크어",
-    "finnish": "핀란드어"
+    "finnish": "핀란드어",
+    "norwegian": "노르웨이어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

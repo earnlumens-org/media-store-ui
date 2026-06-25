@@ -370,7 +370,8 @@
     "bulgarian": "Bulgaro",
     "armenian": "Armenyo",
     "danish": "Danish",
-    "finnish": "Finnish"
+    "finnish": "Finnish",
+    "norwegian": "Norwegian"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Ang email ay dapat na wasto",

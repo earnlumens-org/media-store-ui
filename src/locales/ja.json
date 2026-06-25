@@ -370,7 +370,8 @@
     "bulgarian": "ブルガリア語",
     "armenian": "アルメニア語",
     "danish": "デンマーク語",
-    "finnish": "フィンランド語"
+    "finnish": "フィンランド語",
+    "norwegian": "ノルウェー語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "メールが有効である必要があります",

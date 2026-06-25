@@ -434,7 +434,8 @@
     "bulgarian": "búlgaro",
     "armenian": "armenio",
     "danish": "danés",
-    "finnish": "finés"
+    "finnish": "finés",
+    "norwegian": "noruego"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El correo electrónico debe ser válido",
