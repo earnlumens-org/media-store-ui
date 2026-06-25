@@ -436,7 +436,8 @@
     "danish": "tanska",
     "finnish": "suomi",
     "norwegian": "norja",
-    "georgian": "georgia"
+    "georgian": "georgia",
+    "lithuanian": "liettua"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Sähköpostin on oltava kelvollinen",

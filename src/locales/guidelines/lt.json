@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Turinio gairės kūrėjams",
+    "subtitle": "Ką galite paskelbti EarnLumens ir ko mes vengiame",
+    "lastUpdated": "Paskutinį kartą atnaujinta: {date}",
+    "intro": "EarnLumens yra finansinio švietimo platforma, orientuota į Stellar ekosistemą. Viskam, ką publikuojate, taikomos dviejų lygių taisyklės: neaptartas visos platformos sluoksnis (sukčiavimas, žala, neteisėtas turinys), kuris yra vienodas kiekvienam nuomininkui, ir konkretaus nuomininko sluoksnis, priklausantis nuo prekyvietės, kurioje skelbiate.",
+    "platformSection": {
+      "heading": "Platformos taisyklės",
+      "body": "Šios taisyklės taikomos kiekvienam EarnLumens nuomininkui, įskaitant šį. Jų negali sušvelninti atskiros prekyvietės ir jos egzistuoja tam, kad bendruomenė būtų saugi."
+    },
+    "tenantSection": {
+      "heading": "Nuomininkui taikomos taisyklės",
+      "body": "Be aukščiau pateiktų platformos taisyklių, kiekvienas nuomininkas gali pridėti savo publikavimo pastabas, pvz., kurioms temoms jis sutelkia dėmesį, numatomą toną ar konkrečius formatus, kuriuos jis priima.",
+      "placeholder": "Šis nuomininkas dar nepridėjo konkrečių publikavimo pastabų. Čia galioja tik aukščiau pateiktos visos platformos taisyklės."
+    },
+    "sanctionsSection": {
+      "heading": "Kaip veikia sankcijos",
+      "body": "Jei pažeisite aukščiau pateiktas taisykles, atsitiks būtent taip. Tos pačios kopėčios galioja kiekvienam nuomininkui – nėra jokių paslėptų nuobaudų."
+    },
+    "forCreators": {
+      "heading": "Kūrėjams",
+      "sections": [
+        {
+          "heading": "1. Ką galite skelbti laisvai",
+          "body": "Priimtinų temų spektras yra platus. Jums nereikia leidimo ar griežto formato:",
+          "items": [
+            "Švietimas apie Stellar tinklą (protokolas, SCP, Soroban, SDK, inkarai, DEX) ir XLM",
+            "Bendrasis finansinis išsilavinimas: taupymas, biudžeto sudarymas, skolos, atsakingas investavimas, mokesčiai",
+            "Praktinės pamokos, kodo demonstracinės versijos, piniginė ir dApp apžvalgos",
+            "Sąžiningas tinklų, piniginių ar protokolų palyginimas, įskaitant tuos, kurie nepriklauso Stellar, jei palyginimas yra informatyvus",
+            "Asmeninės nuomonės ir analizė aiškiai identifikuojamos kaip nuomonė",
+            "Turinys bet kuria platformos palaikoma kalba"
+          ]
+        },
+        {
+          "heading": "2. Ką mes visada atmetame",
+          "body": "Šios kategorijos atmetamos be išimties, nes jos kelia pavojų bendruomenei arba yra nelegalios:",
+          "items": [
+            "Ponzi schemos, piramidės schemos, siurblys ir išmetimas, kilimų traukimas arba garantuotos grąžos pažadai",
+            "Mokami prekybos signalai, pirkimo/pardavimo rekomendacijos su konkrečiomis sumomis arba personalizuotos finansinės konsultacijos",
+            "Sukčiavimas, netikri \"airdrops\", privačių raktų, pradinių frazių ar kredencialų užklausos, piniginės ištuštinimas, panašūs domenai, imituojantys Freighter / xBull / LOBSTR / SDF / mainus",
+            "Apsimetinėjimas viešais asmenimis, projektais arba EarnLumens / SDF arba jų klastojimas, įskaitant susintetintą garso ar vaizdo įrašą, kuriame klaidingai siūloma pritarti",
+            "Savižudybės ar savęs žalojimo šlovinimas, savęs žalojimo metodai ar instrukcijos, anoreksiją ar bulimiją skatinantis turinys (leidžiamas į lavinimą ir sveikimą orientuotas kadras)",
+            "Neapykantos kurstymas, priekabiavimas, diskriminacija arba smurto kurstymas",
+            "Aiškus seksualinis turinys, atviras smurtas arba medžiaga, susijusi su nepilnamečiais",
+            "Aiškiai autorių teisių saugoma medžiaga be leidimo (muzika, vaizdo įrašai, knygos, programinė įranga)",
+            "Trečiųjų šalių asmens duomenys be jų sutikimo",
+            "Akivaizdus šlamštas: nesąmoningi pavadinimai, masiškai pasikartojantis turinys, tušti ekranai, dirbtinio intelekto turinys be žmogaus peržiūros"
+          ]
+        },
+        {
+          "heading": "3. Pilka sritis: gali pereiti prie neautomatinės peržiūros",
+          "body": "Šie atvejai nėra automatiškai atmetami, bet juos gali peržiūrėti žmogus moderatorius:",
+          "items": [
+            "Konkrečių kriptovaliutų ar žetonų paminėjimas be aiškaus edukacinio konteksto",
+            "Reklamuokite savo produktus ar paslaugas, nežymėdami jų kaip remiamų",
+            "Teiginiai apie ankstesnį našumą be patikrinamo šaltinio",
+            "Labai trumpas turinys arba žema techninė kokybė, todėl sunku įvertinti jo vertę"
+          ]
+        },
+        {
+          "heading": "4. Geriausios praktikos pavyzdžiai (rekomenduojama, nebūtina)",
+          "body": "Tai nėra patvirtinimo reikalavimai, tačiau jie padeda geriau priimti turinį ir sumažinti moderavimo trintį:",
+          "items": [
+            "Naudokite aprašomąjį pavadinimą be klaidinančio paspaudimo",
+            "Naudodami duomenis, statistiką ar skaičius nurodykite šaltinius",
+            "Paaiškinkite, kad turinys yra šviečiamasis, o ne asmeninis finansinis patarimas",
+            "Paminėkite tai, jei užimate svarbias pareigas aptariamame turte",
+            "Pažymėkite remiamą ar filialų turinį",
+            "Stellar piniginėms, DEX ir įrankiams teikiame pirmenybę tiems, kurie yra išvardyti https://stellar.org/ecosystem kaip patikima nuoroda, tačiau galite paminėti kitus, jei neskatinate sukčiavimo."
+          ]
+        }
+      ]
+    },
+    "footer": "Šios gairės gali būti atnaujintos. Tikslas – saugi edukacinė erdvė: atmetame žalingą turinį, o ne skirtingas idėjas. Jei manote, kad atmetimas buvo nesąžiningas, galite peržiūrėti ir pateikti iš naujo arba paprašyti nuomininkų komandos atlikti neautomatinę peržiūrą."
+  }
+}

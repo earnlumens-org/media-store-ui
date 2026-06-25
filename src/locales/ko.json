@@ -372,7 +372,8 @@
     "danish": "덴마크어",
     "finnish": "핀란드어",
     "norwegian": "노르웨이어",
-    "georgian": "조지아어"
+    "georgian": "조지아어",
+    "lithuanian": "리투아니아어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

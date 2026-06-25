@@ -1,0 +1,81 @@
+{
+    "Legal": {
+        "termsTitle": "Taisyklės ir sąlygos",
+        "privacyTitle": "Privatumo politika",
+        "lastUpdated": "Paskutinį kartą atnaujinta: {date}",
+        "terms": {
+            "intro": "Sveiki atvykę į EarnLumens. Prisijungdami prie mūsų platformos arba naudodami ją, sutinkate laikytis šių taisyklių ir sąlygų.",
+            "sections": [
+                {
+                    "heading": "1. Sąlygų priėmimas",
+                    "body": "Kurdami paskyrą arba naudodamiesi bet kuria EarnLumens platformos dalimi patvirtinate, kad perskaitėte, supratote ir sutinkate laikytis šių taisyklių ir sąlygų bei mūsų privatumo politikos. Jei nesutinkate, neturite naudotis platforma."
+                },
+                {
+                    "heading": "2. Paslaugos aprašymas",
+                    "body": "EarnLumens yra kelių nuomininkų turinio platforma, sukurta Stellar tinkle. Pagrindinis nuomininkas šiuo metu daugiausia dėmesio skiria finansiniam švietimui, o platforma įgalina naujus egzempliorius kitoms vertikalėms naudojant patvirtinimo kredencialus. Kūrėjai gali skelbti turinį (vaizdo įrašus, garso įrašus, vaizdus ir išteklius) ir nustatyti kainas XLM (Stellar liumenų). Vartotojai gali įsigyti, peržiūrėti ir bendrauti su šiuo turiniu."
+                },
+                {
+                    "heading": "3. Paskyros registracija",
+                    "body": "Kurdami paskyrą turite pateikti tikslią ir išsamią informaciją. Jūs esate atsakingi už savo kredencialų konfidencialumo palaikymą ir už visą veiklą, kuri atliekama naudojant jūsų paskyrą. Turite nedelsdami mums pranešti apie bet kokį neteisėtą naudojimą."
+                },
+                {
+                    "heading": "4. Turinys ir intelektinė nuosavybė",
+                    "body": "Kūrėjai išlaiko nuosavybės teises į turinį, kurį skelbia EarnLumens. Paskelbdami kūrėjai suteikia EarnLumens neišskirtinę pasaulinę licenciją rodyti, platinti ir reklamuoti turinį platformoje. Naudotojai negali atgaminti, platinti ar perparduoti įsigyto turinio be aiškaus kūrėjo leidimo."
+                },
+                {
+                    "heading": "5. Mokėjimai ir operacijos",
+                    "body": "Mokėjimai, atlikti per EarnLumens, yra tiesioginės, išskirtinės ir nepriklausomos pirkėjo ir kūrėjo operacijos, atliekamos naudojant XLM Stellar tinkle. EarnLumens veikia tik kaip technologinė publikavimo ir techninio tarpininkavimo platforma ir nesikiša kaip pardavėjas, pirkėjas, agentas, saugotojas, inkasavimo agentas, patikėtinis ar garantas į bet kokius sandorius tarp vartotojų. Kainas nustato tik kūrėjai, o EarnLumens gali taikyti taikomus platformos mokesčius. Jei taikomi įstatymai aiškiai nenumato kitaip, visi pardavimai yra galutiniai, neatšaukiami ir negrąžinami. Jei EarnLumens aptinka, gauna pranešimus apie sukčiavimą, piktnaudžiavimą, pažeidimą ar bet kokį kitą neteisėtą elgesį arba elgesį, prieštaraujantį šioms Sąlygoms, gauna pranešimus arba pagrįstai įtaria, jis gali laikinai arba visam laikui sustabdyti, apriboti arba panaikinti susijusio kūrėjo paskyrą ir imtis bet kokių vidinių priemonių, kurias laiko pagrįstomis. Nepaisant to, kas išdėstyta pirmiau, EarnLumens neprisiima įsipareigojimo kištis į vartotojų ginčus ir jokiomis aplinkybėmis negarantuoja sandorių atšaukimo, turto susigrąžinimo arba pervestų lėšų grąžinimo, grąžinimo ar grąžinimo. Vartotojas aiškiai pripažįsta ir sutinka su \"blockchain\" operacijomis susijusią riziką, įskaitant jų galimai negrįžtamą pobūdį, taip pat visiškai prisiima atsakomybę už tinklo mokesčius, adreso klaidas, siunčiamas sumas ar pirkimo sprendimus."
+                },
+                {
+                    "heading": "6. Draudžiamas elgesys",
+                    "body": "Sutinkate: (a) neįkelti žalingo, neteisėto ar teises pažeidžiančio turinio; b) apsimetinėti kitais; c) bandyti išnaudoti platformą arba ją sutrikdyti; d) naudoti automatizuotus įrankius, kad būtų galima iškrapštyti ar pasiekti platformą be leidimo; (e) užsiimti bet kokia veikla, kuri pažeidžia galiojančius įstatymus ar kitus teisės aktus."
+                },
+                {
+                    "heading": "7. Nutraukimas",
+                    "body": "Pasiliekame teisę bet kuriuo metu sustabdyti arba nutraukti jūsų paskyrą, jei pažeisite šias sąlygas. Nutraukus nutraukimą, jūsų teisė naudotis platforma nedelsiant nutrūksta, tačiau nuostatos, kurios dėl savo pobūdžio turėtų išlikti, galios."
+                },
+                {
+                    "heading": "8. Atsisakymas",
+                    "body": "Platforma teikiama \"tokia, kokia yra\" ir \"kaip prieinama\", be jokių garantijų. EarnLumens negarantuoja bet kokio kūrėjų paskelbto turinio tikslumo, išsamumo ar naudingumo. Mes nesame atsakingi už jokius nuostolius, atsiradusius dėl Stellar tinklo operacijų."
+                },
+                {
+                    "heading": "9. Atsakomybės ribojimas",
+                    "body": "Tiek, kiek leidžia taikytini įstatymai, EarnLumens, jos filialai, direktoriai, darbuotojai, rangovai ir atstovai nėra atsakingi už jokią tiesioginę, netiesioginę, atsitiktinę, specialią, pasekminę, pavyzdinę, baudžiamąją ar bet kokią kitą žalą, atsirandančią dėl platformos naudojimo ar nesugebėjimo naudotis, nesąžiningų trečiųjų šalių veiksmų, nesąžiningų naudotojų ar kūrėjų veiksmų, nesąžiningo komercinio turinio. lūkesčius, duomenų praradimą, galimybių praradimą, prarastą pelną, reputaciją, klientų ratą arba nuostolius ar žalą, atsirandančią dėl \"blockchain\" operacijų, įskaitant tuos, kurie yra negrįžtami. Visų pirma, EarnLumens neatsako už turinio nepateikimą arba už kūrėjų siūlomo turinio kokybę, teisėtumą, autentiškumą, tikslumą ar naudingumą, taip pat už grąžinimą, neįmanomus mokėjimų grąžinimus, vartotojų pretenzijas ar lėšų praradimą. Bet kuriuo atveju, kai, nepaisant to, kas išdėstyta pirmiau, bet kokia EarnLumens atsakomybė yra teisiškai nustatyta, tokia atsakomybė apsiriboja suma, kurią EarnLumens faktiškai gavo kaip platformos mokestį konkrečiame sandoryje, dėl kurio buvo pareikšta pretenzija."
+                },
+                {
+                    "heading": "10. Sąlygų pakeitimai",
+                    "body": "Šias Sąlygas galime atnaujinti bet kuriuo metu. Mes stengsimės informuoti vartotojus apie esminius pakeitimus per platformą, tačiau jūs privalote periodiškai peržiūrėti Sąlygas. Jūsų tolesnis naudojimas po pakeitimų reiškia, kad sutinkate su peržiūrėtomis sąlygomis."
+                },
+                {
+                    "heading": "11. Susisiekite",
+                    "body": "Jei turite klausimų apie šias sąlygas, susisiekite su mumis adresu legal{'@'}earnlumens.org."
+                }
+            ]
+        },
+        "privacy": {
+            "intro": "Šioje privatumo politikoje aprašoma, kaip EarnLumens renka, naudoja ir saugo jūsų asmeninę informaciją.",
+            "sections": [
+                {
+                    "heading": "1. Informacija, kurią renkame",
+                    "body": "Mes renkame informaciją, kurią pateikiate tiesiogiai (sąskaitos duomenys, profilio informacija) ir informaciją, sugeneruotą naudojantis platforma (operacijų istorija, žiūrėjimo veikla, įrenginio informacija)."
+                },
+                {
+                    "heading": "2. Kaip mes naudojame jūsų informaciją",
+                    "body": "Jūsų informaciją naudojame siekdami: teikti ir tobulinti savo paslaugas, apdoroti sandorius, bendrauti su jumis, užtikrinti platformos saugumą ir vykdyti teisinius įsipareigojimus."
+                },
+                {
+                    "heading": "3. Duomenų bendrinimas",
+                    "body": "Mes neparduodame jūsų asmeninės informacijos. Galime dalytis duomenimis su paslaugų teikėjais, kurie padeda valdyti platformą, arba kai to reikalauja įstatymai."
+                },
+                {
+                    "heading": "4. Duomenų saugumas",
+                    "body": "Siekdami apsaugoti jūsų duomenis, įgyvendiname komerciškai pagrįstas saugumo priemones. Tačiau joks perdavimo internetu būdas nėra 100% saugus, todėl negalime garantuoti visiško saugumo."
+                },
+                {
+                    "heading": "5. Jūsų teisės",
+                    "body": "Susisiekę su mumis galite pasiekti savo asmens duomenis, juos taisyti arba prašyti juos ištrinti. Mes dėsime pagrįstas pastangas, kad patenkintume jūsų prašymą per pagrįstą laikotarpį."
+                }
+            ]
+        }
+    }
+}
