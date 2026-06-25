@@ -374,7 +374,8 @@
     "norwegian": "Bahasa Norwegia",
     "georgian": "bahasa Georgia",
     "lithuanian": "Lituania",
-    "slovenian": "Slovenia"
+    "slovenian": "Slovenia",
+    "latvian": "Latvia"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email harus valid",

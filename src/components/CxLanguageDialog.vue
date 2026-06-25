@@ -88,6 +88,7 @@
           <v-radio :label="`ქართული (${$t('Language.georgian')})`" value="ka" />
           <v-radio :label="`lietuvių (${$t('Language.lithuanian')})`" value="lt" />
           <v-radio :label="`slovenščina (${$t('Language.slovenian')})`" value="sl" />
+          <v-radio :label="`latviešu (${$t('Language.latvian')})`" value="lv" />
         </v-radio-group>
       </v-card-text>
 

@@ -438,7 +438,8 @@
     "norwegian": "ნორვეგიული",
     "georgian": "ქართული",
     "lithuanian": "ლიტვური",
-    "slovenian": "სლოვენური"
+    "slovenian": "სლოვენური",
+    "latvian": "ლატვიური"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ელფოსტა უნდა იყოს მოქმედი",

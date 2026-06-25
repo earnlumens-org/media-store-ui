@@ -438,7 +438,8 @@
     "norwegian": "norveščina",
     "georgian": "gruzinščina",
     "lithuanian": "litovščina",
-    "slovenian": "slovenščina"
+    "slovenian": "slovenščina",
+    "latvian": "latvijščina"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-pošta mora biti veljavna",

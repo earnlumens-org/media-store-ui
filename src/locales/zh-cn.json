@@ -374,7 +374,8 @@
     "norwegian": "挪威语",
     "georgian": "格鲁吉亚语",
     "lithuanian": "立陶宛语",
-    "slovenian": "斯洛文尼亚语"
+    "slovenian": "斯洛文尼亚语",
+    "latvian": "拉脱维亚语"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "电子邮件必须有效",

@@ -438,7 +438,8 @@
     "norwegian": "norsk",
     "georgian": "georgisk",
     "lithuanian": "litauisk",
-    "slovenian": "slovensk"
+    "slovenian": "slovensk",
+    "latvian": "lettisk"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail skal være gyldig",

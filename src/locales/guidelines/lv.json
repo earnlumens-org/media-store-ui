@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Satura vadlīnijas satura veidotājiem",
+    "subtitle": "Ko jūs varat publicēt vietnē EarnLumens un no kā mēs izvairāmies",
+    "lastUpdated": "Pēdējo reizi atjaunināts: {date}",
+    "intro": "EarnLumens ir finanšu izglītības platforma, kas koncentrējas uz Stellar ekosistēmu. Uz visu, ko publicējat, attiecas divi noteikumu līmeņi: neapspriežams platformas līmenis (krāpšana, kaitējums, nelegāls saturs), kas ir vienāds katram nomniekam, un nomniekam specifisks slānis, kas ir atkarīgs no tirgus, kurā publicējat.",
+    "platformSection": {
+      "heading": "Platformas noteikumi",
+      "body": "Šie noteikumi attiecas uz katru EarnLumens nomnieku, ieskaitot šo. Atsevišķi tirgi tos nevar atvieglot, un tie pastāv, lai nodrošinātu kopienas drošību."
+    },
+    "tenantSection": {
+      "heading": "Īrniekam specifiski noteikumi",
+      "body": "Papildus iepriekš minētajiem platformas noteikumiem katrs nomnieks var pievienot savas publicēšanas piezīmes, piemēram, uz kurām tēmām tas koncentrējas, paredzamo signālu vai konkrētus formātus, ko tas pieņem.",
+      "placeholder": "Šis nomnieks vēl nav pievienojis konkrētas publicēšanas piezīmes. Šeit ir spēkā tikai iepriekš minētie platformas noteikumi."
+    },
+    "sanctionsSection": {
+      "heading": "Kā darbojas sankcijas",
+      "body": "Ja jūs pārkāpjat iepriekš minētos noteikumus, tas notiek tieši tā. Tās pašas kāpnes attiecas uz katru īrnieku — nav nekādu slēptu sodu."
+    },
+    "forCreators": {
+      "heading": "Radītājiem",
+      "sections": [
+        {
+          "heading": "1. Ko jūs varat publicēt brīvi",
+          "body": "Pieņemamo tēmu loks ir plašs. Jums nav nepieciešama atļauja vai stingrs formāts:",
+          "items": [
+            "Izglītība par tīklu Stellar (protokols, SCP, Soroban, SDK, enkuri, DEX) un XLM",
+            "Vispārējā finanšu izglītība: taupīšana, budžeta veidošana, parādi, atbildīga investēšana, nodokļi",
+            "Praktiskas apmācības, kodu demonstrācijas, seifs un dApp apskati",
+            "Godīgi salīdzinājumi starp tīkliem, makiem vai protokoliem, tostarp tiem, kas atrodas ārpus Stellar, ja vien salīdzinājumam ir informatīvs raksturs",
+            "Personīgie viedokļi un analīze skaidri identificēti kā viedoklis",
+            "Saturs jebkurā valodā, ko atbalsta platforma"
+          ]
+        },
+        {
+          "heading": "2. Ko mēs vienmēr noraidām",
+          "body": "Šīs kategorijas tiek noraidītas bez izņēmuma, jo tās apdraud kopienu vai ir nelikumīgas:",
+          "items": [
+            "Ponzi shēmas, piramīdas shēmas, sūknis un izgāztuve, paklāju vilkšana vai garantētas atdeves solījumi",
+            "Apmaksāti tirdzniecības signāli, pirkšanas/pārdošanas ieteikumi ar konkrētām summām vai personalizētas finanšu konsultācijas",
+            "Pikšķerēšana, viltoti gaisa pilieni, privāto atslēgu pieprasījumi, sākotnējās frāzes vai akreditācijas dati, maku iztukšošanas līdzekļi, līdzīgi domēni, kas imitē Freighter / xBull / LOBSTR / SDF / apmaiņas",
+            "Uzdošanās par sabiedrībā zināmām personām, projektiem vai EarnLumens/SDF vai to viltošana, tostarp sintezēts audio vai video, kas nepatiesi liek domāt par apstiprinājumu",
+            "Pašnāvības vai paškaitējuma slavināšana, metodes vai norādījumi sevis savainošanai, saturs, kas veicina anoreksiju vai bulīmiju (atļauts izglītojošs un uz atveseļošanos vērsts ietvars)",
+            "Naida runa, uzmākšanās, diskriminācija vai kūdīšana uz vardarbību",
+            "Nepārprotami seksuāla rakstura saturs, atklāta vardarbība vai materiāli, kuros iesaistītas nepilngadīgas personas",
+            "Nepārprotami ar autortiesībām aizsargāts materiāls bez atļaujas (mūzika, video, grāmatas, programmatūra)",
+            "Trešo personu personas dati bez viņu piekrišanas",
+            "Acīmredzams surogātpasts: muļķīgi nosaukumi, masveidā dublēts saturs, tukši ekrāni, mākslīgā intelekta saturs bez cilvēka pārbaudes"
+          ]
+        },
+        {
+          "heading": "3. Pelēkā zona: var pāriet uz manuālu pārskatīšanu",
+          "body": "Šie gadījumi netiek automātiski noraidīti, taču tos var pārskatīt cilvēka moderators:",
+          "items": [
+            "Konkrētu kriptovalūtu vai žetonu pieminēšana bez skaidra izglītības konteksta",
+            "Reklamējiet savus produktus vai pakalpojumus, neatzīmējot tos kā sponsorētus",
+            "Apgalvojumi par iepriekšējo veiktspēju bez pārbaudāma avota",
+            "Ļoti īss saturs vai zema tehniskā kvalitāte, kas padara tā vērtību grūti novērtējamu"
+          ]
+        },
+        {
+          "heading": "4. Paraugprakse (ieteicama, nav obligāta)",
+          "body": "Šīs nav apstiprināšanas prasības, taču tās palīdz labāk uztvert jūsu saturu un samazina regulēšanas traucējumus.",
+          "items": [
+            "Izmantojiet aprakstošu nosaukumu bez maldinošas klikšķēsmas",
+            "Citējiet avotus, izmantojot datus, statistiku vai skaitļus",
+            "Norādiet, ka saturs ir izglītojošs, nevis personalizēts finanšu padoms",
+            "Piemini to, ja ieņem ievērojamu amatu apspriežamajā īpašumā",
+            "Apzīmējiet sponsorētu vai saistīto saturu",
+            "Attiecībā uz Stellar makiem, DEX un rīkiem mēs dodam priekšroku tiem, kas norādīti https://stellar.org/ecosystem kā uzticama atsauce, taču varat minēt citus, ja vien neveicat krāpšanu."
+          ]
+        }
+      ]
+    },
+    "footer": "Šīs vadlīnijas var tikt atjauninātas. Mērķis ir droša izglītības telpa: mēs noraidām kaitīgu saturu, nevis dažādas idejas. Ja uzskatāt, ka noraidījums bija negodīgs, varat pārskatīt un iesniegt atkārtoti vai pieprasīt manuālu pārskatīšanu nomnieku komandai."
+  }
+}

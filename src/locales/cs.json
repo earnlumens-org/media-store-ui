@@ -438,7 +438,8 @@
     "norwegian": "norština",
     "georgian": "gruzínština",
     "lithuanian": "litevština",
-    "slovenian": "slovinština"
+    "slovenian": "slovinština",
+    "latvian": "lotyština"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail musí být platný",

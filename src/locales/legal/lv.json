@@ -1,0 +1,81 @@
+{
+    "Legal": {
+        "termsTitle": "Noteikumi un nosacījumi",
+        "privacyTitle": "Privātuma politika",
+        "lastUpdated": "Pēdējo reizi atjaunināts: {date}",
+        "terms": {
+            "intro": "Laipni lūdzam EarnLumens. Piekļūstot mūsu platformai vai izmantojot to, jūs piekrītat ievērot šos noteikumus un nosacījumus.",
+            "sections": [
+                {
+                    "heading": "1. Noteikumu pieņemšana",
+                    "body": "Izveidojot kontu vai izmantojot jebkuru EarnLumens platformas daļu, jūs apstiprināt, ka esat izlasījis, sapratis un piekrītat ievērot šos noteikumus un nosacījumus, kā arī mūsu Privātuma politiku. Ja jūs nepiekrītat, jūs nedrīkstat izmantot platformu."
+                },
+                {
+                    "heading": "2. Pakalpojuma apraksts",
+                    "body": "EarnLumens ir vairāku nomnieku satura platforma, kas veidota Stellar tīklā. Galvenais nomnieks pašlaik koncentrējas uz finanšu izglītību, un platforma nodrošina jaunus gadījumus citām vertikālēm, izmantojot verifikācijas akreditācijas datus. Satura veidotāji var publicēt saturu (video, audio, attēlus un resursus) un iestatīt cenas XLM (Stellar Lumens). Lietotāji var iegādāties, skatīt un mijiedarboties ar šo saturu."
+                },
+                {
+                    "heading": "3. Konta reģistrācija",
+                    "body": "Veidojot kontu, jums ir jāsniedz precīza un pilnīga informācija. Jūs esat atbildīgs par savu akreditācijas datu konfidencialitātes saglabāšanu un par visām darbībām, kas notiek jūsu kontā. Jums nekavējoties jāinformē mūs par jebkādu neatļautu lietošanu."
+                },
+                {
+                    "heading": "4. Saturs un intelektuālais īpašums",
+                    "body": "Satura veidotāji saglabā īpašumtiesības uz saturu, ko viņi publicē vietnē EarnLumens. Publicējot, veidotāji piešķir EarnLumens neekskluzīvu, vispasaules licenci, lai platformā parādītu, izplatītu un reklamētu saturu. Lietotāji nedrīkst reproducēt, atkārtoti izplatīt vai pārdot iegādāto saturu bez nepārprotamas satura veidotāja atļaujas."
+                },
+                {
+                    "heading": "5. Maksājumi un darījumi",
+                    "body": "Maksājumi, kas veikti, izmantojot EarnLumens, ir tiešu, ekskluzīvu un neatkarīgu darījumu starp pircēju un veidotāju, kas tiek veikti, izmantojot XLM Stellar tīklā. EarnLumens darbojas tikai kā tehnoloģiska platforma publicēšanai un tehniskai starpniecībai un neiejaucas kā pārdevējs, pircējs, aģents, turētājbanka, iekasēšanas aģents, uzticības persona vai galvotājs nekādos darījumos starp lietotājiem. Cenas nosaka tikai satura veidotāji, un EarnLumens var piemērot piemērojamās platformas maksas. Ja vien piemērojamos tiesību aktos nav skaidri noteikts citādi, visi pārdošanas darījumi ir galīgi, neatsaucami un neatmaksājami. Ja EarnLumens konstatē, saņem ziņojumus par krāpšanu, ļaunprātīgu izmantošanu, pārkāpumu vai jebkādu citu nelikumīgu rīcību vai rīcību, kas ir pretrunā šiem Noteikumiem, vai saņem ziņojumus par to vai tai ir pamatotas aizdomas, tas var uz laiku vai pastāvīgi apturēt, ierobežot vai anulēt iesaistītā satura veidotāja kontu un veikt jebkādus iekšējos pasākumus, ko uzskata par saprātīgiem. Neskatoties uz iepriekš minēto, EarnLumens neuzņemas nekādu pienākumu iejaukties strīdos starp lietotājiem un nekādā gadījumā negarantē darījumu atsaukšanu, aktīvu atgūšanu vai pārskaitīto līdzekļu restitūciju, atgriešanu vai atmaksu. Lietotājs skaidri atzīst un pieņem blokķēdes darījumu raksturīgos riskus, tostarp to potenciāli neatgriezenisko raksturu, kā arī vienpersonisku atbildību par tīkla maksām, adreses kļūdām, nosūtītajām summām vai pirkuma lēmumiem."
+                },
+                {
+                    "heading": "6. Aizliegta rīcība",
+                    "body": "Jūs piekrītat: (a) neaugšupielādēt kaitīgu, nelikumīgu vai autortiesības pārkāpjošu saturu; (b) uzdoties par citiem; c) mēģinājums izmantot vai izjaukt platformu; d) izmantot automatizētus rīkus, lai bez atļaujas notīrītu platformu vai piekļūtu tai; (e) iesaistīties jebkurā darbībā, kas pārkāpj piemērojamos likumus vai noteikumus."
+                },
+                {
+                    "heading": "7. Izbeigšana",
+                    "body": "Mēs paturam tiesības apturēt vai pārtraukt jūsu konta darbību jebkurā laikā, ja pārkāpjat šos noteikumus. Pēc darbības pārtraukšanas jūsu tiesības izmantot platformu nekavējoties tiek pārtrauktas, taču noteikumi, kuriem pēc savas būtības ir jāpaliek spēkā, paliks spēkā."
+                },
+                {
+                    "heading": "8. Atruna",
+                    "body": "Platforma tiek nodrošināta \"tāda, kāda tā ir\" un \"kā pieejama\" bez jebkāda veida garantijām. EarnLumens negarantē satura veidotāju publicētā satura precizitāti, pilnīgumu vai lietderību. Mēs neesam atbildīgi par zaudējumiem, kas radušies Stellar tīkla darījumu rezultātā."
+                },
+                {
+                    "heading": "9. Atbildības ierobežojums",
+                    "body": "Ciktāl to pieļauj piemērojamie tiesību akti, EarnLumens, tās saistītie uzņēmumi, direktori, darbinieki, darbuzņēmēji un pārstāvji nav atbildīgi par jebkādiem tiešiem, netiešiem, nejaušiem, īpašiem, izrietošiem, priekšzīmīgiem, sodošiem vai citiem zaudējumiem, kas rodas vai ir saistīti ar platformas lietošanu vai nespēju izmantot, darījumiem starp lietotājiem, krāpniecisku trešo pušu publicētu saturu. cerības, datu zudums, iespēju zaudēšana, zaudēta peļņa, reputācija, klientūra vai zaudējumi vai bojājumi, kas izriet no blokķēdes darījumiem, tostarp tādiem, kas ir neatgriezeniski. Jo īpaši EarnLumens neuzņemas atbildību par satura nepiegādāšanu vai par satura veidotāju piedāvātā satura kvalitāti, likumību, autentiskumu, precizitāti vai lietderību, kā arī par atgriešanu, neiespējamām atmaksām, prasībām starp lietotājiem vai līdzekļu zudumu. Jebkurā gadījumā, ja, neskatoties uz iepriekš minēto, jebkura EarnLumens atbildība ir juridiski noteikta, šāda atbildība ir ierobežota līdz summai, ko EarnLumens faktiski saņēma kā platformas maksu konkrētajā darījumā, kas izraisīja prasību."
+                },
+                {
+                    "heading": "10. Noteikumu izmaiņas",
+                    "body": "Mēs varam atjaunināt šos Noteikumus jebkurā laikā. Mēs centīsimies informēt lietotājus par būtiskām izmaiņām, izmantojot platformu, taču jūsu pienākums ir periodiski pārskatīt Noteikumus. Jūsu turpmāka izmantošana pēc izmaiņām nozīmē piekrišanu pārskatītajiem noteikumiem."
+                },
+                {
+                    "heading": "11. Sazināties",
+                    "body": "Ja jums ir jautājumi par šiem noteikumiem, lūdzu, sazinieties ar mums vietnē legal{'@'}earnlumens.org."
+                }
+            ]
+        },
+        "privacy": {
+            "intro": "Šajā Privātuma politikā ir aprakstīts, kā EarnLumens apkopo, izmanto un aizsargā jūsu personisko informāciju.",
+            "sections": [
+                {
+                    "heading": "1. Informācija, ko mēs apkopojam",
+                    "body": "Mēs apkopojam informāciju, ko sniedzat tieši (konta informācija, profila informācija) un informāciju, kas iegūta, izmantojot platformu (darījumu vēsture, skatīšanās darbības, ierīces informācija)."
+                },
+                {
+                    "heading": "2. Kā mēs izmantojam jūsu informāciju",
+                    "body": "Mēs izmantojam jūsu informāciju, lai: nodrošinātu un uzlabotu savus pakalpojumus, apstrādātu darījumus, sazinātos ar jums, nodrošinātu platformas drošību un izpildītu juridiskās saistības."
+                },
+                {
+                    "heading": "3. Datu koplietošana",
+                    "body": "Mēs nepārdodam jūsu personisko informāciju. Mēs varam kopīgot datus ar pakalpojumu sniedzējiem, kas palīdz platformas darbībā, vai tad, ja to pieprasa likums."
+                },
+                {
+                    "heading": "4. Datu drošība",
+                    "body": "Mēs ieviešam komerciāli pamatotus drošības pasākumus, lai aizsargātu jūsu datus. Tomēr neviena pārraides metode internetā nav 100% droša, un mēs nevaram garantēt absolūtu drošību."
+                },
+                {
+                    "heading": "5. Jūsu tiesības",
+                    "body": "Jūs varat piekļūt saviem personas datiem, tos labot vai pieprasīt dzēst, sazinoties ar mums. Mēs pieliksim saprātīgas pūles, lai apmierinātu jūsu pieprasījumu saprātīgā termiņā."
+                }
+            ]
+        }
+    }
+}

@@ -374,7 +374,8 @@
     "norwegian": "норвежский",
     "georgian": "грузинский",
     "lithuanian": "литовский",
-    "slovenian": "словенский"
+    "slovenian": "словенский",
+    "latvian": "латышский"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Электронная почта должна быть действительной",
