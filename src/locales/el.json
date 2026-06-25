@@ -440,7 +440,8 @@
     "lithuanian": "Λιθουανικά",
     "slovenian": "σλοβενικά",
     "latvian": "Λετονικά",
-    "estonian": "Εσθονικά"
+    "estonian": "Εσθονικά",
+    "welsh": "Ουαλικά"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Το email πρέπει να είναι έγκυρο",

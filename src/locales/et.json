@@ -440,7 +440,8 @@
     "lithuanian": "leedu",
     "slovenian": "sloveeni",
     "latvian": "läti",
-    "estonian": "eesti"
+    "estonian": "eesti",
+    "welsh": "kõmri"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-post peab olema kehtiv",

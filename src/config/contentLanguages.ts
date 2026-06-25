@@ -73,4 +73,5 @@ export const CONTENT_LANGUAGES = [
   { value: 'sl', title: 'slovenščina — Slovenian' },
   { value: 'lv', title: 'latviešu — Latvian' },
   { value: 'et', title: 'eesti — Estonian' },
+  { value: 'cy', title: 'Cymraeg — Welsh' },
 ] as const

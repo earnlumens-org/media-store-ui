@@ -376,7 +376,8 @@
     "lithuanian": "الليتوانية",
     "slovenian": "السلوفينية",
     "latvian": "اللاتفية",
-    "estonian": "الإستونية"
+    "estonian": "الإستونية",
+    "welsh": "الويلزية"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "يجب أن يكون البريد الإلكتروني صالحًا",

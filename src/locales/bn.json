@@ -376,7 +376,8 @@
     "lithuanian": "লিথুয়ানীয়",
     "slovenian": "স্লোভেনীয়",
     "latvian": "লাতভীয়",
-    "estonian": "এস্তোনীয়"
+    "estonian": "এস্তোনীয়",
+    "welsh": "ওয়েলশ"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ইমেইল বৈধ হতে হবে",

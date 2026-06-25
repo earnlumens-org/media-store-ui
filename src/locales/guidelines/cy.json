@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Canllawiau Cynnwys i Grewyr",
+    "subtitle": "Yr hyn y gallwch ei gyhoeddi ar EarnLumens a'r hyn yr ydym yn ei osgoi",
+    "lastUpdated": "Wedi ei ddiweddaru ddiwetha': {date}",
+    "intro": "Mae EarnLumens yn blatfform addysg ariannol sy'n canolbwyntio ar ecosystem Stellar. Mae dwy haen o reolau yn berthnasol i unrhyw beth y byddwch yn ei gyhoeddi: haen llwyfan-gyfan na ellir ei thrafod (twyll, niwed, cynnwys anghyfreithlon) sydd yr un peth ar bob tenant, a haen sy'n benodol i'r tenant sy'n dibynnu ar y farchnad y byddwch yn cyhoeddi ynddi.",
+    "platformSection": {
+      "heading": "Rheolau llwyfan-gyfan",
+      "body": "Mae'r rheolau hyn yn berthnasol i bob tenant ar EarnLumens, gan gynnwys yr un hwn. Ni allant gael eu llacio gan farchnadoedd unigol ac maent yn bodoli i gadw'r gymuned yn ddiogel."
+    },
+    "tenantSection": {
+      "heading": "Rheolau penodol i denantiaid",
+      "body": "Ar ben y rheolau platfform uchod, gall pob tenant ychwanegu ei nodiadau cyhoeddi ei hun - er enghraifft pa bynciau y mae'n canolbwyntio arnynt, naws ddisgwyliedig, neu fformatau penodol y mae'n eu derbyn.",
+      "placeholder": "Nid yw'r tenant hwn wedi ychwanegu nodiadau cyhoeddi penodol eto. Dim ond y rheolau llwyfan-gyfan uchod sy'n berthnasol yma."
+    },
+    "sanctionsSection": {
+      "heading": "Sut mae sancsiynau'n gweithio",
+      "body": "Os byddwch yn torri'r rheolau uchod, dyma'n union beth sy'n digwydd. Mae’r un ysgol yn berthnasol i bob tenant—nid oes cosbau cudd."
+    },
+    "forCreators": {
+      "heading": "Ar Gyfer Crewyr",
+      "sections": [
+        {
+          "heading": "1. Yr hyn y gallwch ei gyhoeddi'n rhydd",
+          "body": "Mae'r ystod o bynciau derbyniol yn eang. You do not need permission or a rigid format:",
+          "items": [
+            "Addysg am rwydwaith Stellar (protocol, SCP, Soroban, SDKs, anchors, DEX) ac XLM",
+            "Addysg ariannol gyffredinol: cynilo, cyllidebu, dyled, buddsoddi cyfrifol, trethi",
+            "Tiwtorialau ymarferol, demos cod, waled a theithiau cerdded dApp",
+            "Cymariaethau gonest rhwng rhwydweithiau, waledi, neu brotocolau, gan gynnwys rhai y tu allan i Stellar, cyn belled â bod y gymhariaeth yn llawn gwybodaeth",
+            "Personol fel barn a dadansoddiad wedi'i nodi'n glir",
+            "Cynnwys mewn unrhyw iaith a gefnogir gan y platfform"
+          ]
+        },
+        {
+          "heading": "2. Yr hyn yr ydym bob amser yn ei wrthod",
+          "body": "Mae’r categorïau hyn yn cael eu gwrthod yn ddieithriad oherwydd eu bod yn rhoi’r gymuned mewn perygl neu’n anghyfreithlon:",
+          "items": [
+            "Cynlluniau Ponzi, cynlluniau pyramid, pwmp a dympio, tynnu rygiau, neu addewidion dychwelyd gwarantedig",
+            "Arwyddion masnachu taledig, prynu / gwerthu argymhellion gyda symiau penodol, neu gyngor ariannol personol",
+            "Gwe-rwydo, diferion aer ffug, ceisiadau am allweddi preifat, ymadroddion hadau, neu gymwysterau, draenwyr waledi, parthau tebyg yn dynwared Freighter / xBull / LOBSTR / SDF / cyfnewidfeydd",
+            "Dynwared neu ffugiadau dwfn o ffigurau cyhoeddus, prosiectau, neu EarnLumens / SDF - gan gynnwys sain neu fideo wedi'i syntheseiddio sy'n awgrymu cymeradwyaeth ar gam",
+            "Gogoneddu hunanladdiad neu hunan-niweidio, dulliau neu gyfarwyddiadau ar gyfer hunan-niweidio, pro-anorecsia neu gynnwys pro-bwlimia (caniateir fframio addysgol ac adferiad)",
+            "Casineb lleferydd, aflonyddu, gwahaniaethu, neu anogaeth i drais",
+            "Cynnwys rhywiol penodol, trais graffig, neu ddeunydd sy'n ymwneud â phlant dan oed",
+            "Deunydd â hawlfraint yn amlwg heb awdurdod (cerddoriaeth, fideo, llyfrau, meddalwedd)",
+            "Data personol trydydd parti heb eu caniatâd",
+            "Sbam amlwg: teitlau nonsensical, cynnwys wedi'i ddyblygu'n helaeth, sgriniau gwag, cynnwys AI heb adolygiad dynol"
+          ]
+        },
+        {
+          "heading": "3. Ardal lwyd: gall fynd i adolygiad â llaw",
+          "body": "Ni chaiff yr achosion hyn eu gwrthod yn awtomatig, ond gallant gael eu hadolygu gan gymedrolwr dynol:",
+          "items": [
+            "Sôn am arian cyfred digidol neu docynnau penodol heb gyd-destun addysgol clir",
+            "Hyrwyddo eich cynhyrchion neu wasanaethau eich hun heb eu labelu fel rhai noddedig",
+            "Hawliadau am berfformiad yn y gorffennol heb ffynhonnell wiriadwy",
+            "Cynnwys byr iawn neu ansawdd technegol isel sy'n ei gwneud yn anodd asesu ei werth"
+          ]
+        },
+        {
+          "heading": "4. Arferion gorau (argymhellir, dim angen)",
+          "body": "Nid yw'r rhain yn ofynion cymeradwyo, ond maent yn helpu eich cynnwys i gael gwell derbyniad a lleihau ffrithiant cymedroli:",
+          "items": [
+            "Defnyddiwch deitl disgrifiadol heb clickbait camarweiniol",
+            "Dyfynnu ffynonellau wrth ddefnyddio data, ystadegau neu ffigurau",
+            "Egluro bod y cynnwys yn addysgiadol ac nid yn gyngor ariannol personol",
+            "Soniwch amdano os oes gennych chi safle arwyddocaol mewn ased rydych chi'n ei drafod",
+            "Label noddedig neu gynnwys cyswllt",
+            "Ar gyfer waledi Stellar, DEXs, ac offer, mae'n well gennym y rhai a restrir yn https://stellar.org/ecosystem fel cyfeiriad dibynadwy, ond gallwch grybwyll eraill cyn belled nad ydych yn hyrwyddo twyll"
+          ]
+        }
+      ]
+    },
+    "footer": "Gall y canllawiau hyn gael eu diweddaru. Y nod yw gofod addysgol diogel: rydym yn gwrthod cynnwys niweidiol, nid syniadau gwahanol. Os credwch fod gwrthodiad yn annheg, gallwch adolygu ac ailgyflwyno, neu ofyn am adolygiad â llaw gan dîm y tenant."
+  }
+}
