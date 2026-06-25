@@ -441,7 +441,8 @@
     "slovenian": "Slofeneg",
     "latvian": "Latfieg",
     "estonian": "Estoneg",
-    "welsh": "Cymraeg"
+    "welsh": "Cymraeg",
+    "basque": "Basgeg"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Rhaid i'r e-bost fod yn ddilys",

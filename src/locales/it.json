@@ -377,7 +377,8 @@
     "slovenian": "sloveno",
     "latvian": "lettone",
     "estonian": "estone",
-    "welsh": "gallese"
+    "welsh": "gallese",
+    "basque": "Basco"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "L'email deve essere valida",

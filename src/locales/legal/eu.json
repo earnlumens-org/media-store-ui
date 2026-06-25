@@ -1,0 +1,81 @@
+{
+    "Legal": {
+        "termsTitle": "Baldintzak eta xedapenak",
+        "privacyTitle": "Pribatutasun-politika",
+        "lastUpdated": "Azken eguneratzea: {date}",
+        "terms": {
+            "intro": "Ongi etorri EarnLumens-era. Gure plataformara sartzean edo hura erabiltzean, Baldintza eta Xedapen hauek betetzea onartzen duzu.",
+            "sections": [
+                {
+                    "heading": "1. Baldintzen onarpena",
+                    "body": "Kontu bat sortzean edo EarnLumens plataformaren edozein zati erabiltzean, Baldintza eta Xedapen hauek eta gure Pribatutasun-politika irakurri, ulertu eta betetzea onartzen duzula aitortzen duzu. Ados ez bazaude, ez duzu plataforma erabili behar."
+                },
+                {
+                    "heading": "2. Zerbitzuaren deskribapena",
+                    "body": "EarnLumens Stellar sarean eraikitako eduki-plataforma multi-tenant bat da. Tenant nagusia gaur egun finantza-hezkuntzan zentratuta dago, eta plataformak beste bertikal batzuetarako instantzia berriak gaitzen ditu egiaztagiri bidez. Sortzaileek edukia argitara dezakete (bideoak, audioak, irudiak eta baliabideak) eta prezioak XLM-n (Stellar Lumens) ezarri. Erabiltzaileek eduki hori erosi, ikusi eta harekin elkarreragin dezakete."
+                },
+                {
+                    "heading": "3. Kontuaren erregistroa",
+                    "body": "Kontu bat sortzean informazio zehatza eta osoa eman behar duzu. Zure egiaztagirien konfidentzialtasuna mantentzearen eta zure kontuan gertatzen diren jarduera guztien erantzule zara. Baimenik gabeko edozein erabilera berehala jakinarazi behar diguzu."
+                },
+                {
+                    "heading": "4. Edukia eta jabetza intelektuala",
+                    "body": "Sortzaileek EarnLumens-en argitaratzen duten edukiaren jabetza mantentzen dute. Argitaratzean, sortzaileek EarnLumens-i lizentzia ez-esklusibo eta mundu-mailakoa ematen diote edukia plataforman erakutsi, banatu eta sustatzeko. Erabiltzaileek ezin dute erositako edukia erreproduzitu, berriro banatu edo berriro saldu sortzailearen berariazko baimenik gabe."
+                },
+                {
+                    "heading": "5. Ordainketak eta transakzioak",
+                    "body": "EarnLumens bidez egindako ordainketek eroslearen eta sortzailearen arteko transakzio zuzen, esklusibo eta independenteak osatzen dituzte, Stellar sarean XLM erabiliz egindakoak. EarnLumens argitalpenerako eta bitartekaritza teknikorako plataforma teknologiko gisa jarduten du soilik, eta ez du esku hartzen erabiltzaileen arteko transakzioetan saltzaile, erosle, agente, zaintzaile, kobrantza-agente, fiduziario edo bermatzaile gisa. Prezioak sortzaileek bakarrik ezartzen dituzte, eta EarnLumens-ek aplikagarriak diren plataforma-tasak aplika ditzake. Aplikatu beharreko legeak berariaz kontrakoa xedatzen ez badu, salmenta guztiak behin betikoak, ezeztaezinak eta ez-itzulgarriak dira. EarnLumens-ek iruzurra, abusua, urraketa edo legez kanpoko beste edozein jokabide edo Baldintza hauen aurkako jokabide bat hautematen badu, horren berri jasotzen badu edo arrazoiz susmatzen badu, inplikatutako sortzailearen kontua aldi baterako edo betiko eten, mugatu edo bertan behera utzi ahal izango du, eta egokitzat jotzen dituen barne-neurriak hartu. Aurrekoa gorabehera, EarnLumens-ek ez du erabiltzaileen arteko gatazketan esku hartzeko betebeharrik hartzen, eta ez du inolaz ere bermatzen transakzioak atzera botatzea, aktiboak berreskuratzea edo transferitutako funtsak leheneratzea, itzultzea edo bueltatzea. Erabiltzaileak berariaz aitortzen eta onartzen ditu blockchain transakzioen berezko arriskuak, haien izaera potentzialki itzulezina barne, baita sare-tasen, helbide-erroreen, bidalitako zenbatekoen edo erosketa-erabakien gaineko erantzukizun esklusiboa ere."
+                },
+                {
+                    "heading": "6. Debekatutako jokabidea",
+                    "body": "Honako hauek ez egitea onartzen duzu: (a) eduki kaltegarria, ilegala edo eskubideak urratzen dituena igotzea; (b) beste pertsona batzuen nortasuna ordeztea; (c) plataforma ustiatzen edo eteten saiatzea; (d) tresna automatizatuak erabiltzea plataforma baimenik gabe arakatzeko edo atzitzeko; (e) aplikagarriak diren legeak edo arauak urratzen dituen edozein jardueratan parte hartzea."
+                },
+                {
+                    "heading": "7. Amaiera",
+                    "body": "Baldintza hauek urratzen badituzu, zure kontua edozein unetan eteteko edo ixteko eskubidea gordetzen dugu. Amaitzean, plataforma erabiltzeko zure eskubidea berehala eteten da, nahiz eta beren izaeragatik iraun behar duten xedapenek indarrean jarraituko duten."
+                },
+                {
+                    "heading": "8. Erantzukizun-ukatzeak",
+                    "body": "Plataforma \"dagoen bezala\" eta \"eskuragarri dagoen bezala\" eskaintzen da, inolako bermerik gabe. EarnLumens-ek ez du bermatzen sortzaileek argitaratutako edukien zehaztasuna, osotasuna edo erabilgarritasuna. Ez gara Stellar sareko transakzioetatik eratorritako galeren erantzule."
+                },
+                {
+                    "heading": "9. Erantzukizunaren muga",
+                    "body": "Aplikatu beharreko legeak baimentzen duen gehieneko neurrian, EarnLumens, haren afiliatuak, zuzendariak, langileak, kontratistak eta ordezkariak ez dira erantzule izango kalte zuzen, zeharkako, gorabeherazko, berezi, ondoriozko, ereduzko, zigortzaile edo bestelakoengatik, plataformaren erabileratik edo erabiltzeko ezintasunetik, erabiltzaileen arteko transakzioetatik, sortzaileek argitaratutako edukitik, hirugarrenen jokabide iruzurrezko edo legez kanpokotik, bete gabeko itxaropen komertzialetatik, datu-galeratik, aukera-galeratik, irabazi-galeratik, ospearen edo bezeroen galeratik, edo blockchain transakzioetatik eratorritako galera edo kalteengatik, itzulezinak direnak barne. Bereziki, EarnLumens ez da erantzule izango edukia ez entregatzeagatik, edo sortzaileek eskainitako edukiaren kalitate, legezkotasun, benetakotasun, zehaztasun edo erabilgarritasunagatik, ezta itzulketengatik, chargeback ezinezkoengatik, erabiltzaileen arteko erreklamazioengatik edo funts-galerengatik ere. Edonola ere, aurrekoa gorabehera EarnLumens-en erantzukizunen bat legez zehazten bada, erantzukizun hori erreklamazioa eragin zuen transakzio zehatzean EarnLumens-ek plataforma-tasa gisa benetan jasotako zenbatekora mugatuko da."
+                },
+                {
+                    "heading": "10. Baldintzen aldaketak",
+                    "body": "Baldintza hauek edozein unetan eguneratu ditzakegu. Aldaketa esanguratsuen berri erabiltzaileei plataformaren bidez ematen saiatuko gara, baina zure erantzukizuna da Baldintzak aldian-aldian berrikustea. Aldaketen ondoren erabiltzen jarraitzeak berrikusitako Baldintzak onartzea dakar."
+                },
+                {
+                    "heading": "11. Harremana",
+                    "body": "Baldintza hauei buruzko galderetarako, jarri gurekin harremanetan legal{'@'}earnlumens.org helbidean."
+                }
+            ]
+        },
+        "privacy": {
+            "intro": "Pribatutasun-politika honek EarnLumens-ek zure informazio pertsonala nola biltzen, erabiltzen eta babesten duen azaltzen du.",
+            "sections": [
+                {
+                    "heading": "1. Biltzen dugun informazioa",
+                    "body": "Zuk zuzenean ematen duzun informazioa (kontuaren xehetasunak, profileko informazioa) eta plataformaren erabileraren bidez sortzen den informazioa (transakzio-historia, ikuste-jarduera, gailuaren informazioa) biltzen dugu."
+                },
+                {
+                    "heading": "2. Nola erabiltzen dugun zure informazioa",
+                    "body": "Zure informazioa erabiltzen dugu: gure zerbitzuak emateko eta hobetzeko, transakzioak prozesatzeko, zurekin komunikatzeko, plataformaren segurtasuna bermatzeko eta legezko betebeharrak betetzeko."
+                },
+                {
+                    "heading": "3. Datuen partekatzea",
+                    "body": "Ez dugu zure informazio pertsonala saltzen. Datuak parteka ditzakegu plataforma ustiatzen laguntzen duten zerbitzu-hornitzaileekin, edo legeak hala eskatzen duenean."
+                },
+                {
+                    "heading": "4. Datuen segurtasuna",
+                    "body": "Zure datuak babesteko komertzialki arrazoizko segurtasun-neurriak ezartzen ditugu. Hala ere, Internet bidezko transmisio-metodorik ez da %100 segurua, eta ezin dugu segurtasun absolutua bermatu."
+                },
+                {
+                    "heading": "5. Zure eskubideak",
+                    "body": "Zure datu pertsonalak eskuratu, zuzendu edo ezabatzea eska dezakezu gurekin harremanetan jarriz. Zure eskaerari arrazoizko epe batean erantzuteko ahalegin arrazoizkoak egingo ditugu."
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Sortzaileentzako eduki-gidalerroak",
+    "subtitle": "Zer argitara dezakezun EarnLumens-en eta zer saihesten dugun",
+    "lastUpdated": "Azken eguneratzea: {date}",
+    "intro": "EarnLumens finantza-hezkuntzako plataforma bat da, Stellar ekosisteman zentratua. Argitaratzen duzun edozeri bi arau-geruza aplikatzen zaizkio: plataforma osorako negoziaezina den geruza bat (iruzurra, kaltea, eduki ilegala), tenant guztietan berdina dena, eta argitaratzen duzun merkatuaren araberako tenant-aren geruza espezifikoa.",
+    "platformSection": {
+      "heading": "Plataforma osorako arauak",
+      "body": "Arau hauek EarnLumens-eko tenant guztiei aplikatzen zaizkie, hau barne. Merkatu indibidualek ezin dituzte malgutu, eta komunitatea seguru mantentzeko daude."
+    },
+    "tenantSection": {
+      "heading": "Tenant-aren arau espezifikoak",
+      "body": "Goiko plataformako arauez gain, tenant bakoitzak bere argitalpen-oharrak gehi ditzake — adibidez, zein gaietan zentratzen den, espero den tonua edo onartzen dituen formatu espezifikoak.",
+      "placeholder": "Tenant honek oraindik ez du argitalpen-ohar espezifikorik gehitu. Hemen goiko plataforma osorako arauak bakarrik aplikatzen dira."
+    },
+    "sanctionsSection": {
+      "heading": "Nola funtzionatzen duten zehapenek",
+      "body": "Goiko arauak hausten badituzu, hau da zehazki gertatzen dena. Eskailera bera aplikatzen da tenant guztietan — ez dago ezkutuko zigorrik."
+    },
+    "forCreators": {
+      "heading": "Sortzaileentzat",
+      "sections": [
+        {
+          "heading": "1. Zer argitara dezakezun libreki",
+          "body": "Gai onargarrien sorta zabala da. Ez duzu baimenik edo formatu zurrunik behar:",
+          "items": [
+            "Stellar sareari buruzko hezkuntza (protokoloa, SCP, Soroban, SDK-ak, anchor-ak, DEX) eta XLM",
+            "Finantza-hezkuntza orokorra: aurrezkia, aurrekontuak, zorra, inbertsio arduratsua, zergak",
+            "Tutorial praktikoak, kode-demoak, diru-zorroen eta dApp-en gidak",
+            "Sare, diru-zorro edo protokoloen arteko konparazio zintzoak, Stellar-etik kanpokoak barne, konparazioa informatiboa bada",
+            "Iritzi pertsonalak eta analisiak, iritzi gisa argi identifikatuta",
+            "Plataformak onartzen duen edozein hizkuntzatako edukia"
+          ]
+        },
+        {
+          "heading": "2. Beti baztertzen duguna",
+          "body": "Kategoria hauek salbuespenik gabe baztertzen dira, komunitatea arriskuan jartzen dutelako edo ilegalak direlako:",
+          "items": [
+            "Ponzi eskemak, piramide-eskemak, pump and dump, rug pull-ak edo etekin bermatuen promesak",
+            "Ordainpeko trading seinaleak, zenbateko zehatzekin erosteko/saltzeko gomendioak edo finantza-aholkularitza pertsonalizatua",
+            "Phishing-a, airdrop faltsuak, gako pribatuen, seed phrase-en edo egiaztagirien eskaerak, wallet drainer-ak, Freighter / xBull / LOBSTR / SDF / exchange-ak imitatzen dituzten antzeko domeinuak",
+            "Pertsonaia publikoen, proiektuen edo EarnLumens / SDF-ren nortasuna ordeztea edo deepfake-ak — babesa faltsuki iradokitzen duen audio edo bideo sintetizatua barne",
+            "Suizidioaren edo auto-kaltearen gorazarrea, norbere burua zauritzeko metodoak edo jarraibideak, anorexiaren aldeko edo bulimiaren aldeko edukia (hezkuntzazko eta errekuperaziora bideratutako markoa onartzen da)",
+            "Gorroto-diskurtsoa, jazarpena, diskriminazioa edo indarkeriarako bultzada",
+            "Eduki sexual esplizitua, indarkeria grafikoa edo adingabeak barne hartzen dituen materiala",
+            "Argi eta garbi copyright bidez babestutako materiala baimenik gabe (musika, bideoa, liburuak, softwarea)",
+            "Hirugarrenen datu pertsonalak haien baimenik gabe",
+            "Spam nabarmena: zentzurik gabeko izenburuak, masiboki bikoiztutako edukia, pantaila hutsak, giza berrikuspenik gabeko AI edukia"
+          ]
+        },
+        {
+          "heading": "3. Eremu grisa: eskuzko berrikuspenera joan daiteke",
+          "body": "Kasu hauek ez dira automatikoki baztertzen, baina giza moderatzaile batek berrikus ditzake:",
+          "items": [
+            "Kriptomoneta edo token zehatzak aipatzea hezkuntza-testuinguru argirik gabe",
+            "Zure produktu edo zerbitzuak sustatzea babestutako gisa etiketatu gabe",
+            "Iraganeko errendimenduari buruzko baieztapenak egiazta daitekeen iturririk gabe",
+            "Oso eduki laburra edo balioaren ebaluazioa zailtzen duen kalitate tekniko baxua"
+          ]
+        },
+        {
+          "heading": "4. Jardunbide onenak (gomendatuak, ez derrigorrezkoak)",
+          "body": "Hauek ez dira onarpen-baldintzak, baina zure edukia hobeto hartzen laguntzen dute eta moderazio-frikzioa murrizten dute:",
+          "items": [
+            "Erabili izenburu deskriptiboa clickbait engainagarririk gabe",
+            "Aipatu iturriak datuak, estatistikak edo zifrak erabiltzean",
+            "Argitu edukia hezkuntzazkoa dela eta ez finantza-aholkularitza pertsonalizatua",
+            "Aipatu eztabaidatzen duzun aktibo batean posizio esanguratsua baduzu",
+            "Etiketatu babestutako edo afiliatutako edukia",
+            "Stellar diru-zorro, DEX eta tresnetarako, https://stellar.org/ecosystem helbidean zerrendatutakoak nahiago ditugu erreferentzia fidagarri gisa, baina beste batzuk aipa ditzakezu iruzurra sustatzen ez baduzu"
+          ]
+        }
+      ]
+    },
+    "footer": "Gidalerro hauek eguneratu daitezke. Helburua hezkuntza-espazio segurua da: eduki kaltegarria baztertzen dugu, ez ideia desberdinak. Baztertzea bidegabea izan dela uste baduzu, berrikusi eta berriro bidal dezakezu, edo tenant taldeari eskuzko berrikuspena eska diezaiokezu."
+  }
+}

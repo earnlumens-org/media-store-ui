@@ -441,7 +441,8 @@
     "slovenian": "slovensk",
     "latvian": "latvisk",
     "estonian": "estisk",
-    "welsh": "walisisk"
+    "welsh": "walisisk",
+    "basque": "baskisk"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-post må være gyldig",
