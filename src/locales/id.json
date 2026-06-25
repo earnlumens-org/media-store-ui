@@ -380,7 +380,8 @@
     "welsh": "Bahasa Wales",
     "basque": "Bahasa Basque",
     "icelandic": "Bahasa Islandia",
-    "divehi": "Divehi"
+    "divehi": "Divehi",
+    "esperanto": "Esperanto"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email harus valid",

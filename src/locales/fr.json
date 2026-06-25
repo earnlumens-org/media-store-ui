@@ -380,7 +380,8 @@
     "welsh": "gallois",
     "basque": "Basque",
     "icelandic": "islandais",
-    "divehi": "divehi"
+    "divehi": "divehi",
+    "esperanto": "espéranto"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "L’e-mail doit être valide",

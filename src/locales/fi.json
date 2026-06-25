@@ -444,7 +444,8 @@
     "welsh": "kymri",
     "basque": "baski",
     "icelandic": "islanti",
-    "divehi": "divehi"
+    "divehi": "divehi",
+    "esperanto": "esperanto"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Sähköpostin on oltava kelvollinen",

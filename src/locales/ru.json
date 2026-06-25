@@ -380,7 +380,8 @@
     "welsh": "валлийский",
     "basque": "Баскский",
     "icelandic": "исландский",
-    "divehi": "дивехи"
+    "divehi": "дивехи",
+    "esperanto": "эсперанто"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Электронная почта должна быть действительной",

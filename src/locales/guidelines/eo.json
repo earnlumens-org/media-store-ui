@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Enhavaj Gvidlinioj por Kreintoj",
+    "subtitle": "Kion vi povas publikigi en EarnLumens kaj kion ni evitas",
+    "lastUpdated": "Laste ĝisdatigita: {date}",
+    "intro": "EarnLumens estas financ-eduka platformo kun fokuso al la ekosistemo Stellar. Du tavoloj de reguloj validas por ĉio kion vi publikigas: nenegociebla platformvasta tavolo (fraŭdo, damaĝo, kontraŭleĝa enhavo) kiu estas sama en ĉiu tenant, kaj tenant-specifa tavolo kiu dependas de la vendoplaco en kiu vi publikigas.",
+    "platformSection": {
+      "heading": "Platformvastaj reguloj",
+      "body": "Ĉi tiuj reguloj validas por ĉiu tenant en EarnLumens, inkluzive ĉi tiun. Ili ne povas esti mildigitaj de individuaj vendoplacoj kaj ekzistas por teni la komunumon sekura."
+    },
+    "tenantSection": {
+      "heading": "Tenant-specifaj reguloj",
+      "body": "Aldone al la platformaj reguloj supre, ĉiu tenant povas aldoni siajn proprajn publikigajn notojn — ekzemple pri kiuj temoj ĝi fokusiĝas, atendata tono aŭ specifaj formatoj kiujn ĝi akceptas.",
+      "placeholder": "Ĉi tiu tenant ankoraŭ ne aldonis specifajn publikigajn notojn. Nur la platformvastaj reguloj supre validas ĉi tie."
+    },
+    "sanctionsSection": {
+      "heading": "Kiel funkcias sankcioj",
+      "body": "Se vi malobservas la regulojn supre, jen ĝuste kio okazas. La sama ŝtuparo validas en ĉiu tenant — ne ekzistas kaŝitaj punoj."
+    },
+    "forCreators": {
+      "heading": "Por Kreintoj",
+      "sections": [
+        {
+          "heading": "1. Kion vi povas publikigi libere",
+          "body": "La gamo de akcepteblaj temoj estas vasta. Vi ne bezonas permeson aŭ rigidan formaton:",
+          "items": [
+            "Edukado pri la reto Stellar (protokolo, SCP, Soroban, SDK-oj, ankroj, DEX) kaj XLM",
+            "Ĝenerala financa edukado: ŝparado, buĝetado, ŝuldo, respondeca investado, impostoj",
+            "Praktikaj lerniloj, kodaj demonstraĵoj, monujaj kaj dApp-paŝgvidiloj",
+            "Honestaj komparoj inter retoj, monujoj aŭ protokoloj, inkluzive tiujn ekster Stellar, kondiĉe ke la komparo estas informa",
+            "Personaj opinioj kaj analizoj klare identigitaj kiel opinio",
+            "Enhavo en ajna lingvo subtenata de la platformo"
+          ]
+        },
+        {
+          "heading": "2. Kion ni ĉiam malakceptas",
+          "body": "Ĉi tiuj kategorioj estas malakceptataj senescepte ĉar ili riskigas la komunumon aŭ estas kontraŭleĝaj:",
+          "items": [
+            "Ponzi-skemoj, piramidaj skemoj, pump and dump, rug pulls aŭ promesoj de garantiita rendimento",
+            "Pagataj komercaj signaloj, rekomendoj aĉeti/vendi kun specifaj sumoj, aŭ personigita financa konsilo",
+            "Phishing, falsaj airdrops, petoj pri privataj ŝlosiloj, seed phrases aŭ akreditaĵoj, wallet drainers, similaspektaj domajnoj imitante Freighter / xBull / LOBSTR / SDF / exchanges",
+            "Identecimito aŭ deepfakes de publikaj figuroj, projektoj aŭ EarnLumens / SDF — inkluzive sintezitan aŭdion aŭ videon kiu false sugestas subtenon",
+            "Glorado de memmortigo aŭ memdamaĝo, metodoj aŭ instrukcioj por memvundo, pro-anoreksia aŭ pro-bulimia enhavo (eduka kaj resaniĝ-orientita enkadrigo estas permesata)",
+            "Malama parolo, ĉikanado, diskriminacio aŭ instigo al perforto",
+            "Eksplicita seksa enhavo, grafika perforto aŭ materialo implikanta neplenaĝulojn",
+            "Klare kopirajtigita materialo sen rajtigo (muziko, video, libroj, programaro)",
+            "Personaj datumoj de triaj partioj sen ilia konsento",
+            "Evidenta spamo: sensencaj titoloj, amase duobligita enhavo, malplenaj ekranoj, AI-enhavo sen homa revizio"
+          ]
+        },
+        {
+          "heading": "3. Griza zono: povas iri al mana revizio",
+          "body": "Ĉi tiuj kazoj ne estas aŭtomate malakceptataj, sed ili povas esti reviziataj de homa moderiganto:",
+          "items": [
+            "Mencii specifajn kriptovalutojn aŭ tokenojn sen klara eduka kunteksto",
+            "Reklamado de viaj propraj produktoj aŭ servoj sen marki ilin kiel sponsoritajn",
+            "Asertoj pri pasinta rendimento sen kontrolebla fonto",
+            "Tre mallonga enhavo aŭ malalta teknika kvalito kiu malfaciligas taksi ĝian valoron"
+          ]
+        },
+        {
+          "heading": "4. Plej bonaj praktikoj (rekomenditaj, ne devigaj)",
+          "body": "Ĉi tiuj ne estas aprobo-postuloj, sed ili helpas vian enhavon esti pli bone ricevita kaj reduktas moderigan frikcion:",
+          "items": [
+            "Uzu priskriban titolon sen misgvida clickbait",
+            "Citu fontojn kiam vi uzas datumojn, statistikojn aŭ ciferojn",
+            "Klarigu ke la enhavo estas eduka kaj ne personigita financa konsilo",
+            "Menciu tion se vi tenas signifan pozicion en aktivo kiun vi diskutas",
+            "Marku sponsoritan aŭ filian enhavon",
+            "Por Stellar-monujoj, DEX-oj kaj iloj, ni preferas tiujn listigitajn ĉe https://stellar.org/ecosystem kiel fidindan referencon, sed vi povas mencii aliajn kondiĉe ke vi ne reklamas fraŭdon"
+          ]
+        }
+      ]
+    },
+    "footer": "Ĉi tiuj gvidlinioj povas esti ĝisdatigitaj. La celo estas sekura eduka spaco: ni malakceptas damaĝan enhavon, ne malsamajn ideojn. Se vi kredas ke malakcepto estis maljusta, vi povas revizii kaj resendi, aŭ peti manan revizion de la tenant-teamo."
+  }
+}

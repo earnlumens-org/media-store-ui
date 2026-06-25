@@ -94,6 +94,7 @@
           <v-radio :label="`euskara (${$t('Language.basque')})`" value="eu" />
           <v-radio :label="`íslenska (${$t('Language.icelandic')})`" value="is" />
           <v-radio :label="`ދިވެހި (${$t('Language.divehi')})`" value="dv" />
+          <v-radio :label="`Esperanto (${$t('Language.esperanto')})`" value="eo" />
         </v-radio-group>
       </v-card-text>
 

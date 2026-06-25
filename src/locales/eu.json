@@ -444,7 +444,8 @@
     "welsh": "galesa",
     "basque": "euskara",
     "icelandic": "islandiera",
-    "divehi": "divehi"
+    "divehi": "divehi",
+    "esperanto": "esperanto"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Posta elektronikoak baliozkoa izan behar du",
