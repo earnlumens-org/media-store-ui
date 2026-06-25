@@ -439,7 +439,8 @@
     "georgian": "վրացերեն",
     "lithuanian": "լիտվերեն",
     "slovenian": "սլովեներեն",
-    "latvian": "լատվիերեն"
+    "latvian": "լատվիերեն",
+    "estonian": "էստոներեն"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Էլփոստը պետք է վավեր լինի",

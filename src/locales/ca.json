@@ -439,7 +439,8 @@
     "georgian": "georgià",
     "lithuanian": "lituà",
     "slovenian": "eslovè",
-    "latvian": "letó"
+    "latvian": "letó",
+    "estonian": "estonià"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El correu electrònic ha de ser vàlid",

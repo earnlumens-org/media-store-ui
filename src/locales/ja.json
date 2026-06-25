@@ -375,7 +375,8 @@
     "georgian": "ジョージア語",
     "lithuanian": "リトアニア語",
     "slovenian": "スロベニア語",
-    "latvian": "ラトビア語"
+    "latvian": "ラトビア語",
+    "estonian": "エストニア語"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "メールが有効である必要があります",

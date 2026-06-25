@@ -439,7 +439,8 @@
     "georgian": "georgia",
     "lithuanian": "liettua",
     "slovenian": "sloveeni",
-    "latvian": "latvia"
+    "latvian": "latvia",
+    "estonian": "viro"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Sähköpostin on oltava kelvollinen",

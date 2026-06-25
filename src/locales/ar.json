@@ -375,7 +375,8 @@
     "georgian": "الجورجية",
     "lithuanian": "الليتوانية",
     "slovenian": "السلوفينية",
-    "latvian": "اللاتفية"
+    "latvian": "اللاتفية",
+    "estonian": "الإستونية"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "يجب أن يكون البريد الإلكتروني صالحًا",

@@ -439,7 +439,8 @@
     "georgian": "jòjyen",
     "lithuanian": "Lityanyen",
     "slovenian": "slovèn",
-    "latvian": "leton"
+    "latvian": "leton",
+    "estonian": "estonyen"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Imèl dwe valab",

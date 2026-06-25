@@ -375,7 +375,8 @@
     "georgian": "जॉर्जियाई",
     "lithuanian": "लिथुआनियाई",
     "slovenian": "स्लोवेनियाई",
-    "latvian": "लातवियाई"
+    "latvian": "लातवियाई",
+    "estonian": "एस्टोनियाई"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ईमेल मान्य होना चाहिए",

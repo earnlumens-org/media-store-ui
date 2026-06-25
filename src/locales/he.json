@@ -439,7 +439,8 @@
     "georgian": "גאורגית",
     "lithuanian": "ליטאית",
     "slovenian": "סלובנית",
-    "latvian": "לטבית"
+    "latvian": "לטבית",
+    "estonian": "אסטונית"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "הדוא״ל חייב להיות תקין",

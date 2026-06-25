@@ -375,7 +375,8 @@
     "georgian": "Georgian",
     "lithuanian": "Litwano",
     "slovenian": "Slovenian",
-    "latvian": "Latvian"
+    "latvian": "Latvian",
+    "estonian": "Estonian"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Ang email ay dapat na wasto",

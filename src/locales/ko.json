@@ -375,7 +375,8 @@
     "georgian": "조지아어",
     "lithuanian": "리투아니아어",
     "slovenian": "슬로베니아어",
-    "latvian": "라트비아어"
+    "latvian": "라트비아어",
+    "estonian": "에스토니아어"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "유효한 이메일이어야 합니다",

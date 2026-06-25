@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Sisujuhised loojatele",
+    "subtitle": "Mida saad EarnLumensis avaldada ja mida me väldime",
+    "lastUpdated": "Viimati uuendatud: {date}",
+    "intro": "EarnLumens on finantshariduse platvorm, mis keskendub Stellar ökosüsteemile. Kõigile, mida avaldate, kehtivad kaks reeglite taset: mittekaubeldav kogu platvormi hõlmav kiht (pettus, kahju, ebaseaduslik sisu), mis on igal rentnikul sama, ja rentnikupõhine kiht, mis sõltub turust, kus avaldate.",
+    "platformSection": {
+      "heading": "Platvormi hõlmavad reeglid",
+      "body": "Need reeglid kehtivad iga EarnLumens üürniku kohta, kaasa arvatud see. Üksikud turuplatsid ei saa neid leevendada ja need eksisteerivad kogukonna turvalisuse tagamiseks."
+    },
+    "tenantSection": {
+      "heading": "Üürnikupõhised reeglid",
+      "body": "Lisaks ülaltoodud platvormireeglitele võib iga rentnik lisada oma avaldamismärkused – näiteks millistele teemadele ta keskendub, eeldatava tooni või kindlad vormingud, mida ta aktsepteerib.",
+      "placeholder": "See rentnik pole veel konkreetseid avaldamismärkmeid lisanud. Siin kehtivad ainult ülaltoodud kogu platvormi hõlmavad reeglid."
+    },
+    "sanctionsSection": {
+      "heading": "Kuidas sanktsioonid toimivad",
+      "body": "Kui rikute ülaltoodud reegleid, juhtub see täpselt nii. Iga üürniku puhul kehtib sama redel – varjatud karistusi pole."
+    },
+    "forCreators": {
+      "heading": "Loojatele",
+      "sections": [
+        {
+          "heading": "1. Mida saab vabalt avaldada",
+          "body": "Vastuvõetavate teemade valik on lai. Te ei vaja luba ega jäika vormingut:",
+          "items": [
+            "Haridus võrgu Stellar (protokoll, SCP, Soroban, SDK-d, ankrud, DEX) ja XLM kohta",
+            "Üldine finantsharidus: säästmine, eelarve koostamine, võlgnevus, vastutustundlik investeerimine, maksud",
+            "Praktilised õpetused, koodidemod, rahakott ja dApp tutvustused",
+            "Võrkude, rahakottide või protokollide, sealhulgas väljaspool Stellar asuvate protokollide ausad võrdlused, kui võrdlus on informatiivne",
+            "Isiklikud arvamused ja analüüs on selgelt määratletud arvamusena",
+            "Sisu mis tahes keeles, mida platvorm toetab"
+          ]
+        },
+        {
+          "heading": "2. Mida me alati tagasi lükkame",
+          "body": "Need kategooriad lükatakse eranditult tagasi, kuna need seavad kogukonna ohtu või on ebaseaduslikud:",
+          "items": [
+            "Ponzi skeemid, püramiidskeemid, pump ja tühjendamine, vaibatõmbed või garanteeritud tulu lubadused",
+            "Tasulised kauplemissignaalid, konkreetsete summadega ostu-/müügisoovitused või isikupärastatud finantsnõustamine",
+            "Andmepüük, võltsitud lennud, privaatvõtmete, algfraaside või mandaatide taotlused, rahakoti tühjendamine, sarnased domeenid, mis jäljendavad Freighter / xBull / LOBSTR / SDF / vahetusi",
+            "Avaliku elu tegelaste, projektide või EarnLumens / SDF kellegi teisena esinemine või võltsimised – sealhulgas sünteesitud heli või video, mis viitab ekslikult toetusele",
+            "Enesetapu või enesevigastamise ülistamine, enesevigastamise meetodid või juhised, anoreksiat või buliimiat soodustav sisu (hariduslik ja taastumisele suunatud raamimine on lubatud)",
+            "Viha õhutamine, ahistamine, diskrimineerimine või vägivallale õhutamine",
+            "Selge seksuaalne sisu, graafiline vägivald või materjal, mis hõlmab alaealisi",
+            "Ilmselgelt autoriõigustega kaitstud materjal ilma loata (muusika, videod, raamatud, tarkvara)",
+            "Kolmandate isikute isikuandmed ilma nende nõusolekuta",
+            "Ilmne rämpspost: mõttetud pealkirjad, massiliselt paljundatud sisu, tühjad ekraanid, tehisintellekti sisu ilma inimese kontrollita"
+          ]
+        },
+        {
+          "heading": "3. Hall ala: võib minna käsitsi ülevaatusse",
+          "body": "Neid juhtumeid ei lükata automaatselt tagasi, kuid moderaator võib need üle vaadata.",
+          "items": [
+            "Konkreetsete krüptovaluutade või žetoonide mainimine ilma selge haridusliku kontekstita",
+            "Reklaamige oma tooteid või teenuseid ilma neid sponsoreerituks märgistamata",
+            "Väited varasema toimivuse kohta ilma kontrollitava allikata",
+            "Väga lühike sisu või madal tehniline kvaliteet, mistõttu on selle väärtust raske hinnata"
+          ]
+        },
+        {
+          "heading": "4. Parimad tavad (soovitatav, mitte nõutav)",
+          "body": "Need ei ole kinnitusnõuded, kuid aitavad teie sisu paremini vastu võtta ja vähendavad modereerimise hõõrdumist.",
+          "items": [
+            "Kasutage kirjeldavat pealkirja ilma eksitava klikipeibutusviisita",
+            "Andmete, statistika või arvude kasutamisel viidake allikatele",
+            "Täpsustage, et sisu on hariv, mitte isikupärastatud finantsnõustamine",
+            "Mainige seda, kui teil on arutatavas vara osas oluline positsioon",
+            "Märgistage sponsoreeritud või sidusettevõtte sisu",
+            "Stellar, DEX ja tööriistade puhul eelistame usaldusväärse viitena neid, mis on loetletud https://stellar.org/ecosystems, kuid võite mainida ka teisi, kui te ei propageeri pettust."
+          ]
+        }
+      ]
+    },
+    "footer": "Neid juhiseid võidakse ajakohastada. Eesmärk on turvaline haridusruum: me lükkame tagasi kahjuliku sisu, mitte erinevaid ideid. Kui arvate, et tagasilükkamine oli ebaõiglane, saate üle vaadata ja uuesti esitada või taotleda üürnike meeskonnalt käsitsi ülevaatamist."
+  }
+}

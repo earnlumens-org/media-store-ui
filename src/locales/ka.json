@@ -439,7 +439,8 @@
     "georgian": "ქართული",
     "lithuanian": "ლიტვური",
     "slovenian": "სლოვენური",
-    "latvian": "ლატვიური"
+    "latvian": "ლატვიური",
+    "estonian": "ესტონური"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ელფოსტა უნდა იყოს მოქმედი",

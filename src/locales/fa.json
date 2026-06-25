@@ -375,7 +375,8 @@
     "georgian": "گرجی",
     "lithuanian": "لیتوانیایی",
     "slovenian": "اسلوونیایی",
-    "latvian": "لتونیایی"
+    "latvian": "لتونیایی",
+    "estonian": "استونیایی"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ایمیل باید معتبر باشد",

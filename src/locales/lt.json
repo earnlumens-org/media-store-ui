@@ -439,7 +439,8 @@
     "georgian": "gruzinų",
     "lithuanian": "lietuvių",
     "slovenian": "slovėnų",
-    "latvian": "latvių"
+    "latvian": "latvių",
+    "estonian": "estų"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El. paštas turi būti galiojantis",

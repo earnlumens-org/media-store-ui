@@ -375,7 +375,8 @@
     "georgian": "Gürcüce",
     "lithuanian": "Litvanca",
     "slovenian": "Slovence",
-    "latvian": "Letonca"
+    "latvian": "Letonca",
+    "estonian": "Estonca"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-posta geçerli olmalıdır",

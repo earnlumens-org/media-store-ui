@@ -375,7 +375,8 @@
     "georgian": "Bahasa Georgia",
     "lithuanian": "Bahasa Lithuania",
     "slovenian": "Slovenia",
-    "latvian": "Latvia"
+    "latvian": "Latvia",
+    "estonian": "Estonia"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mel mestilah sah",

@@ -439,7 +439,8 @@
     "georgian": "γεωργιανά",
     "lithuanian": "Λιθουανικά",
     "slovenian": "σλοβενικά",
-    "latvian": "Λετονικά"
+    "latvian": "Λετονικά",
+    "estonian": "Εσθονικά"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Το email πρέπει να είναι έγκυρο",

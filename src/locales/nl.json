@@ -375,7 +375,8 @@
     "georgian": "Georgisch",
     "lithuanian": "Litouws",
     "slovenian": "Sloveens",
-    "latvian": "Lets"
+    "latvian": "Lets",
+    "estonian": "Estisch"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail moet geldig zijn",

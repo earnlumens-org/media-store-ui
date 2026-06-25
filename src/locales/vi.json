@@ -375,7 +375,8 @@
     "georgian": "tiếng Gruzia",
     "lithuanian": "tiếng Litva",
     "slovenian": "tiếng Slovenia",
-    "latvian": "tiếng Latvia"
+    "latvian": "tiếng Latvia",
+    "estonian": "tiếng Estonia"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Email phải hợp lệ",

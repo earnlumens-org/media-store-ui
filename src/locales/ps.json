@@ -375,7 +375,8 @@
     "georgian": "ګورجي",
     "lithuanian": "لېتوانيايي",
     "slovenian": "سلووینیايي",
-    "latvian": "لاتویايي"
+    "latvian": "لاتویايي",
+    "estonian": "اېستونیايي"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "بریښنالیک باید د اعتبار وړ وي",

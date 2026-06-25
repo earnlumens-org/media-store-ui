@@ -439,7 +439,8 @@
     "georgian": "ຈໍເຈຍ",
     "lithuanian": "ລິທົວເນຍ",
     "slovenian": "ສະໂລເວນຽນ",
-    "latvian": "ລັດເວຍ"
+    "latvian": "ລັດເວຍ",
+    "estonian": "ເອສໂຕນຽນ"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "ອີເມວຕ້ອງຖືກຕ້ອງ",

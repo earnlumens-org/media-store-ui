@@ -1,0 +1,81 @@
+{
+    "Legal": {
+        "termsTitle": "Tingimused",
+        "privacyTitle": "Privaatsuspoliitika",
+        "lastUpdated": "Viimati uuendatud: {date}",
+        "terms": {
+            "intro": "Tere tulemast EarnLumensisse. Meie platvormile juurde pääsedes või seda kasutades nõustud olema seotud nende tingimustega.",
+            "sections": [
+                {
+                    "heading": "1. Tingimustega nõustumine",
+                    "body": "Konto loomisega või EarnLumens platvormi mis tahes osa kasutamisega kinnitate, et olete need tingimused ja meie privaatsuspoliitika läbi lugenud, neist aru saanud ja nõustute nendega. Kui te ei nõustu, ei tohi te platvormi kasutada."
+                },
+                {
+                    "heading": "2. Teenuse kirjeldus",
+                    "body": "EarnLumens on Stellar võrgule ehitatud mitme rentniku sisuplatvorm. Peamine rentnik on praegu keskendunud finantsharidusele ja platvorm võimaldab kinnitusmandaatide kaudu uusi eksemplare teistele vertikaalidele. Sisuloojad saavad avaldada sisu (videoid, heli, pilte ja ressursse) ning määrata hindu XLM (Stellar luumenites). Kasutajad saavad seda sisu osta, vaadata ja sellega suhelda."
+                },
+                {
+                    "heading": "3. Konto registreerimine",
+                    "body": "Konto loomisel peate esitama täpse ja täieliku teabe. Vastutate oma mandaatide konfidentsiaalsuse säilitamise ja kõigi teie kontoga seotud tegevuste eest. Peate meid viivitamatult teavitama igasugusest volitamata kasutamisest."
+                },
+                {
+                    "heading": "4. Sisu ja intellektuaalomand",
+                    "body": "Sisuloojad säilitavad EarnLumenss avaldatava sisu omandiõiguse. Avaldamisega annavad loojad EarnLumens mitteeksklusiivse ülemaailmse litsentsi sisu kuvamiseks, levitamiseks ja reklaamimiseks platvormil. Kasutajad ei tohi ostetud sisu reprodutseerida, edasi levitada ega edasi müüa ilma looja selgesõnalise loata."
+                },
+                {
+                    "heading": "5. Maksed ja tehingud",
+                    "body": "EarnLumens kaudu tehtud maksed kujutavad endast otseseid, eksklusiivseid ja sõltumatuid tehinguid ostja ja looja vahel, mis tehakse XLM abil Stellar võrgus. EarnLumens toimib üksnes avaldamise ja tehnilise vahendamise tehnoloogilise platvormina ega sekku kasutajatevaheliste tehingute müüja, ostja, agendi, halduri, inkassoagendi, usaldusisiku ega käendajana. Hinnad määravad ainult sisuloojad ja EarnLumens võib kohaldada kohaldatavaid platvormitasusid. Kui kohaldatav seadus ei sätesta sõnaselgelt teisiti, on kõik müügid lõplikud, tühistamatud ja tagastamatud. Kui EarnLumens tuvastab pettuse, kuritarvitamise, rikkumise või muu ebaseadusliku või käesolevate tingimustega vastuolus oleva käitumise, saab selle kohta teateid või kahtlustab neid põhjendatult, võib ta ajutiselt või lõplikult peatada, piirata või tühistada asjaomase sisulooja konto ning võtta kasutusele kõik sisemised meetmed, mida ta peab mõistlikuks. Vaatamata eeltoodule ei võta EarnLumens endale kohustust sekkuda kasutajatevahelistesse vaidlustesse ega garanteeri mingil juhul tehingute tühistamist, varade tagasinõudmist ega ülekantud raha tagastamist, tagastamist või tagasimaksmist. Kasutaja tunnistab ja nõustub sõnaselgelt plokiahela tehingutega kaasnevaid riske, sealhulgas nende potentsiaalselt pöördumatut olemust, samuti ainuvastutust võrgutasude, aadressivigade, saadetud summade või ostuotsuste eest."
+                },
+                {
+                    "heading": "6. Keelatud käitumine",
+                    "body": "Nõustute mitte: (a) laadima üles kahjulikku, ebaseaduslikku või õigusi rikkuvat sisu; (b) esineda teistena; (c) katse platvormi ära kasutada või häirida; d) kasutada automaatseid tööriistu platvormile ilma loata kraapimiseks või sellele juurde pääsemiseks; (e) osaleda mis tahes tegevuses, mis rikub kohaldatavaid seadusi või eeskirju."
+                },
+                {
+                    "heading": "7. Lõpetamine",
+                    "body": "Jätame endale õiguse teie konto igal ajal peatada või lõpetada, kui te neid tingimusi rikute. Lõpetamisel teie õigus platvormi kasutada lakkab viivitamatult, kuid sätted, mis oma olemuselt peaksid kehtima, jäävad kehtima."
+                },
+                {
+                    "heading": "8. Vastutusest loobumine",
+                    "body": "Platvormi pakutakse \"nagu on\" ja \"nagu saadaval\" ilma igasuguste garantiideta. EarnLumens ei garanteeri loojate avaldatud sisu täpsust, täielikkust ega kasulikkust. Me ei vastuta Stellar võrgutehingutest tulenevate kahjude eest."
+                },
+                {
+                    "heading": "9. Vastutuse piirang",
+                    "body": "Kohaldatavate seadustega lubatud maksimaalses ulatuses ei vastuta EarnLumens, selle sidusettevõtted, direktorid, töötajad, töövõtjad ja esindajad mis tahes otseste, kaudsete, juhuslike, eriliste, kaudsete, eeskujulike, karistuslike ega muude kahjude eest, mis tulenevad või on seotud platvormi kasutamisest või võimetusest kasutada, kasutajatevahelistest tehingutest, kolmandate osapoolte petturlikust käitumisest, kolmandate isikute avaldatud pettusest või loojatest. ootuste, andmete kadumise, võimaluse kaotamise, saamata jäänud kasumi, maine, klientuuri või plokiahela tehingutest tulenevate kahjude või kahjude eest, sealhulgas selliste, mis on pöördumatud. Eelkõige ei vastuta EarnLumens sisu edastamata jätmise või sisuloojate pakutava sisu kvaliteedi, seaduslikkuse, autentsuse, täpsuse või kasulikkuse eest ega tagastamise, võimatute tagasimaksete, kasutajatevaheliste nõuete või raha kadumise eest. Igal juhul, kui vaatamata eeltoodule on EarnLumens mis tahes vastutus juriidiliselt kindlaks määratud, piirdub see vastutus summaga, mille EarnLumens platvormitasuna tegelikult sai konkreetses tehingus, mis nõude esitas."
+                },
+                {
+                    "heading": "10. Tingimuste muudatused",
+                    "body": "Võime neid tingimusi igal ajal värskendada. Püüame kasutajaid platvormi kaudu olulistest muudatustest teavitada, kuid teie kohustus on tingimused perioodiliselt üle vaadata. Teie jätkuv kasutamine pärast muudatusi tähendab muudetud tingimustega nõustumist."
+                },
+                {
+                    "heading": "11. Kontakt",
+                    "body": "Nende tingimuste kohta küsimuste korral võtke meiega ühendust aadressil legal{'@'}earnlumens.org."
+                }
+            ]
+        },
+        "privacy": {
+            "intro": "See privaatsuspoliitika kirjeldab, kuidas EarnLumens teie isikuandmeid kogub, kasutab ja kaitseb.",
+            "sections": [
+                {
+                    "heading": "1. Kogutav teave",
+                    "body": "Kogume teie poolt otse edastatavat teavet (konto üksikasjad, profiiliteave) ja platvormi kasutamise kaudu loodud teavet (tehinguajalugu, vaatamistegevus, seadme teave)."
+                },
+                {
+                    "heading": "2. Kuidas me teie teavet kasutame",
+                    "body": "Kasutame teie teavet: teenuste osutamiseks ja täiustamiseks, tehingute töötlemiseks, teiega suhtlemiseks, platvormi turvalisuse tagamiseks ja juriidiliste kohustuste täitmiseks."
+                },
+                {
+                    "heading": "3. Andmete jagamine",
+                    "body": "Me ei müü teie isikuandmeid. Võime jagada andmeid teenusepakkujatega, kes aitavad platvormi kasutada, või siis, kui seadus seda nõuab."
+                },
+                {
+                    "heading": "4. Andmete turvalisus",
+                    "body": "Rakendame teie andmete kaitsmiseks äriliselt mõistlikke turvameetmeid. Ükski Interneti kaudu edastamise viis pole aga 100% turvaline ja me ei saa garanteerida absoluutset turvalisust."
+                },
+                {
+                    "heading": "5. Teie õigused",
+                    "body": "Saate oma isikuandmetele juurde pääseda, neid parandada või nõuda nende kustutamist, võttes meiega ühendust. Teeme mõistlikud jõupingutused teie taotluse lahendamiseks mõistliku aja jooksul."
+                }
+            ]
+        }
+    }
+}

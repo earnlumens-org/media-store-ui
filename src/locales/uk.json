@@ -375,7 +375,8 @@
     "georgian": "грузинська",
     "lithuanian": "литовська",
     "slovenian": "словенська",
-    "latvian": "латиська"
+    "latvian": "латиська",
+    "estonian": "естонська"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Електронна пошта повинна бути дійсною",

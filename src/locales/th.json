@@ -375,7 +375,8 @@
     "georgian": "จอร์เจีย",
     "lithuanian": "ลิทัวเนีย",
     "slovenian": "สโลวีเนีย",
-    "latvian": "ลัตเวีย"
+    "latvian": "ลัตเวีย",
+    "estonian": "เอสโตเนีย"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "อีเมลต้องถูกต้อง",
