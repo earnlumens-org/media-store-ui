@@ -442,7 +442,8 @@
     "latvian": "latvisk",
     "estonian": "estisk",
     "welsh": "walisisk",
-    "basque": "baskisk"
+    "basque": "baskisk",
+    "icelandic": "islandsk"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-post må være gyldig",

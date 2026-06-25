@@ -442,7 +442,8 @@
     "latvian": "lotyština",
     "estonian": "estonština",
     "welsh": "velština",
-    "basque": "baskičtina"
+    "basque": "baskičtina",
+    "icelandic": "islandština"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "E-mail musí být platný",

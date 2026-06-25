@@ -442,7 +442,8 @@
     "latvian": "latvia",
     "estonian": "viro",
     "welsh": "kymri",
-    "basque": "baski"
+    "basque": "baski",
+    "icelandic": "islanti"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Sähköpostin on oltava kelvollinen",

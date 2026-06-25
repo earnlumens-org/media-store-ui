@@ -1,0 +1,77 @@
+{
+  "Guidelines": {
+    "title": "Efnisreglur fyrir höfunda",
+    "subtitle": "Hvað þú mátt birta á EarnLumens og hvað við forðumst",
+    "lastUpdated": "Síðast uppfært: {date}",
+    "intro": "EarnLumens er fjármálafræðsluvettvangur með áherslu á Stellar vistkerfið. Tvö lög reglna gilda um allt sem þú birtir: ófrávíkjanlegt lag sem gildir um allan vettvanginn (svik, skaði, ólöglegt efni) og er það sama hjá öllum leigjendum, og sértækt lag fyrir hvern leigjanda sem fer eftir markaðstorginu þar sem þú birtir efnið.",
+    "platformSection": {
+      "heading": "Reglur fyrir allan vettvanginn",
+      "body": "Þessar reglur gilda um alla leigjendur á EarnLumens, þar á meðal þennan. Einstök markaðstorg geta ekki slakað á þeim og þær eru til staðar til að halda samfélaginu öruggu."
+    },
+    "tenantSection": {
+      "heading": "Reglur sérstakar fyrir leigjanda",
+      "body": "Til viðbótar við vettvangsreglurnar hér að ofan getur hver leigjandi bætt við eigin birtingarleiðbeiningum — til dæmis hvaða efni hann leggur áherslu á, hvaða tónn er væntanlegur eða hvaða snið hann samþykkir.",
+      "placeholder": "Þessi leigjandi hefur ekki enn bætt við sértækum birtingarleiðbeiningum. Hér gilda aðeins vettvangsreglurnar hér að ofan."
+    },
+    "sanctionsSection": {
+      "heading": "Hvernig viðurlög virka",
+      "body": "Ef þú brýtur reglurnar hér að ofan er þetta nákvæmlega það sem gerist. Sami stiginn gildir hjá öllum leigjendum — engar faldar refsingar eru til staðar."
+    },
+    "forCreators": {
+      "heading": "Fyrir höfunda",
+      "sections": [
+        {
+          "heading": "1. Það sem þú mátt birta frjálst",
+          "body": "Svið samþykktra viðfangsefna er vítt. Þú þarft hvorki leyfi né stíft snið:",
+          "items": [
+            "Fræðslu um Stellar netið (protocol, SCP, Soroban, SDKs, anchors, DEX) og XLM",
+            "Almenna fjármálafræðslu: sparnað, fjárhagsáætlanir, skuldir, ábyrgar fjárfestingar, skatta",
+            "Hagnýtar kennslur, kóðasýningar, leiðbeiningar um veski og dApp",
+            "Heiðarlegan samanburð á netum, veskjum eða protocol, þar á meðal utan Stellar, svo framarlega sem samanburðurinn er upplýsandi",
+            "Persónulegar skoðanir og greiningu sem eru skýrt merktar sem skoðun",
+            "Efni á hvaða tungumáli sem vettvangurinn styður"
+          ]
+        },
+        {
+          "heading": "2. Það sem við höfnum alltaf",
+          "body": "Þessum flokkum er hafnað án undantekninga vegna þess að þeir setja samfélagið í hættu eða eru ólöglegir:",
+          "items": [
+            "Ponzi kerfi, pýramídakerfi, pump and dump, rug pulls eða loforð um tryggða ávöxtun",
+            "Greidd viðskiptamerki, kaup-/söluráðleggingar með tilteknum fjárhæðum eða persónubundin fjármálaráðgjöf",
+            "Phishing, fölsk airdrops, beiðnir um einkalykla, seed phrases eða aðgangsupplýsingar, wallet drainers, lík lén sem herma eftir Freighter / xBull / LOBSTR / SDF / exchanges",
+            "Persónustuld eða deepfakes af opinberum persónum, verkefnum eða EarnLumens / SDF — þar á meðal tilbúið hljóð eða myndband sem gefur ranglega til kynna meðmæli",
+            "Upphafningu sjálfsvígs eða sjálfsskaða, aðferðir eða leiðbeiningar um sjálfsskaða, pro-anorexia eða pro-bulimia efni (fræðandi og bata-miðuð framsetning er leyfð)",
+            "Hatursorðræðu, áreitni, mismunun eða hvatningu til ofbeldis",
+            "Skýrt kynferðislegt efni, myndrænt ofbeldi eða efni sem varðar börn",
+            "Augljóslega höfundarréttarvarið efni án heimildar (tónlist, myndbönd, bækur, hugbúnað)",
+            "Persónuupplýsingar þriðju aðila án samþykkis þeirra",
+            "Augljóst ruslefni: merkingarlausa titla, fjöldaafritað efni, tóma skjái, AI efni án mannlegrar yfirferðar"
+          ]
+        },
+        {
+          "heading": "3. Grátt svæði: getur farið í handvirka yfirferð",
+          "body": "Þessum tilvikum er ekki hafnað sjálfkrafa, en þau geta verið yfirfarin af mannlegum eftirlitsaðila:",
+          "items": [
+            "Að nefna tilteknar rafmyntir eða tokens án skýrs fræðslusamhengis",
+            "Kynning á eigin vörum eða þjónustu án þess að merkja hana sem kostað efni",
+            "Fullyrðingar um fyrri árangur án sannreynanlegrar heimildar",
+            "Mjög stutt efni eða lítil tæknileg gæði sem gera erfitt að meta virði þess"
+          ]
+        },
+        {
+          "heading": "4. Bestu venjur (mælt með, ekki skylda)",
+          "body": "Þetta eru ekki samþykkiskröfur, en þær hjálpa efninu þínu að fá betri viðtökur og draga úr núningi í yfirferð:",
+          "items": [
+            "Notaðu lýsandi titil án villandi clickbait",
+            "Vísaðu í heimildir þegar þú notar gögn, tölfræði eða tölur",
+            "Gerðu skýrt að efnið sé fræðandi og ekki persónubundin fjármálaráðgjöf",
+            "Nefndu það ef þú átt verulega stöðu í eign sem þú fjallar um",
+            "Merktu kostað efni eða affiliate efni",
+            "Fyrir Stellar veski, DEXs og verkfæri kjósum við þau sem eru talin upp á https://stellar.org/ecosystem sem áreiðanlega viðmiðun, en þú mátt nefna önnur svo framarlega sem þú ert ekki að kynna svik"
+          ]
+        }
+      ]
+    },
+    "footer": "Þessar reglur kunna að vera uppfærðar. Markmiðið er öruggt fræðslurými: við höfnum skaðlegu efni, ekki ólíkum hugmyndum. Ef þú telur að höfnun hafi verið ósanngjörn geturðu endurskoðað og sent inn aftur, eða óskað eftir handvirkri yfirferð hjá teymi leigjandans."
+  }
+}

@@ -442,7 +442,8 @@
     "latvian": "летонски",
     "estonian": "естонски",
     "welsh": "велшки",
-    "basque": "баскијски"
+    "basque": "баскијски",
+    "icelandic": "исландски"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Е-пошта мора бити важећа",

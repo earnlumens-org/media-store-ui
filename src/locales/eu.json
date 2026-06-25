@@ -442,7 +442,8 @@
     "latvian": "letoniera",
     "estonian": "estoniera",
     "welsh": "galesa",
-    "basque": "euskara"
+    "basque": "euskara",
+    "icelandic": "islandiera"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "Posta elektronikoak baliozkoa izan behar du",

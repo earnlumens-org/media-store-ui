@@ -442,7 +442,8 @@
     "latvian": "letón",
     "estonian": "estonio",
     "welsh": "galés",
-    "basque": "Vasco"
+    "basque": "Vasco",
+    "icelandic": "islandés"
   },
   "CxLoginDialog": {
     "emailMostBeValid": "El correo electrónico debe ser válido",
