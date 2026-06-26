@@ -31,7 +31,7 @@
             {{ $t("Common.welcome") }}
           </v-chip>
 
-          <h1 class="title-hero mb-6">
+          <h1 class="title-hero mb-6" :class="{ 'title-hero--ready': fontsReady }">
             EARNLUMENS
           </h1>
 
@@ -92,7 +92,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { onMounted, ref } from 'vue'
   import { useDisplay } from 'vuetify'
 
   import fireLogoImg from '@/assets/fire.svg'
@@ -102,6 +102,29 @@
 
   const fireLogo = ref(fireLogoImg)
   const showVerification = ref(false)
+
+  // The title renders at font-weight 900. Until the real Roboto Black face is
+  // loaded the browser paints a faux-bold fallback whose glyph widths differ,
+  // so a plain reveal would still show a swap. Keep the title invisible (its
+  // box stays reserved, so nothing below shifts) until the 900 face is ready,
+  // then fade it in — the user only ever sees the final Roboto Black. A short
+  // safety cap guarantees the title is never hidden for long on slow networks.
+  const fontsReady = ref(false)
+  onMounted(() => {
+    const fonts = (document as Document & { fonts?: FontFaceSet }).fonts
+    if (!fonts?.load) {
+      fontsReady.value = true
+      return
+    }
+    let settled = false
+    const reveal = () => {
+      if (settled) return
+      settled = true
+      fontsReady.value = true
+    }
+    fonts.load('900 1rem "Roboto"').then(reveal).catch(reveal)
+    setTimeout(reveal, 1200)
+  })
 </script>
 
 <style scoped>
@@ -110,6 +133,14 @@
   line-height: 1.05;
   font-weight: 900;
   letter-spacing: -0.02em;
+  /* Hidden until the Roboto Black face is loaded (see fontsReady), keeping its
+     box reserved so the fade-in introduces no layout shift. */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.title-hero--ready {
+  opacity: 1;
 }
 
 @media (min-width: 960px) {
