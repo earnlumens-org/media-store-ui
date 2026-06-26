@@ -12,6 +12,10 @@ import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
+// 900 (Black) is used by the home hero title (.title-hero). Load the real
+// face so the browser doesn't synthesize a faux-bold from 700, whose metrics
+// differ and cause a visible reflow once Roboto swaps in.
+import '@fontsource/roboto/900.css'
 
 import 'vuetify/styles'
 

@@ -5,6 +5,35 @@
  */
 
 /**
+ * Zero-layout-shift web-font swap.
+ *
+ * The UI font is Roboto, loaded async via @fontsource (font-display: swap).
+ * Before it arrives the browser paints with the generic `sans-serif`, whose
+ * metrics differ from Roboto — so when Roboto swaps in the text reflows and
+ * resizes (most visibly the home hero title "EARNLUMENS"), which looks
+ * unprofessional on every refresh.
+ *
+ * Fix per web.dev/CLS best practices: a metric-compatible fallback face
+ * ("Roboto Fallback") backed by a local system font (Arial / Liberation Sans),
+ * with ascent/descent/line-gap/size-adjust overrides tuned to Roboto so the
+ * fallback occupies *exactly* the same space. The swap then becomes invisible
+ * (no jump, no resize). Values mirror the ones Next.js' next/font generates
+ * for Roboto. Inserted between Roboto and the generic in the family stack.
+ */
+@font-face {
+  font-family: 'Roboto Fallback';
+  src: local('Arial'), local('Liberation Sans');
+  ascent-override: 92.77%;
+  descent-override: 24.41%;
+  line-gap-override: 0%;
+  size-adjust: 100.32%;
+}
+
+.v-application {
+  font-family: 'Roboto', 'Roboto Fallback', sans-serif;
+}
+
+/**
  * Stellar Wallets Kit modal z-index override.
  *
  * SWK defaults to z-index: 999 (Tailwind z-[999]) but Vuetify dialog
