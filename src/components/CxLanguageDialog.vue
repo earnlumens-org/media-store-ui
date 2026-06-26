@@ -35,11 +35,12 @@
       </v-card-title>
       <v-divider />
 
-      <v-card-text style="height: 300px">
+      <v-card-text ref="scrollEl" style="height: 300px">
         <v-radio-group v-model="selectedLanguage" column hide-details>
           <v-radio
             v-for="lang in filteredLanguages"
             :key="lang.code"
+            :data-code="lang.code"
             :label="`${lang.native} (${$t('Language.' + lang.key)})`"
             :value="lang.code"
           />
@@ -89,7 +90,7 @@
 
 <script setup lang="ts">
   import { storeToRefs } from 'pinia'
-  import { computed, onMounted, ref, watch } from 'vue'
+  import { computed, nextTick, onMounted, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
   import ContentLanguageDialog from '@/components/ContentLanguageDialog.vue'
   import { determineLanguageCode, loadLanguage } from '@/main'
@@ -175,6 +176,7 @@
   const contentLangOpen = ref(false)
   const selectedLanguage = ref('')
   const search = ref('')
+  const scrollEl = ref<{ $el: HTMLElement } | null>(null)
 
   // PINIA store
   const appStore = useAppStore()
@@ -207,9 +209,30 @@
     })
   })
 
-  // Reset the filter whenever the dialog closes so it reopens on the full list.
+  // Bring the currently selected language into view, vertically centered in the
+  // scroll area, so on reopen it isn't lost far down the (long) list.
+  function scrollSelectedIntoView () {
+    const root = scrollEl.value?.$el
+    if (!root) return
+    const target = root.querySelector<HTMLElement>(
+      `[data-code="${CSS.escape(selectedLanguage.value)}"]`,
+    )
+    if (!target) return
+    const rootRect = root.getBoundingClientRect()
+    const targetRect = target.getBoundingClientRect()
+    root.scrollTop
+      += (targetRect.top - rootRect.top)
+        - (root.clientHeight - target.clientHeight) / 2
+  }
+
   watch(dialog, open => {
-    if (!open) search.value = ''
+    if (open) {
+      // Wait for the dialog content + transition to lay out before measuring.
+      nextTick(() => requestAnimationFrame(scrollSelectedIntoView))
+    } else {
+      // Reset the filter when the dialog closes so it reopens on the full list.
+      search.value = ''
+    }
   })
 
   onMounted(() => {
