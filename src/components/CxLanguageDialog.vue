@@ -22,80 +22,35 @@
     </template>
 
     <v-card>
-      <v-card-title>{{ $t("Common.language") }}</v-card-title>
+      <v-card-title class="pb-2">
+        <v-text-field
+          v-model="search"
+          clearable
+          density="compact"
+          hide-details
+          :placeholder="$t('Common.language')"
+          prepend-inner-icon="mdi-magnify"
+          variant="outlined"
+        />
+      </v-card-title>
       <v-divider />
 
       <v-card-text style="height: 300px">
-        <v-radio-group v-model="selectedLanguage" column>
-          <v-radio :label="`简体中文 (${$t('Language.simplifiedChinese')})`" value="zh-cn" />
-          <v-radio :label="`繁體中文 (${$t('Language.traditionalChinese')})`" value="zh-tw" />
-          <v-radio :label="`English (${$t('Language.english')})`" value="en" />
-          <v-radio :label="`हिंदी (${$t('Language.hindi')})`" value="hi" />
-          <v-radio :label="`عرب (${$t('Language.arabic')})`" value="ar" />
-          <v-radio :label="`Español (${$t('Language.spanish')})`" value="es" />
-          <v-radio :label="`Melayu (${$t('Language.malay')})`" value="ms" />
-          <v-radio :label="`Русский (${$t('Language.russian')})`" value="ru" />
-          <v-radio :label="`日本語 (${$t('Language.japanese')})`" value="ja" />
-          <v-radio :label="`Português (${$t('Language.portuguese')})`" value="pt" />
-          <v-radio :label="`Українська (${$t('Language.ukrainian')})`" value="uk" />
-          <v-radio :label="`Deutsch (${$t('Language.german')})`" value="de" />
-          <v-radio :label="`Français (${$t('Language.french')})`" value="fr" />
-          <v-radio :label="`한국어 (${$t('Language.korean')})`" value="ko" />
-          <v-radio :label="`Italiano (${$t('Language.italian')})`" value="it" />
-          <v-radio :label="`Polski (${$t('Language.polish')})`" value="pl" />
-          <v-radio :label="`Tiếng Việt (${$t('Language.vietnamese')})`" value="vi" />
-          <v-radio :label="`Türkçe (${$t('Language.turkish')})`" value="tr" />
-          <v-radio :label="`اردو (${$t('Language.urdu')})`" value="ur" />
-          <v-radio :label="`বাংলা (${$t('Language.bengali')})`" value="bn" />
-          <v-radio :label="`Bahasa Indonesia (${$t('Language.indonesian')})`" value="id" />
-          <v-radio :label="`ਪੰਜਾਬੀ (${$t('Language.punjabi')})`" value="pa" />
-          <v-radio :label="`فارسی (${$t('Language.persian')})`" value="fa" />
-          <v-radio :label="`मराठी (${$t('Language.marathi')})`" value="mr" />
-          <v-radio :label="`తెలుగు (${$t('Language.telugu')})`" value="te" />
-          <v-radio :label="`Tagalog (${$t('Language.tagalog')})`" value="tl" />
-          <v-radio :label="`தமிழ் (${$t('Language.tamil')})`" value="ta" />
-          <v-radio :label="`བོད་སྐད་ (${$t('Language.tibetan')})`" value="bo" />
-          <v-radio :label="`ไทย (${$t('Language.thai')})`" value="th" />
-          <v-radio :label="`ಕನ್ನಡ (${$t('Language.kannada')})`" value="kn" />
-          <v-radio :label="`ગુજરાતી (${$t('Language.gujarati')})`" value="gu" />
-          <v-radio :label="`አማርኛ (${$t('Language.amharic')})`" value="am" />
-          <v-radio :label="`پښتو (${$t('Language.pashto')})`" value="ps" />
-          <v-radio :label="`မြန်မာ (${$t('Language.burmese')})`" value="my" />
-          <v-radio :label="`ଓଡ଼ିଆ (${$t('Language.odia')})`" value="or" />
-          <v-radio :label="`Nederlands (${$t('Language.dutch')})`" value="nl" />
-          <v-radio :label="`മലയാളം (${$t('Language.malayalam')})`" value="ml" />
-          <v-radio :label="`नेपाली (${$t('Language.nepali')})`" value="ne" />
-          <v-radio :label="`سنڌي (${$t('Language.sindhi')})`" value="sd" />
-          <v-radio :label="`ລາວ (${$t('Language.lao')})`" value="lo" />
-          <v-radio :label="`română (${$t('Language.romanian')})`" value="ro" />
-          <v-radio :label="`ខ្មែរ (${$t('Language.khmer')})`" value="km" />
-          <v-radio :label="`සිංහල (${$t('Language.sinhala')})`" value="si" />
-          <v-radio :label="`Ελληνικά (${$t('Language.greek')})`" value="el" />
-          <v-radio :label="`čeština (${$t('Language.czech')})`" value="cs" />
-          <v-radio :label="`magyar (${$t('Language.hungarian')})`" value="hu" />
-          <v-radio :label="`svenska (${$t('Language.swedish')})`" value="sv" />
-          <v-radio :label="`ئۇيغۇرچە (${$t('Language.uyghur')})`" value="ug" />
-          <v-radio :label="`Haitian Creole (${$t('Language.haitianCreole')})`" value="ht" />
-          <v-radio :label="`српски (${$t('Language.serbian')})`" value="sr" />
-          <v-radio :label="`català (${$t('Language.catalan')})`" value="ca" />
-          <v-radio :label="`עברית (${$t('Language.hebrew')})`" value="he" />
-          <v-radio :label="`کوردیی ناوەندی (${$t('Language.soraniKurdish')})`" value="ckb" />
-          <v-radio :label="`български (${$t('Language.bulgarian')})`" value="bg" />
-          <v-radio :label="`Հայերեն (${$t('Language.armenian')})`" value="hy" />
-          <v-radio :label="`dansk (${$t('Language.danish')})`" value="da" />
-          <v-radio :label="`suomi (${$t('Language.finnish')})`" value="fi" />
-          <v-radio :label="`norsk (${$t('Language.norwegian')})`" value="no" />
-          <v-radio :label="`ქართული (${$t('Language.georgian')})`" value="ka" />
-          <v-radio :label="`lietuvių (${$t('Language.lithuanian')})`" value="lt" />
-          <v-radio :label="`slovenščina (${$t('Language.slovenian')})`" value="sl" />
-          <v-radio :label="`latviešu (${$t('Language.latvian')})`" value="lv" />
-          <v-radio :label="`eesti (${$t('Language.estonian')})`" value="et" />
-          <v-radio :label="`Cymraeg (${$t('Language.welsh')})`" value="cy" />
-          <v-radio :label="`euskara (${$t('Language.basque')})`" value="eu" />
-          <v-radio :label="`íslenska (${$t('Language.icelandic')})`" value="is" />
-          <v-radio :label="`ދިވެހި (${$t('Language.divehi')})`" value="dv" />
-          <v-radio :label="`Esperanto (${$t('Language.esperanto')})`" value="eo" />
+        <v-radio-group v-model="selectedLanguage" column hide-details>
+          <v-radio
+            v-for="lang in filteredLanguages"
+            :key="lang.code"
+            :label="`${lang.native} (${$t('Language.' + lang.key)})`"
+            :value="lang.code"
+          />
         </v-radio-group>
+
+        <div
+          v-if="filteredLanguages.length === 0"
+          class="text-medium-emphasis text-body-2 py-2"
+        >
+          {{ $t("Search.noResults") }}
+        </div>
       </v-card-text>
 
       <template v-if="loggedIn">
@@ -134,21 +89,128 @@
 
 <script setup lang="ts">
   import { storeToRefs } from 'pinia'
-  import { onMounted, ref } from 'vue'
+  import { computed, onMounted, ref, watch } from 'vue'
+  import { useI18n } from 'vue-i18n'
   import ContentLanguageDialog from '@/components/ContentLanguageDialog.vue'
   import { determineLanguageCode, loadLanguage } from '@/main'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
 
+  // Ordered by approximate worldwide speaker population (native + L2). Closely
+  // related variants are grouped together at the position of the higher-population
+  // member: Chinese (zh-cn → zh-tw) and Malay/Indonesian (id → ms). `native` is
+  // the autonym (endonym); `key` resolves the localized name via Language.*.
+  const LANGUAGES: { code: string, native: string, key: string }[] = [
+    { code: 'en', native: 'English', key: 'english' },
+    { code: 'zh-cn', native: '简体中文', key: 'simplifiedChinese' },
+    { code: 'zh-tw', native: '繁體中文', key: 'traditionalChinese' },
+    { code: 'hi', native: 'हिंदी', key: 'hindi' },
+    { code: 'es', native: 'Español', key: 'spanish' },
+    { code: 'ar', native: 'عرب', key: 'arabic' },
+    { code: 'fr', native: 'Français', key: 'french' },
+    { code: 'bn', native: 'বাংলা', key: 'bengali' },
+    { code: 'pt', native: 'Português', key: 'portuguese' },
+    { code: 'ru', native: 'Русский', key: 'russian' },
+    { code: 'ur', native: 'اردو', key: 'urdu' },
+    { code: 'id', native: 'Bahasa Indonesia', key: 'indonesian' },
+    { code: 'ms', native: 'Melayu', key: 'malay' },
+    { code: 'pa', native: 'ਪੰਜਾਬੀ', key: 'punjabi' },
+    { code: 'de', native: 'Deutsch', key: 'german' },
+    { code: 'fa', native: 'فارسی', key: 'persian' },
+    { code: 'ja', native: '日本語', key: 'japanese' },
+    { code: 'te', native: 'తెలుగు', key: 'telugu' },
+    { code: 'mr', native: 'मराठी', key: 'marathi' },
+    { code: 'tr', native: 'Türkçe', key: 'turkish' },
+    { code: 'ta', native: 'தமிழ்', key: 'tamil' },
+    { code: 'vi', native: 'Tiếng Việt', key: 'vietnamese' },
+    { code: 'ko', native: '한국어', key: 'korean' },
+    { code: 'tl', native: 'Tagalog', key: 'tagalog' },
+    { code: 'it', native: 'Italiano', key: 'italian' },
+    { code: 'th', native: 'ไทย', key: 'thai' },
+    { code: 'kn', native: 'ಕನ್ನಡ', key: 'kannada' },
+    { code: 'gu', native: 'ગુજરાતી', key: 'gujarati' },
+    { code: 'ps', native: 'پښتو', key: 'pashto' },
+    { code: 'am', native: 'አማርኛ', key: 'amharic' },
+    { code: 'pl', native: 'Polski', key: 'polish' },
+    { code: 'my', native: 'မြန်မာ', key: 'burmese' },
+    { code: 'uk', native: 'Українська', key: 'ukrainian' },
+    { code: 'or', native: 'ଓଡ଼ିଆ', key: 'odia' },
+    { code: 'ml', native: 'മലയാളം', key: 'malayalam' },
+    { code: 'sd', native: 'سنڌي', key: 'sindhi' },
+    { code: 'ne', native: 'नेपाली', key: 'nepali' },
+    { code: 'lo', native: 'ລາວ', key: 'lao' },
+    { code: 'nl', native: 'Nederlands', key: 'dutch' },
+    { code: 'ro', native: 'română', key: 'romanian' },
+    { code: 'si', native: 'සිංහල', key: 'sinhala' },
+    { code: 'km', native: 'ខ្មែរ', key: 'khmer' },
+    { code: 'el', native: 'Ελληνικά', key: 'greek' },
+    { code: 'hu', native: 'magyar', key: 'hungarian' },
+    { code: 'ht', native: 'Haitian Creole', key: 'haitianCreole' },
+    { code: 'sr', native: 'српски', key: 'serbian' },
+    { code: 'ug', native: 'ئۇيغۇرچە', key: 'uyghur' },
+    { code: 'cs', native: 'čeština', key: 'czech' },
+    { code: 'sv', native: 'svenska', key: 'swedish' },
+    { code: 'ca', native: 'català', key: 'catalan' },
+    { code: 'he', native: 'עברית', key: 'hebrew' },
+    { code: 'ckb', native: 'کوردیی ناوەندی', key: 'soraniKurdish' },
+    { code: 'bg', native: 'български', key: 'bulgarian' },
+    { code: 'hy', native: 'Հայերեն', key: 'armenian' },
+    { code: 'bo', native: 'བོད་སྐད་', key: 'tibetan' },
+    { code: 'da', native: 'dansk', key: 'danish' },
+    { code: 'fi', native: 'suomi', key: 'finnish' },
+    { code: 'no', native: 'norsk', key: 'norwegian' },
+    { code: 'ka', native: 'ქართული', key: 'georgian' },
+    { code: 'lt', native: 'lietuvių', key: 'lithuanian' },
+    { code: 'sl', native: 'slovenščina', key: 'slovenian' },
+    { code: 'eo', native: 'Esperanto', key: 'esperanto' },
+    { code: 'lv', native: 'latviešu', key: 'latvian' },
+    { code: 'et', native: 'eesti', key: 'estonian' },
+    { code: 'cy', native: 'Cymraeg', key: 'welsh' },
+    { code: 'eu', native: 'euskara', key: 'basque' },
+    { code: 'is', native: 'íslenska', key: 'icelandic' },
+    { code: 'dv', native: 'ދިވެހި', key: 'divehi' },
+  ]
+
   const dialog = ref(false)
   const contentLangOpen = ref(false)
   const selectedLanguage = ref('')
+  const search = ref('')
 
   // PINIA store
   const appStore = useAppStore()
   const { mobileView } = storeToRefs(appStore)
   const authStore = useAuthStore()
   const { isAuthenticated: loggedIn } = storeToRefs(authStore)
+  const { t } = useI18n()
+
+  // Lowercase + strip diacritics so a query typed in plain ASCII (e.g.
+  // "espanol", "francais") still matches accented autonyms ("Español",
+  // "Français"). Non-Latin scripts fall back to a raw lowercase substring
+  // match, so users can search in their own script too.
+  function normalize (value: string): string {
+    return value
+      .normalize('NFD')
+      .replace(/\p{Diacritic}/gu, '')
+      .toLocaleLowerCase()
+  }
+
+  const filteredLanguages = computed(() => {
+    const q = normalize((search.value || '').trim())
+    if (!q) return LANGUAGES
+    return LANGUAGES.filter(lang => {
+      const localized = t('Language.' + lang.key)
+      return (
+        normalize(lang.native).includes(q)
+        || normalize(localized).includes(q)
+        || lang.code.toLowerCase().includes(q)
+      )
+    })
+  })
+
+  // Reset the filter whenever the dialog closes so it reopens on the full list.
+  watch(dialog, open => {
+    if (!open) search.value = ''
+  })
 
   onMounted(() => {
     const browser = navigator.language || 'en'
