@@ -21,6 +21,10 @@ export interface CreatorEntryModel {
   priceCurrency?: 'XLM' | 'USD'
   contentLanguage?: string
   sellerWallet?: string
+  /** Whether resells are enabled for this entry. */
+  resellerEnabled?: boolean
+  /** Reseller commission as a percent of the total price (5–20). */
+  resellerCommissionPercent?: number
   createdAt: string
   updatedAt: string
   publishedAt?: string
@@ -65,6 +69,8 @@ export interface UpdateEntryMetadataRequest {
   priceCurrency?: 'XLM' | 'USD' | null
   sellerWallet?: string | null
   resourceContent?: string | null
+  resellerEnabled?: boolean | null
+  resellerCommissionPercent?: number | null
 }
 
 // ==================== Filter / sort params ====================
@@ -110,6 +116,10 @@ export interface StudioItemModel {
   /** Transcoding status — only for video entries */
   transcodingStatus?: string
   sellerWallet?: string
+  /** Whether resells are enabled for this entry. */
+  resellerEnabled?: boolean
+  /** Reseller commission as a percent of the total price (5–20). */
+  resellerCommissionPercent?: number
   /** Human-readable moderation feedback (rejection/suspension reason). */
   moderationFeedback?: string
   /** Resource-type body text (only for resource entries). */

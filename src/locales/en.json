@@ -66,6 +66,59 @@
       "wallet_not_activated": "This wallet is not yet active on the Stellar network. Send at least 1 XLM to this address to activate it."
     }
   },
+  "Reseller": {
+    "title": "Earn Lumens",
+    "cta": "EARN LUMENS",
+    "intro": "Share this content with your audience and earn a commission every time someone buys through your link.",
+    "yourCommission": "Your commission",
+    "commissionOrientative": "This rate is orientative. Your actual commission is calculated at the moment of each sale. The current value is always shown in Account → Resellers.",
+    "payoutWallet": "Payout wallet",
+    "walletHint": "The Stellar wallet where your commission will be sent. It must be an active account.",
+    "walletLabel": "Stellar public key",
+    "connectWallet": "Connect wallet",
+    "walletVerified": "Wallet verified — active on the Stellar network.",
+    "walletNotActivated": "This wallet is not yet active on the Stellar network. Send at least 1 XLM to this address to activate it, then try again.",
+    "generateLink": "Generate link",
+    "linkReady": "Your reseller link is ready. Share it anywhere.",
+    "manageHint": "You can find and manage all your reseller links anytime in Account → Resellers.",
+    "ownContent": "You can't create a reseller link for your own content.",
+    "disabledForContent": "The creator has disabled resells for this content, so a link can't be generated right now.",
+    "errors": {
+      "loadFailed": "Couldn't load reseller details. Please try again.",
+      "connectFailed": "Couldn't connect your wallet. Please try again.",
+      "copyFailed": "Couldn't copy the link. Copy it manually instead.",
+      "generic": "Something went wrong. Please try again.",
+      "verifyFailed": "Couldn't verify the wallet on the Stellar network. Please try again.",
+      "wallet_format": "Enter a valid Stellar public key (starts with G).",
+      "wallet_not_activated": "This wallet is not yet active on the Stellar network. Send at least 1 XLM to this address to activate it.",
+      "entry_not_found": "This content no longer exists.",
+      "entry_not_resellable": "This content can't be resold.",
+      "own_content": "You can't create a reseller link for your own content.",
+      "not_found": "Reseller link not found.",
+      "forbidden": "Please log in to continue."
+    }
+  },
+  "ResellerLinks": {
+    "title": "My reseller links",
+    "subtitle": "Content you're reselling. Share these links to earn a commission on each sale.",
+    "empty": "You don't have any reseller links yet.",
+    "emptyHint": "Open any paid content and tap “EARN LUMENS” to create your first link.",
+    "loginRequired": "Log in to view your reseller links.",
+    "commission": "Commission",
+    "payoutWallet": "Payout wallet",
+    "changeWallet": "Change wallet",
+    "useConnected": "Use connected wallet",
+    "saveWallet": "Save",
+    "cancel": "Cancel",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied",
+    "walletUpdated": "Payout wallet updated",
+    "resaleDisabled": "Resale disabled",
+    "resaleDisabledHint": "The creator disabled resells for this content. The link still opens the content, but new sales won't earn a commission.",
+    "openContent": "Open content",
+    "loadError": "Couldn't load your reseller links.",
+    "retry": "Retry"
+  },
   "TenantNotFound": {
     "title": "This tenant doesn’t exist",
     "body": "The subdomain you are trying to reach does not match any active marketplace on EarnLumens.",
@@ -148,6 +201,8 @@
     "themes": "Themes",
     "close": "Close",
     "cancel": "Cancel",
+    "copy": "Copy",
+    "copied": "Copied",
     "pleaseWait": "Please wait",
     "operationFailedPleaseTryAgain": "Operation failed. Please try again",
     "save": "Save",
@@ -352,6 +407,8 @@
     "contentGuidelinesHint": "Rules for publishing content in the main tenant and future instances",
     "myFranchise": "My Franchise",
     "myFranchiseHint": "Open and manage your own storefront under this marketplace",
+    "myResellerLinks": "Resellers",
+    "myResellerLinksHint": "Manage the content you're reselling and your commission links",
     "badgeSection": "Blue credential",
     "badgeActive": "Your blue credential is active",
     "badgeType": "Credential type",
@@ -594,6 +651,12 @@
       "goToWallet": "Go to Wallet",
       "addAnother": "Add another wallet"
     },
+    "reseller": {
+      "title": "Resellers",
+      "hint": "Let others share your content and earn a commission on each sale, taken from your share.",
+      "commissionLabel": "Reseller commission",
+      "commissionHint": "Between 5% and 20% of the total price. Defaults to 10%."
+    },
     "actions": {
       "upload": "Upload",
       "uploading": "Uploading...",
@@ -814,6 +877,7 @@
       "delete": "Delete",
       "restoreDeleted": "Restore",
       "submitReview": "Submit for review",
+      "resellerSettings": "Reseller settings",
       "publish": "Publish",
       "publishSubtitle": "Make it visible on your profile",
       "transcodingDisabled": "Available once transcoding finishes",
@@ -884,7 +948,9 @@
     "role": {
       "SELLER": "Seller",
       "PLATFORM": "Platform",
-      "COLLABORATOR": "Collaborator"
+      "COLLABORATOR": "Collaborator",
+      "FRANCHISE": "Franchise",
+      "RESELLER": "Reseller"
     }
   },
   "CreateCollection": {

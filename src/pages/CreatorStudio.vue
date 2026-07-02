@@ -499,6 +499,14 @@
                       <v-list-item-title>{{ t('CreatorStudio.actions.edit') }}</v-list-item-title>
                     </v-list-item>
                     <v-list-item
+                      v-if="item._entry.isPaid && item.status !== 'IN_REVIEW'"
+                      :disabled="isItemTranscoding(item)"
+                      prepend-icon="mdi-cash-multiple"
+                      @click="openEditDialog(item._entry)"
+                    >
+                      <v-list-item-title>{{ t('CreatorStudio.actions.resellerSettings') }}</v-list-item-title>
+                    </v-list-item>
+                    <v-list-item
                       v-if="item.status === 'DRAFT'"
                       :disabled="isItemTranscoding(item)"
                       prepend-icon="mdi-send-outline"
@@ -762,6 +770,14 @@
                     @click="openEditDialog(item._entry)"
                   >
                     <v-list-item-title>{{ t('CreatorStudio.actions.edit') }}</v-list-item-title>
+                  </v-list-item>
+                  <v-list-item
+                    v-if="item._entry.isPaid && item.status !== 'IN_REVIEW'"
+                    :disabled="isItemTranscoding(item)"
+                    prepend-icon="mdi-cash-multiple"
+                    @click="openEditDialog(item._entry)"
+                  >
+                    <v-list-item-title>{{ t('CreatorStudio.actions.resellerSettings') }}</v-list-item-title>
                   </v-list-item>
                   <v-list-item
                     v-if="item.status === 'DRAFT'"
@@ -1070,6 +1086,48 @@
                 {{ t('Upload.wallet.addAnother') }}
               </v-btn>
             </v-alert>
+
+            <!-- Reseller settings -->
+            <v-divider class="my-4" />
+            <div class="d-flex align-center justify-space-between">
+              <div class="pe-2">
+                <div class="text-body-2 font-weight-medium">
+                  {{ t('Upload.reseller.title') }}
+                </div>
+                <div class="text-caption text-medium-emphasis">
+                  {{ t('Upload.reseller.hint') }}
+                </div>
+              </div>
+              <v-switch
+                v-model="editForm.resellerEnabled"
+                color="primary"
+                density="compact"
+                hide-details
+                inset
+              />
+            </div>
+            <div v-if="editForm.resellerEnabled" class="mt-3">
+              <div class="d-flex align-center justify-space-between mb-1">
+                <span class="text-caption text-medium-emphasis">
+                  {{ t('Upload.reseller.commissionLabel') }}
+                </span>
+                <span class="text-body-2 font-weight-bold text-primary">
+                  {{ editForm.resellerCommissionPercent }}%
+                </span>
+              </div>
+              <v-slider
+                v-model="editForm.resellerCommissionPercent"
+                color="primary"
+                hide-details
+                :max="20"
+                :min="5"
+                :step="1"
+                thumb-label
+              />
+              <div class="text-caption text-medium-emphasis">
+                {{ t('Upload.reseller.commissionHint') }}
+              </div>
+            </div>
           </template>
 
           <!-- Thumbnail -->
@@ -1346,6 +1404,8 @@
     priceUsd: null as number | null,
     priceCurrency: 'XLM' as 'XLM' | 'USD',
     resourceContent: '' as string,
+    resellerEnabled: true,
+    resellerCommissionPercent: 10,
     _status: '' as string,
     _type: '' as string,
   })
@@ -1428,6 +1488,8 @@
     priceUsd: null as number | null,
     priceCurrency: 'XLM' as string,
     resourceContent: '',
+    resellerEnabled: true,
+    resellerCommissionPercent: 10,
   })
 
   const isEditDirty = computed(() => {
@@ -1439,6 +1501,8 @@
       || editForm.priceUsd !== editOriginal.priceUsd
       || editForm.priceCurrency !== editOriginal.priceCurrency
       || editForm.resourceContent !== editOriginal.resourceContent
+      || editForm.resellerEnabled !== editOriginal.resellerEnabled
+      || editForm.resellerCommissionPercent !== editOriginal.resellerCommissionPercent
   })
 
   const willTriggerReModeration = computed(() => {
@@ -1863,6 +1927,8 @@
     editForm.priceUsd = entry.priceUsd ?? null
     editForm.priceCurrency = entry.priceCurrency ?? 'XLM'
     editForm.resourceContent = entry.resourceContent ?? ''
+    editForm.resellerEnabled = entry.resellerEnabled ?? true
+    editForm.resellerCommissionPercent = entry.resellerCommissionPercent ?? 10
     editForm._status = entry.status
     editForm._type = typeof entry.type === 'string' ? entry.type.toLowerCase() : ''
     selectedSellerWallet.value = entry.sellerWallet ?? walletStore.activeAddress ?? ''
@@ -1880,6 +1946,8 @@
     editOriginal.priceUsd = editForm.priceUsd
     editOriginal.priceCurrency = editForm.priceCurrency
     editOriginal.resourceContent = editForm.resourceContent
+    editOriginal.resellerEnabled = editForm.resellerEnabled
+    editOriginal.resellerCommissionPercent = editForm.resellerCommissionPercent
 
     editDialog.value = true
   }
@@ -1953,6 +2021,8 @@
         priceCurrency: editForm.isPaid ? editForm.priceCurrency : null,
         sellerWallet: editForm.isPaid ? selectedSellerWallet.value : null,
         resourceContent: editForm._type === 'resource' ? (editForm.resourceContent.trim() || null) : undefined,
+        resellerEnabled: editForm.isPaid ? editForm.resellerEnabled : null,
+        resellerCommissionPercent: editForm.isPaid && editForm.resellerEnabled ? editForm.resellerCommissionPercent : null,
       })
 
       // Upload new thumbnail / preview if selected

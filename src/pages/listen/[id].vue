@@ -450,12 +450,17 @@
             </v-sheet>
 
             <!-- Rating -->
-            <div class="d-flex align-center mt-4">
+            <div class="d-flex align-center flex-wrap ga-2 mt-4">
               <RatingPill
                 :can-rate="canRate"
                 :target-id="entryId"
                 target-type="entry"
                 @update:count="voteCount = $event"
+              />
+              <ResellerButton
+                :author-id="entry.authorId"
+                :entry-id="entryId"
+                :reseller-enabled="entry.isPaid && (entry.resellerEnabled ?? false)"
               />
             </div>
 
@@ -541,6 +546,7 @@
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
+  import ResellerButton from '@/components/reseller/ResellerButton.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAuthStore } from '@/stores/auth'

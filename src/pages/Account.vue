@@ -183,6 +183,23 @@
                   <v-divider class="my-2" />
 
                   <v-list-item
+                    prepend-icon="mdi-cash-multiple"
+                    to="/account/resellers"
+                  >
+                    <v-list-item-title class="font-weight-medium">
+                      {{ $t('Account.myResellerLinks') }}
+                    </v-list-item-title>
+                    <v-list-item-subtitle>
+                      {{ $t('Account.myResellerLinksHint') }}
+                    </v-list-item-subtitle>
+                    <template #append>
+                      <v-icon size="small">mdi-chevron-right</v-icon>
+                    </template>
+                  </v-list-item>
+
+                  <v-divider class="my-2" />
+
+                  <v-list-item
                     v-if="user?.username"
                     prepend-icon="mdi-account-eye-outline"
                     :to="'/' + user.username"

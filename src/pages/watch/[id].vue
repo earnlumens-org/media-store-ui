@@ -343,6 +343,11 @@
                 >
                   {{ $t('Common.tip') }}
                 </v-btn>
+                <ResellerButton
+                  :author-id="entry.authorId"
+                  :entry-id="entryId"
+                  :reseller-enabled="entry.isPaid && (entry.resellerEnabled ?? false)"
+                />
               </div>
 
               <!-- Description -->
@@ -421,6 +426,7 @@
   import ShakaVideoPlayer from '@/components/media/ShakaVideoPlayer.vue'
   import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
+  import ResellerButton from '@/components/reseller/ResellerButton.vue'
   import TipDialog from '@/components/checkout/TipDialog.vue'
   import { cdnHlsUrl, cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'

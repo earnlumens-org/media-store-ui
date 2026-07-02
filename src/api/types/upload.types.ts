@@ -24,6 +24,10 @@ export interface CreateEntryRequest {
   sellerWallet?: string | null
   /** ISO 639-1 language code of the content (e.g. "es", "en"). */
   contentLanguage?: string | null
+  /** Whether resells are enabled (paid content only). Defaults to true when omitted. */
+  resellerEnabled?: boolean | null
+  /** Reseller commission as a percent of the total price (5–20). Defaults to 10. */
+  resellerCommissionPercent?: number | null
 }
 
 export interface CreateEntryResponse {

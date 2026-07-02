@@ -196,6 +196,8 @@
       case 'SELLER': { return 'success' }
       case 'PLATFORM': { return 'grey' }
       case 'COLLABORATOR': { return 'info' }
+      case 'FRANCHISE': { return 'purple' }
+      case 'RESELLER': { return 'primary' }
       default: { return 'grey' }
     }
   }

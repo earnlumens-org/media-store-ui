@@ -50,6 +50,8 @@ declare module 'vue' {
     RatingPill: typeof import('./components/rating/RatingPill.vue')['default']
     RatingSection: typeof import('./components/rating/RatingSection.vue')['default']
     ReportDialog: typeof import('./components/report/ReportDialog.vue')['default']
+    ResellerButton: typeof import('./components/reseller/ResellerButton.vue')['default']
+    ResellerDialog: typeof import('./components/reseller/ResellerDialog.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SanctionLadderExplainer: typeof import('./components/sanctions/SanctionLadderExplainer.vue')['default']

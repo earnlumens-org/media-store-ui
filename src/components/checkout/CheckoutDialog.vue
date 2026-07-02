@@ -56,6 +56,8 @@
   interface Props {
     modelValue: boolean
     item: CheckoutItem | null
+    /** Opaque reseller link code the buyer arrived with (?r=<code>), when present. */
+    resellerCode?: string
   }
 
   interface Emits {
@@ -230,9 +232,11 @@
       // 2. Prepare — backend builds unsigned Stellar tx
       const isCollection = props.item.type === 'collection'
       const franchiseSlug = franchiseStore.slug ?? undefined
+      const resellerCode = props.resellerCode || undefined
       const prepared = await api.payment.prepare(buyerWallet, {
         ...(isCollection ? { collectionId: props.item.id } : { entryId: props.item.id }),
         ...(franchiseSlug ? { franchiseSlug } : {}),
+        ...(resellerCode && !isCollection ? { resellerCode } : {}),
       })
 
       // Store the resolved XLM amount (backend computed for USD entries)

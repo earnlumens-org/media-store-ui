@@ -71,6 +71,59 @@
     "body": "El subdominio al que estás intentando acceder no corresponde a ningún marketplace activo en EarnLumens.",
     "cta": "Ir a earnlumens.org"
   },
+  "Reseller": {
+    "title": "Ganar Lumens",
+    "cta": "GANAR LUMENS",
+    "intro": "Comparte este contenido con tu audiencia y gana una comisión cada vez que alguien compre a través de tu enlace.",
+    "yourCommission": "Tu comisión",
+    "commissionOrientative": "Esta tasa es orientativa. Tu comisión real se calcula en el momento de cada venta. El valor actual siempre se muestra en Cuenta → Revendedores.",
+    "payoutWallet": "Wallet de pago",
+    "walletHint": "La wallet Stellar donde recibirás tu comisión. Debe ser una cuenta activa.",
+    "walletLabel": "Clave pública Stellar",
+    "connectWallet": "Conectar wallet",
+    "walletVerified": "Wallet verificada — activa en la red Stellar.",
+    "walletNotActivated": "Esta wallet aún no está activa en la red Stellar. Envía al menos 1 XLM a esta dirección para activarla y vuelve a intentarlo.",
+    "generateLink": "Generar enlace",
+    "linkReady": "Tu enlace de revendedor está listo. Compártelo donde quieras.",
+    "manageHint": "Puedes encontrar y gestionar todos tus enlaces de revendedor en Cuenta → Revendedores.",
+    "ownContent": "No puedes crear un enlace de revendedor para tu propio contenido.",
+    "disabledForContent": "El creador ha desactivado las reventas para este contenido, por lo que no se puede generar un enlace ahora mismo.",
+    "errors": {
+      "loadFailed": "No se pudieron cargar los detalles de revendedor. Inténtalo de nuevo.",
+      "connectFailed": "No se pudo conectar tu wallet. Inténtalo de nuevo.",
+      "copyFailed": "No se pudo copiar el enlace. Cópialo manualmente.",
+      "generic": "Algo salió mal. Inténtalo de nuevo.",
+      "verifyFailed": "No se pudo verificar la wallet en la red Stellar. Inténtalo de nuevo.",
+      "wallet_format": "Introduce una clave pública Stellar válida (empieza por G).",
+      "wallet_not_activated": "Esta wallet aún no está activa en la red Stellar. Envía al menos 1 XLM a esta dirección para activarla.",
+      "entry_not_found": "Este contenido ya no existe.",
+      "entry_not_resellable": "Este contenido no se puede revender.",
+      "own_content": "No puedes crear un enlace de revendedor para tu propio contenido.",
+      "not_found": "Enlace de revendedor no encontrado.",
+      "forbidden": "Inicia sesión para continuar."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Mis enlaces de revendedor",
+    "subtitle": "Contenido que estás revendiendo. Comparte estos enlaces para ganar una comisión en cada venta.",
+    "empty": "Todavía no tienes enlaces de revendedor.",
+    "emptyHint": "Abre cualquier contenido de pago y pulsa \u201cGANAR LUMENS\u201d para crear tu primer enlace.",
+    "loginRequired": "Inicia sesión para ver tus enlaces de revendedor.",
+    "commission": "Comisión",
+    "payoutWallet": "Wallet de pago",
+    "changeWallet": "Cambiar wallet",
+    "useConnected": "Usar wallet conectada",
+    "saveWallet": "Guardar",
+    "cancel": "Cancelar",
+    "copyLink": "Copiar enlace",
+    "linkCopied": "Enlace copiado",
+    "walletUpdated": "Wallet de pago actualizada",
+    "resaleDisabled": "Reventa desactivada",
+    "resaleDisabledHint": "El creador desactivó las reventas para este contenido. El enlace sigue abriendo el contenido, pero las nuevas ventas no generarán comisión.",
+    "openContent": "Abrir contenido",
+    "loadError": "No se pudieron cargar tus enlaces de revendedor.",
+    "retry": "Reintentar"
+  },
   "Sanctions": {
     "intro": "EarnLumens usa un sistema de 3 strikes inspirado en las plataformas de video más grandes. Cada infracción es revisada por un moderador humano antes de que se registre un strike.",
     "severeNote": "Las infracciones graves (fraude, daño a menores, deepfakes, doxxing) saltan la escalera y resultan en una expulsión permanente inmediata.",
@@ -148,6 +201,8 @@
     "themes": "Temas",
     "close": "Cerrar",
     "cancel": "Cancelar",
+    "copy": "Copiar",
+    "copied": "Copiado",
     "pleaseWait": "Por favor espere",
     "operationFailedPleaseTryAgain": "Operación fallida. Por favor, inténtelo de nuevo.",
     "save": "Guardar",
@@ -352,6 +407,8 @@
     "contentGuidelinesHint": "Reglas para publicar contenido en el tenant principal y futuras instancias",
     "myFranchise": "Mi Franquicia",
     "myFranchiseHint": "Abre y gestiona tu propia tienda dentro de este marketplace",
+    "myResellerLinks": "Revendedores",
+    "myResellerLinksHint": "Gestiona el contenido que revendes y tus enlaces de comisión",
     "badgeSection": "Credencial azul",
     "badgeActive": "Tu credencial azul está activa",
     "badgeType": "Tipo de credencial",
@@ -567,6 +624,12 @@
       "invalidType": "Tipo de archivo inválido. Permitidos: {types}",
       "fileTooLarge": "El archivo es demasiado grande. El tamaño máximo es {size}",
       "fileSelected": "{name} ({size})"
+    },
+    "reseller": {
+      "title": "Revendedores",
+      "hint": "Permite que otros compartan tu contenido y ganen una comisión por cada venta, deducida de tu parte.",
+      "commissionLabel": "Comisión de revendedor",
+      "commissionHint": "Entre el 5 % y el 20 % del precio total. Por defecto, 10 %."
     },
     "wallet": {
       "required": "Se requiere una wallet conectada para contenido de pago",
@@ -820,7 +883,8 @@
       "transcodingError": "No se puede editar ni publicar mientras se transcodifica el video. Vuelve a intentarlo cuando termine.",
       "viewFeedback": "Ver motivo de rechazo",
       "publishSuccess": "Entrada publicada correctamente",
-      "publishError": "Error al publicar la entrada. Inténtalo de nuevo."
+      "publishError": "Error al publicar la entrada. Inténtalo de nuevo.",
+      "resellerSettings": "Configuración de revendedores"
     },
     "approvedHint": "Aprobada · lista para publicar (aún no visible)",
     "editEntry": "Editar entrada",
@@ -884,7 +948,9 @@
     "role": {
       "SELLER": "Vendedor",
       "PLATFORM": "Plataforma",
-      "COLLABORATOR": "Colaborador"
+      "COLLABORATOR": "Colaborador",
+      "FRANCHISE": "Franquicia",
+      "RESELLER": "Revendedor"
     }
   },
   "CreateCollection": {

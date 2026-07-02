@@ -29,6 +29,7 @@ import { createFranchise, getFranchiseConfig,
   updateMyFranchise,
   uploadFranchiseImage } from './modules/franchise.api'
 import { getPaymentOrder, preparePayment, prepareTip, submitPayment } from './modules/payment.api'
+import { createResellerLink, getResellerEntryInfo, listMyResellerLinks, updateResellerLinkWallet } from './modules/reseller.api'
 import { getPurchaseCollections, getPurchasedFeed, getPurchases } from './modules/purchase.api'
 import { deleteRating, getMyRating, getRatings, getRatingSummary, submitRating } from './modules/rating.api'
 import { getSellerSales } from './modules/sales.api'
@@ -164,6 +165,13 @@ export const api = {
     presignImage: presignFranchiseImage,
     uploadImage: uploadFranchiseImage,
   },
+  /** Reseller links: earn a commission for distributing a creator's paid content. */
+  resellers: {
+    entryInfo: getResellerEntryInfo,
+    create: createResellerLink,
+    mine: listMyResellerLinks,
+    updateWallet: updateResellerLinkWallet,
+  },
 } as const
 
 export { ApiError, apiRequest } from './apiRequest'
@@ -191,6 +199,8 @@ export { checkFavorite, getFavorites, removeFavorite, toggleFavorite } from './m
 export { createFranchise, getFranchiseConfig, getPublicFranchise, listMyFranchises, listPublicFranchises, presignFranchiseImage, updateMyFranchise, uploadFranchiseImage } from './modules/franchise.api'
 export type { CreateFranchisePayload, FranchiseConfigDto, FranchiseImageSlot, FranchiseImageUploadInit, ManagedFranchiseDto, PublicFranchiseDto, UpdateFranchisePayload } from './modules/franchise.api'
 export { getPaymentOrder, preparePayment, submitPayment } from './modules/payment.api'
+export { createResellerLink, getResellerEntryInfo, listMyResellerLinks, updateResellerLinkWallet } from './modules/reseller.api'
+export type { ResellerEntryInfoDto, ResellerLinkDto } from './modules/reseller.api'
 export { getPurchaseCollections, getPurchases } from './modules/purchase.api'
 export { getSellerSales } from './modules/sales.api'
 export { checkSubscription, getMySubscriberCount, getMySubscribers, getMySubscriptions, getPublicSubscriberCount, subscribe, unsubscribe } from './modules/subscription.api'

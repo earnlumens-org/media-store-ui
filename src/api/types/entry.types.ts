@@ -31,6 +31,8 @@ export interface PublicEntryDto {
   priceCurrency?: 'XLM' | 'USD'
   contentLanguage?: string
   viewCount?: number
+  resellerEnabled?: boolean
+  resellerCommissionPercent?: number
   tags?: string[]
   asset?: {
     fileName: string
@@ -75,6 +77,8 @@ export interface PublicEntryModel {
   priceUsd?: number
   priceCurrency?: 'XLM' | 'USD'
   contentLanguage?: string
+  resellerEnabled?: boolean
+  resellerCommissionPercent?: number
   tags: string[]
   asset?: {
     fileName: string

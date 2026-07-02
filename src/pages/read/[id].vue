@@ -425,6 +425,11 @@
                 item-type="ENTRY"
                 variant="tonal"
               />
+              <ResellerButton
+                :author-id="entry.authorId"
+                :entry-id="entryId"
+                :reseller-enabled="entry.isPaid && (entry.resellerEnabled ?? false)"
+              />
               <v-btn
                 :aria-label="$t('Common.share')"
                 class="d-md-none"
@@ -522,6 +527,7 @@
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
+  import ResellerButton from '@/components/reseller/ResellerButton.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAppStore } from '@/stores/app'

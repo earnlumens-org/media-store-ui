@@ -46,6 +46,8 @@ export function mapPublicEntryDtoToModel (dto: PublicEntryDto): PublicEntryModel
     priceUsd: dto.priceUsd,
     priceCurrency: dto.priceCurrency,
     contentLanguage: dto.contentLanguage,
+    resellerEnabled: dto.resellerEnabled,
+    resellerCommissionPercent: dto.resellerCommissionPercent,
     tags: dto.tags ?? [],
     asset: dto.asset,
     hlsReady: dto.hlsReady ?? false,

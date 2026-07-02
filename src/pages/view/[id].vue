@@ -382,6 +382,11 @@
                 >
                   {{ $t('Common.download') }}
                 </v-btn>
+                <ResellerButton
+                  :author-id="entry.authorId"
+                  :entry-id="entryId"
+                  :reseller-enabled="entry.isPaid && (entry.resellerEnabled ?? false)"
+                />
               </div>
 
               <!-- Description -->
@@ -462,6 +467,7 @@
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
+  import ResellerButton from '@/components/reseller/ResellerButton.vue'
   import { cdnMediaUrl } from '@/config/env'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAuthStore } from '@/stores/auth'

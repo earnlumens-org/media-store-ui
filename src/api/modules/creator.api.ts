@@ -45,6 +45,8 @@ interface OwnerEntryDto {
   publishedAt?: string
   transcodingStatus?: string
   sellerWallet?: string
+  resellerEnabled?: boolean
+  resellerCommissionPercent?: number
   moderationFeedback?: string
 }
 
@@ -85,6 +87,8 @@ function dtoToCreatorEntry (dto: OwnerEntryDto): CreatorEntryModel {
     revenue: 0,
     transcodingStatus: dto.transcodingStatus,
     sellerWallet: dto.sellerWallet,
+    resellerEnabled: dto.resellerEnabled,
+    resellerCommissionPercent: dto.resellerCommissionPercent,
     moderationFeedback: dto.moderationFeedback,
   }
 }
@@ -266,6 +270,8 @@ interface StudioItemDto {
   publishedAt?: string
   transcodingStatus?: string
   sellerWallet?: string
+  resellerEnabled?: boolean
+  resellerCommissionPercent?: number
   moderationFeedback?: string
   resourceContent?: string
 }
@@ -303,6 +309,8 @@ function studioDtoToModel (dto: StudioItemDto): StudioItemModel {
     publishedAt: dto.publishedAt,
     transcodingStatus: dto.transcodingStatus,
     sellerWallet: dto.sellerWallet,
+    resellerEnabled: dto.resellerEnabled,
+    resellerCommissionPercent: dto.resellerCommissionPercent,
     moderationFeedback: dto.moderationFeedback,
     resourceContent: dto.resourceContent,
   }

@@ -12,6 +12,8 @@ export interface PreparePaymentRequestDto {
   collectionId?: string
   /** Slug of the franchise storefront the sale happened on, when on /f/:slug. */
   franchiseSlug?: string
+  /** Opaque reseller link code the buyer arrived with (?r=<code>), when present. */
+  resellerCode?: string
   buyerWallet: string
 }
 

@@ -276,6 +276,48 @@
                       {{ t('Upload.wallet.addAnother') }}
                     </v-btn>
                   </v-alert>
+
+                  <!-- Reseller settings -->
+                  <v-divider class="my-4" />
+                  <div class="d-flex align-center justify-space-between">
+                    <div class="pe-2">
+                      <div class="text-body-2 font-weight-medium">
+                        {{ t('Upload.reseller.title') }}
+                      </div>
+                      <div class="text-caption text-medium-emphasis">
+                        {{ t('Upload.reseller.hint') }}
+                      </div>
+                    </div>
+                    <v-switch
+                      v-model="form.resellerEnabled"
+                      color="primary"
+                      density="compact"
+                      hide-details
+                      inset
+                    />
+                  </div>
+                  <div v-if="form.resellerEnabled" class="mt-3">
+                    <div class="d-flex align-center justify-space-between mb-1">
+                      <span class="text-caption text-medium-emphasis">
+                        {{ t('Upload.reseller.commissionLabel') }}
+                      </span>
+                      <span class="text-body-2 font-weight-bold text-primary">
+                        {{ form.resellerCommissionPercent }}%
+                      </span>
+                    </div>
+                    <v-slider
+                      v-model="form.resellerCommissionPercent"
+                      color="primary"
+                      hide-details
+                      :max="20"
+                      :min="5"
+                      :step="1"
+                      thumb-label
+                    />
+                    <div class="text-caption text-medium-emphasis">
+                      {{ t('Upload.reseller.commissionHint') }}
+                    </div>
+                  </div>
                 </template>
               </v-card>
             </v-col>
@@ -479,6 +521,8 @@
     price: null as number | null,
     priceCurrency: 'XLM' as 'XLM' | 'USD',
     contentLanguage: locale.value,
+    resellerEnabled: true,
+    resellerCommissionPercent: 10,
   })
 
   const assets = reactive({
@@ -754,6 +798,8 @@
           priceCurrency: form.isPaid ? form.priceCurrency : null,
           sellerWallet: form.isPaid ? selectedSellerWallet.value : null,
           contentLanguage: form.contentLanguage || null,
+          resellerEnabled: form.isPaid ? form.resellerEnabled : null,
+          resellerCommissionPercent: form.isPaid && form.resellerEnabled ? form.resellerCommissionPercent : null,
         })
         entryId = entry.id
         createdEntryId.value = entry.id

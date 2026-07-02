@@ -612,6 +612,15 @@
                   >
                     {{ $t('Preview.unlock') }}
                   </v-btn>
+
+                  <!-- Reseller entry point -->
+                  <div v-if="canResell" class="d-flex justify-center mt-3">
+                    <ResellerButton
+                      :author-id="realAuthorId"
+                      :entry-id="contentId"
+                      :reseller-enabled="realResellerEnabled"
+                    />
+                  </div>
                 </v-card-text>
               </v-card>
             </div>
@@ -684,6 +693,15 @@
                   {{ $t('Preview.unlock') }}
                 </v-btn>
 
+                <!-- Reseller entry point -->
+                <div v-if="canResell" class="d-flex justify-center mt-3">
+                  <ResellerButton
+                    :author-id="realAuthorId"
+                    :entry-id="contentId"
+                    :reseller-enabled="realResellerEnabled"
+                  />
+                </div>
+
                 <!-- Security note -->
                 <div class="d-flex align-center justify-center mt-4 text-body-2 text-medium-emphasis">
                   <v-icon class="mr-1" size="small">mdi-shield-check</v-icon>
@@ -700,6 +718,7 @@
     <CheckoutDialog
       v-model="checkoutOpen"
       :item="checkoutItem"
+      :reseller-code="resellerCode"
       @purchased="onPurchased"
     />
   </div>
@@ -718,6 +737,7 @@
   import CheckoutDialog from '@/components/checkout/CheckoutDialog.vue'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import AvatarFrame from '@/components/media/AvatarFrame.vue'
+  import ResellerButton from '@/components/reseller/ResellerButton.vue'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
@@ -740,6 +760,13 @@
     return params.id ?? ''
   })
 
+  // Reseller link code the buyer arrived with (?r=<code>). Threaded into the
+  // checkout so the reseller earns their commission on this purchase.
+  const resellerCode = computed(() => {
+    const r = route.query.r
+    return typeof r === 'string' && r.trim() ? r.trim() : undefined
+  })
+
   // State
   const content = ref<EntryModel | null>(null)
   const collectionData = ref<CollectionModel | null>(null)
@@ -759,6 +786,12 @@
   const realPrice = ref<number | undefined>()
   const realPriceCurrency = ref<'XLM' | 'USD'>('XLM')
   const realDescription = ref<string | undefined>()
+  // Whether the creator allows resells for this content, and who created it.
+  const realResellerEnabled = ref(false)
+  const realAuthorId = ref<string | undefined>()
+
+  // Show the "EARN LUMENS" reseller button only for verified, resellable content.
+  const canResell = computed(() => isVerified.value && realResellerEnabled.value)
 
   // Profile badge
   const profileBadgeSrc = computed(() => getProfileBadgeSrc(content.value?.profileBadge))
@@ -937,6 +970,8 @@
       realPrice.value = data.priceCurrency === 'USD' ? data.priceUsd : data.priceXlm
       realPriceCurrency.value = (data.priceCurrency as 'XLM' | 'USD') || 'XLM'
       realDescription.value = data.description
+      realResellerEnabled.value = data.resellerEnabled ?? false
+      realAuthorId.value = data.authorId
       isVerified.value = true
 
       // If content is NOT locked (not paid), redirect to the consumption page
