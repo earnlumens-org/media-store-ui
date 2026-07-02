@@ -65,6 +65,8 @@ export interface FranchiseConfigDto {
   /** Commission (% of the franchisor's own profit share) frozen onto new franchises. */
   defaultCommissionPercent: number | null
   available: boolean
+  /** Server-enforced cap on how many franchises one user may own here. */
+  maxFranchisesPerUser: number
 }
 
 /** Owner-facing view of a franchise, including the frozen commission deal. */
@@ -100,6 +102,8 @@ export interface UpdateFranchisePayload {
   logoR2Key?: string
   coverR2Key?: string
   accentColor?: string
+  /** Replacement Stellar payout wallet (G…). Omit to leave untouched. */
+  payoutWallet?: string
 }
 
 /** Franchise config for the current storefront (authenticated). */

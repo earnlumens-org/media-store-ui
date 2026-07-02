@@ -40,8 +40,38 @@
       </template>
     </v-alert>
 
-    <!-- ── Manage existing franchise ───────────────────────── -->
-    <template v-else-if="mine">
+    <!-- ── Manage existing franchises ──────────────────── -->
+    <template v-else-if="mine && !creating">
+      <!-- Franchise switcher + create-another (limit enforced server-side) -->
+      <v-card class="mb-4" variant="outlined">
+        <v-card-text class="d-flex align-center flex-wrap ga-2 py-3">
+          <v-chip
+            v-for="f in mineList"
+            :key="f.id"
+            :color="f.id === selectedId ? 'primary' : undefined"
+            :variant="f.id === selectedId ? 'flat' : 'tonal'"
+            @click="selectFranchise(f.id)"
+          >
+            <v-icon size="14" start>mdi-storefront-outline</v-icon>
+            {{ f.title || f.slug }}
+          </v-chip>
+          <v-spacer />
+          <v-btn
+            v-if="canCreateMore"
+            prepend-icon="mdi-plus"
+            size="small"
+            variant="tonal"
+            @click="startCreate"
+          >{{ t('MyFranchise.createAnother') }}</v-btn>
+          <span
+            v-else-if="config && mineList.length >= config.maxFranchisesPerUser"
+            class="text-caption text-medium-emphasis"
+          >
+            {{ t('MyFranchise.limitReached', { max: config.maxFranchisesPerUser }) }}
+          </span>
+        </v-card-text>
+      </v-card>
+
       <!-- Live preview of the franchise storefront header -->
       <div class="text-caption text-medium-emphasis mb-1">{{ t('MyFranchise.previewTitle') }}</div>
       <v-card class="mb-4 overflow-hidden" variant="outlined">
@@ -113,8 +143,57 @@
               <template #prepend><v-icon size="small">mdi-wallet-outline</v-icon></template>
               <v-list-item-title class="text-truncate">{{ mine.payoutWallet }}</v-list-item-title>
               <v-list-item-subtitle>{{ t('MyFranchise.payoutLabel') }}</v-list-item-subtitle>
+              <template #append>
+                <v-btn
+                  :disabled="mine.status === 'DISABLED'"
+                  icon="mdi-pencil"
+                  size="x-small"
+                  variant="text"
+                  @click="toggleWalletEdit"
+                />
+              </template>
             </v-list-item>
           </v-list>
+
+          <!-- Inline payout-wallet editor (re-validated server-side) -->
+          <v-expand-transition>
+            <div v-if="walletEdit.open" class="mt-2">
+              <v-text-field
+                v-model="walletEdit.wallet"
+                :label="t('MyFranchise.fieldPayout')"
+                :rules="[walletRule]"
+                variant="outlined"
+                @update:model-value="walletEdit.inactive = false"
+              />
+              <v-alert
+                v-if="walletEdit.inactive"
+                class="mb-3"
+                density="compact"
+                type="warning"
+                variant="tonal"
+              >
+                {{ t('MyFranchise.errors.wallet_not_activated') }}
+              </v-alert>
+              <div class="text-caption text-medium-emphasis mb-2">
+                {{ t('MyFranchise.walletChangeHint') }}
+              </div>
+              <div class="d-flex justify-end ga-2">
+                <v-btn
+                  :disabled="walletEdit.saving"
+                  size="small"
+                  variant="text"
+                  @click="walletEdit.open = false"
+                >{{ t('MyFranchise.cancel') }}</v-btn>
+                <v-btn
+                  color="primary"
+                  :loading="walletEdit.saving"
+                  size="small"
+                  variant="elevated"
+                  @click="saveWallet"
+                >{{ t('MyFranchise.save') }}</v-btn>
+              </div>
+            </div>
+          </v-expand-transition>
         </v-card-text>
       </v-card>
 
@@ -351,7 +430,15 @@
               color="primary"
               :label="t('MyFranchise.acceptTerms')"
             />
-            <div class="d-flex justify-end">
+            <div class="d-flex justify-end ga-2">
+              <v-btn
+                v-if="mineList.length > 0"
+                :disabled="saving"
+                variant="text"
+                @click="creating = false"
+              >
+                {{ t('MyFranchise.cancel') }}
+              </v-btn>
               <v-btn
                 color="primary"
                 :disabled="!create.acceptTerms"
@@ -420,7 +507,17 @@
   const saving = ref(false)
   const loadError = ref<string | null>(null)
   const config = ref<FranchiseConfigDto | null>(null)
-  const mine = ref<ManagedFranchiseDto | null>(null)
+  const mineList = ref<ManagedFranchiseDto[]>([])
+  const selectedId = ref<string | null>(null)
+  /** Currently selected franchise (owners can run several, capped server-side). */
+  const mine = computed(() => mineList.value.find(f => f.id === selectedId.value) ?? null)
+  /** True while the owner is filling the "create another" form. */
+  const creating = ref(false)
+
+  const canCreateMore = computed(() =>
+    !!config.value?.available
+    && mineList.value.length < (config.value?.maxFranchisesPerUser ?? 0),
+  )
 
   const create = reactive({
     slug: '',
@@ -433,6 +530,9 @@
 
   /** The payout wallet is syntactically valid but not funded on the network. */
   const walletInactive = ref(false)
+
+  /** Inline payout-wallet editor for the selected franchise. */
+  const walletEdit = reactive({ open: false, wallet: '', saving: false, inactive: false })
 
   const edit = reactive({ title: '', description: '', accentColor: '' })
   const editOriginal = reactive({ title: '', description: '', accentColor: '' })
@@ -458,22 +558,23 @@
   )
 
   // ── Live storefront preview (reacts to the form as you type) ──
+  const showingCreate = computed(() => creating.value || !mine.value)
   const previewTitle = computed(() => {
-    if (mine.value) return edit.title || mine.value.title || tenantBrand.value
-    return create.title || tenantBrand.value
+    if (showingCreate.value) return create.title || tenantBrand.value
+    return edit.title || mine.value?.title || tenantBrand.value
   })
   const previewDescription = computed(() =>
-    mine.value ? edit.description : create.description,
+    showingCreate.value ? create.description : edit.description,
   )
   const previewAccent = computed(() => {
-    const a = (mine.value ? edit.accentColor : create.accentColor) || ''
+    const a = (showingCreate.value ? create.accentColor : edit.accentColor) || ''
     return isValidAccent(a) ? a : null
   })
   const previewLogoUrl = computed(() =>
-    mine.value?.logoR2Key ? cdnPublicUrl(mine.value.logoR2Key) : null,
+    !showingCreate.value && mine.value?.logoR2Key ? cdnPublicUrl(mine.value.logoR2Key) : null,
   )
   const previewCoverUrl = computed(() =>
-    mine.value?.coverR2Key ? cdnPublicUrl(mine.value.coverR2Key) : null,
+    !showingCreate.value && mine.value?.coverR2Key ? cdnPublicUrl(mine.value.coverR2Key) : null,
   )
   const previewHeroStyle = computed(() => {
     if (previewCoverUrl.value) return { backgroundImage: `url("${previewCoverUrl.value}")` }
@@ -538,6 +639,47 @@
     return t('Franchise.errorTitle')
   }
 
+  /** Loads the edit form (and resets the wallet editor) from a franchise. */
+  function syncEditFrom (f: ManagedFranchiseDto) {
+    edit.title = f.title ?? ''
+    edit.description = f.description ?? ''
+    edit.accentColor = f.accentColor ?? ''
+    editOriginal.title = edit.title
+    editOriginal.description = edit.description
+    editOriginal.accentColor = edit.accentColor
+    walletEdit.open = false
+    walletEdit.wallet = ''
+    walletEdit.inactive = false
+  }
+
+  /** Replaces (or appends) a franchise in the owned list after a save. */
+  function applyUpdated (updated: ManagedFranchiseDto) {
+    const index = mineList.value.findIndex(f => f.id === updated.id)
+    if (index === -1) {
+      mineList.value.push(updated)
+    } else {
+      mineList.value.splice(index, 1, updated)
+    }
+  }
+
+  function selectFranchise (id: string) {
+    if (id === selectedId.value) return
+    selectedId.value = id
+    if (mine.value) syncEditFrom(mine.value)
+  }
+
+  /** Opens a fresh "create another franchise" form. */
+  function startCreate () {
+    create.slug = ''
+    create.payoutWallet = ''
+    create.title = ''
+    create.description = ''
+    create.accentColor = ''
+    create.acceptTerms = false
+    walletInactive.value = false
+    creating.value = true
+  }
+
   async function loadAll () {
     if (!isAuthenticated.value) return
     loading.value = true
@@ -548,15 +690,11 @@
         api.franchises.mine(),
       ])
       config.value = cfg
-      mine.value = owned[0] ?? null
-      if (mine.value) {
-        edit.title = mine.value.title ?? ''
-        edit.description = mine.value.description ?? ''
-        edit.accentColor = mine.value.accentColor ?? ''
-        editOriginal.title = edit.title
-        editOriginal.description = edit.description
-        editOriginal.accentColor = edit.accentColor
+      mineList.value = owned
+      if (!selectedId.value || !owned.some(f => f.id === selectedId.value)) {
+        selectedId.value = owned[0]?.id ?? null
       }
+      if (mine.value) syncEditFrom(mine.value)
     } catch (error_) {
       loadError.value = localiseError(error_)
     } finally {
@@ -573,8 +711,9 @@
     if (!create.acceptTerms) return
     saving.value = true
     try {
-      // The payout wallet is immutable after creation and becomes a payment
-      // destination — require an activated (funded) Stellar account up front.
+      // The payout wallet becomes a payment destination — require an
+      // activated (funded) Stellar account up front. It can be replaced
+      // later from the manage view, with the same check.
       walletInactive.value = !(await accountExists(create.payoutWallet.trim()))
       if (walletInactive.value) {
         notify(t('MyFranchise.errors.wallet_not_activated'), 'error')
@@ -588,18 +727,51 @@
         accentColor: create.accentColor.trim() || undefined,
         acceptTerms: create.acceptTerms,
       })
-      mine.value = created
-      edit.title = created.title ?? ''
-      edit.description = created.description ?? ''
-      edit.accentColor = created.accentColor ?? ''
-      editOriginal.title = edit.title
-      editOriginal.description = edit.description
-      editOriginal.accentColor = edit.accentColor
+      applyUpdated(created)
+      selectedId.value = created.id
+      creating.value = false
+      syncEditFrom(created)
       notify(t('MyFranchise.createdOk'))
     } catch (error_) {
       notify(localiseError(error_), 'error')
     } finally {
       saving.value = false
+    }
+  }
+
+  /** Replaces the payout wallet of the selected franchise. */
+  async function saveWallet () {
+    if (!mine.value) return
+    const wallet = walletEdit.wallet.trim()
+    if (!WALLET_RE.test(wallet)) {
+      notify(t('MyFranchise.errors.wallet_format'), 'error')
+      return
+    }
+    walletEdit.saving = true
+    try {
+      // Same funding requirement as at creation — the wallet is a payment
+      // destination, so it must already exist on the network.
+      walletEdit.inactive = !(await accountExists(wallet))
+      if (walletEdit.inactive) {
+        notify(t('MyFranchise.errors.wallet_not_activated'), 'error')
+        return
+      }
+      const updated = await api.franchises.updateMine(mine.value.id, { payoutWallet: wallet })
+      applyUpdated(updated)
+      walletEdit.open = false
+      notify(t('MyFranchise.walletUpdated'))
+    } catch (error_) {
+      notify(localiseError(error_), 'error')
+    } finally {
+      walletEdit.saving = false
+    }
+  }
+
+  function toggleWalletEdit () {
+    walletEdit.open = !walletEdit.open
+    if (walletEdit.open) {
+      walletEdit.wallet = mine.value?.payoutWallet ?? ''
+      walletEdit.inactive = false
     }
   }
 
@@ -614,7 +786,7 @@
         description: edit.description,
         accentColor: edit.accentColor,
       })
-      mine.value = updated
+      applyUpdated(updated)
       editOriginal.title = edit.title
       editOriginal.description = edit.description
       editOriginal.accentColor = edit.accentColor
@@ -648,7 +820,7 @@
       const r2Key = await api.franchises.uploadImage(mine.value.id, slot, file)
       const updated = await api.franchises.updateMine(mine.value.id,
                                                       slot === 'logo' ? { logoR2Key: r2Key } : { coverR2Key: r2Key })
-      mine.value = updated
+      applyUpdated(updated)
       notify(t('MyFranchise.savedOk'))
     } catch (error_) {
       notify(localiseError(error_), 'error')
@@ -665,7 +837,7 @@
     try {
       const updated = await api.franchises.updateMine(mine.value.id,
                                                       slot === 'logo' ? { logoR2Key: '' } : { coverR2Key: '' })
-      mine.value = updated
+      applyUpdated(updated)
       notify(t('MyFranchise.savedOk'))
     } catch (error_) {
       notify(localiseError(error_), 'error')

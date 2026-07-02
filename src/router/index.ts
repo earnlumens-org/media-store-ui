@@ -52,6 +52,31 @@ router.afterEach(() => {
   maybeApplyUpdateOnNavigation()
 })
 
+// ── Franchise attribution (?f=<slug>) ───────────────────────────────────────
+// Opening an entry or collection FROM a franchise storefront (/f/<slug>) tags
+// the destination with ?f=<slug> so checkout and tips attribute the sale to
+// the franchise (mirrors the reseller ?r=<code> pattern). Deliberately scoped
+// to that direct hop only: further navigation drops the tag — a franchise
+// earns on what its page sells, not on everything the user buys afterwards.
+// The backend re-validates the slug at prepare time (active franchise or the
+// purchase is rejected), so a hand-crafted or shared ?f link is harmless.
+const FRANCHISE_PATH_RE = /^\/f\/([^/]+)\/?$/
+const CONTENT_PATH_RE = /^\/(?:preview|watch|listen|view|read|collection)\//
+router.beforeEach((to, from) => {
+  if ('f' in to.query) {
+    return
+  }
+  const match = FRANCHISE_PATH_RE.exec(from.path)
+  if (!match || !CONTENT_PATH_RE.test(to.path)) {
+    return
+  }
+  return {
+    path: to.path,
+    query: { ...to.query, f: match[1] },
+    hash: to.hash,
+  }
+})
+
 // Middleware de autenticación antes de cada ruta
 router.beforeEach(async (to, _from) => {
   const authStore = useAuthStore()

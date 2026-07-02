@@ -20,7 +20,7 @@
 <script setup lang="ts">
   import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useRouter } from 'vue-router'
+  import { useRoute, useRouter } from 'vue-router'
   import { VBottomSheet, VDialog } from 'vuetify/components'
 
   import { api } from '@/api/api'
@@ -31,6 +31,7 @@
   import { useWalletStore } from '@/stores/wallet'
 
   const router = useRouter()
+  const route = useRoute()
   const { t } = useI18n()
 
   interface TipTarget {
@@ -250,7 +251,11 @@
 
       // 2. Prepare — backend builds the unsigned Stellar tip tx
       const isCollection = props.target.type === 'collection'
-      const franchiseSlug = franchiseStore.slug ?? undefined
+      // Franchise attribution travels in the URL (?f=<slug>, set by the router
+      // when this content was opened from /f/<slug>); the store is a fallback
+      // for tips sent while the franchise page itself is still mounted.
+      const routeSlug = typeof route.query.f === 'string' ? route.query.f : undefined
+      const franchiseSlug = routeSlug || franchiseStore.slug || undefined
       const prepared = await api.payment.prepareTip(buyerWallet, {
         ...(isCollection ? { collectionId: props.target.id } : { entryId: props.target.id }),
         ...(franchiseSlug ? { franchiseSlug } : {}),
@@ -289,16 +294,16 @@
     } catch (error_) {
       const msg = error_ instanceof Error ? error_.message : ''
       const errorKeyByCode: Record<string, string> = {
-        WALLET_NOT_ACTIVATED: 'Preview.walletNotActivated',
-        SPLIT_WALLET_NOT_ACTIVE: 'Preview.contentWalletInactive',
-        PAYMENT_IN_PROGRESS: 'Preview.paymentInProgress',
-        FRANCHISE_SELF_PURCHASE: 'Preview.franchiseSelfPurchase',
-        WALLET_ACCOUNT_MISMATCH: 'Preview.walletAccountMismatch',
-        WALLET_RECONNECT_REQUIRED: 'Preview.walletReconnectRequired',
-        PAYMENT_NOT_CONFIRMED: 'Preview.paymentFailed',
-        PAYMENT_CONFIRMATION_TIMEOUT: 'Preview.paymentConfirmTimeout',
-        CREATOR_TIPS_UNAVAILABLE: 'Tip.unavailable',
-        TIP_AMOUNT_OUT_OF_RANGE: 'Tip.amountInvalid',
+        'WALLET_NOT_ACTIVATED': 'Preview.walletNotActivated',
+        'SPLIT_WALLET_NOT_ACTIVE': 'Preview.contentWalletInactive',
+        'PAYMENT_IN_PROGRESS': 'Preview.paymentInProgress',
+        'FRANCHISE_SELF_PURCHASE': 'Preview.franchiseSelfPurchase',
+        'WALLET_ACCOUNT_MISMATCH': 'Preview.walletAccountMismatch',
+        'WALLET_RECONNECT_REQUIRED': 'Preview.walletReconnectRequired',
+        'PAYMENT_NOT_CONFIRMED': 'Preview.paymentFailed',
+        'PAYMENT_CONFIRMATION_TIMEOUT': 'Preview.paymentConfirmTimeout',
+        'CREATOR_TIPS_UNAVAILABLE': 'Tip.unavailable',
+        'TIP_AMOUNT_OUT_OF_RANGE': 'Tip.amountInvalid',
         'Cannot tip your own content': 'Tip.cannotTipOwn',
       }
       const errorKey = errorKeyByCode[msg]

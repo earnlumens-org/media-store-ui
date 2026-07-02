@@ -21,7 +21,7 @@
 <script setup lang="ts">
   import { computed, onBeforeUnmount, ref, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
-  import { useRouter } from 'vue-router'
+  import { useRoute, useRouter } from 'vue-router'
 
   import { api } from '@/api/api'
   import xIcon from '@/assets/twitterx.svg?raw'
@@ -34,6 +34,7 @@
   import { useWalletStore } from '@/stores/wallet'
 
   const router = useRouter()
+  const route = useRoute()
 
   const { t } = useI18n()
 
@@ -231,7 +232,11 @@
 
       // 2. Prepare — backend builds unsigned Stellar tx
       const isCollection = props.item.type === 'collection'
-      const franchiseSlug = franchiseStore.slug ?? undefined
+      // Franchise attribution travels in the URL (?f=<slug>, set by the router
+      // when this content was opened from /f/<slug>); the store is a fallback
+      // for purchases made while the franchise page itself is still mounted.
+      const routeSlug = typeof route.query.f === 'string' ? route.query.f : undefined
+      const franchiseSlug = routeSlug || franchiseStore.slug || undefined
       const resellerCode = props.resellerCode || undefined
       const prepared = await api.payment.prepare(buyerWallet, {
         ...(isCollection ? { collectionId: props.item.id } : { entryId: props.item.id }),
