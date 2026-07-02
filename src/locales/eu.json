@@ -238,7 +238,9 @@
     "addedToFavorites": "Gogokoetara gehitu da",
     "removedFromFavorites": "Gogokoetatik kendu da",
     "linkCopied": "Esteka arbelean kopiatu da",
-    "tooManyRequests": "Eskaera gehiegi. Itxaron une bat eta saiatu berriro."
+    "tooManyRequests": "Eskaera gehiegi. Itxaron une bat eta saiatu berriro.",
+    "copy": "Kopiatu",
+    "copied": "Kopiatuta"
   },
   "Themes": {
     "title": "Gaien hautatzailea",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Iraungitzerik gabe",
     "badgeNone": "Oraindik ez duzu egiaztagiri urdin aktiborik",
     "badgeNoneHint": "Aktibatu zure egiaztagiri urdina tenant bat sortzea eskatzeko eta tresna aurreratuak erabiltzeko.",
-    "badgeGetAccess": "Aktibatu egiaztagiri urdina"
+    "badgeGetAccess": "Aktibatu egiaztagiri urdina",
+    "myResellerLinks": "Birsaltzaileak",
+    "myResellerLinksHint": "Kudeatu birsaltzen ari zaren edukia eta zure komisio-estekak"
   },
   "AppBar": {
     "home": "Hasiera",
@@ -647,6 +651,12 @@
       "title": "Igoera amaituta!",
       "draftMessage": "Zure {type} zirriborro gisa gorde da. Edonoiz editatu edo bidal dezakezu Creator Studio-tik.",
       "reviewMessage": "Zure {type} berrikustera bidali da. Onartzen denean jakinaraziko zaizu."
+    },
+    "reseller": {
+      "title": "Birsaltzaileak",
+      "hint": "Utzi besteek zure edukia partekatzen eta salmenta bakoitzean komisioa irabazten, zure zatitik hartuta.",
+      "commissionLabel": "Birsaltzailearen komisioa",
+      "commissionHint": "Prezio osoaren % 5 eta % 20 artean. Lehenetsia: % 10."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "Ezin da editatu edo argitaratu bideoa transkodetzen ari den bitartean. Saiatu berriro amaitzen denean.",
       "viewFeedback": "Ikusi baztertze-arrazoia",
       "publishSuccess": "Sarrera ondo argitaratu da",
-      "publishError": "Ezin izan da sarrera argitaratu. Saiatu berriro."
+      "publishError": "Ezin izan da sarrera argitaratu. Saiatu berriro.",
+      "resellerSettings": "Birsaltzaileen ezarpenak"
     },
     "approvedHint": "Onartuta · argitaratzeko prest (oraindik ez ikusgai)",
     "editEntry": "Editatu sarrera",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Saltzailea",
       "PLATFORM": "Plataforma",
-      "COLLABORATOR": "Kolaboratzailea"
+      "COLLABORATOR": "Kolaboratzailea",
+      "FRANCHISE": "Frankizia",
+      "RESELLER": "Birsaltzailea"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Ezin diozu propinarik eman zure edukiari.",
     "done": "Eginda",
     "processing": "Zure propina bidaltzen…"
+  },
+  "Reseller": {
+    "title": "Irabazi Lumens",
+    "cta": "IRABAZI LUMENS",
+    "intro": "Partekatu eduki hau zure audientziarekin eta irabazi komisioa norbaitek zure estekaren bidez erosten duen bakoitzean.",
+    "yourCommission": "Zure komisioa",
+    "commissionOrientative": "Tasa hau orientagarria da. Zure benetako komisioa salmenta bakoitzaren unean kalkulatzen da. Uneko balioa beti Kontua → Birsaltzaileak atalean agertzen da.",
+    "payoutWallet": "Ordainketa-zorroa",
+    "walletHint": "Zure komisioa bidaliko den Stellar zorroa. Kontu aktiboa izan behar du.",
+    "walletLabel": "Stellar gako publikoa",
+    "connectWallet": "Konektatu zorroa",
+    "walletVerified": "Zorroa egiaztatuta — aktibo Stellar sarean.",
+    "walletNotActivated": "Zorro hau ez dago oraindik aktibo Stellar sarean. Bidali gutxienez 1 XLM helbide honetara aktibatzeko, eta saiatu berriro.",
+    "generateLink": "Sortu esteka",
+    "linkReady": "Zure birsaltzaile-esteka prest dago. Partekatu edonon.",
+    "manageHint": "Zure birsaltzaile-esteka guztiak edonoiz aurki eta kudea ditzakezu Kontua → Birsaltzaileak atalean.",
+    "ownContent": "Ezin duzu birsaltzaile-estekarik sortu zure eduki propioarentzat.",
+    "disabledForContent": "Sortzaileak eduki honen birsalmenta desgaitu du, beraz, ezin da esteka sortu oraintxe.",
+    "errors": {
+      "loadFailed": "Ezin izan dira birsaltzailearen xehetasunak kargatu. Saiatu berriro.",
+      "connectFailed": "Ezin izan da zure zorroa konektatu. Saiatu berriro.",
+      "copyFailed": "Ezin izan da esteka kopiatu. Kopiatu eskuz.",
+      "generic": "Zerbait gaizki joan da. Saiatu berriro.",
+      "verifyFailed": "Ezin izan da zorroa Stellar sarean egiaztatu. Saiatu berriro.",
+      "wallet_format": "Sartu baliozko Stellar gako publiko bat (G-z hasten da).",
+      "wallet_not_activated": "Zorro hau ez dago oraindik aktibo Stellar sarean. Bidali gutxienez 1 XLM helbide honetara aktibatzeko.",
+      "entry_not_found": "Eduki hau jada ez dago.",
+      "entry_not_resellable": "Eduki hau ezin da birsaldu.",
+      "own_content": "Ezin duzu birsaltzaile-estekarik sortu zure eduki propioarentzat.",
+      "not_found": "Ez da birsaltzaile-esteka aurkitu.",
+      "forbidden": "Jarraitzeko, hasi saioa."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Nire birsaltzaile-estekak",
+    "subtitle": "Birsaltzen ari zaren edukia. Partekatu esteka hauek salmenta bakoitzean komisioa irabazteko.",
+    "empty": "Oraindik ez duzu birsaltzaile-estekarik.",
+    "emptyHint": "Ireki ordainpeko edozein eduki eta sakatu «IRABAZI LUMENS» zure lehen esteka sortzeko.",
+    "loginRequired": "Hasi saioa zure birsaltzaile-estekak ikusteko.",
+    "commission": "Komisioa",
+    "payoutWallet": "Ordainketa-zorroa",
+    "changeWallet": "Aldatu zorroa",
+    "useConnected": "Erabili konektatutako zorroa",
+    "saveWallet": "Gorde",
+    "cancel": "Utzi",
+    "copyLink": "Kopiatu esteka",
+    "linkCopied": "Esteka kopiatuta",
+    "walletUpdated": "Ordainketa-zorroa eguneratuta",
+    "resaleDisabled": "Birsalmenta desgaituta",
+    "resaleDisabledHint": "Sortzaileak eduki honen birsalmenta desgaitu du. Estekak edukia irekitzen jarraitzen du, baina salmenta berriek ez dute komisiorik irabaziko.",
+    "openContent": "Ireki edukia",
+    "loadError": "Ezin izan dira zure birsaltzaile-estekak kargatu.",
+    "retry": "Saiatu berriro"
   }
 }

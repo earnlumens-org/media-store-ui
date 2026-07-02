@@ -238,7 +238,9 @@
     "addedToFavorites": "Přidáno k oblíbeným",
     "removedFromFavorites": "Odebráno z oblíbených",
     "linkCopied": "Odkaz zkopírován do schránky",
-    "tooManyRequests": "Příliš mnoho požadavků. Chvíli počkejte a zkuste to znovu."
+    "tooManyRequests": "Příliš mnoho požadavků. Chvíli počkejte a zkuste to znovu.",
+    "copy": "Kopírovat",
+    "copied": "Zkopírováno"
   },
   "Themes": {
     "title": "Výběr motivu",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Žádná expirace",
     "badgeNone": "Ještě nemáte aktivní modré přihlašovací údaje",
     "badgeNoneHint": "Aktivujte své modré pověření, abyste mohli požádat o vytvoření tenanta a získat přístup k pokročilým nástrojům.",
-    "badgeGetAccess": "Aktivujte modré pověření"
+    "badgeGetAccess": "Aktivujte modré pověření",
+    "myResellerLinks": "Prodejci",
+    "myResellerLinksHint": "Spravujte obsah, který dále prodáváte, a své provizní odkazy"
   },
   "AppBar": {
     "home": "Domov",
@@ -647,6 +651,12 @@
       "title": "Nahrávání dokončeno!",
       "draftMessage": "Váš {type} byl uložen jako koncept. Můžete jej kdykoli upravit nebo odeslat z Creator Studio.",
       "reviewMessage": "Váš {type} byl odeslán ke kontrole. Po schválení budete informováni."
+    },
+    "reseller": {
+      "title": "Prodejci",
+      "hint": "Umožněte ostatním sdílet váš obsah a získat provizi z každého prodeje, která se strhne z vašeho podílu.",
+      "commissionLabel": "Provize prodejce",
+      "commissionHint": "Mezi 5 % a 20 % z celkové ceny. Výchozí 10 %."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "Během překódování videa nelze upravovat ani publikovat. Zkuste to znovu, až to skončí.",
       "viewFeedback": "Zobrazit důvod odmítnutí",
       "publishSuccess": "Příspěvek byl úspěšně publikován",
-      "publishError": "Publikování záznamu se nezdařilo. Zkuste to prosím znovu."
+      "publishError": "Publikování záznamu se nezdařilo. Zkuste to prosím znovu.",
+      "resellerSettings": "Nastavení prodejců"
     },
     "approvedHint": "Schváleno · připraveno k publikování (zatím není viditelné)",
     "editEntry": "Upravit záznam",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "prodejce",
       "PLATFORM": "Platforma",
-      "COLLABORATOR": "Spolupracovník"
+      "COLLABORATOR": "Spolupracovník",
+      "FRANCHISE": "Franšíza",
+      "RESELLER": "Prodejce"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Nemůžete tipovat svůj vlastní obsah.",
     "done": "Hotovo",
     "processing": "Odesílání tipu…"
+  },
+  "Reseller": {
+    "title": "Vydělávejte Lumens",
+    "cta": "VYDĚLÁVEJTE LUMENS",
+    "intro": "Sdílejte tento obsah se svým publikem a získejte provizi pokaždé, když někdo nakoupí přes váš odkaz.",
+    "yourCommission": "Vaše provize",
+    "commissionOrientative": "Tato sazba je orientační. Vaše skutečná provize se počítá v okamžiku každého prodeje. Aktuální hodnota se vždy zobrazuje v Účet → Prodejci.",
+    "payoutWallet": "Výplatní peněženka",
+    "walletHint": "Peněženka Stellar, na kterou bude odeslána vaše provize. Musí to být aktivní účet.",
+    "walletLabel": "Veřejný klíč Stellar",
+    "connectWallet": "Připojit peněženku",
+    "walletVerified": "Peněženka ověřena — aktivní v síti Stellar.",
+    "walletNotActivated": "Tato peněženka zatím není v síti Stellar aktivní. Pošlete na tuto adresu alespoň 1 XLM pro její aktivaci a zkuste to znovu.",
+    "generateLink": "Vygenerovat odkaz",
+    "linkReady": "Váš prodejní odkaz je připraven. Sdílejte ho kdekoli.",
+    "manageHint": "Všechny své prodejní odkazy najdete a spravujete kdykoli v Účet → Prodejci.",
+    "ownContent": "Pro vlastní obsah nemůžete vytvořit prodejní odkaz.",
+    "disabledForContent": "Autor zakázal další prodej tohoto obsahu, takže odkaz nelze nyní vygenerovat.",
+    "errors": {
+      "loadFailed": "Nepodařilo se načíst údaje prodejce. Zkuste to znovu.",
+      "connectFailed": "Nepodařilo se připojit vaši peněženku. Zkuste to znovu.",
+      "copyFailed": "Nepodařilo se zkopírovat odkaz. Zkopírujte ho ručně.",
+      "generic": "Něco se pokazilo. Zkuste to znovu.",
+      "verifyFailed": "Nepodařilo se ověřit peněženku v síti Stellar. Zkuste to znovu.",
+      "wallet_format": "Zadejte platný veřejný klíč Stellar (začíná písmenem G).",
+      "wallet_not_activated": "Tato peněženka zatím není v síti Stellar aktivní. Pošlete na tuto adresu alespoň 1 XLM pro její aktivaci.",
+      "entry_not_found": "Tento obsah již neexistuje.",
+      "entry_not_resellable": "Tento obsah nelze dále prodat.",
+      "own_content": "Pro vlastní obsah nemůžete vytvořit prodejní odkaz.",
+      "not_found": "Prodejní odkaz nebyl nalezen.",
+      "forbidden": "Pokračujte přihlášením."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Moje prodejní odkazy",
+    "subtitle": "Obsah, který dále prodáváte. Sdílejte tyto odkazy a získejte provizi z každého prodeje.",
+    "empty": "Zatím nemáte žádné prodejní odkazy.",
+    "emptyHint": "Otevřete jakýkoli placený obsah a klepněte na „VYDĚLÁVEJTE LUMENS“ pro vytvoření prvního odkazu.",
+    "loginRequired": "Přihlaste se pro zobrazení svých prodejních odkazů.",
+    "commission": "Provize",
+    "payoutWallet": "Výplatní peněženka",
+    "changeWallet": "Změnit peněženku",
+    "useConnected": "Použít připojenou peněženku",
+    "saveWallet": "Uložit",
+    "cancel": "Zrušit",
+    "copyLink": "Kopírovat odkaz",
+    "linkCopied": "Odkaz zkopírován",
+    "walletUpdated": "Výplatní peněženka aktualizována",
+    "resaleDisabled": "Další prodej zakázán",
+    "resaleDisabledHint": "Autor zakázal další prodej tohoto obsahu. Odkaz obsah stále otevírá, ale nové prodeje nepřinesou provizi.",
+    "openContent": "Otevřít obsah",
+    "loadError": "Nepodařilo se načíst vaše prodejní odkazy.",
+    "retry": "Zkusit znovu"
   }
 }

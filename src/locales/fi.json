@@ -238,7 +238,9 @@
     "addedToFavorites": "Lisätty suosikkeihin",
     "removedFromFavorites": "Poistettu suosikeista",
     "linkCopied": "Linkki kopioitu leikepöydälle",
-    "tooManyRequests": "Liian monta pyyntöä. Odota hetki ja yritä uudelleen."
+    "tooManyRequests": "Liian monta pyyntöä. Odota hetki ja yritä uudelleen.",
+    "copy": "Kopioi",
+    "copied": "Kopioitu"
   },
   "Themes": {
     "title": "Teeman valitsin",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Ei vanhenemista",
     "badgeNone": "Sinulla ei ole vielä aktiivista sinistä tunnistetta",
     "badgeNoneHint": "Aktivoi sininen tunnisteesi pyytääksesi tenantin luontia ja päästäksesi lisätyökaluihin.",
-    "badgeGetAccess": "Aktivoi sininen tunniste"
+    "badgeGetAccess": "Aktivoi sininen tunniste",
+    "myResellerLinks": "Jälleenmyyjät",
+    "myResellerLinksHint": "Hallitse edelleen myymääsi sisältöä ja komissiolinkkejäsi"
   },
   "AppBar": {
     "home": "Etusivu",
@@ -647,6 +651,12 @@
       "title": "Lataus valmis!",
       "draftMessage": "{type} on tallennettu luonnoksena. Voit muokata sitä tai lähettää sen milloin tahansa Creator Studiosta.",
       "reviewMessage": "{type} on lähetetty tarkistettavaksi. Saat ilmoituksen, kun se hyväksytään."
+    },
+    "reseller": {
+      "title": "Jälleenmyyjät",
+      "hint": "Anna muiden jakaa sisältöäsi ja ansaita komissio jokaisesta myynnistä, joka otetaan osuudestasi.",
+      "commissionLabel": "Jälleenmyyjän komissio",
+      "commissionHint": "5–20 % kokonaishinnasta. Oletus 10 %."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "Et voi muokata tai julkaista videon transkoodauksen aikana. Yritä uudelleen, kun se valmistuu.",
       "viewFeedback": "Näytä hylkäyksen syy",
       "publishSuccess": "Julkaisu julkaistu onnistuneesti",
-      "publishError": "Julkaisun julkaisu epäonnistui. Yritä uudelleen."
+      "publishError": "Julkaisun julkaisu epäonnistui. Yritä uudelleen.",
+      "resellerSettings": "Jälleenmyyjäasetukset"
     },
     "approvedHint": "Hyväksytty · valmis julkaistavaksi (ei vielä näkyvissä)",
     "editEntry": "Muokkaa julkaisua",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Myyjä",
       "PLATFORM": "Alusta",
-      "COLLABORATOR": "Yhteistyökumppani"
+      "COLLABORATOR": "Yhteistyökumppani",
+      "FRANCHISE": "Franchising",
+      "RESELLER": "Jälleenmyyjä"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Et voi lähettää tippiä omalle sisällöllesi.",
     "done": "Valmis",
     "processing": "Lähetetään tippiäsi…"
+  },
+  "Reseller": {
+    "title": "Ansaitse Lumensia",
+    "cta": "ANSAITSE LUMENSIA",
+    "intro": "Jaa tämä sisältö yleisöllesi ja ansaitse komissio joka kerta, kun joku ostaa linkkisi kautta.",
+    "yourCommission": "Komissiosi",
+    "commissionOrientative": "Tämä prosentti on ohjeellinen. Todellinen komissiosi lasketaan kunkin myynnin hetkellä. Nykyinen arvo näkyy aina kohdassa Tili → Jälleenmyyjät.",
+    "payoutWallet": "Maksulompakko",
+    "walletHint": "Stellar-lompakko, johon komissiosi lähetetään. Sen on oltava aktiivinen tili.",
+    "walletLabel": "Stellarin julkinen avain",
+    "connectWallet": "Yhdistä lompakko",
+    "walletVerified": "Lompakko vahvistettu — aktiivinen Stellar-verkossa.",
+    "walletNotActivated": "Tämä lompakko ei ole vielä aktiivinen Stellar-verkossa. Lähetä tähän osoitteeseen vähintään 1 XLM aktivoidaksesi sen ja yritä sitten uudelleen.",
+    "generateLink": "Luo linkki",
+    "linkReady": "Jälleenmyyntilinkkisi on valmis. Jaa se missä tahansa.",
+    "manageHint": "Löydät ja hallitset kaikkia jälleenmyyntilinkkejäsi milloin tahansa kohdassa Tili → Jälleenmyyjät.",
+    "ownContent": "Et voi luoda jälleenmyyntilinkkiä omalle sisällöllesi.",
+    "disabledForContent": "Tekijä on poistanut tämän sisällön jälleenmyynnin käytöstä, joten linkkiä ei voi luoda juuri nyt.",
+    "errors": {
+      "loadFailed": "Jälleenmyyjän tietoja ei voitu ladata. Yritä uudelleen.",
+      "connectFailed": "Lompakkoasi ei voitu yhdistää. Yritä uudelleen.",
+      "copyFailed": "Linkkiä ei voitu kopioida. Kopioi se manuaalisesti.",
+      "generic": "Jokin meni pieleen. Yritä uudelleen.",
+      "verifyFailed": "Lompakkoa ei voitu vahvistaa Stellar-verkossa. Yritä uudelleen.",
+      "wallet_format": "Anna kelvollinen Stellarin julkinen avain (alkaa G-kirjaimella).",
+      "wallet_not_activated": "Tämä lompakko ei ole vielä aktiivinen Stellar-verkossa. Lähetä tähän osoitteeseen vähintään 1 XLM aktivoidaksesi sen.",
+      "entry_not_found": "Tätä sisältöä ei ole enää olemassa.",
+      "entry_not_resellable": "Tätä sisältöä ei voi myydä edelleen.",
+      "own_content": "Et voi luoda jälleenmyyntilinkkiä omalle sisällöllesi.",
+      "not_found": "Jälleenmyyntilinkkiä ei löytynyt.",
+      "forbidden": "Kirjaudu sisään jatkaaksesi."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Omat jälleenmyyntilinkkini",
+    "subtitle": "Sisältö, jota myyt edelleen. Jaa nämä linkit ansaitaksesi komission jokaisesta myynnistä.",
+    "empty": "Sinulla ei ole vielä jälleenmyyntilinkkejä.",
+    "emptyHint": "Avaa mikä tahansa maksullinen sisältö ja luo ensimmäinen linkkisi napauttamalla ”ANSAITSE LUMENSIA”.",
+    "loginRequired": "Kirjaudu sisään nähdäksesi jälleenmyyntilinkkisi.",
+    "commission": "Komissio",
+    "payoutWallet": "Maksulompakko",
+    "changeWallet": "Vaihda lompakko",
+    "useConnected": "Käytä yhdistettyä lompakkoa",
+    "saveWallet": "Tallenna",
+    "cancel": "Peruuta",
+    "copyLink": "Kopioi linkki",
+    "linkCopied": "Linkki kopioitu",
+    "walletUpdated": "Maksulompakko päivitetty",
+    "resaleDisabled": "Jälleenmyynti poistettu käytöstä",
+    "resaleDisabledHint": "Tekijä poisti tämän sisällön jälleenmyynnin käytöstä. Linkki avaa sisällön edelleen, mutta uudet myynnit eivät tuota komissiota.",
+    "openContent": "Avaa sisältö",
+    "loadError": "Jälleenmyyntilinkkejäsi ei voitu ladata.",
+    "retry": "Yritä uudelleen"
   }
 }

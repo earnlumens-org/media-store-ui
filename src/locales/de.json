@@ -174,7 +174,9 @@
     "tooManyRequests": "Zu viele Anfragen. Bitte warten Sie einen Moment und versuchen Sie es erneut.",
     "cancel": "Abbrechen",
     "updateAvailable": "Eine neue Version ist verfügbar.",
-    "updateNow": "Aktualisieren"
+    "updateNow": "Aktualisieren",
+    "copy": "Kopieren",
+    "copied": "Kopiert"
   },
   "Themes": {
     "title": "Theme-Auswahl",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "Aktiviere dein blaues Credential, um die Erstellung deines Tenants zu beantragen und auf erweiterte Tools zuzugreifen.",
     "badgeGetAccess": "Blaues Credential aktivieren",
     "myFranchise": "Meine Franchise",
-    "myFranchiseHint": "Eröffne und verwalte deinen eigenen Shop innerhalb dieses Marktplatzes"
+    "myFranchiseHint": "Eröffne und verwalte deinen eigenen Shop innerhalb dieses Marktplatzes",
+    "myResellerLinks": "Wiederverkäufer",
+    "myResellerLinksHint": "Verwalte die Inhalte, die du weiterverkaufst, und deine Provisions-Links"
   },
   "AppBar": {
     "home": "Startseite",
@@ -572,6 +576,12 @@
       "title": "Upload abgeschlossen!",
       "draftMessage": "Dein {type} wurde als Entwurf gespeichert. Du kannst ihn jederzeit im Creator Studio bearbeiten oder einreichen.",
       "reviewMessage": "Dein {type} wurde zur Prüfung eingereicht. Du wirst benachrichtigt, sobald er genehmigt wurde."
+    },
+    "reseller": {
+      "title": "Wiederverkäufer",
+      "hint": "Lass andere deinen Inhalt teilen und bei jedem Verkauf eine Provision verdienen, die von deinem Anteil abgezogen wird.",
+      "commissionLabel": "Wiederverkäufer-Provision",
+      "commissionHint": "Zwischen 5 % und 20 % des Gesamtpreises. Standard ist 10 %."
     }
   },
   "Preview": {
@@ -739,7 +749,8 @@
       "transcodingError": "Bearbeiten oder Veröffentlichen während der Transkodierung des Videos nicht möglich. Bitte erneut versuchen, wenn sie abgeschlossen ist.",
       "publishSuccess": "Eintrag erfolgreich veröffentlicht",
       "publishError": "Veröffentlichung fehlgeschlagen. Bitte versuche es erneut.",
-      "viewFeedback": "Ablehnungsgrund anzeigen"
+      "viewFeedback": "Ablehnungsgrund anzeigen",
+      "resellerSettings": "Wiederverkäufer-Einstellungen"
     },
     "approvedHint": "Genehmigt · bereit zur Veröffentlichung (noch nicht sichtbar)",
     "editEntry": "Eintrag bearbeiten",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "Verkäufer",
       "PLATFORM": "Plattform",
-      "COLLABORATOR": "Mitarbeiter"
+      "COLLABORATOR": "Mitarbeiter",
+      "FRANCHISE": "Franchise",
+      "RESELLER": "Wiederverkäufer"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Du kannst kein Trinkgeld für deinen eigenen Inhalt geben.",
     "done": "Fertig",
     "processing": "Dein Trinkgeld wird gesendet…"
+  },
+  "Reseller": {
+    "title": "Lumens verdienen",
+    "cta": "LUMENS VERDIENEN",
+    "intro": "Teile diesen Inhalt mit deinem Publikum und verdiene eine Provision, jedes Mal wenn jemand über deinen Link kauft.",
+    "yourCommission": "Deine Provision",
+    "commissionOrientative": "Dieser Satz ist ein Richtwert. Deine tatsächliche Provision wird zum Zeitpunkt jedes Verkaufs berechnet. Der aktuelle Wert wird immer unter Konto → Wiederverkäufer angezeigt.",
+    "payoutWallet": "Auszahlungs-Wallet",
+    "walletHint": "Das Stellar-Wallet, an das deine Provision gesendet wird. Es muss ein aktives Konto sein.",
+    "walletLabel": "Öffentlicher Stellar-Schlüssel",
+    "connectWallet": "Wallet verbinden",
+    "walletVerified": "Wallet verifiziert — aktiv im Stellar-Netzwerk.",
+    "walletNotActivated": "Dieses Wallet ist im Stellar-Netzwerk noch nicht aktiv. Sende mindestens 1 XLM an diese Adresse, um es zu aktivieren, und versuche es dann erneut.",
+    "generateLink": "Link erstellen",
+    "linkReady": "Dein Wiederverkäufer-Link ist bereit. Teile ihn überall.",
+    "manageHint": "Du findest und verwaltest alle deine Wiederverkäufer-Links jederzeit unter Konto → Wiederverkäufer.",
+    "ownContent": "Für eigene Inhalte kannst du keinen Wiederverkäufer-Link erstellen.",
+    "disabledForContent": "Der Ersteller hat den Weiterverkauf für diesen Inhalt deaktiviert, daher kann derzeit kein Link erstellt werden.",
+    "errors": {
+      "loadFailed": "Wiederverkäufer-Details konnten nicht geladen werden. Bitte versuche es erneut.",
+      "connectFailed": "Dein Wallet konnte nicht verbunden werden. Bitte versuche es erneut.",
+      "copyFailed": "Der Link konnte nicht kopiert werden. Kopiere ihn manuell.",
+      "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+      "verifyFailed": "Das Wallet konnte im Stellar-Netzwerk nicht verifiziert werden. Bitte versuche es erneut.",
+      "wallet_format": "Gib einen gültigen öffentlichen Stellar-Schlüssel ein (beginnt mit G).",
+      "wallet_not_activated": "Dieses Wallet ist im Stellar-Netzwerk noch nicht aktiv. Sende mindestens 1 XLM an diese Adresse, um es zu aktivieren.",
+      "entry_not_found": "Dieser Inhalt existiert nicht mehr.",
+      "entry_not_resellable": "Dieser Inhalt kann nicht weiterverkauft werden.",
+      "own_content": "Für eigene Inhalte kannst du keinen Wiederverkäufer-Link erstellen.",
+      "not_found": "Wiederverkäufer-Link nicht gefunden.",
+      "forbidden": "Bitte melde dich an, um fortzufahren."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Meine Wiederverkäufer-Links",
+    "subtitle": "Inhalte, die du weiterverkaufst. Teile diese Links, um bei jedem Verkauf eine Provision zu verdienen.",
+    "empty": "Du hast noch keine Wiederverkäufer-Links.",
+    "emptyHint": "Öffne einen kostenpflichtigen Inhalt und tippe auf „LUMENS VERDIENEN“, um deinen ersten Link zu erstellen.",
+    "loginRequired": "Melde dich an, um deine Wiederverkäufer-Links zu sehen.",
+    "commission": "Provision",
+    "payoutWallet": "Auszahlungs-Wallet",
+    "changeWallet": "Wallet ändern",
+    "useConnected": "Verbundenes Wallet verwenden",
+    "saveWallet": "Speichern",
+    "cancel": "Abbrechen",
+    "copyLink": "Link kopieren",
+    "linkCopied": "Link kopiert",
+    "walletUpdated": "Auszahlungs-Wallet aktualisiert",
+    "resaleDisabled": "Weiterverkauf deaktiviert",
+    "resaleDisabledHint": "Der Ersteller hat den Weiterverkauf für diesen Inhalt deaktiviert. Der Link öffnet den Inhalt weiterhin, aber neue Verkäufe bringen keine Provision.",
+    "openContent": "Inhalt öffnen",
+    "loadError": "Deine Wiederverkäufer-Links konnten nicht geladen werden.",
+    "retry": "Erneut versuchen"
   }
 }

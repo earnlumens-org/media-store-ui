@@ -238,7 +238,9 @@
     "addedToFavorites": "Bætt við eftirlætismerkjum",
     "removedFromFavorites": "Fjarlægt frá eftirlætismerkjum",
     "linkCopied": "Tengill afritaður á klemmispjald",
-    "tooManyRequests": "Of margar beiðnir. Endilega bíddu stund og reyndu aftur."
+    "tooManyRequests": "Of margar beiðnir. Endilega bíddu stund og reyndu aftur.",
+    "copy": "Afrita",
+    "copied": "Afritað"
   },
   "Themes": {
     "title": "Þemaveljari",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Engin fyrning",
     "badgeNone": "Þú ert ekki með virku blá skilríki ennþá",
     "badgeNoneHint": "Virkjaðu blá skilríki þín til að biðja um búnað tenants og fá aðgang að ítarlegum verkfærum.",
-    "badgeGetAccess": "Virkjaðu blá skilríki"
+    "badgeGetAccess": "Virkjaðu blá skilríki",
+    "myResellerLinks": "Endursöluaðilar",
+    "myResellerLinksHint": "Stýrðu efninu sem þú endurselur og þóknunarhlekkjunum þínum"
   },
   "AppBar": {
     "home": "Heim",
@@ -647,6 +651,12 @@
       "title": "Hleðsla lokið!",
       "draftMessage": "Þinn {type} hefur verið vistað sem drög. Þú getur breytt því eða sent það frá Creator Studio hvenær sem er.",
       "reviewMessage": "Þinn {type} hefur verið sent til endurskoðunar. Þú verða tilkynnt þegar það er samþykkt."
+    },
+    "reseller": {
+      "title": "Endursöluaðilar",
+      "hint": "Leyfðu öðrum að deila efninu þínu og afla þóknunar af hverri sölu, sem tekin er af þínum hlut.",
+      "commissionLabel": "Þóknun endursöluaðila",
+      "commissionHint": "Milli 5% og 20% af heildarverði. Sjálfgefið 10%."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "Ekki er hægt að breyta eða birta á meðan myndbandi er verið að endurnýja. Endilega reyndu aftur þegar það er lokið.",
       "viewFeedback": "Skoðaðu höfnunarástæðu",
       "publishSuccess": "Færsla birt með góðum árangri",
-      "publishError": "Tókst ekki að birta færslu. Endilega reyndu aftur."
+      "publishError": "Tókst ekki að birta færslu. Endilega reyndu aftur.",
+      "resellerSettings": "Stillingar endursöluaðila"
     },
     "approvedHint": "Samþykkt · tilbúin til birtingar (ekki sýnileg ennþá)",
     "editEntry": "Breyta færslu",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Seljandi",
       "PLATFORM": "Pallar",
-      "COLLABORATOR": "Samstarfsaðili"
+      "COLLABORATOR": "Samstarfsaðili",
+      "FRANCHISE": "Sérleyfi",
+      "RESELLER": "Endursöluaðili"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Þú getur ekki gefið ábendingu fyrir þitt eigið efni.",
     "done": "Lokið",
     "processing": "Sendi ábendingun þína…"
+  },
+  "Reseller": {
+    "title": "Aflaðu Lumens",
+    "cta": "AFLAÐU LUMENS",
+    "intro": "Deildu þessu efni með áhorfendum þínum og aflaðu þóknunar í hvert sinn sem einhver kaupir í gegnum hlekkinn þinn.",
+    "yourCommission": "Þín þóknun",
+    "commissionOrientative": "Þetta hlutfall er til viðmiðunar. Raunveruleg þóknun þín er reiknuð við hverja sölu. Núverandi gildi er alltaf sýnt undir Reikningur → Endursöluaðilar.",
+    "payoutWallet": "Útgreiðsluveski",
+    "walletHint": "Stellar-veskið sem þóknunin þín verður send í. Það verður að vera virkur reikningur.",
+    "walletLabel": "Opinber Stellar-lykill",
+    "connectWallet": "Tengja veski",
+    "walletVerified": "Veski staðfest — virkt á Stellar-netinu.",
+    "walletNotActivated": "Þetta veski er ekki enn virkt á Stellar-netinu. Sendu að minnsta kosti 1 XLM á þetta vistfang til að virkja það og reyndu svo aftur.",
+    "generateLink": "Búa til hlekk",
+    "linkReady": "Endursöluhlekkurinn þinn er tilbúinn. Deildu honum hvar sem er.",
+    "manageHint": "Þú getur fundið og stýrt öllum endursöluhlekkjum þínum hvenær sem er undir Reikningur → Endursöluaðilar.",
+    "ownContent": "Þú getur ekki búið til endursöluhlekk fyrir þitt eigið efni.",
+    "disabledForContent": "Höfundurinn hefur gert endursölu á þessu efni óvirka, svo ekki er hægt að búa til hlekk núna.",
+    "errors": {
+      "loadFailed": "Ekki tókst að hlaða upplýsingum um endursöluaðila. Reyndu aftur.",
+      "connectFailed": "Ekki tókst að tengja veskið þitt. Reyndu aftur.",
+      "copyFailed": "Ekki tókst að afrita hlekkinn. Afritaðu hann handvirkt.",
+      "generic": "Eitthvað fór úrskeiðis. Reyndu aftur.",
+      "verifyFailed": "Ekki tókst að staðfesta veskið á Stellar-netinu. Reyndu aftur.",
+      "wallet_format": "Sláðu inn gildan opinberan Stellar-lykil (byrjar á G).",
+      "wallet_not_activated": "Þetta veski er ekki enn virkt á Stellar-netinu. Sendu að minnsta kosti 1 XLM á þetta vistfang til að virkja það.",
+      "entry_not_found": "Þetta efni er ekki lengur til.",
+      "entry_not_resellable": "Ekki er hægt að endurselja þetta efni.",
+      "own_content": "Þú getur ekki búið til endursöluhlekk fyrir þitt eigið efni.",
+      "not_found": "Endursöluhlekkur fannst ekki.",
+      "forbidden": "Skráðu þig inn til að halda áfram."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Endursöluhlekkirnir mínir",
+    "subtitle": "Efni sem þú ert að endurselja. Deildu þessum hlekkjum til að afla þóknunar af hverri sölu.",
+    "empty": "Þú ert ekki enn með neina endursöluhlekki.",
+    "emptyHint": "Opnaðu hvaða greitt efni sem er og pikkaðu á „AFLAÐU LUMENS“ til að búa til fyrsta hlekkinn þinn.",
+    "loginRequired": "Skráðu þig inn til að sjá endursöluhlekkina þína.",
+    "commission": "Þóknun",
+    "payoutWallet": "Útgreiðsluveski",
+    "changeWallet": "Skipta um veski",
+    "useConnected": "Nota tengt veski",
+    "saveWallet": "Vista",
+    "cancel": "Hætta við",
+    "copyLink": "Afrita hlekk",
+    "linkCopied": "Hlekkur afritaður",
+    "walletUpdated": "Útgreiðsluveski uppfært",
+    "resaleDisabled": "Endursala óvirk",
+    "resaleDisabledHint": "Höfundurinn gerði endursölu á þessu efni óvirka. Hlekkurinn opnar efnið enn, en nýjar sölur afla ekki þóknunar.",
+    "openContent": "Opna efni",
+    "loadError": "Ekki tókst að hlaða endursöluhlekkjunum þínum.",
+    "retry": "Reyna aftur"
   }
 }

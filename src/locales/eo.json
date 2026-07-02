@@ -238,7 +238,9 @@
     "addedToFavorites": "Aldonita al preferataj",
     "removedFromFavorites": "Forigita el preferataj",
     "linkCopied": "Ligilo kopiita al tondujo",
-    "tooManyRequests": "Tro multaj petoj. Bonvolu atendi momenton kaj reprovi."
+    "tooManyRequests": "Tro multaj petoj. Bonvolu atendi momenton kaj reprovi.",
+    "copy": "Kopii",
+    "copied": "Kopiita"
   },
   "Themes": {
     "title": "Elektilo de etoso",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Sen eksvalidiĝo",
     "badgeNone": "Vi ankoraŭ ne havas aktivan bluan akreditaĵon",
     "badgeNoneHint": "Aktivigu vian bluan akreditaĵon por peti kreadon de tenant kaj aliri altnivelajn ilojn.",
-    "badgeGetAccess": "Aktivigi bluan akreditaĵon"
+    "badgeGetAccess": "Aktivigi bluan akreditaĵon",
+    "myResellerLinks": "Revendantoj",
+    "myResellerLinksHint": "Administru la enhavon kiun vi revendas kaj viajn komisiajn ligilojn"
   },
   "AppBar": {
     "home": "Hejmo",
@@ -647,6 +651,12 @@
       "title": "Alŝuto kompleta!",
       "draftMessage": "Via {type} estis konservita kiel malneto. Vi povas redakti aŭ sendi ĝin iam ajn el Creator Studio.",
       "reviewMessage": "Via {type} estis sendita por revizio. Vi estos sciigita kiam ĝi estos aprobita."
+    },
+    "reseller": {
+      "title": "Revendantoj",
+      "hint": "Permesu al aliaj kunhavigi vian enhavon kaj gajni komision ĉe ĉiu vendo, prenitan el via parto.",
+      "commissionLabel": "Revendanta komisio",
+      "commissionHint": "Inter 5% kaj 20% de la totala prezo. Defaŭlte 10%."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "Ne eblas redakti aŭ publikigi dum la video estas transkodata. Bonvolu reprovi kiam ĝi finiĝos.",
       "viewFeedback": "Vidi kialon de malakcepto",
       "publishSuccess": "Eniro sukcese publikigita",
-      "publishError": "Malsukcesis publikigi eniron. Bonvolu reprovi."
+      "publishError": "Malsukcesis publikigi eniron. Bonvolu reprovi.",
+      "resellerSettings": "Agordoj de revendantoj"
     },
     "approvedHint": "Aprobita · preta por publikigo (ankoraŭ ne videbla)",
     "editEntry": "Redakti eniron",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Vendisto",
       "PLATFORM": "Platformo",
-      "COLLABORATOR": "Kunlaboranto"
+      "COLLABORATOR": "Kunlaboranto",
+      "FRANCHISE": "Franĉizo",
+      "RESELLER": "Revendanto"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Vi ne povas donaci al via propra enhavo.",
     "done": "Farite",
     "processing": "Sendante vian donacon…"
+  },
+  "Reseller": {
+    "title": "Gajnu Lumens",
+    "cta": "GAJNU LUMENS",
+    "intro": "Kunhavigu ĉi tiun enhavon kun via publiko kaj gajnu komision ĉiufoje kiam iu aĉetas per via ligilo.",
+    "yourCommission": "Via komisio",
+    "commissionOrientative": "Ĉi tiu tarifo estas orientiga. Via reala komisio estas kalkulata en la momento de ĉiu vendo. La nuna valoro ĉiam montriĝas en Konto → Revendantoj.",
+    "payoutWallet": "Pagmonujo",
+    "walletHint": "La Stellar-monujo al kiu via komisio estos sendita. Ĝi devas esti aktiva konto.",
+    "walletLabel": "Stellar publika ŝlosilo",
+    "connectWallet": "Konekti monujon",
+    "walletVerified": "Monujo kontrolita — aktiva en la Stellar-reto.",
+    "walletNotActivated": "Ĉi tiu monujo ankoraŭ ne estas aktiva en la Stellar-reto. Sendu almenaŭ 1 XLM al ĉi tiu adreso por aktivigi ĝin, poste reprovu.",
+    "generateLink": "Generi ligilon",
+    "linkReady": "Via revenda ligilo pretas. Kunhavigu ĝin ie ajn.",
+    "manageHint": "Vi povas trovi kaj administri ĉiujn viajn revendajn ligilojn iam ajn en Konto → Revendantoj.",
+    "ownContent": "Vi ne povas krei revendan ligilon por via propra enhavo.",
+    "disabledForContent": "La kreinto malŝaltis revendon por ĉi tiu enhavo, do ligilo ne povas esti generita nun.",
+    "errors": {
+      "loadFailed": "Ne eblis ŝargi la revendantajn detalojn. Bonvolu reprovi.",
+      "connectFailed": "Ne eblis konekti vian monujon. Bonvolu reprovi.",
+      "copyFailed": "Ne eblis kopii la ligilon. Kopiu ĝin permane.",
+      "generic": "Io misfunkciis. Bonvolu reprovi.",
+      "verifyFailed": "Ne eblis kontroli la monujon en la Stellar-reto. Bonvolu reprovi.",
+      "wallet_format": "Enigu validan Stellar publikan ŝlosilon (komenciĝas per G).",
+      "wallet_not_activated": "Ĉi tiu monujo ankoraŭ ne estas aktiva en la Stellar-reto. Sendu almenaŭ 1 XLM al ĉi tiu adreso por aktivigi ĝin.",
+      "entry_not_found": "Ĉi tiu enhavo ne plu ekzistas.",
+      "entry_not_resellable": "Ĉi tiu enhavo ne povas esti revendita.",
+      "own_content": "Vi ne povas krei revendan ligilon por via propra enhavo.",
+      "not_found": "Revenda ligilo ne trovita.",
+      "forbidden": "Bonvolu ensaluti por daŭrigi."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Miaj revendaj ligiloj",
+    "subtitle": "Enhavo kiun vi revendas. Kunhavigu ĉi tiujn ligilojn por gajni komision ĉe ĉiu vendo.",
+    "empty": "Vi ankoraŭ ne havas revendajn ligilojn.",
+    "emptyHint": "Malfermu ajnan pagitan enhavon kaj tuŝu „GAJNU LUMENS“ por krei vian unuan ligilon.",
+    "loginRequired": "Ensalutu por vidi viajn revendajn ligilojn.",
+    "commission": "Komisio",
+    "payoutWallet": "Pagmonujo",
+    "changeWallet": "Ŝanĝi monujon",
+    "useConnected": "Uzi konektitan monujon",
+    "saveWallet": "Konservi",
+    "cancel": "Nuligi",
+    "copyLink": "Kopii ligilon",
+    "linkCopied": "Ligilo kopiita",
+    "walletUpdated": "Pagmonujo ĝisdatigita",
+    "resaleDisabled": "Revendo malŝaltita",
+    "resaleDisabledHint": "La kreinto malŝaltis revendon por ĉi tiu enhavo. La ligilo ankoraŭ malfermas la enhavon, sed novaj vendoj ne gajnos komision.",
+    "openContent": "Malfermi enhavon",
+    "loadError": "Ne eblis ŝargi viajn revendajn ligilojn.",
+    "retry": "Reprovi"
   }
 }

@@ -238,7 +238,9 @@
     "addedToFavorites": "Pievienots izlasei",
     "removedFromFavorites": "Noņemts no izlases",
     "linkCopied": "Saite ir kopēta starpliktuvē",
-    "tooManyRequests": "Pārāk daudz pieprasījumu. Lūdzu, uzgaidiet brīdi un mēģiniet vēlreiz."
+    "tooManyRequests": "Pārāk daudz pieprasījumu. Lūdzu, uzgaidiet brīdi un mēģiniet vēlreiz.",
+    "copy": "Kopēt",
+    "copied": "Nokopēts"
   },
   "Themes": {
     "title": "Tēmas atlasītājs",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Nav derīguma termiņa",
     "badgeNone": "Jums vēl nav aktīva zilā akreditācijas datu",
     "badgeNoneHint": "Aktivizējiet savus zilos akreditācijas datus, lai pieprasītu nomnieka izveidi un piekļūtu papildu rīkiem.",
-    "badgeGetAccess": "Aktivizējiet zilo akreditācijas datus"
+    "badgeGetAccess": "Aktivizējiet zilo akreditācijas datus",
+    "myResellerLinks": "Tālākpārdevēji",
+    "myResellerLinksHint": "Pārvaldiet saturu, ko tālāk pārdodat, un savas komisijas saites"
   },
   "AppBar": {
     "home": "Sākums",
@@ -647,6 +651,12 @@
       "title": "Augšupielāde pabeigta!",
       "draftMessage": "Jūsu {type} ir saglabāts kā melnraksts. Varat to rediģēt vai iesniegt jebkurā laikā no Creator Studio.",
       "reviewMessage": "Jūsu {type} ir iesniegts pārskatīšanai. Tiklīdz tas būs apstiprināts, jūs saņemsit paziņojumu."
+    },
+    "reseller": {
+      "title": "Tālākpārdevēji",
+      "hint": "Ļaujiet citiem kopīgot jūsu saturu un nopelnīt komisiju par katru pārdošanu, kas tiek ņemta no jūsu daļas.",
+      "commissionLabel": "Tālākpārdevēja komisija",
+      "commissionHint": "No 5% līdz 20% no kopējās cenas. Noklusējums 10%."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "Videoklipa pārkodēšanas laikā nevar rediģēt vai publicēt. Lūdzu, mēģiniet vēlreiz, kad tas būs pabeigts.",
       "viewFeedback": "Skatīt noraidīšanas iemeslu",
       "publishSuccess": "Ieraksts veiksmīgi publicēts",
-      "publishError": "Neizdevās publicēt ierakstu. Lūdzu, mēģiniet vēlreiz."
+      "publishError": "Neizdevās publicēt ierakstu. Lūdzu, mēģiniet vēlreiz.",
+      "resellerSettings": "Tālākpārdevēju iestatījumi"
     },
     "approvedHint": "Apstiprināts · gatavs publicēšanai (vēl nav redzams)",
     "editEntry": "Rediģēt ierakstu",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Pārdevējs",
       "PLATFORM": "Platforma",
-      "COLLABORATOR": "Līdzstrādnieks"
+      "COLLABORATOR": "Līdzstrādnieks",
+      "FRANCHISE": "Franšīze",
+      "RESELLER": "Tālākpārdevējs"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Jūs nevarat dzeramnaudu savā saturā.",
     "done": "Gatavs",
     "processing": "Sūta jūsu padomu…"
+  },
+  "Reseller": {
+    "title": "Nopelniet Lumens",
+    "cta": "NOPELNIET LUMENS",
+    "intro": "Kopīgojiet šo saturu ar savu auditoriju un nopelniet komisiju katru reizi, kad kāds iegādājas, izmantojot jūsu saiti.",
+    "yourCommission": "Jūsu komisija",
+    "commissionOrientative": "Šī likme ir orientējoša. Jūsu faktiskā komisija tiek aprēķināta katras pārdošanas brīdī. Pašreizējā vērtība vienmēr tiek rādīta sadaļā Konts → Tālākpārdevēji.",
+    "payoutWallet": "Izmaksu maks",
+    "walletHint": "Stellar maks, uz kuru tiks nosūtīta jūsu komisija. Tam jābūt aktīvam kontam.",
+    "walletLabel": "Stellar publiskā atslēga",
+    "connectWallet": "Savienot maku",
+    "walletVerified": "Maks verificēts — aktīvs Stellar tīklā.",
+    "walletNotActivated": "Šis maks vēl nav aktīvs Stellar tīklā. Nosūtiet vismaz 1 XLM uz šo adresi, lai to aktivizētu, un mēģiniet vēlreiz.",
+    "generateLink": "Ģenerēt saiti",
+    "linkReady": "Jūsu tālākpārdevēja saite ir gatava. Kopīgojiet to jebkur.",
+    "manageHint": "Visas savas tālākpārdevēja saites varat atrast un pārvaldīt jebkurā laikā sadaļā Konts → Tālākpārdevēji.",
+    "ownContent": "Savam saturam nevar izveidot tālākpārdevēja saiti.",
+    "disabledForContent": "Autors ir atspējojis šī satura tālākpārdošanu, tāpēc saiti pašlaik nevar ģenerēt.",
+    "errors": {
+      "loadFailed": "Neizdevās ielādēt tālākpārdevēja informāciju. Mēģiniet vēlreiz.",
+      "connectFailed": "Neizdevās savienot jūsu maku. Mēģiniet vēlreiz.",
+      "copyFailed": "Neizdevās nokopēt saiti. Nokopējiet to manuāli.",
+      "generic": "Kaut kas nogāja greizi. Mēģiniet vēlreiz.",
+      "verifyFailed": "Neizdevās verificēt maku Stellar tīklā. Mēģiniet vēlreiz.",
+      "wallet_format": "Ievadiet derīgu Stellar publisko atslēgu (sākas ar G).",
+      "wallet_not_activated": "Šis maks vēl nav aktīvs Stellar tīklā. Nosūtiet vismaz 1 XLM uz šo adresi, lai to aktivizētu.",
+      "entry_not_found": "Šis saturs vairs nepastāv.",
+      "entry_not_resellable": "Šo saturu nevar tālāk pārdot.",
+      "own_content": "Savam saturam nevar izveidot tālākpārdevēja saiti.",
+      "not_found": "Tālākpārdevēja saite nav atrasta.",
+      "forbidden": "Lai turpinātu, piesakieties."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Manas tālākpārdevēja saites",
+    "subtitle": "Saturs, ko jūs tālāk pārdodat. Kopīgojiet šīs saites, lai nopelnītu komisiju par katru pārdošanu.",
+    "empty": "Jums vēl nav nevienas tālākpārdevēja saites.",
+    "emptyHint": "Atveriet jebkuru maksas saturu un pieskarieties „NOPELNIET LUMENS“, lai izveidotu savu pirmo saiti.",
+    "loginRequired": "Piesakieties, lai skatītu savas tālākpārdevēja saites.",
+    "commission": "Komisija",
+    "payoutWallet": "Izmaksu maks",
+    "changeWallet": "Mainīt maku",
+    "useConnected": "Izmantot savienoto maku",
+    "saveWallet": "Saglabāt",
+    "cancel": "Atcelt",
+    "copyLink": "Kopēt saiti",
+    "linkCopied": "Saite nokopēta",
+    "walletUpdated": "Izmaksu maks atjaunināts",
+    "resaleDisabled": "Tālākpārdošana atspējota",
+    "resaleDisabledHint": "Autors atspējoja šī satura tālākpārdošanu. Saite joprojām atver saturu, bet jaunas pārdošanas nenopelnīs komisiju.",
+    "openContent": "Atvērt saturu",
+    "loadError": "Neizdevās ielādēt jūsu tālākpārdevēja saites.",
+    "retry": "Mēģināt vēlreiz"
   }
 }

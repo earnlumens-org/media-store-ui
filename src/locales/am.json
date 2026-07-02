@@ -174,7 +174,9 @@
     "linkCopied": "አገናኙ ወደ ቅንጥብ ሰሌዳ ተቀድቷል",
     "tooManyRequests": "ጥያቄዎች በጣም በዙ። እባክዎ ትንሽ ይጠብቁና እንደገና ይሞክሩ።",
     "updateAvailable": "አዲስ ስሪት ይገኛል።",
-    "updateNow": "አዘምን"
+    "updateNow": "አዘምን",
+    "copy": "ቅዳ",
+    "copied": "ተቀድቷል"
   },
   "Themes": {
     "title": "ገጽታ መራጭ",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "የተከራይ ፍጠራን ለመጠየቅ እና የላቁ መሳሪያዎችን ለመድረስ ሰማያዊ ምስክርነትዎን ያንቁ።",
     "badgeGetAccess": "ሰማያዊ ምስክርነት አንቃ",
     "myFranchise": "የእኔ ፍራንቻይዝ",
-    "myFranchiseHint": "በዚህ ገበያ ስር የራስዎን መደብር ይክፈቱ እና ያስተዳድሩ"
+    "myFranchiseHint": "በዚህ ገበያ ስር የራስዎን መደብር ይክፈቱ እና ያስተዳድሩ",
+    "myResellerLinks": "አከፋፋዮች",
+    "myResellerLinksHint": "እርስዎ ዳግም እየሸጡ ያሉትን ይዘት እና የኮሚሽን ሊንኮችዎን ያስተዳድሩ"
   },
   "AppBar": {
     "home": "መነሻ",
@@ -583,6 +587,12 @@
       "title": "ጭነት ተጠናቋል!",
       "draftMessage": "የእርስዎ {type} እንደ ረቂቅ ተቀምጧል። በማንኛውም ጊዜ ከCreator Studio ማርትዕ ወይም ማስገባት ይችላሉ።",
       "reviewMessage": "የእርስዎ {type} ለግምገማ ተልኳል። ሲጸድቅ ማሳወቂያ ይደርስዎታል።"
+    },
+    "reseller": {
+      "title": "አከፋፋዮች",
+      "hint": "ሌሎች ይዘትዎን እንዲያጋሩ እና በእያንዳንዱ ሽያጭ ከድርሻዎ የሚወሰድ ኮሚሽን እንዲያገኙ ይፍቀዱ።",
+      "commissionLabel": "የአከፋፋይ ኮሚሽን",
+      "commissionHint": "ከጠቅላላ ዋጋ 5% እስከ 20% መካከል። ነባሪ 10%።"
     }
   },
   "Preview": {
@@ -756,7 +766,8 @@
       "transcodingError": "ቪዲዮው በትራንስኮዲንግ ላይ ሳለ ማርትዕ ወይም ማተም አይቻልም። ሲጠናቀቅ እንደገና ይሞክሩ።",
       "viewFeedback": "የውድቅ ምክንያትን ይመልከቱ",
       "publishSuccess": "ግቤት በተሳካ ሁኔታ ታትሟል",
-      "publishError": "ግቤት ማተም አልተሳካም። እባክዎ እንደገና ይሞክሩ።"
+      "publishError": "ግቤት ማተም አልተሳካም። እባክዎ እንደገና ይሞክሩ።",
+      "resellerSettings": "የአከፋፋይ ቅንብሮች"
     },
     "approvedHint": "ጸድቋል · ለማተም ዝግጁ (እስካሁን አይታይም)",
     "editEntry": "ግቤት አርትዕ",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "ሻጭ",
       "PLATFORM": "መድረክ",
-      "COLLABORATOR": "ተባባሪ"
+      "COLLABORATOR": "ተባባሪ",
+      "FRANCHISE": "ፍራንቻይዝ",
+      "RESELLER": "አከፋፋይ"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "የራስዎን ይዘት ጉርሻ መስጠት አይችሉም።",
     "done": "ተጠናቋል",
     "processing": "ጉርሻዎ እየተላከ ነው…"
+  },
+  "Reseller": {
+    "title": "Lumens ያግኙ",
+    "cta": "LUMENS ያግኙ",
+    "intro": "ይህን ይዘት ከተመልካቾችዎ ጋር ያጋሩ እና አንድ ሰው በሊንክዎ በኩል በገዛ ቁጥር ኮሚሽን ያግኙ።",
+    "yourCommission": "የእርስዎ ኮሚሽን",
+    "commissionOrientative": "ይህ ተመን አመላካች ነው። ትክክለኛው ኮሚሽንዎ በእያንዳንዱ ሽያጭ ጊዜ ይሰላል። አሁን ያለው ዋጋ ሁልጊዜ በ መለያ → አከፋፋዮች ውስጥ ይታያል።",
+    "payoutWallet": "የክፍያ ዋሌት",
+    "walletHint": "ኮሚሽንዎ የሚላክበት የStellar ዋሌት። ንቁ መለያ መሆን አለበት።",
+    "walletLabel": "የStellar ይፋዊ ቁልፍ",
+    "connectWallet": "ዋሌት አገናኝ",
+    "walletVerified": "ዋሌት ተረጋግጧል — በStellar አውታረ መረብ ላይ ንቁ ነው።",
+    "walletNotActivated": "ይህ ዋሌት እስካሁን በStellar አውታረ መረብ ላይ ንቁ አይደለም። ለማንቃት ወደዚህ አድራሻ ቢያንስ 1 XLM ይላኩ፣ ከዚያ እንደገና ይሞክሩ።",
+    "generateLink": "ሊንክ ፍጠር",
+    "linkReady": "የአከፋፋይ ሊንክዎ ዝግጁ ነው። የትም ቦታ ያጋሩት።",
+    "manageHint": "ሁሉንም የአከፋፋይ ሊንኮችዎን በማንኛውም ጊዜ በ መለያ → አከፋፋዮች ውስጥ ማግኘት እና ማስተዳደር ይችላሉ።",
+    "ownContent": "ለራስዎ ይዘት የአከፋፋይ ሊንክ መፍጠር አይችሉም።",
+    "disabledForContent": "ፈጣሪው ለዚህ ይዘት ዳግም ሽያጭን አሰናክሏል፣ ስለዚህ አሁን ሊንክ መፍጠር አይቻልም።",
+    "errors": {
+      "loadFailed": "የአከፋፋይ ዝርዝሮችን መጫን አልተቻለም። እባክዎ እንደገና ይሞክሩ።",
+      "connectFailed": "ዋሌትዎን ማገናኘት አልተቻለም። እባክዎ እንደገና ይሞክሩ።",
+      "copyFailed": "ሊንኩን መቅዳት አልተቻለም። በእጅ ይቅዱት።",
+      "generic": "የሆነ ችግር ተፈጥሯል። እባክዎ እንደገና ይሞክሩ።",
+      "verifyFailed": "በStellar አውታረ መረብ ላይ ዋሌቱን ማረጋገጥ አልተቻለም። እባክዎ እንደገና ይሞክሩ።",
+      "wallet_format": "ትክክለኛ የStellar ይፋዊ ቁልፍ ያስገቡ (በG ይጀምራል)።",
+      "wallet_not_activated": "ይህ ዋሌት እስካሁን በStellar አውታረ መረብ ላይ ንቁ አይደለም። ለማንቃት ወደዚህ አድራሻ ቢያንስ 1 XLM ይላኩ።",
+      "entry_not_found": "ይህ ይዘት ከእንግዲህ የለም።",
+      "entry_not_resellable": "ይህ ይዘት ዳግም ሊሸጥ አይችልም።",
+      "own_content": "ለራስዎ ይዘት የአከፋፋይ ሊንክ መፍጠር አይችሉም።",
+      "not_found": "የአከፋፋይ ሊንክ አልተገኘም።",
+      "forbidden": "ለመቀጠል ይግቡ።"
+    }
+  },
+  "ResellerLinks": {
+    "title": "የእኔ የአከፋፋይ ሊንኮች",
+    "subtitle": "እርስዎ ዳግም እየሸጡ ያሉት ይዘት። በእያንዳንዱ ሽያጭ ኮሚሽን ለማግኘት እነዚህን ሊንኮች ያጋሩ።",
+    "empty": "እስካሁን ምንም የአከፋፋይ ሊንክ የለዎትም።",
+    "emptyHint": "ማንኛውንም የተከፈለ ይዘት ይክፈቱ እና የመጀመሪያ ሊንክዎን ለመፍጠር “LUMENS ያግኙ” ን ይንኩ።",
+    "loginRequired": "የአከፋፋይ ሊንኮችዎን ለማየት ይግቡ።",
+    "commission": "ኮሚሽን",
+    "payoutWallet": "የክፍያ ዋሌት",
+    "changeWallet": "ዋሌት ቀይር",
+    "useConnected": "የተገናኘ ዋሌት ተጠቀም",
+    "saveWallet": "አስቀምጥ",
+    "cancel": "ሰርዝ",
+    "copyLink": "ሊንክ ቅዳ",
+    "linkCopied": "ሊንክ ተቀድቷል",
+    "walletUpdated": "የክፍያ ዋሌት ተዘምኗል",
+    "resaleDisabled": "ዳግም ሽያጭ ተሰናክሏል",
+    "resaleDisabledHint": "ፈጣሪው ለዚህ ይዘት ዳግም ሽያጭን አሰናክሏል። ሊንኩ አሁንም ይዘቱን ይከፍታል፣ ነገር ግን አዲስ ሽያጮች ኮሚሽን አያገኙም።",
+    "openContent": "ይዘት ክፈት",
+    "loadError": "የአከፋፋይ ሊንኮችዎን መጫን አልተቻለም።",
+    "retry": "እንደገና ሞክር"
   }
 }

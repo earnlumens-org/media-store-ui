@@ -238,7 +238,9 @@
     "addedToFavorites": "Läggs till i favoriter",
     "removedFromFavorites": "Borttagen från favoriter",
     "linkCopied": "Länken har kopierats till urklipp",
-    "tooManyRequests": "För många förfrågningar. Vänta ett ögonblick och försök igen."
+    "tooManyRequests": "För många förfrågningar. Vänta ett ögonblick och försök igen.",
+    "copy": "Kopiera",
+    "copied": "Kopierad"
   },
   "Themes": {
     "title": "Temaväljare",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Inget utgångsdatum",
     "badgeNone": "Du har inte en aktiv blå referens ännu",
     "badgeNoneHint": "Aktivera din blå referens för att begära att skapa en tenant och få tillgång till avancerade verktyg.",
-    "badgeGetAccess": "Aktivera blå referens"
+    "badgeGetAccess": "Aktivera blå referens",
+    "myResellerLinks": "Återförsäljare",
+    "myResellerLinksHint": "Hantera innehållet du säljer vidare och dina provisionslänkar"
   },
   "AppBar": {
     "home": "Hem",
@@ -647,6 +651,12 @@
       "title": "Uppladdningen är klar!",
       "draftMessage": "Din {type} har sparats som ett utkast. Du kan redigera eller skicka in den när som helst från Creator Studio.",
       "reviewMessage": "Din {type} har skickats in för granskning. Du kommer att meddelas när det har godkänts."
+    },
+    "reseller": {
+      "title": "Återförsäljare",
+      "hint": "Låt andra dela ditt innehåll och tjäna provision på varje försäljning, som tas från din andel.",
+      "commissionLabel": "Återförsäljarprovision",
+      "commissionHint": "Mellan 5 % och 20 % av totalpriset. Standard 10 %."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "Det går inte att redigera eller publicera medan videon omkodas. Försök igen när det är klart.",
       "viewFeedback": "Se orsaken till avslaget",
       "publishSuccess": "Inlägg publicerat framgångsrikt",
-      "publishError": "Det gick inte att publicera posten. Försök igen."
+      "publishError": "Det gick inte att publicera posten. Försök igen.",
+      "resellerSettings": "Inställningar för återförsäljare"
     },
     "approvedHint": "Godkänd · redo att publiceras (inte synligt ännu)",
     "editEntry": "Redigera post",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Säljare",
       "PLATFORM": "Plattform",
-      "COLLABORATOR": "Samarbetspartner"
+      "COLLABORATOR": "Samarbetspartner",
+      "FRANCHISE": "Franchise",
+      "RESELLER": "Återförsäljare"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Du kan inte tipsa om ditt eget innehåll.",
     "done": "Klar",
     "processing": "Skickar ditt tips..."
+  },
+  "Reseller": {
+    "title": "Tjäna Lumens",
+    "cta": "TJÄNA LUMENS",
+    "intro": "Dela detta innehåll med din publik och tjäna provision varje gång någon köper via din länk.",
+    "yourCommission": "Din provision",
+    "commissionOrientative": "Denna sats är vägledande. Din faktiska provision beräknas vid varje försäljning. Det aktuella värdet visas alltid under Konto → Återförsäljare.",
+    "payoutWallet": "Utbetalningsplånbok",
+    "walletHint": "Stellar-plånboken dit din provision skickas. Det måste vara ett aktivt konto.",
+    "walletLabel": "Stellar publik nyckel",
+    "connectWallet": "Anslut plånbok",
+    "walletVerified": "Plånbok verifierad — aktiv i Stellar-nätverket.",
+    "walletNotActivated": "Denna plånbok är ännu inte aktiv i Stellar-nätverket. Skicka minst 1 XLM till denna adress för att aktivera den och försök sedan igen.",
+    "generateLink": "Skapa länk",
+    "linkReady": "Din återförsäljarlänk är klar. Dela den var som helst.",
+    "manageHint": "Du hittar och hanterar alla dina återförsäljarlänkar när som helst under Konto → Återförsäljare.",
+    "ownContent": "Du kan inte skapa en återförsäljarlänk för ditt eget innehåll.",
+    "disabledForContent": "Skaparen har inaktiverat återförsäljning för detta innehåll, så en länk kan inte skapas just nu.",
+    "errors": {
+      "loadFailed": "Det gick inte att läsa in återförsäljaruppgifterna. Försök igen.",
+      "connectFailed": "Det gick inte att ansluta din plånbok. Försök igen.",
+      "copyFailed": "Det gick inte att kopiera länken. Kopiera den manuellt.",
+      "generic": "Något gick fel. Försök igen.",
+      "verifyFailed": "Det gick inte att verifiera plånboken i Stellar-nätverket. Försök igen.",
+      "wallet_format": "Ange en giltig publik Stellar-nyckel (börjar med G).",
+      "wallet_not_activated": "Denna plånbok är ännu inte aktiv i Stellar-nätverket. Skicka minst 1 XLM till denna adress för att aktivera den.",
+      "entry_not_found": "Detta innehåll finns inte längre.",
+      "entry_not_resellable": "Detta innehåll kan inte säljas vidare.",
+      "own_content": "Du kan inte skapa en återförsäljarlänk för ditt eget innehåll.",
+      "not_found": "Återförsäljarlänken hittades inte.",
+      "forbidden": "Logga in för att fortsätta."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Mina återförsäljarlänkar",
+    "subtitle": "Innehåll du säljer vidare. Dela dessa länkar för att tjäna provision på varje försäljning.",
+    "empty": "Du har inga återförsäljarlänkar ännu.",
+    "emptyHint": "Öppna valfritt betalinnehåll och tryck på ”TJÄNA LUMENS” för att skapa din första länk.",
+    "loginRequired": "Logga in för att se dina återförsäljarlänkar.",
+    "commission": "Provision",
+    "payoutWallet": "Utbetalningsplånbok",
+    "changeWallet": "Byt plånbok",
+    "useConnected": "Använd ansluten plånbok",
+    "saveWallet": "Spara",
+    "cancel": "Avbryt",
+    "copyLink": "Kopiera länk",
+    "linkCopied": "Länk kopierad",
+    "walletUpdated": "Utbetalningsplånbok uppdaterad",
+    "resaleDisabled": "Återförsäljning inaktiverad",
+    "resaleDisabledHint": "Skaparen har inaktiverat återförsäljning för detta innehåll. Länken öppnar fortfarande innehållet, men nya försäljningar ger ingen provision.",
+    "openContent": "Öppna innehåll",
+    "loadError": "Det gick inte att läsa in dina återförsäljarlänkar.",
+    "retry": "Försök igen"
   }
 }

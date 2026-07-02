@@ -174,7 +174,9 @@
     "linkCopied": "Tautan disalin ke clipboard",
     "tooManyRequests": "Terlalu banyak permintaan. Mohon tunggu sebentar dan coba lagi.",
     "updateAvailable": "Versi baru tersedia.",
-    "updateNow": "Perbarui"
+    "updateNow": "Perbarui",
+    "copy": "Salin",
+    "copied": "Disalin"
   },
   "Themes": {
     "title": "Pemilih Tema",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "Aktifkan kredensial biru Anda untuk meminta pembuatan tenant dan mengakses alat lanjutan.",
     "badgeGetAccess": "Aktifkan kredensial biru",
     "myFranchise": "Waralaba Saya",
-    "myFranchiseHint": "Buka dan kelola etalase Anda sendiri di dalam marketplace ini"
+    "myFranchiseHint": "Buka dan kelola etalase Anda sendiri di dalam marketplace ini",
+    "myResellerLinks": "Reseller",
+    "myResellerLinksHint": "Kelola konten yang kamu jual ulang dan tautan komisimu"
   },
   "AppBar": {
     "home": "Beranda",
@@ -583,6 +587,12 @@
       "title": "Unggahan Selesai!",
       "draftMessage": "{type} Anda telah disimpan sebagai draf. Anda dapat mengedit atau mengirimnya kapan saja dari Creator Studio.",
       "reviewMessage": "{type} Anda telah dikirim untuk ditinjau. Anda akan diberi tahu setelah disetujui."
+    },
+    "reseller": {
+      "title": "Reseller",
+      "hint": "Izinkan orang lain membagikan kontenmu dan mendapatkan komisi di setiap penjualan, diambil dari bagianmu.",
+      "commissionLabel": "Komisi reseller",
+      "commissionHint": "Antara 5% dan 20% dari harga total. Default 10%."
     }
   },
   "Preview": {
@@ -756,7 +766,8 @@
       "transcodingError": "Tidak dapat mengedit atau mempublikasikan saat video sedang transcoding. Silakan coba lagi saat selesai.",
       "viewFeedback": "Lihat alasan penolakan",
       "publishSuccess": "Entri berhasil dipublikasikan",
-      "publishError": "Gagal mempublikasikan entri. Silakan coba lagi."
+      "publishError": "Gagal mempublikasikan entri. Silakan coba lagi.",
+      "resellerSettings": "Pengaturan reseller"
     },
     "approvedHint": "Disetujui · siap dipublikasikan (belum terlihat)",
     "editEntry": "Edit entri",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "Penjual",
       "PLATFORM": "Platform",
-      "COLLABORATOR": "Kolaborator"
+      "COLLABORATOR": "Kolaborator",
+      "FRANCHISE": "Waralaba",
+      "RESELLER": "Reseller"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Anda tidak dapat memberi tip pada konten Anda sendiri.",
     "done": "Selesai",
     "processing": "Mengirim tip Anda…"
+  },
+  "Reseller": {
+    "title": "Hasilkan Lumens",
+    "cta": "HASILKAN LUMENS",
+    "intro": "Bagikan konten ini dengan audiensmu dan dapatkan komisi setiap kali seseorang membeli melalui tautanmu.",
+    "yourCommission": "Komisimu",
+    "commissionOrientative": "Tarif ini bersifat indikatif. Komisi sebenarnya dihitung pada saat setiap penjualan. Nilai saat ini selalu ditampilkan di Akun → Reseller.",
+    "payoutWallet": "Dompet pembayaran",
+    "walletHint": "Dompet Stellar tempat komisimu akan dikirim. Harus berupa akun aktif.",
+    "walletLabel": "Kunci publik Stellar",
+    "connectWallet": "Hubungkan dompet",
+    "walletVerified": "Dompet terverifikasi — aktif di jaringan Stellar.",
+    "walletNotActivated": "Dompet ini belum aktif di jaringan Stellar. Kirim minimal 1 XLM ke alamat ini untuk mengaktifkannya, lalu coba lagi.",
+    "generateLink": "Buat tautan",
+    "linkReady": "Tautan reseller-mu sudah siap. Bagikan ke mana saja.",
+    "manageHint": "Kamu dapat menemukan dan mengelola semua tautan reseller-mu kapan saja di Akun → Reseller.",
+    "ownContent": "Kamu tidak dapat membuat tautan reseller untuk kontenmu sendiri.",
+    "disabledForContent": "Pembuat konten telah menonaktifkan penjualan ulang untuk konten ini, sehingga tautan tidak dapat dibuat saat ini.",
+    "errors": {
+      "loadFailed": "Tidak dapat memuat detail reseller. Silakan coba lagi.",
+      "connectFailed": "Tidak dapat menghubungkan dompetmu. Silakan coba lagi.",
+      "copyFailed": "Tidak dapat menyalin tautan. Salin secara manual.",
+      "generic": "Terjadi kesalahan. Silakan coba lagi.",
+      "verifyFailed": "Tidak dapat memverifikasi dompet di jaringan Stellar. Silakan coba lagi.",
+      "wallet_format": "Masukkan kunci publik Stellar yang valid (dimulai dengan G).",
+      "wallet_not_activated": "Dompet ini belum aktif di jaringan Stellar. Kirim minimal 1 XLM ke alamat ini untuk mengaktifkannya.",
+      "entry_not_found": "Konten ini sudah tidak ada.",
+      "entry_not_resellable": "Konten ini tidak dapat dijual ulang.",
+      "own_content": "Kamu tidak dapat membuat tautan reseller untuk kontenmu sendiri.",
+      "not_found": "Tautan reseller tidak ditemukan.",
+      "forbidden": "Silakan masuk untuk melanjutkan."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Tautan reseller saya",
+    "subtitle": "Konten yang kamu jual ulang. Bagikan tautan ini untuk mendapatkan komisi di setiap penjualan.",
+    "empty": "Kamu belum punya tautan reseller.",
+    "emptyHint": "Buka konten berbayar apa pun dan ketuk “HASILKAN LUMENS” untuk membuat tautan pertamamu.",
+    "loginRequired": "Masuk untuk melihat tautan reseller-mu.",
+    "commission": "Komisi",
+    "payoutWallet": "Dompet pembayaran",
+    "changeWallet": "Ganti dompet",
+    "useConnected": "Gunakan dompet terhubung",
+    "saveWallet": "Simpan",
+    "cancel": "Batal",
+    "copyLink": "Salin tautan",
+    "linkCopied": "Tautan disalin",
+    "walletUpdated": "Dompet pembayaran diperbarui",
+    "resaleDisabled": "Penjualan ulang dinonaktifkan",
+    "resaleDisabledHint": "Pembuat konten menonaktifkan penjualan ulang untuk konten ini. Tautan tetap membuka konten, tetapi penjualan baru tidak menghasilkan komisi.",
+    "openContent": "Buka konten",
+    "loadError": "Tidak dapat memuat tautan reseller-mu.",
+    "retry": "Coba lagi"
   }
 }

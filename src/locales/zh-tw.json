@@ -174,7 +174,9 @@
     "tooManyRequests": "請求過多。請稍候再試。",
     "cancel": "取消",
     "updateAvailable": "有新版本可用。",
-    "updateNow": "更新"
+    "updateNow": "更新",
+    "copy": "複製",
+    "copied": "已複製"
   },
   "Themes": {
     "title": "主題選擇器",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "啟用您的藍色憑證以申請創建租戶並訪問高級工具。",
     "badgeGetAccess": "啟用藍色憑證",
     "myFranchise": "我的加盟店",
-    "myFranchiseHint": "在此市集下開設並管理您自己的店鋪"
+    "myFranchiseHint": "在此市集下開設並管理您自己的店鋪",
+    "myResellerLinks": "經銷商",
+    "myResellerLinksHint": "管理你正在轉售的內容和佣金連結"
   },
   "AppBar": {
     "home": "主頁",
@@ -572,6 +576,12 @@
       "title": "上傳完成！",
       "draftMessage": "您的{type}已儲存為草稿。您可以隨時在創作者工作室中編輯或提交。",
       "reviewMessage": "您的{type}已提交審核。審核通過後將通知您。"
+    },
+    "reseller": {
+      "title": "經銷商",
+      "hint": "允許其他人分享你的內容，並在每次銷售中賺取從你的份額中扣除的佣金。",
+      "commissionLabel": "經銷佣金",
+      "commissionHint": "總價的 5% 到 20% 之間。預設 10%。"
     }
   },
   "Preview": {
@@ -739,7 +749,8 @@
       "transcodingError": "影片轉碼期間無法編輯或發布。完成後請重試。",
       "publishSuccess": "內容發布成功",
       "publishError": "發布失敗，請重試。",
-      "viewFeedback": "查看拒絕原因"
+      "viewFeedback": "查看拒絕原因",
+      "resellerSettings": "經銷商設定"
     },
     "approvedHint": "已核准 · 可發布（尚未顯示）",
     "editEntry": "編輯條目",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "賣家",
       "PLATFORM": "平台",
-      "COLLABORATOR": "協作者"
+      "COLLABORATOR": "協作者",
+      "FRANCHISE": "加盟",
+      "RESELLER": "經銷商"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "您不能抖內自己的內容。",
     "done": "完成",
     "processing": "正在傳送您的抖內…"
+  },
+  "Reseller": {
+    "title": "賺取 Lumens",
+    "cta": "賺取 LUMENS",
+    "intro": "將此內容分享給你的受眾，每當有人透過你的連結購買時即可賺取佣金。",
+    "yourCommission": "你的佣金",
+    "commissionOrientative": "此比率僅供參考。你的實際佣金在每次銷售時計算。目前的值一律顯示在帳戶 → 經銷商中。",
+    "payoutWallet": "收款錢包",
+    "walletHint": "你的佣金將傳送到的 Stellar 錢包。必須是已啟用的帳戶。",
+    "walletLabel": "Stellar 公鑰",
+    "connectWallet": "連接錢包",
+    "walletVerified": "錢包已驗證 — 在 Stellar 網路上處於活動狀態。",
+    "walletNotActivated": "此錢包尚未在 Stellar 網路上啟用。請向此位址傳送至少 1 XLM 以啟用，然後重試。",
+    "generateLink": "產生連結",
+    "linkReady": "你的經銷連結已就緒。可隨處分享。",
+    "manageHint": "你可以隨時在帳戶 → 經銷商中尋找和管理所有經銷連結。",
+    "ownContent": "你無法為自己的內容建立經銷連結。",
+    "disabledForContent": "創作者已停用此內容的轉售，因此目前無法產生連結。",
+    "errors": {
+      "loadFailed": "無法載入經銷商詳細資料。請重試。",
+      "connectFailed": "無法連接你的錢包。請重試。",
+      "copyFailed": "無法複製連結。請手動複製。",
+      "generic": "發生問題。請重試。",
+      "verifyFailed": "無法在 Stellar 網路上驗證錢包。請重試。",
+      "wallet_format": "請輸入有效的 Stellar 公鑰（以 G 開頭）。",
+      "wallet_not_activated": "此錢包尚未在 Stellar 網路上啟用。請向此位址傳送至少 1 XLM 以啟用。",
+      "entry_not_found": "此內容已不存在。",
+      "entry_not_resellable": "此內容無法轉售。",
+      "own_content": "你無法為自己的內容建立經銷連結。",
+      "not_found": "找不到經銷連結。",
+      "forbidden": "請登入以繼續。"
+    }
+  },
+  "ResellerLinks": {
+    "title": "我的經銷連結",
+    "subtitle": "你正在轉售的內容。分享這些連結可在每次銷售中賺取佣金。",
+    "empty": "你還沒有任何經銷連結。",
+    "emptyHint": "開啟任何付費內容並點按「賺取 LUMENS」以建立你的第一個連結。",
+    "loginRequired": "登入以檢視你的經銷連結。",
+    "commission": "佣金",
+    "payoutWallet": "收款錢包",
+    "changeWallet": "更換錢包",
+    "useConnected": "使用已連接錢包",
+    "saveWallet": "儲存",
+    "cancel": "取消",
+    "copyLink": "複製連結",
+    "linkCopied": "連結已複製",
+    "walletUpdated": "收款錢包已更新",
+    "resaleDisabled": "轉售已停用",
+    "resaleDisabledHint": "創作者已停用此內容的轉售。連結仍可開啟內容，但新的銷售不會產生佣金。",
+    "openContent": "開啟內容",
+    "loadError": "無法載入你的經銷連結。",
+    "retry": "重試"
   }
 }

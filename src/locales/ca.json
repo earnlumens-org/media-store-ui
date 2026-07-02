@@ -238,7 +238,9 @@
     "addedToFavorites": "Afegit als favorits",
     "removedFromFavorites": "Eliminat dels favorits",
     "linkCopied": "Enllaç copiat al porta-retalls",
-    "tooManyRequests": "Massa sol·licituds. Espera un moment i torna-ho a provar."
+    "tooManyRequests": "Massa sol·licituds. Espera un moment i torna-ho a provar.",
+    "copy": "Copia",
+    "copied": "Copiat"
   },
   "Themes": {
     "title": "Selector de tema",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Sense caducitat",
     "badgeNone": "Encara no tens cap credencial blava activa",
     "badgeNoneHint": "Activa la teva credencial blava per sol·licitar la creació d'un tenant i accedir a eines avançades.",
-    "badgeGetAccess": "Activa la credencial blava"
+    "badgeGetAccess": "Activa la credencial blava",
+    "myResellerLinks": "Revenedors",
+    "myResellerLinksHint": "Gestiona el contingut que revens i els teus enllaços de comissió"
   },
   "AppBar": {
     "home": "Inici",
@@ -647,6 +651,12 @@
       "title": "Pujada completada!",
       "draftMessage": "El teu {type} s'ha desat com a esborrany. Pots editar-lo o enviar-lo quan vulguis des de Creator Studio.",
       "reviewMessage": "El teu {type} s'ha enviat a revisió. Rebràs una notificació quan s'aprovi."
+    },
+    "reseller": {
+      "title": "Revenedors",
+      "hint": "Permet que altres comparteixin el teu contingut i guanyin una comissió a cada venda, presa de la teva part.",
+      "commissionLabel": "Comissió del revenedor",
+      "commissionHint": "Entre el 5% i el 20% del preu total. Per defecte, 10%."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "No es pot editar ni publicar mentre el vídeo s'està transcodificant. Torna-ho a provar quan acabi.",
       "viewFeedback": "Mostra el motiu del rebuig",
       "publishSuccess": "Entrada publicada correctament",
-      "publishError": "No s'ha pogut publicar l'entrada. Torna-ho a provar."
+      "publishError": "No s'ha pogut publicar l'entrada. Torna-ho a provar.",
+      "resellerSettings": "Configuració de revenedors"
     },
     "approvedHint": "Aprovat · a punt per publicar (encara no visible)",
     "editEntry": "Edita l'entrada",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Venedor",
       "PLATFORM": "Plataforma",
-      "COLLABORATOR": "Col·laborador"
+      "COLLABORATOR": "Col·laborador",
+      "FRANCHISE": "Franquícia",
+      "RESELLER": "Revenedor"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "No pots enviar una propina al teu propi contingut.",
     "done": "Fet",
     "processing": "Enviant la teva propina..."
+  },
+  "Reseller": {
+    "title": "Guanya Lumens",
+    "cta": "GUANYA LUMENS",
+    "intro": "Comparteix aquest contingut amb la teva audiència i guanya una comissió cada vegada que algú compri a través del teu enllaç.",
+    "yourCommission": "La teva comissió",
+    "commissionOrientative": "Aquesta taxa és orientativa. La teva comissió real es calcula en el moment de cada venda. El valor actual es mostra sempre a Compte → Revenedors.",
+    "payoutWallet": "Cartera de pagament",
+    "walletHint": "La cartera Stellar on rebràs la teva comissió. Ha de ser un compte actiu.",
+    "walletLabel": "Clau pública de Stellar",
+    "connectWallet": "Connecta la cartera",
+    "walletVerified": "Cartera verificada — activa a la xarxa Stellar.",
+    "walletNotActivated": "Aquesta cartera encara no està activa a la xarxa Stellar. Envia almenys 1 XLM a aquesta adreça per activar-la i torna-ho a provar.",
+    "generateLink": "Genera l'enllaç",
+    "linkReady": "El teu enllaç de revenedor està a punt. Comparteix-lo on vulguis.",
+    "manageHint": "Pots trobar i gestionar tots els teus enllaços de revenedor en qualsevol moment a Compte → Revenedors.",
+    "ownContent": "No pots crear un enllaç de revenedor per al teu propi contingut.",
+    "disabledForContent": "El creador ha desactivat la revenda d'aquest contingut, així que ara no es pot generar cap enllaç.",
+    "errors": {
+      "loadFailed": "No s'han pogut carregar els detalls del revenedor. Torna-ho a provar.",
+      "connectFailed": "No s'ha pogut connectar la teva cartera. Torna-ho a provar.",
+      "copyFailed": "No s'ha pogut copiar l'enllaç. Copia'l manualment.",
+      "generic": "Alguna cosa ha anat malament. Torna-ho a provar.",
+      "verifyFailed": "No s'ha pogut verificar la cartera a la xarxa Stellar. Torna-ho a provar.",
+      "wallet_format": "Introdueix una clau pública de Stellar vàlida (comença per G).",
+      "wallet_not_activated": "Aquesta cartera encara no està activa a la xarxa Stellar. Envia almenys 1 XLM a aquesta adreça per activar-la.",
+      "entry_not_found": "Aquest contingut ja no existeix.",
+      "entry_not_resellable": "Aquest contingut no es pot revendre.",
+      "own_content": "No pots crear un enllaç de revenedor per al teu propi contingut.",
+      "not_found": "No s'ha trobat l'enllaç de revenedor.",
+      "forbidden": "Inicia la sessió per continuar."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Els meus enllaços de revenedor",
+    "subtitle": "Contingut que estàs revenent. Comparteix aquests enllaços per guanyar una comissió a cada venda.",
+    "empty": "Encara no tens cap enllaç de revenedor.",
+    "emptyHint": "Obre qualsevol contingut de pagament i toca «GUANYA LUMENS» per crear el teu primer enllaç.",
+    "loginRequired": "Inicia la sessió per veure els teus enllaços de revenedor.",
+    "commission": "Comissió",
+    "payoutWallet": "Cartera de pagament",
+    "changeWallet": "Canvia de cartera",
+    "useConnected": "Usa la cartera connectada",
+    "saveWallet": "Desa",
+    "cancel": "Cancel·la",
+    "copyLink": "Copia l'enllaç",
+    "linkCopied": "Enllaç copiat",
+    "walletUpdated": "Cartera de pagament actualitzada",
+    "resaleDisabled": "Revenda desactivada",
+    "resaleDisabledHint": "El creador ha desactivat la revenda d'aquest contingut. L'enllaç encara obre el contingut, però les vendes noves no generaran comissió.",
+    "openContent": "Obre el contingut",
+    "loadError": "No s'han pogut carregar els teus enllaços de revenedor.",
+    "retry": "Torna-ho a provar"
   }
 }

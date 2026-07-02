@@ -174,7 +174,9 @@
     "tooManyRequests": "请求过多。请稍候再试。",
     "cancel": "取消",
     "updateAvailable": "有新版本可用。",
-    "updateNow": "更新"
+    "updateNow": "更新",
+    "copy": "复制",
+    "copied": "已复制"
   },
   "Themes": {
     "title": "主题选择器",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "激活您的蓝色凭证以申请创建租户并访问高级工具。",
     "badgeGetAccess": "激活蓝色凭证",
     "myFranchise": "我的加盟店",
-    "myFranchiseHint": "在此市场下开设并管理您自己的店铺"
+    "myFranchiseHint": "在此市场下开设并管理您自己的店铺",
+    "myResellerLinks": "分销商",
+    "myResellerLinksHint": "管理你正在转售的内容和佣金链接"
   },
   "AppBar": {
     "home": "主页",
@@ -572,6 +576,12 @@
       "title": "上传完成！",
       "draftMessage": "您的{type}已保存为草稿。您可以随时在创作者工作室中编辑或提交。",
       "reviewMessage": "您的{type}已提交审核。审核通过后将通知您。"
+    },
+    "reseller": {
+      "title": "分销商",
+      "hint": "允许其他人分享你的内容，并在每次销售中赚取从你的份额中扣除的佣金。",
+      "commissionLabel": "分销佣金",
+      "commissionHint": "总价的 5% 到 20% 之间。默认 10%。"
     }
   },
   "Preview": {
@@ -739,7 +749,8 @@
       "transcodingError": "视频转码期间无法编辑或发布。完成后请重试。",
       "publishSuccess": "内容发布成功",
       "publishError": "发布失败，请重试。",
-      "viewFeedback": "查看拒绝原因"
+      "viewFeedback": "查看拒绝原因",
+      "resellerSettings": "分销商设置"
     },
     "approvedHint": "已批准 · 可发布（尚未可见）",
     "editEntry": "编辑条目",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "卖家",
       "PLATFORM": "平台",
-      "COLLABORATOR": "协作者"
+      "COLLABORATOR": "协作者",
+      "FRANCHISE": "加盟",
+      "RESELLER": "分销商"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "您不能打赏自己的内容。",
     "done": "完成",
     "processing": "正在发送您的打赏…"
+  },
+  "Reseller": {
+    "title": "赚取 Lumens",
+    "cta": "赚取 LUMENS",
+    "intro": "将此内容分享给你的受众，每当有人通过你的链接购买时即可赚取佣金。",
+    "yourCommission": "你的佣金",
+    "commissionOrientative": "此比率仅供参考。你的实际佣金在每次销售时计算。当前值始终显示在账户 → 分销商中。",
+    "payoutWallet": "收款钱包",
+    "walletHint": "你的佣金将发送到的 Stellar 钱包。必须是已激活的账户。",
+    "walletLabel": "Stellar 公钥",
+    "connectWallet": "连接钱包",
+    "walletVerified": "钱包已验证 — 在 Stellar 网络上处于活动状态。",
+    "walletNotActivated": "此钱包尚未在 Stellar 网络上激活。请向此地址发送至少 1 XLM 以激活，然后重试。",
+    "generateLink": "生成链接",
+    "linkReady": "你的分销链接已就绪。可随处分享。",
+    "manageHint": "你可以随时在账户 → 分销商中查找和管理所有分销链接。",
+    "ownContent": "你无法为自己的内容创建分销链接。",
+    "disabledForContent": "创作者已禁用此内容的转售，因此目前无法生成链接。",
+    "errors": {
+      "loadFailed": "无法加载分销商详情。请重试。",
+      "connectFailed": "无法连接你的钱包。请重试。",
+      "copyFailed": "无法复制链接。请手动复制。",
+      "generic": "出现问题。请重试。",
+      "verifyFailed": "无法在 Stellar 网络上验证钱包。请重试。",
+      "wallet_format": "请输入有效的 Stellar 公钥（以 G 开头）。",
+      "wallet_not_activated": "此钱包尚未在 Stellar 网络上激活。请向此地址发送至少 1 XLM 以激活。",
+      "entry_not_found": "此内容已不存在。",
+      "entry_not_resellable": "此内容无法转售。",
+      "own_content": "你无法为自己的内容创建分销链接。",
+      "not_found": "未找到分销链接。",
+      "forbidden": "请登录以继续。"
+    }
+  },
+  "ResellerLinks": {
+    "title": "我的分销链接",
+    "subtitle": "你正在转售的内容。分享这些链接可在每次销售中赚取佣金。",
+    "empty": "你还没有任何分销链接。",
+    "emptyHint": "打开任意付费内容并点按“赚取 LUMENS”以创建你的第一个链接。",
+    "loginRequired": "登录以查看你的分销链接。",
+    "commission": "佣金",
+    "payoutWallet": "收款钱包",
+    "changeWallet": "更换钱包",
+    "useConnected": "使用已连接钱包",
+    "saveWallet": "保存",
+    "cancel": "取消",
+    "copyLink": "复制链接",
+    "linkCopied": "链接已复制",
+    "walletUpdated": "收款钱包已更新",
+    "resaleDisabled": "转售已禁用",
+    "resaleDisabledHint": "创作者已禁用此内容的转售。链接仍可打开内容，但新的销售不会产生佣金。",
+    "openContent": "打开内容",
+    "loadError": "无法加载你的分销链接。",
+    "retry": "重试"
   }
 }

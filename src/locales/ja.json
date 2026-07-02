@@ -174,7 +174,9 @@
     "tooManyRequests": "リクエストが多すぎます。しばらくしてからもう一度お試しください。",
     "cancel": "キャンセル",
     "updateAvailable": "新しいバージョンが利用可能です。",
-    "updateNow": "更新"
+    "updateNow": "更新",
+    "copy": "コピー",
+    "copied": "コピーしました"
   },
   "Themes": {
     "title": "テーマセレクター",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "テナント作成を申請し、高度なツールにアクセスするためにブルークレデンシャルを有効化してください。",
     "badgeGetAccess": "ブルークレデンシャルを有効化",
     "myFranchise": "マイフランチャイズ",
-    "myFranchiseHint": "このマーケットプレイス内で自分のストアを開設・管理する"
+    "myFranchiseHint": "このマーケットプレイス内で自分のストアを開設・管理する",
+    "myResellerLinks": "再販者",
+    "myResellerLinksHint": "再販しているコンテンツと手数料リンクを管理します"
   },
   "AppBar": {
     "home": "ホームページ",
@@ -572,6 +576,12 @@
       "title": "アップロード完了！",
       "draftMessage": "{type}が下書きとして保存されました。クリエイタースタジオからいつでも編集・提出できます。",
       "reviewMessage": "{type}が審査に提出されました。承認されると通知が届きます。"
+    },
+    "reseller": {
+      "title": "再販者",
+      "hint": "他の人があなたのコンテンツを共有し、各販売であなたの取り分から差し引かれる手数料を獲得できるようにします。",
+      "commissionLabel": "再販手数料",
+      "commissionHint": "総額の 5% から 20% の間。既定は 10%。"
     }
   },
   "Preview": {
@@ -739,7 +749,8 @@
       "transcodingError": "動画のトランスコード中は編集や公開はできません。完了後にもう一度お試しください。",
       "publishSuccess": "コンテンツが正常に公開されました",
       "publishError": "公開に失敗しました。もう一度お試しください。",
-      "viewFeedback": "却下理由を表示"
+      "viewFeedback": "却下理由を表示",
+      "resellerSettings": "再販設定"
     },
     "approvedHint": "承認済み · 公開可能（まだ表示されていません）",
     "editEntry": "エントリーを編集",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "販売者",
       "PLATFORM": "プラットフォーム",
-      "COLLABORATOR": "コラボレーター"
+      "COLLABORATOR": "コラボレーター",
+      "FRANCHISE": "フランチャイズ",
+      "RESELLER": "再販者"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "自分のコンテンツにチップを送ることはできません。",
     "done": "完了",
     "processing": "チップを送信しています…"
+  },
+  "Reseller": {
+    "title": "Lumensを稼ぐ",
+    "cta": "LUMENSを稼ぐ",
+    "intro": "このコンテンツをあなたのオーディエンスと共有し、あなたのリンク経由で誰かが購入するたびに手数料を獲得しましょう。",
+    "yourCommission": "あなたの手数料",
+    "commissionOrientative": "このレートは目安です。実際の手数料は各販売時に計算されます。現在の値は常にアカウント → 再販者に表示されます。",
+    "payoutWallet": "支払いウォレット",
+    "walletHint": "手数料が送られる Stellar ウォレットです。有効なアカウントである必要があります。",
+    "walletLabel": "Stellar 公開鍵",
+    "connectWallet": "ウォレットを接続",
+    "walletVerified": "ウォレットを確認しました — Stellar ネットワークで有効です。",
+    "walletNotActivated": "このウォレットはまだ Stellar ネットワークで有効になっていません。このアドレスに 1 XLM 以上を送って有効化してから、もう一度お試しください。",
+    "generateLink": "リンクを生成",
+    "linkReady": "再販リンクの準備ができました。どこにでも共有できます。",
+    "manageHint": "すべての再販リンクはいつでもアカウント → 再販者で確認・管理できます。",
+    "ownContent": "自分のコンテンツには再販リンクを作成できません。",
+    "disabledForContent": "作成者がこのコンテンツの再販を無効にしているため、現在リンクを生成できません。",
+    "errors": {
+      "loadFailed": "再販者の詳細を読み込めませんでした。もう一度お試しください。",
+      "connectFailed": "ウォレットを接続できませんでした。もう一度お試しください。",
+      "copyFailed": "リンクをコピーできませんでした。手動でコピーしてください。",
+      "generic": "問題が発生しました。もう一度お試しください。",
+      "verifyFailed": "Stellar ネットワークでウォレットを確認できませんでした。もう一度お試しください。",
+      "wallet_format": "有効な Stellar 公開鍵を入力してください（G で始まります）。",
+      "wallet_not_activated": "このウォレットはまだ Stellar ネットワークで有効になっていません。このアドレスに 1 XLM 以上を送って有効化してください。",
+      "entry_not_found": "このコンテンツはもう存在しません。",
+      "entry_not_resellable": "このコンテンツは再販できません。",
+      "own_content": "自分のコンテンツには再販リンクを作成できません。",
+      "not_found": "再販リンクが見つかりません。",
+      "forbidden": "続行するにはログインしてください。"
+    }
+  },
+  "ResellerLinks": {
+    "title": "私の再販リンク",
+    "subtitle": "あなたが再販しているコンテンツです。これらのリンクを共有して、各販売で手数料を獲得しましょう。",
+    "empty": "まだ再販リンクがありません。",
+    "emptyHint": "有料コンテンツを開いて「LUMENSを稼ぐ」をタップし、最初のリンクを作成しましょう。",
+    "loginRequired": "再販リンクを表示するにはログインしてください。",
+    "commission": "手数料",
+    "payoutWallet": "支払いウォレット",
+    "changeWallet": "ウォレットを変更",
+    "useConnected": "接続済みウォレットを使用",
+    "saveWallet": "保存",
+    "cancel": "キャンセル",
+    "copyLink": "リンクをコピー",
+    "linkCopied": "リンクをコピーしました",
+    "walletUpdated": "支払いウォレットを更新しました",
+    "resaleDisabled": "再販は無効です",
+    "resaleDisabledHint": "作成者がこのコンテンツの再販を無効にしました。リンクはコンテンツを開けますが、新しい販売では手数料は得られません。",
+    "openContent": "コンテンツを開く",
+    "loadError": "再販リンクを読み込めませんでした。",
+    "retry": "再試行"
   }
 }

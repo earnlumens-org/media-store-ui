@@ -174,7 +174,9 @@
     "tooManyRequests": "Quá nhiều yêu cầu. Vui lòng đợi một chút và thử lại.",
     "cancel": "Hủy",
     "updateAvailable": "Đã có phiên bản mới.",
-    "updateNow": "Cập nhật"
+    "updateNow": "Cập nhật",
+    "copy": "Sao chép",
+    "copied": "Đã sao chép"
   },
   "Themes": {
     "title": "Bộ chọn chủ đề",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "Kích hoạt chứng chỉ xanh của bạn để yêu cầu tạo người thuê và truy cập các công cụ nâng cao.",
     "badgeGetAccess": "Kích hoạt chứng chỉ xanh",
     "myFranchise": "Nhượng quyền của tôi",
-    "myFranchiseHint": "Mở và quản lý cửa hàng của riêng bạn trong sàn này"
+    "myFranchiseHint": "Mở và quản lý cửa hàng của riêng bạn trong sàn này",
+    "myResellerLinks": "Đại lý bán lại",
+    "myResellerLinksHint": "Quản lý nội dung bạn đang bán lại và các liên kết hoa hồng của bạn"
   },
   "AppBar": {
     "home": "Trang chủ",
@@ -572,6 +576,12 @@
       "title": "Tải lên hoàn tất!",
       "draftMessage": "{type} của bạn đã được lưu dưới dạng bản nháp. Bạn có thể chỉnh sửa hoặc gửi bất cứ lúc nào từ Xưởng sáng tạo.",
       "reviewMessage": "{type} của bạn đã được gửi để xét duyệt. Bạn sẽ được thông báo khi được phê duyệt."
+    },
+    "reseller": {
+      "title": "Đại lý bán lại",
+      "hint": "Cho phép người khác chia sẻ nội dung của bạn và kiếm hoa hồng trên mỗi lần bán, được lấy từ phần của bạn.",
+      "commissionLabel": "Hoa hồng đại lý",
+      "commissionHint": "Từ 5% đến 20% tổng giá. Mặc định 10%."
     }
   },
   "Preview": {
@@ -739,7 +749,8 @@
       "transcodingError": "Không thể chỉnh sửa hoặc xuất bản khi video đang chuyển mã. Vui lòng thử lại sau khi hoàn tất.",
       "publishSuccess": "Nội dung đã được xuất bản thành công",
       "publishError": "Xuất bản thất bại. Vui lòng thử lại.",
-      "viewFeedback": "Xem lý do từ chối"
+      "viewFeedback": "Xem lý do từ chối",
+      "resellerSettings": "Cài đặt đại lý"
     },
     "approvedHint": "Đã duyệt · sẵn sàng xuất bản (chưa hiển thị)",
     "editEntry": "Sửa bài viết",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "Người bán",
       "PLATFORM": "Nền tảng",
-      "COLLABORATOR": "Cộng tác viên"
+      "COLLABORATOR": "Cộng tác viên",
+      "FRANCHISE": "Nhượng quyền",
+      "RESELLER": "Đại lý bán lại"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Bạn không thể boa cho nội dung của chính mình.",
     "done": "Xong",
     "processing": "Đang gửi tiền boa của bạn…"
+  },
+  "Reseller": {
+    "title": "Kiếm Lumens",
+    "cta": "KIẾM LUMENS",
+    "intro": "Chia sẻ nội dung này với khán giả của bạn và kiếm hoa hồng mỗi khi có người mua qua liên kết của bạn.",
+    "yourCommission": "Hoa hồng của bạn",
+    "commissionOrientative": "Tỷ lệ này chỉ mang tính tham khảo. Hoa hồng thực tế của bạn được tính tại thời điểm mỗi lần bán. Giá trị hiện tại luôn được hiển thị trong Tài khoản → Đại lý bán lại.",
+    "payoutWallet": "Ví nhận thanh toán",
+    "walletHint": "Ví Stellar nơi hoa hồng của bạn sẽ được gửi đến. Đây phải là tài khoản đang hoạt động.",
+    "walletLabel": "Khóa công khai Stellar",
+    "connectWallet": "Kết nối ví",
+    "walletVerified": "Ví đã xác minh — đang hoạt động trên mạng Stellar.",
+    "walletNotActivated": "Ví này chưa hoạt động trên mạng Stellar. Gửi ít nhất 1 XLM đến địa chỉ này để kích hoạt, sau đó thử lại.",
+    "generateLink": "Tạo liên kết",
+    "linkReady": "Liên kết đại lý của bạn đã sẵn sàng. Chia sẻ ở bất cứ đâu.",
+    "manageHint": "Bạn có thể tìm và quản lý tất cả liên kết đại lý của mình bất cứ lúc nào trong Tài khoản → Đại lý bán lại.",
+    "ownContent": "Bạn không thể tạo liên kết đại lý cho nội dung của chính mình.",
+    "disabledForContent": "Người tạo đã tắt bán lại cho nội dung này, nên hiện không thể tạo liên kết.",
+    "errors": {
+      "loadFailed": "Không thể tải thông tin đại lý. Vui lòng thử lại.",
+      "connectFailed": "Không thể kết nối ví của bạn. Vui lòng thử lại.",
+      "copyFailed": "Không thể sao chép liên kết. Hãy sao chép thủ công.",
+      "generic": "Đã xảy ra lỗi. Vui lòng thử lại.",
+      "verifyFailed": "Không thể xác minh ví trên mạng Stellar. Vui lòng thử lại.",
+      "wallet_format": "Nhập khóa công khai Stellar hợp lệ (bắt đầu bằng G).",
+      "wallet_not_activated": "Ví này chưa hoạt động trên mạng Stellar. Gửi ít nhất 1 XLM đến địa chỉ này để kích hoạt.",
+      "entry_not_found": "Nội dung này không còn tồn tại.",
+      "entry_not_resellable": "Nội dung này không thể bán lại.",
+      "own_content": "Bạn không thể tạo liên kết đại lý cho nội dung của chính mình.",
+      "not_found": "Không tìm thấy liên kết đại lý.",
+      "forbidden": "Vui lòng đăng nhập để tiếp tục."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Liên kết đại lý của tôi",
+    "subtitle": "Nội dung bạn đang bán lại. Chia sẻ các liên kết này để kiếm hoa hồng trên mỗi lần bán.",
+    "empty": "Bạn chưa có liên kết đại lý nào.",
+    "emptyHint": "Mở bất kỳ nội dung trả phí nào và nhấn “KIẾM LUMENS” để tạo liên kết đầu tiên của bạn.",
+    "loginRequired": "Đăng nhập để xem các liên kết đại lý của bạn.",
+    "commission": "Hoa hồng",
+    "payoutWallet": "Ví nhận thanh toán",
+    "changeWallet": "Đổi ví",
+    "useConnected": "Dùng ví đã kết nối",
+    "saveWallet": "Lưu",
+    "cancel": "Hủy",
+    "copyLink": "Sao chép liên kết",
+    "linkCopied": "Đã sao chép liên kết",
+    "walletUpdated": "Đã cập nhật ví nhận thanh toán",
+    "resaleDisabled": "Đã tắt bán lại",
+    "resaleDisabledHint": "Người tạo đã tắt bán lại cho nội dung này. Liên kết vẫn mở nội dung, nhưng các lần bán mới sẽ không kiếm được hoa hồng.",
+    "openContent": "Mở nội dung",
+    "loadError": "Không thể tải các liên kết đại lý của bạn.",
+    "retry": "Thử lại"
   }
 }

@@ -238,7 +238,9 @@
     "addedToFavorites": "Hozzáadva a kedvencekhez",
     "removedFromFavorites": "Eltávolítva a kedvencekből",
     "linkCopied": "Hivatkozás a vágólapra másolva",
-    "tooManyRequests": "Túl sok kérés. Kérjük, várj egy kicsit, majd próbáld újra."
+    "tooManyRequests": "Túl sok kérés. Kérjük, várj egy kicsit, majd próbáld újra.",
+    "copy": "Másolás",
+    "copied": "Másolva"
   },
   "Themes": {
     "title": "Témaválasztó",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Nincs lejárat",
     "badgeNone": "Még nincs aktív kék hitelesítésed",
     "badgeNoneHint": "Aktiváld a kék hitelesítésedet tenant létrehozásának kéréséhez és haladó eszközök eléréséhez.",
-    "badgeGetAccess": "Kék hitelesítés aktiválása"
+    "badgeGetAccess": "Kék hitelesítés aktiválása",
+    "myResellerLinks": "Viszonteladók",
+    "myResellerLinksHint": "Kezeld a viszonteladott tartalmadat és a jutaléklinkjeidet"
   },
   "AppBar": {
     "home": "Főoldal",
@@ -647,6 +651,12 @@
       "title": "Feltöltés kész!",
       "draftMessage": "A(z) {type} piszkozatként mentve. Bármikor szerkesztheted vagy beküldheted a Creator Studio-ból.",
       "reviewMessage": "A(z) {type} beküldve felülvizsgálatra. Értesítést kapsz, amint jóváhagyták."
+    },
+    "reseller": {
+      "title": "Viszonteladók",
+      "hint": "Engedd, hogy mások megosszák a tartalmadat, és minden eladás után jutalékot keressenek, amelyet a te részesedésedből vonunk le.",
+      "commissionLabel": "Viszonteladói jutalék",
+      "commissionHint": "A teljes ár 5% és 20% között. Alapértelmezett 10%."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "A videó átkódolása közben nem szerkeszthető és nem tehető közzé. Próbáld újra, amikor befejeződik.",
       "viewFeedback": "Elutasítás okának megtekintése",
       "publishSuccess": "Bejegyzés sikeresen közzétéve",
-      "publishError": "Nem sikerült közzétenni a bejegyzést. Kérjük, próbáld újra."
+      "publishError": "Nem sikerült közzétenni a bejegyzést. Kérjük, próbáld újra.",
+      "resellerSettings": "Viszonteladói beállítások"
     },
     "approvedHint": "Jóváhagyva · közzétételre kész (még nem látható)",
     "editEntry": "Bejegyzés szerkesztése",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Eladó",
       "PLATFORM": "Platform",
-      "COLLABORATOR": "Közreműködő"
+      "COLLABORATOR": "Közreműködő",
+      "FRANCHISE": "Franchise",
+      "RESELLER": "Viszonteladó"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Nem küldhetsz borravalót a saját tartalmadhoz.",
     "done": "Kész",
     "processing": "Borravaló küldése…"
+  },
+  "Reseller": {
+    "title": "Keress Lumenst",
+    "cta": "KERESS LUMENST",
+    "intro": "Oszd meg ezt a tartalmat a közönségeddel, és keress jutalékot minden alkalommal, amikor valaki a linkeden keresztül vásárol.",
+    "yourCommission": "A jutalékod",
+    "commissionOrientative": "Ez az arány tájékoztató jellegű. A tényleges jutalékodat minden eladáskor számítjuk ki. Az aktuális érték mindig a Fiók → Viszonteladók menüben látható.",
+    "payoutWallet": "Kifizetési tárca",
+    "walletHint": "A Stellar-tárca, ahová a jutalékodat küldjük. Aktív fióknak kell lennie.",
+    "walletLabel": "Stellar nyilvános kulcs",
+    "connectWallet": "Tárca csatlakoztatása",
+    "walletVerified": "Tárca ellenőrizve — aktív a Stellar-hálózaton.",
+    "walletNotActivated": "Ez a tárca még nem aktív a Stellar-hálózaton. Küldj legalább 1 XLM-et erre a címre az aktiváláshoz, majd próbáld újra.",
+    "generateLink": "Link létrehozása",
+    "linkReady": "A viszonteladói linked készen áll. Oszd meg bárhol.",
+    "manageHint": "Az összes viszonteladói linkedet bármikor megtalálhatod és kezelheted a Fiók → Viszonteladók menüben.",
+    "ownContent": "Nem hozhatsz létre viszonteladói linket a saját tartalmadhoz.",
+    "disabledForContent": "A készítő letiltotta a viszonteladást ehhez a tartalomhoz, ezért most nem hozható létre link.",
+    "errors": {
+      "loadFailed": "Nem sikerült betölteni a viszonteladói adatokat. Próbáld újra.",
+      "connectFailed": "Nem sikerült csatlakoztatni a tárcádat. Próbáld újra.",
+      "copyFailed": "Nem sikerült másolni a linket. Másold ki kézzel.",
+      "generic": "Valami hiba történt. Próbáld újra.",
+      "verifyFailed": "Nem sikerült ellenőrizni a tárcát a Stellar-hálózaton. Próbáld újra.",
+      "wallet_format": "Adj meg egy érvényes Stellar nyilvános kulcsot (G-vel kezdődik).",
+      "wallet_not_activated": "Ez a tárca még nem aktív a Stellar-hálózaton. Küldj legalább 1 XLM-et erre a címre az aktiváláshoz.",
+      "entry_not_found": "Ez a tartalom már nem létezik.",
+      "entry_not_resellable": "Ez a tartalom nem értékesíthető tovább.",
+      "own_content": "Nem hozhatsz létre viszonteladói linket a saját tartalmadhoz.",
+      "not_found": "A viszonteladói link nem található.",
+      "forbidden": "A folytatáshoz jelentkezz be."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Viszonteladói linkjeim",
+    "subtitle": "Tartalom, amelyet viszonteladsz. Oszd meg ezeket a linkeket, hogy minden eladás után jutalékot keress.",
+    "empty": "Még nincsenek viszonteladói linkjeid.",
+    "emptyHint": "Nyiss meg bármilyen fizetős tartalmat, és koppints a „KERESS LUMENST” gombra az első linked létrehozásához.",
+    "loginRequired": "Jelentkezz be a viszonteladói linkjeid megtekintéséhez.",
+    "commission": "Jutalék",
+    "payoutWallet": "Kifizetési tárca",
+    "changeWallet": "Tárca módosítása",
+    "useConnected": "Csatlakoztatott tárca használata",
+    "saveWallet": "Mentés",
+    "cancel": "Mégse",
+    "copyLink": "Link másolása",
+    "linkCopied": "Link másolva",
+    "walletUpdated": "Kifizetési tárca frissítve",
+    "resaleDisabled": "Viszonteladás letiltva",
+    "resaleDisabledHint": "A készítő letiltotta a viszonteladást ehhez a tartalomhoz. A link továbbra is megnyitja a tartalmat, de az új eladások nem hoznak jutalékot.",
+    "openContent": "Tartalom megnyitása",
+    "loadError": "Nem sikerült betölteni a viszonteladói linkjeidet.",
+    "retry": "Újra"
   }
 }

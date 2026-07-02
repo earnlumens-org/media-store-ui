@@ -174,7 +174,9 @@
     "linkCopied": "Link gekopieerd naar klembord",
     "tooManyRequests": "Te veel verzoeken. Wacht even en probeer het opnieuw.",
     "updateAvailable": "Er is een nieuwe versie beschikbaar.",
-    "updateNow": "Bijwerken"
+    "updateNow": "Bijwerken",
+    "copy": "Kopiëren",
+    "copied": "Gekopieerd"
   },
   "Themes": {
     "title": "Themakiezer",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "Activeer uw blauwe credential om het aanmaken van tenants aan te vragen en toegang te krijgen tot geavanceerde tools.",
     "badgeGetAccess": "Activeer blauwe identificatie",
     "myFranchise": "Mijn franchise",
-    "myFranchiseHint": "Open en beheer je eigen winkel binnen deze marktplaats"
+    "myFranchiseHint": "Open en beheer je eigen winkel binnen deze marktplaats",
+    "myResellerLinks": "Wederverkopers",
+    "myResellerLinksHint": "Beheer de content die je doorverkoopt en je commissielinks"
   },
   "AppBar": {
     "home": "Thuis",
@@ -583,6 +587,12 @@
       "title": "Uploaden voltooid!",
       "draftMessage": "Uw {type} is opgeslagen als concept. Je kunt het op elk gewenst moment bewerken of indienen vanuit Creator Studio.",
       "reviewMessage": "Uw {type} is ter beoordeling ingediend. U ontvangt bericht zodra het is goedgekeurd."
+    },
+    "reseller": {
+      "title": "Wederverkopers",
+      "hint": "Laat anderen je content delen en een commissie op elke verkoop verdienen, die van jouw deel wordt afgehaald.",
+      "commissionLabel": "Wederverkopercommissie",
+      "commissionHint": "Tussen 5% en 20% van de totale prijs. Standaard 10%."
     }
   },
   "Preview": {
@@ -756,7 +766,8 @@
       "transcodingError": "Kan de video niet bewerken of publiceren terwijl deze wordt getranscodeerd. Probeer het opnieuw als het klaar is.",
       "viewFeedback": "Bekijk de reden van afwijzing",
       "publishSuccess": "Inzending succesvol gepubliceerd",
-      "publishError": "Kan bericht niet publiceren. Probeer het opnieuw."
+      "publishError": "Kan bericht niet publiceren. Probeer het opnieuw.",
+      "resellerSettings": "Wederverkoperinstellingen"
     },
     "approvedHint": "Goedgekeurd · klaar voor publicatie (nog niet zichtbaar)",
     "editEntry": "Invoer bewerken",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "Verkoper",
       "PLATFORM": "Platform",
-      "COLLABORATOR": "Medewerker"
+      "COLLABORATOR": "Medewerker",
+      "FRANCHISE": "Franchise",
+      "RESELLER": "Wederverkoper"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Je kunt geen fooi geven aan je eigen content.",
     "done": "Klaar",
     "processing": "Je fooi wordt verzonden…"
+  },
+  "Reseller": {
+    "title": "Lumens verdienen",
+    "cta": "LUMENS VERDIENEN",
+    "intro": "Deel deze content met je publiek en verdien een commissie telkens als iemand via jouw link koopt.",
+    "yourCommission": "Jouw commissie",
+    "commissionOrientative": "Dit tarief is indicatief. Je werkelijke commissie wordt berekend op het moment van elke verkoop. De actuele waarde staat altijd in Account → Wederverkopers.",
+    "payoutWallet": "Uitbetalings-wallet",
+    "walletHint": "De Stellar-wallet waarnaar je commissie wordt gestuurd. Het moet een actief account zijn.",
+    "walletLabel": "Openbare Stellar-sleutel",
+    "connectWallet": "Wallet verbinden",
+    "walletVerified": "Wallet geverifieerd — actief op het Stellar-netwerk.",
+    "walletNotActivated": "Deze wallet is nog niet actief op het Stellar-netwerk. Stuur minstens 1 XLM naar dit adres om hem te activeren en probeer het opnieuw.",
+    "generateLink": "Link genereren",
+    "linkReady": "Je wederverkoperslink is klaar. Deel hem overal.",
+    "manageHint": "Je kunt al je wederverkoperslinks altijd vinden en beheren in Account → Wederverkopers.",
+    "ownContent": "Je kunt geen wederverkoperslink maken voor je eigen content.",
+    "disabledForContent": "De maker heeft wederverkoop voor deze content uitgeschakeld, dus er kan nu geen link worden gegenereerd.",
+    "errors": {
+      "loadFailed": "Kan de wederverkopergegevens niet laden. Probeer het opnieuw.",
+      "connectFailed": "Kan je wallet niet verbinden. Probeer het opnieuw.",
+      "copyFailed": "Kan de link niet kopiëren. Kopieer hem handmatig.",
+      "generic": "Er is iets misgegaan. Probeer het opnieuw.",
+      "verifyFailed": "Kan de wallet niet verifiëren op het Stellar-netwerk. Probeer het opnieuw.",
+      "wallet_format": "Voer een geldige openbare Stellar-sleutel in (begint met G).",
+      "wallet_not_activated": "Deze wallet is nog niet actief op het Stellar-netwerk. Stuur minstens 1 XLM naar dit adres om hem te activeren.",
+      "entry_not_found": "Deze content bestaat niet meer.",
+      "entry_not_resellable": "Deze content kan niet worden doorverkocht.",
+      "own_content": "Je kunt geen wederverkoperslink maken voor je eigen content.",
+      "not_found": "Wederverkoperslink niet gevonden.",
+      "forbidden": "Log in om door te gaan."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Mijn wederverkoperslinks",
+    "subtitle": "Content die je doorverkoopt. Deel deze links om een commissie op elke verkoop te verdienen.",
+    "empty": "Je hebt nog geen wederverkoperslinks.",
+    "emptyHint": "Open betaalde content en tik op “LUMENS VERDIENEN” om je eerste link te maken.",
+    "loginRequired": "Log in om je wederverkoperslinks te bekijken.",
+    "commission": "Commissie",
+    "payoutWallet": "Uitbetalings-wallet",
+    "changeWallet": "Wallet wijzigen",
+    "useConnected": "Verbonden wallet gebruiken",
+    "saveWallet": "Opslaan",
+    "cancel": "Annuleren",
+    "copyLink": "Link kopiëren",
+    "linkCopied": "Link gekopieerd",
+    "walletUpdated": "Uitbetalings-wallet bijgewerkt",
+    "resaleDisabled": "Doorverkoop uitgeschakeld",
+    "resaleDisabledHint": "De maker heeft doorverkoop voor deze content uitgeschakeld. De link opent de content nog steeds, maar nieuwe verkopen leveren geen commissie op.",
+    "openContent": "Content openen",
+    "loadError": "Kan je wederverkoperslinks niet laden.",
+    "retry": "Opnieuw proberen"
   }
 }

@@ -238,7 +238,9 @@
     "addedToFavorites": "Adăugat la favorite",
     "removedFromFavorites": "Eliminat din favorite",
     "linkCopied": "Link copiat în clipboard",
-    "tooManyRequests": "Prea multe cereri. Te rugăm să aștepți un moment și să încerci din nou."
+    "tooManyRequests": "Prea multe cereri. Te rugăm să aștepți un moment și să încerci din nou.",
+    "copy": "Copiază",
+    "copied": "Copiat"
   },
   "Themes": {
     "title": "Selector de teme",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Fără expirare",
     "badgeNone": "Încă nu ai o acreditare albastră activă",
     "badgeNoneHint": "Activează-ți acreditarea albastră pentru a solicita crearea unui tenant și a accesa instrumente avansate.",
-    "badgeGetAccess": "Activează acreditarea albastră"
+    "badgeGetAccess": "Activează acreditarea albastră",
+    "myResellerLinks": "Revânzători",
+    "myResellerLinksHint": "Gestionează conținutul pe care îl revinzi și linkurile tale de comision"
   },
   "AppBar": {
     "home": "Acasă",
@@ -647,6 +651,12 @@
       "title": "Încărcare completă!",
       "draftMessage": "{type} a fost salvat ca schiță. Îl poți edita sau trimite oricând din Creator Studio.",
       "reviewMessage": "{type} a fost trimis spre revizuire. Vei fi notificat odată ce este aprobat."
+    },
+    "reseller": {
+      "title": "Revânzători",
+      "hint": "Permite altora să distribuie conținutul tău și să câștige un comision la fiecare vânzare, luat din partea ta.",
+      "commissionLabel": "Comision revânzător",
+      "commissionHint": "Între 5% și 20% din prețul total. Implicit 10%."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "Nu se poate edita sau publica în timp ce videoclipul se transcodează. Te rugăm să încerci din nou când se termină.",
       "viewFeedback": "Vezi motivul respingerii",
       "publishSuccess": "Intrare publicată cu succes",
-      "publishError": "Publicarea intrării a eșuat. Te rugăm să încerci din nou."
+      "publishError": "Publicarea intrării a eșuat. Te rugăm să încerci din nou.",
+      "resellerSettings": "Setări revânzători"
     },
     "approvedHint": "Aprobat · gata de publicare (încă nevizibil)",
     "editEntry": "Editează intrarea",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Vânzător",
       "PLATFORM": "Platformă",
-      "COLLABORATOR": "Colaborator"
+      "COLLABORATOR": "Colaborator",
+      "FRANCHISE": "Franciză",
+      "RESELLER": "Revânzător"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Nu poți lăsa bacșiș propriului conținut.",
     "done": "Gata",
     "processing": "Se trimite bacșișul tău…"
+  },
+  "Reseller": {
+    "title": "Câștigă Lumens",
+    "cta": "CÂȘTIGĂ LUMENS",
+    "intro": "Distribuie acest conținut publicului tău și câștigă un comision de fiecare dată când cineva cumpără prin linkul tău.",
+    "yourCommission": "Comisionul tău",
+    "commissionOrientative": "Această rată este orientativă. Comisionul tău real este calculat în momentul fiecărei vânzări. Valoarea curentă este afișată mereu în Cont → Revânzători.",
+    "payoutWallet": "Portofel de plată",
+    "walletHint": "Portofelul Stellar către care va fi trimis comisionul tău. Trebuie să fie un cont activ.",
+    "walletLabel": "Cheie publică Stellar",
+    "connectWallet": "Conectează portofelul",
+    "walletVerified": "Portofel verificat — activ în rețeaua Stellar.",
+    "walletNotActivated": "Acest portofel nu este încă activ în rețeaua Stellar. Trimite cel puțin 1 XLM la această adresă pentru a-l activa, apoi încearcă din nou.",
+    "generateLink": "Generează link",
+    "linkReady": "Linkul tău de revânzător este gata. Distribuie-l oriunde.",
+    "manageHint": "Poți găsi și gestiona toate linkurile tale de revânzător oricând în Cont → Revânzători.",
+    "ownContent": "Nu poți crea un link de revânzător pentru propriul conținut.",
+    "disabledForContent": "Creatorul a dezactivat revânzarea pentru acest conținut, deci nu se poate genera un link acum.",
+    "errors": {
+      "loadFailed": "Nu s-au putut încărca detaliile revânzătorului. Încearcă din nou.",
+      "connectFailed": "Nu s-a putut conecta portofelul tău. Încearcă din nou.",
+      "copyFailed": "Nu s-a putut copia linkul. Copiază-l manual.",
+      "generic": "Ceva nu a mers bine. Încearcă din nou.",
+      "verifyFailed": "Nu s-a putut verifica portofelul în rețeaua Stellar. Încearcă din nou.",
+      "wallet_format": "Introdu o cheie publică Stellar validă (începe cu G).",
+      "wallet_not_activated": "Acest portofel nu este încă activ în rețeaua Stellar. Trimite cel puțin 1 XLM la această adresă pentru a-l activa.",
+      "entry_not_found": "Acest conținut nu mai există.",
+      "entry_not_resellable": "Acest conținut nu poate fi revândut.",
+      "own_content": "Nu poți crea un link de revânzător pentru propriul conținut.",
+      "not_found": "Linkul de revânzător nu a fost găsit.",
+      "forbidden": "Autentifică-te pentru a continua."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Linkurile mele de revânzător",
+    "subtitle": "Conținut pe care îl revinzi. Distribuie aceste linkuri pentru a câștiga un comision la fiecare vânzare.",
+    "empty": "Nu ai încă niciun link de revânzător.",
+    "emptyHint": "Deschide orice conținut plătit și apasă „CÂȘTIGĂ LUMENS” pentru a crea primul tău link.",
+    "loginRequired": "Autentifică-te pentru a vedea linkurile tale de revânzător.",
+    "commission": "Comision",
+    "payoutWallet": "Portofel de plată",
+    "changeWallet": "Schimbă portofelul",
+    "useConnected": "Folosește portofelul conectat",
+    "saveWallet": "Salvează",
+    "cancel": "Anulează",
+    "copyLink": "Copiază linkul",
+    "linkCopied": "Link copiat",
+    "walletUpdated": "Portofel de plată actualizat",
+    "resaleDisabled": "Revânzare dezactivată",
+    "resaleDisabledHint": "Creatorul a dezactivat revânzarea pentru acest conținut. Linkul deschide în continuare conținutul, dar vânzările noi nu vor genera comision.",
+    "openContent": "Deschide conținutul",
+    "loadError": "Nu s-au putut încărca linkurile tale de revânzător.",
+    "retry": "Reîncearcă"
   }
 }

@@ -174,7 +174,9 @@
     "linkCopied": "Nakopya ang link sa clipboard",
     "tooManyRequests": "Sobrang dami ng kahilingan. Mangyaring sandaling huminto at subukan muli.",
     "updateAvailable": "May bagong bersyon na available.",
-    "updateNow": "I-update"
+    "updateNow": "I-update",
+    "copy": "Kopyahin",
+    "copied": "Nakopya"
   },
   "Themes": {
     "title": "Theme Selector",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "I-activate ang iyong asul na credential para humiling ng paglikha ng tenant at i-access ang mga advanced na tool.",
     "badgeGetAccess": "I-activate ang asul na credential",
     "myFranchise": "Aking Prangkisa",
-    "myFranchiseHint": "Magbukas at pamahalaan ang sarili mong storefront sa ilalim ng marketplace na ito"
+    "myFranchiseHint": "Magbukas at pamahalaan ang sarili mong storefront sa ilalim ng marketplace na ito",
+    "myResellerLinks": "Mga reseller",
+    "myResellerLinksHint": "Pamahalaan ang content na ibinebenta mo ulit at ang iyong mga link ng komisyon"
   },
   "AppBar": {
     "home": "Home",
@@ -583,6 +587,12 @@
       "title": "Tapos na ang upload!",
       "draftMessage": "Na-save bilang draft ang iyong {type}. Maaari mo itong i-edit o ipasa anumang oras mula sa Creator Studio.",
       "reviewMessage": "Naipasa na ang iyong {type} para sa pagsusuri. Aabisuhan ka kapag naaprubahan na."
+    },
+    "reseller": {
+      "title": "Mga reseller",
+      "hint": "Payagan ang iba na ibahagi ang iyong content at kumita ng komisyon sa bawat benta, na kinukuha mula sa iyong bahagi.",
+      "commissionLabel": "Komisyon ng reseller",
+      "commissionHint": "Sa pagitan ng 5% at 20% ng kabuuang presyo. Default na 10%."
     }
   },
   "Preview": {
@@ -756,7 +766,8 @@
       "transcodingError": "Hindi maaaring i-edit o ilathala habang nasa transcoding ang video. Pakisubukan muli kapag tapos na.",
       "viewFeedback": "Tingnan ang dahilan ng pagtanggi",
       "publishSuccess": "Matagumpay na nailathala ang entry",
-      "publishError": "Nabigong ilathala ang entry. Pakisubukan muli."
+      "publishError": "Nabigong ilathala ang entry. Pakisubukan muli.",
+      "resellerSettings": "Mga setting ng reseller"
     },
     "approvedHint": "Inaprubahan · Handang ilathala (hindi pa nakikita)",
     "editEntry": "I-edit ang entry",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "Nagbebenta",
       "PLATFORM": "Platform",
-      "COLLABORATOR": "Collaborator"
+      "COLLABORATOR": "Collaborator",
+      "FRANCHISE": "Prangkisa",
+      "RESELLER": "Reseller"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Hindi mo mati-tip ang sarili mong nilalaman.",
     "done": "Tapos na",
     "processing": "Ipinapadala ang iyong tip…"
+  },
+  "Reseller": {
+    "title": "Kumita ng Lumens",
+    "cta": "KUMITA NG LUMENS",
+    "intro": "Ibahagi ang content na ito sa iyong audience at kumita ng komisyon sa tuwing may bibili sa pamamagitan ng iyong link.",
+    "yourCommission": "Iyong komisyon",
+    "commissionOrientative": "Ang rate na ito ay panuntunan lamang. Ang iyong aktwal na komisyon ay kinakalkula sa oras ng bawat benta. Ang kasalukuyang halaga ay palaging ipinapakita sa Account → Mga reseller.",
+    "payoutWallet": "Wallet ng bayad",
+    "walletHint": "Ang Stellar wallet kung saan ipapadala ang iyong komisyon. Dapat itong aktibong account.",
+    "walletLabel": "Stellar public key",
+    "connectWallet": "Ikonekta ang wallet",
+    "walletVerified": "Na-verify ang wallet — aktibo sa Stellar network.",
+    "walletNotActivated": "Ang wallet na ito ay hindi pa aktibo sa Stellar network. Magpadala ng hindi bababa sa 1 XLM sa address na ito para i-activate ito, pagkatapos subukan ulit.",
+    "generateLink": "Bumuo ng link",
+    "linkReady": "Handa na ang iyong reseller link. Ibahagi ito kahit saan.",
+    "manageHint": "Makikita at mapapamahalaan mo ang lahat ng iyong reseller link anumang oras sa Account → Mga reseller.",
+    "ownContent": "Hindi ka makakagawa ng reseller link para sa sarili mong content.",
+    "disabledForContent": "Na-disable ng creator ang muling pagbebenta para sa content na ito, kaya hindi makakabuo ng link sa ngayon.",
+    "errors": {
+      "loadFailed": "Hindi ma-load ang mga detalye ng reseller. Pakisubukan ulit.",
+      "connectFailed": "Hindi maikonekta ang iyong wallet. Pakisubukan ulit.",
+      "copyFailed": "Hindi makopya ang link. Kopyahin ito nang manu-mano.",
+      "generic": "May nangyaring mali. Pakisubukan ulit.",
+      "verifyFailed": "Hindi ma-verify ang wallet sa Stellar network. Pakisubukan ulit.",
+      "wallet_format": "Maglagay ng valid na Stellar public key (nagsisimula sa G).",
+      "wallet_not_activated": "Ang wallet na ito ay hindi pa aktibo sa Stellar network. Magpadala ng hindi bababa sa 1 XLM sa address na ito para i-activate ito.",
+      "entry_not_found": "Wala na ang content na ito.",
+      "entry_not_resellable": "Hindi maibebenta ulit ang content na ito.",
+      "own_content": "Hindi ka makakagawa ng reseller link para sa sarili mong content.",
+      "not_found": "Hindi nakita ang reseller link.",
+      "forbidden": "Mag-log in para magpatuloy."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Aking mga reseller link",
+    "subtitle": "Content na ibinebenta mo ulit. Ibahagi ang mga link na ito para kumita ng komisyon sa bawat benta.",
+    "empty": "Wala ka pang anumang reseller link.",
+    "emptyHint": "Buksan ang anumang bayad na content at i-tap ang “KUMITA NG LUMENS” para gawin ang iyong unang link.",
+    "loginRequired": "Mag-log in para tingnan ang iyong mga reseller link.",
+    "commission": "Komisyon",
+    "payoutWallet": "Wallet ng bayad",
+    "changeWallet": "Palitan ang wallet",
+    "useConnected": "Gamitin ang nakakonektang wallet",
+    "saveWallet": "I-save",
+    "cancel": "Kanselahin",
+    "copyLink": "Kopyahin ang link",
+    "linkCopied": "Nakopya ang link",
+    "walletUpdated": "Na-update ang wallet ng bayad",
+    "resaleDisabled": "Naka-disable ang muling pagbebenta",
+    "resaleDisabledHint": "Na-disable ng creator ang muling pagbebenta para sa content na ito. Bubuksan pa rin ng link ang content, ngunit ang mga bagong benta ay hindi kikita ng komisyon.",
+    "openContent": "Buksan ang content",
+    "loadError": "Hindi ma-load ang iyong mga reseller link.",
+    "retry": "Subukan ulit"
   }
 }

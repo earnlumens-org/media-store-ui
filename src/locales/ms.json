@@ -174,7 +174,9 @@
     "tooManyRequests": "Terlalu banyak permintaan. Sila tunggu sebentar dan cuba lagi.",
     "cancel": "Batal",
     "updateAvailable": "Versi baharu tersedia.",
-    "updateNow": "Kemas kini"
+    "updateNow": "Kemas kini",
+    "copy": "Salin",
+    "copied": "Disalin"
   },
   "Themes": {
     "title": "Pemilih Tema",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "Aktifkan kelayakan biru anda untuk memohon penciptaan penyewa dan mengakses alatan lanjutan.",
     "badgeGetAccess": "Aktifkan kelayakan biru",
     "myFranchise": "Francais Saya",
-    "myFranchiseHint": "Buka dan urus etalase anda sendiri di bawah pasaran ini"
+    "myFranchiseHint": "Buka dan urus etalase anda sendiri di bawah pasaran ini",
+    "myResellerLinks": "Penjual semula",
+    "myResellerLinksHint": "Urus kandungan yang anda jual semula dan pautan komisen anda"
   },
   "AppBar": {
     "home": "Laman Utama",
@@ -572,6 +576,12 @@
       "title": "Muat Naik Selesai!",
       "draftMessage": "{type} anda telah disimpan sebagai draf. Anda boleh mengedit atau menghantarnya bila-bila masa dari Studio Pencipta.",
       "reviewMessage": "{type} anda telah dihantar untuk semakan. Anda akan dimaklumkan setelah ia diluluskan."
+    },
+    "reseller": {
+      "title": "Penjual semula",
+      "hint": "Benarkan orang lain berkongsi kandungan anda dan memperoleh komisen bagi setiap jualan, diambil daripada bahagian anda.",
+      "commissionLabel": "Komisen penjual semula",
+      "commissionHint": "Antara 5% dan 20% daripada harga penuh. Lalai 10%."
     }
   },
   "Preview": {
@@ -739,7 +749,8 @@
       "transcodingError": "Tidak boleh menyunting atau menerbitkan semasa video sedang ditranskod. Sila cuba lagi apabila selesai.",
       "publishSuccess": "Entri berjaya diterbitkan",
       "publishError": "Gagal menerbitkan entri. Sila cuba lagi.",
-      "viewFeedback": "Lihat sebab penolakan"
+      "viewFeedback": "Lihat sebab penolakan",
+      "resellerSettings": "Tetapan penjual semula"
     },
     "approvedHint": "Diluluskan · sedia untuk diterbitkan (belum kelihatan)",
     "editEntry": "Sunting entri",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "Penjual",
       "PLATFORM": "Platform",
-      "COLLABORATOR": "Kolaborator"
+      "COLLABORATOR": "Kolaborator",
+      "FRANCHISE": "Francais",
+      "RESELLER": "Penjual semula"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Anda tidak boleh memberi tip pada kandungan anda sendiri.",
     "done": "Selesai",
     "processing": "Menghantar tip anda…"
+  },
+  "Reseller": {
+    "title": "Jana Lumens",
+    "cta": "JANA LUMENS",
+    "intro": "Kongsikan kandungan ini dengan audiens anda dan peroleh komisen setiap kali seseorang membeli melalui pautan anda.",
+    "yourCommission": "Komisen anda",
+    "commissionOrientative": "Kadar ini adalah anggaran. Komisen sebenar anda dikira pada saat setiap jualan. Nilai semasa sentiasa ditunjukkan di Akaun → Penjual semula.",
+    "payoutWallet": "Dompet pembayaran",
+    "walletHint": "Dompet Stellar tempat komisen anda akan dihantar. Ia mesti akaun aktif.",
+    "walletLabel": "Kunci awam Stellar",
+    "connectWallet": "Sambung dompet",
+    "walletVerified": "Dompet disahkan — aktif di rangkaian Stellar.",
+    "walletNotActivated": "Dompet ini belum aktif di rangkaian Stellar. Hantar sekurang-kurangnya 1 XLM ke alamat ini untuk mengaktifkannya, kemudian cuba lagi.",
+    "generateLink": "Jana pautan",
+    "linkReady": "Pautan penjual semula anda sudah sedia. Kongsikannya di mana-mana.",
+    "manageHint": "Anda boleh mencari dan mengurus semua pautan penjual semula anda pada bila-bila masa di Akaun → Penjual semula.",
+    "ownContent": "Anda tidak boleh membuat pautan penjual semula untuk kandungan anda sendiri.",
+    "disabledForContent": "Pencipta telah melumpuhkan jualan semula untuk kandungan ini, jadi pautan tidak dapat dijana buat masa ini.",
+    "errors": {
+      "loadFailed": "Tidak dapat memuatkan butiran penjual semula. Sila cuba lagi.",
+      "connectFailed": "Tidak dapat menyambungkan dompet anda. Sila cuba lagi.",
+      "copyFailed": "Tidak dapat menyalin pautan. Salin secara manual.",
+      "generic": "Sesuatu tidak kena. Sila cuba lagi.",
+      "verifyFailed": "Tidak dapat mengesahkan dompet di rangkaian Stellar. Sila cuba lagi.",
+      "wallet_format": "Masukkan kunci awam Stellar yang sah (bermula dengan G).",
+      "wallet_not_activated": "Dompet ini belum aktif di rangkaian Stellar. Hantar sekurang-kurangnya 1 XLM ke alamat ini untuk mengaktifkannya.",
+      "entry_not_found": "Kandungan ini tidak lagi wujud.",
+      "entry_not_resellable": "Kandungan ini tidak boleh dijual semula.",
+      "own_content": "Anda tidak boleh membuat pautan penjual semula untuk kandungan anda sendiri.",
+      "not_found": "Pautan penjual semula tidak dijumpai.",
+      "forbidden": "Sila log masuk untuk meneruskan."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Pautan penjual semula saya",
+    "subtitle": "Kandungan yang anda jual semula. Kongsikan pautan ini untuk memperoleh komisen bagi setiap jualan.",
+    "empty": "Anda belum mempunyai sebarang pautan penjual semula.",
+    "emptyHint": "Buka mana-mana kandungan berbayar dan ketik “JANA LUMENS” untuk membuat pautan pertama anda.",
+    "loginRequired": "Log masuk untuk melihat pautan penjual semula anda.",
+    "commission": "Komisen",
+    "payoutWallet": "Dompet pembayaran",
+    "changeWallet": "Tukar dompet",
+    "useConnected": "Guna dompet yang disambung",
+    "saveWallet": "Simpan",
+    "cancel": "Batal",
+    "copyLink": "Salin pautan",
+    "linkCopied": "Pautan disalin",
+    "walletUpdated": "Dompet pembayaran dikemas kini",
+    "resaleDisabled": "Jualan semula dilumpuhkan",
+    "resaleDisabledHint": "Pencipta melumpuhkan jualan semula untuk kandungan ini. Pautan masih membuka kandungan, tetapi jualan baharu tidak akan memperoleh komisen.",
+    "openContent": "Buka kandungan",
+    "loadError": "Tidak dapat memuatkan pautan penjual semula anda.",
+    "retry": "Cuba lagi"
   }
 }

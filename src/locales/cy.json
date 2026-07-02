@@ -238,7 +238,9 @@
     "addedToFavorites": "Ychwanegwyd at ffefrynnau",
     "removedFromFavorites": "Wedi'i dynnu o'r ffefrynnau",
     "linkCopied": "Dolen wedi'i chopïo i'r clipfwrdd",
-    "tooManyRequests": "Gormod o geisiadau. Arhoswch funud a rhowch gynnig arall arni."
+    "tooManyRequests": "Gormod o geisiadau. Arhoswch funud a rhowch gynnig arall arni.",
+    "copy": "Copïo",
+    "copied": "Wedi'i chopïo"
   },
   "Themes": {
     "title": "Dewisydd thema",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Dim dod i ben",
     "badgeNone": "Nid oes gennych chi arwyddlythyr glas gweithredol eto",
     "badgeNoneHint": "Ysgogi eich manylion adnabod glas i ofyn am greu tenantiaid a chael mynediad at offer uwch.",
-    "badgeGetAccess": "Ysgogi credential glas"
+    "badgeGetAccess": "Ysgogi credential glas",
+    "myResellerLinks": "Ailwerthwyr",
+    "myResellerLinksHint": "Rheoli'r cynnwys rydych chi'n ei ailwerthu a'ch dolenni comisiwn"
   },
   "AppBar": {
     "home": "Hafan",
@@ -647,6 +651,12 @@
       "title": "Uwchlwytho wedi'i gwblhau!",
       "draftMessage": "Mae eich {type} wedi'i gadw fel drafft. Gallwch ei olygu neu ei gyflwyno unrhyw bryd o Creator Studio.",
       "reviewMessage": "Mae eich {type} wedi'i gyflwyno i'w adolygu. Byddwch yn cael eich hysbysu unwaith y bydd wedi'i gymeradwyo."
+    },
+    "reseller": {
+      "title": "Ailwerthwyr",
+      "hint": "Gadewch i eraill rannu'ch cynnwys ac ennill comisiwn ar bob gwerthiant, a gymerir o'ch cyfran.",
+      "commissionLabel": "Comisiwn ailwerthwr",
+      "commissionHint": "Rhwng 5% a 20% o'r cyfanswm. Diofyn 10%."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "es0 Ar gael00000 Ar gael0000 Ar gael000 mae'r fideo yn trawsgodio. Ceisiwch eto pan fydd yn gorffen.",
       "viewFeedback": "Gweld y rheswm dros wrthod",
       "publishSuccess": "Cofnod wedi'i gyhoeddi'n llwyddiannus",
-      "publishError": "Wedi methu cyhoeddi cofnod. Ceisiwch eto."
+      "publishError": "Wedi methu cyhoeddi cofnod. Ceisiwch eto.",
+      "resellerSettings": "Gosodiadau ailwerthwyr"
     },
     "approvedHint": "Wedi'i gymeradwyo · yn barod i'w gyhoeddi (ddim yn weladwy eto)",
     "editEntry": "Golygu cofnod",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Gwerthwr",
       "PLATFORM": "Platfform",
-      "COLLABORATOR": "Cydweithredwr"
+      "COLLABORATOR": "Cydweithredwr",
+      "FRANCHISE": "Masnachfraint",
+      "RESELLER": "Ailwerthwr"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Ni allwch roi cynnig ar eich cynnwys eich hun.",
     "done": "Wedi gorffen",
     "processing": "Anfon eich tip… Telerau ac Amodau"
+  },
+  "Reseller": {
+    "title": "Ennill Lumens",
+    "cta": "ENNILL LUMENS",
+    "intro": "Rhannwch y cynnwys hwn gyda'ch cynulleidfa ac ennill comisiwn bob tro y bydd rhywun yn prynu trwy'ch dolen.",
+    "yourCommission": "Eich comisiwn",
+    "commissionOrientative": "Mae'r gyfradd hon yn ganllaw. Cyfrifir eich comisiwn gwirioneddol ar adeg pob gwerthiant. Dangosir y gwerth cyfredol bob amser yn Cyfrif → Ailwerthwyr.",
+    "payoutWallet": "Waled taliad",
+    "walletHint": "Y waled Stellar lle anfonir eich comisiwn. Rhaid iddo fod yn gyfrif gweithredol.",
+    "walletLabel": "Allwedd gyhoeddus Stellar",
+    "connectWallet": "Cysylltu waled",
+    "walletVerified": "Waled wedi'i dilysu — yn weithredol ar rwydwaith Stellar.",
+    "walletNotActivated": "Nid yw'r waled hon yn weithredol eto ar rwydwaith Stellar. Anfonwch o leiaf 1 XLM i'r cyfeiriad hwn i'w actifadu, yna ceisiwch eto.",
+    "generateLink": "Cynhyrchu dolen",
+    "linkReady": "Mae eich dolen ailwerthwr yn barod. Rhannwch hi unrhyw le.",
+    "manageHint": "Gallwch ddod o hyd i'ch holl ddolenni ailwerthwr a'u rheoli unrhyw bryd yn Cyfrif → Ailwerthwyr.",
+    "ownContent": "Ni allwch greu dolen ailwerthwr ar gyfer eich cynnwys eich hun.",
+    "disabledForContent": "Mae'r crëwr wedi analluogi ailwerthu ar gyfer y cynnwys hwn, felly ni ellir cynhyrchu dolen ar hyn o bryd.",
+    "errors": {
+      "loadFailed": "Methwyd â llwytho manylion yr ailwerthwr. Ceisiwch eto.",
+      "connectFailed": "Methwyd â chysylltu eich waled. Ceisiwch eto.",
+      "copyFailed": "Methwyd â chopïo'r ddolen. Copïwch hi â llaw.",
+      "generic": "Aeth rhywbeth o'i le. Ceisiwch eto.",
+      "verifyFailed": "Methwyd â dilysu'r waled ar rwydwaith Stellar. Ceisiwch eto.",
+      "wallet_format": "Rhowch allwedd gyhoeddus Stellar ddilys (yn dechrau gyda G).",
+      "wallet_not_activated": "Nid yw'r waled hon yn weithredol eto ar rwydwaith Stellar. Anfonwch o leiaf 1 XLM i'r cyfeiriad hwn i'w actifadu.",
+      "entry_not_found": "Nid yw'r cynnwys hwn yn bodoli mwyach.",
+      "entry_not_resellable": "Ni ellir ailwerthu'r cynnwys hwn.",
+      "own_content": "Ni allwch greu dolen ailwerthwr ar gyfer eich cynnwys eich hun.",
+      "not_found": "Ni chanfuwyd y ddolen ailwerthwr.",
+      "forbidden": "Mewngofnodwch i barhau."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Fy nolenni ailwerthwr",
+    "subtitle": "Cynnwys rydych chi'n ei ailwerthu. Rhannwch y dolenni hyn i ennill comisiwn ar bob gwerthiant.",
+    "empty": "Nid oes gennych unrhyw ddolenni ailwerthwr eto.",
+    "emptyHint": "Agorwch unrhyw gynnwys taledig a thapio “ENNILL LUMENS” i greu eich dolen gyntaf.",
+    "loginRequired": "Mewngofnodwch i weld eich dolenni ailwerthwr.",
+    "commission": "Comisiwn",
+    "payoutWallet": "Waled taliad",
+    "changeWallet": "Newid waled",
+    "useConnected": "Defnyddio waled gysylltiedig",
+    "saveWallet": "Cadw",
+    "cancel": "Canslo",
+    "copyLink": "Copïo dolen",
+    "linkCopied": "Dolen wedi'i chopïo",
+    "walletUpdated": "Waled taliad wedi'i diweddaru",
+    "resaleDisabled": "Ailwerthu wedi'i analluogi",
+    "resaleDisabledHint": "Analluogodd y crëwr ailwerthu ar gyfer y cynnwys hwn. Mae'r ddolen yn dal i agor y cynnwys, ond ni fydd gwerthiannau newydd yn ennill comisiwn.",
+    "openContent": "Agor cynnwys",
+    "loadError": "Methwyd â llwytho eich dolenni ailwerthwr.",
+    "retry": "Ceisio eto"
   }
 }

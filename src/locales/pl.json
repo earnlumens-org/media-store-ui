@@ -174,7 +174,9 @@
     "tooManyRequests": "Zbyt wiele żądań. Poczekaj chwilę i spróbuj ponownie.",
     "cancel": "Anuluj",
     "updateAvailable": "Dostępna jest nowa wersja.",
-    "updateNow": "Aktualizuj"
+    "updateNow": "Aktualizuj",
+    "copy": "Kopiuj",
+    "copied": "Skopiowano"
   },
   "Themes": {
     "title": "Wybór motywu",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "Aktywuj swoje niebieskie poświadczenie, aby złożyć wniosek o utworzenie tenanta i uzyskać dostęp do zaawansowanych narzędzi.",
     "badgeGetAccess": "Aktywuj niebieskie poświadczenie",
     "myFranchise": "Moja franczyza",
-    "myFranchiseHint": "Otwórz i zarządzaj własnym sklepem w ramach tego marketplace’u"
+    "myFranchiseHint": "Otwórz i zarządzaj własnym sklepem w ramach tego marketplace’u",
+    "myResellerLinks": "Sprzedawcy",
+    "myResellerLinksHint": "Zarządzaj treściami, które odsprzedajesz, i swoimi linkami prowizyjnymi"
   },
   "AppBar": {
     "home": "Strona główna",
@@ -572,6 +576,12 @@
       "title": "Przesyłanie zakończone!",
       "draftMessage": "Twój {type} został zapisany jako szkic. Możesz go edytować lub przesłać w dowolnym momencie ze Studia Twórcy.",
       "reviewMessage": "Twój {type} został przesłany do weryfikacji. Otrzymasz powiadomienie po zatwierdzeniu."
+    },
+    "reseller": {
+      "title": "Sprzedawcy",
+      "hint": "Pozwól innym udostępniać Twoją treść i zarabiać prowizję od każdej sprzedaży, pobieraną z Twojego udziału.",
+      "commissionLabel": "Prowizja sprzedawcy",
+      "commissionHint": "Od 5% do 20% ceny całkowitej. Domyślnie 10%."
     }
   },
   "Preview": {
@@ -739,7 +749,8 @@
       "transcodingError": "Nie można edytować ani publikować podczas transkodowania filmu. Spróbuj ponownie po zakończeniu.",
       "publishSuccess": "Wpis opublikowany pomyślnie",
       "publishError": "Nie udało się opublikować. Spróbuj ponownie.",
-      "viewFeedback": "Zobacz powód odrzucenia"
+      "viewFeedback": "Zobacz powód odrzucenia",
+      "resellerSettings": "Ustawienia sprzedawców"
     },
     "approvedHint": "Zatwierdzone · gotowe do publikacji (jeszcze niewidoczne)",
     "editEntry": "Edytuj wpis",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "Sprzedawca",
       "PLATFORM": "Platforma",
-      "COLLABORATOR": "Współpracownik"
+      "COLLABORATOR": "Współpracownik",
+      "FRANCHISE": "Franczyza",
+      "RESELLER": "Sprzedawca"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Nie możesz dać napiwku własnej treści.",
     "done": "Gotowe",
     "processing": "Wysyłanie napiwku…"
+  },
+  "Reseller": {
+    "title": "Zarabiaj Lumens",
+    "cta": "ZARABIAJ LUMENS",
+    "intro": "Udostępniaj tę treść swojej publiczności i zarabiaj prowizję za każdym razem, gdy ktoś kupi przez Twój link.",
+    "yourCommission": "Twoja prowizja",
+    "commissionOrientative": "Ta stawka jest orientacyjna. Rzeczywista prowizja jest obliczana w momencie każdej sprzedaży. Aktualna wartość jest zawsze widoczna w Konto → Sprzedawcy.",
+    "payoutWallet": "Portfel wypłat",
+    "walletHint": "Portfel Stellar, na który zostanie wysłana Twoja prowizja. Musi to być aktywne konto.",
+    "walletLabel": "Klucz publiczny Stellar",
+    "connectWallet": "Połącz portfel",
+    "walletVerified": "Portfel zweryfikowany — aktywny w sieci Stellar.",
+    "walletNotActivated": "Ten portfel nie jest jeszcze aktywny w sieci Stellar. Wyślij co najmniej 1 XLM na ten adres, aby go aktywować, a następnie spróbuj ponownie.",
+    "generateLink": "Wygeneruj link",
+    "linkReady": "Twój link sprzedawcy jest gotowy. Udostępnij go wszędzie.",
+    "manageHint": "Wszystkie swoje linki sprzedawcy znajdziesz i zarządzisz nimi w dowolnym momencie w Konto → Sprzedawcy.",
+    "ownContent": "Nie możesz utworzyć linku sprzedawcy dla własnej treści.",
+    "disabledForContent": "Twórca wyłączył odsprzedaż tej treści, więc obecnie nie można wygenerować linku.",
+    "errors": {
+      "loadFailed": "Nie udało się załadować szczegółów sprzedawcy. Spróbuj ponownie.",
+      "connectFailed": "Nie udało się połączyć portfela. Spróbuj ponownie.",
+      "copyFailed": "Nie udało się skopiować linku. Skopiuj go ręcznie.",
+      "generic": "Coś poszło nie tak. Spróbuj ponownie.",
+      "verifyFailed": "Nie udało się zweryfikować portfela w sieci Stellar. Spróbuj ponownie.",
+      "wallet_format": "Wprowadź prawidłowy klucz publiczny Stellar (zaczyna się od G).",
+      "wallet_not_activated": "Ten portfel nie jest jeszcze aktywny w sieci Stellar. Wyślij co najmniej 1 XLM na ten adres, aby go aktywować.",
+      "entry_not_found": "Ta treść już nie istnieje.",
+      "entry_not_resellable": "Tej treści nie można odsprzedać.",
+      "own_content": "Nie możesz utworzyć linku sprzedawcy dla własnej treści.",
+      "not_found": "Nie znaleziono linku sprzedawcy.",
+      "forbidden": "Zaloguj się, aby kontynuować."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Moje linki sprzedawcy",
+    "subtitle": "Treści, które odsprzedajesz. Udostępniaj te linki, aby zarabiać prowizję od każdej sprzedaży.",
+    "empty": "Nie masz jeszcze żadnych linków sprzedawcy.",
+    "emptyHint": "Otwórz dowolną płatną treść i naciśnij „ZARABIAJ LUMENS”, aby utworzyć pierwszy link.",
+    "loginRequired": "Zaloguj się, aby zobaczyć swoje linki sprzedawcy.",
+    "commission": "Prowizja",
+    "payoutWallet": "Portfel wypłat",
+    "changeWallet": "Zmień portfel",
+    "useConnected": "Użyj połączonego portfela",
+    "saveWallet": "Zapisz",
+    "cancel": "Anuluj",
+    "copyLink": "Kopiuj link",
+    "linkCopied": "Link skopiowany",
+    "walletUpdated": "Portfel wypłat zaktualizowany",
+    "resaleDisabled": "Odsprzedaż wyłączona",
+    "resaleDisabledHint": "Twórca wyłączył odsprzedaż tej treści. Link nadal otwiera treść, ale nowe sprzedaże nie przyniosą prowizji.",
+    "openContent": "Otwórz treść",
+    "loadError": "Nie udało się załadować Twoich linków sprzedawcy.",
+    "retry": "Ponów"
   }
 }

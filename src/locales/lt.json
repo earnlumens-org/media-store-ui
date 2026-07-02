@@ -238,7 +238,9 @@
     "addedToFavorites": "Pridėta prie mėgstamiausių",
     "removedFromFavorites": "Pašalinta iš mėgstamiausių",
     "linkCopied": "Nuoroda nukopijuota į mainų sritį",
-    "tooManyRequests": "Per daug prašymų. Šiek tiek palaukite ir bandykite dar kartą."
+    "tooManyRequests": "Per daug prašymų. Šiek tiek palaukite ir bandykite dar kartą.",
+    "copy": "Kopijuoti",
+    "copied": "Nukopijuota"
   },
   "Themes": {
     "title": "Temos parinkiklis",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Nėra galiojimo pabaigos",
     "badgeNone": "Dar neturite aktyvių mėlynų kredencialų",
     "badgeNoneHint": "Suaktyvinkite mėlyną kredencialą, kad pateiktumėte nuomininko kūrimo ir pasiekite išplėstinius įrankius.",
-    "badgeGetAccess": "Suaktyvinkite mėlyną kredencialą"
+    "badgeGetAccess": "Suaktyvinkite mėlyną kredencialą",
+    "myResellerLinks": "Perpardavėjai",
+    "myResellerLinksHint": "Tvarkykite turinį, kurį perparduodate, ir savo komisinių nuorodas"
   },
   "AppBar": {
     "home": "Pradžia",
@@ -647,6 +651,12 @@
       "title": "Įkėlimas baigtas!",
       "draftMessage": "Jūsų {type} buvo išsaugotas kaip juodraštis. Galite bet kada redaguoti arba pateikti iš Creator Studio.",
       "reviewMessage": "Jūsų {type} pateiktas peržiūrėti. Kai jis bus patvirtintas, jums bus pranešta."
+    },
+    "reseller": {
+      "title": "Perpardavėjai",
+      "hint": "Leiskite kitiems dalytis jūsų turiniu ir gauti komisinį už kiekvieną pardavimą, kuris paimamas iš jūsų dalies.",
+      "commissionLabel": "Perpardavėjo komisinis",
+      "commissionHint": "Nuo 5 % iki 20 % visos kainos. Numatytoji 10 %."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "Negalima redaguoti ar paskelbti, kol vaizdo įrašas perkoduojamas. Bandykite dar kartą, kai baigsis.",
       "viewFeedback": "Peržiūrėkite atmetimo priežastį",
       "publishSuccess": "Įrašas sėkmingai paskelbtas",
-      "publishError": "Nepavyko paskelbti įrašo. Bandykite dar kartą."
+      "publishError": "Nepavyko paskelbti įrašo. Bandykite dar kartą.",
+      "resellerSettings": "Perpardavėjų nustatymai"
     },
     "approvedHint": "Patvirtinta · paruošta publikuoti (dar nematoma)",
     "editEntry": "Redaguoti įrašą",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Pardavėjas",
       "PLATFORM": "Platforma",
-      "COLLABORATOR": "Bendradarbis"
+      "COLLABORATOR": "Bendradarbis",
+      "FRANCHISE": "Franšizė",
+      "RESELLER": "Perpardavėjas"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Jūs negalite arbatpinigių savo turinio.",
     "done": "Atlikta",
     "processing": "Siunčiamas jūsų patarimas…"
+  },
+  "Reseller": {
+    "title": "Uždirbkite Lumens",
+    "cta": "UŽDIRBKITE LUMENS",
+    "intro": "Pasidalykite šiuo turiniu su savo auditorija ir gaukite komisinį kaskart, kai kas nors nusiperka per jūsų nuorodą.",
+    "yourCommission": "Jūsų komisinis",
+    "commissionOrientative": "Šis tarifas yra orientacinis. Tikrasis jūsų komisinis apskaičiuojamas kiekvieno pardavimo metu. Dabartinė vertė visada rodoma skiltyje Paskyra → Perpardavėjai.",
+    "payoutWallet": "Išmokų piniginė",
+    "walletHint": "Stellar piniginė, į kurią bus siunčiamas jūsų komisinis. Tai turi būti aktyvi paskyra.",
+    "walletLabel": "Stellar viešasis raktas",
+    "connectWallet": "Prijungti piniginę",
+    "walletVerified": "Piniginė patvirtinta — aktyvi Stellar tinkle.",
+    "walletNotActivated": "Ši piniginė dar neaktyvi Stellar tinkle. Nusiųskite bent 1 XLM į šį adresą, kad ją aktyvintumėte, tada bandykite dar kartą.",
+    "generateLink": "Sugeneruoti nuorodą",
+    "linkReady": "Jūsų perpardavėjo nuoroda paruošta. Dalykitės ja bet kur.",
+    "manageHint": "Visas savo perpardavėjo nuorodas bet kada galite rasti ir tvarkyti skiltyje Paskyra → Perpardavėjai.",
+    "ownContent": "Negalite sukurti perpardavėjo nuorodos savo paties turiniui.",
+    "disabledForContent": "Kūrėjas išjungė šio turinio perpardavimą, todėl nuorodos šiuo metu sukurti negalima.",
+    "errors": {
+      "loadFailed": "Nepavyko įkelti perpardavėjo informacijos. Bandykite dar kartą.",
+      "connectFailed": "Nepavyko prijungti jūsų piniginės. Bandykite dar kartą.",
+      "copyFailed": "Nepavyko nukopijuoti nuorodos. Nukopijuokite ją rankiniu būdu.",
+      "generic": "Kažkas nepavyko. Bandykite dar kartą.",
+      "verifyFailed": "Nepavyko patvirtinti piniginės Stellar tinkle. Bandykite dar kartą.",
+      "wallet_format": "Įveskite galiojantį Stellar viešąjį raktą (prasideda G).",
+      "wallet_not_activated": "Ši piniginė dar neaktyvi Stellar tinkle. Nusiųskite bent 1 XLM į šį adresą, kad ją aktyvintumėte.",
+      "entry_not_found": "Šio turinio nebėra.",
+      "entry_not_resellable": "Šio turinio negalima perparduoti.",
+      "own_content": "Negalite sukurti perpardavėjo nuorodos savo paties turiniui.",
+      "not_found": "Perpardavėjo nuoroda nerasta.",
+      "forbidden": "Norėdami tęsti, prisijunkite."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Mano perpardavėjo nuorodos",
+    "subtitle": "Turinys, kurį perparduodate. Dalykitės šiomis nuorodomis ir gaukite komisinį už kiekvieną pardavimą.",
+    "empty": "Dar neturite jokių perpardavėjo nuorodų.",
+    "emptyHint": "Atidarykite bet kokį mokamą turinį ir bakstelėkite „UŽDIRBKITE LUMENS“, kad sukurtumėte pirmąją nuorodą.",
+    "loginRequired": "Prisijunkite, kad pamatytumėte savo perpardavėjo nuorodas.",
+    "commission": "Komisinis",
+    "payoutWallet": "Išmokų piniginė",
+    "changeWallet": "Keisti piniginę",
+    "useConnected": "Naudoti prijungtą piniginę",
+    "saveWallet": "Išsaugoti",
+    "cancel": "Atšaukti",
+    "copyLink": "Kopijuoti nuorodą",
+    "linkCopied": "Nuoroda nukopijuota",
+    "walletUpdated": "Išmokų piniginė atnaujinta",
+    "resaleDisabled": "Perpardavimas išjungtas",
+    "resaleDisabledHint": "Kūrėjas išjungė šio turinio perpardavimą. Nuoroda vis dar atidaro turinį, bet nauji pardavimai neuždirbs komisinio.",
+    "openContent": "Atidaryti turinį",
+    "loadError": "Nepavyko įkelti jūsų perpardavėjo nuorodų.",
+    "retry": "Bandyti dar kartą"
   }
 }

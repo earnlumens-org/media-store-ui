@@ -174,7 +174,9 @@
     "tooManyRequests": "Çok fazla istek. Lütfen bir süre bekleyin ve tekrar deneyin.",
     "cancel": "İptal",
     "updateAvailable": "Yeni bir sürüm mevcut.",
-    "updateNow": "Güncelle"
+    "updateNow": "Güncelle",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı"
   },
   "Themes": {
     "title": "Tema Seçici",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "Kiracı oluşturma talebinde bulunmak ve gelişmiş araçlara erişmek için mavi kimlik bilginizi etkinleştirin.",
     "badgeGetAccess": "Mavi kimlik bilgisini etkinleştir",
     "myFranchise": "Bayiliğim",
-    "myFranchiseHint": "Bu pazar yerinin altında kendi mağazanızı açın ve yönetin"
+    "myFranchiseHint": "Bu pazar yerinin altında kendi mağazanızı açın ve yönetin",
+    "myResellerLinks": "Bayiler",
+    "myResellerLinksHint": "Yeniden sattığın içeriği ve komisyon bağlantılarını yönet"
   },
   "AppBar": {
     "home": "Ana Sayfa",
@@ -572,6 +576,12 @@
       "title": "Yükleme Tamamlandı!",
       "draftMessage": "{type} taslak olarak kaydedildi. İçerik Stüdyosu'ndan istediğiniz zaman düzenleyebilir veya gönderebilirsiniz.",
       "reviewMessage": "{type} incelemeye gönderildi. Onaylandığında bilgilendirileceksiniz."
+    },
+    "reseller": {
+      "title": "Bayiler",
+      "hint": "Başkalarının içeriğini paylaşmasına ve her satıştan senin payından alınan bir komisyon kazanmasına izin ver.",
+      "commissionLabel": "Bayi komisyonu",
+      "commissionHint": "Toplam fiyatın %5 ile %20 arası. Varsayılan %10."
     }
   },
   "Preview": {
@@ -739,7 +749,8 @@
       "transcodingError": "Video kod dönüşümü yapılırken düzenleyemez veya yayınlayamazsınız. Bittiğinde tekrar deneyin.",
       "publishSuccess": "İçerik başarıyla yayınlandı",
       "publishError": "Yayınlama başarısız. Lütfen tekrar deneyin.",
-      "viewFeedback": "Red sebebini görüntüle"
+      "viewFeedback": "Red sebebini görüntüle",
+      "resellerSettings": "Bayi ayarları"
     },
     "approvedHint": "Onaylandı · yayına hazır (henüz görünür değil)",
     "editEntry": "Girdiyi düzenle",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "Satıcı",
       "PLATFORM": "Platform",
-      "COLLABORATOR": "İşbirlikçi"
+      "COLLABORATOR": "İşbirlikçi",
+      "FRANCHISE": "Franchise",
+      "RESELLER": "Bayi"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Kendi içeriğine bahşiş veremezsin.",
     "done": "Tamam",
     "processing": "Bahşişin gönderiliyor…"
+  },
+  "Reseller": {
+    "title": "Lumens Kazan",
+    "cta": "LUMENS KAZAN",
+    "intro": "Bu içeriği kitlenle paylaş ve biri senin bağlantından her satın aldığında komisyon kazan.",
+    "yourCommission": "Komisyonun",
+    "commissionOrientative": "Bu oran yaklaşıktır. Gerçek komisyonun her satış anında hesaplanır. Güncel değer her zaman Hesap → Bayiler bölümünde gösterilir.",
+    "payoutWallet": "Ödeme cüzdanı",
+    "walletHint": "Komisyonunun gönderileceği Stellar cüzdanı. Aktif bir hesap olmalıdır.",
+    "walletLabel": "Stellar açık anahtarı",
+    "connectWallet": "Cüzdan bağla",
+    "walletVerified": "Cüzdan doğrulandı — Stellar ağında aktif.",
+    "walletNotActivated": "Bu cüzdan Stellar ağında henüz aktif değil. Etkinleştirmek için bu adrese en az 1 XLM gönder, sonra tekrar dene.",
+    "generateLink": "Bağlantı oluştur",
+    "linkReady": "Bayi bağlantın hazır. İstediğin yerde paylaş.",
+    "manageHint": "Tüm bayi bağlantılarını istediğin zaman Hesap → Bayiler bölümünde bulabilir ve yönetebilirsin.",
+    "ownContent": "Kendi içeriğin için bayi bağlantısı oluşturamazsın.",
+    "disabledForContent": "İçerik sahibi bu içerik için yeniden satışı devre dışı bıraktı, bu nedenle şu anda bağlantı oluşturulamıyor.",
+    "errors": {
+      "loadFailed": "Bayi ayrıntıları yüklenemedi. Lütfen tekrar dene.",
+      "connectFailed": "Cüzdanın bağlanamadı. Lütfen tekrar dene.",
+      "copyFailed": "Bağlantı kopyalanamadı. Bunun yerine manuel olarak kopyala.",
+      "generic": "Bir şeyler ters gitti. Lütfen tekrar dene.",
+      "verifyFailed": "Cüzdan Stellar ağında doğrulanamadı. Lütfen tekrar dene.",
+      "wallet_format": "Geçerli bir Stellar açık anahtarı gir (G ile başlar).",
+      "wallet_not_activated": "Bu cüzdan Stellar ağında henüz aktif değil. Etkinleştirmek için bu adrese en az 1 XLM gönder.",
+      "entry_not_found": "Bu içerik artık mevcut değil.",
+      "entry_not_resellable": "Bu içerik yeniden satılamaz.",
+      "own_content": "Kendi içeriğin için bayi bağlantısı oluşturamazsın.",
+      "not_found": "Bayi bağlantısı bulunamadı.",
+      "forbidden": "Devam etmek için lütfen giriş yap."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Bayi bağlantılarım",
+    "subtitle": "Yeniden sattığın içerik. Her satıştan komisyon kazanmak için bu bağlantıları paylaş.",
+    "empty": "Henüz bayi bağlantın yok.",
+    "emptyHint": "Herhangi bir ücretli içeriği aç ve ilk bağlantını oluşturmak için “LUMENS KAZAN”a dokun.",
+    "loginRequired": "Bayi bağlantılarını görmek için giriş yap.",
+    "commission": "Komisyon",
+    "payoutWallet": "Ödeme cüzdanı",
+    "changeWallet": "Cüzdanı değiştir",
+    "useConnected": "Bağlı cüzdanı kullan",
+    "saveWallet": "Kaydet",
+    "cancel": "İptal",
+    "copyLink": "Bağlantıyı kopyala",
+    "linkCopied": "Bağlantı kopyalandı",
+    "walletUpdated": "Ödeme cüzdanı güncellendi",
+    "resaleDisabled": "Yeniden satış devre dışı",
+    "resaleDisabledHint": "İçerik sahibi bu içerik için yeniden satışı devre dışı bıraktı. Bağlantı içeriği yine de açar, ancak yeni satışlar komisyon kazandırmaz.",
+    "openContent": "İçeriği aç",
+    "loadError": "Bayi bağlantıların yüklenemedi.",
+    "retry": "Yeniden dene"
   }
 }

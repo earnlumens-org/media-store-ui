@@ -238,7 +238,9 @@
     "addedToFavorites": "Føjet til favoritter",
     "removedFromFavorites": "Fjernet fra favoritter",
     "linkCopied": "Link kopieret til udklipsholderen",
-    "tooManyRequests": "For mange anmodninger. Vent et øjeblik, og prøv igen."
+    "tooManyRequests": "For mange anmodninger. Vent et øjeblik, og prøv igen.",
+    "copy": "Kopiér",
+    "copied": "Kopieret"
   },
   "Themes": {
     "title": "Temavælger",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Ingen udløbsdato",
     "badgeNone": "Du har endnu ikke en aktiv blå legitimation",
     "badgeNoneHint": "Aktivér din blå legitimation for at anmode om tenant-oprettelse og få adgang til avancerede værktøjer.",
-    "badgeGetAccess": "Aktivér blå legitimation"
+    "badgeGetAccess": "Aktivér blå legitimation",
+    "myResellerLinks": "Forhandlere",
+    "myResellerLinksHint": "Administrer det indhold, du videresælger, og dine provisionslinks"
   },
   "AppBar": {
     "home": "Hjem",
@@ -647,6 +651,12 @@
       "title": "Upload fuldført!",
       "draftMessage": "Din {type} er gemt som kladde. Du kan redigere eller sende den ind når som helst fra Creator Studio.",
       "reviewMessage": "Din {type} er sendt til gennemgang. Du får besked, når den er godkendt."
+    },
+    "reseller": {
+      "title": "Forhandlere",
+      "hint": "Lad andre dele dit indhold og tjene provision på hvert salg, som tages fra din andel.",
+      "commissionLabel": "Forhandlerprovision",
+      "commissionHint": "Mellem 5 % og 20 % af den samlede pris. Standard 10 %."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "Kan ikke redigere eller udgive, mens videoen transcoder. Prøv igen, når den er færdig.",
       "viewFeedback": "Se afvisningsårsag",
       "publishSuccess": "Entry udgivet",
-      "publishError": "Kunne ikke udgive entry. Prøv igen."
+      "publishError": "Kunne ikke udgive entry. Prøv igen.",
+      "resellerSettings": "Forhandlerindstillinger"
     },
     "approvedHint": "Godkendt · klar til udgivelse (endnu ikke synlig)",
     "editEntry": "Rediger entry",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Sælger",
       "PLATFORM": "Platform",
-      "COLLABORATOR": "Samarbejdspartner"
+      "COLLABORATOR": "Samarbejdspartner",
+      "FRANCHISE": "Franchise",
+      "RESELLER": "Forhandler"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Du kan ikke give drikkepenge til dit eget indhold.",
     "done": "Færdig",
     "processing": "Sender dine drikkepenge…"
+  },
+  "Reseller": {
+    "title": "Tjen Lumens",
+    "cta": "TJEN LUMENS",
+    "intro": "Del dette indhold med dit publikum, og tjen provision, hver gang nogen køber via dit link.",
+    "yourCommission": "Din provision",
+    "commissionOrientative": "Denne sats er vejledende. Din faktiske provision beregnes på tidspunktet for hvert salg. Den aktuelle værdi vises altid under Konto → Forhandlere.",
+    "payoutWallet": "Udbetalingswallet",
+    "walletHint": "Den Stellar-wallet, hvortil din provision sendes. Det skal være en aktiv konto.",
+    "walletLabel": "Stellar offentlig nøgle",
+    "connectWallet": "Forbind wallet",
+    "walletVerified": "Wallet verificeret — aktiv på Stellar-netværket.",
+    "walletNotActivated": "Denne wallet er endnu ikke aktiv på Stellar-netværket. Send mindst 1 XLM til denne adresse for at aktivere den, og prøv derefter igen.",
+    "generateLink": "Generér link",
+    "linkReady": "Dit forhandlerlink er klar. Del det hvor som helst.",
+    "manageHint": "Du kan finde og administrere alle dine forhandlerlinks når som helst under Konto → Forhandlere.",
+    "ownContent": "Du kan ikke oprette et forhandlerlink til dit eget indhold.",
+    "disabledForContent": "Skaberen har deaktiveret videresalg for dette indhold, så et link kan ikke genereres lige nu.",
+    "errors": {
+      "loadFailed": "Kunne ikke indlæse forhandleroplysninger. Prøv igen.",
+      "connectFailed": "Kunne ikke forbinde din wallet. Prøv igen.",
+      "copyFailed": "Kunne ikke kopiere linket. Kopiér det manuelt.",
+      "generic": "Noget gik galt. Prøv igen.",
+      "verifyFailed": "Kunne ikke verificere wallet på Stellar-netværket. Prøv igen.",
+      "wallet_format": "Indtast en gyldig offentlig Stellar-nøgle (begynder med G).",
+      "wallet_not_activated": "Denne wallet er endnu ikke aktiv på Stellar-netværket. Send mindst 1 XLM til denne adresse for at aktivere den.",
+      "entry_not_found": "Dette indhold findes ikke længere.",
+      "entry_not_resellable": "Dette indhold kan ikke videresælges.",
+      "own_content": "Du kan ikke oprette et forhandlerlink til dit eget indhold.",
+      "not_found": "Forhandlerlink ikke fundet.",
+      "forbidden": "Log ind for at fortsætte."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Mine forhandlerlinks",
+    "subtitle": "Indhold, du videresælger. Del disse links for at tjene provision på hvert salg.",
+    "empty": "Du har endnu ingen forhandlerlinks.",
+    "emptyHint": "Åbn et hvilket som helst betalt indhold, og tryk på “TJEN LUMENS” for at oprette dit første link.",
+    "loginRequired": "Log ind for at se dine forhandlerlinks.",
+    "commission": "Provision",
+    "payoutWallet": "Udbetalingswallet",
+    "changeWallet": "Skift wallet",
+    "useConnected": "Brug forbundet wallet",
+    "saveWallet": "Gem",
+    "cancel": "Annuller",
+    "copyLink": "Kopiér link",
+    "linkCopied": "Link kopieret",
+    "walletUpdated": "Udbetalingswallet opdateret",
+    "resaleDisabled": "Videresalg deaktiveret",
+    "resaleDisabledHint": "Skaberen har deaktiveret videresalg for dette indhold. Linket åbner stadig indholdet, men nye salg giver ingen provision.",
+    "openContent": "Åbn indhold",
+    "loadError": "Kunne ikke indlæse dine forhandlerlinks.",
+    "retry": "Prøv igen"
   }
 }

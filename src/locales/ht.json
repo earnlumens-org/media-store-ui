@@ -238,7 +238,9 @@
     "addedToFavorites": "Te ajoute nan favorites",
     "removedFromFavorites": "Retire nan pi renmen yo",
     "linkCopied": "Lyen kopye nan clipboard",
-    "tooManyRequests": "Twòp demann. Tanpri tann yon ti moman epi eseye ankò."
+    "tooManyRequests": "Twòp demann. Tanpri tann yon ti moman epi eseye ankò.",
+    "copy": "Kopye",
+    "copied": "Kopye"
   },
   "Themes": {
     "title": "Seleksyon tèm",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Pa gen ekspirasyon",
     "badgeNone": "Ou poko gen yon kalifikasyon ble aktif",
     "badgeNoneHint": "Aktive kalifikasyon ble ou pou mande kreyasyon lokatè epi jwenn aksè nan zouti avanse.",
-    "badgeGetAccess": "Aktive kalifikasyon ble"
+    "badgeGetAccess": "Aktive kalifikasyon ble",
+    "myResellerLinks": "Revandè yo",
+    "myResellerLinksHint": "Jere kontni w ap revann ak lyen komisyon ou yo"
   },
   "AppBar": {
     "home": "Lakay",
@@ -647,6 +651,12 @@
       "title": "Telechaje konplè!",
       "draftMessage": "{type} ou a te sove kòm yon bouyon. Ou ka modifye oswa soumèt li nenpòt lè nan Creator Studio.",
       "reviewMessage": "Yo soumèt {type} ou pou revizyon. Ou pral fè w konnen yon fwa li apwouve."
+    },
+    "reseller": {
+      "title": "Revandè yo",
+      "hint": "Kite lòt moun pataje kontni ou epi fè komisyon sou chak vant, ki pran nan pòsyon ou.",
+      "commissionLabel": "Komisyon revandè",
+      "commissionHint": "Ant 5% ak 20% nan pri total la. Default 10%."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "Pa ka edite oswa pibliye pandan videyo a ap transkode. Tanpri eseye ankò lè li fini.",
       "viewFeedback": "Gade rezon rejè",
       "publishSuccess": "Antre pibliye avèk siksè",
-      "publishError": "Echwe pou pibliye antre. Tanpri eseye ankò."
+      "publishError": "Echwe pou pibliye antre. Tanpri eseye ankò.",
+      "resellerSettings": "Paramèt revandè"
     },
     "approvedHint": "Apwouve · pare pou pibliye (poko vizib)",
     "editEntry": "Edite antre",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Vandè",
       "PLATFORM": "Platfòm",
-      "COLLABORATOR": "Kolaboratè"
+      "COLLABORATOR": "Kolaboratè",
+      "FRANCHISE": "Franchiz",
+      "RESELLER": "Revandè"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Ou pa ka pwent pwòp kontni ou.",
     "done": "Fè",
     "processing": "Voye konsèy ou..."
+  },
+  "Reseller": {
+    "title": "Fè Lumens",
+    "cta": "FÈ LUMENS",
+    "intro": "Pataje kontni sa a ak odyans ou epi fè komisyon chak fwa yon moun achte atravè lyen ou an.",
+    "yourCommission": "Komisyon ou",
+    "commissionOrientative": "To sa a se yon gid. Vrè komisyon ou kalkile nan moman chak vant. Valè aktyèl la toujou parèt nan Kont → Revandè yo.",
+    "payoutWallet": "Bous peman",
+    "walletHint": "Bous Stellar kote komisyon ou pral voye. Li dwe yon kont aktif.",
+    "walletLabel": "Kle piblik Stellar",
+    "connectWallet": "Konekte bous",
+    "walletVerified": "Bous verifye — aktif sou rezo Stellar la.",
+    "walletNotActivated": "Bous sa a poko aktif sou rezo Stellar la. Voye omwen 1 XLM nan adrès sa a pou aktive li, epi eseye ankò.",
+    "generateLink": "Jenere lyen",
+    "linkReady": "Lyen revandè ou an pare. Pataje li nenpòt kote.",
+    "manageHint": "Ou ka jwenn epi jere tout lyen revandè ou yo nenpòt lè nan Kont → Revandè yo.",
+    "ownContent": "Ou pa ka kreye yon lyen revandè pou pwòp kontni ou.",
+    "disabledForContent": "Kreyatè a dezaktive revant pou kontni sa a, kidonk yon lyen pa ka jenere kounye a.",
+    "errors": {
+      "loadFailed": "Pa t kapab chaje detay revandè yo. Tanpri eseye ankò.",
+      "connectFailed": "Pa t kapab konekte bous ou. Tanpri eseye ankò.",
+      "copyFailed": "Pa t kapab kopye lyen an. Kopye li manyèlman.",
+      "generic": "Yon bagay pa mache. Tanpri eseye ankò.",
+      "verifyFailed": "Pa t kapab verifye bous la sou rezo Stellar la. Tanpri eseye ankò.",
+      "wallet_format": "Antre yon kle piblik Stellar ki valab (kòmanse ak G).",
+      "wallet_not_activated": "Bous sa a poko aktif sou rezo Stellar la. Voye omwen 1 XLM nan adrès sa a pou aktive li.",
+      "entry_not_found": "Kontni sa a pa egziste ankò.",
+      "entry_not_resellable": "Kontni sa a pa ka revann.",
+      "own_content": "Ou pa ka kreye yon lyen revandè pou pwòp kontni ou.",
+      "not_found": "Lyen revandè pa jwenn.",
+      "forbidden": "Tanpri konekte pou kontinye."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Lyen revandè mwen yo",
+    "subtitle": "Kontni w ap revann. Pataje lyen sa yo pou fè komisyon sou chak vant.",
+    "empty": "Ou poko gen okenn lyen revandè.",
+    "emptyHint": "Ouvri nenpòt kontni peye epi tape “FÈ LUMENS” pou kreye premye lyen ou.",
+    "loginRequired": "Konekte pou wè lyen revandè ou yo.",
+    "commission": "Komisyon",
+    "payoutWallet": "Bous peman",
+    "changeWallet": "Chanje bous",
+    "useConnected": "Sèvi ak bous konekte a",
+    "saveWallet": "Anrejistre",
+    "cancel": "Anile",
+    "copyLink": "Kopye lyen",
+    "linkCopied": "Lyen kopye",
+    "walletUpdated": "Bous peman mete ajou",
+    "resaleDisabled": "Revant dezaktive",
+    "resaleDisabledHint": "Kreyatè a dezaktive revant pou kontni sa a. Lyen an toujou ouvri kontni an, men nouvo vant yo p ap fè komisyon.",
+    "openContent": "Ouvri kontni",
+    "loadError": "Pa t kapab chaje lyen revandè ou yo.",
+    "retry": "Eseye ankò"
   }
 }

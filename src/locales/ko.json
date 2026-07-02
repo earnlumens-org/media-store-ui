@@ -174,7 +174,9 @@
     "tooManyRequests": "요청이 너무 많습니다. 잠시 후 다시 시도해 주세요.",
     "cancel": "취소",
     "updateAvailable": "새 버전을 사용할 수 있습니다.",
-    "updateNow": "업데이트"
+    "updateNow": "업데이트",
+    "copy": "복사",
+    "copied": "복사됨"
   },
   "Themes": {
     "title": "테마 선택기",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "테넌트 생성을 요청하고 고급 도구에 액세스하려면 블루 자격증을 활성화하세요.",
     "badgeGetAccess": "블루 자격증 활성화",
     "myFranchise": "내 프랜차이즈",
-    "myFranchiseHint": "이 마켓플레이스에서 나만의 스토어를 열고 관리하세요"
+    "myFranchiseHint": "이 마켓플레이스에서 나만의 스토어를 열고 관리하세요",
+    "myResellerLinks": "리셀러",
+    "myResellerLinksHint": "재판매 중인 콘텐츠와 수수료 링크를 관리하세요"
   },
   "AppBar": {
     "home": "홈",
@@ -572,6 +576,12 @@
       "title": "업로드 완료!",
       "draftMessage": "{type}이(가) 초안으로 저장되었습니다. 크리에이터 스튜디오에서 언제든지 수정하거나 제출할 수 있습니다.",
       "reviewMessage": "{type}이(가) 검토를 위해 제출되었습니다. 승인되면 알림을 받게 됩니다."
+    },
+    "reseller": {
+      "title": "리셀러",
+      "hint": "다른 사람이 여러분의 콘텐츠를 공유하고 판매마다 여러분의 몫에서 차감되는 수수료를 받을 수 있게 합니다.",
+      "commissionLabel": "리셀러 수수료",
+      "commissionHint": "총 가격의 5%에서 20% 사이. 기본값 10%."
     }
   },
   "Preview": {
@@ -739,7 +749,8 @@
       "transcodingError": "동영상 트랜스코딩 중에는 편집하거나 게시할 수 없습니다. 완료되면 다시 시도하세요.",
       "publishSuccess": "콘텐츠가 성공적으로 게시되었습니다",
       "publishError": "게시에 실패했습니다. 다시 시도해 주세요.",
-      "viewFeedback": "거부 사유 보기"
+      "viewFeedback": "거부 사유 보기",
+      "resellerSettings": "리셀러 설정"
     },
     "approvedHint": "승인됨 · 게시 준비 완료(아직 표시되지 않음)",
     "editEntry": "엔트리 수정",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "판매자",
       "PLATFORM": "플랫폼",
-      "COLLABORATOR": "협력자"
+      "COLLABORATOR": "협력자",
+      "FRANCHISE": "프랜차이즈",
+      "RESELLER": "리셀러"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "자신의 콘텐츠에는 팁을 보낼 수 없습니다.",
     "done": "완료",
     "processing": "팁을 전송하는 중…"
+  },
+  "Reseller": {
+    "title": "Lumens 벌기",
+    "cta": "LUMENS 벌기",
+    "intro": "이 콘텐츠를 여러분의 청중과 공유하고 누군가 여러분의 링크를 통해 구매할 때마다 수수료를 받으세요.",
+    "yourCommission": "내 수수료",
+    "commissionOrientative": "이 요율은 참고용입니다. 실제 수수료는 판매 시점마다 계산됩니다. 현재 값은 항상 계정 → 리셀러에 표시됩니다.",
+    "payoutWallet": "정산 지갑",
+    "walletHint": "수수료가 전송될 Stellar 지갑입니다. 활성 계정이어야 합니다.",
+    "walletLabel": "Stellar 공개 키",
+    "connectWallet": "지갑 연결",
+    "walletVerified": "지갑 확인됨 — Stellar 네트워크에서 활성 상태입니다.",
+    "walletNotActivated": "이 지갑은 아직 Stellar 네트워크에서 활성화되지 않았습니다. 이 주소로 최소 1 XLM을 보내 활성화한 후 다시 시도하세요.",
+    "generateLink": "링크 생성",
+    "linkReady": "리셀러 링크가 준비되었습니다. 어디든 공유하세요.",
+    "manageHint": "모든 리셀러 링크는 언제든지 계정 → 리셀러에서 확인하고 관리할 수 있습니다.",
+    "ownContent": "자신의 콘텐츠에는 리셀러 링크를 만들 수 없습니다.",
+    "disabledForContent": "제작자가 이 콘텐츠의 재판매를 비활성화하여 지금은 링크를 생성할 수 없습니다.",
+    "errors": {
+      "loadFailed": "리셀러 세부 정보를 불러올 수 없습니다. 다시 시도하세요.",
+      "connectFailed": "지갑을 연결할 수 없습니다. 다시 시도하세요.",
+      "copyFailed": "링크를 복사할 수 없습니다. 수동으로 복사하세요.",
+      "generic": "문제가 발생했습니다. 다시 시도하세요.",
+      "verifyFailed": "Stellar 네트워크에서 지갑을 확인할 수 없습니다. 다시 시도하세요.",
+      "wallet_format": "유효한 Stellar 공개 키를 입력하세요(G로 시작).",
+      "wallet_not_activated": "이 지갑은 아직 Stellar 네트워크에서 활성화되지 않았습니다. 이 주소로 최소 1 XLM을 보내 활성화하세요.",
+      "entry_not_found": "이 콘텐츠는 더 이상 존재하지 않습니다.",
+      "entry_not_resellable": "이 콘텐츠는 재판매할 수 없습니다.",
+      "own_content": "자신의 콘텐츠에는 리셀러 링크를 만들 수 없습니다.",
+      "not_found": "리셀러 링크를 찾을 수 없습니다.",
+      "forbidden": "계속하려면 로그인하세요."
+    }
+  },
+  "ResellerLinks": {
+    "title": "내 리셀러 링크",
+    "subtitle": "재판매 중인 콘텐츠입니다. 이 링크를 공유하여 판매마다 수수료를 받으세요.",
+    "empty": "아직 리셀러 링크가 없습니다.",
+    "emptyHint": "유료 콘텐츠를 열고 “LUMENS 벌기”를 눌러 첫 링크를 만드세요.",
+    "loginRequired": "리셀러 링크를 보려면 로그인하세요.",
+    "commission": "수수료",
+    "payoutWallet": "정산 지갑",
+    "changeWallet": "지갑 변경",
+    "useConnected": "연결된 지갑 사용",
+    "saveWallet": "저장",
+    "cancel": "취소",
+    "copyLink": "링크 복사",
+    "linkCopied": "링크 복사됨",
+    "walletUpdated": "정산 지갑이 업데이트됨",
+    "resaleDisabled": "재판매 비활성화됨",
+    "resaleDisabledHint": "제작자가 이 콘텐츠의 재판매를 비활성화했습니다. 링크는 여전히 콘텐츠를 열지만 새로운 판매에서는 수수료가 발생하지 않습니다.",
+    "openContent": "콘텐츠 열기",
+    "loadError": "리셀러 링크를 불러올 수 없습니다.",
+    "retry": "다시 시도"
   }
 }

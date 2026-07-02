@@ -238,7 +238,9 @@
     "addedToFavorites": "Dodano med priljubljene",
     "removedFromFavorites": "Odstranjeno iz priljubljenih",
     "linkCopied": "Povezava je bila kopirana v odložišče",
-    "tooManyRequests": "Preveč zahtev. Počakajte trenutek in poskusite znova."
+    "tooManyRequests": "Preveč zahtev. Počakajte trenutek in poskusite znova.",
+    "copy": "Kopiraj",
+    "copied": "Kopirano"
   },
   "Themes": {
     "title": "Izbirnik tem",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Brez poteka",
     "badgeNone": "Nimate še aktivne modre poverilnice",
     "badgeNoneHint": "Aktivirajte svojo modro poverilnico, da zahtevate ustvarjanje najemnika in dostopate do naprednih orodij.",
-    "badgeGetAccess": "Aktiviraj modro poverilnico"
+    "badgeGetAccess": "Aktiviraj modro poverilnico",
+    "myResellerLinks": "Preprodajalci",
+    "myResellerLinksHint": "Upravljajte vsebino, ki jo preprodajate, in svoje provizijske povezave"
   },
   "AppBar": {
     "home": "Domov",
@@ -647,6 +651,12 @@
       "title": "Nalaganje končano!",
       "draftMessage": "Vaš {type} je bil shranjen kot osnutek. Kadar koli ga lahko uredite ali oddate iz Creator Studio.",
       "reviewMessage": "Vaš {type} je bil poslan v pregled. Ko bo odobren, boste obveščeni."
+    },
+    "reseller": {
+      "title": "Preprodajalci",
+      "hint": "Dovolite drugim, da delijo vašo vsebino in zaslužijo provizijo pri vsaki prodaji, ki se odšteje od vašega deleža.",
+      "commissionLabel": "Provizija preprodajalca",
+      "commissionHint": "Med 5 % in 20 % skupne cene. Privzeto 10 %."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "Med prekodiranjem videa ni mogoče urejati ali objaviti. Poskusite znova, ko se konča.",
       "viewFeedback": "Poglej razlog za zavrnitev",
       "publishSuccess": "Vnos je bil uspešno objavljen",
-      "publishError": "Objava vnosa ni uspela. prosim poskusite znova"
+      "publishError": "Objava vnosa ni uspela. prosim poskusite znova",
+      "resellerSettings": "Nastavitve preprodajalcev"
     },
     "approvedHint": "Odobreno · pripravljeno za objavo (še ni vidno)",
     "editEntry": "Uredi vnos",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Prodajalec",
       "PLATFORM": "Platforma",
-      "COLLABORATOR": "Sodelavec"
+      "COLLABORATOR": "Sodelavec",
+      "FRANCHISE": "Franšiza",
+      "RESELLER": "Preprodajalec"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Svoje lastne vsebine ne morete zavrniti.",
     "done": "Končano",
     "processing": "Pošiljanje namiga ..."
+  },
+  "Reseller": {
+    "title": "Zaslužite Lumens",
+    "cta": "ZASLUŽITE LUMENS",
+    "intro": "Delite to vsebino s svojim občinstvom in zaslužite provizijo vsakič, ko nekdo kupi prek vaše povezave.",
+    "yourCommission": "Vaša provizija",
+    "commissionOrientative": "Ta stopnja je okvirna. Vaša dejanska provizija se izračuna ob vsaki prodaji. Trenutna vrednost je vedno prikazana v Račun → Preprodajalci.",
+    "payoutWallet": "Denarnica za izplačila",
+    "walletHint": "Denarnica Stellar, kamor bo poslana vaša provizija. Biti mora aktiven račun.",
+    "walletLabel": "Javni ključ Stellar",
+    "connectWallet": "Poveži denarnico",
+    "walletVerified": "Denarnica preverjena — aktivna v omrežju Stellar.",
+    "walletNotActivated": "Ta denarnica še ni aktivna v omrežju Stellar. Pošljite vsaj 1 XLM na ta naslov, da jo aktivirate, in poskusite znova.",
+    "generateLink": "Ustvari povezavo",
+    "linkReady": "Vaša preprodajalska povezava je pripravljena. Delite jo kjer koli.",
+    "manageHint": "Vse svoje preprodajalske povezave lahko kadar koli najdete in upravljate v Račun → Preprodajalci.",
+    "ownContent": "Za svojo vsebino ne morete ustvariti preprodajalske povezave.",
+    "disabledForContent": "Ustvarjalec je onemogočil nadaljnjo prodajo te vsebine, zato povezave trenutno ni mogoče ustvariti.",
+    "errors": {
+      "loadFailed": "Podrobnosti preprodajalca ni bilo mogoče naložiti. Poskusite znova.",
+      "connectFailed": "Vaše denarnice ni bilo mogoče povezati. Poskusite znova.",
+      "copyFailed": "Povezave ni bilo mogoče kopirati. Kopirajte jo ročno.",
+      "generic": "Nekaj je šlo narobe. Poskusite znova.",
+      "verifyFailed": "Denarnice ni bilo mogoče preveriti v omrežju Stellar. Poskusite znova.",
+      "wallet_format": "Vnesite veljaven javni ključ Stellar (začne se s črko G).",
+      "wallet_not_activated": "Ta denarnica še ni aktivna v omrežju Stellar. Pošljite vsaj 1 XLM na ta naslov, da jo aktivirate.",
+      "entry_not_found": "Ta vsebina ne obstaja več.",
+      "entry_not_resellable": "Te vsebine ni mogoče preprodati.",
+      "own_content": "Za svojo vsebino ne morete ustvariti preprodajalske povezave.",
+      "not_found": "Preprodajalske povezave ni mogoče najti.",
+      "forbidden": "Za nadaljevanje se prijavite."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Moje preprodajalske povezave",
+    "subtitle": "Vsebina, ki jo preprodajate. Delite te povezave in zaslužite provizijo pri vsaki prodaji.",
+    "empty": "Nimate še nobene preprodajalske povezave.",
+    "emptyHint": "Odprite katero koli plačljivo vsebino in tapnite »ZASLUŽITE LUMENS«, da ustvarite svojo prvo povezavo.",
+    "loginRequired": "Za ogled svojih preprodajalskih povezav se prijavite.",
+    "commission": "Provizija",
+    "payoutWallet": "Denarnica za izplačila",
+    "changeWallet": "Zamenjaj denarnico",
+    "useConnected": "Uporabi povezano denarnico",
+    "saveWallet": "Shrani",
+    "cancel": "Prekliči",
+    "copyLink": "Kopiraj povezavo",
+    "linkCopied": "Povezava kopirana",
+    "walletUpdated": "Denarnica za izplačila posodobljena",
+    "resaleDisabled": "Nadaljnja prodaja onemogočena",
+    "resaleDisabledHint": "Ustvarjalec je onemogočil nadaljnjo prodajo te vsebine. Povezava še vedno odpre vsebino, vendar nove prodaje ne bodo prinesle provizije.",
+    "openContent": "Odpri vsebino",
+    "loadError": "Vaših preprodajalskih povezav ni bilo mogoče naložiti.",
+    "retry": "Poskusi znova"
   }
 }

@@ -174,7 +174,9 @@
     "tooManyRequests": "Muitas solicitações. Por favor, aguarde um momento e tente novamente.",
     "cancel": "Cancelar",
     "updateAvailable": "Uma nova versão está disponível.",
-    "updateNow": "Atualizar"
+    "updateNow": "Atualizar",
+    "copy": "Copiar",
+    "copied": "Copiado"
   },
   "Themes": {
     "title": "Seletor de temas",
@@ -298,7 +300,9 @@
     "badgeNoneHint": "Ative sua credencial azul para solicitar a criação do seu tenant e acessar ferramentas avançadas.",
     "badgeGetAccess": "Ativar credencial azul",
     "myFranchise": "Minha franquia",
-    "myFranchiseHint": "Abra e gerencie sua própria loja dentro deste marketplace"
+    "myFranchiseHint": "Abra e gerencie sua própria loja dentro deste marketplace",
+    "myResellerLinks": "Revendedores",
+    "myResellerLinksHint": "Gerencie o conteúdo que você revende e seus links de comissão"
   },
   "AppBar": {
     "home": "Início",
@@ -572,6 +576,12 @@
       "title": "Upload concluído!",
       "draftMessage": "Seu {type} foi salvo como rascunho. Você pode editá-lo ou enviá-lo a qualquer momento pelo Estúdio do Criador.",
       "reviewMessage": "Seu {type} foi enviado para revisão. Você será notificado quando for aprovado."
+    },
+    "reseller": {
+      "title": "Revendedores",
+      "hint": "Permita que outros compartilhem seu conteúdo e ganhem uma comissão em cada venda, retirada da sua parte.",
+      "commissionLabel": "Comissão do revendedor",
+      "commissionHint": "Entre 5% e 20% do preço total. Padrão de 10%."
     }
   },
   "Preview": {
@@ -739,7 +749,8 @@
       "transcodingError": "Não é possível editar ou publicar enquanto o vídeo é transcodificado. Tente novamente quando terminar.",
       "publishSuccess": "Entrada publicada com sucesso",
       "publishError": "Falha ao publicar a entrada. Tente novamente.",
-      "viewFeedback": "Ver motivo da rejeição"
+      "viewFeedback": "Ver motivo da rejeição",
+      "resellerSettings": "Configurações de revendedores"
     },
     "approvedHint": "Aprovado · pronto para publicar (ainda não visível)",
     "editEntry": "Editar entrada",
@@ -820,7 +831,9 @@
     "role": {
       "SELLER": "Vendedor",
       "PLATFORM": "Plataforma",
-      "COLLABORATOR": "Colaborador"
+      "COLLABORATOR": "Colaborador",
+      "FRANCHISE": "Franquia",
+      "RESELLER": "Revendedor"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Você não pode dar gorjeta ao seu próprio conteúdo.",
     "done": "Concluído",
     "processing": "Enviando sua gorjeta…"
+  },
+  "Reseller": {
+    "title": "Ganhar Lumens",
+    "cta": "GANHAR LUMENS",
+    "intro": "Compartilhe este conteúdo com o seu público e ganhe uma comissão sempre que alguém comprar pelo seu link.",
+    "yourCommission": "Sua comissão",
+    "commissionOrientative": "Esta taxa é orientativa. Sua comissão real é calculada no momento de cada venda. O valor atual é sempre mostrado em Conta → Revendedores.",
+    "payoutWallet": "Carteira de pagamento",
+    "walletHint": "A carteira Stellar para onde sua comissão será enviada. Deve ser uma conta ativa.",
+    "walletLabel": "Chave pública Stellar",
+    "connectWallet": "Conectar carteira",
+    "walletVerified": "Carteira verificada — ativa na rede Stellar.",
+    "walletNotActivated": "Esta carteira ainda não está ativa na rede Stellar. Envie pelo menos 1 XLM para este endereço para ativá-la e tente novamente.",
+    "generateLink": "Gerar link",
+    "linkReady": "Seu link de revendedor está pronto. Compartilhe onde quiser.",
+    "manageHint": "Você pode encontrar e gerenciar todos os seus links de revendedor a qualquer momento em Conta → Revendedores.",
+    "ownContent": "Você não pode criar um link de revendedor para o seu próprio conteúdo.",
+    "disabledForContent": "O criador desativou a revenda deste conteúdo, então não é possível gerar um link no momento.",
+    "errors": {
+      "loadFailed": "Não foi possível carregar os detalhes do revendedor. Tente novamente.",
+      "connectFailed": "Não foi possível conectar sua carteira. Tente novamente.",
+      "copyFailed": "Não foi possível copiar o link. Copie-o manualmente.",
+      "generic": "Algo deu errado. Tente novamente.",
+      "verifyFailed": "Não foi possível verificar a carteira na rede Stellar. Tente novamente.",
+      "wallet_format": "Insira uma chave pública Stellar válida (começa com G).",
+      "wallet_not_activated": "Esta carteira ainda não está ativa na rede Stellar. Envie pelo menos 1 XLM para este endereço para ativá-la.",
+      "entry_not_found": "Este conteúdo não existe mais.",
+      "entry_not_resellable": "Este conteúdo não pode ser revendido.",
+      "own_content": "Você não pode criar um link de revendedor para o seu próprio conteúdo.",
+      "not_found": "Link de revendedor não encontrado.",
+      "forbidden": "Faça login para continuar."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Meus links de revendedor",
+    "subtitle": "Conteúdo que você está revendendo. Compartilhe estes links para ganhar uma comissão em cada venda.",
+    "empty": "Você ainda não tem links de revendedor.",
+    "emptyHint": "Abra qualquer conteúdo pago e toque em “GANHAR LUMENS” para criar seu primeiro link.",
+    "loginRequired": "Faça login para ver seus links de revendedor.",
+    "commission": "Comissão",
+    "payoutWallet": "Carteira de pagamento",
+    "changeWallet": "Trocar carteira",
+    "useConnected": "Usar carteira conectada",
+    "saveWallet": "Salvar",
+    "cancel": "Cancelar",
+    "copyLink": "Copiar link",
+    "linkCopied": "Link copiado",
+    "walletUpdated": "Carteira de pagamento atualizada",
+    "resaleDisabled": "Revenda desativada",
+    "resaleDisabledHint": "O criador desativou a revenda deste conteúdo. O link ainda abre o conteúdo, mas novas vendas não gerarão comissão.",
+    "openContent": "Abrir conteúdo",
+    "loadError": "Não foi possível carregar seus links de revendedor.",
+    "retry": "Tentar novamente"
   }
 }

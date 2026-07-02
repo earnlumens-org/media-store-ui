@@ -238,7 +238,9 @@
     "addedToFavorites": "Lisatud lemmikute hulka",
     "removedFromFavorites": "Lemmikutest eemaldatud",
     "linkCopied": "Link on lõikelauale kopeeritud",
-    "tooManyRequests": "Liiga palju taotlusi. Palun oodake veidi ja proovige uuesti."
+    "tooManyRequests": "Liiga palju taotlusi. Palun oodake veidi ja proovige uuesti.",
+    "copy": "Kopeeri",
+    "copied": "Kopeeritud"
   },
   "Themes": {
     "title": "Teema valija",
@@ -362,7 +364,9 @@
     "badgeNoExpiration": "Aegumist pole",
     "badgeNone": "Teil pole veel aktiivset sinist mandaati",
     "badgeNoneHint": "Aktiveerige oma sinine mandaat, et taotleda rentniku loomist ja juurdepääsu täiustatud tööriistadele.",
-    "badgeGetAccess": "Aktiveerige sinine mandaat"
+    "badgeGetAccess": "Aktiveerige sinine mandaat",
+    "myResellerLinks": "Edasimüüjad",
+    "myResellerLinksHint": "Halda sisu, mida edasi müüd, ja oma vahendustasu linke"
   },
   "AppBar": {
     "home": "Kodu",
@@ -647,6 +651,12 @@
       "title": "Üleslaadimine lõpetatud!",
       "draftMessage": "Teie {type} on salvestatud mustandina. Saate seda igal ajal muuta või esitada saidil Creator Studio.",
       "reviewMessage": "Teie {type} on ülevaatamiseks esitatud. Teid teavitatakse, kui see on heaks kiidetud."
+    },
+    "reseller": {
+      "title": "Edasimüüjad",
+      "hint": "Luba teistel jagada sinu sisu ja teenida iga müügi pealt vahendustasu, mis võetakse sinu osast.",
+      "commissionLabel": "Edasimüüja vahendustasu",
+      "commissionHint": "5% kuni 20% koguhinnast. Vaikimisi 10%."
     }
   },
   "Preview": {
@@ -820,7 +830,8 @@
       "transcodingError": "Video ümberkodeerimise ajal ei saa redigeerida ega avaldada. Proovige uuesti, kui see on lõppenud.",
       "viewFeedback": "Vaata tagasilükkamise põhjust",
       "publishSuccess": "Kande avaldamine õnnestus",
-      "publishError": "Kirje avaldamine ebaõnnestus. Palun proovi uuesti."
+      "publishError": "Kirje avaldamine ebaõnnestus. Palun proovi uuesti.",
+      "resellerSettings": "Edasimüüja sätted"
     },
     "approvedHint": "Kinnitatud · avaldamiseks valmis (pole veel nähtav)",
     "editEntry": "Redigeeri kirjet",
@@ -884,7 +895,9 @@
     "role": {
       "SELLER": "Müüja",
       "PLATFORM": "Platvorm",
-      "COLLABORATOR": "Kaastööline"
+      "COLLABORATOR": "Kaastööline",
+      "FRANCHISE": "Frantsiis",
+      "RESELLER": "Edasimüüja"
     }
   },
   "CreateCollection": {
@@ -1054,5 +1067,58 @@
     "cannotTipOwn": "Sa ei saa oma sisule jootraha anda.",
     "done": "Valmis",
     "processing": "Sinu jootraha saatmine…"
+  },
+  "Reseller": {
+    "title": "Teeni Lumens",
+    "cta": "TEENI LUMENS",
+    "intro": "Jaga seda sisu oma publikuga ja teeni vahendustasu iga kord, kui keegi sinu lingi kaudu ostab.",
+    "yourCommission": "Sinu vahendustasu",
+    "commissionOrientative": "See määr on soovituslik. Sinu tegelik vahendustasu arvutatakse iga müügi hetkel. Praegune väärtus kuvatakse alati jaotises Konto → Edasimüüjad.",
+    "payoutWallet": "Väljamakse rahakott",
+    "walletHint": "Stellari rahakott, kuhu sinu vahendustasu saadetakse. See peab olema aktiivne konto.",
+    "walletLabel": "Stellari avalik võti",
+    "connectWallet": "Ühenda rahakott",
+    "walletVerified": "Rahakott kinnitatud — aktiivne Stellari võrgus.",
+    "walletNotActivated": "See rahakott pole veel Stellari võrgus aktiivne. Saada sellele aadressile vähemalt 1 XLM, et see aktiveerida, ja proovi siis uuesti.",
+    "generateLink": "Loo link",
+    "linkReady": "Sinu edasimüüja link on valmis. Jaga seda kõikjal.",
+    "manageHint": "Kõiki oma edasimüüja linke leiad ja haldad igal ajal jaotises Konto → Edasimüüjad.",
+    "ownContent": "Sa ei saa luua edasimüüja linki oma sisule.",
+    "disabledForContent": "Looja on selle sisu edasimüügi keelanud, seega linki ei saa praegu luua.",
+    "errors": {
+      "loadFailed": "Edasimüüja andmeid ei õnnestunud laadida. Proovi uuesti.",
+      "connectFailed": "Sinu rahakotti ei õnnestunud ühendada. Proovi uuesti.",
+      "copyFailed": "Linki ei õnnestunud kopeerida. Kopeeri see käsitsi.",
+      "generic": "Midagi läks valesti. Proovi uuesti.",
+      "verifyFailed": "Rahakotti ei õnnestunud Stellari võrgus kinnitada. Proovi uuesti.",
+      "wallet_format": "Sisesta kehtiv Stellari avalik võti (algab tähega G).",
+      "wallet_not_activated": "See rahakott pole veel Stellari võrgus aktiivne. Saada sellele aadressile vähemalt 1 XLM, et see aktiveerida.",
+      "entry_not_found": "Seda sisu enam pole.",
+      "entry_not_resellable": "Seda sisu ei saa edasi müüa.",
+      "own_content": "Sa ei saa luua edasimüüja linki oma sisule.",
+      "not_found": "Edasimüüja linki ei leitud.",
+      "forbidden": "Jätkamiseks logi sisse."
+    }
+  },
+  "ResellerLinks": {
+    "title": "Minu edasimüüja lingid",
+    "subtitle": "Sisu, mida sa edasi müüd. Jaga neid linke, et teenida iga müügi pealt vahendustasu.",
+    "empty": "Sul pole veel ühtegi edasimüüja linki.",
+    "emptyHint": "Ava mis tahes tasuline sisu ja puuduta „TEENI LUMENS“, et luua oma esimene link.",
+    "loginRequired": "Logi sisse, et näha oma edasimüüja linke.",
+    "commission": "Vahendustasu",
+    "payoutWallet": "Väljamakse rahakott",
+    "changeWallet": "Vaheta rahakott",
+    "useConnected": "Kasuta ühendatud rahakotti",
+    "saveWallet": "Salvesta",
+    "cancel": "Tühista",
+    "copyLink": "Kopeeri link",
+    "linkCopied": "Link kopeeritud",
+    "walletUpdated": "Väljamakse rahakott uuendatud",
+    "resaleDisabled": "Edasimüük keelatud",
+    "resaleDisabledHint": "Looja keelas selle sisu edasimüügi. Link avab endiselt sisu, kuid uued müügid ei teeni vahendustasu.",
+    "openContent": "Ava sisu",
+    "loadError": "Sinu edasimüüja linke ei õnnestunud laadida.",
+    "retry": "Proovi uuesti"
   }
 }
