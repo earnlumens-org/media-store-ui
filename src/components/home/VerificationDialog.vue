@@ -274,7 +274,7 @@
       const assignment = await api.badges.claim()
       // Reflect new badge instantly across the app (author cards, profile…)
       const badgeKey = (assignment.badgeType || '').toLowerCase()
-      if (badgeKey === 'u1' || badgeKey === 'u2') {
+      if (badgeKey === 'u1' || badgeKey === 'u2' || badgeKey === 'u3') {
         authStore.setBadge(badgeKey)
       }
       step.value = 'success'

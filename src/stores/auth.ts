@@ -49,7 +49,7 @@ export const useAuthStore = defineStore('auth', {
      * Called after a successful badge claim so the U1/U2 mark appears immediately
      * across the app (author cards, public profile, etc.) without a full reload.
      */
-    setBadge (badge: 'u1' | 'u2' | null) {
+    setBadge (badge: 'u1' | 'u2' | 'u3' | null) {
       if (!this.user) {
         return
       }

@@ -21,7 +21,7 @@ function r2KeyToCdnUrl (r2Key?: string): string | undefined {
 }
 
 function mapProfileBadge (badge?: string): ProfileBadge | undefined {
-  if (badge === 'u1' || badge === 'u2') {
+  if (badge === 'u1' || badge === 'u2' || badge === 'u3') {
     return badge
   }
   return undefined

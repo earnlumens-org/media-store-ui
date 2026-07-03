@@ -14,7 +14,7 @@ import type { ProfileBadge } from '@/lib/profileBadge'
 import { mapFeedPageDtoToModel } from './feed.mapper'
 
 function mapProfileBadge (badge?: string): ProfileBadge | undefined {
-  if (badge === 'u1' || badge === 'u2') {
+  if (badge === 'u1' || badge === 'u2' || badge === 'u3') {
     return badge
   }
   return undefined
