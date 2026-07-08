@@ -8,23 +8,36 @@
 //
 // Platform behaviour:
 //   - Android / desktop Chromium: native install via the captured prompt.
+//     IMPORTANT: `beforeinstallprompt` does NOT fire when the app is already
+//     installed, inside in-app webviews / Custom Tabs, or in browsers without
+//     the API (e.g. some Samsung Internet versions). Android therefore falls
+//     back to `android` (manual instructions), NEVER to a "use Chrome" hint —
+//     that produced a bogus "install Chrome" message on devices where the app
+//     (and Chrome) were already installed.
+//   - `navigator.getInstalledRelatedApps()` (Android Chromium, requires the
+//     manifest's `related_applications` webapp entry) additionally detects an
+//     already-installed app while browsing in a normal tab.
 //   - iOS (all): no programmatic install API — we surface manual
 //     "Add to Home Screen" instructions. iOS < 16.4 additionally gets a
 //     caveat note (push + some PWA capabilities, and the OAuth cookie-jar
 //     round-trip, are unreliable below 16.4).
-//   - Other browsers (e.g. Firefox): no install support — show a custom hint.
+//   - Other browsers (desktop Firefox/Safari): no install path — custom hint.
 
 import { readonly, ref } from 'vue'
 
 export type PwaPlatform = 'android' | 'ios' | 'desktop' | 'other'
 
 /**
- * - `installed`    — already running as an installed PWA (hide the button).
+ * - `installed`    — already running as an installed PWA, or the installed app
+ *                    was detected via `getInstalledRelatedApps` (hide the button).
  * - `installable`  — a deferred install prompt was captured (Android/desktop).
  * - `ios`          — iOS device; show manual Add-to-Home-Screen instructions.
- * - `unsupported`  — no install path available; show a custom hint.
+ * - `android`      — Android without a captured prompt (already installed,
+ *                    Samsung Internet, in-app webview, Custom Tab, criteria
+ *                    not met yet…); show manual instructions.
+ * - `unsupported`  — desktop/other with no install path; show a custom hint.
  */
-export type PwaInstallState = 'installed' | 'installable' | 'ios' | 'unsupported'
+export type PwaInstallState = 'installed' | 'installable' | 'ios' | 'android' | 'unsupported'
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>
@@ -93,6 +106,28 @@ function onBeforeInstallPrompt (e: Event): void {
   }
 }
 
+/**
+ * Best-effort detection of the already-installed app while browsing in a
+ * normal tab (Android Chromium only; needs the manifest's
+ * `related_applications` webapp entry, so it only resolves on the origin the
+ * manifest URL points at — harmless empty result elsewhere).
+ */
+async function detectInstalledRelatedApp (): Promise<void> {
+  try {
+    const getApps = (navigator as any).getInstalledRelatedApps as (() => Promise<unknown[]>) | undefined
+    if (typeof getApps !== 'function') {
+      return
+    }
+    const apps = await getApps.call(navigator)
+    if (Array.isArray(apps) && apps.length > 0) {
+      installState.value = 'installed'
+      deferredPrompt = null
+    }
+  } catch {
+    // Unsupported / cross-origin manifest URL — ignore.
+  }
+}
+
 function onAppInstalled (): void {
   installState.value = 'installed'
   deferredPrompt = null
@@ -116,14 +151,34 @@ function init (): void {
     installState.value = 'installed'
   } else if (platform.value === 'ios') {
     installState.value = 'ios'
+  } else if (platform.value === 'android') {
+    // Android: manual-instructions fallback. `beforeinstallprompt` upgrades
+    // this to `installable` when (and only when) the browser offers a native
+    // prompt — it never fires when the app is already installed, in Custom
+    // Tabs / in-app webviews, or in browsers without the API.
+    installState.value = 'android'
   } else {
-    // Android / desktop: stays `unsupported` until (and unless) the browser
+    // Desktop/other: stays `unsupported` until (and unless) the browser
     // fires `beforeinstallprompt`, which flips it to `installable`.
     installState.value = 'unsupported'
   }
 
   window.addEventListener('beforeinstallprompt', onBeforeInstallPrompt)
   window.addEventListener('appinstalled', onAppInstalled)
+
+  // If the display-mode flips to standalone mid-session (e.g. the OS moves the
+  // document into the freshly installed app), reflect it reactively.
+  const mql = window.matchMedia?.('(display-mode: standalone)')
+  mql?.addEventListener?.('change', event => {
+    if (event.matches) {
+      isStandalone.value = true
+      installState.value = 'installed'
+      deferredPrompt = null
+    }
+  })
+
+  // Async, best-effort: flags `installed` while browsing in a tab on Android.
+  void detectInstalledRelatedApp()
 }
 
 // Register listeners as early as possible (import-time side effect).
@@ -138,15 +193,24 @@ init()
  */
 async function promptInstall (): Promise<'accepted' | 'dismissed' | 'unavailable'> {
   if (!deferredPrompt) {
+    // The captured prompt was consumed (e.g. dismissed earlier) and the
+    // browser hasn't re-fired `beforeinstallprompt` yet. Callers must fall
+    // back to the manual instructions instead of a dead button.
     return 'unavailable'
   }
-  await deferredPrompt.prompt()
-  const { outcome } = await deferredPrompt.userChoice
-  if (outcome === 'accepted') {
-    installState.value = 'installed'
+  try {
+    await deferredPrompt.prompt()
+    const { outcome } = await deferredPrompt.userChoice
+    if (outcome === 'accepted') {
+      installState.value = 'installed'
+    }
+    return outcome
+  } catch {
+    // A prompt can only be used once; a stale/duplicate call throws.
+    return 'unavailable'
+  } finally {
+    deferredPrompt = null
   }
-  deferredPrompt = null
-  return outcome
 }
 
 export function usePwaInstall () {

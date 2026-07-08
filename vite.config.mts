@@ -51,6 +51,9 @@ export default defineConfig({
         clientsClaim: true,
       },
       manifest: {
+        // Stable app identity: keeps updates and getInstalledRelatedApps
+        // matching even if start_url ever changes.
+        id: '/',
         name: 'Earn Lumens',
         short_name: 'Earn Lumens',
         description: 'A collaborative financial education platform on the Stellar network',
@@ -60,6 +63,14 @@ export default defineConfig({
         orientation: 'portrait',
         scope: '/',
         start_url: '/?source=pwa',
+        // Lets navigator.getInstalledRelatedApps() detect this very PWA from a
+        // browser tab (platform 'webapp' = self-reference; prefer_related_
+        // applications stays false so installability is unaffected). Only
+        // resolves on the origin the manifest URL matches; harmless empty
+        // result on tenant subdomains.
+        related_applications: [
+          { platform: 'webapp', url: 'https://earnlumens.org/manifest.webmanifest' },
+        ],
         icons: [
           { src: '/pwa/pwa-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
           { src: '/pwa/pwa-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
