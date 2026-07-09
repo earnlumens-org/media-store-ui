@@ -299,7 +299,7 @@
                     </v-avatar>
                   </div>
                   <span class="text-body-2 text-medium-emphasis">
-                    {{ $t('Common.creator') }}
+                    {{ $t(creatorRoleKey) }}
                   </span>
                 </div>
                 <CxSubscribeButton
@@ -429,9 +429,10 @@
   import ResellerButton from '@/components/reseller/ResellerButton.vue'
   import TipDialog from '@/components/checkout/TipDialog.vue'
   import { cdnHlsUrl, cdnMediaUrl } from '@/config/env'
-  import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { getCreatorRoleI18nKey, getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAuthStore } from '@/stores/auth'
   import { usePurchasesStore } from '@/stores/purchases'
+  import { useTenantStore } from '@/stores/tenant'
 
   // Lazy-load recommendations component (internal to this page)
   const RecommendationsList = defineAsyncComponent(() =>
@@ -442,6 +443,7 @@
   const router = useRouter()
   const purchasesStore = usePurchasesStore()
   const authStore = useAuthStore()
+  const tenantStore = useTenantStore()
 
   // Route param - cast to handle typed router union
   const entryId = computed(() => {
@@ -452,6 +454,7 @@
   // State
   const entry = ref<PublicEntryModel | null>(null)
   const entryBadgeSrc = computed(() => getProfileBadgeSrc(entry.value?.profileBadge))
+  const creatorRoleKey = computed(() => getCreatorRoleI18nKey(entry.value?.profileBadge, tenantStore.isMainTenant))
   const loading = ref(true)
   const error = ref(false)
   const errorMessage = ref('')

@@ -427,7 +427,7 @@
                     <v-img :src="entryBadgeSrc" />
                   </v-avatar>
                 </div>
-                <span class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</span>
+                <span class="text-body-2 text-medium-emphasis">{{ $t(creatorRoleKey) }}</span>
               </div>
               <v-btn
                 v-if="!isOwnContent"
@@ -548,9 +548,10 @@
   import ReportDialog from '@/components/report/ReportDialog.vue'
   import ResellerButton from '@/components/reseller/ResellerButton.vue'
   import { cdnMediaUrl } from '@/config/env'
-  import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { getCreatorRoleI18nKey, getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAuthStore } from '@/stores/auth'
   import { usePurchasesStore } from '@/stores/purchases'
+  import { useTenantStore } from '@/stores/tenant'
 
   // Lazy-load recommendations component
   const AudioRecommendationsList = defineAsyncComponent(() =>
@@ -561,6 +562,7 @@
   const router = useRouter()
   const purchasesStore = usePurchasesStore()
   const authStore = useAuthStore()
+  const tenantStore = useTenantStore()
 
   // Route param
   const entryId = computed(() => {
@@ -571,6 +573,7 @@
   // State
   const entry = ref<PublicEntryModel | null>(null)
   const entryBadgeSrc = computed(() => getProfileBadgeSrc(entry.value?.profileBadge))
+  const creatorRoleKey = computed(() => getCreatorRoleI18nKey(entry.value?.profileBadge, tenantStore.isMainTenant))
   const loading = ref(true)
   const error = ref(false)
   const errorMessage = ref('')

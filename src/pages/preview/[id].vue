@@ -573,7 +573,7 @@
                         </v-avatar>
                       </div>
                       <div class="text-body-2 text-medium-emphasis">
-                        {{ $t('Common.creator') }}
+                        {{ $t(creatorRoleKey) }}
                       </div>
                     </div>
                   </div>
@@ -653,7 +653,7 @@
                       </v-avatar>
                     </div>
                     <div class="text-body-2 text-medium-emphasis">
-                      {{ $t('Common.creator') }}
+                      {{ $t(creatorRoleKey) }}
                     </div>
                   </div>
                 </div>
@@ -738,11 +738,12 @@
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import AvatarFrame from '@/components/media/AvatarFrame.vue'
   import ResellerButton from '@/components/reseller/ResellerButton.vue'
-  import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { getCreatorRoleI18nKey, getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
   import { useFeedCacheStore } from '@/stores/feedCache'
   import { usePurchasesStore } from '@/stores/purchases'
+  import { useTenantStore } from '@/stores/tenant'
   import { useWalletStore } from '@/stores/wallet'
 
   const { t } = useI18n()
@@ -753,6 +754,7 @@
   const purchasesStore = usePurchasesStore()
   const feedCache = useFeedCacheStore()
   const walletStore = useWalletStore()
+  const tenantStore = useTenantStore()
 
   // Route param
   const contentId = computed(() => {
@@ -795,6 +797,7 @@
 
   // Profile badge
   const profileBadgeSrc = computed(() => getProfileBadgeSrc(content.value?.profileBadge))
+  const creatorRoleKey = computed(() => getCreatorRoleI18nKey(content.value?.profileBadge, tenantStore.isMainTenant))
 
   // Computed content type
   const contentType = computed((): 'video' | 'audio' | 'image' | 'resource' | 'collection' => {

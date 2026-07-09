@@ -542,7 +542,7 @@
                           <v-img :src="collBadgeSrc" />
                         </v-avatar>
                       </div>
-                      <p class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</p>
+                      <p class="text-body-2 text-medium-emphasis">{{ $t(creatorRoleKey) }}</p>
                     </div>
                     <v-btn
                       v-if="!isOwnCollection"
@@ -651,11 +651,12 @@
   import ImageLightbox from '@/components/entry/ImageLightbox.vue'
   import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
-  import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { getProfileBadgeSrc, getCreatorRoleI18nKey } from '@/lib/profileBadge'
   import { isPopNavigation } from '@/router'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
   import { useScrollCacheStore } from '@/stores/scrollCache'
+  import { useTenantStore } from '@/stores/tenant'
 
   const { t } = useI18n()
   const route = useRoute()
@@ -663,6 +664,7 @@
   const appStore = useAppStore()
   const authStore = useAuthStore()
   const scrollCache = useScrollCacheStore()
+  const tenantStore = useTenantStore()
 
   // Responsive check
   const isMobile = computed(() => appStore.mobileView)
@@ -676,6 +678,7 @@
   // Collection State
   const collection = ref<CollectionDetailModel | null>(null)
   const collBadgeSrc = computed(() => getProfileBadgeSrc(collection.value?.profileBadge))
+  const creatorRoleKey = computed(() => getCreatorRoleI18nKey(collection.value?.profileBadge, tenantStore.isMainTenant))
   const authorAvatarBroken = ref(false)
   /** Author avatar URL — cleared when the provider image fails to load */
   const authorAvatarSrc = computed(() =>

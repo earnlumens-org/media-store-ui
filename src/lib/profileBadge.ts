@@ -13,3 +13,33 @@ const PROFILE_BADGE_SRC: Record<ProfileBadge, string> = {
 export function getProfileBadgeSrc (badge?: ProfileBadge) {
   return badge ? PROFILE_BADGE_SRC[badge] : undefined
 }
+
+/**
+ * Resolve the i18n key for the role label shown under an author's username
+ * (the line that historically read "Creator"). It varies by credential:
+ *
+ *   • u2 (gold) on the main/platform tenant → "Stellar Ecosystem"
+ *   • u2 (gold) on a secondary tenant       → "Organization"
+ *   • u3 (gray/silver), any tenant          → "Stellar Ambassador"
+ *   • u1 (blue) or no badge                  → "Creator" (unchanged)
+ *
+ * @param isMainTenant true when the visitor is on the platform/default tenant.
+ */
+export function getCreatorRoleI18nKey (
+  badge: ProfileBadge | undefined,
+  isMainTenant: boolean,
+): string {
+  switch (badge) {
+    case 'u2': {
+      return isMainTenant
+        ? 'Common.creatorRoleStellarEcosystem'
+        : 'Common.creatorRoleOrganization'
+    }
+    case 'u3': {
+      return 'Common.creatorRoleStellarAmbassador'
+    }
+    default: {
+      return 'Common.creator'
+    }
+  }
+}

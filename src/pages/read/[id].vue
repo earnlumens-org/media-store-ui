@@ -276,7 +276,7 @@
                     <v-img :src="entryBadgeSrc" />
                   </v-avatar>
                 </div>
-                <span class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</span>
+                <span class="text-body-2 text-medium-emphasis">{{ $t(creatorRoleKey) }}</span>
               </div>
               <v-btn
                 v-if="!isOwnContent"
@@ -488,7 +488,7 @@
                     <v-img :src="entryBadgeSrc" />
                   </v-avatar>
                 </div>
-                <p class="text-body-2 text-medium-emphasis">{{ $t('Common.creator') }}</p>
+                <p class="text-body-2 text-medium-emphasis">{{ $t(creatorRoleKey) }}</p>
                 <CxSubscribeButton
                   v-if="entry.authorId"
                   class="mt-3"
@@ -529,10 +529,11 @@
   import ReportDialog from '@/components/report/ReportDialog.vue'
   import ResellerButton from '@/components/reseller/ResellerButton.vue'
   import { cdnMediaUrl } from '@/config/env'
-  import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { getCreatorRoleI18nKey, getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
   import { usePurchasesStore } from '@/stores/purchases'
+  import { useTenantStore } from '@/stores/tenant'
 
   import ReadRecommendationsList from './ReadRecommendationsList.vue'
 
@@ -541,6 +542,7 @@
   const purchasesStore = usePurchasesStore()
   const authStore = useAuthStore()
   const appStore = useAppStore()
+  const tenantStore = useTenantStore()
   const { t, locale } = useI18n()
 
   // Responsive check
@@ -555,6 +557,7 @@
   // State
   const entry = ref<PublicEntryModel | null>(null)
   const entryBadgeSrc = computed(() => getProfileBadgeSrc(entry.value?.profileBadge))
+  const creatorRoleKey = computed(() => getCreatorRoleI18nKey(entry.value?.profileBadge, tenantStore.isMainTenant))
   const loading = ref(true)
   const error = ref(false)
   const notFound = ref(false)

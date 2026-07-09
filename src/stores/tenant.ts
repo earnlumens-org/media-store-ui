@@ -79,6 +79,13 @@ export const useTenantStore = defineStore('tenant', {
     isReady: state => state.status === 'ready',
     isNotFound: state => state.status === 'ready' && state.kind === 'notFound',
     /**
+     * True when the visitor is on the platform's default (main) tenant —
+     * i.e. the apex / reserved subdomain rather than a secondary tenant
+     * storefront. Used to pick between "Stellar Ecosystem" (main) and
+     * "Organization" (secondary) for the gold-credential role label.
+     */
+    isMainTenant: state => state.kind === 'platform',
+    /**
      * Public CDN URL for the tenant logo (light variant), composed from
      * the env-aware CDN base and the R2 key returned by the visitor probe.
      * Null when the tenant has no custom logo set, so the AppBar can fall
