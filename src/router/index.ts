@@ -41,7 +41,7 @@ const router = createRouter({
 })
 
 // Reset flag after components have mounted (setTimeout ensures onMounted ran first)
-router.afterEach(() => {
+router.afterEach((_to, _from, failure) => {
   setTimeout(() => {
     _isPopNavigation = false
   }, 0)
@@ -49,7 +49,14 @@ router.afterEach(() => {
   // A route change is a natural full-content boundary: if a new build is
   // waiting and no critical operation is in flight, silently land the user on
   // it now (a one-time reload to the destination). Deferred / no-op otherwise.
-  maybeApplyUpdateOnNavigation()
+  //
+  // Only on SUCCESSFUL navigations: afterEach also fires for aborted/
+  // cancelled/duplicated ones, where the URL never changed — reloading there
+  // would eat the user's click (reload lands on the OLD page, the intended
+  // destination is lost). The update is applied on the next real boundary.
+  if (!failure) {
+    maybeApplyUpdateOnNavigation()
+  }
 })
 
 // ── Franchise attribution (?f=<slug>) ───────────────────────────────────────
@@ -81,13 +88,30 @@ router.beforeEach((to, from) => {
 router.beforeEach(async (to, _from) => {
   const authStore = useAuthStore()
 
+  // Case-normalization redirect (usernames come from cards/links with their
+  // original casing, e.g. /NicolasMar1905 → /nicolasmar1905).
+  //
+  // IMPORTANT — navigation-type semantics (vue-router 4):
+  // a guard-returned `replace: true` OVERRIDES the original navigation type,
+  // and because the aborted push never committed a URL change, the resulting
+  // history.replaceState overwrites the entry the user is COMING FROM (e.g.
+  // home). That silently destroyed the back history for every mixed-case
+  // profile click. So:
+  //   - programmatic push/replace → omit `replace` so the redirect inherits
+  //     the original type (push stays push, back keeps working);
+  //   - initial page load → vue-router force-replaces the first navigation
+  //     regardless, no extra entry is created;
+  //   - browser back/forward (popstate) → DO force `replace`: the browser
+  //     already moved onto the (legacy) mixed-case entry, and a push here
+  //     would truncate forward history and create a back-trap loop
+  //     (back → mixed-case entry → redirect pushes forward again).
   const normalizedPath = to.path.toLowerCase()
   if (to.path !== normalizedPath) {
     return {
       path: normalizedPath,
       query: to.query,
       hash: to.hash,
-      replace: true,
+      ...(isPopNavigation() ? { replace: true } : {}),
     }
   }
 
@@ -152,7 +176,9 @@ router.beforeEach(async (to, _from) => {
 const CHUNK_LOAD_ERROR_RE = /failed to fetch dynamically imported module|error loading dynamically imported module|importing a module script failed|module script failed|dynamically imported module|unable to (?:load|preload)|load failed/i
 
 function isDynamicImportError (err: unknown): boolean {
-  if (!err) return false
+  if (!err) {
+    return false
+  }
   const message = err instanceof Error ? err.message : String(err)
   const name = err instanceof Error ? err.name : ''
   return name === 'ChunkLoadError' || CHUNK_LOAD_ERROR_RE.test(message)
