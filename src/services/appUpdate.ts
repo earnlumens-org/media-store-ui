@@ -24,10 +24,11 @@
  * on a stale build. (Recovery from a stale lazy-loaded chunk that 404s after a
  * deploy is owned by the router — see `@/router`.)
  *
- * The actual reload (`applyUpdate(true)`) tells the waiting SW to
- * `skipWaiting()` and then reloads once it takes control, so the document and
- * every hashed asset come from the new build — no manual hard refresh, no
- * stale chunks, consistent on desktop, mobile and installed PWA.
+ * The actual reload ({@link applyUpdate}) tells the waiting SW to
+ * `skipWaiting()` and reloads when it takes control (with a timeout fallback
+ * so a missed handshake can never strand the user on the stale build), so the
+ * document and every hashed asset come from the new build — no manual hard
+ * refresh, no stale chunks, consistent on desktop, mobile and installed PWA.
  */
 
 import { registerSW } from 'virtual:pwa-register'
@@ -50,15 +51,61 @@ export const updatePromptVisible = readonly(_updatePromptVisible)
 /** How often to proactively check the server for a new SW (30 min). */
 const PERIODIC_CHECK_MS = 30 * 60 * 1000
 
+/**
+ * Hard cap between asking the waiting SW to take over and reloading anyway.
+ * SKIP_WAITING is fire-and-forget: it silently no-ops when nothing is waiting
+ * anymore (e.g. another tab already activated the new SW), and the activation
+ * handshake can be missed on pages that loaded without a controller (hard
+ * refresh). Never leave the user on the stale build with a dead button.
+ */
+const RELOAD_FALLBACK_MS = 4000
+
 /** The reload trigger handed back by `registerSW`; null until init runs. */
 let applyUpdateFn: ((reloadPage?: boolean) => Promise<void>) | null = null
 /** Guards against kicking off the reload more than once. */
 let applying = false
+/** Guards against reloading more than once (click path + plugin path). */
+let reloading = false
 let initialised = false
 
+/** Reloads the page exactly once, no matter how many triggers race. */
+function reloadOnce (): void {
+  if (reloading) {
+    return
+  }
+  reloading = true
+  window.location.reload()
+}
+
 /**
- * Applies the waiting update. Tells the waiting SW to take over and reloads so
- * the whole document + assets come from the new build. Idempotent.
+ * Reloads once as soon as it is safe: immediately when no critical operation
+ * is in flight, otherwise the moment the critical section clears.
+ */
+function reloadWhenSafe (): void {
+  if (!isCriticalOperationActive.value) {
+    reloadOnce()
+    return
+  }
+  const stop = watch(isCriticalOperationActive, active => {
+    if (!active) {
+      stop()
+      reloadOnce()
+    }
+  })
+}
+
+/**
+ * Applies the waiting update and reloads so the whole document + assets come
+ * from the new build. Idempotent.
+ *
+ * We own the reload instead of trusting the plugin runtime: in
+ * `vite-plugin-pwa` v1 `updateServiceWorker(true)` only sends SKIP_WAITING and
+ * resolves — the reload happens in an internal `controlling` listener gated on
+ * `event.isUpdate`, which is false for pages that registered without a
+ * controller (hard refresh / first-ever session), and never fires at all when
+ * the waiting SW already activated elsewhere. Either way the user would stay
+ * on the stale build forever. So: reload on the next `controllerchange`, with
+ * a timeout fallback that reloads regardless.
  */
 export async function applyUpdate (): Promise<void> {
   if (applying || !applyUpdateFn) {
@@ -66,7 +113,19 @@ export async function applyUpdate (): Promise<void> {
   }
   applying = true
   _updatePromptVisible.value = false
-  await applyUpdateFn(true)
+
+  // The new SW taking control is the ideal reload point (assets served by the
+  // new build from the first byte after reload).
+  navigator.serviceWorker?.addEventListener('controllerchange', reloadOnce, { once: true })
+  // Guaranteed exit: reload even if the handshake never completes.
+  window.setTimeout(reloadOnce, RELOAD_FALLBACK_MS)
+
+  try {
+    await applyUpdateFn(true)
+  } catch {
+    // Registration/messaging failed — the fallback timer still reloads onto
+    // the freshest build the network will give us.
+  }
 }
 
 /** Dismisses the snackbar without applying. The update stays pending. */
@@ -112,6 +171,13 @@ export function initAppUpdate (): void {
     onNeedRefresh () {
       _updateReady.value = true
       refreshPromptVisibility()
+    },
+    // The plugin calls this when the new SW has taken control and the page
+    // would normally be force-reloaded (e.g. ANOTHER tab activated it). Route
+    // it through the critical-section gate so a payment/signing in this tab
+    // is never interrupted; without this the runtime reloads unconditionally.
+    onNeedReload () {
+      reloadWhenSafe()
     },
     onRegisteredSW (_swUrl, registration) {
       if (!registration) {
