@@ -94,8 +94,11 @@
                   <v-img :src="userBadgeSrc" />
                 </v-avatar>
               </h1>
-              <p class="text-body-1 text-medium-emphasis mb-2">
+              <p class="text-body-1 text-medium-emphasis mb-1">
                 {{ user.displayName }}
+              </p>
+              <p v-if="creatorRoleKey" class="text-body-2 text-medium-emphasis mb-2">
+                {{ $t(creatorRoleKey) }}
               </p>
               <p class="text-body-2 text-medium-emphasis mb-4">
                 {{ user.followersCount?.toLocaleString() ?? 0 }} {{ $t('Account.followers') }}
@@ -347,7 +350,7 @@
   import { api } from '@/api/api'
   import CollectionCard from '@/components/collection/CollectionCard.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
-  import { getProfileBadgeSrc } from '@/lib/profileBadge'
+  import { getCreatorRoleI18nKey, getProfileBadgeSrc } from '@/lib/profileBadge'
   import { isPopNavigation } from '@/router'
   import { useScrollCacheStore } from '@/stores/scrollCache'
   import { useTenantStore } from '@/stores/tenant'
@@ -360,6 +363,8 @@
   const user = ref<UserProfile | null>(null)
   const userBadgeSrc = computed(() =>
     getProfileBadgeSrc(user.value?.profileBadge as ProfileBadge | undefined))
+  const creatorRoleKey = computed(() =>
+    getCreatorRoleI18nKey(user.value?.profileBadge as ProfileBadge | undefined, tenantStore.isMainTenant))
   const loading = ref(true)
   const snackbar = ref(false)
   const snackbarText = ref('')

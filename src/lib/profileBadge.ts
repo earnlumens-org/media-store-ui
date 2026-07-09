@@ -21,7 +21,10 @@ export function getProfileBadgeSrc (badge?: ProfileBadge) {
  *   • u2 (gold) on the main/platform tenant → "Stellar Ecosystem"
  *   • u2 (gold) on a secondary tenant       → "Organization"
  *   • u3 (gray/silver), any tenant          → "Stellar Ambassador"
- *   • u1 (blue) or no badge                  → "Creator" (unchanged)
+ *   • u1 (blue)                              → "Creator" (unchanged)
+ *   • no badge                              → '' (label is hidden)
+ *
+ * Callers should hide the label when this returns an empty string.
  *
  * @param isMainTenant true when the visitor is on the platform/default tenant.
  */
@@ -30,6 +33,9 @@ export function getCreatorRoleI18nKey (
   isMainTenant: boolean,
 ): string {
   switch (badge) {
+    case 'u1': {
+      return 'Common.creator'
+    }
     case 'u2': {
       return isMainTenant
         ? 'Common.creatorRoleStellarEcosystem'
@@ -39,7 +45,7 @@ export function getCreatorRoleI18nKey (
       return 'Common.creatorRoleStellarAmbassador'
     }
     default: {
-      return 'Common.creator'
+      return ''
     }
   }
 }

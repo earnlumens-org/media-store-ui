@@ -298,7 +298,7 @@
                       <v-img :src="entryBadgeSrc" />
                     </v-avatar>
                   </div>
-                  <span class="text-body-2 text-medium-emphasis">
+                  <span v-if="creatorRoleKey" class="text-body-2 text-medium-emphasis">
                     {{ $t(creatorRoleKey) }}
                   </span>
                 </div>

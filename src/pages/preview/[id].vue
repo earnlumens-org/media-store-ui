@@ -572,7 +572,7 @@
                           <v-img :src="profileBadgeSrc" />
                         </v-avatar>
                       </div>
-                      <div class="text-body-2 text-medium-emphasis">
+                      <div v-if="creatorRoleKey" class="text-body-2 text-medium-emphasis">
                         {{ $t(creatorRoleKey) }}
                       </div>
                     </div>
@@ -652,7 +652,7 @@
                         <v-img :src="profileBadgeSrc" />
                       </v-avatar>
                     </div>
-                    <div class="text-body-2 text-medium-emphasis">
+                    <div v-if="creatorRoleKey" class="text-body-2 text-medium-emphasis">
                       {{ $t(creatorRoleKey) }}
                     </div>
                   </div>

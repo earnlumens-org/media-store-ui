@@ -542,7 +542,7 @@
                           <v-img :src="collBadgeSrc" />
                         </v-avatar>
                       </div>
-                      <p class="text-body-2 text-medium-emphasis">{{ $t(creatorRoleKey) }}</p>
+                      <p v-if="creatorRoleKey" class="text-body-2 text-medium-emphasis">{{ $t(creatorRoleKey) }}</p>
                     </div>
                     <v-btn
                       v-if="!isOwnCollection"
@@ -651,7 +651,7 @@
   import ImageLightbox from '@/components/entry/ImageLightbox.vue'
   import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
-  import { getProfileBadgeSrc, getCreatorRoleI18nKey } from '@/lib/profileBadge'
+  import { getCreatorRoleI18nKey, getProfileBadgeSrc } from '@/lib/profileBadge'
   import { isPopNavigation } from '@/router'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'

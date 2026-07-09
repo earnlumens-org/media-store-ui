@@ -276,7 +276,7 @@
                     <v-img :src="entryBadgeSrc" />
                   </v-avatar>
                 </div>
-                <span class="text-body-2 text-medium-emphasis">{{ $t(creatorRoleKey) }}</span>
+                <span v-if="creatorRoleKey" class="text-body-2 text-medium-emphasis">{{ $t(creatorRoleKey) }}</span>
               </div>
               <v-btn
                 v-if="!isOwnContent"
@@ -488,7 +488,7 @@
                     <v-img :src="entryBadgeSrc" />
                   </v-avatar>
                 </div>
-                <p class="text-body-2 text-medium-emphasis">{{ $t(creatorRoleKey) }}</p>
+                <p v-if="creatorRoleKey" class="text-body-2 text-medium-emphasis">{{ $t(creatorRoleKey) }}</p>
                 <CxSubscribeButton
                   v-if="entry.authorId"
                   class="mt-3"
