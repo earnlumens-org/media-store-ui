@@ -3,7 +3,7 @@
   <TenantBanner v-else-if="hasTenantBanner" />
   <v-container class="mt-6 mb-2 px-1 px-sm-4" fluid>
     <router-link class="d-flex align-center text-decoration-none" style="color: inherit; cursor: pointer;" to="/explore">
-      <div class="text-h4 font-weight-bold">Explore</div>
+      <div class="text-h4 font-weight-bold">{{ t('AppBar.explore') }}</div>
       <v-icon class="ml-2" size="32">mdi-chevron-right</v-icon>
     </router-link>
   </v-container>
@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
   import { computed } from 'vue'
+  import { useI18n } from 'vue-i18n'
   import EntryCardGrid from '@/components/entry/EntryCardGrid.vue'
   import Hero from '@/components/home/Hero.vue'
   import TenantBanner from '@/components/home/TenantBanner.vue'
@@ -25,6 +26,7 @@
   // the buttons would take the visitor away from the tenant they were
   // browsing. Restrict it to the apex/root visitor context.
   const tenantStore = useTenantStore()
+  const { t } = useI18n()
   const isPlatformRoot = computed(() => tenantStore.kind === 'platform')
   // Tenants get their own configurable hero, mutually exclusive with the
   // platform Hero. Only mounts when the owner has flipped the banner on in
