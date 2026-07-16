@@ -39,8 +39,21 @@ export default defineConfig({
       // to index.html so deep links (incl. /oauth2/callback) work offline-first.
       workbox: {
         navigateFallback: '/index.html',
-        // Never let the SW intercept the OAuth handshake / API calls.
-        navigateFallbackDenylist: [/^\/oauth2\//, /^\/api\//, /^\/login\//],
+        // Never let the SW intercept non-SPA same-origin paths: the OAuth
+        // handshake, API calls, and edge-served content. /cdn/* (cdn-worker),
+        // /public/* (anonymous backend endpoints) and /__og/* (tenants-router
+        // OG image) are real documents/binaries: top-level navigations to
+        // them (e.g. the attachment Download button on read entries, or
+        // window.open of a /cdn thumbnail) must hit the network, not get the
+        // SPA shell.
+        navigateFallbackDenylist: [
+          /^\/oauth2\//,
+          /^\/api\//,
+          /^\/login\//,
+          /^\/cdn\//,
+          /^\/public\//,
+          /^\/__og\//,
+        ],
         globPatterns: ['**/*.{js,css,html,woff2}'],
         // Drop precaches from previous builds so stale chunks can't be served
         // after a deploy.
