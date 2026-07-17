@@ -48,6 +48,26 @@
           :item-type="contentType === 'collection' ? 'COLLECTION' : 'ENTRY'"
           variant="icon"
         />
+        <v-btn
+          v-if="content"
+          :aria-label="$t('Common.share')"
+          icon="mdi-share-variant"
+          variant="text"
+          @click="onShare"
+        />
+        <v-menu v-if="content">
+          <template #activator="{ props: menuProps }">
+            <v-btn
+              v-bind="menuProps"
+              :aria-label="$t('Common.moreOptions')"
+              icon="mdi-dots-vertical"
+              variant="text"
+            />
+          </template>
+          <v-list density="compact">
+            <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
+          </v-list>
+        </v-menu>
       </template>
     </v-toolbar>
 
@@ -174,6 +194,25 @@
                 :item-type="contentType === 'collection' ? 'COLLECTION' : 'ENTRY'"
                 variant="icon"
               />
+              <v-btn
+                :aria-label="$t('Common.share')"
+                icon="mdi-share-variant"
+                variant="text"
+                @click="onShare"
+              />
+              <v-menu>
+                <template #activator="{ props: menuProps }">
+                  <v-btn
+                    v-bind="menuProps"
+                    :aria-label="$t('Common.moreOptions')"
+                    icon="mdi-dots-vertical"
+                    variant="text"
+                  />
+                </template>
+                <v-list density="compact">
+                  <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
+                </v-list>
+              </v-menu>
             </div>
 
             <!-- TYPE-SPECIFIC PREVIEW -->
@@ -721,6 +760,13 @@
       :reseller-code="resellerCode"
       @purchased="onPurchased"
     />
+
+    <!-- Report Dialog -->
+    <ReportDialog
+      v-model="reportDialog"
+      :target-id="contentId"
+      :target-type="reportTargetType"
+    />
   </div>
 </template>
 
@@ -737,6 +783,7 @@
   import CheckoutDialog from '@/components/checkout/CheckoutDialog.vue'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import AvatarFrame from '@/components/media/AvatarFrame.vue'
+  import ReportDialog from '@/components/report/ReportDialog.vue'
   import ResellerButton from '@/components/reseller/ResellerButton.vue'
   import { getCreatorRoleI18nKey, getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAppStore } from '@/stores/app'
@@ -781,6 +828,9 @@
   // Checkout state
   const checkoutOpen = ref(false)
 
+  // Report dialog state
+  const reportDialog = ref(false)
+
   // Whether the entry was confirmed by the real API (not just cached/mock)
   const isVerified = ref(false)
 
@@ -804,6 +854,11 @@
     if (collectionData.value) return 'collection'
     return content.value?.type || 'resource'
   })
+
+  // Report target type mirrors the content type (collection vs entry)
+  const reportTargetType = computed((): 'ENTRY' | 'COLLECTION' =>
+    contentType.value === 'collection' ? 'COLLECTION' : 'ENTRY',
+  )
 
   // Detect if the preview asset is a video (vs image)
   const isPreviewVideo = computed(() => {
@@ -1128,6 +1183,18 @@
 
   function goHome () {
     router.push('/')
+  }
+
+  function onShare () {
+    if (navigator.share) {
+      navigator.share({
+        title: content.value?.title,
+        url: window.location.href,
+      })
+    } else {
+      // Fallback: copy to clipboard
+      navigator.clipboard.writeText(window.location.href)
+    }
   }
 
   // Watch for route changes
