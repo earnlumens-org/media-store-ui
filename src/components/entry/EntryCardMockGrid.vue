@@ -235,6 +235,7 @@
       thumbnailSrcset: m.thumbnailSrcset,
       durationSec: m.durationSec,
       locked: m.locked,
+      remix: m.remix,
     }
     return { kind: 'entry', entry }
   }

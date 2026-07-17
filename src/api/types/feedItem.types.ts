@@ -14,6 +14,8 @@ export interface EntryDto {
   thumbnailUrl?: string
   durationSec?: number
   locked?: boolean
+  /** True when this entry was detected as a remix of earlier content. */
+  remix?: boolean
 }
 
 export interface CollectionDto {
@@ -62,6 +64,8 @@ export interface EntryModel {
   durationSec?: number
   locked?: boolean
   resourceContent?: string
+  /** True when this entry was detected as a remix of earlier content. */
+  remix?: boolean
 }
 
 export interface CollectionModel {

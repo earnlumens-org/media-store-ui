@@ -319,6 +319,34 @@
                     </div>
                   </div>
                 </template>
+
+                <!-- Original First: remix royalty settings (all entries) -->
+                <v-divider class="my-4" />
+                <div class="d-flex align-center justify-space-between mb-1">
+                  <div class="pe-2">
+                    <div class="text-body-2 font-weight-medium">
+                      {{ t('Upload.originalFirst.title') }}
+                    </div>
+                    <div class="text-caption text-medium-emphasis">
+                      {{ t('Upload.originalFirst.hint') }}
+                    </div>
+                  </div>
+                  <span class="text-body-2 font-weight-bold text-primary">
+                    {{ form.remixRoyaltyPercent }}%
+                  </span>
+                </div>
+                <v-slider
+                  v-model="form.remixRoyaltyPercent"
+                  color="primary"
+                  hide-details
+                  :max="50"
+                  :min="5"
+                  :step="1"
+                  thumb-label
+                />
+                <div class="text-caption text-medium-emphasis">
+                  {{ t('Upload.originalFirst.royaltyHint') }}
+                </div>
               </v-card>
             </v-col>
 
@@ -523,6 +551,7 @@
     contentLanguage: locale.value,
     resellerEnabled: true,
     resellerCommissionPercent: 10,
+    remixRoyaltyPercent: 20,
   })
 
   const assets = reactive({
@@ -800,6 +829,7 @@
           contentLanguage: form.contentLanguage || null,
           resellerEnabled: form.isPaid ? form.resellerEnabled : null,
           resellerCommissionPercent: form.isPaid && form.resellerEnabled ? form.resellerCommissionPercent : null,
+          remixRoyaltyPercent: form.remixRoyaltyPercent,
         })
         entryId = entry.id
         createdEntryId.value = entry.id

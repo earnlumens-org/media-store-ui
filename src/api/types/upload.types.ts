@@ -28,6 +28,8 @@ export interface CreateEntryRequest {
   resellerEnabled?: boolean | null
   /** Reseller commission as a percent of the total price (5–20). Defaults to 10. */
   resellerCommissionPercent?: number | null
+  /** Royalty percent (5–50) paid to the original creator if this upload is detected as a remix. Defaults to 20. */
+  remixRoyaltyPercent?: number | null
 }
 
 export interface CreateEntryResponse {

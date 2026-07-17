@@ -37,6 +37,8 @@ export interface PublicFeedItemDto {
   itemCount: number
   locked: boolean
   unlocked: boolean
+  /** True when this entry was detected as a remix (entries only). */
+  remix?: boolean
 }
 
 export interface PublicFeedPageDto {
@@ -74,6 +76,8 @@ export interface PublicFeedItemModel {
   itemCount: number
   locked: boolean
   unlocked: boolean
+  /** True when this entry was detected as a remix (entries only). */
+  remix?: boolean
 }
 
 export interface PublicFeedPageModel {

@@ -33,6 +33,14 @@ export interface PublicEntryDto {
   viewCount?: number
   resellerEnabled?: boolean
   resellerCommissionPercent?: number
+  /** True when this entry was detected as a remix (duplicate of an earlier upload). */
+  remix?: boolean
+  /** Entry id of the original content (only when remix = true). */
+  originalEntryId?: string
+  /** Username of the original author (only when remix = true). */
+  originalAuthorUsername?: string
+  /** Royalty percent (5–50) paid to the original creator on remix sales. */
+  remixRoyaltyPercent?: number
   tags?: string[]
   asset?: {
     fileName: string
@@ -79,6 +87,14 @@ export interface PublicEntryModel {
   contentLanguage?: string
   resellerEnabled?: boolean
   resellerCommissionPercent?: number
+  /** True when this entry was detected as a remix (duplicate of an earlier upload). */
+  remix?: boolean
+  /** Entry id of the original content (only when remix = true). */
+  originalEntryId?: string
+  /** Username of the original author (only when remix = true). */
+  originalAuthorUsername?: string
+  /** Royalty percent (5–50) paid to the original creator on remix sales. */
+  remixRoyaltyPercent?: number
   tags: string[]
   asset?: {
     fileName: string

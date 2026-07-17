@@ -71,6 +71,8 @@ export interface UpdateEntryMetadataRequest {
   resourceContent?: string | null
   resellerEnabled?: boolean | null
   resellerCommissionPercent?: number | null
+  /** Royalty percent (5–50) paid to the original creator if this entry is detected as a remix. */
+  remixRoyaltyPercent?: number | null
 }
 
 // ==================== Filter / sort params ====================

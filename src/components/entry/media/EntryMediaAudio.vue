@@ -29,6 +29,17 @@
         >
           <span class="font-weight-bold">{{ formattedDuration }}</span>
         </v-chip>
+        <v-chip
+          v-if="entry.remix"
+          class="position-absolute bottom-0 right-0 ma-2 text-white"
+          color="rgba(103, 58, 183, 0.85)"
+          density="comfortable"
+          label
+          variant="flat"
+        >
+          <v-icon size="14" start>mdi-sync</v-icon>
+          <span class="font-weight-bold">{{ $t('OriginalFirst.remixBadge') }}</span>
+        </v-chip>
         <v-avatar
           v-if="entry.unlocked"
           class="position-absolute bottom-0 left-0 ma-2 text-white"

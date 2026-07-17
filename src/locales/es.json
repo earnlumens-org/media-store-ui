@@ -110,6 +110,33 @@
       "forbidden": "Inicia sesión para continuar."
     }
   },
+  "OriginalFirst": {
+    "remixBadge": "Remix",
+    "originalBy": "Original de",
+    "viewOriginal": "Ver original",
+    "claimMenu": "Reclamar como Original",
+    "claimTitle": "Reclamar como Original",
+    "claimIntro": "Si este contenido lo creaste tú, puedes reclamarlo como original. El sistema compara automáticamente las evidencias (fecha de subida, historial de ventas, antigüedad de la cuenta) y reasigna el crédito y los ingresos si tu reclamación gana.",
+    "claimHint": "La revisión es instantánea y totalmente automática — sin tickets ni esperas. Necesitas una publicación con el mismo contenido para reclamar. Una reclamación por contenido, hasta 5 al día.",
+    "claimSubmit": "Enviar reclamación",
+    "claimGrantedTitle": "Reclamación concedida",
+    "claimGrantedMessage": "Ahora figuras como creador original. La atribución y las regalías de ingresos se han reasignado automáticamente.",
+    "claimRejectedTitle": "Reclamación no concedida",
+    "claimRejectedMessage": "Las evidencias del titular actual superan a las tuyas. La atribución se mantiene sin cambios.",
+    "claimErrorTitle": "No se puede reclamar",
+    "scoreTitle": "Revisión de evidencias",
+    "yourScore": "Tu puntuación",
+    "holderScore": "Puntuación del titular",
+    "errors": {
+      "ENTRY_NOT_FOUND": "Este contenido ya no existe.",
+      "NO_FINGERPRINT": "Este contenido aún no tiene huella digital, por lo que no se puede reclamar.",
+      "NO_MATCHING_ENTRY": "Necesitas una publicación con este contenido exacto para reclamarlo como tuyo.",
+      "ALREADY_ORIGINAL": "Ya figuras como creador original de este contenido.",
+      "ALREADY_CLAIMED": "Ya presentaste una reclamación por este contenido. Cada reclamación se revisa una sola vez.",
+      "DAILY_CLAIM_LIMIT_REACHED": "Has alcanzado el límite diario de reclamaciones. Inténtalo mañana.",
+      "GENERIC": "Algo salió mal. Inténtalo de nuevo."
+    }
+  },
   "ResellerLinks": {
     "title": "Mis enlaces de revendedor",
     "subtitle": "Contenido que estás revendiendo. Comparte estos enlaces para ganar una comisión en cada venta.",
@@ -640,6 +667,11 @@
       "hint": "Permite que otros compartan tu contenido y ganen una comisión por cada venta, deducida de tu parte.",
       "commissionLabel": "Comisión de revendedor",
       "commissionHint": "Entre el 5 % y el 20 % del precio total. Por defecto, 10 %."
+    },
+    "originalFirst": {
+      "title": "Regalía Original First",
+      "hint": "Si alguien vuelve a subir este contenido, podrá publicarlo como Remix — pero esta parte de cada venta será para ti automáticamente.",
+      "royaltyHint": "Entre el 5 % y el 50 % del precio total. Por defecto, 20 %. Nunca puede ser cero: el creador original siempre gana."
     },
     "wallet": {
       "required": "Se requiere una wallet conectada para contenido de pago",

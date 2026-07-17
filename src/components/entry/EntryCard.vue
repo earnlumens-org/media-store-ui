@@ -41,6 +41,8 @@
     durationSec?: number
     locked?: boolean
     unlocked?: boolean
+    /** True when this entry was detected as a remix of earlier content. */
+    remix?: boolean
   }
 
   interface Props {

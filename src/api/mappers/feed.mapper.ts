@@ -47,6 +47,7 @@ export function mapFeedItemDtoToModel (dto: PublicFeedItemDto): PublicFeedItemMo
     itemCount: dto.itemCount ?? 0,
     locked: dto.locked,
     unlocked: dto.unlocked,
+    remix: dto.remix ?? false,
   }
 }
 

@@ -495,6 +495,7 @@
       durationSec: item.durationSec,
       locked: item.isPaid && !isUnlocked,
       unlocked: isUnlocked,
+      remix: item.remix,
     }
   }
 

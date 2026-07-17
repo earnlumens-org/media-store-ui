@@ -105,6 +105,33 @@
       "forbidden": "Please log in to continue."
     }
   },
+  "OriginalFirst": {
+    "remixBadge": "Remix",
+    "originalBy": "Original by",
+    "viewOriginal": "View original",
+    "claimMenu": "Claim as Original",
+    "claimTitle": "Claim as Original",
+    "claimIntro": "If this content was created by you, you can claim it as the original. The system automatically compares evidence (upload date, sales history, account seniority) and reassigns credit and revenue if your claim wins.",
+    "claimHint": "The review is instant and fully automatic — no tickets, no waiting. You need a published entry with the same content to claim. One claim per content, up to 5 claims per day.",
+    "claimSubmit": "Submit claim",
+    "claimGrantedTitle": "Claim granted",
+    "claimGrantedMessage": "You are now credited as the original creator. Attribution and revenue royalties have been reassigned automatically.",
+    "claimRejectedTitle": "Claim not granted",
+    "claimRejectedMessage": "The current holder's evidence outweighs yours. The attribution remains unchanged.",
+    "claimErrorTitle": "Claim not possible",
+    "scoreTitle": "Evidence review",
+    "yourScore": "Your score",
+    "holderScore": "Holder score",
+    "errors": {
+      "ENTRY_NOT_FOUND": "This content no longer exists.",
+      "NO_FINGERPRINT": "This content has no fingerprint yet, so it can't be claimed.",
+      "NO_MATCHING_ENTRY": "You need a published entry with this exact content to claim it as yours.",
+      "ALREADY_ORIGINAL": "You are already credited as the original creator of this content.",
+      "ALREADY_CLAIMED": "You already filed a claim for this content. Each claim is reviewed only once.",
+      "DAILY_CLAIM_LIMIT_REACHED": "You've reached the daily claim limit. Try again tomorrow.",
+      "GENERIC": "Something went wrong. Please try again."
+    }
+  },
   "ResellerLinks": {
     "title": "My reseller links",
     "subtitle": "Content you're reselling. Share these links to earn a commission on each sale.",
@@ -666,6 +693,11 @@
       "hint": "Let others share your content and earn a commission on each sale, taken from your share.",
       "commissionLabel": "Reseller commission",
       "commissionHint": "Between 5% and 20% of the total price. Defaults to 10%."
+    },
+    "originalFirst": {
+      "title": "Original First royalty",
+      "hint": "If someone re-uploads this content, they can publish it as a Remix — but this share of every sale goes to you automatically.",
+      "royaltyHint": "Between 5% and 50% of the total price. Defaults to 20%. It can never be zero — the original creator always earns."
     },
     "actions": {
       "upload": "Upload",

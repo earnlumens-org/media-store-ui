@@ -57,6 +57,7 @@
           </template>
           <v-list density="compact">
             <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
+            <v-list-item v-if="authStore.isAuthenticated" prepend-icon="mdi-certificate-outline" :title="$t('OriginalFirst.claimMenu')" @click="claimDialog = true" />
           </v-list>
         </v-menu>
       </template>
@@ -253,6 +254,7 @@
                   </template>
                   <v-list density="compact">
                     <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
+                    <v-list-item v-if="authStore.isAuthenticated" prepend-icon="mdi-certificate-outline" :title="$t('OriginalFirst.claimMenu')" @click="claimDialog = true" />
                   </v-list>
                 </v-menu>
               </div>
@@ -271,6 +273,21 @@
                 </template>
                 <span class="mx-1">•</span>
                 <span>{{ formatDate(entry.publishedAt) }}</span>
+              </div>
+
+              <!-- Original First: remix attribution -->
+              <div v-if="entry.remix" class="d-flex align-center flex-wrap ga-2 mt-2">
+                <v-chip color="deep-purple" label size="small" variant="tonal">
+                  <v-icon size="14" start>mdi-sync</v-icon>
+                  {{ $t('OriginalFirst.remixBadge') }}
+                </v-chip>
+                <span v-if="entry.originalAuthorUsername" class="text-caption text-medium-emphasis">
+                  {{ $t('OriginalFirst.originalBy') }}
+                  <router-link class="text-decoration-none" :to="`/${entry.originalAuthorUsername}`">@{{ entry.originalAuthorUsername }}</router-link>
+                </span>
+                <router-link v-if="entry.originalEntryId" class="text-caption text-decoration-none" :to="`/watch/${entry.originalEntryId}`">
+                  {{ $t('OriginalFirst.viewOriginal') }}
+                </router-link>
               </div>
 
               <!-- Author Row -->
@@ -411,6 +428,7 @@
   </v-container>
 
   <ReportDialog v-model="reportDialog" :entry-id="entryId" />
+  <ClaimOriginalDialog v-model="claimDialog" :entry-id="entryId" @granted="fetchEntry" />
   <TipDialog v-model="tipDialog" :target="tipTarget" />
 </template>
 
@@ -423,6 +441,7 @@
   import { api } from '@/api/api'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
+  import ClaimOriginalDialog from '@/components/entry/ClaimOriginalDialog.vue'
   import ShakaVideoPlayer from '@/components/media/ShakaVideoPlayer.vue'
   import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
@@ -465,6 +484,7 @@
   const descriptionExpanded = ref(false)
   const avatarBroken = ref(false)
   const reportDialog = ref(false)
+  const claimDialog = ref(false)
   const tipDialog = ref(false)
 
   /** Avatar URL — cleared when the OAuth provider image fails to load */

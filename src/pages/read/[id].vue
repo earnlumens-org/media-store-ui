@@ -61,6 +61,7 @@
           </template>
           <v-list density="compact">
             <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
+            <v-list-item v-if="authStore.isAuthenticated" prepend-icon="mdi-certificate-outline" :title="$t('OriginalFirst.claimMenu')" @click="claimDialog = true" />
           </v-list>
         </v-menu>
       </template>
@@ -231,6 +232,7 @@
                 </template>
                 <v-list density="compact">
                   <v-list-item prepend-icon="mdi-flag" :title="$t('Common.report')" @click="reportDialog = true" />
+                  <v-list-item v-if="authStore.isAuthenticated" prepend-icon="mdi-certificate-outline" :title="$t('OriginalFirst.claimMenu')" @click="claimDialog = true" />
                 </v-list>
               </v-menu>
             </div>
@@ -250,6 +252,21 @@
               <span class="mx-1">•</span>
               <span>{{ formatDate(entry.publishedAt) }}</span>
             </p>
+
+            <!-- Original First: remix attribution -->
+            <div v-if="entry.remix" class="d-flex align-center flex-wrap ga-2 mb-4">
+              <v-chip color="deep-purple" label size="small" variant="tonal">
+                <v-icon size="14" start>mdi-sync</v-icon>
+                {{ $t('OriginalFirst.remixBadge') }}
+              </v-chip>
+              <span v-if="entry.originalAuthorUsername" class="text-caption text-medium-emphasis">
+                {{ $t('OriginalFirst.originalBy') }}
+                <router-link class="text-decoration-none" :to="`/${entry.originalAuthorUsername}`">@{{ entry.originalAuthorUsername }}</router-link>
+              </span>
+              <router-link v-if="entry.originalEntryId" class="text-caption text-decoration-none" :to="`/read/${entry.originalEntryId}`">
+                {{ $t('OriginalFirst.viewOriginal') }}
+              </router-link>
+            </div>
 
             <!-- Author Block -->
             <v-sheet class="d-flex align-center pa-3 rounded-lg mb-6" color="surface">
@@ -510,6 +527,7 @@
   </div>
 
   <ReportDialog v-model="reportDialog" :entry-id="entryId" />
+  <ClaimOriginalDialog v-model="claimDialog" :entry-id="entryId" @granted="fetchEntry" />
   <TipDialog v-model="tipDialog" :target="tipTarget" />
 </template>
 
@@ -525,6 +543,7 @@
   import TipDialog from '@/components/checkout/TipDialog.vue'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
+  import ClaimOriginalDialog from '@/components/entry/ClaimOriginalDialog.vue'
   import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
   import ResellerButton from '@/components/reseller/ResellerButton.vue'
@@ -567,6 +586,7 @@
   const voteCount = ref(0)
   const avatarBroken = ref(false)
   const reportDialog = ref(false)
+  const claimDialog = ref(false)
   const tipDialog = ref(false)
 
   /** Avatar URL — cleared when the OAuth provider image fails to load */
