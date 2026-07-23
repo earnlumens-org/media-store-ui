@@ -179,7 +179,10 @@
     "updateAvailable": "Доступна новая версия.",
     "updateNow": "Обновить",
     "copy": "Копировать",
-    "copied": "Скопировано"
+    "copied": "Скопировано",
+    "installBannerTitle": "Установите {name}",
+    "installBannerSubtitle": "Входите в одно касание",
+    "installBannerCta": "Установить"
   },
   "Themes": {
     "title": "Выбор темы",

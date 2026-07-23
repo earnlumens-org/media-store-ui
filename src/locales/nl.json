@@ -179,7 +179,10 @@
     "updateAvailable": "Er is een nieuwe versie beschikbaar.",
     "updateNow": "Bijwerken",
     "copy": "Kopiëren",
-    "copied": "Gekopieerd"
+    "copied": "Gekopieerd",
+    "installBannerTitle": "Installeer {name}",
+    "installBannerSubtitle": "Binnen met één tik",
+    "installBannerCta": "Installeren"
   },
   "Themes": {
     "title": "Themakiezer",

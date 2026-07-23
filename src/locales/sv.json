@@ -243,7 +243,10 @@
     "linkCopied": "Länken har kopierats till urklipp",
     "tooManyRequests": "För många förfrågningar. Vänta ett ögonblick och försök igen.",
     "copy": "Kopiera",
-    "copied": "Kopierad"
+    "copied": "Kopierad",
+    "installBannerTitle": "Installera {name}",
+    "installBannerSubtitle": "Kom in med ett tryck",
+    "installBannerCta": "Installera"
   },
   "Themes": {
     "title": "Temaväljare",

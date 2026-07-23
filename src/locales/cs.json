@@ -243,7 +243,10 @@
     "linkCopied": "Odkaz zkopírován do schránky",
     "tooManyRequests": "Příliš mnoho požadavků. Chvíli počkejte a zkuste to znovu.",
     "copy": "Kopírovat",
-    "copied": "Zkopírováno"
+    "copied": "Zkopírováno",
+    "installBannerTitle": "Nainstalujte si {name}",
+    "installBannerSubtitle": "Vstupte jedním klepnutím",
+    "installBannerCta": "Instalovat"
   },
   "Themes": {
     "title": "Výběr motivu",

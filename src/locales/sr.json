@@ -243,7 +243,10 @@
     "linkCopied": "Линк је копиран у међуспремник",
     "tooManyRequests": "Превише захтева. Сачекајте тренутак и покушајте поново.",
     "copy": "Копирај",
-    "copied": "Копирано"
+    "copied": "Копирано",
+    "installBannerTitle": "Инсталирајте {name}",
+    "installBannerSubtitle": "Уђите једним додиром",
+    "installBannerCta": "Инсталирај"
   },
   "Themes": {
     "title": "Бирач тема",

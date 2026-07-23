@@ -179,7 +179,10 @@
     "updateAvailable": "ایک نیا ورژن دستیاب ہے۔",
     "updateNow": "اپ ڈیٹ کریں",
     "copy": "کاپی کریں",
-    "copied": "کاپی ہو گیا"
+    "copied": "کاپی ہو گیا",
+    "installBannerTitle": "{name} انسٹال کریں",
+    "installBannerSubtitle": "ایک ٹیپ میں داخل ہوں",
+    "installBannerCta": "انسٹال کریں"
   },
   "Themes": {
     "title": "تھیم سلیکٹر",

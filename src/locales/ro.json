@@ -243,7 +243,10 @@
     "linkCopied": "Link copiat în clipboard",
     "tooManyRequests": "Prea multe cereri. Te rugăm să aștepți un moment și să încerci din nou.",
     "copy": "Copiază",
-    "copied": "Copiat"
+    "copied": "Copiat",
+    "installBannerTitle": "Instalați {name}",
+    "installBannerSubtitle": "Intrați cu o singură atingere",
+    "installBannerCta": "Instalare"
   },
   "Themes": {
     "title": "Selector de teme",

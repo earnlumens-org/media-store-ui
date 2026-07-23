@@ -243,7 +243,10 @@
     "linkCopied": "Povezava je bila kopirana v odložišče",
     "tooManyRequests": "Preveč zahtev. Počakajte trenutek in poskusite znova.",
     "copy": "Kopiraj",
-    "copied": "Kopirano"
+    "copied": "Kopirano",
+    "installBannerTitle": "Namestite {name}",
+    "installBannerSubtitle": "Vstopite z enim dotikom",
+    "installBannerCta": "Namesti"
   },
   "Themes": {
     "title": "Izbirnik tem",

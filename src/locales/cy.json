@@ -243,7 +243,10 @@
     "linkCopied": "Dolen wedi'i chopïo i'r clipfwrdd",
     "tooManyRequests": "Gormod o geisiadau. Arhoswch funud a rhowch gynnig arall arni.",
     "copy": "Copïo",
-    "copied": "Wedi'i chopïo"
+    "copied": "Wedi'i chopïo",
+    "installBannerTitle": "Gosodwch {name}",
+    "installBannerSubtitle": "Mewnwch gydag un tap",
+    "installBannerCta": "Gosod"
   },
   "Themes": {
     "title": "Dewisydd thema",

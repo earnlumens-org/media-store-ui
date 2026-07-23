@@ -330,7 +330,10 @@
     "addedToFavorites": "Agregado a favoritos",
     "removedFromFavorites": "Eliminado de favoritos",
     "linkCopied": "Enlace copiado al portapapeles",
-    "tooManyRequests": "Demasiadas solicitudes. Por favor, espera un momento e intenta de nuevo."
+    "tooManyRequests": "Demasiadas solicitudes. Por favor, espera un momento e intenta de nuevo.",
+    "installBannerTitle": "Instala {name}",
+    "installBannerSubtitle": "Entra con un toque",
+    "installBannerCta": "Instalar"
   },
   "Themes": {
     "title": "Selector de temas",

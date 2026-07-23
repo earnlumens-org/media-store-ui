@@ -243,7 +243,10 @@
     "linkCopied": "Ο σύνδεσμος αντιγράφηκε στο πρόχειρο",
     "tooManyRequests": "Πάρα πολλά αιτήματα. Περιμένετε λίγο και προσπαθήστε ξανά.",
     "copy": "Αντιγραφή",
-    "copied": "Αντιγράφηκε"
+    "copied": "Αντιγράφηκε",
+    "installBannerTitle": "Εγκαταστήστε το {name}",
+    "installBannerSubtitle": "Μπείτε με ένα άγγιγμα",
+    "installBannerCta": "Εγκατάσταση"
   },
   "Themes": {
     "title": "Επιλογέας θεμάτων",

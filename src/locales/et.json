@@ -243,7 +243,10 @@
     "linkCopied": "Link on lõikelauale kopeeritud",
     "tooManyRequests": "Liiga palju taotlusi. Palun oodake veidi ja proovige uuesti.",
     "copy": "Kopeeri",
-    "copied": "Kopeeritud"
+    "copied": "Kopeeritud",
+    "installBannerTitle": "Installi {name}",
+    "installBannerSubtitle": "Sisene ühe puudutusega",
+    "installBannerCta": "Installi"
   },
   "Themes": {
     "title": "Teema valija",

@@ -243,7 +243,10 @@
     "linkCopied": "ສຳເນົາລິ້ງໃສ່ຄລິບບອດແລ້ວ",
     "tooManyRequests": "ການຮ້ອງຂໍຫຼາຍເກີນໄປ. ກະລຸນາລໍຖ້າຈັກໜ່ອຍແລ້ວລອງໃໝ່.",
     "copy": "ຄັດລອກ",
-    "copied": "ຄັດລອກແລ້ວ"
+    "copied": "ຄັດລອກແລ້ວ",
+    "installBannerTitle": "ຕິດຕັ້ງ {name}",
+    "installBannerSubtitle": "ເຂົ້າໄດ້ດ້ວຍການແຕະຄັ້ງດຽວ",
+    "installBannerCta": "ຕິດຕັ້ງ"
   },
   "Themes": {
     "title": "ຕົວເລືອກຫົວຂໍ້",

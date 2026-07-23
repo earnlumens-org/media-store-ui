@@ -179,7 +179,10 @@
     "updateAvailable": "એક નવું વર્ઝન ઉપલબ્ધ છે.",
     "updateNow": "અપડેટ કરો",
     "copy": "કૉપિ કરો",
-    "copied": "કૉપિ થઈ"
+    "copied": "કૉપિ થઈ",
+    "installBannerTitle": "{name} ઇન્સ્ટોલ કરો",
+    "installBannerSubtitle": "એક ટૅપમાં પ્રવેશ કરો",
+    "installBannerCta": "ઇન્સ્ટોલ કરો"
   },
   "Themes": {
     "title": "થીમ પસંદગીકાર",

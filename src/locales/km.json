@@ -243,7 +243,10 @@
     "linkCopied": "តំណត្រូវបានចម្លងទៅក្ដារតម្បៀតខ្ទាស់",
     "tooManyRequests": "សំណើច្រើនពេក។ សូមរង់ចាំមួយភ្លែត ហើយព្យាយាមម្តងទៀត។",
     "copy": "ចម្លង",
-    "copied": "បានចម្លង"
+    "copied": "បានចម្លង",
+    "installBannerTitle": "ដំឡើង {name}",
+    "installBannerSubtitle": "ចូលដោយប៉ះម្តង",
+    "installBannerCta": "ដំឡើង"
   },
   "Themes": {
     "title": "កម្មវិធីជ្រើសរើសប្រធានបទ",

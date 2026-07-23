@@ -179,7 +179,10 @@
     "updateAvailable": "Versi baharu tersedia.",
     "updateNow": "Kemas kini",
     "copy": "Salin",
-    "copied": "Disalin"
+    "copied": "Disalin",
+    "installBannerTitle": "Pasang {name}",
+    "installBannerSubtitle": "Masuk dengan satu ketikan",
+    "installBannerCta": "Pasang"
   },
   "Themes": {
     "title": "Pemilih Tema",

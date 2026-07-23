@@ -179,7 +179,10 @@
     "updateAvailable": "ಹೊಸ ಆವೃತ್ತಿ ಲಭ್ಯವಿದೆ.",
     "updateNow": "ನವೀಕರಿಸಿ",
     "copy": "ನಕಲಿಸಿ",
-    "copied": "ನಕಲಿಸಲಾಗಿದೆ"
+    "copied": "ನಕಲಿಸಲಾಗಿದೆ",
+    "installBannerTitle": "{name} ಸ್ಥಾಪಿಸಿ",
+    "installBannerSubtitle": "ಒಂದೇ ಟ್ಯಾಪ್‌ನಲ್ಲಿ ಪ್ರವೇಶಿಸಿ",
+    "installBannerCta": "ಸ್ಥಾಪಿಸಿ"
   },
   "Themes": {
     "title": "ಥೀಮ್ ಆಯ್ಕೆಗಾರ",

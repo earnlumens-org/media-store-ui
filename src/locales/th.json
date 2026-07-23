@@ -179,7 +179,10 @@
     "updateAvailable": "มีเวอร์ชันใหม่พร้อมใช้งาน",
     "updateNow": "อัปเดต",
     "copy": "คัดลอก",
-    "copied": "คัดลอกแล้ว"
+    "copied": "คัดลอกแล้ว",
+    "installBannerTitle": "ติดตั้ง {name}",
+    "installBannerSubtitle": "เข้าใช้ได้ในแตะเดียว",
+    "installBannerCta": "ติดตั้ง"
   },
   "Themes": {
     "title": "ตัวเลือกธีม",

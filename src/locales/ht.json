@@ -243,7 +243,10 @@
     "linkCopied": "Lyen kopye nan clipboard",
     "tooManyRequests": "Twòp demann. Tanpri tann yon ti moman epi eseye ankò.",
     "copy": "Kopye",
-    "copied": "Kopye"
+    "copied": "Kopye",
+    "installBannerTitle": "Enstale {name}",
+    "installBannerSubtitle": "Antre ak yon sèl tape",
+    "installBannerCta": "Enstale"
   },
   "Themes": {
     "title": "Seleksyon tèm",

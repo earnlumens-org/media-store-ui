@@ -243,7 +243,10 @@
     "linkCopied": "Linkki kopioitu leikepöydälle",
     "tooManyRequests": "Liian monta pyyntöä. Odota hetki ja yritä uudelleen.",
     "copy": "Kopioi",
-    "copied": "Kopioitu"
+    "copied": "Kopioitu",
+    "installBannerTitle": "Asenna {name}",
+    "installBannerSubtitle": "Sisään yhdellä napautuksella",
+    "installBannerCta": "Asenna"
   },
   "Themes": {
     "title": "Teeman valitsin",

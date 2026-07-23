@@ -179,7 +179,10 @@
     "updateAvailable": "È disponibile una nuova versione.",
     "updateNow": "Aggiorna",
     "copy": "Copia",
-    "copied": "Copiato"
+    "copied": "Copiato",
+    "installBannerTitle": "Installa {name}",
+    "installBannerSubtitle": "Entra con un tocco",
+    "installBannerCta": "Installa"
   },
   "Themes": {
     "title": "Selettore temi",

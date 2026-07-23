@@ -330,7 +330,10 @@
     "addedToFavorites": "Added to favorites",
     "removedFromFavorites": "Removed from favorites",
     "linkCopied": "Link copied to clipboard",
-    "tooManyRequests": "Too many requests. Please wait a moment and try again."
+    "tooManyRequests": "Too many requests. Please wait a moment and try again.",
+    "installBannerTitle": "Install {name}",
+    "installBannerSubtitle": "Get in with one tap",
+    "installBannerCta": "Install"
   },
   "Themes": {
     "title": "Theme Selector",

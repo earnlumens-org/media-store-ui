@@ -243,7 +243,10 @@
     "linkCopied": "Հղումը պատճենվեց սեղմատախտակին",
     "tooManyRequests": "Չափազանց շատ խնդրանքներ: Խնդրում ենք սպասել մի պահ և նորից փորձել:",
     "copy": "Պատճենել",
-    "copied": "Պատճենվեց"
+    "copied": "Պատճենվեց",
+    "installBannerTitle": "Տեղադրեք {name}-ը",
+    "installBannerSubtitle": "Մուտք գործեք մեկ հպումով",
+    "installBannerCta": "Տեղադրել"
   },
   "Themes": {
     "title": "Թեմայի ընտրիչ",

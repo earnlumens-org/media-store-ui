@@ -38,7 +38,7 @@
       prepend-icon="mdi-apple"
       rounded="lg"
       size="large"
-      @click="showIosDialog = true"
+      @click="openInstructions('ios')"
     >
       Install app
     </v-btn>
@@ -52,7 +52,7 @@
       prepend-icon="mdi-android"
       rounded="lg"
       size="large"
-      @click="showAndroidDialog = true"
+      @click="openInstructions('android')"
     >
       Install app
     </v-btn>
@@ -69,86 +69,11 @@
       <strong>Edge</strong> and use “Install app”.
     </v-alert>
 
-    <!-- Android manual instructions -->
-    <v-dialog v-model="showAndroidDialog" max-width="440">
-      <v-card rounded="lg">
-        <v-card-title class="d-flex align-center text-h6">
-          <v-icon class="me-2">mdi-android</v-icon>
-          Install on Android
-        </v-card-title>
-        <v-card-text>
-          <p class="mb-3">
-            If the app is already installed, open it from your home screen or
-            app drawer — there is nothing else to do.
-          </p>
-          <p class="mb-2">Otherwise, to install it:</p>
-          <ol class="ios-steps">
-            <li>
-              Open the browser menu
-              <v-icon class="mx-1" size="small">mdi-dots-vertical</v-icon>
-              (in Samsung Internet, the
-              <v-icon class="mx-1" size="small">mdi-menu</v-icon> menu).
-            </li>
-            <li>
-              Choose <strong>“Add to Home screen”</strong> or
-              <strong>“Install app”</strong>.
-            </li>
-            <li>Confirm with <strong>“Install”</strong> / <strong>“Add”</strong>.</li>
-          </ol>
-          <p class="mt-3 mb-0 text-medium-emphasis">
-            If you opened this page from inside another app, use its menu to
-            open the site in your browser first.
-          </p>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn variant="text" @click="showAndroidDialog = false">Got it</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-
-    <!-- iOS Add-to-Home-Screen instructions -->
-    <v-dialog v-model="showIosDialog" max-width="440">
-      <v-card rounded="lg">
-        <v-card-title class="d-flex align-center text-h6">
-          <v-icon class="me-2">mdi-apple</v-icon>
-          Install on iPhone / iPad
-        </v-card-title>
-        <v-card-text>
-          <v-alert
-            v-if="!iosSupported"
-            class="mb-4"
-            density="comfortable"
-            type="warning"
-            variant="tonal"
-          >
-            Your iOS version{{ iosVersion ? ` (${iosVersion})` : '' }} is older
-            than 16.4. You can still add the app to your Home Screen, but sign-in
-            and some features may not work reliably. Updating iOS is recommended.
-          </v-alert>
-
-          <ol class="ios-steps">
-            <li>
-              Tap the
-              <v-icon class="mx-1" size="small">mdi-export-variant</v-icon>
-              <strong>Share</strong> button in the browser toolbar.
-            </li>
-            <li>
-              Scroll down and choose
-              <strong>“Add to Home Screen”</strong>
-              <v-icon class="mx-1" size="small">mdi-plus-box-outline</v-icon>.
-            </li>
-            <li>
-              Tap <strong>“Add”</strong> in the top-right corner.
-            </li>
-          </ol>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn variant="text" @click="showIosDialog = false">Got it</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+    <!-- Manual install instructions (shared with InstallAppBanner) -->
+    <InstallInstructionsDialog
+      v-model="showInstructions"
+      :platform="instructionsPlatform"
+    />
 
     <v-snackbar v-model="snackbar" color="success" :timeout="3000">
       {{ snackbarText }}
@@ -158,44 +83,30 @@
 
 <script setup lang="ts">
   import { ref } from 'vue'
+  import InstallInstructionsDialog from '@/components/pwa/InstallInstructionsDialog.vue'
   import { usePwaInstall } from '@/lib/pwaInstall'
 
-  const { installState, platform, iosVersion, iosSupported, promptInstall } = usePwaInstall()
+  const { installState, platform, promptInstall } = usePwaInstall()
 
-  const showIosDialog = ref(false)
-  const showAndroidDialog = ref(false)
+  const showInstructions = ref(false)
+  const instructionsPlatform = ref<'ios' | 'android'>('android')
   const snackbar = ref(false)
   const snackbarText = ref('')
+
+  function openInstructions (p: 'ios' | 'android') {
+    instructionsPlatform.value = p
+    showInstructions.value = true
+  }
 
   async function onNativeInstall () {
     const outcome = await promptInstall()
     if (outcome === 'accepted') {
       snackbarText.value = 'App installed'
       snackbar.value = true
-    } else if (outcome === 'unavailable') {
+    } else if (outcome === 'unavailable' && (platform.value === 'android' || platform.value === 'ios')) {
       // The captured prompt was consumed or never (re-)fired — don't leave a
       // dead button: fall back to the platform's manual instructions.
-      if (platform.value === 'android') {
-        showAndroidDialog.value = true
-      } else if (platform.value === 'ios') {
-        showIosDialog.value = true
-      }
+      openInstructions(platform.value)
     }
   }
 </script>
-
-<style scoped>
-.ios-steps {
-  padding-left: 1.25rem;
-  margin: 0;
-}
-
-.ios-steps li {
-  margin-bottom: 0.75rem;
-  line-height: 1.5;
-}
-
-.ios-steps li:last-child {
-  margin-bottom: 0;
-}
-</style>

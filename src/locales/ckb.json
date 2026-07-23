@@ -243,7 +243,10 @@
     "linkCopied": "بەستەرەکە کۆپی کراوە بۆ کلیپبۆرد",
     "tooManyRequests": "داواکاری زۆر. تکایە ساتێک چاوەڕێ بکە و دووبارە هەوڵبدەرەوە.",
     "copy": "کۆپی",
-    "copied": "کۆپی کرا"
+    "copied": "کۆپی کرا",
+    "installBannerTitle": "{name} دابمەزرێنە",
+    "installBannerSubtitle": "بە یەک لێدان بچۆ ژوورەوە",
+    "installBannerCta": "دامەزراندن"
   },
   "Themes": {
     "title": "هەڵبژێرەری تەوەر",

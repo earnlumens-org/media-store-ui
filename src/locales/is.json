@@ -243,7 +243,10 @@
     "linkCopied": "Tengill afritaður á klemmispjald",
     "tooManyRequests": "Of margar beiðnir. Endilega bíddu stund og reyndu aftur.",
     "copy": "Afrita",
-    "copied": "Afritað"
+    "copied": "Afritað",
+    "installBannerTitle": "Settu upp {name}",
+    "installBannerSubtitle": "Komdu inn með einni snertingu",
+    "installBannerCta": "Setja upp"
   },
   "Themes": {
     "title": "Þemaveljari",

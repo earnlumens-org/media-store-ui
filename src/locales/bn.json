@@ -179,7 +179,10 @@
     "updateAvailable": "একটি নতুন সংস্করণ উপলব্ধ।",
     "updateNow": "আপডেট করুন",
     "copy": "কপি করুন",
-    "copied": "কপি হয়েছে"
+    "copied": "কপি হয়েছে",
+    "installBannerTitle": "{name} ইনস্টল করুন",
+    "installBannerSubtitle": "এক ট্যাপে প্রবেশ করুন",
+    "installBannerCta": "ইনস্টল করুন"
   },
   "Themes": {
     "title": "থিম নির্বাচক",

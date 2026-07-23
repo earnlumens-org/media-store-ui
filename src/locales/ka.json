@@ -243,7 +243,10 @@
     "linkCopied": "ბმული კოპირებულია ბუფერში",
     "tooManyRequests": "ძალიან ბევრი მოთხოვნა. გთხოვთ, დაელოდოთ ცოტა ხანს და სცადოთ ხელახლა.",
     "copy": "კოპირება",
-    "copied": "დაკოპირდა"
+    "copied": "დაკოპირდა",
+    "installBannerTitle": "დააინსტალირეთ {name}",
+    "installBannerSubtitle": "შედით ერთი შეხებით",
+    "installBannerCta": "ინსტალაცია"
   },
   "Themes": {
     "title": "თემის ამომრჩევი",

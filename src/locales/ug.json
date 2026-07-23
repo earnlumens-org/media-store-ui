@@ -243,7 +243,10 @@
     "linkCopied": "ئۇلىنىش چاپلاش تاختىسىغا كۆچۈرۈلدى",
     "tooManyRequests": "بەك كۆپ تەلەپ. بىر ئاز ساقلاپ قايتا سىناڭ.",
     "copy": "كۆچۈرۈش",
-    "copied": "كۆچۈرۈلدى"
+    "copied": "كۆچۈرۈلدى",
+    "installBannerTitle": "{name} نى قاچىلاڭ",
+    "installBannerSubtitle": "بىر چېكىشتىلا كىرىڭ",
+    "installBannerCta": "قاچىلاش"
   },
   "Themes": {
     "title": "باشتېما تاللىغۇچ",

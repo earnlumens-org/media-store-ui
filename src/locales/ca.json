@@ -243,7 +243,10 @@
     "linkCopied": "Enllaç copiat al porta-retalls",
     "tooManyRequests": "Massa sol·licituds. Espera un moment i torna-ho a provar.",
     "copy": "Copia",
-    "copied": "Copiat"
+    "copied": "Copiat",
+    "installBannerTitle": "Instal·la {name}",
+    "installBannerSubtitle": "Entra amb un toc",
+    "installBannerCta": "Instal·la"
   },
   "Themes": {
     "title": "Selector de tema",

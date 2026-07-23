@@ -179,7 +179,10 @@
     "updateAvailable": "Đã có phiên bản mới.",
     "updateNow": "Cập nhật",
     "copy": "Sao chép",
-    "copied": "Đã sao chép"
+    "copied": "Đã sao chép",
+    "installBannerTitle": "Cài đặt {name}",
+    "installBannerSubtitle": "Vào ngay chỉ với một chạm",
+    "installBannerCta": "Cài đặt"
   },
   "Themes": {
     "title": "Bộ chọn chủ đề",

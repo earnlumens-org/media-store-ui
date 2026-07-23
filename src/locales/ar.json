@@ -179,7 +179,10 @@
     "updateAvailable": "يتوفّر إصدار جديد.",
     "updateNow": "تحديث",
     "copy": "نسخ",
-    "copied": "تم النسخ"
+    "copied": "تم النسخ",
+    "installBannerTitle": "ثبّت {name}",
+    "installBannerSubtitle": "ادخل بلمسة واحدة",
+    "installBannerCta": "تثبيت"
   },
   "Themes": {
     "title": "محدد السمات",

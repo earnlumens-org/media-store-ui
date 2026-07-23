@@ -243,7 +243,10 @@
     "linkCopied": "Link kopiert til utklippstavlen",
     "tooManyRequests": "For mange forespørsler. Vent et øyeblikk og prøv igjen.",
     "copy": "Kopier",
-    "copied": "Kopiert"
+    "copied": "Kopiert",
+    "installBannerTitle": "Installer {name}",
+    "installBannerSubtitle": "Kom inn med ett trykk",
+    "installBannerCta": "Installer"
   },
   "Themes": {
     "title": "Temavelger",

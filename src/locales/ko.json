@@ -179,7 +179,10 @@
     "updateAvailable": "새 버전을 사용할 수 있습니다.",
     "updateNow": "업데이트",
     "copy": "복사",
-    "copied": "복사됨"
+    "copied": "복사됨",
+    "installBannerTitle": "{name} 설치",
+    "installBannerSubtitle": "한 번의 탭으로 바로 접속",
+    "installBannerCta": "설치"
   },
   "Themes": {
     "title": "테마 선택기",

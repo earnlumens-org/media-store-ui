@@ -13,6 +13,13 @@
     <router-view v-else-if="tenantStore.isReady" />
 
     <!--
+      Mobile-only install banner (VidrieraTDF style). Hidden when running as
+      an installed PWA, after the user closes it, or after navigating away
+      from the landing route — only a full reload brings it back.
+    -->
+    <InstallAppBanner v-if="tenantStore.isReady && !tenantStore.isNotFound" />
+
+    <!--
       Bootstrap loader: shown after Vue mounts but while the tenant probe is
       still resolving (isReady === false, isNotFound === false). Without it the
       v-app would render empty and the screen would go black on cold starts /
@@ -98,6 +105,7 @@
 <script setup lang="ts">
   import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
   import { useTheme } from 'vuetify'
+  import InstallAppBanner from '@/components/pwa/InstallAppBanner.vue'
   import TenantNotFoundPage from '@/components/TenantNotFoundPage.vue'
   import { DEFAULT_DARK_THEME, DEFAULT_LIGHT_THEME } from '@/plugins/vuetify'
   import { applyUpdate, dismissUpdatePrompt, updatePromptVisible } from '@/services/appUpdate'

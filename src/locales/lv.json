@@ -243,7 +243,10 @@
     "linkCopied": "Saite ir kopēta starpliktuvē",
     "tooManyRequests": "Pārāk daudz pieprasījumu. Lūdzu, uzgaidiet brīdi un mēģiniet vēlreiz.",
     "copy": "Kopēt",
-    "copied": "Nokopēts"
+    "copied": "Nokopēts",
+    "installBannerTitle": "Instalējiet {name}",
+    "installBannerSubtitle": "Ienāciet ar vienu pieskārienu",
+    "installBannerCta": "Instalēt"
   },
   "Themes": {
     "title": "Tēmas atlasītājs",

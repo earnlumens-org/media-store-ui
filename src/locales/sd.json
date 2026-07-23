@@ -243,7 +243,10 @@
     "linkCopied": "لنڪ ڪلپ بورڊ تي ڪاپي ٿي وئي",
     "tooManyRequests": "تمام گهڻيون درخواستون. مهرباني ڪري هڪ لمحو انتظار ڪريو ۽ ٻيهر ڪوشش ڪريو.",
     "copy": "ڪاپي",
-    "copied": "ڪاپي ٿي"
+    "copied": "ڪاپي ٿي",
+    "installBannerTitle": "{name} انسٽال ڪريو",
+    "installBannerSubtitle": "هڪ ٽيپ سان داخل ٿيو",
+    "installBannerCta": "انسٽال ڪريو"
   },
   "Themes": {
     "title": "ٿيم چونڊيندڙ",

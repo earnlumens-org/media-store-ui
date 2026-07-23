@@ -179,7 +179,10 @@
     "updateAvailable": "པར་གཞི་གསར་པ་ཞིག་ཐོབ་ཐུབ།",
     "updateNow": "གསར་བཅོས།",
     "copy": "འདྲ་བཤུས།",
-    "copied": "འདྲ་བཤུས་བྱུང་།"
+    "copied": "འདྲ་བཤུས་བྱུང་།",
+    "installBannerTitle": "{name} སྒྲིག་འཇུག་བྱོས།",
+    "installBannerSubtitle": "ཐེབས་གཅིག་གིས་ནང་འཛུལ།",
+    "installBannerCta": "སྒྲིག་འཇུག"
   },
   "Themes": {
     "title": "རྣམ་པ་འདེམས་ཆས་",

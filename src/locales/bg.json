@@ -243,7 +243,10 @@
     "linkCopied": "Връзката е копирана в клипборда",
     "tooManyRequests": "Твърде много заявки. Моля, изчакайте малко и опитайте отново.",
     "copy": "Копиране",
-    "copied": "Копирано"
+    "copied": "Копирано",
+    "installBannerTitle": "Инсталирайте {name}",
+    "installBannerSubtitle": "Влизайте с едно докосване",
+    "installBannerCta": "Инсталиране"
   },
   "Themes": {
     "title": "Избор на тема",

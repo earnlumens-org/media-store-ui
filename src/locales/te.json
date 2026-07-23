@@ -179,7 +179,10 @@
     "updateAvailable": "కొత్త వెర్షన్ అందుబాటులో ఉంది.",
     "updateNow": "నవీకరించండి",
     "copy": "కాపీ చేయండి",
-    "copied": "కాపీ అయింది"
+    "copied": "కాపీ అయింది",
+    "installBannerTitle": "{name} ఇన్‌స్టాల్ చేయండి",
+    "installBannerSubtitle": "ఒక్క ట్యాప్‌తో ప్రవేశించండి",
+    "installBannerCta": "ఇన్‌స్టాల్"
   },
   "Themes": {
     "title": "థీమ్ సెలెక్టర్",

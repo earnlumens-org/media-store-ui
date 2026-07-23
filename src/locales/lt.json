@@ -243,7 +243,10 @@
     "linkCopied": "Nuoroda nukopijuota į mainų sritį",
     "tooManyRequests": "Per daug prašymų. Šiek tiek palaukite ir bandykite dar kartą.",
     "copy": "Kopijuoti",
-    "copied": "Nukopijuota"
+    "copied": "Nukopijuota",
+    "installBannerTitle": "Įdiekite {name}",
+    "installBannerSubtitle": "Įeikite vienu palietimu",
+    "installBannerCta": "Įdiegti"
   },
   "Themes": {
     "title": "Temos parinkiklis",

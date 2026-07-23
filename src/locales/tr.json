@@ -179,7 +179,10 @@
     "updateAvailable": "Yeni bir sürüm mevcut.",
     "updateNow": "Güncelle",
     "copy": "Kopyala",
-    "copied": "Kopyalandı"
+    "copied": "Kopyalandı",
+    "installBannerTitle": "{name} uygulamasını yükleyin",
+    "installBannerSubtitle": "Tek dokunuşla girin",
+    "installBannerCta": "Yükle"
   },
   "Themes": {
     "title": "Tema Seçici",

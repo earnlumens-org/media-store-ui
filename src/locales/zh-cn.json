@@ -179,7 +179,10 @@
     "updateAvailable": "有新版本可用。",
     "updateNow": "更新",
     "copy": "复制",
-    "copied": "已复制"
+    "copied": "已复制",
+    "installBannerTitle": "安装 {name}",
+    "installBannerSubtitle": "轻点一下即可进入",
+    "installBannerCta": "安装"
   },
   "Themes": {
     "title": "主题选择器",

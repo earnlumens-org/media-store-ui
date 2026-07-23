@@ -179,7 +179,10 @@
     "updateAvailable": "ဗားရှင်းအသစ် ရရှိနိုင်ပါသည်။",
     "updateNow": "မွမ်းမံရန်",
     "copy": "ကူးပါ",
-    "copied": "ကူးပြီးပါပြီ"
+    "copied": "ကူးပြီးပါပြီ",
+    "installBannerTitle": "{name} ကို ထည့်သွင်းပါ",
+    "installBannerSubtitle": "တစ်ချက်နှိပ်ရုံဖြင့် ဝင်ရောက်ပါ",
+    "installBannerCta": "ထည့်သွင်းရန်"
   },
   "Themes": {
     "title": "အပြင်အဆင် ရွေးချယ်မှု",

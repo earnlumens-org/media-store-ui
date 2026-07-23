@@ -179,7 +179,10 @@
     "updateAvailable": "May bagong bersyon na available.",
     "updateNow": "I-update",
     "copy": "Kopyahin",
-    "copied": "Nakopya"
+    "copied": "Nakopya",
+    "installBannerTitle": "I-install ang {name}",
+    "installBannerSubtitle": "Pumasok sa isang tap",
+    "installBannerCta": "I-install"
   },
   "Themes": {
     "title": "Theme Selector",

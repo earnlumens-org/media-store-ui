@@ -243,7 +243,10 @@
     "linkCopied": "הקישור הועתק ללוח",
     "tooManyRequests": "יותר מדי בקשות. אנא המתן רגע ונסה שוב.",
     "copy": "העתק",
-    "copied": "הועתק"
+    "copied": "הועתק",
+    "installBannerTitle": "התקינו את {name}",
+    "installBannerSubtitle": "נכנסים בנגיעה אחת",
+    "installBannerCta": "התקנה"
   },
   "Themes": {
     "title": "בורר ערכות נושא",

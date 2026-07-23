@@ -179,7 +179,10 @@
     "updateAvailable": "አዲስ ስሪት ይገኛል።",
     "updateNow": "አዘምን",
     "copy": "ቅዳ",
-    "copied": "ተቀድቷል"
+    "copied": "ተቀድቷል",
+    "installBannerTitle": "{name} ይጫኑ",
+    "installBannerSubtitle": "በአንድ ንክኪ ይግቡ",
+    "installBannerCta": "ይጫኑ"
   },
   "Themes": {
     "title": "ገጽታ መራጭ",

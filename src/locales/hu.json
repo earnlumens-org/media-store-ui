@@ -243,7 +243,10 @@
     "linkCopied": "Hivatkozás a vágólapra másolva",
     "tooManyRequests": "Túl sok kérés. Kérjük, várj egy kicsit, majd próbáld újra.",
     "copy": "Másolás",
-    "copied": "Másolva"
+    "copied": "Másolva",
+    "installBannerTitle": "Telepítse a {name} alkalmazást",
+    "installBannerSubtitle": "Belépés egyetlen érintéssel",
+    "installBannerCta": "Telepítés"
   },
   "Themes": {
     "title": "Témaválasztó",

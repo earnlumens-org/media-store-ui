@@ -179,7 +179,10 @@
     "updateAvailable": "نسخهٔ جدیدی در دسترس است.",
     "updateNow": "به‌روزرسانی",
     "copy": "کپی",
-    "copied": "کپی شد"
+    "copied": "کپی شد",
+    "installBannerTitle": "{name} را نصب کنید",
+    "installBannerSubtitle": "با یک لمس وارد شوید",
+    "installBannerCta": "نصب"
   },
   "Themes": {
     "title": "انتخابگر پوسته",

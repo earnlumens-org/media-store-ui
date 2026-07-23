@@ -243,7 +243,10 @@
     "linkCopied": "ലിങ്ക് ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്തി",
     "tooManyRequests": "വളരെയധികം അഭ്യർത്ഥനകൾ. ദയവായി അൽപ്പം കാത്തിരുന്ന് വീണ്ടും ശ്രമിക്കുക.",
     "copy": "പകർത്തുക",
-    "copied": "പകർത്തി"
+    "copied": "പകർത്തി",
+    "installBannerTitle": "{name} ഇൻസ്റ്റാൾ ചെയ്യുക",
+    "installBannerSubtitle": "ഒറ്റ ടാപ്പിൽ പ്രവേശിക്കുക",
+    "installBannerCta": "ഇൻസ്റ്റാൾ"
   },
   "Themes": {
     "title": "തീം സെലക്ടർ",

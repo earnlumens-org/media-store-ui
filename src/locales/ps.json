@@ -179,7 +179,10 @@
     "updateAvailable": "یوه نوې نسخه شتون لري.",
     "updateNow": "تازه کړئ",
     "copy": "کاپي",
-    "copied": "کاپي شو"
+    "copied": "کاپي شو",
+    "installBannerTitle": "{name} نصب کړئ",
+    "installBannerSubtitle": "په یوه ټچ سره ننوځئ",
+    "installBannerCta": "نصبول"
   },
   "Themes": {
     "title": "موضوع ټاکونکی",

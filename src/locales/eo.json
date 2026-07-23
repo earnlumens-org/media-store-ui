@@ -243,7 +243,10 @@
     "linkCopied": "Ligilo kopiita al tondujo",
     "tooManyRequests": "Tro multaj petoj. Bonvolu atendi momenton kaj reprovi.",
     "copy": "Kopii",
-    "copied": "Kopiita"
+    "copied": "Kopiita",
+    "installBannerTitle": "Instalu {name}",
+    "installBannerSubtitle": "Eniru per unu tuŝo",
+    "installBannerCta": "Instali"
   },
   "Themes": {
     "title": "Elektilo de etoso",

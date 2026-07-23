@@ -243,7 +243,10 @@
     "linkCopied": "සබැඳිය clipboard එකට පිටපත් විය",
     "tooManyRequests": "ඉල්ලීම් වැඩිය. කරුණාකර මොහොතක් රැඳී නැවත උත්සාහ කරන්න.",
     "copy": "පිටපත් කරන්න",
-    "copied": "පිටපත් විය"
+    "copied": "පිටපත් විය",
+    "installBannerTitle": "{name} ස්ථාපනය කරන්න",
+    "installBannerSubtitle": "එක් ටැප් එකකින් ඇතුළු වන්න",
+    "installBannerCta": "ස්ථාපනය"
   },
   "Themes": {
     "title": "තේමා තේරීම",

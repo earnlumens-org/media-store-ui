@@ -243,7 +243,10 @@
     "linkCopied": "Esteka arbelean kopiatu da",
     "tooManyRequests": "Eskaera gehiegi. Itxaron une bat eta saiatu berriro.",
     "copy": "Kopiatu",
-    "copied": "Kopiatuta"
+    "copied": "Kopiatuta",
+    "installBannerTitle": "Instalatu {name}",
+    "installBannerSubtitle": "Sartu ukitu batez",
+    "installBannerCta": "Instalatu"
   },
   "Themes": {
     "title": "Gaien hautatzailea",
