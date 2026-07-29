@@ -2,10 +2,17 @@
   <v-dialog
     v-model="dialogModel"
     max-width="480"
-    persistent
   >
     <v-card>
-      <v-card-title class="d-flex align-center ga-2">
+      <v-btn
+        icon="mdi-close"
+        size="small"
+        style="position: absolute; right: 8px; top: 8px;"
+        variant="text"
+        @click="close"
+      />
+
+      <v-card-title class="d-flex align-center ga-2 pe-10">
         <v-icon color="error" icon="mdi-flag" />
         {{ t('report.title') }}
       </v-card-title>
