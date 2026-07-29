@@ -48,15 +48,7 @@
       persistent
       scrim="rgba(0, 0, 0, 0.55)"
     >
-      <v-btn
-        color="white"
-        prepend-icon="mdi-lock"
-        rounded="pill"
-        :to="entryRoute"
-        variant="elevated"
-      >
-        {{ $t('Common.blocked') }}
-      </v-btn>
+      <CxLockPriceButton :price="entry" :to="entryRoute" />
     </v-overlay>
   </router-link>
 </template>
@@ -66,6 +58,7 @@
 
   import { computed } from 'vue'
 
+  import CxLockPriceButton from '@/components/CxLockPriceButton.vue'
   import MediaFrame from '@/components/media/MediaFrame.vue'
 
   import { getEntryRoute } from '../entryRoute'

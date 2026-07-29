@@ -495,6 +495,9 @@
       durationSec: item.durationSec,
       locked: item.isPaid && !isUnlocked,
       unlocked: isUnlocked,
+      priceXlm: item.priceXlm,
+      priceUsd: item.priceUsd,
+      priceCurrency: item.priceCurrency,
       remix: item.remix,
     }
   }
@@ -516,6 +519,9 @@
       itemsCount: item.itemCount,
       locked: item.isPaid && !isUnlocked,
       unlocked: isUnlocked,
+      priceXlm: item.priceXlm,
+      priceUsd: item.priceUsd,
+      priceCurrency: item.priceCurrency,
     }
   }
 

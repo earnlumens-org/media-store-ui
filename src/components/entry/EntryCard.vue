@@ -41,6 +41,10 @@
     durationSec?: number
     locked?: boolean
     unlocked?: boolean
+    /** Price fields (already part of every feed payload) shown on the locked overlay. */
+    priceXlm?: number
+    priceUsd?: number
+    priceCurrency?: 'XLM' | 'USD'
     /** True when this entry was detected as a remix of earlier content. */
     remix?: boolean
   }

@@ -452,6 +452,9 @@
       durationSec: item.durationSec,
       locked: item.locked,
       unlocked: item.unlocked,
+      priceXlm: item.priceXlm,
+      priceUsd: item.priceUsd,
+      priceCurrency: item.priceCurrency,
     }
   }
 
@@ -469,6 +472,9 @@
       itemsCount: item.itemCount,
       locked: item.locked,
       unlocked: item.unlocked,
+      priceXlm: item.priceXlm,
+      priceUsd: item.priceUsd,
+      priceCurrency: item.priceCurrency,
     }
   }
 

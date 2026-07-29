@@ -220,6 +220,9 @@
         coverSrcset: m.coverSrcset,
         itemsCount: m.itemCount,
         locked: m.locked,
+        priceXlm: m.priceXlm,
+        priceUsd: m.priceUsd,
+        priceCurrency: m.priceCurrency,
       }
       return { kind: 'collection', collection }
     }
@@ -235,6 +238,9 @@
       thumbnailSrcset: m.thumbnailSrcset,
       durationSec: m.durationSec,
       locked: m.locked,
+      priceXlm: m.priceXlm,
+      priceUsd: m.priceUsd,
+      priceCurrency: m.priceCurrency,
       remix: m.remix,
     }
     return { kind: 'entry', entry }

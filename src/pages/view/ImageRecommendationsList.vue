@@ -109,15 +109,7 @@
               color="rgba(0, 0, 0, 0.55)"
               style="top: 0; left: 0; right: 0; bottom: 0;"
             >
-              <v-chip
-                color="white"
-                rounded="pill"
-                size="small"
-                variant="elevated"
-              >
-                <v-icon class="me-1" size="14">mdi-lock</v-icon>
-                {{ $t('Common.blocked') }}
-              </v-chip>
+              <CxLockPriceButton :price="item" variant="chip" />
             </v-sheet>
           </v-img>
           <v-sheet
@@ -139,6 +131,7 @@
   import { onMounted, ref, watch } from 'vue'
 
   import { api } from '@/api/api'
+  import CxLockPriceButton from '@/components/CxLockPriceButton.vue'
   import { usePurchasesStore } from '@/stores/purchases'
 
   interface Props {

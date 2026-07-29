@@ -27,6 +27,7 @@ declare module 'vue' {
     CxHistory: typeof import('./components/wallet/CxHistory.vue')['default']
     CxLanguageDialog: typeof import('./components/CxLanguageDialog.vue')['default']
     CxLineChartCard: typeof import('./components/CxLineChartCard.vue')['default']
+    CxLockPriceButton: typeof import('./components/CxLockPriceButton.vue')['default']
     CxLoginDialog: typeof import('./components/CxLoginDialog.vue')['default']
     CxPopoverMenu: typeof import('./components/CxPopoverMenu.vue')['default']
     CxSearchDialog: typeof import('./components/CxSearchDialog.vue')['default']

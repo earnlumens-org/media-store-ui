@@ -111,15 +111,7 @@
 
       <!-- Locked badge -->
       <template v-if="item.locked" #append>
-        <v-chip
-          color="white"
-          rounded="pill"
-          size="small"
-          variant="elevated"
-        >
-          <v-icon class="me-1" size="14">mdi-lock</v-icon>
-          {{ $t('Common.blocked') }}
-        </v-chip>
+        <CxLockPriceButton :price="item" variant="chip" />
       </template>
     </v-list-item>
   </v-list>
@@ -131,6 +123,7 @@
   import { onMounted, ref, watch } from 'vue'
 
   import { api } from '@/api/api'
+  import CxLockPriceButton from '@/components/CxLockPriceButton.vue'
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { usePurchasesStore } from '@/stores/purchases'
 

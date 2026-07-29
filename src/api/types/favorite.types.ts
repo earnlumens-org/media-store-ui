@@ -29,6 +29,10 @@ export interface FavoriteItemDto {
   locked: boolean
   unlocked: boolean
   addedAt?: string
+  /** Price fields (hydrated in the same favorites query) for locked-card labels. */
+  priceXlm?: number
+  priceUsd?: number
+  priceCurrency?: string
 }
 
 export interface FavoritePageDto {
@@ -75,6 +79,10 @@ export interface FavoriteItemModel {
   locked: boolean
   unlocked: boolean
   addedAt: string
+  /** Price fields (hydrated in the same favorites query) for locked-card labels. */
+  priceXlm?: number
+  priceUsd?: number
+  priceCurrency?: 'XLM' | 'USD'
 }
 
 export interface FavoritePageModel {

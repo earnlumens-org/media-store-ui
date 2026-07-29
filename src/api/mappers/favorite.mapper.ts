@@ -48,6 +48,9 @@ export function mapFavoriteItemDtoToModel (dto: FavoriteItemDto): FavoriteItemMo
     locked: dto.locked,
     unlocked: dto.unlocked,
     addedAt: dto.addedAt ?? '',
+    priceXlm: dto.priceXlm,
+    priceUsd: dto.priceUsd,
+    priceCurrency: dto.priceCurrency as 'XLM' | 'USD' | undefined,
   }
 }
 

@@ -54,6 +54,10 @@
     totalDurationSec?: number
     locked?: boolean
     unlocked?: boolean
+    /** Price fields (already part of every feed payload) shown on the locked overlay. */
+    priceXlm?: number
+    priceUsd?: number
+    priceCurrency?: 'XLM' | 'USD'
   }
 
   interface Props {

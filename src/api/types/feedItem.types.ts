@@ -64,6 +64,10 @@ export interface EntryModel {
   durationSec?: number
   locked?: boolean
   resourceContent?: string
+  /** Price fields (same feed payload — no extra requests) for locked-card labels. */
+  priceXlm?: number
+  priceUsd?: number
+  priceCurrency?: 'XLM' | 'USD'
   /** True when this entry was detected as a remix of earlier content. */
   remix?: boolean
 }
@@ -82,6 +86,10 @@ export interface CollectionModel {
   itemsCount?: number
   totalDurationSec?: number
   locked?: boolean
+  /** Price fields (same feed payload — no extra requests) for locked-card labels. */
+  priceXlm?: number
+  priceUsd?: number
+  priceCurrency?: 'XLM' | 'USD'
 }
 
 export type FeedItemModel = { kind: 'entry', entry: EntryModel } | { kind: 'collection', collection: CollectionModel }

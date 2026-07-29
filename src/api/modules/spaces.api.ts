@@ -94,6 +94,9 @@ function toFeedEntry (m: PublicEntryModel): EntryModel {
     // Per-entry entitlement is decided by the page (purchases store) — not
     // pre-computed here, matching the explore-feed behaviour.
     locked: m.isPaid,
+    priceXlm: m.priceXlm,
+    priceUsd: m.priceUsd,
+    priceCurrency: m.priceCurrency,
     resourceContent: m.resourceContent,
   }
 }
