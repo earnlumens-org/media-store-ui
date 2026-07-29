@@ -48,6 +48,7 @@
   import { computed, ref } from 'vue'
   import { useI18n } from 'vue-i18n'
 
+  import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
   import { useFavoritesStore } from '@/stores/favorites'
 
@@ -69,6 +70,7 @@
 
   const { t } = useI18n()
   const auth = useAuthStore()
+  const appStore = useAppStore()
   const favoritesStore = useFavoritesStore()
 
   const snackbar = ref(false)
@@ -90,7 +92,10 @@
   )
 
   async function onToggle () {
-    if (!auth.isAuthenticated) return
+    if (!auth.isAuthenticated) {
+      appStore.openLoginDialog()
+      return
+    }
 
     toggling.value = true
     try {

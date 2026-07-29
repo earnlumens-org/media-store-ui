@@ -94,6 +94,7 @@
   import { api } from '@/api/api'
   import { ApiError } from '@/api/apiRequest'
   import { showGlobalNotification } from '@/services/globalNotification'
+  import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
 
   interface Props {
@@ -113,6 +114,7 @@
 
   const { t } = useI18n()
   const authStore = useAuthStore()
+  const appStore = useAppStore()
 
   const likes = ref(0)
   const dislikes = ref(0)
@@ -161,7 +163,7 @@
     if (submitting.value) return
 
     if (!authStore.isAuthenticated) {
-      showGlobalNotification('rating.loginRequired')
+      appStore.openLoginDialog()
       return
     }
 

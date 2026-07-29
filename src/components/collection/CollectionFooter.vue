@@ -159,6 +159,7 @@
 
   import { getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useShare } from '@/lib/useShare'
+  import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
   import { useFavoritesStore } from '@/stores/favorites'
 
@@ -173,6 +174,7 @@
 
   const { t } = useI18n()
   const auth = useAuthStore()
+  const appStore = useAppStore()
   const favoritesStore = useFavoritesStore()
 
   const snackbar = ref(false)
@@ -199,7 +201,10 @@
   const isFav = computed(() => favoritesStore.isFavorite(props.collection.id))
 
   async function onToggleFavorite () {
-    if (!auth.isAuthenticated) return
+    if (!auth.isAuthenticated) {
+      appStore.openLoginDialog()
+      return
+    }
 
     const result = await favoritesStore.toggleFavorite(props.collection.id, 'COLLECTION')
 

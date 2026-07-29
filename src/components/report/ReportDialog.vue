@@ -142,6 +142,8 @@
   import { submitCollectionReport, submitReport } from '@/api/modules/report.api'
   import { REPORT_REASONS } from '@/api/types/report.types'
   import { showGlobalNotification } from '@/services/globalNotification'
+  import { useAppStore } from '@/stores/app'
+  import { useAuthStore } from '@/stores/auth'
 
   interface Props {
     modelValue: boolean
@@ -162,6 +164,8 @@
   }>()
 
   const { t } = useI18n()
+  const authStore = useAuthStore()
+  const appStore = useAppStore()
 
   const resolvedTargetId = computed(() => props.targetId ?? props.entryId ?? '')
 
@@ -179,13 +183,21 @@
   const mediumReasons = REPORT_REASONS.filter(r => r.severity === 'MEDIUM')
   const lowReasons = REPORT_REASONS.filter(r => r.severity === 'LOW')
 
-  // Reset on open
+  // Reset on open. Reporting requires a session (the API returns 401
+  // otherwise), so an anonymous open is redirected to the login popup and the
+  // dialog stays closed. Centralized here so every report trigger — the
+  // watch/view/read/listen/collection menus, EntryFooter and the image
+  // lightbox — inherits the gate without repeating it at each call site.
   watch(() => props.modelValue, open => {
-    if (open) {
-      step.value = 'reason'
-      selectedReason.value = null
-      comment.value = ''
+    if (!open) return
+    if (!authStore.isAuthenticated) {
+      dialogModel.value = false
+      appStore.openLoginDialog()
+      return
     }
+    step.value = 'reason'
+    selectedReason.value = null
+    comment.value = ''
   })
 
   function close () {
