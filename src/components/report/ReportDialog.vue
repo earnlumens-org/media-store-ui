@@ -169,8 +169,12 @@
 
   const resolvedTargetId = computed(() => props.targetId ?? props.entryId ?? '')
 
+  // The dialog is only ever visible to an authenticated user. Gating the
+  // getter on auth means an anonymous open never paints a single frame of the
+  // report dialog before the login popup takes over (no flash), while the
+  // watch below resets the parent flag and redirects to login.
   const dialogModel = computed({
-    get: () => props.modelValue,
+    get: () => props.modelValue && authStore.isAuthenticated,
     set: (v: boolean) => emit('update:modelValue', v),
   })
 
@@ -185,20 +189,22 @@
 
   // Reset on open. Reporting requires a session (the API returns 401
   // otherwise), so an anonymous open is redirected to the login popup and the
-  // dialog stays closed. Centralized here so every report trigger — the
+  // report dialog never shows (dialogModel already gates on auth, so there is
+  // no flash). Centralized here so every report trigger — the
   // watch/view/read/listen/collection menus, EntryFooter and the image
   // lightbox — inherits the gate without repeating it at each call site.
+  // flush:'sync' redirects before the browser paints the opening frame.
   watch(() => props.modelValue, open => {
     if (!open) return
     if (!authStore.isAuthenticated) {
-      dialogModel.value = false
+      emit('update:modelValue', false)
       appStore.openLoginDialog()
       return
     }
     step.value = 'reason'
     selectedReason.value = null
     comment.value = ''
-  })
+  }, { flush: 'sync' })
 
   function close () {
     dialogModel.value = false
