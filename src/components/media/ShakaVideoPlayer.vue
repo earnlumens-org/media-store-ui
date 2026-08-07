@@ -166,6 +166,95 @@
   let player: any = null
   let uiOverlay: any = null
 
+  /*
+   * ---- Mid-playback network recovery ------------------------------------
+   * Shaka's default `streaming.failureCallback` only auto-retries LIVE
+   * streams; on VOD any segment/playlist fetch that exhausts its retry
+   * attempts (e.g. Shaka error 1003 NETWORK.TIMEOUT) becomes a CRITICAL
+   * error and streaming halts for good. iOS/iPadOS — especially as an
+   * installed PWA — routinely wedges in-flight connections when the app is
+   * suspended, the screen locks, or WebKit reuses a dead connection pool,
+   * so requests hang and time out even though the media is fine. We mark
+   * those failures RECOVERABLE and keep retrying with capped backoff, and
+   * we kick an immediate retry when the app returns to the foreground or
+   * the network comes back.
+   */
+
+  /** Last known playback position — used to resume after a full re-init. */
+  let lastPlaybackTime = 0
+  /** Consecutive automatic recovery attempts since playback last progressed. */
+  let recoveryAttempts = 0
+  let recoveryTimer: ReturnType<typeof setTimeout> | null = null
+  /** Give up on silent auto-recovery after this many attempts (~1 min) and
+   *  show the error overlay; foreground/online events still auto-retry. */
+  const MAX_AUTO_RECOVERY_ATTEMPTS = 8
+  /** Re-entrancy guard: ignore retry clicks while an init is in flight. */
+  let initializing = false
+
+  function clearRecoveryTimer () {
+    if (recoveryTimer !== null) {
+      clearTimeout(recoveryTimer)
+      recoveryTimer = null
+    }
+  }
+
+  /**
+   * Transient network failures worth retrying in place:
+   * - 1003 TIMEOUT / 1002 HTTP_ERROR: request hung or the connection died
+   *   (the iOS PWA suspend/wedge case).
+   * - 1001 BAD_HTTP_STATUS only for 429/5xx (server hiccup, rate limit).
+   * Auth failures (401/403) and non-network errors stay fatal.
+   */
+  function isRecoverableNetworkError (error: { category?: number, code?: number, data?: unknown }): boolean {
+    if (!error || !shakaLib || error.category !== shakaLib.util.Error.Category.NETWORK) return false
+    const codes = shakaLib.util.Error.Code
+    if (error.code === codes.TIMEOUT || error.code === codes.HTTP_ERROR) return true
+    if (error.code === codes.BAD_HTTP_STATUS) {
+      const status = Array.isArray(error.data) ? error.data[1] : undefined
+      return status === 429 || (typeof status === 'number' && status >= 500)
+    }
+    return false
+  }
+
+  /**
+   * `streaming.failureCallback` — invoked by Shaka when streaming fails after
+   * its own per-request retries. Downgrading severity to RECOVERABLE keeps
+   * the streaming engine alive (position, buffer and UI state intact) and
+   * `retryStreaming()` re-attempts from where playback stopped.
+   */
+  function onStreamingFailure (error: { severity?: number, category?: number, code?: number, data?: unknown }) {
+    if (!isRecoverableNetworkError(error) || recoveryAttempts >= MAX_AUTO_RECOVERY_ATTEMPTS) {
+      return // stays CRITICAL → onPlayerError shows the overlay
+    }
+    error.severity = shakaLib.util.Error.Severity.RECOVERABLE
+    isBuffering.value = true
+    const delay = Math.min(15_000, 1000 * 2 ** recoveryAttempts)
+    recoveryAttempts++
+    clearRecoveryTimer()
+    recoveryTimer = setTimeout(() => {
+      recoveryTimer = null
+      if (player && !playerError.value) player.retryStreaming()
+    }, delay)
+  }
+
+  /**
+   * The app came back to the foreground / the network returned. On iOS this
+   * is the moment a wedged connection can finally be replaced, so retry
+   * immediately instead of waiting out the backoff — and if the fatal
+   * overlay is showing, re-init automatically, resuming at the last position.
+   */
+  function nudgeRecovery () {
+    if (document.visibilityState === 'hidden') return
+    if (playerError.value) {
+      void retry()
+      return
+    }
+    if (recoveryTimer !== null && player) {
+      clearRecoveryTimer()
+      player.retryStreaming()
+    }
+  }
+
   /** Load shaka-player ES module (lazy) */
   async function loadShaka () {
     if (shakaLib) return shakaLib
@@ -174,12 +263,20 @@
     return shakaLib
   }
 
-  /** Initialize Shaka Player and attach to video element */
-  async function initPlayer () {
+  /**
+   * Initialize Shaka Player and attach to video element.
+   * @param resumeAt Resume playback at this position (seconds) — used by
+   *                 retry so recovery continues where the error happened.
+   */
+  async function initPlayer (resumeAt = 0) {
+    if (initializing) return
+    initializing = true
     playerError.value = null
     isBuffering.value = true
     hasFrame.value = false
     isPaused.value = true
+    recoveryAttempts = 0
+    clearRecoveryTimer()
 
     try {
       const lib = await loadShaka()
@@ -219,6 +316,9 @@
             backoffFactor: 2,
             fuzzFactor: 0.5,
           },
+          // Self-heal transient network failures instead of dying (VOD
+          // failures are fatal by default in Shaka; see recovery block above).
+          failureCallback: onStreamingFailure,
         },
       })
 
@@ -255,8 +355,8 @@
       // Buffering listener — keep the play button hidden while the spinner shows
       player.addEventListener('buffering', onBuffering)
 
-      // Load the media source
-      await player.load(props.src)
+      // Load the media source (resuming at the last position on retry)
+      await player.load(props.src, resumeAt > 0.25 ? resumeAt : undefined)
 
       // Auto-play immediately after load (YouTube behavior)
       if (videoRef.value) {
@@ -272,12 +372,20 @@
       errorDetail.value = formatErrorDetail(error)
       emit('error', message)
       console.error('[ShakaVideoPlayer] Init error:', error)
+    } finally {
+      initializing = false
     }
   }
 
   /** Handle Shaka error events */
   function onPlayerError (event: Event) {
     const detail = (event as CustomEvent).detail
+    // RECOVERABLE = the failure callback scheduled an automatic retry:
+    // keep the spinner up, never surface the fatal overlay for it.
+    if (detail?.severity === shakaLib?.util.Error.Severity.RECOVERABLE) {
+      console.warn('[ShakaVideoPlayer] Recoverable network error, auto-retrying:', detail)
+      return
+    }
     const code = detail?.code ?? 'UNKNOWN'
     const message = `Playback error (code: ${code})`
     playerError.value = message
@@ -338,17 +446,21 @@
   /** Forward timeupdate events */
   function onTimeUpdate () {
     if (videoRef.value) {
+      if (videoRef.value.currentTime > 0) {
+        lastPlaybackTime = videoRef.value.currentTime
+      }
       emit('timeupdate', videoRef.value.currentTime, videoRef.value.duration || 0)
     }
   }
 
-  /** Retry loading the current source */
+  /** Retry loading the current source, resuming at the last known position */
   async function retry () {
-    await initPlayer()
+    await initPlayer(lastPlaybackTime)
   }
 
   /** Cleanly destroy the Shaka player instance */
   async function destroyPlayer () {
+    clearRecoveryTimer()
     if (uiOverlay) {
       uiOverlay.destroy()
       uiOverlay = null
@@ -376,6 +488,9 @@
   // Watch for src changes — re-initialize player
   watch(() => props.src, async (newSrc, oldSrc) => {
     if (newSrc && newSrc !== oldSrc) {
+      lastPlaybackTime = 0
+      recoveryAttempts = 0
+      clearRecoveryTimer()
       if (player) {
         try {
           playerError.value = null
@@ -392,6 +507,13 @@
 
   onMounted(() => {
     initPlayer()
+    // iOS suspends the PWA's network stack in the background; when the app
+    // returns to the foreground (or connectivity comes back) retry right
+    // away instead of waiting out the backoff — and revive a fatally-errored
+    // player automatically at the last position.
+    window.addEventListener('online', nudgeRecovery)
+    window.addEventListener('pageshow', nudgeRecovery)
+    document.addEventListener('visibilitychange', nudgeRecovery)
   })
 
   /** True when this player's <video> is the active Picture-in-Picture element */
@@ -467,6 +589,8 @@
     isBuffering.value = false
     isPaused.value = false
     hasFrame.value = true
+    // Playback progressed — reset the auto-recovery backoff window.
+    recoveryAttempts = 0
     // A handed-off (orphaned) <video> keeps Vue's leftover @playing listener
     // attached even after unmount, because we keep the node alive in <body>.
     // Guard against it: only a live, in-page player should close previous
@@ -527,6 +651,9 @@
   }
 
   onBeforeUnmount(async () => {
+    window.removeEventListener('online', nudgeRecovery)
+    window.removeEventListener('pageshow', nudgeRecovery)
+    document.removeEventListener('visibilitychange', nudgeRecovery)
     // If the video is in Picture-in-Picture, keep it alive across navigation
     // instead of destroying it.
     if (handoffToPictureInPicture()) return
