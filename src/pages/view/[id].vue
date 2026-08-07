@@ -395,7 +395,7 @@
                   prepend-icon="mdi-download"
                   rounded="pill"
                   variant="tonal"
-                  @click="downloadImage"
+                  @click="onDownload"
                 >
                   {{ $t('Common.download') }}
                 </v-btn>
@@ -487,6 +487,7 @@
   import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
   import ResellerButton from '@/components/reseller/ResellerButton.vue'
+  import { useEntryDownload } from '@/composables/useEntryDownload'
   import { cdnMediaUrl } from '@/config/env'
   import { getCreatorRoleI18nKey, getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAuthStore } from '@/stores/auth'
@@ -520,7 +521,7 @@
   const voteCount = ref(0)
   const descriptionExpanded = ref(false)
   const avatarBroken = ref(false)
-  const downloading = ref(false)
+  const { downloading, downloadEntry } = useEntryDownload()
   const reportDialog = ref(false)
   const claimDialog = ref(false)
   const tipDialog = ref(false)
@@ -697,67 +698,17 @@
   }
 
   // Actions
-  async function downloadImage () {
-    if (downloading.value || !entry.value) return
-    downloading.value = true
-
-    try {
-      let blob: Blob | undefined
-
-      // If we already have the image as a blob, reuse it
-      if (mediaBlobUrl.value) {
-        const resp = await fetch(mediaBlobUrl.value)
-        blob = await resp.blob()
-      } else {
-        // Fetch from CDN with credentials
-        const url = cdnMediaUrl(entry.value.id)
-        const resp = await fetch(url, { credentials: 'include' })
-        if (resp.ok) {
-          blob = await resp.blob()
-        }
-      }
-
-      if (!blob) {
-        // Fallback: open thumbnail in new tab
-        if (entry.value.thumbnailUrl) {
-          window.open(entry.value.thumbnailUrl, '_blank')
-        }
-        return
-      }
-
-      // Determine file extension from MIME type
-      const mimeToExt: Record<string, string> = {
-        'image/jpeg': '.jpg',
-        'image/png': '.png',
-        'image/gif': '.gif',
-        'image/webp': '.webp',
-        'image/svg+xml': '.svg',
-        'image/avif': '.avif',
-      }
-      const ext = mimeToExt[blob.type] || '.jpg'
-
-      // Build a safe filename from the entry title
-      const safeTitle = (entry.value.title || 'image')
-        .replace(/[^a-zA-Z0-9_\-\s]/g, '')
-        .trim()
-        .replace(/\s+/g, '_')
-        .slice(0, 80)
-
-      const filename = `${safeTitle}${ext}`
-
-      // Trigger download via invisible anchor
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = filename
-      document.body.append(a)
-      a.click()
-      a.remove()
-      URL.revokeObjectURL(url)
-    } catch (error_) {
-      console.error('[ViewPage] Download failed:', error_)
-    } finally {
-      downloading.value = false
+  /**
+   * Unified download (see useEntryDownload). On 'forbidden' the entitlement
+   * was lost mid-session (expired cookie / revoked purchase): apply the same
+   * recovery as page load — drop the stale local unlock and show the paywall.
+   */
+  async function onDownload () {
+    if (!entry.value) return
+    const result = await downloadEntry({ id: entry.value.id, title: entry.value.title })
+    if (result === 'forbidden' && entry.value.isPaid) {
+      purchasesStore.removeUnlock(entryId.value)
+      router.replace(`/preview/${entryId.value}`)
     }
   }
 

@@ -378,11 +378,11 @@
                 <v-btn
                   class="ms-3 flex-shrink-0"
                   color="primary"
-                  :href="downloadUrl"
+                  :loading="downloading"
                   prepend-icon="mdi-download"
                   rounded="pill"
-                  target="_blank"
                   variant="elevated"
+                  @click="onDownload"
                 >
                   {{ $t('Common.download') }}
                 </v-btn>
@@ -547,7 +547,7 @@
   import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
   import ResellerButton from '@/components/reseller/ResellerButton.vue'
-  import { cdnMediaUrl } from '@/config/env'
+  import { useEntryDownload } from '@/composables/useEntryDownload'
   import { getCreatorRoleI18nKey, getProfileBadgeSrc } from '@/lib/profileBadge'
   import { useAppStore } from '@/stores/app'
   import { useAuthStore } from '@/stores/auth'
@@ -585,6 +585,7 @@
   // UI State
   const voteCount = ref(0)
   const avatarBroken = ref(false)
+  const { downloading, downloadEntry } = useEntryDownload()
   const reportDialog = ref(false)
   const claimDialog = ref(false)
   const tipDialog = ref(false)
@@ -638,11 +639,24 @@
     return escaped.replace(/\n\n/g, '</p><p class="mt-4">').replace(/\n/g, '<br>')
   })
 
-  // Download URL for the attached file (via CDN worker with entitlement)
-  const downloadUrl = computed(() => {
-    if (!entry.value) return ''
-    return cdnMediaUrl(entry.value.id)
-  })
+  /**
+   * Unified download of the attached file (see useEntryDownload). Prefers the
+   * attachment's original fileName; on 'forbidden' the entitlement was lost
+   * mid-session, so apply the same recovery as page load — drop the stale
+   * local unlock and show the paywall.
+   */
+  async function onDownload () {
+    if (!entry.value) return
+    const result = await downloadEntry({
+      id: entry.value.id,
+      title: entry.value.title,
+      fileName: entry.value.asset?.fileName,
+    })
+    if (result === 'forbidden' && entry.value.isPaid) {
+      purchasesStore.removeUnlock(entryId.value)
+      router.replace(`/preview/${entryId.value}`)
+    }
+  }
 
   // "Scanned for malware {date}" label, shown when the file passed AV scanning
   const scannedOnLabel = computed(() => {
