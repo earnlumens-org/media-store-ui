@@ -89,7 +89,7 @@
         <v-spacer />
 
         <v-chip
-          v-if="authStore.isAuthenticated && contentLangPrefs.loaded"
+          v-if="contentLangPrefs.loaded"
           class="mr-1"
           :color="languageChip.active ? 'primary' : undefined"
           prepend-icon="mdi-web"
@@ -101,6 +101,35 @@
           {{ languageChip.label }}
         </v-chip>
       </div>
+
+      <!-- Language fallback notice: the active language filter matched
+           nothing, so the server automatically served all languages instead
+           of an empty wall. Dismissible; offers a shortcut to the picker. -->
+      <v-alert
+        v-if="fallbackBannerVisible && feedItems.length > 0"
+        class="mt-4"
+        closable
+        density="comfortable"
+        type="info"
+        variant="tonal"
+        @click:close="fallbackBannerVisible = false"
+      >
+        <template #title>
+          {{ $t('ContentLanguagePreferences.fallbackTitle') }}
+        </template>
+        {{ $t('ContentLanguagePreferences.fallbackText') }}
+        <div class="mt-2">
+          <v-btn
+            color="info"
+            prepend-icon="mdi-web"
+            size="small"
+            variant="tonal"
+            @click="langDialogOpen = true"
+          >
+            {{ $t('ContentLanguagePreferences.changeLanguages') }}
+          </v-btn>
+        </div>
+      </v-alert>
 
       <!-- Loading state: initial load OR a filter switch that starts from an
            empty grid (no old cards to keep on screen). Showing skeletons here
@@ -136,36 +165,13 @@
         </template>
       </v-alert>
 
-      <!-- Empty state (no items from API). The language-filter explanation is
-           auth-only: the backend never applies language filtering to anonymous
-           requests (LanguageFilter.NONE), so showing it to a guest would blame
-           a filter that wasn't applied — guests get the generic message. -->
+      <!-- Empty state (no items from API). The server automatically falls
+           back to all languages when the language filter matches nothing,
+           so reaching this state means the tenant genuinely has no published
+           content for the current tab/pricing filters. -->
       <v-row v-else-if="feedItems.length === 0" class="mt-4" dense>
         <v-col cols="12">
-          <div v-if="authStore.isAuthenticated && contentLangPrefs.loaded && languageChip.active" class="ma-4">
-            <div
-              v-if="authStore.isAuthenticated"
-              class="d-flex justify-end mb-2"
-            >
-              <v-btn
-                color="info"
-                prepend-icon="mdi-web"
-                size="small"
-                variant="tonal"
-                @click="langDialogOpen = true"
-              >
-                {{ $t('ContentLanguagePreferences.changeLanguages') }}
-              </v-btn>
-            </div>
-            <v-alert
-              prominent
-              :text="$t('ContentLanguagePreferences.emptyByLanguageText')"
-              :title="$t('ContentLanguagePreferences.emptyByLanguageTitle')"
-              type="info"
-            />
-          </div>
           <v-alert
-            v-else
             class="ma-4"
             text="No published content yet. Be the first to upload!"
             title="Nothing here yet"
@@ -286,7 +292,6 @@
   </v-infinite-scroll>
 
   <ContentLanguageDialog
-    v-if="authStore.isAuthenticated"
     v-model="langDialogOpen"
     hide-activator
   />
@@ -353,11 +358,10 @@
     }
     const langs = contentLangPrefs.contentLanguages
     if (langs.length === 0) {
+      // No languages selected = not configured = effectively unfiltered.
       return {
-        active: true,
-        label: contentLangPrefs.includeMulti
-          ? t('ContentLanguagePreferences.chipMultiOnly')
-          : t('ContentLanguagePreferences.chipNone'),
+        active: false,
+        label: t('ContentLanguagePreferences.chipAll'),
       }
     }
     if (langs.length === 1) {
@@ -378,6 +382,18 @@
   const error = ref(false)
   const currentPage = ref(0)
   const totalPages = ref(0)
+
+  // Server signalled that the language filter matched nothing and it fell
+  // back to all languages for page 0. While true, pagination and background
+  // polling must request `lang: 'all'` so subsequent pages stay consistent
+  // with what's on screen. `fallbackBannerVisible` is the dismissible UI bit.
+  const langFallback = ref(false)
+  const fallbackBannerVisible = ref(false)
+
+  // Effective per-request `lang` param: while the server is in fallback mode
+  // paginate unfiltered; otherwise send the store's guest override (if any).
+  const effectiveLangParam = computed(() =>
+    langFallback.value ? 'all' : contentLangPrefs.feedLangParam)
 
   // "New content" detection (YouTube-style refresh pill).
   // We silently poll page 0 in the background and, if items newer than the
@@ -570,10 +586,13 @@
       const response = await api.entries.getExploreFeed({
         type: feedTypeParam.value,
         pricing: feedPricingParam.value,
+        lang: contentLangPrefs.feedLangParam,
         page: 0,
         size: props.pageSize,
       }, signal)
       if (epoch !== fetchEpoch) return // superseded while awaiting
+      langFallback.value = response.languageFallback
+      fallbackBannerVisible.value = response.languageFallback
       feedItems.value = response.items
       cacheFeedEntries(response.items)
       currentPage.value = response.page
@@ -611,6 +630,7 @@
       const response = await api.entries.getExploreFeed({
         type: feedTypeParam.value,
         pricing: feedPricingParam.value,
+        lang: effectiveLangParam.value,
         page: currentPage.value + 1,
         size: props.pageSize,
       }, controller.signal)
@@ -665,6 +685,7 @@
       const response = await api.entries.getExploreFeed({
         type: feedTypeParam.value,
         pricing: feedPricingParam.value,
+        lang: effectiveLangParam.value,
         page: 0,
         size: props.pageSize,
       }, checkController.signal)
@@ -744,18 +765,43 @@
         totalPages: totalPages.value,
         activeTab: activeTab.value,
         pricingFilter: pricingFilter.value,
+        langFallback: langFallback.value,
         scrollY: window.scrollY,
       })
     }
   })
 
-  onMounted(() => {
-    // Ensure the language chip + empty-state alert reflect the user's
-    // actual stored preferences (server for logged-in, localStorage for
-    // guests) instead of the navigator-derived seed. Without this the
-    // chip can show e.g. "ES" while the feed is actually filtered by
-    // "ZH-CN", until the user opens the language dialog.
-    contentLangPrefs.loadIfNeeded().catch(() => { /* handled in store */ })
+  /**
+   * Wait (bounded) for the session rehydration kicked off in main.ts to
+   * settle. The grid mounts before auth is known; deciding whether to send
+   * a guest `lang` override before that would let a stale "guest" decision
+   * shadow a logged-in user's account preferences (an explicit `lang` param
+   * beats token claims server-side).
+   */
+  function waitForAuthReady (timeoutMs = 4000): Promise<void> {
+    if (authStore.isAuthReady) return Promise.resolve()
+    return new Promise(resolve => {
+      let timer: ReturnType<typeof setTimeout> | null = null
+      const stop = watch(
+        () => authStore.isAuthReady,
+        ready => {
+          if (ready) {
+            if (timer) clearTimeout(timer)
+            stop()
+            resolve()
+          }
+        },
+      )
+      timer = setTimeout(() => {
+        stop()
+        resolve()
+      }, timeoutMs)
+    })
+  }
+
+  onMounted(async () => {
+    startNewContentPolling()
+    document.addEventListener('visibilitychange', onVisibilityChange)
 
     const cached = scrollCache.get(route.path)
     if (cached && isPopNavigation()) {
@@ -764,18 +810,31 @@
       totalPages.value = cached.totalPages as number
       activeTab.value = (cached.activeTab as string) ?? 'all'
       pricingFilter.value = (cached.pricingFilter as string) ?? 'all'
+      langFallback.value = (cached.langFallback as boolean) ?? false
       cacheFeedEntries(feedItems.value)
       loading.value = false
 
       nextTick(() => {
         window.scrollTo(0, cached.scrollY as number)
       })
-    } else {
-      fetchFeed()
+      // Chip/dialog still need the stored prefs; fire-and-forget.
+      contentLangPrefs.loadIfNeeded().catch(() => { /* handled in store */ })
+      return
     }
 
-    startNewContentPolling()
-    document.addEventListener('visibilitychange', onVisibilityChange)
+    // The initial request must be filtered correctly, so resolve auth first
+    // (bounded wait) and, for guests, load the localStorage prefs BEFORE
+    // fetching — `feedLangParam` derives from both. For logged-in users the
+    // token claims already filter server-side, so their prefs load (and the
+    // one-time guest→account promotion) can proceed in parallel; a promotion
+    // bumps `revision`, which refetches the feed below.
+    await waitForAuthReady()
+    if (authStore.isAuthenticated) {
+      contentLangPrefs.loadIfNeeded().catch(() => { /* handled in store */ })
+    } else {
+      await contentLangPrefs.loadIfNeeded().catch(() => { /* handled in store */ })
+    }
+    fetchFeed()
   })
 
   onUnmounted(() => {

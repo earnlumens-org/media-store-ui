@@ -58,5 +58,6 @@ export function mapFeedPageDtoToModel (dto: PublicFeedPageDto): PublicFeedPageMo
     size: dto.size,
     totalElements: dto.totalElements,
     totalPages: dto.totalPages,
+    languageFallback: dto.languageFallback === true,
   }
 }

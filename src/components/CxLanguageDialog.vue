@@ -54,16 +54,14 @@
         </div>
       </v-card-text>
 
-      <template v-if="loggedIn">
-        <v-divider />
-        <v-list class="py-0" density="compact" nav>
-          <v-list-item
-            prepend-icon="mdi-web"
-            :title="$t('ContentLanguagePreferences.title')"
-            @click="openContentLanguages"
-          />
-        </v-list>
-      </template>
+      <v-divider />
+      <v-list class="py-0" density="compact" nav>
+        <v-list-item
+          prepend-icon="mdi-web"
+          :title="$t('ContentLanguagePreferences.title')"
+          @click="openContentLanguages"
+        />
+      </v-list>
 
       <v-divider />
 
@@ -85,7 +83,7 @@
     </v-card>
   </v-dialog>
 
-  <ContentLanguageDialog v-if="loggedIn" v-model="contentLangOpen" hide-activator />
+  <ContentLanguageDialog v-model="contentLangOpen" hide-activator />
 </template>
 
 <script setup lang="ts">
@@ -95,7 +93,6 @@
   import ContentLanguageDialog from '@/components/ContentLanguageDialog.vue'
   import { determineLanguageCode, loadLanguage } from '@/main'
   import { useAppStore } from '@/stores/app'
-  import { useAuthStore } from '@/stores/auth'
 
   // Ordered by approximate worldwide speaker population (native + L2). Closely
   // related variants are grouped together at the position of the higher-population
@@ -181,8 +178,6 @@
   // PINIA store
   const appStore = useAppStore()
   const { mobileView } = storeToRefs(appStore)
-  const authStore = useAuthStore()
-  const { isAuthenticated: loggedIn } = storeToRefs(authStore)
   const { t } = useI18n()
 
   // Lowercase + strip diacritics so a query typed in plain ASCII (e.g.

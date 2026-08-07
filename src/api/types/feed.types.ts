@@ -47,6 +47,11 @@ export interface PublicFeedPageDto {
   size: number
   totalElements: number
   totalPages: number
+  /**
+   * True when the active content-language filter matched nothing and the
+   * server automatically re-ran the query without it (showing all languages).
+   */
+  languageFallback?: boolean
 }
 
 // ==================== Models (for UI) ====================
@@ -86,6 +91,8 @@ export interface PublicFeedPageModel {
   size: number
   totalElements: number
   totalPages: number
+  /** Server fell back to all languages because the filter matched nothing. */
+  languageFallback: boolean
 }
 
 // ==================== Request params ====================
@@ -98,9 +105,16 @@ export interface FeedRequestParams {
   page?: number
   size?: number
   /**
-   * Per-request language filter override. Send {@code 'all'} to disable
-   * the persisted user content-language preferences for one request
-   * ("Show all languages" toggle). Omit to use the user's stored prefs.
+   * Per-request language filter override.
+   * - `'all'` disables language filtering for this request ("Show all
+   *   languages" toggle, or paginating a feed the server already fell
+   *   back to all languages for).
+   * - A CSV of language codes, optionally including the `multi` token
+   *   (e.g. `'es,en,multi'`), applies an explicit filter — this is how
+   *   guests send the preferences they configured (localStorage).
+   * - Omitted: logged-in users are filtered by their persisted prefs
+   *   (token claims); users without configured prefs and guests get the
+   *   server-side browser-language default (Accept-Language).
    */
-  lang?: 'all'
+  lang?: string
 }

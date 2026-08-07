@@ -30,6 +30,10 @@
       </v-card-title>
       <v-card-subtitle class="text-wrap pb-2">
         {{ $t("ContentLanguagePreferences.subtitle") }}
+        <template v-if="!authStore.isAuthenticated">
+          <br>
+          <span class="text-caption">{{ $t("ContentLanguagePreferences.guestPersistence") }}</span>
+        </template>
       </v-card-subtitle>
       <v-divider />
 
@@ -88,7 +92,9 @@
           </p>
         </div>
 
-        <!-- Footgun warning: empty langs + no multi + filter on = empty feed -->
+        <!-- Footgun warning: an empty language selection with the filter on
+             carries no meaning (backend treats it as "not configured") —
+             block save and ask for at least one language or "show all". -->
         <v-alert
           v-if="warnEmptyFeed"
           class="mt-4"
@@ -96,7 +102,7 @@
           type="warning"
           variant="tonal"
         >
-          {{ $t("ContentLanguagePreferences.warnEmpty") }}
+          {{ $t("ContentLanguagePreferences.warnNoLanguages") }}
         </v-alert>
 
         <v-alert
@@ -143,11 +149,13 @@
   import { useI18n } from 'vue-i18n'
   import { CONTENT_LANGUAGES } from '@/config/contentLanguages'
   import { useAppStore } from '@/stores/app'
+  import { useAuthStore } from '@/stores/auth'
   import { useContentLanguagePreferencesStore } from '@/stores/contentLanguagePreferences'
 
   const { t } = useI18n()
   const appStore = useAppStore()
   const { mobileView } = storeToRefs(appStore)
+  const authStore = useAuthStore()
   const prefsStore = useContentLanguagePreferencesStore()
 
   defineProps<{ hideActivator?: boolean }>()
@@ -172,9 +180,7 @@
     }
     const langs = prefsStore.contentLanguages
     if (langs.length === 0) {
-      return prefsStore.includeMulti
-        ? t('ContentLanguagePreferences.chipMultiOnly')
-        : t('ContentLanguagePreferences.chipNone')
+      return t('ContentLanguagePreferences.chipAll')
     }
     const head = langs.slice(0, 2).map(l => l.toUpperCase()).join(', ')
     const tail = langs.length > 2 ? ` +${langs.length - 2}` : ''
@@ -188,12 +194,13 @@
     || form.contentLanguages.some((l, i) => l !== prefsStore.contentLanguages[i]),
   )
 
-  // The configuration "no languages + no multi + filter on" yields an empty
-  // feed. We block save with a warning rather than silently break the UX.
+  // An empty language selection with the filter on carries no meaning: the
+  // backend treats it as "never configured" (browser-language default), so
+  // saving it would silently do something other than what the form shows.
+  // Block save and ask for at least one language or "show all".
   const warnEmptyFeed = computed(() =>
     !form.showAllLanguages
-    && form.contentLanguages.length === 0
-    && !form.includeMulti,
+    && form.contentLanguages.length === 0,
   )
 
   function syncFormFromStore () {
