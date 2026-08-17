@@ -27,6 +27,7 @@
   import { accountExists } from '@/services/stellar'
 
   import { useAppStore } from '@/stores/app'
+  import { useAuthStore } from '@/stores/auth'
   import { useFranchiseStore } from '@/stores/franchise'
   import { useWalletStore } from '@/stores/wallet'
 
@@ -55,6 +56,7 @@
   const emit = defineEmits<Emits>()
 
   const appStore = useAppStore()
+  const authStore = useAuthStore()
   const franchiseStore = useFranchiseStore()
   const walletStore = useWalletStore()
 
@@ -88,8 +90,10 @@
   const isExpired = ref(false)
 
   // Computed
+  // Gated on auth so an anonymous open never renders the tip flow (the tip
+  // APIs require a session); the sync watch below redirects to the login popup.
   const dialogOpen = computed({
-    get: () => props.modelValue,
+    get: () => props.modelValue && authStore.isAuthenticated,
     set: val => emit('update:modelValue', val),
   })
 
@@ -198,6 +202,20 @@
   }
 
   onBeforeUnmount(stopCountdown)
+
+  // Tipping requires a session (prepareTip returns 401 otherwise), so an
+  // anonymous open is redirected to the login popup and the tip dialog never
+  // shows (dialogOpen already gates on auth, so there is no flash).
+  // Centralized here so every tip trigger — the watch/view/listen/read/
+  // collection action rows — inherits the gate without repeating it at each
+  // call site. flush:'sync' redirects before the browser paints the frame.
+  watch(() => props.modelValue, open => {
+    if (!open) return
+    if (!authStore.isAuthenticated) {
+      emit('update:modelValue', false)
+      appStore.openLoginDialog()
+    }
+  }, { flush: 'sync' })
 
   // Reset state when the dialog opens
   watch(dialogOpen, open => {
