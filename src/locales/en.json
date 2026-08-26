@@ -1152,6 +1152,64 @@
       "views": "Most viewed"
     }
   },
+  "Publishing": {
+    "title": "Publish to spaces",
+    "action": "Publish to spaces",
+    "actionSubtitle": "Queue this content into space publishing blocks",
+    "selectHint": "Your content is already live on your profile. Pick the spaces where it should also appear — each space releases content in blocks, so you can see exactly when yours goes live.",
+    "statusHint": "Your content is queued. It will appear in each space when its block publishes. You can boost your position with a priority fee until 1 minute before publication.",
+    "noSpaces": "No spaces are available for publishing right now.",
+    "blockInfo": "Block #{seq} · publishes at {time} · {used}/{capacity} slots",
+    "itemBlock": "Block #{seq} · publishes at {time}",
+    "itemPosition": "Position {position} of {total}",
+    "itemFee": "Priority fee paid: {amount} XLM",
+    "waitingAhead": "{count} ahead",
+    "publishesIn": "Publishes in {countdown}",
+    "locksIn": "locks in {countdown}",
+    "enqueueButton": "Join queue ({count})",
+    "cancelButton": "Leave queue",
+    "close": "Close",
+    "tabs": {
+      "myQueue": "My queue ({count})",
+      "addSpaces": "Add spaces"
+    },
+    "chips": {
+      "published": "Published",
+      "queued": "Queued",
+      "locked": "Locked",
+      "full": "Full",
+      "fastPass": "FastPass"
+    },
+    "boost": {
+      "button": "Boost position",
+      "title": "Priority fee",
+      "hint": "Pay a priority fee in XLM to move up inside your block. Fees are cumulative and non-refundable. The highest total fee publishes first; ties go to whoever reached that amount first.",
+      "amountLabel": "Amount to add",
+      "current": "Already paid: {amount} XLM",
+      "pay": "Pay fee"
+    },
+    "fastPass": {
+      "button": "FastPass ${price}",
+      "title": "FastPass",
+      "hint": "The next block of {space} is full. FastPass adds an extra slot to the next block and guarantees your content is included — position inside the block is not guaranteed.",
+      "price": "Price: ${price} (paid in XLM)",
+      "pay": "Buy FastPass"
+    },
+    "errors": {
+      "generic": "Something went wrong. Please try again.",
+      "noSpacesSelected": "Select at least one space.",
+      "systemSpaceNotAllowed": "This space does not accept direct publications.",
+      "alreadyPublished": "This content is already published in one of the selected spaces.",
+      "alreadyQueued": "This content is already queued in one of the selected spaces.",
+      "queueContention": "The queue is very busy right now. Please try again.",
+      "itemNotFound": "This queue entry no longer exists.",
+      "notOwner": "You can only manage your own queue entries.",
+      "blockLocked": "This block is locked — the order can no longer change.",
+      "fastPassNotAvailable": "FastPass is only available when the block is full.",
+      "feeAmountInvalid": "Enter a valid fee amount greater than 0.",
+      "entityNotPublished": "Publish the content first, then add it to spaces."
+    }
+  },
   "Tip": {
     "title": "Send a tip",
     "heading": "Support the creator",

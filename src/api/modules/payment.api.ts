@@ -148,3 +148,74 @@ export async function getPaymentOrder (
     collectionId: d.collectionId,
   }
 }
+
+/**
+ * Phase 1 (PUBLISH FEE) — Prepare a priority-fee payment for a queue item.
+ * Fees are cumulative and reorder the item inside its publishing block.
+ * Feeds into the standard submitPayment flow.
+ */
+export async function preparePublishFee (
+  buyerWallet: string,
+  options: { queueItemId: string, amountXlm: number },
+): Promise<PreparePaymentModel> {
+  const d = await apiRequest<PreparePaymentResponseDto>(
+    `${BASE_PATH}/publish-fee/prepare`,
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        queueItemId: options.queueItemId,
+        buyerWallet,
+        amountXlm: options.amountXlm,
+      }),
+    },
+  )
+  return {
+    orderId: d.orderId,
+    unsignedXdr: d.unsignedXdr,
+    integrityHash: d.integrityHash,
+    totalXlm: d.totalXlm,
+    originalAmountUsd: d.originalAmountUsd,
+    priceCurrency: d.priceCurrency,
+    xlmUsdRate: d.xlmUsdRate,
+    memo: d.memo,
+    expiresAt: d.expiresAt,
+    networkPassphrase: d.networkPassphrase,
+  }
+}
+
+/**
+ * Phase 1 (FASTPASS) — Prepare a FastPass purchase that adds an extra slot to
+ * the next publishing block of a full space and enqueues the entity into it.
+ * Price is fixed per space (USD, converted to XLM at a locked rate). Feeds
+ * into the standard submitPayment flow.
+ */
+export async function prepareFastPass (
+  buyerWallet: string,
+  options: { spaceId: string, entityType: string, entityId: string },
+): Promise<PreparePaymentModel> {
+  const d = await apiRequest<PreparePaymentResponseDto>(
+    `${BASE_PATH}/fast-pass/prepare`,
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        spaceId: options.spaceId,
+        entityType: options.entityType,
+        entityId: options.entityId,
+        buyerWallet,
+      }),
+    },
+  )
+  return {
+    orderId: d.orderId,
+    unsignedXdr: d.unsignedXdr,
+    integrityHash: d.integrityHash,
+    totalXlm: d.totalXlm,
+    originalAmountUsd: d.originalAmountUsd,
+    priceCurrency: d.priceCurrency,
+    xlmUsdRate: d.xlmUsdRate,
+    memo: d.memo,
+    expiresAt: d.expiresAt,
+    networkPassphrase: d.networkPassphrase,
+  }
+}
+

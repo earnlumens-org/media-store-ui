@@ -28,7 +28,8 @@ import { createFranchise, getFranchiseConfig,
   presignFranchiseImage,
   updateMyFranchise,
   uploadFranchiseImage } from './modules/franchise.api'
-import { getPaymentOrder, preparePayment, prepareTip, submitPayment } from './modules/payment.api'
+import { getPaymentOrder, prepareFastPass, preparePayment, preparePublishFee, prepareTip, submitPayment } from './modules/payment.api'
+import { cancelQueueItem, enqueueToSpaces, getPublishingQueueStatus, getPublishingSpaces } from './modules/publishing.api'
 import { createResellerLink, getResellerEntryInfo, listMyResellerLinks, updateResellerLinkWallet } from './modules/reseller.api'
 import { getPurchaseCollections, getPurchasedFeed, getPurchases } from './modules/purchase.api'
 import { deleteRating, getMyRating, getRatings, getRatingSummary, submitRating } from './modules/rating.api'
@@ -92,8 +93,16 @@ export const api = {
   payment: {
     prepare: preparePayment,
     prepareTip,
+    preparePublishFee,
+    prepareFastPass,
     submit: submitPayment,
     getOrder: getPaymentOrder,
+  },
+  publishing: {
+    getSpaces: getPublishingSpaces,
+    enqueue: enqueueToSpaces,
+    getQueueStatus: getPublishingQueueStatus,
+    cancelItem: cancelQueueItem,
   },
   purchases: {
     list: getPurchases,

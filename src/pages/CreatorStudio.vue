@@ -525,6 +525,14 @@
                     >
                       <v-list-item-title>{{ t('CreatorStudio.actions.publish') }}</v-list-item-title>
                     </v-list-item>
+                    <v-list-item
+                      v-if="item.status === 'PUBLISHED'"
+                      prepend-icon="mdi-map-marker-radius-outline"
+                      :subtitle="t('Publishing.actionSubtitle')"
+                      @click="openPublishToSpaces(item._entry)"
+                    >
+                      <v-list-item-title>{{ t('Publishing.action') }}</v-list-item-title>
+                    </v-list-item>
                     <v-divider />
                     <v-list-item
                       v-if="item.status !== 'ARCHIVED' && item.status !== 'DELETED'"
@@ -1224,6 +1232,14 @@
       </v-card>
     </v-dialog>
 
+    <!-- ── Publish to Spaces (publishing block queue) ─────── -->
+    <PublishToSpacesDialog
+      v-model="publishSpacesDialog"
+      :entity-id="publishSpacesTarget?.id ?? null"
+      :entity-title="publishSpacesTarget?.title"
+      entity-type="ENTRY"
+    />
+
     <!-- ── Archive Confirmation Dialog ──────────────────────── -->
     <v-dialog v-model="archiveDialog" max-width="440">
       <v-card>
@@ -1319,6 +1335,7 @@
   import { useRouter } from 'vue-router'
   import { api, ApiError } from '@/api/api'
   import { MAX_PREVIEW_SIZE, MAX_THUMBNAIL_SIZE, PREVIEW_MIMES, THUMBNAIL_MIMES } from '@/api/types/upload.types'
+  import PublishToSpacesDialog from '@/components/publishing/PublishToSpacesDialog.vue'
   import UploadAssetPicker from '@/components/upload/UploadAssetPicker.vue'
   import UploadTypeDialog from '@/components/upload/UploadTypeDialog.vue'
   import { accountExists } from '@/services/stellar'
@@ -2085,6 +2102,9 @@
       showToast(t('CreatorStudio.actions.publishSuccess'))
       await fetchEntries()
       await fetchStats()
+      // Entity is live on the profile; offer optional space publication
+      // through the publishing block queue.
+      openPublishToSpaces(entry)
     } catch (error_) {
       console.error('[CreatorStudio] Publish failed:', error_)
       if (error_ instanceof ApiError && error_.status === 409) {
@@ -2093,6 +2113,16 @@
       }
       showToast(t('CreatorStudio.actions.publishError'), 'error')
     }
+  }
+
+  // ── Publish to spaces (publishing block queue) ──────────
+
+  const publishSpacesDialog = ref(false)
+  const publishSpacesTarget = ref<CreatorEntryModel | null>(null)
+
+  function openPublishToSpaces (entry: CreatorEntryModel) {
+    publishSpacesTarget.value = entry
+    publishSpacesDialog.value = true
   }
 
   // ── Archive / Unarchive ───────────────────────────────────
