@@ -5,10 +5,15 @@
  * what hostname the user is on:
  *
  *   • `platform` — the platform's default tenant (apex, reserved subdomain).
- *   • `tenant`   — a real, active tenant subdomain.
+ *   • `tenant`   — a real, active tenant subdomain OR an ACTIVE custom
+ *                  domain (the server answers with the same shape; the
+ *                  `subdomain` field is the owning tenant's subdomain).
  *   • `notFound` — a syntactically valid `<sub>.earnlumens.org` with no
- *                  active tenant document. The SPA must render a 404 page
- *                  instead of silently rendering the default tenant.
+ *                  active tenant document, or a custom domain that is not
+ *                  (or no longer) servable. The SPA must render a 404 page
+ *                  instead of silently rendering the default tenant. The
+ *                  404 body carries `subdomain` for subdomains and `host`
+ *                  for custom domains.
  *
  * This is the very first network call the SPA makes, so it intentionally
  * avoids the axios pipeline (no auth interceptors, no retry on 404, no
@@ -37,8 +42,10 @@ export interface TenantBanner {
 
 export interface VisitorContext {
   kind: VisitorKind
-  /** Present when `kind === 'tenant'` or `kind === 'notFound'`. */
+  /** Present when `kind === 'tenant'` or `kind === 'notFound'` (subdomain probes). */
   subdomain?: string
+  /** Full hostname, present when `kind === 'notFound'` on a custom domain. */
+  host?: string
   /** Optional storefront app-bar label override. Null/undefined means "use the hardcoded default". */
   brandText?: string | null
   /** When true the storefront renders no text label next to the logo (logo-only mode). */
@@ -87,8 +94,11 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
   })
 
   if (response.status === 404) {
-    const body = await response.json().catch(() => null) as { subdomain?: string } | null
-    return { kind: 'notFound', subdomain: body?.subdomain }
+    // Subdomain probes 404 with { subdomain }, custom-domain probes with
+    // { host } (see PublicTenantController). Keep both so the 404 page can
+    // show the exact hostname the visitor typed.
+    const body = await response.json().catch(() => null) as { subdomain?: string, host?: string } | null
+    return { kind: 'notFound', subdomain: body?.subdomain, host: body?.host }
   }
 
   if (!response.ok) {

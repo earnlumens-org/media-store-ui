@@ -26,12 +26,15 @@
    *
    *   prod  -> https://earnlumens.org/oauth2/authorization/x?tenant=<sub>
    *   dev   -> https://api-dev.earnlumens.org/oauth2/authorization/x?tenant=<sub>
+   *   custom domain -> https://earnlumens.org/oauth2/authorization/x?return_host=<fqdn>
    *
    * The originating tenant is passed as a query parameter; the backend
    * stores it in its session and the SuccessHandler redirects the browser
    * back to that tenant's /oauth2/callback once the handshake completes
    * (using `mediastore.tenant.root-domain` to pick the correct apex per
-   * environment).
+   * environment). Custom domains use `return_host` instead of `tenant`;
+   * the backend validates it against the DB (only ACTIVE + Pro-servable
+   * domains are honoured — anti open-redirect) before storing it.
    *
    * On localhost (single-tenant developer envs) we keep the
    * direct-to-current-origin behaviour so local development doesn't depend
@@ -73,13 +76,24 @@
       return 'https://earnlumens.org/oauth2/authorization/x'
     }
 
-    // Tenant subdomain: extract the leftmost label and forward it so the
-    // SuccessHandler knows where to send the user back to.
-    const sub = hostname.split('.')[0] ?? ''
-    if (sub === '') {
-      return 'https://earnlumens.org/oauth2/authorization/x'
+    // Tenant subdomain under the prod apex: extract the single label and
+    // forward it so the SuccessHandler knows where to send the user back to.
+    if (hostname.endsWith('.earnlumens.org')) {
+      const sub = hostname.slice(0, -'.earnlumens.org'.length)
+      if (sub === '' || sub.includes('.')) {
+        return 'https://earnlumens.org/oauth2/authorization/x'
+      }
+      const params = new URLSearchParams({ tenant: sub })
+      return `https://earnlumens.org/oauth2/authorization/x?${params.toString()}`
     }
-    const params = new URLSearchParams({ tenant: sub })
+
+    // Custom domain (Pro tenants): bounce through the prod apex with
+    // return_host=<fqdn>. The backend only honours hosts that resolve to an
+    // ACTIVE, Pro-servable custom domain in the DB, and the SuccessHandler
+    // then redirects back to https://<host>/oauth2/callback. Custom domains
+    // only exist in production (the dev worker has no fallback-origin
+    // route), so the prod apex is always the correct bounce host here.
+    const params = new URLSearchParams({ return_host: hostname })
     return `https://earnlumens.org/oauth2/authorization/x?${params.toString()}`
   }
 

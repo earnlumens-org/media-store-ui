@@ -156,6 +156,7 @@
   "TenantNotFound": {
     "title": "This tenant doesn’t exist",
     "body": "The subdomain you are trying to reach does not match any active marketplace on EarnLumens.",
+    "bodyDomain": "This domain is not connected to any active marketplace on EarnLumens.",
     "cta": "Go to earnlumens.org"
   },
   "Sanctions": {

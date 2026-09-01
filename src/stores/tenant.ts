@@ -17,6 +17,8 @@ interface State {
   status: VisitorStatus
   kind: VisitorKind | null
   subdomain: string | null
+  /** Full hostname reported by a custom-domain 404 (null for subdomain 404s). */
+  notFoundHost: string | null
   /** Optional storefront app-bar label. Null means "use the hardcoded default". */
   brandText: string | null
   /** When true the storefront renders no text label next to the logo. */
@@ -62,6 +64,7 @@ export const useTenantStore = defineStore('tenant', {
     status: 'idle',
     kind: null,
     subdomain: null,
+    notFoundHost: null,
     brandText: null,
     brandTextHidden: false,
     logoR2Key: null,
@@ -171,6 +174,7 @@ export const useTenantStore = defineStore('tenant', {
         const ctx = await fetchVisitorContext()
         this.kind = ctx.kind
         this.subdomain = ctx.subdomain ?? null
+        this.notFoundHost = ctx.host ?? null
         this.brandText = ctx.brandText ?? null
         this.brandTextHidden = ctx.brandTextHidden ?? false
         this.logoR2Key = ctx.logoR2Key ?? null
@@ -190,6 +194,7 @@ export const useTenantStore = defineStore('tenant', {
         console.warn('[tenantStore] visitor probe failed, falling back to platform', error)
         this.kind = 'platform'
         this.subdomain = null
+        this.notFoundHost = null
         this.brandText = null
         this.brandTextHidden = false
         this.logoR2Key = null

@@ -8,6 +8,7 @@
     -->
     <TenantNotFoundPage
       v-if="tenantStore.isNotFound"
+      :host="tenantStore.notFoundHost ?? undefined"
       :subdomain="tenantStore.subdomain ?? ''"
     />
     <router-view v-else-if="tenantStore.isReady" />
@@ -227,25 +228,25 @@
   // resolves (index.html ships with a blank data: icon for the same reason).
   const DEFAULT_FAVICON_SVG = '/favicon.svg'
   const DEFAULT_FAVICON_ICO = '/favicon.ico'
-  const applyFavicon = (customUrl: string | null) => {
+  function applyFavicon (customUrl: string | null) {
     if (typeof document === 'undefined') return
     const head = document.head
     // Replace the whole set atomically: drop the blank boot icon and any
     // previously-installed links, then add the resolved one(s).
-    head.querySelectorAll('link[rel="icon"]').forEach((el) => el.remove())
+    for (const el of head.querySelectorAll('link[rel="icon"]')) el.remove()
     const specs: Array<{ href: string, type?: string, sizes?: string }> = customUrl
       ? [{ href: customUrl }]
       : [
-          { href: DEFAULT_FAVICON_SVG, type: 'image/svg+xml' },
-          { href: DEFAULT_FAVICON_ICO, sizes: '32x32' },
-        ]
+        { href: DEFAULT_FAVICON_SVG, type: 'image/svg+xml' },
+        { href: DEFAULT_FAVICON_ICO, sizes: '32x32' },
+      ]
     for (const spec of specs) {
       const link = document.createElement('link')
       link.rel = 'icon'
       link.href = spec.href
       if (spec.type) link.type = spec.type
       if (spec.sizes) link.setAttribute('sizes', spec.sizes)
-      head.appendChild(link)
+      head.append(link)
     }
   }
   watch(

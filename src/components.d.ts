@@ -51,6 +51,7 @@ declare module 'vue' {
     InstallAppButton: typeof import('./components/pwa/InstallAppButton.vue')['default']
     InstallInstructionsDialog: typeof import('./components/pwa/InstallInstructionsDialog.vue')['default']
     MediaFrame: typeof import('./components/media/MediaFrame.vue')['default']
+    PublishToSpacesDialog: typeof import('./components/publishing/PublishToSpacesDialog.vue')['default']
     RatingPill: typeof import('./components/rating/RatingPill.vue')['default']
     RatingSection: typeof import('./components/rating/RatingSection.vue')['default']
     ReportDialog: typeof import('./components/report/ReportDialog.vue')['default']

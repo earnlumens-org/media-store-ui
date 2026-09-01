@@ -135,3 +135,41 @@ describe('apiUrl — same-origin path composition for tenants', () => {
     expect(apiUrl('api/whoami')).toBe('https://acme.earnlumens.org/api/whoami')
   })
 })
+
+describe('custom domains — unknown hostnames resolve to production same-origin', () => {
+  // A Pro tenant's custom domain (e.g. shop.example.com) is an "unknown"
+  // hostname to env.ts: it must fall through to the production branch so
+  // BOTH the API and the CDN stay same-origin. That keeps the host-only
+  // refresh cookie scoped to the custom domain and lets the edge worker
+  // route /api/* and /cdn/* for it. If anyone ever changes the fallback to
+  // 'local' or to a hard-coded apex, custom domains break loudly here.
+  beforeEach(() => {
+    vi.stubEnv('VITE_CDN_BASE_URL', '')
+  })
+
+  it('custom domain resolves the API base URL to its own origin', async () => {
+    stubLocation('shop.example.com', 'https://shop.example.com')
+    const { getApiBaseUrl } = await loadEnv()
+    expect(getApiBaseUrl()).toBe('https://shop.example.com')
+  })
+
+  it('custom domain resolves the CDN base URL to its own origin /cdn', async () => {
+    stubLocation('shop.example.com', 'https://shop.example.com')
+    const { getCdnBaseUrl } = await loadEnv()
+    expect(getCdnBaseUrl()).toBe('https://shop.example.com/cdn')
+  })
+
+  it('custom domain composes same-origin API and CDN URLs', async () => {
+    stubLocation('store.earnxlm.com', 'https://store.earnxlm.com')
+    const { apiUrl, cdnMediaUrl } = await loadEnv()
+    expect(apiUrl('/public/tenant/visitor')).toBe('https://store.earnxlm.com/public/tenant/visitor')
+    expect(cdnMediaUrl('entry-1')).toBe('https://store.earnxlm.com/cdn/media/entry-1')
+  })
+
+  it('custom domain never leaks to the apex or another tenant', async () => {
+    stubLocation('shop.example.com', 'https://shop.example.com')
+    const { getApiBaseUrl, getCdnBaseUrl } = await loadEnv()
+    expect(getApiBaseUrl()).not.toContain('earnlumens.org')
+    expect(getCdnBaseUrl()).not.toContain('earnlumens.org')
+  })
+})

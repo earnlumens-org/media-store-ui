@@ -1,7 +1,10 @@
 <!--
   Rendered when the visitor is on a syntactically valid `<sub>.earnlumens.org`
-  that has no active tenant. Replaces the storefront entirely so we never
-  leak default-tenant content for an unknown subdomain.
+  that has no active tenant, or on a custom domain that is not (or no longer)
+  servable — the edge normally 404s unknown custom domains before the SPA
+  loads, but a domain can turn unservable between the KV gate and the visitor
+  probe (plan expiry, suspension). Replaces the storefront entirely so we
+  never leak default-tenant content for an unknown host.
 
   Localized via the global vue-i18n instance, which is already initialized
   in `main.ts` before this component can mount (tenant resolution happens
@@ -17,10 +20,12 @@
       <h1 class="tenant-not-found__title">{{ t('TenantNotFound.title') }}</h1>
 
       <p class="tenant-not-found__subdomain">
-        <code>{{ subdomain }}.earnlumens.org</code>
+        <code>{{ displayHost }}</code>
       </p>
 
-      <p class="tenant-not-found__body">{{ t('TenantNotFound.body') }}</p>
+      <p class="tenant-not-found__body">
+        {{ isCustomDomain ? t('TenantNotFound.bodyDomain') : t('TenantNotFound.body') }}
+      </p>
 
       <a class="tenant-not-found__cta" :href="apexHref">
         {{ t('TenantNotFound.cta') }}
@@ -36,18 +41,26 @@
 
   const props = defineProps<{
     subdomain: string
+    /** Full hostname when the 404 came from a custom domain (no subdomain). */
+    host?: string
   }>()
 
   const { t } = useI18n()
+
+  const isCustomDomain = computed(() => typeof props.host === 'string' && props.host.length > 0)
+
+  /** Hostname to display: custom domain as-is, else `<sub>.earnlumens.org`. */
+  const displayHost = computed(() => {
+    if (isCustomDomain.value) return props.host as string
+    if (props.subdomain.length > 0) return `${props.subdomain}.earnlumens.org`
+    // Defensive fallback: 404 body carried neither field.
+    return typeof window === 'undefined' ? '' : window.location.hostname
+  })
 
   const apexHref = computed(() => {
     if (typeof window === 'undefined') return 'https://earnlumens.org'
     return `${window.location.protocol}//earnlumens.org`
   })
-
-  // Reference the prop so TS / linters don't flag it as unused — the
-  // template binding alone isn't enough for `<script setup>` lints.
-  void props.subdomain
 </script>
 
 <style scoped>
