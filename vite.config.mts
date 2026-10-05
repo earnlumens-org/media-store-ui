@@ -76,7 +76,8 @@ export default defineConfig({
         theme_color: '#10131A',
         background_color: '#10131A',
         display: 'standalone',
-        orientation: 'portrait',
+        // No orientation lock: the storefront must stay readable in both
+        // portrait and landscape (mirrors the per-host manifest from the API).
         scope: '/',
         start_url: '/?source=pwa',
         // No related_applications here: the per-host manifest served by the

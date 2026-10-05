@@ -68,6 +68,12 @@ export interface VisitorContext {
    * subdomains no. Absent (older backend) means "offered".
    */
   installOffered?: boolean
+  /**
+   * Human-readable store/app name (browserTitle → brandText → title →
+   * subdomain), independent of the logo-only switch that blanks brandText.
+   * Matches the `name` of the per-host web manifest. Absent on the platform.
+   */
+  appName?: string | null
   /** Optional browser-tab title. Null/undefined means "use the hardcoded EARNLUMENS / tenant fallback". */
   browserTitle?: string | null
   /** Optional hero banner. Absent when the owner has not enabled it. */
@@ -130,6 +136,7 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
     faviconR2Key?: string | null
     pwaIconR2Key?: string | null
     installOffered?: boolean
+    appName?: string | null
     browserTitle?: string | null
     banner?: Record<string, unknown> | null
     defaultLightTheme?: string | null
@@ -149,6 +156,7 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
   const faviconR2Key = typeof body.faviconR2Key === 'string' && body.faviconR2Key.length > 0 ? body.faviconR2Key : null
   const pwaIconR2Key = typeof body.pwaIconR2Key === 'string' && body.pwaIconR2Key.length > 0 ? body.pwaIconR2Key : null
   const installOffered = body.installOffered !== false
+  const appName = typeof body.appName === 'string' && body.appName.trim().length > 0 ? body.appName.trim() : null
   const browserTitle = typeof body.browserTitle === 'string' && body.browserTitle.length > 0 ? body.browserTitle : null
   const banner = parseBanner(body.banner)
   const defaultLightTheme = typeof body.defaultLightTheme === 'string' && body.defaultLightTheme.length > 0 ? body.defaultLightTheme : null
@@ -168,9 +176,9 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
     : null
   const allowedEntryTypesFinal = allowedEntryTypes && allowedEntryTypes.length > 0 ? allowedEntryTypes : null
   if (body.kind === 'tenant' && typeof body.subdomain === 'string') {
-    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark, faviconR2Key, pwaIconR2Key, installOffered, browserTitle, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled, allowedEntryTypes: allowedEntryTypesFinal }
+    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark, faviconR2Key, pwaIconR2Key, installOffered, appName, browserTitle, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled, allowedEntryTypes: allowedEntryTypesFinal }
   }
-  return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark, faviconR2Key, pwaIconR2Key, installOffered, browserTitle, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled, allowedEntryTypes: allowedEntryTypesFinal }
+  return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark, faviconR2Key, pwaIconR2Key, installOffered, appName, browserTitle, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled, allowedEntryTypes: allowedEntryTypesFinal }
 }
 
 function parseBanner (raw: Record<string, unknown> | null | undefined): TenantBanner | null {

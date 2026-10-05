@@ -33,6 +33,8 @@ interface State {
   pwaIconR2Key: string | null
   /** Whether this origin surfaces our "Install app" CTA (false on tenant subdomains). */
   installOffered: boolean
+  /** Store/app name from the server (independent of logo-only mode). Null on the platform. */
+  appName: string | null
   /** Optional browser-tab title. Null means "use tenant title or hardcoded EARNLUMENS". */
   browserTitle: string | null
   /** Optional per-tenant hero banner block. Null means "do not render". */
@@ -76,6 +78,7 @@ export const useTenantStore = defineStore('tenant', {
     faviconR2Key: null,
     pwaIconR2Key: null,
     installOffered: true,
+    appName: null,
     browserTitle: null,
     banner: null,
     defaultLightTheme: null,
@@ -94,6 +97,19 @@ export const useTenantStore = defineStore('tenant', {
      * "Organization" (secondary) for the gold-credential role label.
      */
     isMainTenant: state => state.kind === 'platform',
+    /**
+     * Name to use wherever the UI talks ABOUT the store/app (install
+     * prompts, "official franchise of …", share copy) — as opposed to the
+     * AppBar label, which the owner may hide. Never blank: server appName →
+     * visible brandText → browserTitle → subdomain → platform brand.
+     */
+    displayName (state): string {
+      return state.appName
+        || (state.brandText && state.brandText.trim())
+        || (state.browserTitle && state.browserTitle.trim())
+        || (state.kind === 'tenant' ? state.subdomain : null)
+        || 'EarnLumens'
+    },
     /**
      * Public CDN URL for the tenant logo (light variant), composed from
      * the env-aware CDN base and the R2 key returned by the visitor probe.
@@ -203,6 +219,7 @@ export const useTenantStore = defineStore('tenant', {
         this.faviconR2Key = ctx.faviconR2Key ?? null
         this.pwaIconR2Key = ctx.pwaIconR2Key ?? null
         this.installOffered = ctx.installOffered ?? true
+        this.appName = ctx.appName ?? null
         this.browserTitle = ctx.browserTitle ?? null
         this.banner = ctx.banner ?? null
         this.defaultLightTheme = ctx.defaultLightTheme ?? null
@@ -225,6 +242,7 @@ export const useTenantStore = defineStore('tenant', {
         this.faviconR2Key = null
         this.pwaIconR2Key = null
         this.installOffered = true
+        this.appName = null
         this.browserTitle = null
         this.banner = null
         this.defaultLightTheme = null

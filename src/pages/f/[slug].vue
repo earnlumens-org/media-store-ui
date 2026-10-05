@@ -84,9 +84,9 @@
   const slug = computed(() => String((route.params as Record<string, string | string[] | undefined>).slug ?? ''))
 
   const title = computed(
-    () => franchiseStore.brandText ?? tenantStore.brandText ?? 'EARNLUMENS',
+    () => franchiseStore.brandText ?? tenantStore.displayName,
   )
-  const tenantName = computed(() => tenantStore.brandText ?? 'EarnLumens')
+  const tenantName = computed(() => tenantStore.displayName)
 
   const heroStyle = computed(() => {
     const accent = franchiseStore.accentColor

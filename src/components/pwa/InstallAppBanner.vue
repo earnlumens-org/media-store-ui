@@ -23,16 +23,16 @@
       elevation="8"
       rounded="xl"
     >
-      <div class="d-flex align-center pa-3 ga-3">
-        <v-avatar color="primary" rounded="lg" size="48">
-          <v-icon icon="mdi-cellphone-arrow-down" size="26" />
+      <div class="install-app-banner__row d-flex align-center pa-3 ga-3">
+        <v-avatar class="install-app-banner__icon flex-shrink-0" rounded="lg" size="48">
+          <img :alt="brandName" :src="appIconUrl">
         </v-avatar>
 
         <div class="flex-grow-1 overflow-hidden">
           <div class="text-subtitle-2 font-weight-bold text-truncate">
             {{ $t('Common.installBannerTitle', { name: brandName }) }}
           </div>
-          <div class="text-caption text-medium-emphasis text-truncate">
+          <div class="install-app-banner__subtitle text-caption text-medium-emphasis text-truncate">
             {{ $t('Common.installBannerSubtitle') }}
           </div>
         </div>
@@ -87,7 +87,11 @@
   const showInstructions = ref(false)
   const instructionsPlatform = ref<'ios' | 'android'>('android')
 
-  const brandName = computed(() => tenantStore.brandText || 'EarnLumens')
+  // Same name and icon the OS will show after installing (see the per-host
+  // manifest + tenantStore.appleTouchIconUrl), so the prompt never promises
+  // one brand and installs another.
+  const brandName = computed(() => tenantStore.displayName)
+  const appIconUrl = computed(() => tenantStore.appleTouchIconUrl)
 
   const visible = computed(() =>
     tenantStore.installOffered
@@ -140,5 +144,34 @@
   z-index: 2000;
   margin-inline: auto;
   max-width: 480px;
+}
+
+.install-app-banner__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Landscape phones: little vertical room, so keep the card to one compact
+   line and respect the side safe areas (notch / rounded corners). */
+@media (orientation: landscape) and (max-height: 500px) {
+  .install-app-banner {
+    inset-inline: calc(12px + env(safe-area-inset-left, 0px)) calc(12px + env(safe-area-inset-right, 0px));
+    bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .install-app-banner__row {
+    padding-block: 6px !important;
+  }
+
+  .install-app-banner__icon {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .install-app-banner__subtitle {
+    display: none;
+  }
 }
 </style>

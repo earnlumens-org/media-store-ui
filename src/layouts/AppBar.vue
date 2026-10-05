@@ -311,7 +311,7 @@
     () => (franchiseActive.value && franchiseBrand.value) || brandText.value || 'EARNLUMENS',
   )
   /** Name of the franchisor tenant, shown in the "official franchise of" badge. */
-  const franchiseTenantName = computed(() => brandText.value ?? 'EarnLumens')
+  const franchiseTenantName = computed(() => tenantStore.displayName)
   /**
    * When the tenant has flipped on logo-only mode the AppBar hides the
    * text entirely. brandTextHidden is read from the visitor probe so the

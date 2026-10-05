@@ -539,7 +539,7 @@
 
   const snackbar = reactive({ show: false, text: '', color: 'success' })
 
-  const tenantBrand = computed(() => tenantStore.brandText || 'EARNLUMENS')
+  const tenantBrand = computed(() => tenantStore.displayName)
 
   const origin = computed(() =>
     typeof window === 'undefined' ? '' : window.location.origin,
