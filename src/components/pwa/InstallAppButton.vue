@@ -11,10 +11,12 @@
     - iOS → manual "Add to Home Screen" instructions (with an extra caveat on
       iOS < 16.4).
     - Other desktop browsers → a custom hint (no install path available).
-  Renders nothing when the app is already installed.
+  Renders nothing when the app is already installed, or on origins where the
+  server does not offer installation (tenant subdomains — see
+  tenantStore.installOffered).
 -->
 <template>
-  <div v-if="installState !== 'installed'" class="install-app-block">
+  <div v-if="tenantStore.installOffered && installState !== 'installed'" class="install-app-block">
     <!-- Android / desktop: native install prompt -->
     <v-btn
       v-if="installState === 'installable'"
@@ -85,8 +87,10 @@
   import { ref } from 'vue'
   import InstallInstructionsDialog from '@/components/pwa/InstallInstructionsDialog.vue'
   import { usePwaInstall } from '@/lib/pwaInstall'
+  import { useTenantStore } from '@/stores/tenant'
 
   const { installState, platform, promptInstall } = usePwaInstall()
+  const tenantStore = useTenantStore()
 
   const showInstructions = ref(false)
   const instructionsPlatform = ref<'ios' | 'android'>('android')

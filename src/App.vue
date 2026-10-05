@@ -258,6 +258,27 @@
     { immediate: true },
   )
 
+  // Per-origin iOS Home Screen icon. Safari ignores the web manifest for
+  // name/icon and reads <link rel="apple-touch-icon"> at "Add to Home
+  // Screen" time, so swapping it at runtime is enough. Mirrors the server's
+  // per-host manifest policy (see tenantStore.appleTouchIconUrl): official
+  // icon on the platform origin, the tenant's own icon on a custom domain,
+  // the generic "store on EarnLumens" badge everywhere else.
+  watch(
+    () => [tenantStore.isReady, tenantStore.appleTouchIconUrl] as const,
+    ([ready, url]) => {
+      if (!ready || typeof document === 'undefined') return
+      let link = document.head.querySelector<HTMLLinkElement>('link[rel="apple-touch-icon"]')
+      if (!link) {
+        link = document.createElement('link')
+        link.rel = 'apple-touch-icon'
+        document.head.append(link)
+      }
+      if (link.getAttribute('href') !== url) link.href = url
+    },
+    { immediate: true },
+  )
+
   // Per-tenant browser-tab title. Mirrors the AppBar's fallback chain so
   // the tab text and the AppBar label stay in sync: explicit override →
   // tenant title → hardcoded EARNLUMENS. Skipped while the visitor probe

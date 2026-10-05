@@ -3,6 +3,9 @@
   style): icon tile + title/subtitle + Install CTA + close.
 
   Visibility rules:
+    - Only on origins where the server offers installation
+      (tenantStore.installOffered: apex + custom domains, never tenant
+      subdomains — those would all install as look-alike platform apps).
     - Mobile platforms only (android / ios) — never desktop.
     - Hidden when running as an installed PWA (standalone display-mode) or
       when the installed app was detected (installState === 'installed').
@@ -87,7 +90,8 @@
   const brandName = computed(() => tenantStore.brandText || 'EarnLumens')
 
   const visible = computed(() =>
-    !dismissed.value
+    tenantStore.installOffered
+    && !dismissed.value
     && !isStandalone.value
     && installState.value !== 'installed'
     && (platform.value === 'android' || platform.value === 'ios'),

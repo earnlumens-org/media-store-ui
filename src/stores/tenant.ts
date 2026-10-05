@@ -29,6 +29,10 @@ interface State {
   logoR2KeyDark: string | null
   /** Optional R2 object key for the per-tenant browser favicon. Null means "use the baked-in /favicon.ico". */
   faviconR2Key: string | null
+  /** Own PWA app icon (custom domains only). Null means "use the generic badge / platform icon". */
+  pwaIconR2Key: string | null
+  /** Whether this origin surfaces our "Install app" CTA (false on tenant subdomains). */
+  installOffered: boolean
   /** Optional browser-tab title. Null means "use tenant title or hardcoded EARNLUMENS". */
   browserTitle: string | null
   /** Optional per-tenant hero banner block. Null means "do not render". */
@@ -70,6 +74,8 @@ export const useTenantStore = defineStore('tenant', {
     logoR2Key: null,
     logoR2KeyDark: null,
     faviconR2Key: null,
+    pwaIconR2Key: null,
+    installOffered: true,
     browserTitle: null,
     banner: null,
     defaultLightTheme: null,
@@ -136,6 +142,21 @@ export const useTenantStore = defineStore('tenant', {
       return `${getCdnBaseUrl()}/${state.faviconR2Key}`
     },
     /**
+     * iOS "Add to Home Screen" icon for this origin. Mirrors the server's
+     * manifest policy: platform origin ⇒ official icon; custom domain with
+     * an uploaded app icon ⇒ that icon (CDN, same-origin); any other tenant
+     * origin ⇒ the generic "store on EarnLumens" badge icon.
+     */
+    appleTouchIconUrl (state): string {
+      if (state.kind !== 'tenant') {
+        return '/pwa/apple-touch-icon.png'
+      }
+      if (state.pwaIconR2Key) {
+        return `${getCdnBaseUrl()}/${state.pwaIconR2Key}`
+      }
+      return '/pwa/apple-touch-icon-tenant.png'
+    },
+    /**
      * Lowercase variant of {@link allowedEntryTypes} convenient for UI
      * code that compares against tab values like {@code 'video'}. Null
      * means "no restriction" — the caller should treat every type as
@@ -180,6 +201,8 @@ export const useTenantStore = defineStore('tenant', {
         this.logoR2Key = ctx.logoR2Key ?? null
         this.logoR2KeyDark = ctx.logoR2KeyDark ?? null
         this.faviconR2Key = ctx.faviconR2Key ?? null
+        this.pwaIconR2Key = ctx.pwaIconR2Key ?? null
+        this.installOffered = ctx.installOffered ?? true
         this.browserTitle = ctx.browserTitle ?? null
         this.banner = ctx.banner ?? null
         this.defaultLightTheme = ctx.defaultLightTheme ?? null
@@ -200,6 +223,8 @@ export const useTenantStore = defineStore('tenant', {
         this.logoR2Key = null
         this.logoR2KeyDark = null
         this.faviconR2Key = null
+        this.pwaIconR2Key = null
+        this.installOffered = true
         this.browserTitle = null
         this.banner = null
         this.defaultLightTheme = null

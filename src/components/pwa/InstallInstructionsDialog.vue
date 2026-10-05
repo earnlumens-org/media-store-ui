@@ -77,6 +77,11 @@
             Tap <strong>“Add”</strong> in the top-right corner.
           </li>
         </ol>
+        <p class="mt-3 mb-0 text-medium-emphasis">
+          iOS freezes the name and icon at install time. If this store
+          changes its app icon later, remove the Home Screen app and add it
+          again to pick up the new one.
+        </p>
       </v-card-text>
       <v-card-actions>
         <v-spacer />

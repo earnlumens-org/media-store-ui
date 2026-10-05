@@ -22,9 +22,12 @@ export default defineConfig({
     // PWA: installable app for Android / iOS / desktop. The OAuth callback
     // (/oauth2/callback?UUID=…) re-enters this same origin so it stays inside
     // the PWA scope and completes the token exchange in the PWA's storage jar.
-    // Manifest name/icons are platform-generic for now (single static
-    // manifest); per-tenant branding would require a dynamic edge-served
-    // manifest (see DEPLOY notes).
+    // The manifest below is the STATIC FALLBACK only: in production
+    // tenants-router rewrites GET /manifest.webmanifest to media-store-api's
+    // /public/tenant/manifest, which brands the manifest per host (platform
+    // apex = this one; tenant subdomains = tenant name + generic badge icon;
+    // custom domains = tenant name + own icon). id/scope/start_url stay
+    // relative in both so PWA identity is per-origin by construction.
     VitePWA({
       // `prompt`, NOT `autoUpdate`: a new build installs and *waits* instead of
       // skip-waiting + reloading on its own. The reload is then driven from
@@ -76,14 +79,9 @@ export default defineConfig({
         orientation: 'portrait',
         scope: '/',
         start_url: '/?source=pwa',
-        // Lets navigator.getInstalledRelatedApps() detect this very PWA from a
-        // browser tab (platform 'webapp' = self-reference; prefer_related_
-        // applications stays false so installability is unaffected). Only
-        // resolves on the origin the manifest URL matches; harmless empty
-        // result on tenant subdomains.
-        related_applications: [
-          { platform: 'webapp', url: 'https://earnlumens.org/manifest.webmanifest' },
-        ],
+        // No related_applications here: the per-host manifest served by the
+        // API points at the visitor's own origin; a hardcoded apex URL would
+        // be wrong on every tenant origin.
         icons: [
           { src: '/pwa/pwa-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
           { src: '/pwa/pwa-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
