@@ -26,6 +26,18 @@ describe('tenant store — PWA naming and icons', () => {
     expect(store.displayName).toBe('EarnLumens')
   })
 
+  it('displayName derives the brand from a custom domain before the slug', () => {
+    // Node test environment: provide a minimal window.location stand-in.
+    vi.stubGlobal('window', { location: { hostname: 'www.udemo.app' } })
+    try {
+      const store = useTenantStore()
+      store.$patch({ kind: 'tenant', subdomain: '750', appName: null, brandText: '', browserTitle: null })
+      expect(store.displayName).toBe('udemo')
+    } finally {
+      vi.unstubAllGlobals()
+    }
+  })
+
   it('appleTouchIconUrl mirrors the manifest policy', () => {
     const store = useTenantStore()
     store.$patch({ kind: 'platform' })

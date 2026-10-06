@@ -13,6 +13,30 @@ import { getCdnBaseUrl } from '@/config/env'
 
 export type VisitorStatus = 'idle' | 'loading' | 'ready' | 'error'
 
+/**
+ * Brand label of the current hostname when it is a custom domain (not under
+ * the platform apex): `www.udemo.app` ⇒ `udemo`, `shop.acme.com` ⇒ `acme`.
+ * Null on platform hosts, tenant subdomains and localhost. Client-side
+ * fallback only — the server's `appName` applies the same rule.
+ */
+function customDomainBrandLabel (): string | null {
+  if (typeof window === 'undefined') {
+    return null
+  }
+  let host = window.location.hostname.toLowerCase()
+  if (host === 'localhost' || host === '127.0.0.1' || host === 'earnlumens.org' || host.endsWith('.earnlumens.org')) {
+    return null
+  }
+  if (host.startsWith('www.')) {
+    host = host.slice(4)
+  }
+  const labels = host.split('.')
+  if (labels.length < 2) {
+    return null
+  }
+  return labels.at(-2) || null
+}
+
 interface State {
   status: VisitorStatus
   kind: VisitorKind | null
@@ -101,12 +125,14 @@ export const useTenantStore = defineStore('tenant', {
      * Name to use wherever the UI talks ABOUT the store/app (install
      * prompts, "official franchise of …", share copy) — as opposed to the
      * AppBar label, which the owner may hide. Never blank: server appName →
-     * visible brandText → browserTitle → subdomain → platform brand.
+     * visible brandText → browserTitle → brand label of the custom domain
+     * → subdomain → platform brand.
      */
     displayName (state): string {
       return state.appName
         || (state.brandText && state.brandText.trim())
         || (state.browserTitle && state.browserTitle.trim())
+        || (state.kind === 'tenant' ? customDomainBrandLabel() : null)
         || (state.kind === 'tenant' ? state.subdomain : null)
         || 'EarnLumens'
     },
