@@ -936,6 +936,10 @@
       "resellerSettings": "Configuración de revendedores"
     },
     "approvedHint": "Aprobada · lista para publicar (aún no visible)",
+    "pendingEdit": "Cambios pendientes de revisión",
+    "pendingEditHint": "Tu edición está en revisión. La versión publicada sigue visible hasta que se apruebe.",
+    "blocked": "Retirado por moderación",
+    "blockedHint": "Este contenido fue retirado por incumplir las normas y no está disponible para nadie, incluido tú, hasta que un moderador lo reinstaure.",
     "editEntry": "Editar entrada",
     "editSuccess": "Entrada actualizada correctamente",
     "editError": "Error al actualizar la entrada. Inténtalo de nuevo.",

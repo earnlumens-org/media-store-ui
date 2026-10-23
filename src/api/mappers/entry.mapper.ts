@@ -52,6 +52,8 @@ export function mapPublicEntryDtoToModel (dto: PublicEntryDto): PublicEntryModel
     originalEntryId: dto.originalEntryId,
     originalAuthorUsername: dto.originalAuthorUsername,
     remixRoyaltyPercent: dto.remixRoyaltyPercent,
+    status: dto.status,
+    viewerAccess: dto.viewerAccess,
     tags: dto.tags ?? [],
     asset: dto.asset,
     hlsReady: dto.hlsReady ?? false,

@@ -164,6 +164,11 @@
     </template>
 
     <!-- NOT FOUND STATE -->
+    <!-- BLOCKED STATE (moderation takedown, H3) -->
+    <template v-else-if="blocked">
+      <ContentBlockedNotice :dispute-id="blockedDisputeId" @back="goBack" @home="goHome" />
+    </template>
+
     <template v-else-if="notFound">
       <v-container class="fill-height">
         <v-row align="center" justify="center">
@@ -212,6 +217,7 @@
           xl="9"
         >
           <v-container class="pa-0 pa-md-4" fluid>
+            <EntryStatusBanner :status="entry.status" :viewer-access="entry.viewerAccess" />
             <!-- Image Display -->
             <v-sheet
               class="rounded-0 rounded-md-lg overflow-hidden bg-black d-flex align-center justify-center"
@@ -484,6 +490,8 @@
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import CxSubscribeButton from '@/components/CxSubscribeButton.vue'
   import ClaimOriginalDialog from '@/components/entry/ClaimOriginalDialog.vue'
+  import ContentBlockedNotice from '@/components/entry/ContentBlockedNotice.vue'
+  import EntryStatusBanner from '@/components/entry/EntryStatusBanner.vue'
   import RatingPill from '@/components/rating/RatingPill.vue'
   import ReportDialog from '@/components/report/ReportDialog.vue'
   import ResellerButton from '@/components/reseller/ResellerButton.vue'
@@ -515,6 +523,8 @@
   const loading = ref(true)
   const error = ref(false)
   const notFound = ref(false)
+  const blocked = ref(false)
+  const blockedDisputeId = ref<string | null>(null)
   const errorMessage = ref('')
 
   // UI State
@@ -608,6 +618,8 @@
     loading.value = true
     error.value = false
     notFound.value = false
+    blocked.value = false
+    blockedDisputeId.value = null
     errorMessage.value = ''
 
     try {
@@ -648,7 +660,15 @@
     } catch (error_: unknown) {
       console.error('[ViewPage] Failed to fetch entry:', error_)
 
-      if (error_ && typeof error_ === 'object' && 'status' in error_ && (error_ as { status: number }).status === 404) {
+      const status = error_ && typeof error_ === 'object' && 'status' in error_
+        ? (error_ as { status: number }).status
+        : undefined
+      if (status === 451) {
+        // Moderation takedown: never a generic "not found" (H3)
+        blocked.value = true
+        const data = (error_ as { data?: { disputeId?: string } }).data
+        blockedDisputeId.value = data?.disputeId ?? null
+      } else if (status === 404) {
         notFound.value = true
       } else {
         error.value = true

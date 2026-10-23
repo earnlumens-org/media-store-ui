@@ -274,6 +274,9 @@ interface StudioItemDto {
   resellerCommissionPercent?: number
   moderationFeedback?: string
   resourceContent?: string
+  hasPendingVersion?: boolean
+  pendingChanges?: string[]
+  blocked?: boolean
 }
 
 interface StudioPageDto {
@@ -313,6 +316,9 @@ function studioDtoToModel (dto: StudioItemDto): StudioItemModel {
     resellerCommissionPercent: dto.resellerCommissionPercent,
     moderationFeedback: dto.moderationFeedback,
     resourceContent: dto.resourceContent,
+    hasPendingVersion: dto.hasPendingVersion ?? false,
+    pendingChanges: dto.pendingChanges ?? [],
+    blocked: dto.blocked ?? false,
   }
 }
 

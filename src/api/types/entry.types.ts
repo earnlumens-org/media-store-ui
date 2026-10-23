@@ -41,6 +41,10 @@ export interface PublicEntryDto {
   originalAuthorUsername?: string
   /** Royalty percent (5–50) paid to the original creator on remix sales. */
   remixRoyaltyPercent?: number
+  /** Entry status (PUBLISHED, UNLISTED, IN_REVIEW, ARCHIVED, …) — drives the viewer notice (H3). */
+  status?: string
+  /** How the viewer reached the page: OWNER | PUBLIC | ENTITLED. */
+  viewerAccess?: string
   tags?: string[]
   asset?: {
     fileName: string
@@ -95,6 +99,10 @@ export interface PublicEntryModel {
   originalAuthorUsername?: string
   /** Royalty percent (5–50) paid to the original creator on remix sales. */
   remixRoyaltyPercent?: number
+  /** Entry status (PUBLISHED, UNLISTED, IN_REVIEW, ARCHIVED, …) — drives the viewer notice (H3). */
+  status?: string
+  /** How the viewer reached the page: OWNER | PUBLIC | ENTITLED. */
+  viewerAccess?: string
   tags: string[]
   asset?: {
     fileName: string

@@ -97,6 +97,11 @@
     </template>
 
     <!-- NOT FOUND STATE -->
+    <!-- BLOCKED STATE (moderation takedown, H3) -->
+    <template v-else-if="blocked">
+      <ContentBlockedNotice @back="goBack" @home="goHome" />
+    </template>
+
     <template v-else-if="notFound">
       <v-container class="fill-height">
         <v-row align="center" justify="center">
@@ -647,6 +652,7 @@
   import TipDialog from '@/components/checkout/TipDialog.vue'
   import CxFavoriteButton from '@/components/CxFavoriteButton.vue'
   import AudioPlayerDialog from '@/components/entry/AudioPlayerDialog.vue'
+  import ContentBlockedNotice from '@/components/entry/ContentBlockedNotice.vue'
   import EntryPreviewDialog from '@/components/entry/EntryPreviewDialog.vue'
   import ImageLightbox from '@/components/entry/ImageLightbox.vue'
   import RatingPill from '@/components/rating/RatingPill.vue'
@@ -687,6 +693,7 @@
   const loading = ref(true)
   const error = ref(false)
   const notFound = ref(false)
+  const blocked = ref(false)
   const errorMessage = ref('')
 
   // Items are now part of collection detail — no separate fetch
@@ -962,6 +969,7 @@
     loading.value = true
     error.value = false
     notFound.value = false
+    blocked.value = false
     errorMessage.value = ''
 
     try {
@@ -978,7 +986,12 @@
     } catch (error_: unknown) {
       console.error('[CollectionPage] Failed to fetch collection:', error_)
 
-      if (error_ && typeof error_ === 'object' && 'status' in error_ && (error_ as { status: number }).status === 404) {
+      const status = error_ && typeof error_ === 'object' && 'status' in error_
+        ? (error_ as { status: number }).status
+        : undefined
+      if (status === 451) {
+        blocked.value = true
+      } else if (status === 404) {
         notFound.value = true
       } else {
         error.value = true

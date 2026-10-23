@@ -937,6 +937,10 @@
       "publishError": "Failed to publish entry. Please try again."
     },
     "approvedHint": "Approved · ready to publish (not visible yet)",
+    "pendingEdit": "Changes pending review",
+    "pendingEditHint": "Your edit is being reviewed. The published version stays visible until it is approved.",
+    "blocked": "Removed by moderation",
+    "blockedHint": "This content was taken down for policy reasons and is unavailable to everyone, including you, until a moderator reinstates it.",
     "editEntry": "Edit entry",
     "editSuccess": "Entry updated successfully",
     "editError": "Failed to update entry. Please try again.",

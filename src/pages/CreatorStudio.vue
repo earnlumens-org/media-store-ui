@@ -430,6 +430,24 @@
                 <v-icon v-else size="14" start>{{ getTranscodingIcon(item.transcodingStatus) }}</v-icon>
                 {{ getTranscodingLabel(item.transcodingStatus) }}
               </v-chip>
+              <!-- N9: a staged edit is awaiting moderation; the live entry is unchanged -->
+              <v-tooltip v-if="item.hasPendingVersion && !item.blocked" location="top" :text="t('CreatorStudio.pendingEditHint')">
+                <template #activator="{ props: pendingProps }">
+                  <v-chip v-bind="pendingProps" class="ml-1" color="warning" size="small" variant="tonal">
+                    <v-icon size="14" start>mdi-file-document-edit-outline</v-icon>
+                    {{ t('CreatorStudio.pendingEdit') }}
+                  </v-chip>
+                </template>
+              </v-tooltip>
+              <!-- H3: moderation block -->
+              <v-tooltip v-if="item.blocked" location="top" :text="t('CreatorStudio.blockedHint')">
+                <template #activator="{ props: blockedProps }">
+                  <v-chip v-bind="blockedProps" class="ml-1" color="error" size="small" variant="flat">
+                    <v-icon size="14" start>mdi-shield-off-outline</v-icon>
+                    {{ t('CreatorStudio.blocked') }}
+                  </v-chip>
+                </template>
+              </v-tooltip>
               <!-- Approved-but-not-published hint: clarifies that moderation passed
                    but the entry is still hidden from the public catalog. -->
               <div
@@ -725,6 +743,12 @@
                 variant="tonal"
               >
                 {{ getTranscodingLabel(item.transcodingStatus) }}
+              </v-chip>
+              <v-chip v-if="item.hasPendingVersion && !item.blocked" color="warning" size="x-small" variant="tonal">
+                {{ t('CreatorStudio.pendingEdit') }}
+              </v-chip>
+              <v-chip v-if="item.blocked" color="error" size="x-small" variant="flat">
+                {{ t('CreatorStudio.blocked') }}
               </v-chip>
               <v-chip size="x-small" variant="flat">
                 {{ getTypeLabel(item.type) }}

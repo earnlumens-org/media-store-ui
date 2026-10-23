@@ -126,6 +126,12 @@ export interface StudioItemModel {
   moderationFeedback?: string
   /** Resource-type body text (only for resource entries). */
   resourceContent?: string
+  /** N9: a staged edit of this published entry is awaiting moderation. */
+  hasPendingVersion?: boolean
+  /** Parts of the pending edit (TITLE, DESCRIPTION, THUMBNAIL, …). */
+  pendingChanges?: string[]
+  /** H3: under a moderation block — unavailable to everyone until reinstated. */
+  blocked?: boolean
 }
 
 export interface StudioPageModel {
