@@ -53,6 +53,10 @@ export interface CollectionEntryItemDto {
   priceXlm?: number
   locked: boolean
   unlocked: boolean
+  /** Entry is under a moderation block (H3). */
+  blocked?: boolean
+  /** Removed from the collection after the viewer's purchase; the viewer keeps access (H2 / D-20). */
+  retained?: boolean
 }
 
 export interface CollectionDetailDto {
@@ -78,8 +82,8 @@ export interface CollectionDetailDto {
   unlocked: boolean
   isOwner: boolean
   contentLanguage?: string
-  items: CollectionEntryItemDto[]
-}
+  items: CollectionEntryItemDto[]  /** Items the creator removed after this buyer's purchase, which the buyer retains (H2 / D-20). */
+  retainedItems?: CollectionEntryItemDto[]}
 
 // ── Models (for UI) ───────────────────────────────────────
 
@@ -127,6 +131,8 @@ export interface CollectionEntryItemModel {
   priceXlm?: number
   locked: boolean
   unlocked: boolean
+  blocked: boolean
+  retained: boolean
 }
 
 export interface CollectionDetailModel {
@@ -153,6 +159,8 @@ export interface CollectionDetailModel {
   isOwner: boolean
   contentLanguage?: string
   items: CollectionEntryItemModel[]
+  /** Items the viewer retains although the creator removed them (H2 / D-20). Empty for non-buyers. */
+  retainedItems: CollectionEntryItemModel[]
 }
 
 // ── Request types ─────────────────────────────────────────

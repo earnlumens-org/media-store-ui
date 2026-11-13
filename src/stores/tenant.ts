@@ -87,6 +87,13 @@ interface State {
    * for types the tenant has opted out of.
    */
   allowedEntryTypes: string[] | null
+  /**
+   * Read-only mode (H1): the tenant is BLOCKED. Buyers keep their library;
+   * purchases, tips, uploads and every other operation are refused by the
+   * API (423 TENANT_SUSPENDED). The storefront shows a persistent notice
+   * and hides purchase/upload entry points.
+   */
+  suspended: boolean
 }
 
 export const useTenantStore = defineStore('tenant', {
@@ -109,11 +116,14 @@ export const useTenantStore = defineStore('tenant', {
     defaultDarkTheme: null,
     uploadsEnabled: true,
     allowedEntryTypes: null,
+    suspended: false,
   }),
 
   getters: {
     isReady: state => state.status === 'ready',
     isNotFound: state => state.status === 'ready' && state.kind === 'notFound',
+    /** Store suspended by the platform (H1 read-only mode). */
+    isSuspended: state => state.status === 'ready' && state.kind === 'tenant' && state.suspended,
     /**
      * True when the visitor is on the platform's default (main) tenant —
      * i.e. the apex / reserved subdomain rather than a secondary tenant
@@ -250,7 +260,9 @@ export const useTenantStore = defineStore('tenant', {
         this.banner = ctx.banner ?? null
         this.defaultLightTheme = ctx.defaultLightTheme ?? null
         this.defaultDarkTheme = ctx.defaultDarkTheme ?? null
-        this.uploadsEnabled = ctx.uploadsEnabled ?? true
+        this.suspended = ctx.suspended === true
+        // A suspended store cannot accept uploads regardless of the owner's switch.
+        this.uploadsEnabled = (ctx.uploadsEnabled ?? true) && !this.suspended
         this.allowedEntryTypes = ctx.allowedEntryTypes ?? null
         this.status = 'ready'
       } catch (error) {
@@ -275,6 +287,7 @@ export const useTenantStore = defineStore('tenant', {
         this.defaultDarkTheme = null
         this.uploadsEnabled = true
         this.allowedEntryTypes = null
+        this.suspended = false
         this.status = 'ready'
       }
     },

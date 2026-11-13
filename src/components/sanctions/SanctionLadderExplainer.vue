@@ -81,10 +81,10 @@
     {
       icon: 'mdi-account-cancel',
       color: 'error',
-      title: tr('Sanctions.steps.strike3.title', 'Third strike — permanent ban'),
+      title: tr('Sanctions.steps.strike3.title', 'Permanent ban — explicit decision only'),
       body: tr(
         'Sanctions.steps.strike3.body',
-        'A third strike permanently bans the account. Permanent bans can only be lifted by a moderator after appeal.',
+        'Further strikes repeat the 30-day block; the ladder never bans permanently on its own. A permanent ban is a deliberate moderator decision reserved for severe violations and can only be lifted by a moderator after appeal.',
       ),
     },
   ])

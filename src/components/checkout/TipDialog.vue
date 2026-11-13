@@ -314,6 +314,8 @@
       const errorKeyByCode: Record<string, string> = {
         'WALLET_NOT_ACTIVATED': 'Preview.walletNotActivated',
         'SPLIT_WALLET_NOT_ACTIVE': 'Preview.contentWalletInactive',
+        'TENANT_PAYOUT_UNCONFIGURED': 'Preview.storePayoutUnconfigured',
+        'TENANT_SUSPENDED': 'Preview.storeSuspended',
         'PAYMENT_IN_PROGRESS': 'Preview.paymentInProgress',
         'FRANCHISE_SELF_PURCHASE': 'Preview.franchiseSelfPurchase',
         'WALLET_ACCOUNT_MISMATCH': 'Preview.walletAccountMismatch',

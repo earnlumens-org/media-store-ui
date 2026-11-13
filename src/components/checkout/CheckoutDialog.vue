@@ -41,6 +41,9 @@
   // X icon SVG
   const xIconSvg = xIcon
 
+  /** Deep link to the purchase terms (DATA-MODEL.md §13) shown before paying (G4). */
+  const PURCHASE_TERMS_PATH = '/terms#purchases'
+
   interface CheckoutItem {
     id: string
     title: string
@@ -310,6 +313,8 @@
       const errorKeyByCode: Record<string, string> = {
         WALLET_NOT_ACTIVATED: 'Preview.walletNotActivated',
         SPLIT_WALLET_NOT_ACTIVE: 'Preview.contentWalletInactive',
+        TENANT_PAYOUT_UNCONFIGURED: 'Preview.storePayoutUnconfigured',
+        TENANT_SUSPENDED: 'Preview.storeSuspended',
         PAYMENT_IN_PROGRESS: 'Preview.paymentInProgress',
         FRANCHISE_SELF_PURCHASE: 'Preview.franchiseSelfPurchase',
         WALLET_ACCOUNT_MISMATCH: 'Preview.walletAccountMismatch',
@@ -538,7 +543,7 @@
           </v-alert>
         </v-card-text>
 
-        <v-card-actions class="pa-4 pt-0">
+        <v-card-actions class="pa-4 pt-0 flex-column align-stretch">
           <v-btn
             block
             color="primary"
@@ -551,6 +556,18 @@
           >
             {{ payLabel }}
           </v-btn>
+          <p class="text-caption text-medium-emphasis text-center mt-3 mb-0">
+            <i18n-t keypath="Preview.payAcceptTerms" scope="global" tag="span">
+              <template #terms>
+                <a
+                  class="text-primary text-decoration-none"
+                  :href="PURCHASE_TERMS_PATH"
+                  rel="noopener"
+                  target="_blank"
+                >{{ $t('Preview.purchaseTermsLink') }}</a>
+              </template>
+            </i18n-t>
+          </p>
         </v-card-actions>
       </template>
     </v-card>
@@ -732,7 +749,7 @@
           </v-alert>
         </v-card-text>
 
-        <v-card-actions class="pa-6 pt-0">
+        <v-card-actions class="pa-6 pt-0 flex-column align-stretch">
           <v-btn
             block
             color="primary"
@@ -745,6 +762,18 @@
           >
             {{ payLabel }}
           </v-btn>
+          <p class="text-caption text-medium-emphasis text-center mt-3 mb-0">
+            <i18n-t keypath="Preview.payAcceptTerms" scope="global" tag="span">
+              <template #terms>
+                <a
+                  class="text-primary text-decoration-none"
+                  :href="PURCHASE_TERMS_PATH"
+                  rel="noopener"
+                  target="_blank"
+                >{{ $t('Preview.purchaseTermsLink') }}</a>
+              </template>
+            </i18n-t>
+          </p>
         </v-card-actions>
       </template>
     </v-card>

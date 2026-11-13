@@ -102,6 +102,13 @@ export interface VisitorContext {
    * upload entry points and visible browsing tabs.
    */
   allowedEntryTypes?: string[] | null
+  /**
+   * True when the tenant is BLOCKED and served in read-only mode (H1):
+   * the storefront shows a "store suspended, your library is still
+   * available" notice and hides purchase CTAs; every mutating call is
+   * refused by the API with 423 TENANT_SUSPENDED. Absent = not suspended.
+   */
+  suspended?: boolean
 }
 
 export async function fetchVisitorContext (): Promise<VisitorContext> {
@@ -143,6 +150,7 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
     defaultDarkTheme?: string | null
     uploadsEnabled?: boolean | null
     allowedEntryTypes?: unknown
+    suspended?: unknown
   }
   // When brandTextHidden is true the server intentionally sends an empty
   // string — keep it as-is (don't coerce to null) so the AppBar can render
@@ -175,8 +183,9 @@ export async function fetchVisitorContext (): Promise<VisitorContext> {
         .map(v => v.toUpperCase())
     : null
   const allowedEntryTypesFinal = allowedEntryTypes && allowedEntryTypes.length > 0 ? allowedEntryTypes : null
+  const suspended = body.suspended === true
   if (body.kind === 'tenant' && typeof body.subdomain === 'string') {
-    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark, faviconR2Key, pwaIconR2Key, installOffered, appName, browserTitle, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled, allowedEntryTypes: allowedEntryTypesFinal }
+    return { kind: 'tenant', subdomain: body.subdomain, brandText, brandTextHidden, logoR2Key, logoR2KeyDark, faviconR2Key, pwaIconR2Key, installOffered, appName, browserTitle, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled, allowedEntryTypes: allowedEntryTypesFinal, suspended }
   }
   return { kind: 'platform', brandText, brandTextHidden, logoR2Key, logoR2KeyDark, faviconR2Key, pwaIconR2Key, installOffered, appName, browserTitle, banner, defaultLightTheme, defaultDarkTheme, uploadsEnabled, allowedEntryTypes: allowedEntryTypesFinal }
 }

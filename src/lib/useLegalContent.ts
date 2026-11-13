@@ -34,6 +34,15 @@ export function useLegalContent () {
       const messages = await import(`@/locales/legal/${lang}.json`)
       mergeLocaleMessage(lang, messages.default || messages)
       loaded.add(lang)
+      // Always have English merged too: vue-i18n's `tm()` walks the
+      // fallbackLocale chain, so a translated legal file that does not yet
+      // carry a newer block (e.g. "Legal.purchase") renders the English one
+      // instead of an empty section.
+      if (lang !== 'en' && !loaded.has('en')) {
+        const fallback = await import('@/locales/legal/en.json')
+        mergeLocaleMessage('en', fallback.default || fallback)
+        loaded.add('en')
+      }
     } catch {
       // Fallback to English if the requested locale has no legal file
       if (lang === 'en') {

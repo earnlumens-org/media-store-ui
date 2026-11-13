@@ -644,12 +644,12 @@
                   <v-btn
                     block
                     color="primary"
-                    :disabled="!isVerified"
+                    :disabled="!isVerified || tenantStore.isSuspended"
                     prepend-icon="mdi-lock-open"
                     size="large"
                     @click="openCheckout"
                   >
-                    {{ $t('Preview.unlock') }}
+                    {{ tenantStore.isSuspended ? $t('StoreSuspended.title') : $t('Preview.unlock') }}
                   </v-btn>
 
                   <!-- Reseller entry point -->
@@ -724,12 +724,12 @@
                 <v-btn
                   block
                   color="primary"
-                  :disabled="!isVerified"
+                  :disabled="!isVerified || tenantStore.isSuspended"
                   prepend-icon="mdi-lock-open"
                   size="x-large"
                   @click="openCheckout"
                 >
-                  {{ $t('Preview.unlock') }}
+                  {{ tenantStore.isSuspended ? $t('StoreSuspended.title') : $t('Preview.unlock') }}
                 </v-btn>
 
                 <!-- Reseller entry point -->
@@ -1149,6 +1149,7 @@
 
   // Open checkout dialog — require login first, then connect wallet
   async function openCheckout () {
+    if (tenantStore.isSuspended) return
     if (!authStore.isAuthenticated) {
       appStore.openLoginDialog()
       return

@@ -78,6 +78,11 @@
     "body": "El subdominio al que estás intentando acceder no corresponde a ningún marketplace activo en EarnLumens.",
     "cta": "Ir a earnlumens.org"
   },
+  "StoreSuspended": {
+    "title": "Esta tienda está suspendida",
+    "body": "Las compras, propinas y subidas están pausadas. Todo lo que ya compraste sigue disponible en tu biblioteca.",
+    "cta": "Mi biblioteca"
+  },
   "Reseller": {
     "title": "Ganar Lumens",
     "cta": "GANAR LUMENS",
@@ -175,8 +180,8 @@
         "body": "Un segundo strike en el mismo historial extiende el bloqueo a 30 días."
       },
       "strike3": {
-        "title": "Tercer strike — expulsión permanente",
-        "body": "Un tercer strike expulsa la cuenta de forma permanente. Las expulsiones permanentes solo pueden ser revocadas por un moderador tras una apelación."
+        "title": "Expulsión permanente — solo por decisión explícita",
+        "body": "Los strikes siguientes repiten el bloqueo de 30 días; la escalera nunca expulsa de forma permanente por sí sola. Una expulsión permanente es una decisión deliberada de un moderador reservada a infracciones graves y solo puede revocarse tras una apelación."
       }
     },
     "yourStanding": {
@@ -262,6 +267,8 @@
     "titleAZ": "Título A-Z",
     "noItemsMatchFilters": "Ningún elemento coincide con tus filtros",
     "collectionEmpty": "Esta colección está vacía",
+    "retainedItemsTitle": "Elementos a los que conservas acceso",
+    "retainedItemsHint": "El creador los retiró de la colección después de tu compra. Conservas el acceso.",
     "clearFilters": "Borrar filtros",
     "aboutThisCollection": "Acerca de esta colección",
     "total": "total",
@@ -337,7 +344,9 @@
     "tooManyRequests": "Demasiadas solicitudes. Por favor, espera un momento e intenta de nuevo.",
     "installBannerTitle": "Instala {name}",
     "installBannerSubtitle": "Entra con un toque",
-    "installBannerCta": "Instalar"
+    "installBannerCta": "Instalar",
+    "purchaseTerms": "Términos de compra",
+    "guidelines": "Directrices de Contenido"
   },
   "Themes": {
     "title": "Selector de temas",
@@ -807,13 +816,17 @@
     "tryAgain": "Intentar de nuevo",
     "walletNotActivated": "Tu billetera aún no está activa en la red Stellar. Envía al menos 1 XLM para activarla antes de realizar una compra.",
     "contentWalletInactive": "Este contenido no se puede comprar en este momento: una de sus billeteras de cobro ya no está activa en la red Stellar. Inténtalo de nuevo más tarde.",
+    "storePayoutUnconfigured": "Esta tienda no puede aceptar pagos en este momento: su billetera de cobro no está configurada. No se realizó ningún cargo. Inténtalo de nuevo cuando el propietario lo corrija.",
+    "storeSuspended": "Esta tienda está suspendida y no puede aceptar pagos. No se realizó ningún cargo. El contenido que ya compraste sigue disponible en tu biblioteca.",
     "goToWallet": "Ir a Billetera",
     "paymentInProgress": "Tu pago anterior todavía se está confirmando en la red Stellar. Espera unos minutos y vuelve a intentarlo.",
     "walletAccountMismatch": "La wallet firmó con una cuenta distinta a la seleccionada. Cambia a la cuenta seleccionada dentro de tu wallet y vuelve a intentarlo.",
     "walletReconnectRequired": "La sesión de tu wallet ha caducado o no está disponible. Vuelve a conectar tu wallet e inténtalo de nuevo.",
     "franchiseSelfPurchase": "Los dueños de una franquicia no pueden comprar a través de su propia franquicia. Realiza la compra desde la tienda principal.",
     "confirmingPayment": "Confirmando tu pago en la red Stellar… Esto suele tardar unos segundos.",
-    "paymentConfirmTimeout": "Aún no hemos podido confirmar tu pago. Si se completó, tu contenido se desbloqueará automáticamente en unos minutos."
+    "paymentConfirmTimeout": "Aún no hemos podido confirmar tu pago. Si se completó, tu contenido se desbloqueará automáticamente en unos minutos.",
+    "payAcceptTerms": "Al pagar aceptas los {terms}: conservas lo que compras y solo una retirada de la plataforma — con disputa automática — puede bloquearlo.",
+    "purchaseTermsLink": "términos de compra"
   },
   "Purchased": {
     "title": "Mis compras",

@@ -24,7 +24,7 @@
         },
         {
           "heading": "5. Pagos y Transacciones",
-          "body": "Los pagos realizados a través de EarnLumens constituyen transacciones directas, exclusivas e independientes entre el comprador y el creador, efectuadas mediante XLM en la red Stellar. EarnLumens actúa únicamente como plataforma tecnológica de publicación e intermediación técnica, y no interviene como parte vendedora, compradora, mandataria, depositaria, agente de cobro, fiduciaria ni garante de ninguna transacción entre usuarios. Los precios son fijados exclusivamente por los creadores y EarnLumens podrá aplicar las comisiones de plataforma que correspondan. Salvo que la ley aplicable disponga expresamente lo contrario, todas las ventas son finales, irrevocables y no reembolsables. En caso de que EarnLumens detecte, reciba denuncias sobre, o sospeche razonablemente fraude, abuso, incumplimiento o cualquier otra conducta ilícita o contraria a estos Términos, podrá suspender, restringir o cancelar de forma temporal o permanente la cuenta del creador involucrado y adoptar las medidas internas que considere razonables. Sin perjuicio de ello, EarnLumens no asume obligación alguna de intervenir en disputas entre usuarios y no garantiza, bajo ninguna circunstancia, la reversión de operaciones, la recuperación de activos, ni la restitución, devolución o reembolso de fondos transferidos. El usuario reconoce y acepta expresamente los riesgos inherentes a las transacciones en blockchain, incluyendo su posible carácter irreversible, así como la exclusiva responsabilidad por las comisiones de red, errores en direcciones, importes enviados o decisiones de compra."
+          "body": "Los pagos realizados a través de EarnLumens constituyen transacciones directas, exclusivas e independientes entre el comprador y el creador, efectuadas mediante XLM en la red Stellar. EarnLumens actúa únicamente como plataforma tecnológica de publicación e intermediación técnica, y no interviene como parte vendedora, compradora, mandataria, depositaria, agente de cobro, fiduciaria ni garante de ninguna transacción entre usuarios. Los precios son fijados exclusivamente por los creadores y EarnLumens podrá aplicar las comisiones de plataforma que correspondan. Salvo que la ley aplicable disponga expresamente lo contrario, todas las ventas son finales, irrevocables y no reembolsables. En caso de que EarnLumens detecte, reciba denuncias sobre, o sospeche razonablemente fraude, abuso, incumplimiento o cualquier otra conducta ilícita o contraria a estos Términos, podrá suspender, restringir o cancelar de forma temporal o permanente la cuenta del creador involucrado y adoptar las medidas internas que considere razonables. Sin perjuicio de ello, EarnLumens no asume obligación alguna de intervenir en disputas entre usuarios y no garantiza, bajo ninguna circunstancia, la reversión de operaciones, la recuperación de activos, ni la restitución, devolución o reembolso de fondos transferidos. El usuario reconoce y acepta expresamente los riesgos inherentes a las transacciones en blockchain, incluyendo su posible carácter irreversible, así como la exclusiva responsabilidad por las comisiones de red, errores en direcciones, importes enviados o decisiones de compra. El alcance del derecho que adquieres con cada compra y el procedimiento que sigue la plataforma cuando retira contenido comprado (disputas, reinstauración, compensación) se describen en la sección «Términos de compra» más abajo."
         },
         {
           "heading": "6. Conducta Prohibida",
@@ -49,6 +49,49 @@
         {
           "heading": "11. Contacto",
           "body": "Para preguntas sobre estos Términos, contáctanos en legal{'@'}earnlumens.org."
+        }
+      ]
+    },
+    "purchase": {
+      "title": "Términos de compra",
+      "intro": "Esta sección describe exactamente qué adquieres al pagar por un contenido en esta tienda, qué puede y qué no puede cambiar después, y cómo gestiona la plataforma las retiradas, los reembolsos y las disputas. Se aplica a todas las tiendas construidas sobre EarnLumens.",
+      "sections": [
+        {
+          "heading": "A. Qué compras",
+          "body": "Compra de una entrada: un derecho perpetuo e intransferible a acceder a la entrada. Este derecho sobrevive a cualquier cambio iniciado por el creador: ocultarla, archivarla, eliminarla, cambiar el precio, cambiar colecciones y publicar nuevas versiones. Siempre conservas la versión que compraste; adoptar una versión nueva aprobada es voluntario. Compra de una colección: un derecho perpetuo a acceder a todo lo que la colección contenía cuando la compraste, más todo lo que se añada después — aunque el creador retire luego un elemento, archive, despublique o elimine la colección. Los elementos retirados antes de tu compra no forman parte de ella. Un solo derecho cubre toda la colección; no se concede nada por elemento.",
+          "items": [
+            "El archivo principal de un contenido vendido es inmutable: el creador no puede sustituirlo sin publicar una nueva versión.",
+            "Una versión nueva aprobada nunca sustituye lo que compraste sin tu acción; tu biblioteca y el reproductor siguen sirviendo tu versión.",
+            "Si esta tienda es suspendida, tu biblioteca y todo lo que ya compraste siguen disponibles; solo se pausan las compras nuevas, las propinas y las subidas."
+          ]
+        },
+        {
+          "heading": "B. La única excepción: retiradas de la plataforma",
+          "body": "El contenido que la plataforma retira por motivos legales o de política (ilegal, robado o en infracción justificada de las normas) queda bloqueado para todos — compradores incluidos, en todas sus versiones. En ese caso la plataforma abre automáticamente una disputa por cada compra afectada y un administrador la resuelve. El acceso nunca lo retira el creador, ni una edición rechazada, ni una revisión temporal de contenido denunciado, ni la desaparición de la tienda, de su dominio o de cualquier intermediario.",
+          "items": [
+            "El contenido bloqueado muestra en tu biblioteca un aviso con el motivo y la referencia de tu disputa.",
+            "Si la retirada se revierte, el acceso vuelve automáticamente — el registro de tu compra no se toca."
+          ]
+        },
+        {
+          "heading": "C. Tus responsabilidades",
+          "body": "El contenido comprado es solo para uso personal y no puede redistribuirse, revenderse ni sublicenciarse. Cuando la plataforma ofrezca descarga, te recomendamos conservar copias locales como protección ante un fallo de la plataforma; las copias de seguridad no son condición de tu derecho.",
+          "items": []
+        },
+        {
+          "heading": "D. Responsabilidades del creador",
+          "body": "Los creadores pueden modificar sus colecciones en cualquier momento (añadir o quitar entradas, cambiar precios). Quitar una entrada nunca se la quita a quienes ya la compraron; solo impide que la adquieran compradores futuros. Ocultar, archivar o eliminar contenido nunca revoca el acceso de los compradores. Las ediciones de contenido publicado se revisan antes de hacerse visibles; una edición rechazada no cambia nada para compradores ni visitantes. Los creadores no deben usar modificaciones para reducir de mala fe el valor de una compra; la plataforma puede intervenir.",
+          "items": []
+        },
+        {
+          "heading": "E. Reembolsos",
+          "body": "Los reembolsos los deciden y procesan únicamente los administradores de la plataforma, como resultado de una disputa. Los pagos en Stellar no pueden revertirse; un reembolso es un pago compensatorio. Reembolsar una compra revoca el derecho correspondiente (entrada o colección completa); una recompra posterior lo reactiva.",
+          "items": []
+        },
+        {
+          "heading": "F. Disputas (acciones de la plataforma sobre contenido comprado)",
+          "body": "Cuando la plataforma retira contenido comprado, se abre automáticamente una disputa por cada compra afectada — incluidas las realizadas a través de una colección — agrupada bajo el caso de moderación que la originó. La resolución es siempre decisión de un administrador: reembolso, reinstauración (el acceso vuelve automáticamente, sin cambios en el registro de compra) o desestimación (infracción confirmada, sin reembolso). Se te notifica en cada etapa.",
+          "items": []
         }
       ]
     },

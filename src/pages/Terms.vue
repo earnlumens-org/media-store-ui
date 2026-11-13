@@ -35,6 +35,36 @@
             {{ section.body }}
           </p>
         </template>
+
+        <!--
+          Purchase terms (MYCELIUM-RESILIENCE.md L3 / G4, generated from
+          DATA-MODEL.md §13). `id="purchases"` is the deep-link target used by
+          the checkout dialog and the footer (/terms#purchases).
+        -->
+        <v-divider class="my-8" />
+        <div id="purchases" class="d-flex align-center ga-3 mb-2 purchase-anchor">
+          <v-icon color="primary" icon="mdi-shield-check-outline" />
+          <h2 class="text-h5 font-weight-bold">
+            {{ $t('Legal.purchase.title') }}
+          </h2>
+        </div>
+        <p class="text-body-1 mb-4">
+          {{ $t('Legal.purchase.intro') }}
+        </p>
+
+        <template v-for="(section, idx) in purchaseSections" :key="`p-${idx}`">
+          <h3 class="text-subtitle-1 font-weight-bold mt-6 mb-2">
+            {{ section.heading }}
+          </h3>
+          <p class="text-body-2">
+            {{ section.body }}
+          </p>
+          <ul v-if="section.items.length > 0" class="text-body-2 pl-6 mt-2">
+            <li v-for="(item, i) in section.items" :key="i" class="mb-1">
+              {{ item }}
+            </li>
+          </ul>
+        </template>
       </v-card>
 
       <!-- Cross-link to Privacy + back -->
@@ -51,18 +81,24 @@
 </template>
 
 <script setup lang="ts">
-  import { computed } from 'vue'
+  import { computed, nextTick, onMounted, watch } from 'vue'
   import { useI18n } from 'vue-i18n'
+  import { useRoute } from 'vue-router'
   import { useLegalContent } from '@/lib/useLegalContent'
 
   const { t, tm } = useI18n()
+  const route = useRoute()
   const { loading, error } = useLegalContent()
 
-  const lastUpdated = '2026-03-07'
+  const lastUpdated = '2026-11-11'
 
   interface LegalSection {
     heading: string
     body: string
+  }
+
+  interface PurchaseSection extends LegalSection {
+    items: string[]
   }
 
   const termsSections = computed<LegalSection[]>(() => {
@@ -73,7 +109,41 @@
       body: t(String(s.body ?? '')),
     }))
   })
+
+  const purchaseSections = computed<PurchaseSection[]>(() => {
+    const raw = tm('Legal.purchase.sections')
+    if (!Array.isArray(raw)) return []
+    return raw.map((s: Record<string, unknown>) => ({
+      heading: t(String(s.heading ?? '')),
+      body: t(String(s.body ?? '')),
+      items: Array.isArray(s.items)
+        ? (s.items as unknown[]).map(i => t(String(i)))
+        : [],
+    }))
+  })
+
+  // The legal content loads asynchronously, so the router's hash scroll can
+  // fire before `#purchases` exists; re-scroll once the content is rendered.
+  function scrollToHash () {
+    if (!route.hash) return
+    nextTick(() => {
+      const el = document.querySelector(route.hash)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    })
+  }
+
+  onMounted(scrollToHash)
+  watch(loading, scrollToHash)
 </script>
+
+<style scoped>
+/* Keep the anchored heading clear of the fixed app bar on hash navigation. */
+.purchase-anchor {
+  scroll-margin-top: 80px;
+}
+</style>
 
 <route lang="json">
 {

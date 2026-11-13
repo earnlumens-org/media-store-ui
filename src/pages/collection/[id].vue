@@ -501,6 +501,52 @@
                 </template>
               </v-list-item>
             </v-list>
+
+            <!-- Retained items (H2 / D-20): removed by the creator after this buyer's purchase -->
+            <template v-if="collection.retainedItems.length > 0">
+              <v-divider class="my-4" />
+              <h3 class="text-subtitle-1 font-weight-bold mb-1">
+                <v-icon class="me-1" size="18">mdi-shield-check-outline</v-icon>
+                {{ $t('Common.retainedItemsTitle') }}
+              </h3>
+              <p class="text-caption text-medium-emphasis mb-3">{{ $t('Common.retainedItemsHint') }}</p>
+              <v-list class="pa-0 bg-transparent">
+                <v-list-item
+                  v-for="item in collection.retainedItems"
+                  :key="`retained-${item.entryId}`"
+                  class="px-0 rounded-lg mb-1"
+                  @click="openItem(item)"
+                >
+                  <template #prepend>
+                    <v-avatar
+                      class="rounded-lg me-3"
+                      :color="getThumbnailColor(item.type)"
+                      :image="item.thumbnailUrl"
+                      :size="isMobile ? 56 : 64"
+                    >
+                      <v-icon v-if="!item.thumbnailUrl" :color="getTypeIconColor(item.type)">
+                        {{ getTypeIcon(item.type) }}
+                      </v-icon>
+                    </v-avatar>
+                  </template>
+                  <v-list-item-title class="text-body-1 font-weight-medium">
+                    {{ item.title }}
+                  </v-list-item-title>
+                  <v-list-item-subtitle class="text-caption">
+                    <v-icon class="me-1" size="12">{{ getTypeIcon(item.type) }}</v-icon>
+                    {{ translateType(item.type) }}
+                    <span v-if="item.durationSec" class="ms-2">
+                      · {{ formatItemDuration(item.durationSec) }}
+                    </span>
+                  </v-list-item-subtitle>
+                  <template #append>
+                    <v-icon color="grey" size="20">
+                      {{ getActionIcon(item) }}
+                    </v-icon>
+                  </template>
+                </v-list-item>
+              </v-list>
+            </template>
           </v-container>
         </v-tabs-window-item>
 

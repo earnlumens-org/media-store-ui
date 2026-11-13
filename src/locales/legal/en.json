@@ -24,7 +24,7 @@
                 },
                 {
                     "heading": "5. Payments and Transactions",
-                    "body": "Payments made through EarnLumens constitute direct, exclusive, and independent transactions between the buyer and the creator, conducted using XLM on the Stellar network. EarnLumens acts solely as a technological platform for publication and technical intermediation, and does not intervene as a seller, buyer, agent, custodian, collection agent, fiduciary, or guarantor of any transaction between users. Prices are set exclusively by creators, and EarnLumens may apply applicable platform fees. Unless applicable law expressly provides otherwise, all sales are final, irrevocable, and non-refundable. If EarnLumens detects, receives reports of, or reasonably suspects fraud, abuse, breach, or any other unlawful conduct or conduct contrary to these Terms, it may temporarily or permanently suspend, restrict, or cancel the account of the creator involved and adopt any internal measures it deems reasonable. Notwithstanding the foregoing, EarnLumens assumes no obligation to intervene in disputes between users and does not guarantee, under any circumstances, the reversal of transactions, the recovery of assets, or the restitution, return, or refund of transferred funds. The user expressly acknowledges and accepts the inherent risks of blockchain transactions, including their potentially irreversible nature, as well as sole responsibility for network fees, address errors, amounts sent, or purchase decisions."
+                    "body": "Payments made through EarnLumens constitute direct, exclusive, and independent transactions between the buyer and the creator, conducted using XLM on the Stellar network. EarnLumens acts solely as a technological platform for publication and technical intermediation, and does not intervene as a seller, buyer, agent, custodian, collection agent, fiduciary, or guarantor of any transaction between users. Prices are set exclusively by creators, and EarnLumens may apply applicable platform fees. Unless applicable law expressly provides otherwise, all sales are final, irrevocable, and non-refundable. If EarnLumens detects, receives reports of, or reasonably suspects fraud, abuse, breach, or any other unlawful conduct or conduct contrary to these Terms, it may temporarily or permanently suspend, restrict, or cancel the account of the creator involved and adopt any internal measures it deems reasonable. Notwithstanding the foregoing, EarnLumens assumes no obligation to intervene in disputes between users and does not guarantee, under any circumstances, the reversal of transactions, the recovery of assets, or the restitution, return, or refund of transferred funds. The user expressly acknowledges and accepts the inherent risks of blockchain transactions, including their potentially irreversible nature, as well as sole responsibility for network fees, address errors, amounts sent, or purchase decisions. The scope of the right you acquire with each purchase, and the procedure the platform follows when it removes purchased content (disputes, reinstatement, compensation), are described in the \"Purchase terms\" section below."
                 },
                 {
                     "heading": "6. Prohibited Conduct",
@@ -49,6 +49,49 @@
                 {
                     "heading": "11. Contact",
                     "body": "For questions about these Terms, please contact us at legal{'@'}earnlumens.org."
+                }
+            ]
+        },
+        "purchase": {
+            "title": "Purchase terms",
+            "intro": "This section describes exactly what you acquire when you pay for content on this store, what can and cannot change afterwards, and how the platform handles removals, refunds and disputes. It applies to every store built on EarnLumens.",
+            "sections": [
+                {
+                    "heading": "A. What you purchase",
+                    "body": "Entry purchase: a perpetual, non-transferable right to access the entry. This right survives every creator-initiated change: unlisting, archiving, deleting, price changes, collection changes and new versions. You always keep the version you bought; adopting a newer approved version is voluntary. Collection purchase: a perpetual right to access everything the collection contained when you bought it, plus everything added to it afterwards — even if the creator later removes an item, archives, unpublishes or deletes the collection. Items removed before your purchase are not part of it. One right covers the whole collection; nothing is granted per item.",
+                    "items": [
+                        "The main file of sold content is immutable: the creator cannot replace it without publishing a new version.",
+                        "A newer approved version never replaces what you bought without your action; your library and player keep serving your version.",
+                        "If this store is suspended, your library and everything you already bought remain available; only new purchases, tips and uploads are paused."
+                    ]
+                },
+                {
+                    "heading": "B. The only exception: platform removals",
+                    "body": "Content that the platform removes for policy or legal reasons (illegal, stolen, or in justified breach of the rules) is blocked for everyone — buyers included, in all of its versions. In that case the platform automatically opens a dispute for every affected purchase and an administrator resolves it. Access is never removed by the creator, by a rejected edit, by a temporary review of reported content, or by the disappearance of the store, its domain or any intermediary.",
+                    "items": [
+                        "Blocked content shows a notice with the reason and your dispute reference in your library.",
+                        "If the removal is reversed, access returns automatically — your purchase record is not touched."
+                    ]
+                },
+                {
+                    "heading": "C. Your responsibilities",
+                    "body": "Purchased content is for personal use only and may not be redistributed, resold or sublicensed. Where the platform offers a download, you are encouraged to keep local copies as protection against platform failure; backups are not a condition of your right.",
+                    "items": []
+                },
+                {
+                    "heading": "D. Creator responsibilities",
+                    "body": "Creators may change collections at any time (add or remove entries, change pricing). Removing an entry never removes it from existing buyers; it only stops future buyers from acquiring it. Unlisting, archiving or deleting content never revokes buyer access. Edits to published content are reviewed before they become visible; a rejected edit changes nothing for buyers or visitors. Creators must not use modifications to materially diminish the value of a purchase in bad faith; the platform may intervene.",
+                    "items": []
+                },
+                {
+                    "heading": "E. Refunds",
+                    "body": "Refunds are decided and processed by platform administrators only, as the outcome of a dispute. Stellar payments cannot be reversed; a refund is a compensating payment. Refunding a purchase revokes the corresponding right (entry or whole collection); a later re-purchase reactivates it.",
+                    "items": []
+                },
+                {
+                    "heading": "F. Disputes (platform actions on purchased content)",
+                    "body": "When purchased content is removed by the platform, a dispute is opened automatically for each affected purchase — including purchases made through a collection — grouped under the moderation case that caused it. Resolution is always an administrator's decision: refund, reinstate (access returns automatically, no change to the purchase record) or dismiss (violation confirmed, no refund owed). You are notified at each stage.",
+                    "items": []
                 }
             ]
         },

@@ -159,6 +159,11 @@
     "bodyDomain": "This domain is not connected to any active marketplace on EarnLumens.",
     "cta": "Go to earnlumens.org"
   },
+  "StoreSuspended": {
+    "title": "This store is suspended",
+    "body": "Purchases, tips and uploads are paused. Everything you already bought remains available in your library.",
+    "cta": "My library"
+  },
   "Sanctions": {
     "intro": "EarnLumens uses a 3-strike system inspired by the largest video platforms. Every infraction is reviewed by a human moderator before a strike is recorded.",
     "severeNote": "Severe violations (fraud, harm to minors, deepfakes, doxxing) skip the ladder and result in an immediate permanent ban.",
@@ -176,8 +181,8 @@
         "body": "A second strike within the same record extends the block to 30 days."
       },
       "strike3": {
-        "title": "Third strike — permanent ban",
-        "body": "A third strike permanently bans the account. Permanent bans can only be lifted by a moderator after appeal."
+        "title": "Permanent ban — explicit decision only",
+        "body": "Further strikes repeat the 30-day block; the ladder never bans permanently on its own. A permanent ban is a deliberate moderator decision reserved for severe violations and can only be lifted by a moderator after appeal."
       }
     },
     "yourStanding": {
@@ -323,6 +328,8 @@
     "titleAZ": "Title A-Z",
     "noItemsMatchFilters": "No items match your filters",
     "collectionEmpty": "This collection is empty",
+    "retainedItemsTitle": "Items you keep access to",
+    "retainedItemsHint": "The creator removed these from the collection after your purchase. You keep access to them.",
     "clearFilters": "Clear filters",
     "aboutThisCollection": "About this collection",
     "total": "total",
@@ -338,7 +345,9 @@
     "tooManyRequests": "Too many requests. Please wait a moment and try again.",
     "installBannerTitle": "Install {name}",
     "installBannerSubtitle": "Get in with one tap",
-    "installBannerCta": "Install"
+    "installBannerCta": "Install",
+    "purchaseTerms": "Purchase terms",
+    "guidelines": "Content Guidelines"
   },
   "Themes": {
     "title": "Theme Selector",
@@ -819,13 +828,17 @@
     "tryAgain": "Try again",
     "walletNotActivated": "Your wallet is not yet active on the Stellar network. Send at least 1 XLM to activate it before making a purchase.",
     "contentWalletInactive": "This content can't be purchased right now: one of its payout wallets is no longer active on the Stellar network. Please try again later.",
+    "storePayoutUnconfigured": "This store can't accept payments right now: its payout wallet is not configured. Nothing was charged. Please try again once the store owner fixes it.",
+    "storeSuspended": "This store is suspended and can't accept payments. Nothing was charged. Content you already bought remains available in your library.",
     "goToWallet": "Go to Wallet",
     "paymentInProgress": "Your previous payment is still being confirmed on the Stellar network. Please wait a few minutes and try again.",
     "walletAccountMismatch": "The wallet signed with a different account than the one selected. Switch to the selected account in your wallet and try again.",
     "walletReconnectRequired": "Your wallet session has expired or is unavailable. Please reconnect your wallet and try again.",
     "franchiseSelfPurchase": "Franchise owners can't buy through their own franchise. Please purchase from the main store instead.",
     "confirmingPayment": "Confirming your payment on the Stellar network… This usually takes a few seconds.",
-    "paymentConfirmTimeout": "We couldn't confirm your payment yet. If it went through, your content will unlock automatically within a few minutes."
+    "paymentConfirmTimeout": "We couldn't confirm your payment yet. If it went through, your content will unlock automatically within a few minutes.",
+    "payAcceptTerms": "By paying you accept the {terms}: you keep what you buy, and only a platform removal — with an automatic dispute — can block it.",
+    "purchaseTermsLink": "purchase terms"
   },
   "Favorites": {
     "empty": "No favorites yet",

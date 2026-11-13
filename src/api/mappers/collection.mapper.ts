@@ -79,6 +79,8 @@ export function mapCollectionEntryItemDtoToModel (dto: CollectionEntryItemDto): 
     priceXlm: dto.priceXlm,
     locked: dto.locked,
     unlocked: dto.unlocked,
+    blocked: dto.blocked ?? false,
+    retained: dto.retained ?? false,
   }
 }
 
@@ -106,5 +108,6 @@ export function mapCollectionDetailDtoToModel (dto: CollectionDetailDto): Collec
     isOwner: dto.isOwner,
     contentLanguage: dto.contentLanguage,
     items: dto.items.map(item => mapCollectionEntryItemDtoToModel(item)),
+    retainedItems: (dto.retainedItems ?? []).map(item => mapCollectionEntryItemDtoToModel(item)),
   }
 }
