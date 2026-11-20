@@ -1533,22 +1533,31 @@
     resellerCommissionPercent: 10,
   })
 
-  const isEditDirty = computed(() => {
+  // Fields the moderation pipeline inspects; commercial fields (price, wallet, reseller) are not moderated.
+  const isModeratedContentDirty = computed(() => {
     if (editThumbnailFile.value || editPreviewFile.value) return true
     return editForm.title !== editOriginal.title
       || editForm.description !== editOriginal.description
-      || editForm.isPaid !== editOriginal.isPaid
+      || editForm.resourceContent !== editOriginal.resourceContent
+  })
+
+  const isEditDirty = computed(() => {
+    if (isModeratedContentDirty.value) return true
+    return editForm.isPaid !== editOriginal.isPaid
       || editForm.priceXlm !== editOriginal.priceXlm
       || editForm.priceUsd !== editOriginal.priceUsd
       || editForm.priceCurrency !== editOriginal.priceCurrency
-      || editForm.resourceContent !== editOriginal.resourceContent
       || editForm.resellerEnabled !== editOriginal.resellerEnabled
       || editForm.resellerCommissionPercent !== editOriginal.resellerCommissionPercent
+      || (editForm.isPaid && selectedSellerWallet.value !== savedSellerWallet.value)
   })
 
   const willTriggerReModeration = computed(() => {
     const s = editForm._status
-    return s !== 'DRAFT' && s !== 'IN_REVIEW' && s !== 'ARCHIVED'
+    if (s === 'DRAFT' || s === 'IN_REVIEW' || s === 'ARCHIVED') return false
+    // Published edits are staged server-side: only moderated content goes back to review.
+    if (s === 'PUBLISHED' || s === 'UNLISTED') return isModeratedContentDirty.value
+    return true
   })
 
   const editStatusColor = computed(() => {
@@ -1865,6 +1874,8 @@
             publishedAt: item.publishedAt,
             transcodingStatus: item.transcodingStatus,
             sellerWallet: item.sellerWallet,
+            resellerEnabled: item.resellerEnabled,
+            resellerCommissionPercent: item.resellerCommissionPercent,
             moderationFeedback: item.moderationFeedback,
             resourceContent: item.resourceContent,
           }
