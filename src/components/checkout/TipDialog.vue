@@ -241,9 +241,20 @@
     return `${amount.toFixed(2)} XLM`
   }
 
+  /**
+   * Reopening the dialog re-enables the send button while an earlier attempt is
+   * still waiting on its wallet prompt. Only the latest attempt owns the dialog.
+   */
+  let latestAttempt = 0
+
   // Tip — real two-phase Stellar payment flow (identical pipeline to a purchase)
   async function handleTip () {
-    if (!props.target || !amountValid.value || amountUsd.value == null) return
+    const target = props.target
+    const tipUsd = amountUsd.value
+    if (!target || !amountValid.value || tipUsd == null) return
+
+    const attempt = ++latestAttempt
+    const isLatest = () => attempt === latestAttempt
 
     isProcessing.value = true
     error.value = null
@@ -268,17 +279,18 @@
       }
 
       // 2. Prepare — backend builds the unsigned Stellar tip tx
-      const isCollection = props.target.type === 'collection'
+      const isCollection = target.type === 'collection'
       // Franchise attribution travels in the URL (?f=<slug>, set by the router
       // when this content was opened from /f/<slug>); the store is a fallback
       // for tips sent while the franchise page itself is still mounted.
       const routeSlug = typeof route.query.f === 'string' ? route.query.f : undefined
       const franchiseSlug = routeSlug || franchiseStore.slug || undefined
       const prepared = await api.payment.prepareTip(buyerWallet, {
-        ...(isCollection ? { collectionId: props.target.id } : { entryId: props.target.id }),
+        ...(isCollection ? { collectionId: target.id } : { entryId: target.id }),
         ...(franchiseSlug ? { franchiseSlug } : {}),
-        amountUsd: amountUsd.value,
+        amountUsd: tipUsd,
       })
+      if (!isLatest()) return
 
       resolvedXlmAmount.value = prepared.totalXlm
       if (prepared.xlmUsdRate) {
@@ -293,23 +305,32 @@
         networkPassphrase: prepared.networkPassphrase,
         address: buyerWallet,
       })
+      // A superseded attempt never submits: the newer one owns the tip.
+      if (!isLatest()) return
 
       // 4. Submit — backend verifies + locks inline; confirmation continues async
       let result = await api.payment.submit(prepared.orderId, signResult.signedTxXdr)
 
       // 4b. Poll until the backend confirms the tx on-chain
       if (result.status === 'PROCESSING') {
-        stopCountdown()
-        countdownSeconds.value = null
-        isConfirming.value = true
+        if (isLatest()) {
+          stopCountdown()
+          countdownSeconds.value = null
+          isConfirming.value = true
+        }
         result = await waitForOrderConfirmation(result.orderId)
       }
 
       // 5. Success — tips unlock nothing; show positive feedback
-      stopCountdown()
-      success.value = true
-      emit('tipped', amountUsd.value)
+      if (isLatest()) {
+        stopCountdown()
+        success.value = true
+      }
+      emit('tipped', tipUsd)
     } catch (error_) {
+      // The verdict of an attempt left behind is not the verdict of the tip in progress.
+      if (!isLatest()) return
+
       const msg = error_ instanceof Error ? error_.message : ''
       const errorKeyByCode: Record<string, string> = {
         'WALLET_NOT_ACTIVATED': 'Preview.walletNotActivated',
@@ -329,8 +350,10 @@
       const errorKey = errorKeyByCode[msg]
       error.value = errorKey ? t(errorKey) : (msg || t('Preview.paymentFailed'))
     } finally {
-      isProcessing.value = false
-      isConfirming.value = false
+      if (isLatest()) {
+        isProcessing.value = false
+        isConfirming.value = false
+      }
     }
   }
 

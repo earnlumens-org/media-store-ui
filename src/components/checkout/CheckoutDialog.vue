@@ -201,9 +201,19 @@
     return `${t('Preview.pay')} ${price}`
   })
 
+  /**
+   * Reopening the dialog re-enables the pay button while an earlier attempt is
+   * still waiting on its wallet prompt. Only the latest attempt owns the dialog.
+   */
+  let latestAttempt = 0
+
   // Handle purchase — real two-phase Stellar payment flow
   async function handlePurchase () {
-    if (!props.item) return
+    const item = props.item
+    if (!item) return
+
+    const attempt = ++latestAttempt
+    const isLatest = () => attempt === latestAttempt
 
     isProcessing.value = true
     error.value = null
@@ -234,7 +244,7 @@
       }
 
       // 2. Prepare — backend builds unsigned Stellar tx
-      const isCollection = props.item.type === 'collection'
+      const isCollection = item.type === 'collection'
       // Franchise attribution travels in the URL (?f=<slug>, set by the router
       // when this content was opened from /f/<slug>); the store is a fallback
       // for purchases made while the franchise page itself is still mounted.
@@ -242,10 +252,11 @@
       const franchiseSlug = routeSlug || franchiseStore.slug || undefined
       const resellerCode = props.resellerCode || undefined
       const prepared = await api.payment.prepare(buyerWallet, {
-        ...(isCollection ? { collectionId: props.item.id } : { entryId: props.item.id }),
+        ...(isCollection ? { collectionId: item.id } : { entryId: item.id }),
         ...(franchiseSlug ? { franchiseSlug } : {}),
         ...(resellerCode && !isCollection ? { resellerCode } : {}),
       })
+      if (!isLatest()) return
 
       // Store the resolved XLM amount (backend computed for USD entries)
       resolvedXlmAmount.value = prepared.totalXlm
@@ -266,6 +277,8 @@
         networkPassphrase: prepared.networkPassphrase,
         address: buyerWallet,
       })
+      // A superseded attempt never submits: the newer one signs the same order.
+      if (!isLatest()) return
 
       // 4. Submit — backend verifies + locks the order inline; the on-chain
       // confirmation continues asynchronously (202 + status PROCESSING).
@@ -275,20 +288,22 @@
       // The money left the wallet the moment the network accepted the tx,
       // so the countdown is no longer meaningful here.
       if (result.status === 'PROCESSING') {
-        stopCountdown()
-        countdownSeconds.value = null
-        isConfirming.value = true
+        if (isLatest()) {
+          stopCountdown()
+          countdownSeconds.value = null
+          isConfirming.value = true
+        }
         result = await waitForOrderConfirmation(result.orderId)
       }
 
-      // 5. Mark unlocked locally
-      purchasesStore.markUnlocked(props.item.id, {
-        type: props.item.type,
-        title: props.item.title,
+      // 5. Mark unlocked locally (a submitted payment counts even if superseded)
+      purchasesStore.markUnlocked(item.id, {
+        type: item.type,
+        title: item.title,
       })
 
       // 6. Emit success
-      const purchasedId = result.entryId || result.collectionId || props.item.id
+      const purchasedId = result.entryId || result.collectionId || item.id
       emit('purchased', purchasedId)
 
       // 7. Close dialog
@@ -300,14 +315,17 @@
       // (e.g. the previous submit succeeded but the response was lost, or a
       // stuck payment was reconciled server-side). Treat it as success.
       if (msg === 'Content already purchased') {
-        purchasesStore.markUnlocked(props.item.id, {
-          type: props.item.type,
-          title: props.item.title,
+        purchasesStore.markUnlocked(item.id, {
+          type: item.type,
+          title: item.title,
         })
-        emit('purchased', props.item.id)
+        emit('purchased', item.id)
         dialogOpen.value = false
         return
       }
+
+      // The verdict of an attempt left behind is not the verdict of the payment in progress.
+      if (!isLatest()) return
 
       // Map well-known wallet/payment error codes to localized messages
       const errorKeyByCode: Record<string, string> = {
@@ -325,8 +343,10 @@
       const errorKey = errorKeyByCode[msg]
       error.value = errorKey ? t(errorKey) : (msg || t('Preview.paymentFailed'))
     } finally {
-      isProcessing.value = false
-      isConfirming.value = false
+      if (isLatest()) {
+        isProcessing.value = false
+        isConfirming.value = false
+      }
       releaseCritical()
     }
   }
